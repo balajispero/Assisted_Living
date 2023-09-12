@@ -51,9 +51,10 @@ $active_record = TRUE;
 $ondevelop = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'speroems_mumbai';
-$db['default']['password'] = 'spero@1234';
-$db['default']['database'] = 'speroems_assited_living';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '';
+//$db['default']['database'] = 'speroems_assisted_living';
+$db['default']['database'] = 'speroems_assisted_living_server';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
