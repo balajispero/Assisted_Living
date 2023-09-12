@@ -233,5 +233,106 @@ class Doctor_model extends CI_Model{
 		$query = $this->db->get("patient_details_iop A");
 		return $query->num_rows();
 	}
+	public function get_preassesment($limit = 10, $offset = 0){
+		if($this->input->post('cFrom') == ""){	
+			$cFrom = "";
+		}else{	
+			$cFrom = $this->input->post('cFrom');
+		}
+		
+		if($this->input->post('cTo') == ""){
+			$cTo = date("Y-m-d");	
+		}else{	
+			$cTo = $this->input->post('cTo');
+		}
+		
+		$this->db->select("
+		    A.preasses_id,
+			A.preasses_name,
+			A.preasses_email,
+			A.preasses_aadhar,
+			A.preasses_gender,
+			A.preasses_age,
+			A.preasses_add
+			",false);
+		if($this->input->post('btnSearch')){
+		$where = "( 
+				A.preasses_id like '%".$this->input->post('search')."%' or 
+				A.preasses_name like '%".$this->input->post('search')."%'
+				)"; 
+				/*and A.date_visit between '".$cFrom."' and '".$cTo."' 
+				and A.InActive = 0";*/
+			}else{
+				$where = "(
+				A.preasses_id like '%".$this->input->post('search')."%' or 
+				A.preasses_name like '%".$this->input->post('search')."%'
+				)"; 
+				/*and A.date_visit between '".$cFrom."' and '".$cTo."'
+				and A.InActive = 0";*/
+			}
+		$this->db->where($where);
+		/*$this->db->order_by('A.patient_no','asc');*/
+		$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
+		/*$this->db->join("system_parameters C","C.param_id = B.title","left outer");
+		$this->db->join("department D","D.department_id = A.department_id","left outer");
+		$this->db->join("patient_type D","D.patient_type = A.patient_type","left outer");
+		$this->db->join("users E","E.user_id = A.doctor_id","left outer");
+		$this->db->join("system_parameters F","F.param_id = E.title","left outer");
+		$this->db->join("room_beds G","G.room_bed_id = room_id","left outer");
+		$this->db->join("room_master H","H.room_master_id = G.room_master_id","left outer");*/
+		$query = $this->db->get("patient_preassessment A", $limit, $offset);
+		return $query->result();
+	}
+
+	public function count_all_preassessment(){
+		if($this->input->post('cFrom') == ""){
+			$cFrom ="";	
+		}else{	
+			$cFrom = $this->input->post('cFrom');
+		}
+		
+		if($this->input->post('cTo') == ""){
+			$cTo = date("Y-m-d");
+		}else{	
+			$cTo = $this->input->post('cTo');
+		}
+		
+		$this->db->select("
+		    A.preasses_id,
+			A.preasses_name,
+			A.preasses_email,
+			A.preasses_aadhar,
+			A.preasses_gender,
+			A.preasses_age,
+			A.preasses_add
+			",false);
+		
+		if($this->input->post('btnSearch')){
+		$where = "(
+				A.preasses_id like '%".$this->input->post('search')."%' or 
+				A.preasses_name like '%".$this->input->post('search')."%'
+				)"; 
+				/*and A.InActive = 0";*/
+			}else{
+				$where = "(
+				A.preasses_id like '%".$this->input->post('search')."%' or 
+				A.preasses_name like '%".$this->input->post('search')."%'
+				)"; 
+				/*and A.date_visit between '".$cFrom."' and '".$cTo."'   
+				and A.InActive = 0";*/
+			}
+		$this->db->where($where);
+		/*$this->db->order_by('A.patient_no','asc');*/
+		$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
+		/*$this->db->join("system_parameters C","C.param_id = B.title","left outer");
+		$this->db->join("department D","D.department_id = A.department_id","left outer");
+		$this->db->join("patient_type D","D.patient_type = A.patient_type","left outer");
+		$this->db->join("users E","E.user_id = A.doctor_id","left outer");
+		$this->db->join("system_parameters F","F.param_id = E.title","left outer");
+		$this->db->join("room_beds G","G.room_bed_id = room_id","left outer");
+		$this->db->join("room_master H","H.room_master_id = G.room_master_id","left outer");*/
+		$query = $this->db->get("patient_preassessment A");
+		return $query->num_rows();
+	}
 	
 }
