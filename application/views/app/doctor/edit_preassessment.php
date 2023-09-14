@@ -95,6 +95,10 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>Dashboard</h1>
+
+                    <?php
+                    /*echo "<pre>"; 
+                    print_r($patientInfo);*/ ?>
                     <!--<ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Examples</a></li>
@@ -121,17 +125,17 @@
             <select name="applicant_marital" class="form-control input-sm">
                                                            <option value="">- Marital Status -</option>
                                                      
-                                                           <option value="Divorced">Divorced</option>
+                                                           <option value="Divorced" <?php if($patientInfo[0]->preasses_marital_status=="Divorced"){ echo "selected"; } ?>>Divorced</option>
                                                       
-                                                           <option value="Legal Seperated">Legal Seperated</option>
+                                                           <option value="Legal Seperated" <?php if($patientInfo[0]->preasses_marital_status=="Legal Seperated"){ echo "selected"; } ?>>Legal Seperated</option>
                                                      
-                                                           <option value="Married">Married</option>
+                                                           <option value="Married" <?php if($patientInfo[0]->preasses_marital_status=="Married"){ echo "selected"; } ?>>Married</option>
                                                       
-                                                           <option value="Single">Single</option>
+                                                           <option value="Single" <?php if($patientInfo[0]->preasses_marital_status=="Single"){ echo "selected"; } ?>>Single</option>
                                                        
-                                                           <option value="Widow">Widow</option>
+                                                           <option value="Widow" <?php if($patientInfo[0]->preasses_marital_status=="Widow"){ echo "selected"; } ?>>Widow</option>
                                                       
-                                                           <option value="Widower">Widower</option>
+                                                           <option value="Widower" <?php if($patientInfo[0]->preasses_marital_status=="Widower"){ echo "selected"; } ?>>Widower</option>
                                                 </select></div>
           </div>
         </div>
@@ -149,9 +153,9 @@
           <div class="col-sm-2">
             <select name="applicant_gender" class="form-control">
               <option value="">- Gender -</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Any Other">Any Other</option>
+              <option value="Male" <?php if($patientInfo[0]->preasses_gender=="Male"){ echo "selected"; } ?>>Male</option>
+              <option value="Female" <?php if($patientInfo[0]->preasses_gender=="Female"){ echo "selected"; } ?>>Female</option>
+              <option value="Any Other" <?php if($patientInfo[0]->preasses_gender=="Any Other"){ echo "selected"; } ?>>Any Other</option>
             </select>
            </div> 
       </div><br>
@@ -165,39 +169,39 @@
                                     <select name="applicant_religion" id="religion" class="form-control input-sm">
                                                        <option value="">- Religion -</option>
                                                        
-                                                       <option value="Aglipayan">Aglipayan</option>
+                                                       <option value="Aglipayan" <?php if($patientInfo[0]->preasses_religion=="Aglipayan"){ echo "selected"; } ?>>Aglipayan</option>
                                                   
-                                                       <option value="Ang Dating Daan">Ang Dating Daan</option>
+                                                       <option value="Ang Dating Daan" <?php if($patientInfo[0]->preasses_religion=="Ang Dating Daan"){ echo "selected"; } ?>>Ang Dating Daan</option>
                                                    
-                                                       <option value="Assemblies of God (Ilocos Norte)">Assemblies of God (Ilocos Norte)</option>
+                                                       <option value="Assemblies of God (Ilocos Norte)" <?php if($patientInfo[0]->preasses_religion=="Assemblies of God (Ilocos Norte)"){ echo "selected"; } ?>>Assemblies of God (Ilocos Norte)</option>
                                                   
-                                                       <option value="Born Again">Born Again</option>
+                                                       <option value="Born Again" <?php if($patientInfo[0]->preasses_religion=="Born Again"){ echo "selected"; } ?>>Born Again</option>
                                                    
-                                                       <option value="Chinese">Chinese</option>
+                                                       <option value="Chinese" <?php if($patientInfo[0]->preasses_religion=="Chinese"){ echo "selected"; } ?>>Chinese</option>
                                                   
-                                                       <option value="Church of God">Church of God</option>
+                                                       <option value="Church of God" <?php if($patientInfo[0]->preasses_religion=="Church of God"){ echo "selected"; } ?>>Church of God</option>
                                                   
-                                                       <option value="Church of the Nazarene">Church of the Nazarene</option>
+                                                       <option value="Church of the Nazarene" <?php if($patientInfo[0]->preasses_religion=="Church of the Nazarene"){ echo "selected"; } ?>>Church of the Nazarene</option>
                                                  
-                                                       <option value="El Shaddai">El Shaddai</option>
+                                                       <option value="El Shaddai" <?php if($patientInfo[0]->preasses_religion=="El Shaddai"){ echo "selected"; } ?>>El Shaddai</option>
                                                  
-                                                       <option value="Evangelical">Evangelical</option>
+                                                       <option value="Evangelical" <?php if($patientInfo[0]->preasses_religion=="Evangelical"){ echo "selected"; } ?>>Evangelical</option>
                                                   
-                                                       <option value="Hindu">Hindu</option>
+                                                       <option value="Hindu" <?php if($patientInfo[0]->preasses_religion=="Hindu"){ echo "selected"; } ?>>Hindu</option>
                                                   
-                                                       <option value="Iglesia ni Cristo">Iglesia ni Cristo</option>
+                                                       <option value="Iglesia ni Cristo" <?php if($patientInfo[0]->preasses_religion=="Iglesia ni Cristo"){ echo "selected"; } ?>>Iglesia ni Cristo</option>
                                                   
-                                                       <option value="Jehovah's Witnesses">Jehovah's Witnesses</option>
+                                                       <option value="Jehovah's Witnesses" <?php if($patientInfo[0]->preasses_religion=="Jehovah's Witnesses"){ echo "selected"; } ?>>Jehovah's Witnesses</option>
                                                   
-                                                       <option value="Judaism">Judaism</option>
+                                                       <option value="Judaism" <?php if($patientInfo[0]->preasses_religion=="Judaism"){ echo "selected"; } ?>>Judaism</option>
                                                  
-                                                       <option value="Muslim">Muslim</option>
+                                                       <option value="Muslim" <?php if($patientInfo[0]->preasses_religion=="Muslim"){ echo "selected"; } ?>>Muslim</option>
                                              
-                                                       <option value="Roman Catholic">Roman Catholic</option>
+                                                       <option value="Roman Catholic" <?php if($patientInfo[0]->preasses_religion=="Roman Catholic"){ echo "selected"; } ?>>Roman Catholic</option>
                                                    
-                                                       <option value="Seventh-Day Adventists">Seventh-Day Adventists</option>
+                                                       <option value="Seventh-Day Adventists" <?php if($patientInfo[0]->preasses_religion=="Seventh-Day Adventists"){ echo "selected"; } ?>>Seventh-Day Adventists</option>
                                                    
-                                                       <option value="Unitarian">Unitarian</option>
+                                                       <option value="Unitarian" <?php if($patientInfo[0]->preasses_religion=="Unitarian"){ echo "selected"; } ?>>Unitarian</option>
                                              </select>
   
             </div> 
@@ -796,7 +800,7 @@
          ?>
         <tr>
           <td><?php echo $quest_his->questions?> <input type="hidden" name="questions[]" class="form-control" value="<?php echo $quest_his->questions?>"></td><td><input type="text" name="answer[]" class="form-control" value="<?php echo $quest_his->answer?>"></td>
-          <input type="text" value="<?php echo $quest_his->fall_risk_id ?>" name="fallrisk_id[]">
+          <input type="hidden" value="<?php echo $quest_his->fall_risk_id ?>" name="fallrisk_id[]">
         </tr>
       <?php } } ?>
         <!-- <tr>

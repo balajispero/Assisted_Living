@@ -35,7 +35,7 @@ class Dashboard extends General{
 		$this->load->view('app/dashboard',$this->data);	
 	}
 	
-	public function view_detailsold($id=0){
+	public function view_details($id=0){
 		$this->session->set_userdata(array(
 				 'tab'			=>		'',
 				 'module'		=>		'',
@@ -140,7 +140,7 @@ class Dashboard extends General{
 		$patient = $this->ipd_model->getIntake_pagination($this->limit, $offset, $iop_no);
 		
 		$config['base_url'] = base_url().'app/dashboard/view_details/'.$id.'/'.$iop_no;
- 		$config['total_rows'] = $this->Opd_model->getVital_cnt($iop_no);
+ 		$config['total_rows'] = $this->ipd_model->getIntake_cnt($iop_no);
  		$config['per_page'] = $this->limit;
 		
 		
@@ -182,7 +182,7 @@ class Dashboard extends General{
 		$patient = $this->ipd_model->getOutput_pagination($this->limit, $offset, $iop_no);
 		
 		$config['base_url'] = base_url().'app/dashboard/view_details/'.$id.'/'.$iop_no;
- 		$config['total_rows'] = $this->Opd_model->getVital_cnt($iop_no);
+ 		$config['total_rows'] = $this->ipd_model->getOutput_cnt($iop_no);
  		$config['per_page'] = $this->limit;
 		
 		
@@ -266,7 +266,7 @@ class Dashboard extends General{
 		$this->load->view('app/view_details',$this->data);	
 	}
 	
-	public function view_details($id=0){
+	public function view_detailss($id=0){
 		$this->session->set_userdata(array(
 				 'tab'			=>		'',
 				 'module'		=>		'',

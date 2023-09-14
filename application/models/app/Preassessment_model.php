@@ -36,19 +36,32 @@ class Preassessment_model extends CI_Model{
 	{     
         return $this->db->insert('preassessment_immunization_his', $data);    
 	}
-	public function get_preassesment(){
-			$this->db->select('ptn_preasses.*,ptn_fmly.*,ptn_chl.*,ptn_med.*,treat_dr.*,psycho_cond.*,immuniz_his.*,barthel_index.*');
+	public function save_barthel_details($data)
+	{    
+		return $this->db->insert('preassessment_barthel_index', $data); 
+		/*$this->db->where("preasses_id",$this->input->post('id'));
+		//$this->db->where(array("id"=>$id,"preasses_id"=>$this->input->post('id')));
+        return  $this->db->update("preassessment_barthel_index",$data); */ 
+	}
+	public function save_fallrisk_quest_details($data)
+	{     
+		return $this->db->insert('preassessment_fall_risk_questions', $data); 
+		/*$this->db->where(array("fall_risk_id"=>$fallrisk_id,"preasses_id"=>$this->input->post('id')));
+        return  $this->db->update("preassessment_fall_risk_questions",$data);*/    
+	}
+	public function get_preassesment($id){
+			$this->db->select('ptn_preasses.*,ptn_fmly.*,ptn_chl.*,treat_dr.*,psycho_cond.*,immuniz_his.*,barthel_index.*');
 			$this->db->from('patient_preassessment ptn_preasses');
 			$this->db->join('patient_family ptn_fmly', 'ptn_fmly.preasses_id = ptn_preasses.preasses_id', 'left');
 			$this->db->join('patient_chl ptn_chl', 'ptn_chl.preasses_id = ptn_preasses.preasses_id', 'left');
-			$this->db->join('preassessment_medicines ptn_med', 'ptn_med.preasses_id = ptn_preasses.preasses_id','left');
+			/*$this->db->join('preassessment_medicines ptn_med', 'ptn_med.preasses_id = ptn_preasses.preasses_id','left');*/
 			$this->db->join('treating_doctor treat_dr', 'treat_dr.preasses_id = ptn_preasses.preasses_id','left');
 			$this->db->join('patient_psychological_cond psycho_cond', 'psycho_cond.preasses_id = ptn_preasses.preasses_id','left');
 			$this->db->join('preassessment_immunization_his immuniz_his','immuniz_his.preasses_id = ptn_preasses.preasses_id','left');
 			$this->db->join('preassessment_barthel_index barthel_index','barthel_index.preasses_id = ptn_preasses.preasses_id','left');
- 			$this->db->where('ptn_preasses.InActive',0);
- 			/*$this->db->where(array('rbed.nStatus'=>'Occupied','pt.nStatus'=>'Pending'));
-			$this->db->order_by('rbed.room_bed_id', 'ASC');*/
+ 			//$this->db->where('ptn_preasses.InActive',0);
+ 			$this->db->where(array('ptn_preasses.InActive'=>0,'ptn_preasses.preasses_id'=>$id));
+			/*$this->db->order_by('rbed.room_bed_id', 'ASC');*/
 			//$this->db->limit('7');
 			$query = $this->db->get();
 		// echo $this->db->last_query(); die;

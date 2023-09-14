@@ -758,45 +758,45 @@
           <th>Questions</th><th>Answer</th>
         </tr>
         <tr>
-          <td>you have fallen in the past year ?</td><td><input type="text" name="past_year" class="form-control"></td>
+          <td>you have fallen in the past year?<input type="hidden" name="past_year_qtn" class="form-control" value="you have fallen in the past year?"></td><td><input type="text" name="past_year" class="form-control"></td>
         </tr>
         <tr>
-          <td>Do you use or have been advised to use a stick or walker to move around safely ?</td><td><input type="text" name="use_stick" class="form-control"></td>
+          <td>Do you use or have been advised to use a stick or walker to move around safely?<input type="hidden" name="use_stick_qtn" class="form-control" value="Do you use or have been advised to use a stick or walker to move around safely?"></td><td><input type="text" name="use_stick" class="form-control"></td>
         </tr>
         <tr>
-          <td>Do you feel unsteady while you are walking</td><td><input type="text" name="feel_stable" class="form-control"></td>
+          <td>Do you feel unsteady while you are walking<input type="hidden" name="feel_stable_qtn" class="form-control" value="Do you feel unsteady while you are walking"></td><td><input type="text" name="feel_stable" class="form-control"></td>
         </tr>
         <tr>
-          <td>Do you steady yourself by holding onto furniture while walking at home?</td><td><input type="text" name="steady_holding" class="form-control"></td>
-        </tr>
-
-        <tr>
-          <td>You are worried about falling?</td><td><input type="text" name="worry_fall" class="form-control"></td>
-        </tr>
-        <tr>
-          <td>Do You need to push with your hands to stand up from a chair?</td><td><input type="text" name="from_chair" class="form-control"></td>
-        </tr>
-        <tr>
-          <td>Do You have some trouble to stepping up onto a curb?</td><td><input type="text" name="curb" class="form-control"></td>
-        </tr>
-        <tr>
-          <td>Do you often have to rush to the toilet?</td><td><input type="text" name="toilet_rush" class="form-control"></td>
+          <td>Do you steady yourself by holding onto furniture while walking at home?<input type="hidden" name="steady_holding_qtn" class="form-control" value="Do you steady yourself by holding onto furniture while walking at home?"></td><td><input type="text" name="steady_holding" class="form-control"></td>
         </tr>
 
         <tr>
-          <td>Have lost some feeling in your feet?</td><td><input type="text" name="lost_feet" class="form-control"></td>
+          <td>You are worried about falling?<input type="hidden" name="worry_fall_qtn" class="form-control" value="You are worried about falling?"></td><td><input type="text" name="worry_fall" class="form-control"></td>
         </tr>
         <tr>
-          <td>Do you take medicine that sometimes make you feel light- headed or more tired than usual?</td><td><input type="text" name="light_headed" class="form-control"></td>
+          <td>Do You need to push with your hands to stand up from a chair?<input type="hidden" name="from_chair_qtn" class="form-control" value="Do You need to push with your hands to stand up from a chair?"></td><td><input type="text" name="from_chair" class="form-control"></td>
         </tr>
         <tr>
-          <td>Do you take medicine to help you sleep or improve your mood?</td><td><input type="text" name="take_medicine" class="form-control"></td>
+          <td>Do You have some trouble to stepping up onto a curb?<input type="hidden" name="curb_qtn" class="form-control" value="Do You have some trouble to stepping up onto a curb?"></td><td><input type="text" name="curb" class="form-control"></td>
         </tr>
         <tr>
-          <td>I often feel sad or depressed</td><td><input type="text" name="feel_sad" class="form-control"></td>
+          <td>Do you often have to rush to the toilet?<input type="hidden" name="toilet_rush_qtn" class="form-control" value="Do you often have to rush to the toilet?"></td><td><input type="text" name="toilet_rush" class="form-control"></td>
+        </tr>
+
+        <tr>
+          <td>Have lost some feeling in your feet?<input type="hidden" name="lost_feet_qtn" class="form-control" value="Have lost some feeling in your feet?"></td><td><input type="text" name="lost_feet" class="form-control"></td>
         </tr>
         <tr>
-          <td>Add up the points for each “Yes” answer. If subject score 4 or more points the subject may be at the risk of falling.</td><td><input type="text" name="fall_total_score" class="form-control" placeholder="Enter Total Score"></td>
+          <td>Do you take medicine that sometimes make you feel light- headed or more tired than usual?<input type="hidden" name="light_headed_qtn" class="form-control" value="Do you take medicine that sometimes make you feel light- headed or more tired than usual?"></td><td><input type="text" name="light_headed" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>Do you take medicine to help you sleep or improve your mood?<input type="hidden" name="take_medicine_qtn" class="form-control" value="Do you take medicine to help you sleep or improve your mood?"></td><td><input type="text" name="take_medicine" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>I often feel sad or depressed<input type="hidden" name="feel_sad_qtn" class="form-control" value="I often feel sad or depressed"></td><td><input type="text" name="feel_sad" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>Add up the points for each “Yes” answer. If subject score 4 or more points the subject may be at the risk of falling<input type="hidden" name="fall_total_score_qtn" class="form-control" value="Add up the points for each “Yes” answer. If subject score 4 or more points the subject may be at the risk of falling"></td><td><input type="text" name="fall_total_score" class="form-control" placeholder="Enter Total Score"></td>
         </tr>    
       </table>
     </div><br>

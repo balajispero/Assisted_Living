@@ -349,6 +349,176 @@ class Doctor extends General{
             'typical_day_appl' => $this->input->post('typical_day_appl'),
     	    'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_psychological_cond_details($psychological_cond_details);
+
+		$barthel_details = array(
+            'bowels_score' => $this->input->post('bowels_score'),
+            'bladder_score' => $this->input->post('bladder_score'),
+            'toilet_score' => $this->input->post('toilet_score'),
+            'bathing_score' => $this->input->post('bathing_score'),
+            'grooming_score' => $this->input->post('grooming_score'),
+            'dressing_score' => $this->input->post('dressing_score'),
+
+            'feeding_score' => $this->input->post('feeding_score'),
+            'transfer_score' => $this->input->post('transfer_score'),
+            'mobility_score' => $this->input->post('mobility_score'),
+            'stairs_score' => $this->input->post('stairs_score'),
+            'total_barthel_score' => $this->input->post('barthel_total_score'),
+            'InActive'			=>		0,
+    	    'preasses_id' => $last_ptn_id);
+		$this->preassessment_model->save_barthel_details($barthel_details);
+
+		/*$questions = $this->input->post('questions', true);
+		$answer = $this->input->post('answer', true);
+	    $fallrisk_id = $this->input->post('fallrisk_id', true);
+
+		if(!empty($questions))
+		{
+			
+			
+		foreach ($questions as $i => $a) { // need index to match other properties
+				$qtn_ans_details = array(
+					'questions' => $a,
+					'answer' => isset($answer[$i]) ? $answer[$i] : ''
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$i]);
+			}
+		}*/
+
+		for($qtn=1;$qtn<=13;$qtn++)
+		{
+			if($qtn=='1')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('past_year_qtn'),
+					'answer' => $this->input->post('past_year'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='2')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('use_stick_qtn'),
+					'answer' => $this->input->post('use_stick'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='3')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('feel_stable_qtn'),
+					'answer' => $this->input->post('feel_stable'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='4')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('steady_holding_qtn'),
+					'answer' => $this->input->post('steady_holding'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='5')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('worry_fall_qtn'),
+					'answer' => $this->input->post('worry_fall'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='6')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('from_chair_qtn'),
+					'answer' => $this->input->post('from_chair'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='7')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('curb_qtn'),
+					'answer' => $this->input->post('curb'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='8')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('toilet_rush_qtn'),
+					'answer' => $this->input->post('toilet_rush'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='9')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('lost_feet_qtn'),
+					'answer' => $this->input->post('lost_feet'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='10')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('light_headed_qtn'),
+					'answer' => $this->input->post('light_headed'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='11')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('take_medicine_qtn'),
+					'answer' => $this->input->post('take_medicine'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='12')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('feel_sad_qtn'),
+					'answer' => $this->input->post('feel_sad'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+			if($qtn=='13')
+			{
+				$qtn_ans_details = array(
+					'questions' => $this->input->post('fall_total_score_qtn'),
+					'answer' => $this->input->post('fall_total_score'),
+					'InActive'			=>		0,
+					'preasses_id' => $last_ptn_id
+				);
+				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
+			}
+		}
+
 		for($vac=1;$vac<=4;$vac++)
 		{
 			if($vac=='1')

@@ -474,9 +474,9 @@
                                     </table>
                                 </div>
                             </div>
-                            <!--<div class="box-footer clearfix">
+                            <div class="box-footer clearfix">
                                 <?php echo $pagination5; ?>
-                            </div>-->
+                            </div>
                         </div>
                         <!--End of New Member-->
                         
@@ -531,9 +531,9 @@
                                     </table>
                                 </div>
                             </div>
-                             <!--<div class="box-footer clearfix">
+                             <div class="box-footer clearfix">
                                 <?php echo $pagination2; ?>
-                            </div>-->
+                            </div>
                         </div>
                         <!--End of Patient Visited-->
                         
@@ -587,7 +587,7 @@
                                 </div>
                             </div>
                             <div class="box-footer clearfix">
-                                <?php /*echo $pagination3;*/ ?>
+                                <?php echo $pagination3; ?>
                             </div>
                         </div>
                         <!--End of New Member-->
@@ -642,7 +642,7 @@
                                 </div>
                             </div>
                              <div class="box-footer clearfix">
-                                <?php /*echo $pagination4;*/ ?>
+                                <?php echo $pagination4; ?>
                             </div>
                         </div>
                         <!--End of Patient Visited-->
@@ -699,7 +699,7 @@
                                 </div>
                             </div>
                               <div class="box-footer clearfix">
-                                <?php /*echo $pagination;*/ ?>
+                                <?php echo $pagination; ?>
                             </div> 
                             
                         </div>
