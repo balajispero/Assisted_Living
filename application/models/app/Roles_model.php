@@ -26,7 +26,7 @@ class Roles_model extends CI_Model{
 	
 	public function save(){
 		$this->data = array(
-			'module'				=>		$this->input->post('module'),
+			'module'				=>		!empty($this->input->post('module')) ? $this->input->post('module') : '',
 			'role_name'				=>		$this->input->post('role_name'),
 			'role_description'		=>		$this->input->post('role_description'),
 			'InActive'				=>		0

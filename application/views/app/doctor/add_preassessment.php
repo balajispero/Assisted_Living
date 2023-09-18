@@ -708,10 +708,10 @@
       <div class="row">
           <div class="col-sm-2">Bowels Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="bowels_score"></div>
+            <input type="text" class="form-control" name="bowels_score" id="bowels_score" onkeyup="discountFunc()"></div>
             <div class="col-sm-2">Bladder Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="bladder_score"></div>
+            <input type="text" class="form-control" name="bladder_score" id="bladder_score" onkeyup="discountFunc()"></div>
             <div class="col-sm-2">Toilet Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="toilet_score"></div>
@@ -745,7 +745,7 @@
             <input type="text" class="form-control" name="stairs_score"></div>
             <div class="col-sm-2">Total Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="barthel_total_score"></div>
+            <input type="text" class="form-control" name="barthel_total_score" id="barthel_total_score"></div>
           </div><br>
           <div class="row">
       <div class="col-sm-12">
@@ -884,6 +884,38 @@
                     $('#row' + button_id + '').remove();
                 });
             });
+         </script>
+         <script>
+          function discountFunc() {
+  var discount = $("#bowels_score").val();
+  /*var totalAmount = Number($("#totalAmount").val());
+  totalAmount = totalAmount.toFixed(2);*/
+
+  var grandTotal;
+  if(discount) {   
+    grandTotal = Number($("#bowels_score").val()) + Number($("#bladder_score").val());
+    grandTotal = grandTotal.toFixed(2);
+
+    $("#barthel_total_score").val(grandTotal);
+    //$("#grandTotalValue").val(grandTotal);
+  } else {
+  }
+
+  /*var paid = $("#paid").val();
+
+  var dueAmount;  
+  if(paid) {
+    dueAmount = Number($("#grandTotal").val()) - Number($("#paid").val());
+    dueAmount = dueAmount.toFixed(2);
+
+    $("#due").val(dueAmount);
+    $("#dueValue").val(dueAmount);
+  } else {
+    $("#due").val($("#grandTotal").val());
+    $("#dueValue").val($("#grandTotal").val());
+  }*/
+
+}
          </script>
          
     </body>

@@ -375,6 +375,20 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         </li>
                         <?php }?>
                         <!--END OF Doctor-->
+
+                        <!--START OF Lab-->
+                        <?php if($hasAccesstoLab){?>
+                        <li class="treeview <?php echo $doctor;?>" style="display: <?php echo ($this->session->userdata('user_role') == 1) ? "none" : "block";?>">
+                            <a href="#">
+                                <i class="fa fa-user-md"></i> <span> Lab Module</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <?php if($hasAccesstoLabSample){?><li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/doctor/ipd"><i class="fa fa-angle-double-right"></i>Sample Test</a></li><?php }?>
+                            </ul>
+                        </li>
+                        <?php }?>
+                        <!--END OF Lab-->
                         
                         <?php if($hasAccesstoEMR){?>
                         <li class="treeview <?php echo $emr;?>">

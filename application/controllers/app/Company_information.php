@@ -47,9 +47,9 @@ class Company_information extends General{
 		if (!empty($_FILES['logo']['name']))
 		{
 			$config = array(
-				'allowed_types'		=>		'jpg|jpeg|png|gif',
+				'allowed_types'		=>		'*',
 				'upload_path'		=>		realpath('public/company_logo'),
-				'max_size'			=>		2000
+				/*'max_size'			=>		2000*/
 			);
 
 			$this->load->library('upload', $config);

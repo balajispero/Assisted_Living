@@ -259,16 +259,16 @@ class Doctor_model extends CI_Model{
 		$where = "( 
 				A.preasses_id like '%".$this->input->post('search')."%' or 
 				A.preasses_name like '%".$this->input->post('search')."%'
-				)"; 
-				/*and A.date_visit between '".$cFrom."' and '".$cTo."' 
-				and A.InActive = 0";*/
+				) 
+				and A.date_entry between '".$cFrom."' and '".$cTo."' 
+				and A.InActive = 0";
 			}else{
 				$where = "(
 				A.preasses_id like '%".$this->input->post('search')."%' or 
 				A.preasses_name like '%".$this->input->post('search')."%'
-				)"; 
-				/*and A.date_visit between '".$cFrom."' and '".$cTo."'
-				and A.InActive = 0";*/
+				) 
+				and A.date_entry between '".$cFrom."' and '".$cTo."'
+				and A.InActive = 0";
 			}
 		$this->db->where($where);
 		/*$this->db->order_by('A.patient_no','asc');*/

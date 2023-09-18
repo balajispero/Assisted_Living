@@ -256,6 +256,59 @@ class Ipd_model extends CI_Model{
 		// echo $this->db->query();die;
 		return $query->row();
 	}
+	public function getvitalsign_for_mail($iop_no){
+
+	
+		$this->db->order_by("dDateTime","DESC");
+		$query = $this->db->get_where("iop_vital_parameters",array(
+			'iop_id'	=>		$iop_no,
+			'dDate'     =>      date("Y-m-d"),
+			'InActive'	=>		0
+		));	
+		
+		return $query->result();
+
+		/*$this->db->select("
+				A.IO_ID,
+				A.patient_no,
+				vital_sign.bsl,
+				vital_sign.pulse_rate,
+				vital_sign.temperature,
+				vital_sign.height,
+				vital_sign.bp,
+				vital_sign.spo2,
+				vital_sign.weight
+		",false);
+		$this->db->where(array("A.IO_ID"=>$iop_no,"vital_sign.iop_id"=>$iop_no,"vital_sign.dDate"=>strtotime(date("Y-m-D"))));
+		$this->db->join("iop_vital_parameters vital_sign","vital_sign.iop_id = A.IO_ID","left outer");
+		$query = $this->db->get("patient_details_iop A");
+		// echo $this->db->query();die;
+		return $query->row();*/
+	}
+	public function save_sent_mail(){
+		$this->data = array(
+			'iop_id'	=>		$this->input->post('opd_no'),
+			'mail_to'				=>		$this->input->post('mail_to'),
+			'patient_name'		=>		$this->input->post('patient_name'),
+			'mail_from'		=>		!empty($this->input->post('mail_to')) ? $this->input->post('mail_to') : '',
+			'msg'			=>		!empty($this->input->post('msg')) ? $this->input->post('msg') : '',
+			'rel_name'			=>		$this->input->post('rel_name'),
+			'bp'			=>		$this->input->post('bp'),
+			'spo2'		=>		$this->input->post('spo2'),
+			'pulse_rate'			=>		$this->input->post('pulse_rate'),
+			'temperature'		=>		$this->input->post('temperature'),
+			'weight'				=>		$this->input->post('weight'),
+			'bsl'			=>		$this->input->post('bsl'),
+			'medicine_name'			=>		$this->input->post('medicine_name'),
+			'doctor_comments'			=>		$this->input->post('doctor_comments'),
+			'dDate'		=>		date("Y-m-d h:i:s a"),
+			'added_date'	=>		date("Y-m-d h:i:s a"),
+			'sent_by'	=>		$this->session->userdata('user_id'),
+			'InActive'		=>		0
+		);	
+		$query = $this->db->insert('iop_sent_mail',$this->data);
+	
+	}
 	
 	public function diagnosisList(){
 		$this->db->order_by("diagnosis_name","ASC");

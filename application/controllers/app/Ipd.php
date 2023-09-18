@@ -461,7 +461,61 @@ class Ipd extends General{
 		// print_r($this->data['departmentList']);die;
 		$this->load->view("app/ipd/view",$this->data);	
 	}
-	
+
+	/*********************Start mail send code*********************/
+	public function mail_view(){
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		
+		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		$this->data['getvitalsign'] = $this->ipd_model->getvitalsign_for_mail($iop_no);
+		$this->data['patient_Medication'] = $this->Opd_model->patient_Medication($iop_no);
+		
+		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+		$this->data['departmentList'] = $this->general_model->departmentList();
+		$this->data['message'] = $this->session->flashdata('message');
+		if(@$_POST['submit']=='sent_mail')
+		{
+		$this->data['doctor_comments']=$this->input->post('doctor_comment');
+		$to_email=$this->input->post('mail_to');
+		
+		 $this->load->library('email');
+
+        // Email content
+        $subject = "Health updates of $patientInfo->middlename";
+        
+        $msg1=$this->load->view('app/ipd/mail_generate',$this->data,TRUE);
+
+        // Email configuration
+        $config['mailtype'] = 'html';
+        $this->email->initialize($config);
+        $this->email->from('balajimuttepawar7058@gmail.com', 'Ashtha Team');
+        $this->email->to($to_email); // Replace with the recipient's email address
+        $this->email->subject($subject);
+        $this->email->message($msg1);
+
+        // Send the email
+        if ($this->email->send()) {
+
+        	$res=$this->ipd_model->save_sent_mail();
+        	if($res)
+        	{
+        	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully</div>");
+        	redirect(base_url().'app/ipd/mail_view/'.$iop_no.'/'.$patient_no,$this->data);
+        	}else{
+        		$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully</div>");
+        	redirect(base_url().'app/ipd/mail_view/'.$iop_no.'/'.$patient_no,$this->data);
+        	}
+
+        } else {
+        	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email send failed</div>");
+        	redirect(base_url().'app/ipd/mail_view/'.$iop_no.'/'.$patient_no,$this->data);
+            //show_error($this->email->print_debugger());
+        }
+    }
+		$this->load->view("app/ipd/mail_view",$this->data);	
+	}
+	/*********************End mail send code*********************/
 	public function diagnosis(){
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
@@ -1050,6 +1104,34 @@ class Ipd extends General{
 		
 			$this->load->view("app/ipd/individual_care_plan",$this->data);	
 		}
+	}
+	public function sent_mail_list(){
+		
+			$iop_no = $this->uri->segment("4");
+			$patient_no = $this->uri->segment("5");
+		
+			$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+			$this->data['getSentMail'] = $this->Opd_model->getSentMailList($iop_no);
+			$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+			
+			$this->data['message'] = $this->session->flashdata('message');
+		
+			$this->load->view("app/ipd/sent_mail_list",$this->data);	
+		
+	}
+	public function sent_mail_view(){
+		
+			$iop_no = $this->uri->segment("4");
+			$patient_no = $this->uri->segment("5");
+		
+			$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+			$this->data['getSentMail'] = $this->Opd_model->getSentMailList($iop_no);
+			$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+			
+			$this->data['message'] = $this->session->flashdata('message');
+		
+			$this->load->view("app/ipd/sent_mail_view",$this->data);	
+		
 	}
 	public function edit_individual_care_plan(){
 		if(isset($_POST['btnSave'])){

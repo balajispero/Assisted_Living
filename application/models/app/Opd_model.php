@@ -439,14 +439,27 @@ class Opd_model extends CI_Model{
 						concat(D.cValue,' ',C.firstname,' ',C.middlename,' ',C.lastname) as name
 						",false);
 		//$this->db->order_by("A.iop_med_id","asc");
+		$mail_med = $this->uri->segment(3);
+		if($mail_med == "mail_view"){
+
+			$this->db->where(array(
+				'A.iop_id'		=>	$iop_no,
+				 'A.from_date<='		=>	date("Y-m-d"),
+				'A.to_date>='		=>	date("Y-m-d", strtotime('-2 days')),
+				'A.InActive'	=>	0
+			));
+		}else{
 		$this->db->where(array(
 			'A.iop_id'		=>	$iop_no,
 			'A.InActive'	=>	0
 		));
+		}
 		$this->db->join("users C","C.user_id = A.cPreparedBy","left outer");
 		$this->db->join("system_parameters D","D.param_id = C.title","left outer");
-		$query = $this->db->get("iop_medicine A");	
+		$query = $this->db->get("iop_medicine A");
+		//echo $this->db->last_query();die;	
 		return $query->result();
+
 
 		/*$this->db->where(array(
 			'iop_id'	=>		$iop_no,
@@ -657,6 +670,23 @@ class Opd_model extends CI_Model{
 			'InActive'	=>	0
 		));
 		$query = $this->db->get("iop_laboratory");	
+		return $query->result();
+	}
+	public function getSentMailList($iop_no){
+		//$this->db->order_by("dDateTime","DESC");
+		if(!empty($this->uri->segment(6))){
+			$query = $this->db->get_where("iop_sent_mail",array(
+				'iop_id'	=>		$iop_no,
+				'mail_id'	=>		$this->uri->segment(6),
+				'InActive'	=>		0
+			));
+		}else{
+		$query = $this->db->get_where("iop_sent_mail",array(
+			'iop_id'	=>		$iop_no,
+			'InActive'	=>		0
+		));
+		}	
+		    //echo $this->db->last_query();die;
 		return $query->result();
 	}
 	

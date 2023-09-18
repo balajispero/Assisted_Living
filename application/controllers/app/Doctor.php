@@ -174,8 +174,7 @@ class Doctor extends General{
 				}*/
 				
 				$this->table->add_row( 
-									// anchor('app/ipd/view/'.$patient->IO_ID.'/'.$patient->patient_no,$patient->IO_ID),
-									anchor('app/ipd/view/'.$patient->preasses_id.'/'.$patient->preasses_id,$patient->preasses_id),
+									anchor('app/doctor/view_preassessment/'.$patient->preasses_id,$patient->preasses_id),
 									$patient->preasses_name, 
 									$patient->preasses_email, 
 									$patient->preasses_aadhar,
@@ -282,7 +281,8 @@ class Doctor extends General{
             'geriatric_remark' => $this->input->post('geriatric_remark'),
             'time_up_go_score' => $this->input->post('time_test_score'),
             'chair_stand_score' => $this->input->post('chair_stand_score'),
-            'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'));
+            'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'),
+        	'date_entry'		=>	 date("Y-m-d h:i:s a"));
 		$last_ptn_id = $this->preassessment_model->save_preassessment_details($preassessment_details);
 		if($last_ptn_id)
 		{
@@ -564,6 +564,22 @@ class Doctor extends General{
 		// $this->load->view('preassessment');
 	}
 	}
+	public function view_preassessment($id=0)
+	{
+		$this->session->set_userdata(array(
+				 'tab'			=>		'',
+				 'module'		=>		'doctor',
+				 'subtab'		=>		'',
+				 'submodule'	=>		''));
+				 $this->data['message'] = $this->session->flashdata('message');
+
+		$this->data['patientInfo'] = $this->preassessment_model->get_preassesment($id);
+		$this->data['preasses_medicine'] = $this->preassessment_model->get_preassessment_medicine($id);
+		$this->data['preasses_immunization_his'] = $this->preassessment_model->get_preassessment_immunization_his($id);
+		$this->data['preasses_fallrisk_quest'] = $this->preassessment_model->get_preassessment_fallrisk_quest($id);
+		
+		$this->load->view('app/doctor/view_preassessment',$this->data);
+	}
 	public function edit_preassessment($id=0)
 	{
 		$this->session->set_userdata(array(
@@ -651,7 +667,8 @@ class Doctor extends General{
             'geriatric_remark' => $this->input->post('geriatric_remark'),
             'time_up_go_score' => $this->input->post('time_test_score'),
             'chair_stand_score' => $this->input->post('chair_stand_score'),
-            'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'));
+            'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'),
+        	'updated_date'		=>	 date("Y-m-d h:i:s a"));
 		$update_ptn = $this->preassessment_model->update_preassessment_details($preassessment_details);
 		
 		if($update_ptn)
@@ -865,7 +882,7 @@ class Doctor extends General{
 		$tmpl = array('table_open' => '<table class="table table-hover table-striped">');
         $this->table->set_template($tmpl);
 		$this->table->set_empty("&nbsp;");
-		$this->table->set_heading('Member No','Member Name','Date Admit','Member Type','Room & Bed No.','Incharge Doctor','Status');
+		$this->table->set_heading('Member No','Member Name','Date Admit','Member Type','Room & Bed No.','Incharge Doctor','Status','Action');
 // 		$i = 0 + $offset;
 		
 		
@@ -885,7 +902,8 @@ class Doctor extends General{
 									$patient->patient_type, 
 									"Rm ".$patient->room_name." Bed No.".$patient->bed_name, 
 									$patient->doctor,
-									$nStatus
+									$nStatus,
+									anchor('app/ipd/mail_view/'.$patient->IO_ID.'/'.$patient->patient_no,'Mail')
 			);
 		}
 		$this->data['message'] = $this->session->flashdata('message');

@@ -134,6 +134,7 @@
                              <div class="form-group">
                                 <label for="exampleInputEmail1">Company Logo</label>
                                 <input type="file" name="logo" value="<?php echo $companyInfo->logo;?>">
+                                <img style="border-radius: 1px;" class="img-thumbnail" src="<?php echo base_url('public/company_logo/').$companyInfo->logo;?>" alt="img not found" width="200px" height="100px">
                                 <span class="help-block">Allow file type: gif,png,jpg.<br>Maximum of 2MB.</span>
                              </div>
                              
