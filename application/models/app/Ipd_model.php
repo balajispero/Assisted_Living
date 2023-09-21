@@ -286,6 +286,7 @@ class Ipd_model extends CI_Model{
 		return $query->row();*/
 	}
 	public function save_sent_mail(){
+		$medicines = implode(',',($this->input->post('medicine_name')));
 		$this->data = array(
 			'iop_id'	=>		$this->input->post('opd_no'),
 			'mail_to'				=>		$this->input->post('mail_to'),
@@ -299,7 +300,7 @@ class Ipd_model extends CI_Model{
 			'temperature'		=>		$this->input->post('temperature'),
 			'weight'				=>		$this->input->post('weight'),
 			'bsl'			=>		$this->input->post('bsl'),
-			'medicine_name'			=>		$this->input->post('medicine_name'),
+			'medicine_name'			=>		$medicines,
 			'doctor_comments'			=>		$this->input->post('doctor_comments'),
 			'dDate'		=>		date("Y-m-d h:i:s a"),
 			'added_date'	=>		date("Y-m-d h:i:s a"),

@@ -24,6 +24,23 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+            <style>
+                .loader {
+                  border: 16px solid #f3f3f3; /* Light grey */
+                  border-top: 16px solid #3498db; /* Blue */
+                  border-radius: 50%;
+                  width: 120px;
+                  height: 120px;
+                  animation: spin 2s linear infinite;
+                  position: fixed;
+                  top: 50%;
+                  left: 62%;
+                }
+                @keyframes spin {
+                  0% { transform: rotate(0deg); }
+                  100% { transform: rotate(360deg); }
+                }
+            </style>
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -180,10 +197,11 @@
                                 	</ul>
                                     <div class="tab-content">
                                     	<div class="tab-pane active" id="tab_1">
+                                            <div class="loader" style="display:none;"></div>
                                 
                                             <div class="box-body table-responsive no-padding">
                                 <?php echo $message;?>
-                                
+                                                                
                             </div>
 
 
@@ -206,7 +224,7 @@
 
     <p>Respected <?php error_reporting(0); echo $patientInfo->rel_name1; ?>,</p>
     <input type="hidden" name="iop_no" value="<?php echo @$getOPDPatient->IO_ID; ?>">
-    <input type="hidden" name="mail_to" value="balajimuttepawar7058@gmail.com">
+    <input type="hidden" name="mail_to" value="<?php echo @$patientInfo->rel_email1; ?>">
     <input type="hidden" name="rel_name" value="<?php echo @$patientInfo->rel_name1; ?>">
     <input type="hidden" name="patient_name" value="<?php echo @$patientInfo->middlename; ?>">
     <p>Greetings from Team Spero at Aastha!</p>
@@ -239,11 +257,12 @@
     <p>Currently, he/she is taking the following medications:</p>
           <ul>
             <?php foreach($patient_Medication as $rows){?>
-                <li><input type="hidden" name="medicine_name" value="<?php echo $rows->medicine_name; ?>"><?php echo $rows->medicine_name; ?></li>
+                <li><input type="hidden" name="medicine_name[]" value="<?php echo $rows->medicine_name; ?>"><?php echo $rows->medicine_name; ?></li>
             <?php }?>
           </ul>
     <p>Doctors comments/observations:</p>
-    <p><input type="text" name="doctor_comments"></p><br>
+    <p><textarea class="form-control input-sm" name="doctor_comments"></textarea></p><br>
+    <!-- <p><input type="text" name="doctor_comments"></p><br> -->
 
     <p>For any further information, feel free to revert.</p>
 
@@ -268,7 +287,7 @@
   <tr>
     <td align="center" bgcolor="#eee" style="padding: 15px 10px 15px 10px; color: #555555; font-family: Arial, sans-serif; font-size: 12px; line-height: 18px;">
       <center><?php if($getOPDPatient->nStatus == "Pending"){?>
-                                                              <button class="btn btn-primary" name="submit" type="submit" value="sent_mail">Send Mail</button>
+                                                              <button class="disable_btn btn btn-primary" name="submit" type="submit" value="sent_mail">Send Mail</button>
                                                          <?php } ?><br/></center>
       </td>
     </tr>
@@ -312,6 +331,14 @@
             });
         </script>
         <!-- END BDAY -->
+        <script>
+            $('.disable_btn').on( "click", function() {
+                setInterval(function(){
+                $('.disable_btn').attr('disabled', true); 
+                },1000)
+                $('.loader').show();
+            });
+        </script>
         
         
     </body>

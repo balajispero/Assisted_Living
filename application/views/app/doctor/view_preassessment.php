@@ -114,29 +114,16 @@
       <div class="col-sm-12">
         <p>PERSONAL DETAILS OF APPLICANT</p>
         <div class="row">
+          <div class="col-sm-2">Preassessment No.</div>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" name="preasses_no" value="<?php echo $patientInfo[0]->preasses_no;?>" readonly></div>
           <div class="col-sm-2">Name of Applicant</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="applicant_name" value="<?php echo $patientInfo[0]->preasses_name?>" readonly></div>
             <div class="col-sm-2">Email</div>
           <div class="col-sm-2">
             <input type="email" class="form-control" name="applicant_email" value="<?php echo $patientInfo[0]->preasses_email?>" readonly></div>
-            <div class="col-sm-2">Marital Status</div>
-          <div class="col-sm-2">
-            <select name="applicant_marital" class="form-control input-sm" readonly>
-                                                           <option value="">- Marital Status -</option>
-                                                     
-                                                           <option value="Divorced" <?php if($patientInfo[0]->preasses_marital_status=="Divorced"){ echo "selected"; } ?>>Divorced</option>
-                                                      
-                                                           <option value="Legal Seperated" <?php if($patientInfo[0]->preasses_marital_status=="Legal Seperated"){ echo "selected"; } ?>>Legal Seperated</option>
-                                                     
-                                                           <option value="Married" <?php if($patientInfo[0]->preasses_marital_status=="Married"){ echo "selected"; } ?>>Married</option>
-                                                      
-                                                           <option value="Single" <?php if($patientInfo[0]->preasses_marital_status=="Single"){ echo "selected"; } ?>>Single</option>
-                                                       
-                                                           <option value="Widow" <?php if($patientInfo[0]->preasses_marital_status=="Widow"){ echo "selected"; } ?>>Widow</option>
-                                                      
-                                                           <option value="Widower" <?php if($patientInfo[0]->preasses_marital_status=="Widower"){ echo "selected"; } ?>>Widower</option>
-                                                </select></div>
+            
           </div>
         </div>
       </div><br>
@@ -214,6 +201,23 @@
           <div class="col-sm-2">Aadhar Number </div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="applicant_aadhar" value="<?php echo $patientInfo[0]->preasses_aadhar?>" readonly></div>
+            <div class="col-sm-2">Marital Status</div>
+          <div class="col-sm-2">
+            <select name="applicant_marital" class="form-control input-sm" readonly>
+                                                           <option value="">- Marital Status -</option>
+                                                     
+                                                           <option value="Divorced" <?php if($patientInfo[0]->preasses_marital_status=="Divorced"){ echo "selected"; } ?>>Divorced</option>
+                                                      
+                                                           <option value="Legal Seperated" <?php if($patientInfo[0]->preasses_marital_status=="Legal Seperated"){ echo "selected"; } ?>>Legal Seperated</option>
+                                                     
+                                                           <option value="Married" <?php if($patientInfo[0]->preasses_marital_status=="Married"){ echo "selected"; } ?>>Married</option>
+                                                      
+                                                           <option value="Single" <?php if($patientInfo[0]->preasses_marital_status=="Single"){ echo "selected"; } ?>>Single</option>
+                                                       
+                                                           <option value="Widow" <?php if($patientInfo[0]->preasses_marital_status=="Widow"){ echo "selected"; } ?>>Widow</option>
+                                                      
+                                                           <option value="Widower" <?php if($patientInfo[0]->preasses_marital_status=="Widower"){ echo "selected"; } ?>>Widower</option>
+                                                </select></div>
           </div><br>
 
       <div class="row">
@@ -616,24 +620,24 @@
       <div class="row">
           <div class="col-sm-2">Respiratory System</div>
           <div class="col-sm-2">
-            <textarea name="respirate_sys" placeholder="Notes" class="form-control" readonly><?php echo $patientInfo[0]->rs?></textarea></div>
+            <textarea name="respirate_sys" class="form-control" readonly><?php echo $patientInfo[0]->rs?></textarea></div>
             <div class="col-sm-2">Cardiovascular system</div>
           <div class="col-sm-2">
-            <textarea name="cardiovascular_sys" placeholder="Notes" class="form-control" readonly><?php echo $patientInfo[0]->cardiovascular_sys?></textarea></div>
+            <textarea name="cardiovascular_sys" class="form-control" readonly><?php echo $patientInfo[0]->cardiovascular_sys?></textarea></div>
             <div class="col-sm-2">Gastrointestinal System</div>
           <div class="col-sm-2">
-            <textarea name="gastrointestinal_sys" placeholder="Notes" class="form-control" readonly><?php echo $patientInfo[0]->gastrointestinal_sys?></textarea></div>
+            <textarea name="gastrointestinal_sys" class="form-control" readonly><?php echo $patientInfo[0]->gastrointestinal_sys?></textarea></div>
           </div><br>
           <div class="row">
           <div class="col-sm-2">Genito Urinary System</div>
           <div class="col-sm-2">
-            <textarea name="genito_urinary_sys" placeholder="Notes" class="form-control" readonly><?php echo $patientInfo[0]->genito_urinary_sys?></textarea></div>
+            <textarea name="genito_urinary_sys" class="form-control" readonly><?php echo $patientInfo[0]->genito_urinary_sys?></textarea></div>
             <div class="col-sm-2">Neurological System</div>
           <div class="col-sm-2">
-            <textarea name="neurological_sys" placeholder="Notes" class="form-control" readonly><?php echo $patientInfo[0]->neurological_sys?></textarea></div>
+            <textarea name="neurological_sys" class="form-control" readonly><?php echo $patientInfo[0]->neurological_sys?></textarea></div>
             <div class="col-sm-2">Musculoskeletal system</div>
           <div class="col-sm-2">
-            <textarea name="musculoskeletal_sys" placeholder="Notes" class="form-control" readonly><?php echo $patientInfo[0]->musculoskeletal_sys?></textarea></div>
+            <textarea name="musculoskeletal_sys" class="form-control" readonly><?php echo $patientInfo[0]->musculoskeletal_sys?></textarea></div>
           </div><br>
                     <div class="row">
       <div class="col-sm-12">

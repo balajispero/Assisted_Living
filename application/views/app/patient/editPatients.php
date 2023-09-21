@@ -311,6 +311,12 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
+                                                        <td>Email<font color="#FF0000"></font></td>
+                                                        <td>
+                                                            <input type="email" name="rel_email1" class="form-control input-sm" value="<?php echo $patientInfo->rel_email1; ?>"> 
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
                                                         <td width="14%">Address<font color="#FF0000"></font></td>
                                                         <td width="86%">
                                                             <?php echo form_input('rel_add',set_value('rel_add',$patientInfo->rel_add),'id="noofhouse" class="form-control input-sm" placeholder="Address" style="width: 250px;"');?>
@@ -350,6 +356,12 @@
                                                         <td>Relation With<font color="#FF0000"></font></td>
                                                         <td>
                                                             <?php echo form_input('relation_with2',set_value('relation_with2',$patientInfo->relation_with2),'id="relation_with" class="form-control input-sm" placeholder="relation with" style="width: 250px;"');?> 
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Email<font color="#FF0000"></font></td>
+                                                        <td>
+                                                            <input type="email" name="rel_email2" class="form-control input-sm" value="<?php echo $patientInfo->rel_email2; ?>"> 
                                                         </td>
                                                     </tr>
                                                     <tr>

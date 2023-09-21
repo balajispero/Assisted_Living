@@ -82,7 +82,11 @@ class general extends CI_Controller{
 
 		// Lab Module
 		$this->data['hasAccesstoLab'] = ($this->has_rights_to_access("137",$userRole->user_role) == FALSE) ? FALSE : TRUE;
-			$this->data['hasAccesstoLabSample'] = ($this->has_rights_to_access("138",$userRole->user_role) == FALSE) ? FALSE : TRUE;	
+			$this->data['hasAccesstoLabSample'] = ($this->has_rights_to_access("138",$userRole->user_role) == FALSE) ? FALSE : TRUE;
+
+		// Preassessment Module
+		$this->data['hasAccesstoPreasses'] = ($this->has_rights_to_access("139",$userRole->user_role) == FALSE) ? FALSE : TRUE;
+			$this->data['hasAccesstoPreassesList'] = ($this->has_rights_to_access("140",$userRole->user_role) == FALSE) ? FALSE : TRUE;		
 
 		// EMR Module
 		$this->data['hasAccesstoEMR'] = ($this->has_rights_to_access("130",$userRole->user_role) == FALSE) ? FALSE : TRUE;

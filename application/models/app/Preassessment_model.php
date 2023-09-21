@@ -36,6 +36,22 @@ class Preassessment_model extends CI_Model{
 	{     
         return $this->db->insert('preassessment_immunization_his', $data);    
 	}
+
+	public function lastPreassesID(){
+		$this->db->select("(cValue + 1) as cValue");
+		$this->db->where(array('cCode'=>'preasses_no','InActive'=>0));
+		$query = $this->db->get("system_option");
+		return $query->row();	
+	}
+	public function updateAutoNum(){
+		$this->db->where(array(
+			'cCode'			=>		'preasses_no',
+			'InActive'		=>		0
+		));	
+		$this->data = array('cValue'	=>		$this->input->post('userID2'));
+		$this->db->update("system_option",$this->data);
+	}
+
 	public function save_barthel_details($data)
 	{    
 		return $this->db->insert('preassessment_barthel_index', $data); 
@@ -59,12 +75,18 @@ class Preassessment_model extends CI_Model{
 			$this->db->join('patient_psychological_cond psycho_cond', 'psycho_cond.preasses_id = ptn_preasses.preasses_id','left');
 			$this->db->join('preassessment_immunization_his immuniz_his','immuniz_his.preasses_id = ptn_preasses.preasses_id','left');
 			$this->db->join('preassessment_barthel_index barthel_index','barthel_index.preasses_id = ptn_preasses.preasses_id','left');
- 			//$this->db->where('ptn_preasses.InActive',0);
- 			$this->db->where(array('ptn_preasses.InActive'=>0,'ptn_preasses.preasses_id'=>$id));
+ 		
+ 			if($this->session->userdata('user_role') == 5)
+			{
+				$this->db->where(array('ptn_preasses.InActive'=>0,'ptn_preasses.preasses_id'=>$id));
+			}else{
+					$this->db->where(array('ptn_preasses.InActive'=>0,'ptn_preasses.preasses_id'=>$id,'ptn_preasses.added_by'=>$this->session->userdata('user_id')));
+				}
+ 			//$this->db->where(array('ptn_preasses.InActive'=>0,'ptn_preasses.preasses_id'=>$id));
 			/*$this->db->order_by('rbed.room_bed_id', 'ASC');*/
 			//$this->db->limit('7');
 			$query = $this->db->get();
-		// echo $this->db->last_query(); die;
+		 //echo $this->db->last_query(); die;
 			if ( $query->num_rows() > 0 )
 			{
 				$row = $query->result();
@@ -75,8 +97,8 @@ class Preassessment_model extends CI_Model{
 		public function update_preassessment_details($data)
 		{   
 
-			$this->db->where("preasses_id",$this->input->post('id'));
-			/*$this->db->update("patient_preassessment",$data);*/ 
+			//$this->db->where("preasses_id",$this->input->post('id'));
+			$this->db->where(array('InActive'=>0,'preasses_id'=>$this->input->post('id'),'preasses_no'=>$this->input->post('preasses_no'))); 
         	/*$this->db->insert('patient_preassessment', $data);
         	$insert_id = $this->db->insert_id();*/
 

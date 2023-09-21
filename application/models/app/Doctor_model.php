@@ -248,6 +248,7 @@ class Doctor_model extends CI_Model{
 		
 		$this->db->select("
 		    A.preasses_id,
+		    A.preasses_no,
 			A.preasses_name,
 			A.preasses_email,
 			A.preasses_aadhar,
@@ -255,23 +256,28 @@ class Doctor_model extends CI_Model{
 			A.preasses_age,
 			A.preasses_add
 			",false);
-		if($this->input->post('btnSearch')){
-		$where = "( 
-				A.preasses_id like '%".$this->input->post('search')."%' or 
-				A.preasses_name like '%".$this->input->post('search')."%'
-				) 
-				and A.date_entry between '".$cFrom."' and '".$cTo."' 
-				and A.InActive = 0";
-			}else{
-				$where = "(
+		
+		if($this->session->userdata('user_role') == 5)
+		{
+			$where = "(
 				A.preasses_id like '%".$this->input->post('search')."%' or 
 				A.preasses_name like '%".$this->input->post('search')."%'
 				) 
 				and A.date_entry between '".$cFrom."' and '".$cTo."'
 				and A.InActive = 0";
+
+		}else{
+				$where = "(
+				A.preasses_id like '%".$this->input->post('search')."%' or 
+				A.preasses_name like '%".$this->input->post('search')."%'
+				) 
+				and A.date_entry between '".$cFrom."' and '".$cTo."'
+				and A.added_by='".$this->session->userdata('user_id')."'
+				and A.InActive = 0";
 			}
+		
 		$this->db->where($where);
-		/*$this->db->order_by('A.patient_no','asc');*/
+		$this->db->order_by('A.preasses_id','desc');
 		$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
 		/*$this->db->join("system_parameters C","C.param_id = B.title","left outer");
 		$this->db->join("department D","D.department_id = A.department_id","left outer");
@@ -307,22 +313,26 @@ class Doctor_model extends CI_Model{
 			A.preasses_add
 			",false);
 		
-		if($this->input->post('btnSearch')){
-		$where = "(
+		if($this->session->userdata('user_role') == 5)
+		{
+			$where = "(
 				A.preasses_id like '%".$this->input->post('search')."%' or 
 				A.preasses_name like '%".$this->input->post('search')."%'
-				)"; 
-				/*and A.InActive = 0";*/
-			}else{
+				) 
+				and A.date_entry between '".$cFrom."' and '".$cTo."'
+				and A.InActive = 0";
+
+		}else{
 				$where = "(
 				A.preasses_id like '%".$this->input->post('search')."%' or 
 				A.preasses_name like '%".$this->input->post('search')."%'
-				)"; 
-				/*and A.date_visit between '".$cFrom."' and '".$cTo."'   
-				and A.InActive = 0";*/
+				) 
+				and A.date_entry between '".$cFrom."' and '".$cTo."'
+				and A.added_by='".$this->session->userdata('user_id')."'
+				and A.InActive = 0";
 			}
 		$this->db->where($where);
-		/*$this->db->order_by('A.patient_no','asc');*/
+		$this->db->order_by('A.preasses_id','desc');
 		$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
 		/*$this->db->join("system_parameters C","C.param_id = B.title","left outer");
 		$this->db->join("department D","D.department_id = A.department_id","left outer");

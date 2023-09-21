@@ -105,33 +105,40 @@
                 <section class="content">
                     <?php echo $message;?>
     <form action="<?php echo base_url()?>app/doctor/preassessment_save" method="post" enctype="multipart/form-data">
+      <?php
+                          $userID = $lastPreassesID->cValue;
+                          $userID2 = $lastPreassesID->cValue;
+                          if(strlen($userID) == 1){
+                            $userID = "PREASSES0000".$userID;
+                          }else if(strlen($userID) == 2){
+                            $userID = "PREASSES000".$userID;
+                          }else if(strlen($userID) == 3){
+                            $userID = "PREASSES00".$userID;
+                          }else if(strlen($userID) == 4){
+                            $userID = "PREASSES0".$userID;
+                          }else if(strlen($userID) == 5){
+                            $userID = $userID;
+                          }
+                          ?>
+                          <input type="hidden" name="userID2" value="<?php echo $userID2;?>">
     <div class="row">
       <div class="col-sm-12">
         <p>PERSONAL DETAILS OF APPLICANT</p>
         <div class="row">
-          <div class="col-sm-2">Name of Applicant</div>
+          <div class="col-sm-2">Preassessment No.</div>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" name="preasses_no" required readonly value="<?php echo $userID;?>"></div>
+
+            <div class="col-sm-2">Name of Applicant</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="applicant_name"></div>
             <div class="col-sm-2">Email</div>
           <div class="col-sm-2">
             <input type="email" class="form-control" name="applicant_email"></div>
-            <div class="col-sm-2">Marital Status</div>
-          <div class="col-sm-2">
-            <select name="applicant_marital" class="form-control input-sm">
-                                                           <option value="">- Marital Status -</option>
-                                                     
-                                                           <option value="Divorced">Divorced</option>
-                                                      
-                                                           <option value="Legal Seperated">Legal Seperated</option>
-                                                     
-                                                           <option value="Married">Married</option>
-                                                      
-                                                           <option value="Single">Single</option>
-                                                       
-                                                           <option value="Widow">Widow</option>
-                                                      
-                                                           <option value="Widower">Widower</option>
-                                                </select></div>
+            
+
+
+
           </div>
         </div>
       </div><br>
@@ -209,6 +216,24 @@
           <div class="col-sm-2">Aadhar Number </div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="applicant_aadhar"></div>
+
+            <div class="col-sm-2">Marital Status</div>
+          <div class="col-sm-2">
+            <select name="applicant_marital" class="form-control input-sm">
+                                                           <option value="">- Marital Status -</option>
+                                                     
+                                                           <option value="Divorced">Divorced</option>
+                                                      
+                                                           <option value="Legal Seperated">Legal Seperated</option>
+                                                     
+                                                           <option value="Married">Married</option>
+                                                      
+                                                           <option value="Single">Single</option>
+                                                       
+                                                           <option value="Widow">Widow</option>
+                                                      
+                                                           <option value="Widower">Widower</option>
+                                                </select></div>
           </div><br>
 
       <div class="row">
@@ -580,24 +605,24 @@
       <div class="row">
           <div class="col-sm-2">Respiratory System</div>
           <div class="col-sm-2">
-            <textarea name="respirate_sys" placeholder="Notes" class="form-control"></textarea></div>
+            <textarea name="respirate_sys" class="form-control"></textarea></div>
             <div class="col-sm-2">Cardiovascular system</div>
           <div class="col-sm-2">
-            <textarea name="cardiovascular_sys" placeholder="Notes" class="form-control"></textarea></div>
+            <textarea name="cardiovascular_sys" class="form-control"></textarea></div>
             <div class="col-sm-2">Gastrointestinal System</div>
           <div class="col-sm-2">
-            <textarea name="gastrointestinal_sys" placeholder="Notes" class="form-control"></textarea></div>
+            <textarea name="gastrointestinal_sys" class="form-control"></textarea></div>
           </div><br>
           <div class="row">
           <div class="col-sm-2">Genito Urinary System</div>
           <div class="col-sm-2">
-            <textarea name="genito_urinary_sys" placeholder="Notes" class="form-control"></textarea></div>
+            <textarea name="genito_urinary_sys" class="form-control"></textarea></div>
             <div class="col-sm-2">Neurological System</div>
           <div class="col-sm-2">
-            <textarea name="neurological_sys" placeholder="Notes" class="form-control"></textarea></div>
+            <textarea name="neurological_sys" class="form-control"></textarea></div>
             <div class="col-sm-2">Musculoskeletal system</div>
           <div class="col-sm-2">
-            <textarea name="musculoskeletal_sys" placeholder="Notes" class="form-control"></textarea></div>
+            <textarea name="musculoskeletal_sys" class="form-control"></textarea></div>
           </div><br>
                     <div class="row">
       <div class="col-sm-12">
@@ -708,41 +733,41 @@
       <div class="row">
           <div class="col-sm-2">Bowels Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="bowels_score" id="bowels_score" onkeyup="discountFunc()"></div>
+            <input type="text" class="form-control numberonly" name="bowels_score" id="bowels_score" onkeyup="barthelFunc()"></div>
             <div class="col-sm-2">Bladder Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="bladder_score" id="bladder_score" onkeyup="discountFunc()"></div>
+            <input type="text" class="form-control numberonly" name="bladder_score" id="bladder_score" onkeyup="barthelFunc()"></div>
             <div class="col-sm-2">Toilet Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="toilet_score"></div>
+            <input type="text" class="form-control numberonly" name="toilet_score" onkeyup="barthelFunc()" id="toilet_score"></div>
           </div><br>
           <div class="row">
             <div class="col-sm-2">Bathing Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="bathing_score"></div>
+            <input type="text" class="form-control numberonly" name="bathing_score" onkeyup="barthelFunc()" id="bathing_score"></div>
             <div class="col-sm-2">Grooming Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="grooming_score"></div>
+            <input type="text" class="form-control numberonly" name="grooming_score" onkeyup="barthelFunc()" id="grooming_score"></div>
             <div class="col-sm-2">Dressing Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="dressing_score"></div>
+            <input type="text" class="form-control numberonly" name="dressing_score" onkeyup="barthelFunc()" id="dressing_score"></div>
           </div><br>
 
           <div class="row">
           <div class="col-sm-2">Feeding Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="feeding_score"></div>
+            <input type="text" class="form-control numberonly" name="feeding_score" onkeyup="barthelFunc()" id="feeding_score"></div>
             <div class="col-sm-2">Transfer Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="transfer_score"></div>
+            <input type="text" class="form-control numberonly" name="transfer_score" onkeyup="barthelFunc()" id="transfer_score"></div>
             <div class="col-sm-2">Mobility Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="mobility_score"></div>
+            <input type="text" class="form-control numberonly" name="mobility_score" onkeyup="barthelFunc()" id="mobility_score"></div>
           </div><br>
           <div class="row">
           <div class="col-sm-2">Stairs Score</div>
           <div class="col-sm-2">
-            <input type="text" class="form-control" name="stairs_score"></div>
+            <input type="text" class="form-control numberonly" name="stairs_score" onkeyup="barthelFunc()" id="stairs_score"></div>
             <div class="col-sm-2">Total Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="barthel_total_score" id="barthel_total_score"></div>
@@ -870,6 +895,7 @@
          <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
          <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
          <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
+         <script src="<?php echo base_url();?>public/js/validation.js"></script>
          <script>
           $(document).ready(function() {
                 var i=0; 
@@ -886,36 +912,13 @@
             });
          </script>
          <script>
-          function discountFunc() {
-  var discount = $("#bowels_score").val();
-  /*var totalAmount = Number($("#totalAmount").val());
-  totalAmount = totalAmount.toFixed(2);*/
 
-  var grandTotal;
-  if(discount) {   
-    grandTotal = Number($("#bowels_score").val()) + Number($("#bladder_score").val());
-    grandTotal = grandTotal.toFixed(2);
+          function barthelFunc() {
+            var grandTotal;
+            grandTotal = Number($("#bowels_score").val()) + Number($("#bladder_score").val())+ Number($("#toilet_score").val())+ Number($("#bathing_score").val())+ Number($("#grooming_score").val())+ Number($("#dressing_score").val())+ Number($("#feeding_score").val())+ Number($("#transfer_score").val())+ Number($("#mobility_score").val())+ Number($("#stairs_score").val());
+            $("#barthel_total_score").val(grandTotal);
+          }
 
-    $("#barthel_total_score").val(grandTotal);
-    //$("#grandTotalValue").val(grandTotal);
-  } else {
-  }
-
-  /*var paid = $("#paid").val();
-
-  var dueAmount;  
-  if(paid) {
-    dueAmount = Number($("#grandTotal").val()) - Number($("#paid").val());
-    dueAmount = dueAmount.toFixed(2);
-
-    $("#due").val(dueAmount);
-    $("#dueValue").val(dueAmount);
-  } else {
-    $("#due").val($("#grandTotal").val());
-    $("#dueValue").val($("#grandTotal").val());
-  }*/
-
-}
          </script>
          
     </body>

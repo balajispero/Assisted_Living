@@ -673,7 +673,7 @@ class Opd_model extends CI_Model{
 		return $query->result();
 	}
 	public function getSentMailList($iop_no){
-		//$this->db->order_by("dDateTime","DESC");
+		$this->db->order_by("mail_id","DESC");
 		if(!empty($this->uri->segment(6))){
 			$query = $this->db->get_where("iop_sent_mail",array(
 				'iop_id'	=>		$iop_no,

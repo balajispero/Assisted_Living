@@ -362,6 +362,12 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
+                                                        <td>Email<font color="#FF0000"></font></td>
+                                                        <td>
+                                                            <input type="email" name="rel_email1" class="form-control input-sm"> 
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
                                                         <td width="14%">Address<font color="#FF0000"></font></td>
                                                         <td width="86%">
                                                             <?php echo form_input('rel_add',set_value('noofhouse'),'id="noofhouse" class="form-control input-sm" placeholder="Address" style="width: 250px;"');?>
@@ -400,6 +406,12 @@
                                                         <td>Relation With<font color="#FF0000"></font></td>
                                                         <td>
                                                             <?php echo form_input('relation_with2',set_value('relation_with'),'id="relation_with" class="form-control input-sm" placeholder="relation with" style="width: 250px;"');?> 
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Email<font color="#FF0000"></font></td>
+                                                        <td>
+                                                            <input type="email" name="rel_email2" class="form-control input-sm"> 
                                                         </td>
                                                     </tr>
                                                     <tr>

@@ -82,14 +82,15 @@ th {
                                                             $ci_obj->load->model('app/general_model');
                                                             $nameby_id = $ci_obj->general_model->getname($patientInfo->gender);
     echo strtoupper($nameby_id->cValue)?></td>
-    <td><strong>Date of Birth</strong><br /><br /><?php echo date("M d, Y",strtotime($patientInfo->birthday));?></td>
+    <td><strong>Date of Birth</strong><br /><br /><?php if(!empty($patientInfo->birthday)){ echo ""; }else{echo date("M d, Y",strtotime($patientInfo->birthday)); }?>
+</td>
 </tr>
 <tr>
 	<td><strong>Address</strong><br /><br /><?php echo strtoupper($patientInfo->street)?></td>
     <td><strong>Age</strong><br /><br /><?php echo strtoupper($patientInfo->age)?></td>
     <td><strong>Contact No.</strong><br /><br /><?php echo strtoupper($patientInfo->phone_no)?></td>
     <td><strong>Civil Status</strong><br /><br /><?php $nameby_id = $ci_obj->general_model->getname($patientInfo->civil_status);
-     echo strtoupper($nameby_id->cValue)?></td>
+     echo strtoupper(!empty($nameby_id->cValue) ? $nameby_id->cValue : '')?></td>
 </tr>
 </table>
 <br />

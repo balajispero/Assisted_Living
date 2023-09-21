@@ -384,11 +384,25 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <?php if($hasAccesstoLabSample){?><li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/doctor/ipd"><i class="fa fa-angle-double-right"></i>Sample Test</a></li><?php }?>
+                                <?php if($hasAccesstoLabSample){?><li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/lab/lab_sample_test_list"><i class="fa fa-angle-double-right"></i>Sample Test</a></li><?php }?>
                             </ul>
                         </li>
                         <?php }?>
                         <!--END OF Lab-->
+
+                        <!--START OF Preassessment-->
+                        <?php if($hasAccesstoPreasses){?>
+                        <li class="treeview <?php echo $doctor;?>" style="display: <?php echo ($this->session->userdata('user_role') == 1) ? "none" : "block";?>">
+                            <a href="#">
+                                <i class="fa fa-user-md"></i> <span> Preassessment Module</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <?php if($hasAccesstoPreassesList){?><li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/doctor/preassessment_list"><i class="fa fa-angle-double-right"></i>Preassessment List</a></li><?php }?>
+                            </ul>
+                        </li>
+                        <?php }?>
+                        <!--END OF Preassessment-->
                         
                         <?php if($hasAccesstoEMR){?>
                         <li class="treeview <?php echo $emr;?>">

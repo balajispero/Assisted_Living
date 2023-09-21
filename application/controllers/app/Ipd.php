@@ -464,6 +464,7 @@ class Ipd extends General{
 
 	/*********************Start mail send code*********************/
 	public function mail_view(){
+
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
 		
@@ -476,7 +477,7 @@ class Ipd extends General{
 		$this->data['message'] = $this->session->flashdata('message');
 		if(@$_POST['submit']=='sent_mail')
 		{
-		$this->data['doctor_comments']=$this->input->post('doctor_comment');
+		$this->data['doctor_comments']=$this->input->post('doctor_comments');
 		$to_email=$this->input->post('mail_to');
 		
 		 $this->load->library('email');
@@ -503,12 +504,12 @@ class Ipd extends General{
         	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully</div>");
         	redirect(base_url().'app/ipd/mail_view/'.$iop_no.'/'.$patient_no,$this->data);
         	}else{
-        		$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully</div>");
+        		$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sending failed...</div>");
         	redirect(base_url().'app/ipd/mail_view/'.$iop_no.'/'.$patient_no,$this->data);
         	}
 
         } else {
-        	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email send failed</div>");
+        	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sending failed...</div>");
         	redirect(base_url().'app/ipd/mail_view/'.$iop_no.'/'.$patient_no,$this->data);
             //show_error($this->email->print_debugger());
         }

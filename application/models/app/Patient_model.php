@@ -103,6 +103,10 @@ class Patient_model extends CI_Model{
 		{
 			++$age;
 		}
+		if(!empty($dob))
+		{
+			$age=0;
+		}
 		if(!empty($this->input->post('age')))
 		{
 			$age=$this->input->post('age');	
@@ -197,6 +201,8 @@ class Patient_model extends CI_Model{
 			'rel_add2' => $this->input->post('rel_add2'),
 			'rel_city2' => $this->input->post('rel_city2'),
 			'rel_phone2' => $this->input->post('rel_phone2'),
+			'rel_email1' => $this->input->post('rel_email1'),
+			'rel_email2' => $this->input->post('rel_email2'),
 			'InActive'			=>		0,
 			'ptn_addtnl_note' => $this->input->post('ptn_addtnl_note')
 		);
@@ -312,6 +318,10 @@ class Patient_model extends CI_Model{
 		{
 			++$age;
 		}
+		if(!empty($dob))
+		{
+			$age=0;
+		}
 		if(!empty($this->input->post('age')))
 		{
 			$age=$this->input->post('age');	
@@ -373,6 +383,8 @@ class Patient_model extends CI_Model{
 			'relation_with2' => $this->input->post('relation_with2'),
 			'rel_add2' => $this->input->post('rel_add2'),
 			'rel_city2' => $this->input->post('rel_city2'),
+			'rel_email1' => $this->input->post('rel_email1'),
+			'rel_email2' => $this->input->post('rel_email2'),
 			'rel_phone2' => $this->input->post('rel_phone2'),
 		);
 		$this->load->library('upload');
@@ -467,6 +479,10 @@ class Patient_model extends CI_Model{
 		{
 			++$age;
 		}
+		if(!empty($dob))
+		{
+			$age=0;
+		}
 		if(!empty($this->input->post('age')))
 		{
 			$age=$this->input->post('age');	
@@ -511,6 +527,8 @@ class Patient_model extends CI_Model{
 			'rel_add2' => $this->input->post('rel_add2'),
 			'rel_city2' => $this->input->post('rel_city2'),
 			'rel_phone2' => $this->input->post('rel_phone2'),
+			'rel_email1' => $this->input->post('rel_email1'),
+			'rel_email2' => $this->input->post('rel_email2'),
 		);
 		$this->load->library('upload');
 		/*********************Start upload image code*********************/

@@ -118,7 +118,7 @@ class Doctor extends General{
 				}*/
 				// end of user restriction function		 
 				 
-				 
+				 //print_r($this->session->userdata());die;
 		$uri_segment = 4;
 		$offset = $this->uri->segment($uri_segment);
 		
@@ -174,7 +174,7 @@ class Doctor extends General{
 				}*/
 				
 				$this->table->add_row( 
-									anchor('app/doctor/view_preassessment/'.$patient->preasses_id,$patient->preasses_id),
+									anchor('app/doctor/view_preassessment/'.$patient->preasses_id,$patient->preasses_no),
 									$patient->preasses_name, 
 									$patient->preasses_email, 
 									$patient->preasses_aadhar,
@@ -208,6 +208,8 @@ class Doctor extends General{
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
 				 $this->data['message'] = $this->session->flashdata('message');
+
+				 $this->data['lastPreassesID'] = $this->preassessment_model->lastPreassesID();
 		
 		$this->load->view('app/doctor/add_preassessment',$this->data);
 	}
@@ -221,6 +223,7 @@ class Doctor extends General{
 	    
 		$preassessment_details = array(
             'preasses_name' => $this->input->post('applicant_name'),
+            'preasses_no' => $this->input->post('preasses_no'),
             //'preasses_dob' => $this->input->post('applicant_dob'),
             'preasses_age' => $this->input->post('applicant_age'),
             'preasses_gender' => $this->input->post('applicant_gender'),
@@ -282,10 +285,14 @@ class Doctor extends General{
             'time_up_go_score' => $this->input->post('time_test_score'),
             'chair_stand_score' => $this->input->post('chair_stand_score'),
             'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'),
+            'added_by' => $this->session->userdata('user_id'),
         	'date_entry'		=>	 date("Y-m-d h:i:s a"));
 		$last_ptn_id = $this->preassessment_model->save_preassessment_details($preassessment_details);
 		if($last_ptn_id)
 		{
+			//update preassessmentID autonumber();
+			$this->preassessment_model->updateAutoNum();
+
 		$family_details = array(
             'father' => $this->input->post('father_name'),
             'mother' => $this->input->post('mother_name'),
@@ -293,6 +300,7 @@ class Doctor extends General{
             'spouse_name' => $this->input->post('spouse_name'),
             'spouse_mobile' => $this->input->post('spouse_mobile'),
             'family_add' => $this->input->post('family_add'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_family_details($family_details);
 
@@ -305,6 +313,7 @@ class Doctor extends General{
             'guardian_add' => $this->input->post('guardian_add'),
             'guardian_mobile' => $this->input->post('guardian_mobile'),
             'guardian_email' => $this->input->post('guardian_email'),
+            'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_child_details($child_details);
 
@@ -320,6 +329,7 @@ class Doctor extends General{
             'diagnosis' => $this->input->post('diagnosis'),
             'present_complaints' => $this->input->post('present_complaints'),
             'past_history' => $this->input->post('past_history'),
+            'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->treating_doctor_details($treating_doctor_details);
 
@@ -331,6 +341,7 @@ class Doctor extends General{
 					'dose' => isset($dose[$i]) ? $dose[$i] : '',
 					'frequency' => isset($frequency[$i]) ? $frequency[$i] : '',
 					'duration' => isset($duration[$i]) ? $duration[$i] : '',
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				
@@ -347,6 +358,7 @@ class Doctor extends General{
             'giver_care' => $this->input->post('giver_care'),
             'diagnostic_test' => $this->input->post('diagnostic_test'),
             'typical_day_appl' => $this->input->post('typical_day_appl'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_psychological_cond_details($psychological_cond_details);
 
@@ -364,6 +376,7 @@ class Doctor extends General{
             'stairs_score' => $this->input->post('stairs_score'),
             'total_barthel_score' => $this->input->post('barthel_total_score'),
             'InActive'			=>		0,
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_barthel_details($barthel_details);
 
@@ -393,6 +406,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('past_year_qtn'),
 					'answer' => $this->input->post('past_year'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -403,6 +417,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('use_stick_qtn'),
 					'answer' => $this->input->post('use_stick'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -413,6 +428,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('feel_stable_qtn'),
 					'answer' => $this->input->post('feel_stable'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -423,6 +439,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('steady_holding_qtn'),
 					'answer' => $this->input->post('steady_holding'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -433,6 +450,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('worry_fall_qtn'),
 					'answer' => $this->input->post('worry_fall'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -443,6 +461,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('from_chair_qtn'),
 					'answer' => $this->input->post('from_chair'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -453,6 +472,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('curb_qtn'),
 					'answer' => $this->input->post('curb'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -463,6 +483,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('toilet_rush_qtn'),
 					'answer' => $this->input->post('toilet_rush'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -473,6 +494,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('lost_feet_qtn'),
 					'answer' => $this->input->post('lost_feet'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -483,6 +505,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('light_headed_qtn'),
 					'answer' => $this->input->post('light_headed'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -493,6 +516,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('take_medicine_qtn'),
 					'answer' => $this->input->post('take_medicine'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -503,6 +527,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('feel_sad_qtn'),
 					'answer' => $this->input->post('feel_sad'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -513,6 +538,7 @@ class Doctor extends General{
 					'questions' => $this->input->post('fall_total_score_qtn'),
 					'answer' => $this->input->post('fall_total_score'),
 					'InActive'			=>		0,
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				$this->preassessment_model->save_fallrisk_quest_details($qtn_ans_details);
@@ -528,6 +554,7 @@ class Doctor extends General{
             'vac_name' => $this->input->post('tetanus_vac'),
             'given_date' => $this->input->post('tetanus_date'),
             'due_date' => $this->input->post('tetanus_due_date'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_immunization_details($immunization_details);
 		}elseif($vac=='2')
@@ -537,6 +564,7 @@ class Doctor extends General{
             'vac_name' => $this->input->post('influenza_vac'),
             'given_date' => $this->input->post('influenza_date'),
             'due_date' => $this->input->post('influenza_due_date'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_immunization_details($immunization_details);	
 		}elseif($vac=='3')
@@ -546,6 +574,7 @@ class Doctor extends General{
             'vac_name' => $this->input->post('pneumococcal_vac'),
             'given_date' => $this->input->post('pneumococcal_date'),
             'due_date' => $this->input->post('pneumococcal_due_date'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_immunization_details($immunization_details);	
 		}elseif($vac=='4')
@@ -555,6 +584,7 @@ class Doctor extends General{
             'vac_name' => $this->input->post('typhoid_vac'),
             'given_date' => $this->input->post('typhoid_date'),
             'due_date' => $this->input->post('typhoid_due_date'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_immunization_details($immunization_details);	
 		}
@@ -668,6 +698,7 @@ class Doctor extends General{
             'time_up_go_score' => $this->input->post('time_test_score'),
             'chair_stand_score' => $this->input->post('chair_stand_score'),
             'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'),
+            'updated_by' => $this->session->userdata('user_id'),
         	'updated_date'		=>	 date("Y-m-d h:i:s a"));
 		$update_ptn = $this->preassessment_model->update_preassessment_details($preassessment_details);
 		
@@ -680,6 +711,7 @@ class Doctor extends General{
             'spouse_name' => $this->input->post('spouse_name'),
             'spouse_mobile' => $this->input->post('spouse_mobile'),
             'family_add' => $this->input->post('family_add'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $this->input->post('id'));
 		$this->preassessment_model->update_family_details($family_details);
 
@@ -692,6 +724,7 @@ class Doctor extends General{
             'guardian_add' => $this->input->post('guardian_add'),
             'guardian_mobile' => $this->input->post('guardian_mobile'),
             'guardian_email' => $this->input->post('guardian_email'),
+            'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $this->input->post('id'));
 		$this->preassessment_model->update_child_details($child_details);
 
@@ -707,6 +740,7 @@ class Doctor extends General{
             'diagnosis' => $this->input->post('diagnosis'),
             'present_complaints' => $this->input->post('present_complaints'),
             'past_history' => $this->input->post('past_history'),
+            'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $this->input->post('id'));
 		$this->preassessment_model->update_treating_doctor_details($treating_doctor_details);
 
@@ -735,6 +769,7 @@ class Doctor extends General{
             'giver_care' => $this->input->post('giver_care'),
             'diagnostic_test' => $this->input->post('diagnostic_test'),
             'typical_day_appl' => $this->input->post('typical_day_appl'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $this->input->post('id'));
 		$this->preassessment_model->update_psychological_cond_details($psychological_cond_details);
 
@@ -752,6 +787,7 @@ class Doctor extends General{
             'mobility_score' => $this->input->post('mobility_score'),
             'stairs_score' => $this->input->post('stairs_score'),
             'total_barthel_score' => $this->input->post('barthel_total_score'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $this->input->post('id'));
 		$this->preassessment_model->update_barthel_details($barthel_details);
 
@@ -782,6 +818,7 @@ class Doctor extends General{
             'vac_name' => $this->input->post('tetanus_vac'),
             'given_date' => $this->input->post('tetanus_date'),
             'due_date' => $this->input->post('tetanus_due_date'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $this->input->post('id'));
 		$id=$this->input->post('tetanus_id');
 		$this->preassessment_model->update_immunization_details($immunization_details,$id);
@@ -792,6 +829,7 @@ class Doctor extends General{
             'vac_name' => $this->input->post('influenza_vac'),
             'given_date' => $this->input->post('influenza_date'),
             'due_date' => $this->input->post('influenza_due_date'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $this->input->post('id'));
     	    $id=$this->input->post('influenza_id');
 		$this->preassessment_model->update_immunization_details($immunization_details,$id);	
@@ -802,6 +840,7 @@ class Doctor extends General{
             'vac_name' => $this->input->post('pneumococcal_vac'),
             'given_date' => $this->input->post('pneumococcal_date'),
             'due_date' => $this->input->post('pneumococcal_due_date'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $this->input->post('id'));
     	    $id=$this->input->post('pneumococcal_id');
 		$this->preassessment_model->update_immunization_details($immunization_details,$id);	
@@ -812,6 +851,7 @@ class Doctor extends General{
             'vac_name' => $this->input->post('typhoid_vac'),
             'given_date' => $this->input->post('typhoid_date'),
             'due_date' => $this->input->post('typhoid_due_date'),
+            'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $this->input->post('id'));
     	    $id=$this->input->post('typhoid_id');
 		$this->preassessment_model->update_immunization_details($immunization_details,$id);	
