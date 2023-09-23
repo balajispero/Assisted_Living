@@ -483,7 +483,7 @@ class Ipd extends General{
 		 $this->load->library('email');
 
         // Email content
-        $subject = "Health updates of $patientInfo->middlename";
+        $subject = "Health updates of @". $this->data['patientInfo']->middlename;
         
         $msg1=$this->load->view('app/ipd/mail_generate',$this->data,TRUE);
 
@@ -494,6 +494,8 @@ class Ipd extends General{
         $this->email->to($to_email); // Replace with the recipient's email address
         $this->email->subject($subject);
         $this->email->message($msg1);
+        /*$this->email->send();
+        echo $this->email->print_debugger();die;*/
 
         // Send the email
         if ($this->email->send()) {
@@ -504,7 +506,7 @@ class Ipd extends General{
         	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully</div>");
         	redirect(base_url().'app/ipd/mail_view/'.$iop_no.'/'.$patient_no,$this->data);
         	}else{
-        		$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sending failed...</div>");
+        		$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully</div>");
         	redirect(base_url().'app/ipd/mail_view/'.$iop_no.'/'.$patient_no,$this->data);
         	}
 

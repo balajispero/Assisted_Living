@@ -882,6 +882,13 @@
             <input type="text" class="form-control" name="chair_stand_score"></div>
           </div><br>
 
+          <div class="row">
+          <div class="col-sm-2">Eligible for ALF</div>
+          <div class="col-sm-4">
+            <input type="radio" class="form-control" name="ptn_eligible" value="Yes" checked>Yes &nbsp;
+    <input type="radio" name="ptn_eligible" class="form-control" value="No">No</div>
+          </div><br>
+
           <input type="submit" class="btn btn-primary" name="submit" value="submit">
       </form>
    

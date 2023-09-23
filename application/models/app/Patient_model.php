@@ -66,6 +66,22 @@ class Patient_model extends CI_Model{
 		$query = $this->db->get("system_option");	
 		return $query->row();
 	}
+	public function preassesNo(){
+		$this->db->select("*");	
+		$this->db->where(array(
+			'ptn_eligible'=>"Yes",
+			'on_admission'=>"No",
+			'InActive'	=>	0	
+		));
+		//$this->db->order_by('cValue','asc');
+		$query = $this->db->get("patient_preassessment");
+		return $query->result();
+	}
+	public function get_preasses_id_data($preasses_id){
+		$this->db->select("*");
+		$query = $this->db->get_where("patient_preassessment",array('preasses_no' => $preasses_id));	
+		return $query->result();
+	}
 	
 	public function validate_email(){
 		$this->db->where(array(
@@ -203,6 +219,7 @@ class Patient_model extends CI_Model{
 			'rel_phone2' => $this->input->post('rel_phone2'),
 			'rel_email1' => $this->input->post('rel_email1'),
 			'rel_email2' => $this->input->post('rel_email2'),
+			'preassessment_no' => $this->input->post('preassessment_no'),
 			'InActive'			=>		0,
 			'ptn_addtnl_note' => $this->input->post('ptn_addtnl_note')
 		);
@@ -249,7 +266,19 @@ class Patient_model extends CI_Model{
     }
     /*********************End Previous Discharge Report code*********************/
 
-		$this->db->insert("patient_personal_info",$this->data);
+		$res=$this->db->insert("patient_personal_info",$this->data);
+		$preasses=$this->input->post('preassessment_no');
+		if($preasses)
+		{
+			if($res){
+				$this->data1 = array(
+			'on_admission'		=>"Yes");
+				$this->db->where("preasses_no",$preasses);
+				$this->db->update("patient_preassessment",$this->data1);
+
+			}
+
+		}
 		// print_r ($this->data);die;
 		
 		

@@ -127,9 +127,11 @@
                                                 <td>
                                                 <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
                                                 </td>
+                                                <?php if($this->session->userdata('user_role') == 12) {?>
                                                 <td>
                                                 <a href="<?php echo base_url();?>app/doctor/add_preassessment" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add Preassessment</a>
                                                 </td>
+                                            <?php } ?>
                                             </tr>
                                             </table>
                                             </form>

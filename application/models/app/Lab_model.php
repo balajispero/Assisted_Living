@@ -37,6 +37,7 @@ class Lab_model extends CI_Model{
 				A.laboratory_id like '%".$this->input->post('search')."%'
 				) 
 				and A.dDate between '".$cFrom."' and '".$cTo."'
+				and A.category_id=7
 				and A.InActive = 0";
 
 		/*}else{
@@ -53,6 +54,7 @@ class Lab_model extends CI_Model{
 		//$this->db->order_by('A.preasses_id','desc');
 		//$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
 		$query = $this->db->get("iop_laboratory A", $limit, $offset);
+		//echo $this->db->last_query(); die;
 		return $query->result();
 	}
 
@@ -87,6 +89,7 @@ class Lab_model extends CI_Model{
 				A.laboratory_id like '%".$this->input->post('search')."%'
 				) 
 				and A.dDate between '".$cFrom."' and '".$cTo."'
+				and A.category_id=7
 				and A.InActive = 0";
 
 		/*}else{
@@ -114,11 +117,11 @@ class Lab_model extends CI_Model{
 			A.doctor,
 			A.dDate,
 			A.lab_test_name,
-			A.doctor,
+			A.lab_test_reports,
 			A.doctor
 			",false);
 		
-		$this->db->where(array('A.InActive'=>0,'A.io_lab_id'=>$id));
+		$this->db->where(array('A.InActive'=>0,'A.category_id'=>7,'A.io_lab_id'=>$id));
 		//$this->db->order_by('A.preasses_id','desc');
 		//$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
 		$query = $this->db->get("iop_laboratory A");

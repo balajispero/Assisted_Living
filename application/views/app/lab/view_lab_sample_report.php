@@ -111,15 +111,37 @@
                                             <label for="exampleInputEmail1">Test Name</label>
                                             <input class="form-control input-sm" name="sample_test_name" type="text" style="width: 350px;" value="<?php echo $lab_test_info[0]->laboratory_id;?>" required>
                                         </div>
+                                        <h2>Uploaded Report</h2>
                                         
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Upload Report</label>
-                                            <input type="file" name="previous_dischargefile[]" class="form-control" style="width: 350px;" multiple="multiple">
-                                        </div>
+                                        <?php
+        if(!empty($lab_test_info[0]->lab_test_reports)){
+                $str =$lab_test_info[0]->lab_test_reports;
+                $arrayd=explode(",",$str);
+                
+                $cnt=count($arrayd);
+            
+                for($i=0;$i<$cnt;$i++)
+                {
+                    
+                    ?>
+                    <div class="col-md-4">
+      <div class="thumbnail"> 
+        <a href="<?php echo base_url('public/lab_test_report/');?><?php echo $arrayd[$i];?>" target="_blank">
+          <img src="<?php echo base_url('public/lab_test_report/');?><?php echo $arrayd[$i];?>" alt="not found" style="width:100%;height:50%">
+          <!-- <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p> 
+          </div> -->
+        </a>
+        
+      </div>
+    </div>
+<?php
+    }
+}
+
+        ?>
                                         
-                                        <div class="form-group">
-                                            <button class="btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
-                                        </div>
+                                        
                                         
                                 </form>
                                 

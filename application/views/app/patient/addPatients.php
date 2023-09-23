@@ -141,6 +141,21 @@
                                                         <td width="88%"><input class="form-control input-sm" name="patientID" id="patientID" type="text" style="width: 100px;"  readonly value="<?php echo $userID;?>"></td>
                                                     </tr>
                                                     <tr>
+                                                        <td width="12%">Preassessment No <font color="#FF0000"></font></td>
+                                                        <td width="88%">
+                                                            <select name="preassessment_no" onChange="showPreassesData(this.value);" class="form-control input-sm" style="width: 100px;">
+                                                               <option value="">- Select Preassessment No  -</option>
+                                                               <?php 
+                                                               foreach($preassesNoList as $preassesNoList){
+                                                                  
+                                                                 ?>
+                                                                 <option value="<?php echo $preassesNoList->preasses_no;?>"><?php echo $preassesNoList->preasses_no;?></option>
+                                                             <?php }?>
+                                                         </select>
+                                                         
+                                                     </td>
+                                                 </tr>
+                                                    <tr>
                                                         <td>Admission Date<font color="#FF0000"></font></td>
                                                         <td>
                                                             <input onchange="deateval();" class="form-control input-sm" name="admission_date" type="date" placeholder="Admission Date" style="width:150px;" >
@@ -446,7 +461,7 @@
                                                <tr>
                                            <td width="18%">Aadhar No.</td>
                                            <td width="82%">
-                                            <?php echo form_input('aadhar_no',set_value('aadhar_no'),'class="form-control input-sm" placeholder="Aadhar Number" style="width: 250px;"');?>
+                                            <?php echo form_input('aadhar_no',set_value('aadhar_no'),'class="form-control input-sm" id="aadhar_no" placeholder="Aadhar Number" style="width: 250px;"');?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -606,6 +621,80 @@
         <script src="<?php echo base_url();?>public/datepicker/js/jquery-1.9.1.min.js"></script>
         <script src="<?php echo base_url();?>public/datepicker/js/bootstrap-datepicker.js"></script>
         <script src="<?php echo base_url();?>public/js/validation.js"></script>
+        <script>
+            function showPreassesData(preasses_id,laboratory_id=0)
+            {
+                
+                if(preasses_id=="")
+                {
+                    $( '#admission_form' ).each(function(){
+                    this.reset();
+                        });
+                    
+                }
+                else {
+
+            if (window.XMLHttpRequest)
+              {
+              xmlhttp=new XMLHttpRequest();
+              }
+            else
+              {// code for IE6, IE5
+              xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+              }
+            xmlhttp.onreadystatechange=function()
+              {
+              if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    var result = JSON.parse(xmlhttp.responseText);
+                    
+                    var gender="";
+                    var marital_status="";
+                    
+                    if(result[0].preasses_gender=="Male")
+                    {
+                        gender="1";
+                    }else if(result[0].preasses_gender=="Female"){
+                        gender="2";
+                    }else if(result[0].preasses_gender=="Any Other"){
+                        gender="72";
+                    }
+
+                    if(result[0].preasses_marital_status=="Single")
+                    {
+                        marital_status="3";
+                    }else if(result[0].preasses_marital_status=="Married"){
+                        marital_status="4";
+                    }else if(result[0].preasses_marital_status=="Legal Seperated"){
+                        marital_status="5";
+                    }
+                    else if(result[0].preasses_marital_status=="Divorced"){
+                        marital_status="6";
+                    }else if(result[0].preasses_marital_status=="Widow"){
+                        marital_status="74";
+                    }else if(result[0].preasses_marital_status=="Widower"){
+                        marital_status="75";
+                    }
+                
+                    $("#name").val(result[0].preasses_name);
+                    $("#email").val(result[0].preasses_email);
+                    $("#birthday").val(result[0].birthday);
+                    $("#age").val(result[0].preasses_age);
+                     $("#gender option[value=" + gender + "]").attr('selected', 'selected');
+                    $("#civil_status option[value=" + marital_status + "]").attr('selected', 'selected');
+                    $("#aadhar_no").val(result[0].preasses_aadhar);
+                    $("#noofhouse").val(result[0].preasses_add);
+                    $("#mobile").val(result[0].preasses_mobile);
+
+                }
+              }
+
+            xmlhttp.open("GET","<?php echo base_url();?>app/patient/get_preasses_id_data/"+preasses_id,true);
+            xmlhttp.send();
+            }
+
+            }
+         </script>
         <script type="text/javascript">
             // When the document is ready
             $(document).ready(function () {

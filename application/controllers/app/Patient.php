@@ -142,6 +142,7 @@ class Patient extends General{
 				 
 				 
 		$this->data['lastPatientID'] = $this->patient_model->lastPatientID();
+		$this->data['preassesNoList'] = $this->patient_model->preassesNo();
 		
 		$this->load->view("app/patient/addPatient",$this->data);
 	}
@@ -163,8 +164,16 @@ class Patient extends General{
 				 
 				 
 		$this->data['lastPatientID'] = $this->patient_model->lastPatientID();
+		$this->data['preassesNoList'] = $this->patient_model->preassesNo();
 		
 		$this->load->view("app/patient/addPatients",$this->data);
+	}
+	public function get_preasses_id_data($preasses_id){
+		$this->data['particularData'] = $this->patient_model->get_preasses_id_data($preasses_id);
+		if(!empty($this->data['particularData'])){
+		    echo json_encode($this->data['particularData']);die;
+		//$this->load->view("app/billing/particular_list",$this->data);
+		}
 	}
 	
 	function validate_patient(){

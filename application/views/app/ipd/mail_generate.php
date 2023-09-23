@@ -35,7 +35,7 @@
   <tr>
     <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
 
-    <p>Respected <?php error_reporting(0); echo $patientInfo->rel_name1; ?>,</p>
+    <p>Respected <?php echo $patientInfo->rel_name1; ?>,</p>
 
     <p>Greetings from Team Spero at Aastha!</p>
 

@@ -224,7 +224,7 @@ class Doctor extends General{
 		$preassessment_details = array(
             'preasses_name' => $this->input->post('applicant_name'),
             'preasses_no' => $this->input->post('preasses_no'),
-            //'preasses_dob' => $this->input->post('applicant_dob'),
+            'birthday' => $this->input->post('applicant_dob'),
             'preasses_age' => $this->input->post('applicant_age'),
             'preasses_gender' => $this->input->post('applicant_gender'),
             'preasses_religion' => $this->input->post('applicant_religion'),
@@ -285,6 +285,7 @@ class Doctor extends General{
             'time_up_go_score' => $this->input->post('time_test_score'),
             'chair_stand_score' => $this->input->post('chair_stand_score'),
             'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'),
+            'ptn_eligible' => $this->input->post('ptn_eligible'),
             'added_by' => $this->session->userdata('user_id'),
         	'date_entry'		=>	 date("Y-m-d h:i:s a"));
 		$last_ptn_id = $this->preassessment_model->save_preassessment_details($preassessment_details);
