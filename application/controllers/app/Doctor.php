@@ -213,7 +213,11 @@ class Doctor extends General{
 		
 		$this->load->view('app/doctor/add_preassessment',$this->data);
 	}
+<<<<<<< Updated upstream
 			public function add_preasses()
+=======
+	public function add_preassessment_new()
+>>>>>>> Stashed changes
 	{
 		$this->session->set_userdata(array(
 				 'tab'			=>		'',
@@ -224,7 +228,11 @@ class Doctor extends General{
 
 				 $this->data['lastPreassesID'] = $this->preassessment_model->lastPreassesID();
 		
+<<<<<<< Updated upstream
 		$this->load->view('app/doctor/add_preasses',$this->data);
+=======
+		$this->load->view('app/doctor/add_preassessment_new',$this->data);
+>>>>>>> Stashed changes
 	}
 		public function preassessment_save()
 	{
