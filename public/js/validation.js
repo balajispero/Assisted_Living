@@ -23,3 +23,33 @@ $('.alphaonly').keyup(function() {
 })();*/
     
 /**************** mobile number validation******************/
+
+        /*********************Start Calculate Age**********************/
+          function calAge() {
+        
+            var dob=$("#birthday").val();
+            dob = new Date(dob);
+            var today = new Date();
+            var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+            $('#age').val(age);
+            /*document.getElementById("result").innerHTML =  
+             "Age is: "+ age + "";*/
+          }
+        /*********************End Calculate Age**********************/
+
+        /*********************Show maxdate today in calender**********************/
+         $(function(){
+        var dtToday = new Date();
+    
+        var month = dtToday.getMonth() + 1;// jan=0; feb=1 .......
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear() - 0;
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+        var minDate = year + '-' + month + '-' + day;
+        var maxDate = year + '-' + month + '-' + day;
+        $('#cTo').attr('max', maxDate);
+        }); 
+        /*********************Show maxdate today in calender**********************/

@@ -43,6 +43,7 @@
 
             <?php require_once(APPPATH.'views/include/sidebar.php');?>
 
+
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
@@ -219,7 +220,7 @@
                                                     <tr>
                                                     	<td>Birthday<font color="#FF0000"></font></td>
                                                         <td>
-                                                            <input class="form-control input-sm" name="birthday" id="birthday" type="date" placeholder="Birthday" style="width:150px;">
+                                                            <input class="form-control input-sm" name="birthday" id="birthday" type="date" placeholder="Birthday" onchange = "calAge()" style="width:150px;">
                                                         </td>
                                                     </tr>
                                                     <tr>

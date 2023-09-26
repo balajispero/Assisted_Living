@@ -213,6 +213,19 @@ class Doctor extends General{
 		
 		$this->load->view('app/doctor/add_preassessment',$this->data);
 	}
+			public function add_preasses()
+	{
+		$this->session->set_userdata(array(
+				 'tab'			=>		'',
+				 'module'		=>		'',
+				 'subtab'		=>		'',
+				 'submodule'	=>		''));
+				 $this->data['message'] = $this->session->flashdata('message');
+
+				 $this->data['lastPreassesID'] = $this->preassessment_model->lastPreassesID();
+		
+		$this->load->view('app/doctor/add_preasses',$this->data);
+	}
 		public function preassessment_save()
 	{
 	   

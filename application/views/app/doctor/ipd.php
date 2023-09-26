@@ -171,21 +171,23 @@
          <!-- BDAY -->
          <script src="<?php echo base_url();?>public/datepicker/js/jquery-1.9.1.min.js"></script>
         <script src="<?php echo base_url();?>public/datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="<?php echo base_url();?>public/js/validation.js"></script>
         <script type="text/javascript">
             // When the document is ready
-            $(document).ready(function () {
+            /*$(document).ready(function () {
                 
-                /*$('#cFrom').datepicker({
+                $('#cFrom').datepicker({
                     //format: "dd/mm/yyyy"
 					format: "yyyy-mm-dd"
-                }); */ 
+                });  
 				
-				/*$('#cTo').datepicker({
+				$('#cTo').datepicker({
                     //format: "dd/mm/yyyy"
-					format: "yyyy-mm-dd"
-                }); */ 
+					format: "yyyy-mm-dd",
+                    maxDate: "18/02/2023"
+                });  
                 
-            });
+            });*/
         </script>
         <!-- END BDAY -->
         

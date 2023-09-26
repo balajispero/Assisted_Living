@@ -479,6 +479,7 @@ class Ipd extends General{
 		{
 		$this->data['doctor_comments']=$this->input->post('doctor_comments');
 		$to_email=$this->input->post('mail_to');
+		//$to_email="balajidsds@gmail.com";
 		
 		 $this->load->library('email');
 

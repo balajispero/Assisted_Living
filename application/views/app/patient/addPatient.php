@@ -217,7 +217,7 @@
                                                     <tr>
                                                     	<td>Birthday<font color="#FF0000"></font></td>
                                                         <td>
-                                                            <input class="form-control input-sm" name="birthday" id="birthday" type="date" placeholder="Birthday" style="width:150px;">
+                                                            <input class="form-control input-sm" name="birthday" id="birthday" type="date" placeholder="Birthday" onchange = "calAge()" style="width:150px;">
                                                         </td>
                                                     </tr>
                                                     <tr>
