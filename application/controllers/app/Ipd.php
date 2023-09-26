@@ -478,8 +478,8 @@ class Ipd extends General{
 		if(@$_POST['submit']=='sent_mail')
 		{
 		$this->data['doctor_comments']=$this->input->post('doctor_comments');
-		$to_email=$this->input->post('mail_to');
-		//$to_email="balajidsds@gmail.com";
+		//$to_email=$this->input->post('mail_to');
+		$to_email="sameer.speroinfosystems@gmail.com";
 		
 		 $this->load->library('email');
 
