@@ -210,41 +210,43 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Religion</label><span class="text-danger"></span></br>
                                                                             <select name="applicant_religion" id="religion" class="form-control">
-                                                       <option value="">- Religion -</option>
+                                                       <!-- <option value="">- Religion -</option> -->
                                                        
-                                                       <option value="Aglipayan">Aglipayan</option>
+                                                       <!-- <option value="Aglipayan">Aglipayan</option>
                                                   
-                                                       <option value="Ang Dating Daan">Ang Dating Daan</option>
+                                                       <option value="Ang Dating Daan">Ang Dating Daan</option> -->
                                                    
-                                                       <option value="Assemblies of God (Ilocos Norte)">Assemblies of God (Ilocos Norte)</option>
+                                                       <!-- <option value="Assemblies of God (Ilocos Norte)">Assemblies of God (Ilocos Norte)</option>
                                                   
                                                        <option value="Born Again">Born Again</option>
-                                                   
-                                                       <option value="Chinese">Chinese</option>
+                                                    -->
+                                                       <!-- <option value="Chinese">Chinese</option>
                                                   
                                                        <option value="Church of God">Church of God</option>
-                                                  
-                                                       <option value="Church of the Nazarene">Church of the Nazarene</option>
+                                                   -->
+                                                       <!-- <option value="Church of the Nazarene">Church of the Nazarene</option>
                                                  
                                                        <option value="El Shaddai">El Shaddai</option>
                                                  
-                                                       <option value="Evangelical">Evangelical</option>
+                                                       <option value="Evangelical">Evangelical</option> -->
                                                   
-                                                       <option value="Hindu">Hindu</option>
-                                                  
-                                                       <option value="Iglesia ni Cristo">Iglesia ni Cristo</option>
-                                                  
+                                                       
+                                                       <!-- <option value="Iglesia ni Cristo">Iglesia ni Cristo</option>
+                                                       
                                                        <option value="Jehovah's Witnesses">Jehovah's Witnesses</option>
-                                                  
-                                                       <option value="Judaism">Judaism</option>
-                                                 
-                                                       <option value="Muslim">Muslim</option>
+                                                       
+                                                       <option value="Judaism">Judaism</option> -->
+                                                       <option value="Hindu">Hindu</option>
+                                                       
+                                                       <option value="Sikh">Sikh</option>
                                              
-                                                       <option value="Roman Catholic">Roman Catholic</option>
+                                                       <option value="Buddha">Buddha</option>
                                                    
-                                                       <option value="Seventh-Day Adventists">Seventh-Day Adventists</option>
+                                                       <option value="Islam">Islam</option>
                                                    
-                                                       <option value="Unitarian">Unitarian</option>
+                                                       <option value="Christian">Christian</option>
+                                                       <option value="Jain">Jain</option>
+
                                              </select>
 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
@@ -375,7 +377,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     </div><!-- / row -->
                                     <!--End preasses common row structure-->                            
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>    
+                                                                <hr style="border-top: 1px solid rgb(255 193 7);"/>    
 
                                                                 <label>Local Guardian</label>
                                                                 <div class="row">                                          

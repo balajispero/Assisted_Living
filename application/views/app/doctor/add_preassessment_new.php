@@ -6,9 +6,12 @@
  <meta charset="UTF-8">
         <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
  
-  
+        <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
 
  <!-- <meta content="Live Demo Assisted Living,HMS is designed for medical practitioners and health-related institutions to assistant them in storing and keeping track of all correlated information such as patient medical records, admission/discharge reports, pharmaceutical management, billing and report generation and more. " name="description">
  <meta content="free live demo hms,free live demo Assisted Living,live demo,demo,live,Assisted Living live demo,Assisted Living free source codes,source codes,php,mysql,codeigniter,mvc,php frameworks,Assisted Living,hospital,management,system,solution,online demo,demo Assisted Living,live demo,demo trial,trial,hospital solution,clinic management system,clinic solution,management system,system,online management system" name="keywords">
@@ -103,23 +106,18 @@
                     </ol>-->
                 </section>
 <section>
-  <div class="ro">
+  <div class="row">
     <div class="col-12 col-lg-8 ml-auto mr-auto mb-5 ">
       <div class="multisteps-form__progress">
-        <button class="multisteps-form__progress-btn js-active" type="button" ></button>
-        <button class="multisteps-form__progress-btn" type="button" ></button>
-        <button class="multisteps-form__progress-btn" type="button" ></button>
-        <button class="multisteps-form__progress-btn" type="button" ></button>
+        
+        <button class="multisteps-form__progress-btn js-active tab-pills" > <a class="nav-link tab-pills" href="#">1st</a></button>
+        <button class="multisteps-form__progress-btn tab-pills"  > <a class="nav-link tab-pills" href="#">Address Details</a></button>
+        <button class="multisteps-form__progress-btn tab-pills"  > <a class="nav-link tab-pills" href="#">Company Details</a></button>
+        <button class="multisteps-form__progress-btn tab-pills"  > <a class="nav-link tab-pills" href="#">Finish</a></button>
       
-        <button class="multisteps-form__progress-btn" type="button" ></button>
-        <button class="multisteps-form__progress-btn" type="button" ></button>
-        <button class="multisteps-form__progress-btn" type="button" ></button>
-        <button class="multisteps-form__progress-btn" type="button" ></button>
+        <button class="multisteps-form__progress-btn tab-pills"  ></button>
       
-        <button class="multisteps-form__progress-btn" type="button" ></button>
-        <button class="multisteps-form__progress-btn" type="button" ></button>
-        <button class="multisteps-form__progress-btn" type="button" ></button>
-        <button class="multisteps-form__progress-btn" type="button" ></button>
+      
      </div>
     </div>
   </div>
@@ -143,7 +141,11 @@
                           }
                           ?>
                           <input type="hidden" name="userID2" value="<?php echo $userID2;?>">
-    <div class="row">
+   
+   
+   
+      <div id="firstcontainer" class="tab d-none">
+       <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">PERSONAL DETAILS OF APPLICANT</p>
         <div class="row mt-5" >
@@ -157,16 +159,11 @@
             <div class="col-sm-2">Email</div>
           <div class="col-sm-2">
             <input type="email" class="form-control" name="applicant_email"></div>
-            
-
-
-
-          </div>
+             </div>
         </div>
       </div><br>
-
-       
-        <div class="row">
+     
+      <div class="row">
           <div class="col-sm-2" >Date of Birth</div>
           <div class="col-sm-2">
             <input type="date" class="form-control" name="applicant_dob"></div>
@@ -183,6 +180,7 @@
             </select>
            </div> 
       </div><br>
+      
       <div class="row">
           <div class="col-sm-2">Permanent Address</div>
           <div class="col-sm-6">
@@ -230,10 +228,10 @@
                                              </select>
   
             </div> 
-            <!-- <div class="col-sm-2 ">Contact Number</div>
+            <div class="col-sm-2 ">Contact Number</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="applicant_mobile">
-           </div> -->
+           </div>
           
       </div> <br>
           <div class="row">
@@ -266,7 +264,6 @@
 
 
           <hr>
-
 
       <div class="row">
       <div class="col-sm-12">
@@ -340,9 +337,9 @@
             <div class="col-sm-2">Have you appointed a Power of Attorney (POA) and/or Health Care Proxy (HCP)</div>
           <div class="col-sm-2">
             <select name="appointment_poa" class="form-control">
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select></div>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          </select></div>
           </div><br>
           
       <div class="row">
@@ -365,10 +362,17 @@
           </div>
           </div>
           <br>
-          <!-- <button onclick="myFunction()">Next</button> -->
+          <div style="float:right;">
+          <!-- <button class="btn btn-light">Prev</button> -->
+         <!-- <button class=" btn btn-outline-dark" onclick="toggleForm()" style="background-color:#00cccc;"><a href="#secondcontainer" style="color:white; ">Next</a></button> -->
+          </div>
+        </div>
 
-
-          <div class="row">
+        
+<!-- newsection -->
+       <br><br>
+       <div id="secondcontainer" class="tab d-none">
+      <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">TREATING DOCTOR</p>
         </div>
@@ -422,30 +426,8 @@
         </tbody>
       </table>
       </div>
-
-      <!-- <div class="row">
-      <div class="col-sm-12">
-        <p style="font-weight:bold;">ALLERGIES</p>
-        </div>
-      </div><br>
-      <div class="row">
-          <div class="col-sm-2">Drug</div>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" name="drug"></div>
-            <div class="col-sm-2">Food</div>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" name="food"></div>
-            <div class="col-sm-2">Any Other</div>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" name="any_other"></div>
-          </div><br>
-          <div class="row">
-          <div class="col-sm-2">DEWORMING medicine last taken on Date </div>
-          <div class="col-sm-2">
-            <input type="date" class="form-control" name="last_taken_medicine_date"></div>
-          </div>
-         <hr> -->
-    <!-- <div class="row">
+      
+    <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">IMMUNIZATION HISTORY</p>
         </div>
@@ -469,8 +451,17 @@
     </tr>    
   </table>
 </div>
-<hr> -->
-  <!-- <div class="row">
+<br>
+<div style="float:right;">
+<!-- <button class="btn btn-light "><a href="#secondcontainer">Prev</button> -->
+<!-- <button class=" btn btn-outline-dark" onclick="toggleForm()" style="background-color:#00cccc;"><a href="#thirdcontainer" style="color:white; ">Next</a></button> -->
+</div>
+<br><br>
+
+
+<!-- newsection -->
+<div id="thirdcontainer" class="tab d-none">
+  <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">GENERAL EXAMINATION</p>
         </div>
@@ -485,9 +476,9 @@
             <div class="col-sm-2">Ears</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="ears"></div>
-          </div><br> -->
+          </div><br>
          
-  <!-- <div class="row">
+  <div class="row">
           <div class="col-sm-2">Hearing</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="hearing"></div>
@@ -500,8 +491,8 @@
 <div class="col-sm-2">Nose </div> 
           <div class="col-sm-2">
             <input type="text" class="form-control" name="nose"></div>
-      </div><br> -->
-          <!-- <div class="row">
+      </div><br>
+          <div class="row">
           <div class="col-sm-2">Throat</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="throat"></div>
@@ -511,8 +502,8 @@
             <div class="col-sm-2">Vision</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="vision"></div>
-          </div><br> -->
-      <!-- <div class="row">
+          </div><br>
+      <div class="row">
             <div class="col-sm-2">Spectacles</div>
           <div class="col-sm-2">
             <select name="spectacles" class="form-control">
@@ -531,9 +522,9 @@
   <option value="Yes">Yes</option>
   <option value="No">No</option>
 </select></div>  
-      </div><br> -->
+      </div><br>
 
-        <!-- <div class="row">
+        <div class="row">
           <div class="col-sm-2">Oral Exam </div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="oral"></div>
@@ -554,6 +545,7 @@
   <option value="Yes">Yes</option>
   <option value="No">No</option>
 </select></div>
+
 <div class="col-sm-2">Skin</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="skin"></div> 
@@ -568,8 +560,8 @@
             <div class="col-sm-2">Rashes</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="rashes"></div> 
-      </div><br> -->
-      <!-- <div class="row">
+      </div><br>
+      <div class="row">
         <div class="col-sm-2">Bed sore </div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="bed_sore"></div> 
@@ -579,9 +571,9 @@
             <div class="col-sm-2">DVT</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="dvt"></div>
-      </div><br> -->
+      </div><br>
 
-      <!-- <div class="row">
+      <div class="row">
           <div class="col-sm-2">Varicose Veins </div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="varicose_veins"></div>
@@ -589,12 +581,14 @@
           <div class="col-sm-2">
             <input type="text" class="form-control" name="foot"></div>
           </div>
-          <hr> -->
-          <!-- <div class="row">
+          <hr>
+
+          <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">PERSONAL HISTORY </p>
         </div>
       </div><br>
+
           <div class="row">
           <div class="col-sm-2">Diet</div> 
           <div class="col-sm-2">
@@ -610,13 +604,13 @@
           <div class="col-sm-2">Does the patient is recommended physiotherapy or rehabilitation services? </div>
           <div class="col-sm-2">
             <select name="physiotherapy" class="form-control">
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select></div>
-                        </div>
-                        <hr> -->
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          </select></div>
+          </div>
+                        <hr>
 
-      <!-- <div class="row">
+      <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">PHYSICAL EXAMINATION </p>
         </div>
@@ -645,60 +639,69 @@
           <div class="col-sm-2">
             <input type="text" class="form-control" name="spo2"></div>
           </div>
-          <hr> -->
 
-          <!-- <div class="row">
+          <br>
+          <div style="float:right;">
+          <button class="btn btn-light"><a href="#thirdcontainer">Prev</a></button>
+          <button class=" btn btn-outline-dark" onclick="toggleForm()" style="background-color:#00cccc"><a href="#fourthcontainer" style="color:white; ">Next</button>
+          </div>
+         <br><br>
+
+
+<!-- newsection -->
+<div id="fourthcontainer" class="tab d-none">
+          <div class="row">
       <div class="col-sm-12">
-        <p style="font-weight:bold;">SYSTEMIC EXAMINATION</p>
+        <p style="font-weight:bold; color:black;">SYSTEMIC EXAMINATION</p>
         </div>
       </div><br>
       <div class="row">
-          <div class="col-sm-2">Respiratory System</div>
+          <div class="col-sm-2" style="color:black;">Respiratory System</div>
           <div class="col-sm-2">
             <textarea name="respirate_sys" class="form-control"></textarea></div>
-            <div class="col-sm-2">Cardiovascular system</div>
+            <div class="col-sm-2" style="color:black;">Cardiovascular system</div>
           <div class="col-sm-2">
             <textarea name="cardiovascular_sys" class="form-control"></textarea></div>
-            <div class="col-sm-2">Gastrointestinal System</div>
+            <div class="col-sm-2" style="color:black;">Gastrointestinal System</div>
           <div class="col-sm-2">
             <textarea name="gastrointestinal_sys" class="form-control"></textarea></div>
           </div><br>
           <div class="row">
-          <div class="col-sm-2">Genito Urinary System</div>
+          <div class="col-sm-2" style="color:black;">Genito Urinary System</div>
           <div class="col-sm-2">
             <textarea name="genito_urinary_sys" class="form-control"></textarea></div>
-            <div class="col-sm-2">Neurological System</div>
+            <div class="col-sm-2" style="color:black;">Neurological System</div>
           <div class="col-sm-2">
             <textarea name="neurological_sys" class="form-control"></textarea></div>
-            <div class="col-sm-2">Musculoskeletal system</div>
+            <div class="col-sm-2" style="color:black;">Musculoskeletal system</div>
           <div class="col-sm-2">
             <textarea name="musculoskeletal_sys" class="form-control"></textarea></div>
           </div>
-          <hr> -->
-                    <!-- <div class="row">
+          <hr>
+                    <div class="row">
       <div class="col-sm-12">
-        <p style="font-weight:bold;">PSYCHOLOGICAL & BEHAVIOURAL CONDITION</p>
+        <p style="font-weight:bold;" style="color:black;">PSYCHOLOGICAL & BEHAVIOURAL CONDITION</p>
         </div>
       </div><br>
       <div class="row">
-          <div class="col-sm-2">Agitation & or Aggression </div>
+          <div class="col-sm-2"style="color:black;">Agitation & or Aggression </div>
           <div class="col-sm-2">
             <select name="aggression" class="form-control">
   <option value="NA">NA</option>
-  <option value="Occasionally">Occasionally</option>
-  <option value="Frequent">Frequent</option>
-  <option value="Always">Always</option>
+  <option value="Occasionally" style="color:black;">Occasionally</option>
+  <option value="Frequent" style="color:black;">Frequent</option>
+  <option value="Always" style="color:black;">Always</option>
 </select></div>
-<div class="col-sm-2">Violence</div>
+<div class="col-sm-2" style="color:black;">Violence</div>
           <div class="col-sm-2">
             <select name="Violence" class="form-control">
-  <option value="No">No</option>
+  <option value="No" >No</option>
   <option value="May Self Inflict">May Self Inflict</option>
   <option value="Verbally Abusive">Verbally Abusive</option>
   <option value="Physically Abusive">Physically Abusive</option>
   <option value="Has Suicidal Ideation">Has Suicidal Ideation</option>
 </select></div>
-<div class="col-sm-2">Need of Bed Restrain</div>
+<div class="col-sm-2" style="color:black;">Need of Bed Restrain</div>
           <div class="col-sm-2">
             <select name="bed_restrain" class="form-control">
   <option value="No">No</option>
@@ -706,10 +709,10 @@
   <option value="Occasionally">Occasionally</option>
   <option value="Permanent">Permanent</option>
 </select></div>
-          </div><br> -->
+          </div><br>
 
-          <!-- <div class="row">
-          <div class="col-sm-2">Wandering</div>
+          <div class="row">
+          <div class="col-sm-2" style="color:black;">Wandering</div>
           <div class="col-sm-2">
             <select name="wandering" class="form-control">
   <option value="No">No</option>
@@ -718,7 +721,7 @@
   <option value="Day Time">Day Time</option>
   <option value="Night Time">Night Time</option>
 </select></div>
-<div class="col-sm-2">Sleep </div>
+<div class="col-sm-2" style="color:black;">Sleep </div>
           <div class="col-sm-2">
             <select name="sleep" class="form-control">
   <option value="Able to sleep">Able to sleep</option>
@@ -726,109 +729,117 @@
   <option value="Required sedation">Required sedation</option>
   <option value="Chronic sleep issues">Chronic sleep issues</option>
 </select></div>
-<div class="col-sm-2">Inappropriate Behaviour with Care Giver </div>
+<div class="col-sm-2" style="color:black;">Inappropriate Behaviour with Care Giver </div>
           <div class="col-sm-2">
             <select name="giver_care" class="form-control">
   <option value="NA">NA</option>
   <option value="Occasionally">Occasionally</option>
   <option value="Always">Always</option>
 </select></div>
-          </div><br> -->
-          <!-- <div class="row">
-          <div class="col-sm-2">Diagnostic Tests</div>
+          </div><br>
+          <div class="row">
+          <div class="col-sm-2" style="color:black;">Diagnostic Tests</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="diagnostic_test"></div>
-            <div class="col-sm-2">TYPICAL DAY OF APPLICANT</div>
+            <div class="col-sm-2" style="color:black;">TYPICAL DAY OF APPLICANT</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="typical_day_appl"></div>
-            <div class="col-sm-2">Total no. of error</div>
+            <div class="col-sm-2" style="color:black;">Total no. of error</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="total_no_error"></div>
           </div>
-          <hr> -->
+          <hr>
 
 
 
-          <!-- <div class="row">
+          <div class="row">
       <div class="col-sm-12">
-        <p style="font-weight:bold;">CLOCK DRAWING TEST</p>
+        <p style="font-weight:bold; color:black;">CLOCK DRAWING TEST</p>
         </div>
       </div><br>
       <div class="row">
-          <div class="col-sm-2">Score</div>
+          <div class="col-sm-2" style="color:black;">Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="clock_score"></div>
-            <div class="col-sm-2">Remark</div>
+            <div class="col-sm-2" style="color:black;">Remark</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="clock_remark"></div>
           </div>
-          <hr> -->
+          <hr>
 
-          <!-- <div class="row">
+          <div class="row">
       <div class="col-sm-12">
-        <p style="font-weight:bold;">GERIATRIC DEPRESSION SCALE</p>
+        <p style="font-weight:bold; color:black;">GERIATRIC DEPRESSION SCALE</p>
         </div>
       </div><br>
       <div class="row">
-          <div class="col-sm-2">Score</div>
+          <div class="col-sm-2" style="color:black;">Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="geriatric_score"></div>
-            <div class="col-sm-2">Remark</div>
+            <div class="col-sm-2" style="color:black;">Remark</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="geriatric_remark"></div>
           </div>
-          <hr> -->
+          <hr>
 
-          <!-- <div class="row">
+          <div class="row">
       <div class="col-sm-12">
-        <p style="font-weight:bold;">BARTHEL INDEX</p>
+        <p style="font-weight:bold; color:black;">BARTHEL INDEX</p>
         </div>
-      </div><br> -->
-      <!-- <div class="row">
-          <div class="col-sm-2">Bowels Score</div>
+      </div><br>
+      <div class="row">
+          <div class="col-sm-2" style="color:black;">Bowels Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control numberonly" name="bowels_score" id="bowels_score" onkeyup="barthelFunc()"></div>
-            <div class="col-sm-2">Bladder Score</div>
+            <div class="col-sm-2" style="color:black;">Bladder Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control numberonly" name="bladder_score" id="bladder_score" onkeyup="barthelFunc()"></div>
-            <div class="col-sm-2">Toilet Score</div>
+            <div class="col-sm-2" style="color:black;">Toilet Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control numberonly" name="toilet_score" onkeyup="barthelFunc()" id="toilet_score"></div>
           </div><br>
           <div class="row">
-            <div class="col-sm-2">Bathing Score</div>
+            <div class="col-sm-2" style="color:black;">Bathing Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control numberonly" name="bathing_score" onkeyup="barthelFunc()" id="bathing_score"></div>
-            <div class="col-sm-2">Grooming Score</div>
+            <div class="col-sm-2" style="color:black;">Grooming Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control numberonly" name="grooming_score" onkeyup="barthelFunc()" id="grooming_score"></div>
-            <div class="col-sm-2">Dressing Score</div>
+            <div class="col-sm-2" style="color:black;">Dressing Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control numberonly" name="dressing_score" onkeyup="barthelFunc()" id="dressing_score"></div>
-          </div><br> -->
+          </div><br>
 
-          <!-- <div class="row">
-          <div class="col-sm-2">Feeding Score</div>
+          <div class="row">
+          <div class="col-sm-2" style="color:black;">Feeding Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control numberonly" name="feeding_score" onkeyup="barthelFunc()" id="feeding_score"></div>
-            <div class="col-sm-2">Transfer Score</div>
+            <div class="col-sm-2" style="color:black;">Transfer Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control numberonly" name="transfer_score" onkeyup="barthelFunc()" id="transfer_score"></div>
-            <div class="col-sm-2">Mobility Score</div>
+            <div class="col-sm-2" style="color:black;">Mobility Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control numberonly" name="mobility_score" onkeyup="barthelFunc()" id="mobility_score"></div>
           </div><br>
           <div class="row">
-          <div class="col-sm-2">Stairs Score</div>
+          <div class="col-sm-2" style="color:black;">Stairs Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control numberonly" name="stairs_score" onkeyup="barthelFunc()" id="stairs_score"></div>
-            <div class="col-sm-2">Total Score</div>
+            <div class="col-sm-2" style="color:black;">Total Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="barthel_total_score" id="barthel_total_score"></div>
           </div>
-          <hr> -->
 
-          <!-- <div class="row">
+          <br>
+          <div style="float:right;">
+          <button class="btn btn-light"><a href="#fourthcontainer" >Prev</a></button>
+          <button class=" btn btn-primary" onclick="toggleForm()" style="background-color:#00cccc;"><a  href="#fifthcontainer" style="color:white; ">Next</a></button>
+          </div>
+         <br><br>
+
+<!-- newsection -->
+<div id="fifthcontainer" tab d-none>
+          <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">Fall Risk Assessment</p>
         </div>
@@ -881,9 +892,9 @@
         </tr>    
       </table>
     </div>
-    <hr> -->
+    <hr>
 
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">TIME UP AND GO TEST</p>
         </div>
@@ -898,9 +909,9 @@
         <p>30 Second Chair Stand Test</p>
         </div>
       </div>
-      <hr> -->
+      <hr>
 
-      <!-- <div class="row">
+      <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;"> Chair Stand Below Average Scores</p>
         </div>
@@ -932,26 +943,27 @@
           <td>90-94</td><td>&lt;7</td><td>&lt;4</td>
         </tr>
       </table>
-    </div><hr> -->
+    </div><hr>
 
-      <!-- <div class="row">
+      <div class="row">
           <div class="col-sm-2" style="font-weight:bold;">Score</div>
           <div class="col-sm-2">
             <input type="text" class="form-control" name="chair_stand_score"></div>
-          </div><br> -->
+          </div><br>
 
-          <input type="submit" class="btn btn-primary" name="submit" value="submit">
+          <input type="submit" class="btn btn-outline-primary" name="submit" value="submit" style="backgroundcolor:#00cccc;">
+          <button type="button" id="back_button" class="btn btn-link" onclick="back()">Back</button>
+          <button type="button" id="next_button" class="btn btn-primary ms-auto" onclick="next()">Next</button>
       </form>
-      <div class="btn-container">
-            <button class="pre" onclick="previous()">Previous</button>
-            <button class="next" onclick="next()">Next</button>
-        </div>
+     
   </section>
 
 
 
-            </aside><!-- /.right-side -->
-        </div><!-- ./wrapper -->
+         </aside>
+            <!-- /.right-side -->
+        </div>
+        <!-- ./wrapper -->
   
         
          <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
@@ -973,6 +985,7 @@
                 });
             });
          </script>
+         
          <script>
 
           function barthelFunc() {
@@ -1009,41 +1022,54 @@
             i--;
             children[i].classList.add('selected')
         }
-
+       
      </script>
 
-     <script>
-       let col = document.querySelector('row').col;
-        let i = 0;
+     <!-- <script type="text/javascript">
+     funtion toggleForm()
+     {
+      $("#firstcontainer").toggle();
+      $("#secondcontainer").toggle();
+      $("#thirdcontainer").toggle();
+      $("#fourthcontainer").toggle();
+      $("#fifthcontainer").toggle();
+     }
+    </script> -->
+    <script>
+      var current = 0;
+var tabs = $(".tab");
+var tabs_pill = $(".tab-pills");
 
-        childre[i].classList.add('selected');// Item default selection
+loadFormData(current);
 
-        function resetClass() {
-            for (let j = 0; j < children.length; j++) {
-                children[j].classList.remove('selected');
-            }
-        }
+function loadFormData(n) {
+  $(tabs_pill[n]).addClass("active");
+  $(tabs[n]).removeClass("d-none");
+  $("#back_button").attr("disabled", n == 0 ? true : false);
+  n == tabs.length - 1
+    ? $("#next_button").text("Submit").removeAttr("onclick")
+    : $("#next_button")
+        .attr("type", "button")
+        .text("Next")
+        .attr("onclick", "next()");
+}
 
-        function next() {
-            if (i >= children.length - 1) {
-                return false;
-            }
-            resetClass();
-            i++;
-            children[i].classList.add('selected')
-        }
+function next() {
+  $(tabs[current]).addClass("d-none");
+  $(tabs_pill[current]).removeClass("active");
 
-        function previous() {
-            if (i <= 0) {
-                return false;
-            }
-            resetClass();
-            i--;
-            children[i].classList.add('selected')
-        }
+  current++;
+  loadFormData(current);
+}
 
-    
-     </script>
-         
-    </body>
+function back() {
+  $(tabs[current]).addClass("d-none");
+  $(tabs_pill[current]).removeClass("active");
+
+  current--;
+  loadFormData(current);
+}
+
+    </script>
+        </body>
 </html>

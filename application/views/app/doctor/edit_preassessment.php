@@ -211,7 +211,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Religion</label><span class="text-danger"></span></br>
                                                                             <select name="applicant_religion" id="religion" class="form-control">
-                                                       <option value="">- Religion -</option>
+                                                       <!-- <option value="">- Religion -</option>
                                                        
                                                        <option value="Aglipayan">Aglipayan</option>
                                                   
@@ -245,7 +245,20 @@
                                                    
                                                        <option value="Seventh-Day Adventists">Seventh-Day Adventists</option>
                                                    
-                                                       <option value="Unitarian">Unitarian</option>
+                                                       <option value="Unitarian">Unitarian</option> -->
+
+                                                       <option value="Hindu">Hindu</option>
+                                                       
+                                                       <option value="Sikh">Sikh</option>
+                                             
+                                                       <option value="Buddha">Buddha</option>
+                                                   
+                                                       <option value="Islam">Islam</option>
+                                                   
+                                                       <option value="Christian">Christian</option>
+                                                       
+                                                       <option value="Jain">Jain</option>
+
                                              </select>
 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
