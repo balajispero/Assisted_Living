@@ -311,6 +311,8 @@ class Doctor extends General{
             'time_up_go_score' => $this->input->post('time_test_score'),
             'chair_stand_score' => $this->input->post('chair_stand_score'),
             'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'),
+            'doctor_observation' => $this->input->post('doctor_observation'),
+            'recommendation' => $this->input->post('recommendation'),
             'ptn_eligible' => $this->input->post('ptn_eligible'),
             'added_by' => $this->session->userdata('user_id'),
         	'date_entry'		=>	 date("Y-m-d h:i:s a"));
@@ -353,7 +355,7 @@ class Doctor extends General{
             'tdoctor_mobile' => $this->input->post('doctor_mobile'),
             'tdoctor_email' => $this->input->post('doctor_email'),
             'hospital_name' => $this->input->post('hospital_name'),
-            'diagnosis' => $this->input->post('diagnosis'),
+            'diagnosis' => @implode(",",$this->input->post('diagnosis')),
             'present_complaints' => $this->input->post('present_complaints'),
             'past_history' => $this->input->post('past_history'),
             'preasses_no' => $this->input->post('preasses_no'),
@@ -427,6 +429,7 @@ class Doctor extends General{
 
 		for($qtn=1;$qtn<=13;$qtn++)
 		{
+
 			if($qtn=='1')
 			{
 				$qtn_ans_details = array(
@@ -650,10 +653,10 @@ class Doctor extends General{
 		$this->data['preasses_medicine'] = $this->preassessment_model->get_preassessment_medicine($id);
 		$this->data['preasses_immunization_his'] = $this->preassessment_model->get_preassessment_immunization_his($id);
 		$this->data['preasses_fallrisk_quest'] = $this->preassessment_model->get_preassessment_fallrisk_quest($id);
-		/*echo "<pre>";
-		print_r($this->data['patientInfo']);die;*/
+		
 		$this->load->view('app/doctor/edit_preassessment',$this->data);
 	}
+	
 			public function preassessment_update()
 	{
 	   
@@ -725,6 +728,9 @@ class Doctor extends General{
             'time_up_go_score' => $this->input->post('time_test_score'),
             'chair_stand_score' => $this->input->post('chair_stand_score'),
             'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'),
+            'doctor_observation' => $this->input->post('doctor_observation'),
+            'recommendation' => $this->input->post('recommendation'),
+            'ptn_eligible' => $this->input->post('ptn_eligible'),
             'updated_by' => $this->session->userdata('user_id'),
         	'updated_date'		=>	 date("Y-m-d h:i:s a"));
 		$update_ptn = $this->preassessment_model->update_preassessment_details($preassessment_details);
@@ -764,14 +770,14 @@ class Doctor extends General{
             'tdoctor_mobile' => $this->input->post('doctor_mobile'),
             'tdoctor_email' => $this->input->post('doctor_email'),
             'hospital_name' => $this->input->post('hospital_name'),
-            'diagnosis' => $this->input->post('diagnosis'),
+            'diagnosis' => @implode(",",$this->input->post('diagnosis')),
             'present_complaints' => $this->input->post('present_complaints'),
             'past_history' => $this->input->post('past_history'),
             'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $this->input->post('id'));
 		$this->preassessment_model->update_treating_doctor_details($treating_doctor_details);
 
-		/*if(!empty($medicine_name))
+		if(!empty($medicine_name))
 		{
 			$this->db->delete('preassessment_medicines',array('preasses_id'=>$this->input->post('id')));
 		foreach ($medicine_name as $i => $a) { // need index to match other properties
@@ -780,12 +786,13 @@ class Doctor extends General{
 					'dose' => isset($dose[$i]) ? $dose[$i] : '',
 					'frequency' => isset($frequency[$i]) ? $frequency[$i] : '',
 					'duration' => isset($duration[$i]) ? $duration[$i] : '',
+					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $this->input->post('id')
 				);
 				
 				$this->preassessment_model->save_med_details($ptn_med); 
 			}
-		}*/
+		}
 
 		$psychological_cond_details = array(
             'aggression' => $this->input->post('aggression'),
@@ -818,7 +825,7 @@ class Doctor extends General{
     	    'preasses_id' => $this->input->post('id'));
 		$this->preassessment_model->update_barthel_details($barthel_details);
 
-		$questions = $this->input->post('questions', true);
+		/*$questions = $this->input->post('questions', true);
 		$answer = $this->input->post('answer', true);
 	    $fallrisk_id = $this->input->post('fallrisk_id', true);
 
@@ -834,7 +841,7 @@ class Doctor extends General{
 				
 				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$i]);
 			}
-		}
+		}*/
 
 		for($vac=1;$vac<=4;$vac++)
 		{
@@ -885,7 +892,7 @@ class Doctor extends General{
 		}
 	}
 	 $this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Preassessment details updated successfully!</div>");
-	redirect(base_url('app/doctor/add_preassessment'));
+	redirect(base_url('app/doctor/preassessment_list'));
 	}
 	}
 	

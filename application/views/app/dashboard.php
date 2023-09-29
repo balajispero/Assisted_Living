@@ -125,6 +125,8 @@
                                             <th>Member Name</th>
                                             <th>Entry Date</th>
                                             <th>Consultant Doctor</th>
+                                            <th>Room Type</th>
+                                            <th>Floor</th>
                                             <th>Room Allocated</th>
                                             <th>Allocated Bed</th>
                                             <th>Status</th>
@@ -150,6 +152,12 @@
                                            <td><?php if (($getTodayAppointment->category_name) == null){
                                            echo "NA";}else{
                                            echo $getTodayAppointment->category_name;}?></td>
+                                           <td><?php if (($getTodayAppointment->floor) == null){
+                                           echo "NA";}else{
+                                           echo $getTodayAppointment->floor;}?></td>
+                                           <td><?php if (($getTodayAppointment->room_name) == null){
+                                           echo "NA";}else{
+                                           echo $getTodayAppointment->room_name;}?></td>
                                            <td><?php if(($getTodayAppointment->bed_name) == null){
                                            echo "NA";}else{
                                            echo $getTodayAppointment->bed_name;}?></td>

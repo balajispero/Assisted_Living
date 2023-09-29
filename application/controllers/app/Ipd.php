@@ -1792,6 +1792,7 @@ class Ipd extends General{
 	}
 	
 		public function save_laboratory(){
+			$patient_no = $this->uri->segment("5");
 		$this->data = array(
 				'iop_id'				=>		$this->input->post('opd_no'),
 				'dDate'					=>		$this->input->post('dDate'),
@@ -1802,6 +1803,8 @@ class Ipd extends General{
 				'findings'				=>		!empty($this->input->post('findings')) ? $this->input->post('findings') : '',
 				'result'				=>		!empty($this->input->post('results')) ? $this->input->post('results') : '',
 				'doctor'				=>		$this->input->post('doctor'),
+				'patient_no'				=>		$patient_no,
+				'added_by'				=>		$this->session->userdata('user_id'),
 				'InActive'				=>		0
 			);
 			$this->db->insert('iop_laboratory',$this->data);

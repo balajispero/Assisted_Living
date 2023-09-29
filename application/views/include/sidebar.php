@@ -615,7 +615,7 @@ xmlhttp.send();
            
         </div>
         <!-- /.modal-content -->
-    </div>
+    </div>  
  </div>
  </form>
     <!-- /.modal-dialog -->

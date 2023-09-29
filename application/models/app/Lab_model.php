@@ -127,6 +127,28 @@ class Lab_model extends CI_Model{
 		$query = $this->db->get("iop_laboratory A");
 		return $query->result();
 	}
+	public function get_ptn_name_by_iop_no($room_id){
+		$this->db->select("
+			A.room_bed_id,
+			A.bed_name,
+			C.patient_no,
+			B.IO_ID,
+			concat(D.cValue,' ',C.firstname,' ',C.lastname) as patient,
+			B.date_visit,
+			B.time_visit,
+			A.nStatus
+		",false);
+		$this->db->where(array(
+			'A.room_master_id'		=>		$room_id,
+			'A.InActive'			=>		'0'
+		));
+		$this->db->join("patient_details_iop B","B.IO_ID = A.patient_no","left outer");
+		$this->db->join("patient_personal_info C","C.patient_no = B.patient_no","left outer");
+		//$this->db->join("system_parameters D","D.param_id = C.title","left outer");
+		$this->db->order_by("A.bed_name","ASC");
+		$query = $this->db->get("patient_personal_info A");
+		return $query->result();
+	}
 		
 	
 }
