@@ -20,8 +20,9 @@ class Lab_model extends CI_Model{
 		}
 		
 		$this->db->select("
-		    A.io_lab_id,
-		    A.iop_id,
+			A.io_lab_id,
+			A.iop_id,
+			A.patient_no,
 			A.laboratory_id,
 			A.doctor,
 			A.dDate,
@@ -33,12 +34,12 @@ class Lab_model extends CI_Model{
 		/*if($this->session->userdata('user_role') == 5)
 		{*/
 			$where = "(
-				A.iop_id like '%".$this->input->post('search')."%' or 
-				A.laboratory_id like '%".$this->input->post('search')."%'
-				) 
-				and A.dDate between '".$cFrom."' and '".$cTo."'
-				and A.category_id=7
-				and A.InActive = 0";
+			A.iop_id like '%".$this->input->post('search')."%' or 
+			A.laboratory_id like '%".$this->input->post('search')."%'
+			) 
+			and A.dDate between '".$cFrom."' and '".$cTo."'
+			and A.category_id=7
+			and A.InActive = 0";
 
 		/*}else{
 				$where = "(
@@ -49,48 +50,47 @@ class Lab_model extends CI_Model{
 				and A.added_by='".$this->session->userdata('user_id')."'
 				and A.InActive = 0";
 			}*/
-		
-		$this->db->where($where);
-		//$this->db->order_by('A.preasses_id','desc');
-		//$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
-		$query = $this->db->get("iop_laboratory A", $limit, $offset);
+
+			$this->db->where($where);
+		$this->db->order_by('A.dDate','desc');
+			$query = $this->db->get("iop_laboratory A", $limit, $offset);
 		//echo $this->db->last_query(); die;
-		return $query->result();
-	}
+			return $query->result();
+		}
 
-	public function count_all_lab_sample_test(){
-		if($this->input->post('cFrom') == ""){
-			$cFrom ="";	
-		}else{	
-			$cFrom = $this->input->post('cFrom');
-		}
-		
-		if($this->input->post('cTo') == ""){
-			$cTo = date("Y-m-d");
-		}else{	
-			$cTo = $this->input->post('cTo');
-		}
-		
-		$this->db->select("
-		    A.io_lab_id,
-		    A.iop_id,
-			A.laboratory_id,
-			A.doctor,
-			A.dDate,
-			A.doctor,
-			A.doctor,
-			A.doctor
-			",false);
-		
+		public function count_all_lab_sample_test(){
+			if($this->input->post('cFrom') == ""){
+				$cFrom ="";	
+			}else{	
+				$cFrom = $this->input->post('cFrom');
+			}
+
+			if($this->input->post('cTo') == ""){
+				$cTo = date("Y-m-d");
+			}else{	
+				$cTo = $this->input->post('cTo');
+			}
+
+			$this->db->select("
+				A.io_lab_id,
+				A.iop_id,
+				A.laboratory_id,
+				A.doctor,
+				A.dDate,
+				A.doctor,
+				A.doctor,
+				A.doctor
+				",false);
+
 		/*if($this->session->userdata('user_role') == 5)
 		{*/
 			$where = "(
-				A.iop_id like '%".$this->input->post('search')."%' or 
-				A.laboratory_id like '%".$this->input->post('search')."%'
-				) 
-				and A.dDate between '".$cFrom."' and '".$cTo."'
-				and A.category_id=7
-				and A.InActive = 0";
+			A.iop_id like '%".$this->input->post('search')."%' or 
+			A.laboratory_id like '%".$this->input->post('search')."%'
+			) 
+			and A.dDate between '".$cFrom."' and '".$cTo."'
+			and A.category_id=7
+			and A.InActive = 0";
 
 		/*}else{
 				$where = "(
@@ -101,54 +101,50 @@ class Lab_model extends CI_Model{
 				and A.added_by='".$this->session->userdata('user_id')."'
 				and A.InActive = 0";
 			}*/
-		
-		$this->db->where($where);
-		//$this->db->order_by('A.preasses_id','desc');
-		//$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
-		$query = $this->db->get("iop_laboratory A");
-		return $query->num_rows();
-	}
+
+			$this->db->where($where);
+		$this->db->order_by('A.dDate','desc');
+			$query = $this->db->get("iop_laboratory A");
+			return $query->num_rows();
+		}
 		public function get_lab_sample_test_single($id){
-		
-		$this->db->select("
-		    A.io_lab_id,
-		    A.iop_id,
-			A.laboratory_id,
-			A.doctor,
-			A.dDate,
-			A.lab_test_name,
-			A.lab_test_reports,
-			A.doctor
-			",false);
-		
-		$this->db->where(array('A.InActive'=>0,'A.category_id'=>7,'A.io_lab_id'=>$id));
+
+			$this->db->select("
+				A.io_lab_id,
+				A.iop_id,
+				A.laboratory_id,
+				A.doctor,
+				A.dDate,
+				A.lab_test_name,
+				A.lab_test_reports,
+				A.doctor
+				",false);
+
+			$this->db->where(array('A.InActive'=>0,'A.category_id'=>7,'A.io_lab_id'=>$id));
 		//$this->db->order_by('A.preasses_id','desc');
-		//$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
-		$query = $this->db->get("iop_laboratory A");
-		return $query->result();
-	}
-	public function get_ptn_name_by_iop_no($room_id){
-		$this->db->select("
-			A.room_bed_id,
-			A.bed_name,
-			C.patient_no,
-			B.IO_ID,
-			concat(D.cValue,' ',C.firstname,' ',C.lastname) as patient,
-			B.date_visit,
-			B.time_visit,
-			A.nStatus
-		",false);
-		$this->db->where(array(
-			'A.room_master_id'		=>		$room_id,
-			'A.InActive'			=>		'0'
-		));
-		$this->db->join("patient_details_iop B","B.IO_ID = A.patient_no","left outer");
-		$this->db->join("patient_personal_info C","C.patient_no = B.patient_no","left outer");
-		//$this->db->join("system_parameters D","D.param_id = C.title","left outer");
-		$this->db->order_by("A.bed_name","ASC");
-		$query = $this->db->get("patient_personal_info A");
-		return $query->result();
-	}
+			$query = $this->db->get("iop_laboratory A");
+			return $query->result();
+		}
+		public function get_ptn_name_by_patient_no($patient_no){
+			$this->db->select("
+				A.patient_no,
+				A.middlename,
+				B.IO_ID,
+				A.InActive
+				",false);
+			$this->db->where(array(
+				'A.patient_no'		=>		$patient_no,
+				'A.InActive'			=>		'0'
+			));
+			$this->db->join("patient_details_iop B","B.patient_no = A.patient_no","left outer");
+		//$this->db->order_by("A.bed_name","ASC");
+			$query = $this->db->get("patient_personal_info A");
+			return $query->result();
+		}
+		public function getPreparedByDoctor($user_id){
+			$query = $this->db->query("SELECT concat(A.firstname,' ',A.middlename,' ',A.lastname) as cPreparedBy FROM `users` A WHERE `A`.`user_id` = $user_id");
+			return $query->row();
+		}
 		
-	
-}
+
+	}
