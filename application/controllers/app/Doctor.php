@@ -1155,8 +1155,27 @@ class Doctor extends General{
 		$this->load->view('app/doctor/ipd',$this->data);	
 	}
 	
-	public function preassessment_report()
+	public function preassessment_report($id=0)
 	{
-		$this->load->view('app/doctor/preassessment_report');
+		//$this->data['message'] = $this->session->flashdata('message');
+
+		$this->data['patientInfo'] = $this->preassessment_model->get_preassesment($id);
+		$this->data['preasses_medicine'] = $this->preassessment_model->get_preassessment_medicine($id);
+		$this->data['preasses_immunization_his'] = $this->preassessment_model->get_preassessment_immunization_his($id);
+		$this->data['preasses_fallrisk_quest'] = $this->preassessment_model->get_preassessment_fallrisk_quest($id);
+		
+		//$this->load->view('app/doctor/preassessment_report',$this->data);
+
+		$dompdf = new Dompdf();
+            $dompdf->set_option('isRemoteEnabled',TRUE);
+            $canvas=$dompdf->get_canvas();
+            //$this->load->view('app/doctor/preassessment_report',$this->data);
+            $html = $this->load->view('app/doctor/preassessment_report',$this->data,true);
+
+            $dompdf->loadHtml($html);
+            // Render the HTML as PDF
+            $dompdf->render();
+            // Output the generated PDF to Browser
+            $dompdf->stream('preassessment_report.pdf',array("Attachment" => 0));
 	}
 }

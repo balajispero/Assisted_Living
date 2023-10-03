@@ -60,7 +60,7 @@ input[type=text]:hover{
             <label class=" col-form-label"> Preassessment No. :</label>
             </div>
             <div class="col-9">
-            <input type="text" class="form-control" >
+            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->preasses_no;?>">
             </div>
 
         </div>
