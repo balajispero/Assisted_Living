@@ -2,6 +2,8 @@
 <html>
     <head>
      <link rel="stylesheet" href="<?php echo base_url()?>public/css/custom.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+   
 <head>
  <meta charset="UTF-8">
         <title>Assisted Living</title>
@@ -30,7 +32,7 @@
         <link href="<?php echo base_url();?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
-        
+        <link rel="stylesheet" href="<?php echo base_url()?>public/css/custom.css">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -105,20 +107,18 @@
                         <li class="active">Blank page</li>
                     </ol>-->
                 </section>
+
+    
 <section>
   <div class="row">
-    <div class="col-12 col-lg-8 ml-auto mr-auto mb-5 ">
-      <div class="multisteps-form__progress">
-        
-        <button class="multisteps-form__progress-btn js-active tab-pills" > <a class="nav-link tab-pills" href="#">1st</a></button>
-        <button class="multisteps-form__progress-btn tab-pills"  > <a class="nav-link tab-pills" href="#">Address Details</a></button>
-        <button class="multisteps-form__progress-btn tab-pills"  > <a class="nav-link tab-pills" href="#">Company Details</a></button>
-        <button class="multisteps-form__progress-btn tab-pills"  > <a class="nav-link tab-pills" href="#">Finish</a></button>
-      
-        <button class="multisteps-form__progress-btn tab-pills"  ></button>
-      
-      
-     </div>
+    <div class="col-12 col-lg-8 ml-auto mr-auto mb-5 mt-5 ml-5">
+      <ul id="progressbar">
+        <li id="point1" class="active"><strong>1st</strong></li>
+        <li id="point2"><strong>2nd</strong></li>
+        <li id="point3"><strong>3rd</strong></li>
+        <li id="point4"><strong>4th</strong></li>
+        <li id="point5"><strong>5th</strong></li>
+    </ul>
     </div>
   </div>
 </section>
@@ -144,11 +144,11 @@
    
    
    
-      <div id="firstcontainer" class="tab d-none">
+      <div id="firstcontainer">
        <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">PERSONAL DETAILS OF APPLICANT</p>
-        <div class="row mt-5" >
+        <div class="row" >
           <div class="col-sm-2 ">Preassessment No.</div>
           <div class="col-sm-2 ">
             <input type="text" class="form-control" name="preasses_no" required readonly value="<?php echo $userID;?>" ></div>
@@ -364,14 +364,14 @@
           <br>
           <div style="float:right;">
           <!-- <button class="btn btn-light">Prev</button> -->
-         <!-- <button class=" btn btn-outline-dark" onclick="toggleForm()" style="background-color:#00cccc;"><a href="#secondcontainer" style="color:white; ">Next</a></button> -->
+         <button type="button" class="btn btn-outline-dark" id="next1" style="background-color:#00cccc;">Next</button>
           </div>
         </div>
 
         
 <!-- newsection -->
-       <br><br>
-       <div id="secondcontainer" class="tab d-none">
+       
+       <div id="secondcontainer" style="display: none;">
       <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">TREATING DOCTOR</p>
@@ -453,14 +453,15 @@
 </div>
 <br>
 <div style="float:right;">
-<!-- <button class="btn btn-light "><a href="#secondcontainer">Prev</button> -->
-<!-- <button class=" btn btn-outline-dark" onclick="toggleForm()" style="background-color:#00cccc;"><a href="#thirdcontainer" style="color:white; ">Next</a></button> -->
+<button type="button" class="btn btn-light" id="prev1">Prev</button>
+<button type="button" class="btn btn-outline-dark" id="next2" style="background-color:#00cccc;">Next</button>
+</div>
 </div>
 <br><br>
 
 
 <!-- newsection -->
-<div id="thirdcontainer" class="tab d-none">
+<div id="thirdcontainer" style="display: none;">
   <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">GENERAL EXAMINATION</p>
@@ -642,14 +643,15 @@
 
           <br>
           <div style="float:right;">
-          <button class="btn btn-light"><a href="#thirdcontainer">Prev</a></button>
-          <button class=" btn btn-outline-dark" onclick="toggleForm()" style="background-color:#00cccc"><a href="#fourthcontainer" style="color:white; ">Next</button>
+            <button type="button" class="btn btn-light" id="prev2">Prev</button>
+            <button type="button" class="btn btn-outline-dark" id="next3" style="background-color:#00cccc;">Next</button>
           </div>
-         <br><br>
+        </div>
+         
 
 
 <!-- newsection -->
-<div id="fourthcontainer" class="tab d-none">
+<div id="fourthcontainer" style="display: none;">
           <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold; color:black;">SYSTEMIC EXAMINATION</p>
@@ -832,13 +834,14 @@
 
           <br>
           <div style="float:right;">
-          <button class="btn btn-light"><a href="#fourthcontainer" >Prev</a></button>
-          <button class=" btn btn-primary" onclick="toggleForm()" style="background-color:#00cccc;"><a  href="#fifthcontainer" style="color:white; ">Next</a></button>
+            <button type="button" class="btn btn-light" id="prev3">Prev</button>
+            <button type="button" class="btn btn-outline-dark" id="next4" style="background-color:#00cccc;">Next</button>
           </div>
-         <br><br>
+        </div>
+         
 
 <!-- newsection -->
-<div id="fifthcontainer" tab d-none>
+<div id="fifthcontainer" style="display: none;">
           <div class="row">
       <div class="col-sm-12">
         <p style="font-weight:bold;">Fall Risk Assessment</p>
@@ -951,10 +954,14 @@
             <input type="text" class="form-control" name="chair_stand_score"></div>
           </div><br>
 
-          <input type="submit" class="btn btn-outline-primary" name="submit" value="submit" style="backgroundcolor:#00cccc;">
-          <button type="button" id="back_button" class="btn btn-link" onclick="back()">Back</button>
-          <button type="button" id="next_button" class="btn btn-primary ms-auto" onclick="next()">Next</button>
-      </form>
+          <div style="float: right;">
+            <button type="button" class="btn btn-light" id="prev4">Prev</button>
+            <input type="submit" class="btn btn-outline-primary" name="submit" value="submit" style="backgroundcolor:#00cccc;">
+            <!-- <button type="button" id="back_button" class="btn btn-link" onclick="back()">Back</button>
+            <button type="button" id="next_button" class="btn btn-primary ms-auto" onclick="next()">Next</button> -->
+          </div>
+        </div>
+        </form>
      
   </section>
 
@@ -970,6 +977,57 @@
          <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
          <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
          <script src="<?php echo base_url();?>public/js/validation.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+
+
+         <!-- script for progress bar and form switch -->
+         <script>
+          $(document).ready(function(){
+            $("#next1").click(function(){
+              $("#firstcontainer").hide();
+              $("#secondcontainer").show();
+              $("#progressbar li#point2").addClass("active");
+            });
+            $("#prev1").click(function(){
+              $("#secondcontainer").hide();
+              $("#firstcontainer").show();
+              $("#progressbar li#point2").removeClass("active");
+            });
+            $("#next2").click(function(){
+              $("#secondcontainer").hide();
+              $("#thirdcontainer").show();
+              $("#progressbar li#point3").addClass("active");
+            });
+            $("#prev2").click(function(){
+              $("#secondcontainer").show();
+              $("#thirdcontainer").hide();
+              $("#progressbar li#point3").removeClass("active");
+            });
+            $("#next3").click(function(){
+              $("#thirdcontainer").hide();
+              $("#fourthcontainer").show();
+              $("#progressbar li#point4").addClass("active");
+            });
+            $("#prev3").click(function(){
+              $("#thirdcontainer").show();
+              $("#fourthcontainer").hide();
+              $("#progressbar li#point4").removeClass("active");
+            });
+            $("#next4").click(function(){
+              $("#fourthcontainer").hide();
+              $("#fifthcontainer").show();
+              $("#progressbar li#point5").addClass("active");
+            });
+            $("#prev4").click(function(){
+              $("#fifthcontainer").hide();
+              $("#fourthcontainer").show();
+              $("#progressbar li#point5").removeClass("active");
+            });
+          });
+         </script>
+         <!-- End script for progress bar and form switch -->
+
          <script>
           $(document).ready(function() {
                 var i=0; 
@@ -1071,5 +1129,5 @@ function back() {
 }
 
     </script>
-        </body>
+        </body>
 </html>
