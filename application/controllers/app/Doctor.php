@@ -1155,4 +1155,8 @@ class Doctor extends General{
 		$this->load->view('app/doctor/ipd',$this->data);	
 	}
 	
+	public function preassessment_report()
+	{
+		$this->load->view('app/doctor/preassessment_report');
+	}
 }
