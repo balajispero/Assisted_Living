@@ -1,5 +1,14 @@
 {
     "glyphicons halflings": {
-        "normal": "glyphicons_halflings_normal_91a063d0f3772b152f606edc0383c99d"
+        "normal": "glyphicons_halflings_normal_1c86144f0ecfd0447d734468bcc397ab"
+    },
+    "fontawesome": {
+        "normal": "fontawesome_normal_84a49409d3f0d1a08ea80405d986f6cd"
+    },
+    "ionicons": {
+        "normal": "ionicons_normal_075b0da69661c99ce053820d0554c844"
+    },
+    "kaushan script": {
+        "normal": "kaushan_script_normal_c7c7f6ce7ae1d7e451aa3db29c68cdaa"
     }
 }

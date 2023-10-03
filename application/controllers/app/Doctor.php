@@ -1,4 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require FCPATH.'vendor/autoload.php';      
+use Dompdf\Dompdf;
 
 require APPPATH.'controllers/General.php'; 
 
@@ -180,7 +182,8 @@ class Doctor extends General{
 									$patient->preasses_aadhar,
 									$patient->preasses_gender,  
 									$patient->preasses_age,
-									anchor('app/doctor/edit_preassessment/'.$patient->preasses_id,'Modify')
+									anchor('app/doctor/edit_preassessment/'.$patient->preasses_id,'Modify'),
+									anchor('app/doctor/preassessment_report/'.$patient->preasses_id,'Pdf')
 									
 			);
 		}
@@ -199,6 +202,18 @@ class Doctor extends General{
 				 $this->data['message'] = $this->session->flashdata('message');
 		
 		$this->load->view('app/doctor/preassessment',$this->data);
+
+			/*$dompdf = new Dompdf();
+            $dompdf->set_option('isRemoteEnabled',TRUE);
+            $canvas=$dompdf->get_canvas();
+            //$this->load->view('app/ipd/discharge_pdf_view',$this->data);
+            $html = $this->load->view('app/doctor/preassessment',$this->data,true);
+
+            $dompdf->loadHtml($html);
+            // Render the HTML as PDF
+            $dompdf->render();
+            // Output the generated PDF to Browser
+            $dompdf->stream('preassessment_report.pdf',array("Attachment" => 0));*/
 	}
 		public function add_preassessment()
 	{

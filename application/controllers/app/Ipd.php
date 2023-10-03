@@ -1425,6 +1425,7 @@ class Ipd extends General{
 				'dDate'			=>		$this->input->post('dDate'),
 				'dDateTime'		=>		$this->input->post('dDate')." ".$this->input->post('cTime'),
 				'focus'			=>		!empty($this->input->post('focus')) ? $this->input->post('focus') : '',
+				'complain_id'	=>		$this->input->post('complain'),
 				'notes'			=>		$this->input->post('notes'),
 				'cPreparedBy'	=>		$this->session->userdata('user_id'),
 				'InActive'		=>		0
@@ -1438,6 +1439,8 @@ class Ipd extends General{
 			$iop_no = $this->uri->segment("4");
 			$patient_no = $this->uri->segment("5");
 		
+			$this->data['ComplainList'] = $this->Opd_model->ComplainList();
+			$this->data['ComplainList1'] = $this->Opd_model->ComplainList();
 			$this->data['getOPDPatient'] = $this->Opd_model->getOPDPatient($iop_no);
 			$this->data['getNurseProgressNote'] = $this->Opd_model->getNurseProgressNote($iop_no);
 			$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);	

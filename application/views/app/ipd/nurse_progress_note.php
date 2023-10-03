@@ -227,7 +227,7 @@
                                                 <?php if($this->session->userdata('emr_viewing') == ""){?>	
                                                 <?php if($getOPDPatient->nStatus == "Pending"){?>
                                                 <a href="<?php echo base_url()?>app/ipd/delete_nurse_progress/<?php echo $rows->nurse_notes_id?>/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" onClick="return confirm('Are you sure you want to remove?');">Remove</a>&nbsp;|&nbsp;
-                                                <a href="#" class="btn-review" data-ddate="<?php echo $rows->dDate;?>" data-note="<?php echo $rows->notes;?>" data-id="<?php echo $rows->nurse_notes_id;?>">Edit</a>
+                                                <a href="#" class="btn-review" data-ddate="<?php echo $rows->dDate;?>" data-note="<?php echo $rows->notes;?>" data-id="<?php echo $rows->nurse_notes_id;?>" data-compl_id="<?php echo $rows->complain_id;?>">Edit</a>
                                                 <?php }}?>
                                                 </td>
                                            </tr>
@@ -343,6 +343,18 @@ xmlhttp.send();
                                             <td><input type="text" name="focus" placeholder="Focus" class="form-control input-sm" style="width: 100%;" required></td>
                                         </tr>-->
                                         <tr>
+                                            <td>Complaints</td>
+                                            <td>
+                                            <select name="complain" id="complain" style="width: 100%;" required class="form-control input-sm">
+                                                                <option value="">- Complaints -</option>
+                                                                <?php 
+                                                                foreach($ComplainList as $ComplainList){?>
+                                                                <option value="<?php echo $ComplainList->complain_id;?>"><?php echo $ComplainList->complain_name;?></option>
+                                                                <?php }?>
+                                                            </select> 
+                                            </td>
+                                        </tr>
+                                        <tr>
                                         	<td>Notes</td>
                                             <td><textarea name="notes" placeholder="Notes" class="form-control input-sm" style="width: 100%;" rows="3"></textarea></td>
                                         </tr>
@@ -366,12 +378,13 @@ xmlhttp.send();
                             <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                             <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
                             <input type="hidden" name="nurse_notes_id" class="nurse_notes_id">
+                            
                     <div class="modal fade" id="reviewmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="myModalLabel">Daily Medicine Chart</h4>
+                                            <h4 class="modal-title" id="myModalLabel">Edit Progress Note</h4>
                                         </div>
                                         <div class="modal-body">
                                         <table class="table table-hover">
@@ -394,6 +407,24 @@ xmlhttp.send();
                                             </div><!-- /.form group -->
                                             </div>
                                             
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Complaints<?php 
+                                            /*print_r($getNurseProgressNote[0]->complain_id);*/
+
+                                        ?></td>
+                                            <td>
+                                           <select name="complain" id="editcompl" style="width: 100%;" required class="form-control input-sm">
+                                                                <option value="">- Complaints -</option>
+                                                                <?php 
+                                                                foreach($ComplainList1 as $ComplainList1){
+                                                                ?>
+                                                                <option value="<?php echo $ComplainList1->complain_id;?>"><?php echo $ComplainList1->complain_name;?></option>
+                                                                <?php }?>
+                                                            </select>
+
+                                                            
                                             </td>
                                         </tr>
                                        
@@ -471,7 +502,10 @@ xmlhttp.send();
                             $('.nurse_notes_id').val($(this).data('id'));
                             $('.ddate').val($(this).data('ddate'));
                             $('.note').val($(this).data('note'));
+                            var complid=$(this).data('compl_id');
+
                             $('#reviewmodal').modal('show');
+                            $("#editcompl option[value='" + complid + "']").attr('selected', 'selected');
 
                         });
             });
