@@ -23,6 +23,7 @@
         <link href="<?php echo base_url();?>public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url();?>public/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url();?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -43,8 +44,10 @@
             }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
+
     </head>
     <body class="skin-blue">
+
         <!-- header logo: style can be found in header.less -->
         <?php require_once(APPPATH.'views/include/header.php');?>
         
@@ -154,7 +157,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Name of Applicant</label><span class="text-danger">*</span></br>
-                                                                            <input type="text" class="form-control" name="applicant_name" required>
+                                                                            <input type="text" class="form-control alphaonly" name="applicant_name" required>
 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -263,7 +266,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Aadhar Number</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="applicant_aadhar">
+                                                                            <input type="text" class="form-control numberonly" name="applicant_aadhar" maxlength="12">
 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -605,6 +608,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                  </div><!-- / row -->
 
+
                                                                 <div class="table-responsive">      
                                                                 <table class="table table-striped">
                                                                 <tr>
@@ -621,6 +625,14 @@
                                                                 </tr>
                                                                 <tr>
                                                                   <td>Typhoid</td><td><input type="text" name="typhoid_vac" class="form-control"></td><td><input type="date" name="typhoid_date" class="form-control"></td><td><input type="date" name="typhoid_due_date" class="form-control"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>COVID19</td><td></td><td class="row">
+                                                                        <label class="col-sm-2" style="margin-top:3px;">1<sup>st</sup></label><input type="text" name="covid_vac_1" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+                                                                        <label class="col-sm-2" style="margin-top:3px;">2<sup>nd</sup></label><input type="text" name="covid_vac_2" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+                                                                        <label class="col-sm-2" style="margin-top:3px;">3<sup>rd</sup></label><input type="text" name="covid_vac_3" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+                                                                        
+                                                                    </td><td></td>
                                                                 </tr>    
                                                               </table>
                                                             </div>
@@ -1404,17 +1416,20 @@
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
 
-         <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
+
+          <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
         <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
-        <!-- <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script> -->
+         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
+
 
         
         <!-- BDAY -->
         <!-- <script src="<?php echo base_url();?>public/datepicker/js/jquery-1.9.1.min.js"></script> -->
-        <script src="<?php echo base_url();?>public/datepicker/js/bootstrap-datepicker.js"></script>
+
+        <!-- <script src="<?php echo base_url();?>public/datepicker/js/bootstrap-datepicker.js"></script> -->
         <script src="<?php echo base_url();?>public/js/validation.js"></script>
         <!-------------------------jquery cdn for work radio button------------------------>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
         <!-------------------------jquery cdn for work radio button------------------------>
 
 <script type="text/javascript">
@@ -1457,7 +1472,6 @@
 <!-- END BDAY -->
         <script>
         /*****************Start fall risk question calculate**********************/
-
         $(".chkradio") // select the radio by its id
             .change(function(){ // bind a function to the change event
                 if( $(this).is(":checked") ){ // check if the radio is checked
@@ -1495,6 +1509,7 @@
         $('#birthday').attr('max', maxDate);
     });
 </script>
+
 
 </body>
 </html>

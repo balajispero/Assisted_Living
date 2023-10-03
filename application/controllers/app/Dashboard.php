@@ -11,6 +11,7 @@ class Dashboard extends General{
 		$this->load->model("app/patient_model");
 		$this->load->model("app/ipd_model");
 		$this->load->model("app/Opd_model");
+		$this->load->model("app/General_model");
 		if(General::is_logged_in() == FALSE){
             redirect(base_url().'login');    
         }
@@ -331,5 +332,21 @@ class Dashboard extends General{
 
 		$this->load->view('app/view_details',$this->data);	
 	}
+
+	public function get_ipd_ptn_cnt(){
+         $ipd_ptn_cnt = $this->General_model->get_ipd_ptn_cnt();
+        
+        echo json_encode(count($ipd_ptn_cnt ));
+    }
+    public function today_reg_ptn_cnt(){
+         $reg_ptn_cnt = $this->General_model->today_reg_ptn_cnt();
+       
+        echo json_encode(count($reg_ptn_cnt ));
+    }
+    public function vacant_room_cnt(){
+         $vacant_room_cnt = $this->General_model->vacant_room_cnt();
+     
+        echo json_encode(count($vacant_room_cnt ));
+    }
 	
 }

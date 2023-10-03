@@ -693,6 +693,7 @@
                     $("#ptn_temp").val(result[0].temp);
                     $("#ptn_spo2").val(result[0].spo2);
                     $("#ptn_rs").val(result[0].rs);
+                    //showPreassesMedicine(preasses_id);
 
                 }
               }
@@ -703,6 +704,96 @@
             }
 
             }
+
+
+
+
+
+
+
+            /*function showPreassesMedicine(preasses_id)
+            {
+                
+                if(preasses_id=="")
+                {
+                    $( '#admission_form' ).each(function(){
+                    this.reset();
+                        });
+                    // $("#gender option[value=" + gender + "]").removeAttr('selected');
+                    //$('#gender option:selected').removeAttr('selected');
+                    // $("#civil_status option[value=" + marital_status + "]").attr('selected', '');
+                    
+                    
+                }
+                else {
+
+            if (window.XMLHttpRequest)
+              {
+              xmlhttp=new XMLHttpRequest();
+              }
+            else
+              {// code for IE6, IE5
+              xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+              }
+            xmlhttp.onreadystatechange=function()
+              {
+              if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    var result = JSON.parse(xmlhttp.responseText);
+                    
+                    var gender="";
+                    var marital_status="";
+                    
+                    if(result[0].preasses_gender=="Male")
+                    {
+                        gender="1";
+                    }else if(result[0].preasses_gender=="Female"){
+                        gender="2";
+                    }else if(result[0].preasses_gender=="Any Other"){
+                        gender="72";
+                    }
+
+                    if(result[0].preasses_marital_status=="Single")
+                    {
+                        marital_status="3";
+                    }else if(result[0].preasses_marital_status=="Married"){
+                        marital_status="4";
+                    }else if(result[0].preasses_marital_status=="Legal Seperated"){
+                        marital_status="5";
+                    }
+                    else if(result[0].preasses_marital_status=="Divorced"){
+                        marital_status="6";
+                    }else if(result[0].preasses_marital_status=="Widow"){
+                        marital_status="74";
+                    }else if(result[0].preasses_marital_status=="Widower"){
+                        marital_status="75";
+                    }
+                
+                    $("#name").val(result[0].preasses_name);
+                    $("#email").val(result[0].preasses_email);
+                    $("#birthday").val(result[0].birthday);
+                    $("#age").val(result[0].preasses_age);
+                     $("#gender option[value=" + gender + "]").attr('selected', 'selected');
+                    $("#civil_status option[value=" + marital_status + "]").attr('selected', 'selected');
+                    $("#aadhar_no").val(result[0].preasses_aadhar);
+                    $("#noofhouse").val(result[0].preasses_add);
+                    $("#mobile").val(result[0].preasses_mobile);
+
+                    $("#ptn_pulse").val(result[0].pulse);
+                    $("#ptn_bp").val(result[0].bp);
+                    $("#ptn_temp").val(result[0].temp);
+                    $("#ptn_spo2").val(result[0].spo2);
+                    $("#ptn_rs").val(result[0].rs);
+
+                }
+              }
+              var supp;
+
+            xmlhttp.open("GET","<?php echo base_url();?>app/patient/get_preasses_id_medicine/"+preasses_id,true);
+            xmlhttp.send();
+            }
+
+            }*/
          </script>
         <script type="text/javascript">
             // When the document is ready

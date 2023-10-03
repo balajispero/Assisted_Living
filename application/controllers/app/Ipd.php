@@ -479,8 +479,11 @@ class Ipd extends General{
 		{
 		$this->data['doctor_comments']=$this->input->post('doctor_comments');
 		//$to_email=$this->input->post('mail_to');
-		$to_email="sameer.speroinfosystems@gmail.com";
-		
+		//$to_email="sameer.speroinfosystems@gmail.com";
+		$to_email="balajimuttepawar7058@gmail.com";
+		$cc1="balajimuttepwar892@gmail.com";
+		$cc2="balajim@sperohealthcare.in";
+		$cc3="";
 		 $this->load->library('email');
 
         // Email content
@@ -493,6 +496,8 @@ class Ipd extends General{
         $this->email->initialize($config);
         $this->email->from('balajimuttepawar7058@gmail.com', 'Ashtha Team');
         $this->email->to($to_email); // Replace with the recipient's email address
+        $cclist = array($cc1, $cc2, $cc3);
+        $this->email->cc($cclist);
         $this->email->subject($subject);
         $this->email->message($msg1);
         /*$this->email->send();

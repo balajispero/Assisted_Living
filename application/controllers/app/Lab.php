@@ -214,9 +214,9 @@ class Lab extends General{
 			$this->load->library('upload');
 
 			/*********************Start Lab Test Report code*********************/
-			$images = array();
+			// $images = array();
 			if (!empty($_FILES["previous_dischargefile"]["name"])) {
-				
+				$images = array();
 				for($i=0;$i<count($_FILES['previous_dischargefile']['name']);$i++){
 					
 					$_FILES['file']['name'] = $_FILES['previous_dischargefile']['name'][$i];
@@ -241,8 +241,10 @@ class Lab extends General{
 					}
 					
 				}
+				if(!empty($images)){
 				
 				$this->data['lab_test_reports']=implode(',',$images);
+			}
 			}
 			/*********************End Lab Test Report code*********************/
 			

@@ -105,13 +105,13 @@ class Doctor extends General{
 				 
 		$this->session->set_userdata(array(
 				 'tab'			=>		'doctor',
-				 'module'		=>		'',
+				 'module'		=>		'ipd_doctor',
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
 				 
 				// user restriction function
-				/*$this->session->set_userdata('page_name','ipd_doctor');
-				$page_id = $this->General_model->getPageID();
+				$this->session->set_userdata('page_name','ipd_doctor');
+				/*$page_id = $this->General_model->getPageID();
 				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
 				if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
 					redirect(base_url().'access_denied');
@@ -192,7 +192,7 @@ class Doctor extends General{
 	public function preassessment()
 	{
 		$this->session->set_userdata(array(
-				 'tab'			=>		'',
+				 'tab'			=>		'doctor',
 				 'module'		=>		'',
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
@@ -203,7 +203,7 @@ class Doctor extends General{
 		public function add_preassessment()
 	{
 		$this->session->set_userdata(array(
-				 'tab'			=>		'',
+				 'tab'			=>		'doctor',
 				 'module'		=>		'',
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
@@ -314,6 +314,7 @@ class Doctor extends General{
             'doctor_observation' => $this->input->post('doctor_observation'),
             'recommendation' => $this->input->post('recommendation'),
             'ptn_eligible' => $this->input->post('ptn_eligible'),
+            'on_admission'=>"No",
             'added_by' => $this->session->userdata('user_id'),
         	'date_entry'		=>	 date("Y-m-d h:i:s a"));
 		$last_ptn_id = $this->preassessment_model->save_preassessment_details($preassessment_details);
@@ -575,7 +576,7 @@ class Doctor extends General{
 			}
 		}
 
-		for($vac=1;$vac<=4;$vac++)
+		for($vac=1;$vac<=5;$vac++)
 		{
 			if($vac=='1')
 			{
@@ -617,7 +618,18 @@ class Doctor extends General{
             'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_immunization_details($immunization_details);	
+		}elseif($vac=='5')
+		{
+			$immunization_details = array(
+            'vac_type' => 'COVID19',
+            'covid_vac_1' => $this->input->post('covid_vac_1'),
+            'covid_vac_2' => $this->input->post('covid_vac_2'),
+            'covid_vac_3' => $this->input->post('covid_vac_3'),
+            'preasses_no' => $this->input->post('preasses_no'),
+    	    'preasses_id' => $last_ptn_id);
+		$this->preassessment_model->save_immunization_details($immunization_details);	
 		}
+
 	}
 	 $this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Patient details save successfully!</div>");
 	redirect(base_url('app/doctor/add_preassessment'));
@@ -627,8 +639,8 @@ class Doctor extends General{
 	public function view_preassessment($id=0)
 	{
 		$this->session->set_userdata(array(
-				 'tab'			=>		'',
-				 'module'		=>		'doctor',
+				 'tab'			=>		'doctor',
+				 'module'		=>		'ipd_doctor',
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
 				 $this->data['message'] = $this->session->flashdata('message');
@@ -643,10 +655,11 @@ class Doctor extends General{
 	public function edit_preassessment($id=0)
 	{
 		$this->session->set_userdata(array(
-				 'tab'			=>		'',
-				 'module'		=>		'doctor',
+				 'tab'			=>		'doctor',
+				 'module'		=>		'ipd_doctor',
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
+		//$this->session->set_userdata('page_name','ipd_doctor');
 				 $this->data['message'] = $this->session->flashdata('message');
 
 		$this->data['patientInfo'] = $this->preassessment_model->get_preassesment($id);
@@ -842,8 +855,138 @@ class Doctor extends General{
 				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$i]);
 			}
 		}*/
+		/*********************Start fall risk questions***********************/
+		$fallrisk_id = $this->input->post('fallrisk_id', true);
+		//print_r($fallrisk_id);die;
 
-		for($vac=1;$vac<=4;$vac++)
+		for($qtn=0;$qtn<13;$qtn++)
+        {
+
+            if($qtn=="0")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('past_year_qtn'),
+					'answer' => $this->input->post('past_year')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="1")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('use_stick_qtn'),
+					'answer' => $this->input->post('use_stick')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="2")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('feel_stable_qtn'),
+					'answer' => $this->input->post('feel_stable')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="3")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('steady_holding_qtn'),
+					'answer' => $this->input->post('steady_holding')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="4")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('worry_fall_qtn'),
+					'answer' => $this->input->post('worry_fall')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="5")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('from_chair_qtn'),
+					'answer' => $this->input->post('from_chair')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="6")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('curb_qtn'),
+					'answer' => $this->input->post('curb')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="7")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('toilet_rush_qtn'),
+					'answer' => $this->input->post('toilet_rush')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="8")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('lost_feet_qtn'),
+					'answer' => $this->input->post('lost_feet')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="9")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('light_headed_qtn'),
+					'answer' => $this->input->post('light_headed')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="10")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('take_medicine_qtn'),
+					'answer' => $this->input->post('take_medicine')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="11")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('feel_sad_qtn'),
+					'answer' => $this->input->post('feel_sad')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+			if($qtn=="12")
+            {
+            	$qtn_ans_details = array(
+					'questions' => $this->input->post('fall_total_score_qtn'),
+					'answer' => $this->input->post('fall_total_score')
+				);
+				
+				$this->preassessment_model->update_fallrisk_quest_details($qtn_ans_details,$fallrisk_id[$qtn]);
+			}
+
+		}
+		/*********************End fall risk questions***********************/	
+
+
+         
+
+		for($vac=1;$vac<=5;$vac++)
 		{
 			if($vac=='1')
 			{
@@ -888,6 +1031,17 @@ class Doctor extends General{
             'preasses_no' => $this->input->post('preasses_no'),
     	    'preasses_id' => $this->input->post('id'));
     	    $id=$this->input->post('typhoid_id');
+		$this->preassessment_model->update_immunization_details($immunization_details,$id);	
+		}elseif($vac=='5')
+		{
+			$immunization_details = array(
+            'vac_type' => 'COVID19',
+            'covid_vac_1' => $this->input->post('covid_vac_1'),
+            'covid_vac_2' => $this->input->post('covid_vac_2'),
+            'covid_vac_3' => $this->input->post('covid_vac_3'),
+            'preasses_no' => $this->input->post('preasses_no'),
+    	    'preasses_id' => $this->input->post('id'));
+    	    $id=$this->input->post('covid_id');
 		$this->preassessment_model->update_immunization_details($immunization_details,$id);	
 		}
 	}
