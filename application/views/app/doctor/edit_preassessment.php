@@ -211,41 +211,11 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Religion</label><span class="text-danger"></span></br>
                                                                             <select name="applicant_religion" id="religion" class="form-control">
-                                                       <!-- <option value="">- Religion -</option>
                                                        
-                                                       <option value="Aglipayan">Aglipayan</option>
-                                                  
-                                                       <option value="Ang Dating Daan">Ang Dating Daan</option>
-                                                   
-                                                       <option value="Assemblies of God (Ilocos Norte)">Assemblies of God (Ilocos Norte)</option>
-                                                  
-                                                       <option value="Born Again">Born Again</option>
-                                                   
-                                                       <option value="Chinese">Chinese</option>
-                                                  
-                                                       <option value="Church of God">Church of God</option>
-                                                  
-                                                       <option value="Church of the Nazarene">Church of the Nazarene</option>
-                                                 
-                                                       <option value="El Shaddai">El Shaddai</option>
-                                                 
-                                                       <option value="Evangelical">Evangelical</option>
                                                   
                                                        <option value="Hindu" <?php if($patientInfo[0]->preasses_religion=="Hindu"){ echo "selected"; } ?>>Hindu</option>
                                                   
-                                                       <option value="Iglesia ni Cristo">Iglesia ni Cristo</option>
-                                                  
-                                                       <option value="Jehovah's Witnesses">Jehovah's Witnesses</option>
-                                                  
-                                                       <option value="Judaism">Judaism</option>
-                                                 
-                                                       <option value="Muslim">Muslim</option>
-                                             
-                                                       <option value="Roman Catholic">Roman Catholic</option>
-                                                   
-                                                       <option value="Seventh-Day Adventists">Seventh-Day Adventists</option>
-                                                   
-                                                       <option value="Unitarian">Unitarian</option> -->
+                                                      
 
                                                        <option value="Hindu">Hindu</option>
                                                        
