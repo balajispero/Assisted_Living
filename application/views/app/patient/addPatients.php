@@ -681,8 +681,10 @@
                     $("#email").val(result[0].preasses_email);
                     $("#birthday").val(result[0].birthday);
                     $("#age").val(result[0].preasses_age);
-                     $("#gender option[value=" + gender + "]").attr('selected', 'selected');
-                    $("#civil_status option[value=" + marital_status + "]").attr('selected', 'selected');
+                    $("#gender").val(gender);
+                    $("#civil_status").val(marital_status);
+                     /*$("#gender option[value=" + gender + "]").attr('selected', 'selected');
+                    $("#civil_status option[value=" + marital_status + "]").attr('selected', 'selected');*/
                     $("#aadhar_no").val(result[0].preasses_aadhar);
                     $("#noofhouse").val(result[0].preasses_add);
                     $("#mobile").val(result[0].preasses_mobile);

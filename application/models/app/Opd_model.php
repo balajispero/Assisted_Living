@@ -689,6 +689,18 @@ class Opd_model extends CI_Model{
 		    //echo $this->db->last_query();die;
 		return $query->result();
 	}
+	public function get_progressnote_id_data($nurse_notes_id)
+    {
+    $this->db->select("*");
+    $this->db->from('iop_nurse_notes');
+    $this->db->where('InActive', '0');
+    $this->db->where('nurse_notes_id', $nurse_notes_id);
+    $query = $this->db->get();
+  
+    $res = $query->result_array();
+    //echo $this->db->last_query();die;
+    return $res;
+    }
 	
 	
 }

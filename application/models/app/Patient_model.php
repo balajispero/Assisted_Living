@@ -26,7 +26,7 @@ class Patient_model extends CI_Model{
 		) 
 		and A.InActive = 0";
 		$this->db->where($where);
-		$this->db->order_by('lastname','asc');
+		$this->db->order_by('A.date_entry','desc');
 		$this->db->join("system_parameters B","B.param_id = A.title","left outer");
 		$this->db->join("system_parameters C","C.param_id = A.gender","left outer");
 		$this->db->join("system_parameters D","D.param_id = A.civil_status","left outer");
@@ -799,6 +799,11 @@ class Patient_model extends CI_Model{
 		
 		 return $this->db->insert("patient_details_discharge",$this->data);
 		 
+	}
+	public function getpreassesmedicine($preasses_id){
+		$this->db->select("medicine");
+		$query = $this->db->get_where("preassessment_medicines",array('preasses_no' => $preasses_id));	
+		return $query->result();
 	}
 	
 	

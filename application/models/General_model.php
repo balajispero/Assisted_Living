@@ -259,6 +259,10 @@ class General_model extends CI_Model{
 		$query = $this->db->query("SELECT A.medicine_name FROM `iop_medicine` A WHERE `A`.`iop_med_id` = $medicine_id");
 		return $query->row();
 	}
+	public function getComplainById($complain_id){
+		$query = $this->db->query("SELECT A.complain_name FROM `complain` A WHERE `A`.`complain_id` = $complain_id");
+		return $query->row();
+	}
 	public function getname($user_id){
 		$query = $this->db->query("SELECT cValue FROM `system_parameters` A WHERE `A`.`param_id` = $user_id");
 		return $query->row();

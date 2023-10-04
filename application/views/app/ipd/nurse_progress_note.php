@@ -205,7 +205,7 @@
                                            <thead>
                                            		<tr>
                                                 	<th>Date Time</th>
-                                                    <!--<th>Focus</th>-->
+                                                    <th>Complain</th>
                                                     <th>Clinical Notes</th>
                                                     <th>Prepared by</th>
                                                     <th></th>
@@ -215,7 +215,19 @@
                                            <?php foreach($getNurseProgressNote as $rows){?>
                                            <tr>
                                            		<td><?php echo date("M d, Y h:i:s A",strtotime($rows->dDateTime));?></td>
-                                                <!--<td><?php echo $rows->focus?></td>-->
+                                                <td>
+                                                    <?php
+                                                    if(!empty($rows->complain_id))
+                                                    {
+                                                        $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $compl = $ci_obj->general_model->getComplainById($rows->complain_id);
+                                                        
+                                                        echo $compl->complain_name;
+                                                    }
+                                                    ?>
+                                                    
+                                                </td>
                                                 <td><?php echo $rows->notes?></td>
                                                 <td><?php 
 												$ci_obj = & get_instance();
@@ -345,7 +357,7 @@ xmlhttp.send();
                                         <tr>
                                             <td>Complaints</td>
                                             <td>
-                                            <select name="complain" id="complain" style="width: 100%;" required class="form-control input-sm">
+                                            <select name="complain" id="complain" style="width: 100%;" class="form-control input-sm">
                                                                 <option value="">- Complaints -</option>
                                                                 <?php 
                                                                 foreach($ComplainList as $ComplainList){?>
@@ -374,7 +386,7 @@ xmlhttp.send();
                             </form>
                             <!-- /.modal -->
                             
-                            <form action="<?php echo base_url()?>app/ipd/edit_nurse_progress_note" method="post">
+                            <form action="<?php echo base_url()?>app/ipd/edit_nurse_progress_note" method="post" id="updateForm">
                             <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                             <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
                             <input type="hidden" name="nurse_notes_id" class="nurse_notes_id">
@@ -410,12 +422,9 @@ xmlhttp.send();
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Complaints<?php 
-                                            /*print_r($getNurseProgressNote[0]->complain_id);*/
-
-                                        ?></td>
+                                            <td>Complaints</td>
                                             <td>
-                                           <select name="complain" id="editcompl" style="width: 100%;" required class="form-control input-sm">
+                                           <select name="complain" id="editcompl" style="width: 100%;"  class="form-control input-sm editcompl">
                                                                 <option value="">- Complaints -</option>
                                                                 <?php 
                                                                 foreach($ComplainList1 as $ComplainList1){
@@ -497,7 +506,7 @@ xmlhttp.send();
         </script>
         <!-- END DATE -->
         <script>
-            $(document).ready(function() {
+            /*$(document).ready(function() {
             $('.btn-review').on('click',function() {
                             $('.nurse_notes_id').val($(this).data('id'));
                             $('.ddate').val($(this).data('ddate'));
@@ -508,8 +517,51 @@ xmlhttp.send();
                             $("#editcompl option[value='" + complid + "']").attr('selected', 'selected');
 
                         });
-            });
+            });*/
+            
         </script>
         
+        <script>
+$(document).ready(function() {
+    // Edit functionality start
+    $(document).on('click', '.btn-review', function (event) {
+        event.preventDefault(); // Prevent the default link behavior
+
+        const nurse_notes_id = $(this).data("id");
+
+        if (window.XMLHttpRequest) {
+            xmlhttp6 = new XMLHttpRequest();
+        } else {
+            // Code for IE6, IE5
+            xmlhttp6 = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp6.onreadystatechange = function() {
+            if (xmlhttp6.readyState == 4 && xmlhttp6.status == 200) {
+                $('#updateForm').each(function() {
+                    this.reset();
+                });
+                var res = JSON.parse(xmlhttp6.responseText);
+                console.log(res);
+
+                $('#reviewmodal').modal('show');
+
+                // Assuming that res[0].complain_id contains the value you want to select in the dropdown
+                var selectedValue = res[0].complain_id;
+
+                // Set the selected option based on the selectedValue
+                $(".editcompl").val(selectedValue);
+                            $('.nurse_notes_id').val(res[0].nurse_notes_id);
+                            $('.ddate').val(res[0].dDate);
+                            $('.note').val(res[0].notes);
+            }
+        }
+
+        xmlhttp6.open("GET", "<?php echo base_url();?>app/ipd/get_progressnote_id_data/" + nurse_notes_id, true);
+        xmlhttp6.send();
+    });
+});
+</script>
+
     </body>
 </html>

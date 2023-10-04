@@ -628,10 +628,6 @@
                     $( '#admission_form' ).each(function(){
                     this.reset();
                         });
-                    // $("#gender option[value=" + gender + "]").removeAttr('selected');
-                    //$('#gender option:selected').removeAttr('selected');
-                    // $("#civil_status option[value=" + marital_status + "]").attr('selected', '');
-                    
                     
                 }
                 else {
@@ -682,8 +678,13 @@
                     $("#email").val(result[0].preasses_email);
                     $("#birthday").val(result[0].birthday);
                     $("#age").val(result[0].preasses_age);
-                     $("#gender option[value=" + gender + "]").attr('selected', 'selected');
-                    $("#civil_status option[value=" + marital_status + "]").attr('selected', 'selected');
+                     
+
+                // Set the selected option based on the selectedValue
+                $("#gender").val(gender);
+                $("#civil_status").val(marital_status);
+                     //$("#gender option[value=" + gender + "]").attr('selected', 'selected');
+                    //$("#civil_status option[value=" + marital_status + "]").attr('selected', 'selected');
                     $("#aadhar_no").val(result[0].preasses_aadhar);
                     $("#noofhouse").val(result[0].preasses_add);
                     $("#mobile").val(result[0].preasses_mobile);
@@ -693,7 +694,8 @@
                     $("#ptn_temp").val(result[0].temp);
                     $("#ptn_spo2").val(result[0].spo2);
                     $("#ptn_rs").val(result[0].rs);
-                    //showPreassesMedicine(preasses_id);
+                     showMedicineName(preasses_id);
+                    
 
                 }
               }
@@ -706,94 +708,55 @@
             }
 
 
-
-
-
-
-
-            /*function showPreassesMedicine(preasses_id)
+            function showMedicineName(preasses_id)
             {
-                
                 if(preasses_id=="")
                 {
-                    $( '#admission_form' ).each(function(){
-                    this.reset();
-                        });
-                    // $("#gender option[value=" + gender + "]").removeAttr('selected');
-                    //$('#gender option:selected').removeAttr('selected');
-                    // $("#civil_status option[value=" + marital_status + "]").attr('selected', '');
                     
                     
                 }
                 else {
+                    /*$(".test_name").hide();
+                     $(".particularitem").show();
+                     $("input[name='test_name']").val('');*/
 
             if (window.XMLHttpRequest)
               {
-              xmlhttp=new XMLHttpRequest();
+              xmlhttp1=new XMLHttpRequest();
               }
             else
               {// code for IE6, IE5
-              xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+              xmlhttp1=new ActiveXObject("Microsoft.XMLHTTP");
               }
-            xmlhttp.onreadystatechange=function()
+            xmlhttp1.onreadystatechange=function()
               {
-              if (xmlhttp.readyState==4 && xmlhttp.status==200)
+              if (xmlhttp1.readyState==4 && xmlhttp1.status==200)
                 {
-                    var result = JSON.parse(xmlhttp.responseText);
-                    
-                    var gender="";
-                    var marital_status="";
-                    
-                    if(result[0].preasses_gender=="Male")
-                    {
-                        gender="1";
-                    }else if(result[0].preasses_gender=="Female"){
-                        gender="2";
-                    }else if(result[0].preasses_gender=="Any Other"){
-                        gender="72";
-                    }
+                    var res = JSON.parse(xmlhttp1.responseText);
+                    console.log(res);
+                    var sub_cat="";
+                    varpreassesmed_cnt="";
 
-                    if(result[0].preasses_marital_status=="Single")
-                    {
-                        marital_status="3";
-                    }else if(result[0].preasses_marital_status=="Married"){
-                        marital_status="4";
-                    }else if(result[0].preasses_marital_status=="Legal Seperated"){
-                        marital_status="5";
-                    }
-                    else if(result[0].preasses_marital_status=="Divorced"){
-                        marital_status="6";
-                    }else if(result[0].preasses_marital_status=="Widow"){
-                        marital_status="74";
-                    }else if(result[0].preasses_marital_status=="Widower"){
-                        marital_status="75";
-                    }
-                
-                    $("#name").val(result[0].preasses_name);
-                    $("#email").val(result[0].preasses_email);
-                    $("#birthday").val(result[0].birthday);
-                    $("#age").val(result[0].preasses_age);
-                     $("#gender option[value=" + gender + "]").attr('selected', 'selected');
-                    $("#civil_status option[value=" + marital_status + "]").attr('selected', 'selected');
-                    $("#aadhar_no").val(result[0].preasses_aadhar);
-                    $("#noofhouse").val(result[0].preasses_add);
-                    $("#mobile").val(result[0].preasses_mobile);
+                    for (var preasses_i = 0; preasses_i < res.length; preasses_i++) {
+                            preassesmed_cnt=preasses_i+1;
+                            /*sub_cat +='<div id="row"+"'preassesmed_cnt'"><label for="member_"+"'preassesmed_cnt'"> </label><input type="text" name="member[]" value="'res[preasses_i].medicine'"><button type="button" class="btn_remove" name="remove" id="'preassesmed_cnt'">-</button>';  */ 
+                               sub_cat += '<option value="' + res[preasses_i].medicine + '">' + res[preasses_i].medicine + '</option>';  
+                           }
+                  
+                // document.getElementById("showCategories").innerHTML=xmlhttp.responseText;
+                           //$("#dynamic_field").html(sub_cat);
 
-                    $("#ptn_pulse").val(result[0].pulse);
-                    $("#ptn_bp").val(result[0].bp);
-                    $("#ptn_temp").val(result[0].temp);
-                    $("#ptn_spo2").val(result[0].spo2);
-                    $("#ptn_rs").val(result[0].rs);
+                           /*$(".particularitem option[value=" + laboratory_id + "]").attr('selected', 'selected');*/
 
                 }
               }
               var supp;
 
-            xmlhttp.open("GET","<?php echo base_url();?>app/patient/get_preasses_id_medicine/"+preasses_id,true);
-            xmlhttp.send();
+            xmlhttp1.open("GET","<?php echo base_url();?>app/patient/getpreassesmedicine/"+preasses_id,true);
+            xmlhttp1.send();
             }
 
-            }*/
+            }
          </script>
         <script type="text/javascript">
             // When the document is ready

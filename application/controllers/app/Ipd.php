@@ -1467,8 +1467,9 @@ class Ipd extends General{
 				'dDate'			=>		$this->input->post('dDate'),
 				'dDateTime'		=>		$this->input->post('dDate')." ".$this->input->post('cTime'),
 				'notes'			=>		$this->input->post('notes'),
+				'complain_id'			=>		$this->input->post('complain'),
 				'cPreparedBy'	=>		$this->session->userdata('user_id'),
-				/*'updated_date'			=>		date("Y-m-d h:i:s A")*/
+				'updated_date'			=>		date("Y-m-d h:i:s A")
 			);
 
 		$id=array('nurse_notes_id'=>$this->input->post('nurse_notes_id'));	
@@ -1873,6 +1874,10 @@ class Ipd extends General{
     redirect(base_url().'app/ipd/view/'.$iop_no.'/'.$patient_no, $this->data);
 
 }
+function get_progressnote_id_data($nurse_notes_id){
+        $data = $this->Opd_model->get_progressnote_id_data($nurse_notes_id);
+        echo json_encode($data);
+     }
 	
 	
 	

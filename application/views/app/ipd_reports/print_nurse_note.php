@@ -97,14 +97,26 @@ th {
 <table cellpadding="5" cellspacing="5" width="100%" align="center">
 <tr style="border-bottom:1px #999 solid">
 	<th style="border-bottom:1px #999 solid">Date</th>
-	<th style="border-bottom:1px #999 solid">Focus</th>
+	<th style="border-bottom:1px #999 solid">Complain</th>
 	<th style="border-bottom:1px #999 solid">Notes</th>
 	<th style="border-bottom:1px #999 solid">Prepared by</th>
 </tr>
 <?php foreach($getNurseProgressNote as $rows){?>
                                            <tr>
                                            		<td><?php echo date("M d, Y h:i:s A",strtotime($rows->dDateTime));?></td>
-                                                <td><?php echo $rows->focus?></td>
+                                                <td>
+                                                  <?php
+                                                  if(!empty($rows->complain_id))
+                                                  {
+                                                       $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $compl = $ci_obj->general_model->getComplainById($rows->complain_id);
+                                                        
+                                                        echo $compl->complain_name;
+                                                  }
+                                                  ?>
+                                                       
+                                                </td>
                                                 <td><?php echo $rows->notes?></td>
                                                 <td><?php 
 												$ci_obj = & get_instance();

@@ -465,6 +465,14 @@ class Patient extends General{
 			redirect(base_url().'app/patient/upload_picture/'.$this->input->post('patient_no'),$this->data);
 		}
 	}
+
+	public function getpreassesmedicine($preasses_id){
+		$this->data['particularName'] = $this->patient_model->getpreassesmedicine($preasses_id);
+		if(!empty($this->data['particularName'])){
+		    echo json_encode($this->data['particularName']);die;
+		//$this->load->view("app/billing/particular_list",$this->data);
+		}	
+	}
 	
 	
 	
