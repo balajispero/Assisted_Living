@@ -1,4 +1,9 @@
-
+body{
+  border:#00cccc;
+   border-width:2px; 
+   border-style:solid; 
+   border-radius: 15px 20px; 
+}
 
 /*label {
     display: inline-block;
@@ -195,6 +200,4 @@
         background: #00cccc
     }  
 
-    
-  
-  
+ 

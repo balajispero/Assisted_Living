@@ -46,7 +46,7 @@
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
 
     </head>
-    <body class="skin-blue">
+    <body class="skin-blue ">
 
         <!-- header logo: style can be found in header.less -->
         <?php require_once(APPPATH.'views/include/header.php');?>
@@ -63,7 +63,7 @@
                     <h1>Member Registration</h1>
                     <ol class="breadcrumb">
                         <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="#">Member Management</a></li>
+                        <li><a href="<?php echo base_url()?>app/dashboard">Member Management</a></li>
                         <li class="active">Member Registration</li>
                     </ol>
                 </section>
@@ -91,6 +91,7 @@
                 }
             }
         </script>
+    
         <div class="row">
           <div class="col-md-12">
             <form action="<?php echo base_url()?>app/doctor/preassessment_save" method="post" enctype="multipart/form-data">    
