@@ -695,7 +695,7 @@ class Doctor extends General{
 	    
 		$preassessment_details = array(
             'preasses_name' => $this->input->post('applicant_name'),
-            //'preasses_dob' => $this->input->post('applicant_dob'),
+            'birthday' => $this->input->post('applicant_dob'),
             'preasses_age' => $this->input->post('applicant_age'),
             'preasses_gender' => $this->input->post('applicant_gender'),
             'preasses_religion' => $this->input->post('applicant_religion'),
@@ -758,9 +758,14 @@ class Doctor extends General{
             'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'),
             'doctor_observation' => $this->input->post('doctor_observation'),
             'recommendation' => $this->input->post('recommendation'),
-            'ptn_eligible' => $this->input->post('ptn_eligible'),
+            /*'ptn_eligible' => $this->input->post('ptn_eligible'),*/
             'updated_by' => $this->session->userdata('user_id'),
         	'updated_date'		=>	 date("Y-m-d h:i:s a"));
+			
+			if($this->session->userdata('user_role') == 5)
+			{
+				$preassessment_details['ptn_eligible']=$this->input->post('ptn_eligible');	
+			}
 		$update_ptn = $this->preassessment_model->update_preassessment_details($preassessment_details);
 		
 		if($update_ptn)

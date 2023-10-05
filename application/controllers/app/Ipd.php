@@ -327,6 +327,7 @@ class Ipd extends General{
             // Render the HTML as PDF
             $dompdf->render();
             // Output the generated PDF to Browser
+			//$dompdf->stream('discharge_report.pdf',array("Attachment" => 0));
             $dompdf->stream('discharge_report.pdf');
             }
 	function validate_email_edit(){

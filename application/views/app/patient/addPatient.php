@@ -629,7 +629,6 @@
                     $( '#admission_form' ).each(function(){
                     this.reset();
                         });
-                    
                 }
                 else {
 
@@ -645,6 +644,9 @@
               {
               if (xmlhttp.readyState==4 && xmlhttp.status==200)
                 {
+                    $("#dynamic_field").html('');
+                    $("#medicinecuont").val(0);
+
                     var result = JSON.parse(xmlhttp.responseText);
                     
                     var gender="";
@@ -684,8 +686,7 @@
                 // Set the selected option based on the selectedValue
                 $("#gender").val(gender);
                 $("#civil_status").val(marital_status);
-                     //$("#gender option[value=" + gender + "]").attr('selected', 'selected');
-                    //$("#civil_status option[value=" + marital_status + "]").attr('selected', 'selected');
+                    
                     $("#aadhar_no").val(result[0].preasses_aadhar);
                     $("#noofhouse").val(result[0].preasses_add);
                     $("#mobile").val(result[0].preasses_mobile);
@@ -697,7 +698,6 @@
                     $("#ptn_rs").val(result[0].rs);
                      showMedicineName(preasses_id);
                     
-
                 }
               }
               var supp;
@@ -707,7 +707,6 @@
             }
 
             }
-
 
             function showMedicineName(preasses_id)
             {
@@ -730,9 +729,10 @@
               if (xmlhttp1.readyState==4 && xmlhttp1.status==200)
                 {
                     var res = JSON.parse(xmlhttp1.responseText);
-                    console.log(res);
+                    //console.log(res);                     
                     var sub_cat="";
                     var preassesmed_cnt="";
+
 
                     for (var preasses_i = 0; preasses_i < res.length; preasses_i++) {
                             preassesmed_cnt=preasses_i+1;
@@ -772,9 +772,8 @@
                 $('#add').click(function() {
                     var medicinecuont = $('#medicinecuont').val();
                     var i = j+ + +medicinecuont;
-                    //i=number(i);
                     //i++;
-                    $('#dynamic_field').append('<div id="row'+i+'"> <label" for="member_'+ i +'">  '+ i +' </label> <input type="text" name="member[]" value=""><button type="button" class="btn_remove" name="remove" id="'+ i +'">-</button></div>')
+                    $('#dynamic_field').append('<div id="row'+i+'"> <label" for="member_'+ i +'">  </label> <input type="text" name="member[]" value=""><button type="button" class="btn_remove" name="remove" id="'+ i +'">-</button></div>')
                     j++;
                 });
                 $(document).on('click', '.btn_remove', function() {

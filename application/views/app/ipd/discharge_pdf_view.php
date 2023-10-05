@@ -83,6 +83,7 @@ $date = date("Y-m-d H:i:s", time());
         <tr><td><?=$key1?></td><td><?=$medicine1?></td></tr>
         <?php }?>
      </table>
+     
 
     
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -90,6 +91,7 @@ $date = date("Y-m-d H:i:s", time());
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="   https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
 
 </div>
 </body>

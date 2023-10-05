@@ -171,7 +171,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Date of Birth</label><span class="text-danger"></span></br>
-                                                                            <input type="date" class="form-control" name="applicant_dob" value="<?php /*echo $patientInfo[0]->preasses_dob*/?>" id="birthday" onchange = "calAge()">
+                                                                            <input type="date" class="form-control" name="applicant_dob" value="<?php echo $patientInfo[0]->birthday?>" id="birthday" onchange = "calAge()">
                                                                     
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -1602,12 +1602,27 @@
 
                                                                 <div class="row">
                                                                     <div class="col-md-3">
+                                                                        <?php
+                                                                            if($this->session->userdata('user_role') == 5)
+                                                                            {
+                                                                        ?>
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Eligible for ALF<?php /*print_r($patientInfo);*/?></label><span class="text-danger"></span>&nbsp;
-                                                                            <input type="radio" class="" name="ptn_eligible" value="Yes" checked>Yes &nbsp;
-                                                                            <input type="radio" name="ptn_eligible" class="" value="No">No
+                                                                            <input type="radio" class="" name="ptn_eligible" value="Yes"
+                                                                            <?php 
+                                                                            if($patientInfo[0]->ptn_eligible=="Yes"){
+                                                                                 echo "checked=checked";
+                                                                                }
+                                                                            ?>>Yes &nbsp;
+                                                                            <input type="radio" name="ptn_eligible" class="" value="No"
+                                                                            <?php 
+                                                                            if($patientInfo[0]->ptn_eligible=="No"){
+                                                                                 echo "checked=checked";
+                                                                                }
+                                                                            ?>>No
                                                                             <span class="text-danger error-text type_category_err"></span>
                                                                         </div><!-- /.form-group wrapper-class -->
+                                                                    <?php } ?>
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
