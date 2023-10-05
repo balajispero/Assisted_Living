@@ -26,6 +26,7 @@ input[type=text]:hover{
     border-bottom: 2px solid  #00cccc;
 }
 
+
     </style>
     
     
@@ -512,7 +513,7 @@ input[type=text]:hover{
 </section>
 
 <section>
-
+<div class="container">
     <table class="table table-striped">
                                                 <tr>
                                                    <!-- <th>No.</th> --> <th>Name of Medicine</th><th>Dose</th><th>Frequency</th><th>Duration</th>
@@ -570,6 +571,7 @@ input[type=text]:hover{
        
 
     </div> -->
+      </div>
 </section>
 
 
@@ -631,7 +633,7 @@ input[type=text]:hover{
 </section>
 
 <section>
-
+<div class="container">
 
 <table class="table table-striped">
                                                                 <tr>
@@ -644,25 +646,25 @@ input[type=text]:hover{
         if($immunze_key=='0')
         { ?>
         <tr>
-          <td>Tetanus</td><td><input type="text" name="tetanus_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="date" name="tetanus_date" class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="date" name="tetanus_due_date" class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
+          <td>Tetanus</td><td><input type="text" name="tetanus_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="text" name="tetanus_date" class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="text" name="tetanus_due_date" class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
         </tr>
       <?php }
       if($immunze_key=='1')
         { ?>
          <tr>
-      <td>Influenza</td><td><input type="text" name="influenza_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="date" name="influenza_date" class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="date" name="influenza_due_date" class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
+      <td>Influenza</td><td><input type="text" name="influenza_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="text" name="influenza_date" class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="text" name="influenza_due_date" class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
     </tr>
       <?php }
       if($immunze_key=='2')
         { ?>
         <tr>
-      <td>Pneumococcal</td><td><input type="text" name="pneumococcal_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="date" name="pneumococcal_date"class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="date" name="pneumococcal_due_date"class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
+      <td>Pneumococcal</td><td><input type="text" name="pneumococcal_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="text" name="pneumococcal_date"class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="text" name="pneumococcal_due_date"class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
     </tr>
       <?php } 
       if($immunze_key=='3')
         { ?>
         <tr>
-      <td>Typhoid</td><td><input type="text" name="typhoid_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="date" name="typhoid_date" class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="date" name="typhoid_due_date" class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
+      <td>Typhoid</td><td><input type="text" name="typhoid_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="text" name="typhoid_date" class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="text" name="typhoid_due_date" class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
     </tr>    
       <?php }
       if($immunze_key=='4')
@@ -679,7 +681,7 @@ input[type=text]:hover{
         
         <?php } }?>    
                                                               </table>
-
+        </div>
 </section>
 
 <section>

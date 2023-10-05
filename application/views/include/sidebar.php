@@ -547,7 +547,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
 
 </style>
             
-            
+
                             <!-- Modal -->
 <script language="javascript">
 function showInvoice(patient_id)
@@ -619,4 +619,5 @@ xmlhttp.send();
  </div>
  </form>
     <!-- /.modal-dialog -->
+    
 
