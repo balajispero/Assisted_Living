@@ -93,34 +93,14 @@ input[type=text]:hover{
             <label class=" col-form-label">Gender :</label>
             </div>
             <div class="col-3">
-            <input type="text" class="form-control">
-            <!-- <select name="applicant_gender" class="form-control" required>
-                                                                              <option value="">- Gender -</option>
-                                                                              <option value="Male" <?php if($patientInfo[0]->preasses_gender=="Male"){ echo "selected"; } ?>>Male</option>
-                                                                              <option value="Female" <?php if($patientInfo[0]->preasses_gender=="Female"){ echo "selected"; } ?>>Female</option>
-                                                                              <option value="Any Other" <?php if($patientInfo[0]->preasses_gender=="Any Other"){ echo "selected"; } ?>>Any Other</option>
-                                                                            </select> -->
+            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->preasses_gender?>">
+            
             </div>
             <div class="col-md-3 ml-4">
             <label class=" col-form-label">Marital Status :</label>
             </div>
             <div class="col-3">
-            <input type="text" class="form-control ">
-            <!-- <select name="applicant_marital" class="form-control input-sm">
-                                                                               <option value="">- Marital Status -</option>
-                                                                         
-                                                                               <option value="Divorced" <?php if($patientInfo[0]->preasses_marital_status=="Divorced"){ echo "selected"; } ?>>Divorced</option>
-                                                                          
-                                                                               <option value="Legal Seperated" <?php if($patientInfo[0]->preasses_marital_status=="Legal Seperated"){ echo "selected"; } ?>>Legal Seperated</option>
-                                                                         
-                                                                               <option value="Married" <?php if($patientInfo[0]->preasses_marital_status=="Married"){ echo "selected"; } ?>>Married</option>
-                                                                          
-                                                                               <option value="Single" <?php if($patientInfo[0]->preasses_marital_status=="Single"){ echo "selected"; } ?>>Single</option>
-                                                                           
-                                                                               <option value="Widow" <?php if($patientInfo[0]->preasses_marital_status=="Widow"){ echo "selected"; } ?>>Widow</option>
-                                                                          
-                                                                               <option value="Widower" <?php if($patientInfo[0]->preasses_marital_status=="Widower"){ echo "selected"; } ?>>Widower</option>
-                                                                            </select> -->
+            <input type="text" class="form-control"  value="<?php echo $patientInfo[0]->preasses_marital_status?>">
 
             </div>
            </div>
@@ -163,9 +143,7 @@ input[type=text]:hover{
             <label class=" col-form-label">Religion:</label>
             </div>
             <div class="col-9">
-            <!-- <input type="text" class="form-control " value="" required> -->
-            <option value="Hindu" <?php if($patientInfo[0]->preasses_religion=="Hindu"){ echo "selected"; } ?>>Hindu</option>
-
+             <input type="text" class="form-control " value="<?php echo $patientInfo[0]->preasses_religion?>"> 
 
             </div>
 
@@ -291,39 +269,6 @@ input[type=text]:hover{
             <input type="text" class="form-control" value="<?php echo $patientInfo[0]->chl_email?>">
             </div>
         </div>
-
-        <!-- <div class="row mt-2">
-        <div class="col-md-3 ml-4">
-            <label class=" col-form-label">2.<span> Name </span>:</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control ">
-            </div>
-        </div>
-
-        <div class="row mt-2">
-        <div class="col-md-3 ml-4">
-            <label class=" col-form-label">  Address :</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control ">
-            </div>
-        </div>
-
-        <div class="row mt-2">
-           <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Contact No. :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control ">
-            </div>
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Email :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control ">
-            </div>
-        </div> -->
     </div>
 </section>
 
@@ -509,11 +454,13 @@ input[type=text]:hover{
            </div>
 
             <div class="col-3">
-            <input type="text" class="form-control" value="<?php if(!empty($key_dg1)){ print($key_dg1);}else{ echo '0';}?>" id="diagnosiscuont">
+                <?php
+                 $diagnosis = @explode(',',$patientInfo[0]->diagnosis); foreach($diagnosis as $key_dg => $diagnosis1){ 
+                    ?>
+                     <input type="text" name="diagnosis[].." value="<?=$diagnosis1?>">
+                      <?php }?>
+            
             </div>
-            <!-- <div class="col-3">
-            <input type="text" class="form-control ">
-            </div> -->
             
         </div>
 </div>
@@ -565,7 +512,24 @@ input[type=text]:hover{
 </section>
 
 <section>
-    <div class="container">
+
+    <table class="table table-striped">
+                                                <tr>
+                                                   <!-- <th>No.</th> --> <th>Name of Medicine</th><th>Dose</th><th>Frequency</th><th>Duration</th>
+                                                </tr>
+                                                 <tbody id="dynamic_field">
+                                                    <?php
+      if(!empty($preasses_medicine)){
+
+      foreach($preasses_medicine as $key => $medicine){ $key1 = $key+1; ?>
+        <tr id="row<?=$key1?>">
+          <!-- <td></td> --><td><input type="text" class="form-control" name="medicine_name[]" value="<?=$medicine->medicine?>"></td><td><input type="text" class="form-control" name="dose[]" value="<?=$medicine->dose?>"></td><td><input type="text" class="form-control" name="frequency[]" value="<?=$medicine->frequency?>"></td><td><input type="text" class="form-control" name="duration[]" value="<?=$medicine->duration?>"></td>
+        </tr>
+        <?php } }?>
+        <input type="hidden" value="<?php if(!empty($key1)){ print($key1);}else{ echo '0';}?>" id="medicinecuont"></input>
+                                                    </tbody>
+                                             </table>
+    <!-- <div class="container">
     <div class="row mt-2">
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">No. of Medicine :</label>
@@ -605,7 +569,7 @@ input[type=text]:hover{
             </div>
        
 
-    </div>
+    </div> -->
 </section>
 
 
@@ -667,37 +631,55 @@ input[type=text]:hover{
 </section>
 
 <section>
-    <div class="container">
-    <div class="row mt-2">
-            <div class="col-md-3 ml-4">
-                <label class=" col-form-label">Type of Vaccine :</label>
-            </div>
-            <div class="col-3">
-                <input type="text" class="form-control ">
-            </div>
-            <div class="col-md-3 ml-4">
-                <label class=" col-form-label">Name of Vaccine:</label>
-            </div>
-            <div class="col-3">
-                <input type="text" class="form-control ">
-            </div>
-        </div>
 
-        <div class="row mt-2">
-            <div class="col-md-3 ml-4">
-                <label class=" col-form-label">Date Given :</label>
-            </div>
-            <div class="col-3">
-                <input type="text" class="form-control ">
-            </div>
-            <div class="col-md-3 ml-4">
-                <label class=" col-form-label">Next Deu Date:</label>
-            </div>
-            <div class="col-3">
-                <input type="text" class="form-control ">
-            </div>
-        </div>
-     </div>
+
+<table class="table table-striped">
+                                                                <tr>
+                                                                  <th>Type of Vaccine</th><th>Name of vaccine</th><th>Date given</th><th>Next due date </th>
+                                                                </tr>
+                                                                <?php
+      if(!empty($preasses_immunization_his)){
+
+      foreach($preasses_immunization_his as $immunze_key => $immunize_his){  
+        if($immunze_key=='0')
+        { ?>
+        <tr>
+          <td>Tetanus</td><td><input type="text" name="tetanus_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="date" name="tetanus_date" class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="date" name="tetanus_due_date" class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
+        </tr>
+      <?php }
+      if($immunze_key=='1')
+        { ?>
+         <tr>
+      <td>Influenza</td><td><input type="text" name="influenza_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="date" name="influenza_date" class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="date" name="influenza_due_date" class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
+    </tr>
+      <?php }
+      if($immunze_key=='2')
+        { ?>
+        <tr>
+      <td>Pneumococcal</td><td><input type="text" name="pneumococcal_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="date" name="pneumococcal_date"class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="date" name="pneumococcal_due_date"class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
+    </tr>
+      <?php } 
+      if($immunze_key=='3')
+        { ?>
+        <tr>
+      <td>Typhoid</td><td><input type="text" name="typhoid_vac" class="form-control" value="<?php echo $immunize_his->vac_name?>"></td><td><input type="date" name="typhoid_date" class="form-control" value="<?php echo $immunize_his->given_date?>"></td><td><input type="date" name="typhoid_due_date" class="form-control" value="<?php echo $immunize_his->due_date?>"></td>
+    </tr>    
+      <?php }
+      if($immunze_key=='4')
+        { ?>
+        <tr>
+      <td>COVID19</td><td></td><td class="row">
+                                                                <label class="col-sm-2" style="margin-top:3px;">1<sup>st</sup></label><input type="text" name="covid_vac_1" value="<?php echo $immunize_his->covid_vac_1;?>" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+                                                                        <label class="col-sm-2" style="margin-top:3px;">2<sup>nd</sup></label><input type="text" name="covid_vac_2" value="<?php echo $immunize_his->covid_vac_2;?>" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+                                                                        <label class="col-sm-2" style="margin-top:3px;">3<sup>rd</sup></label><input type="text" name="covid_vac_3" value="<?php echo $immunize_his->covid_vac_3;?>" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+
+        </td><td></td>
+    </tr>    
+      <?php } ?>
+        
+        <?php } }?>    
+                                                              </table>
+
 </section>
 
 <section>
@@ -718,14 +700,14 @@ input[type=text]:hover{
             <label class=" col-form-label">COVID19 :</label>
             </div>
         <div class="col-3">1st Vaccine
-            <input type="text" class="form-control " placeholder="first vaccine">
+            <input type="text" class="form-control " placeholder="first vaccine" value="<?php echo $immunize_his->covid_vac_1;?>">
             </div>
 
             <div class="col-3">2nd Vaccine
-            <input type="text" class="form-control " placeholder="second vaccine">
+            <input type="text" class="form-control " placeholder="second vaccine" value="<?php echo $immunize_his->covid_vac_2;?>">
             </div>
             <div class="col-3">3rd Vaccine
-            <input type="text" class="form-control " placeholder="third vaccine">
+            <input type="text" class="form-control " placeholder="third vaccine" value="<?php echo $immunize_his->covid_vac_3;?>">
             </div>
 
         </div>
@@ -765,7 +747,7 @@ input[type=text]:hover{
                 <label class=" col-form-label">Ears Hearing :</label>
             </div>
             <div class="col-3">
-                <input type="text" class="form-control" value="<?php echo $patientInfo[0]->ears?>">
+                <input type="text" class="form-control" value="<?php echo $patientInfo[0]->hearing?>">
             </div>
             <div class="col-md-3 ml-4 mt-2">
                 <label class=" col-form-label">Hearing Aid:</label>
@@ -1033,7 +1015,7 @@ input[type=text]:hover{
             <label class=" col-form-label">Gastrointestinal System:</label>
             </div>
             <div class="col-9">
-            <input type="text" class="form-control" <?php echo $patientInfo[0]->gastrointestinal_sys?>>
+            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->gastrointestinal_sys; ?>">
             </div>
          </div>
 
@@ -1042,7 +1024,7 @@ input[type=text]:hover{
             <label class=" col-form-label">Genito Urinary System:</label>
             </div>
             <div class="col-9">
-            <input type="text" class="form-control" <?php echo $patientInfo[0]->genito_urinary_sys?>>
+            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->genito_urinary_sys?>">
             </div>
          </div>
 
@@ -1051,7 +1033,7 @@ input[type=text]:hover{
             <label class=" col-form-label">Neurological System:</label>
             </div>
             <div class="col-9">
-            <input type="text" class="form-control" <?php echo $patientInfo[0]->neurological_sys?>>
+            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->neurological_sys?>">
             </div>
          </div>
 
@@ -1060,7 +1042,7 @@ input[type=text]:hover{
             <label class=" col-form-label">Musculoskeletal system:</label>
             </div>
             <div class="col-9">
-            <input type="text" class="form-control" <?php echo $patientInfo[0]->musculoskeletal_sys?>>
+            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->musculoskeletal_sys?>">
             </div>
          </div>
 
@@ -1372,10 +1354,10 @@ input[type=text]:hover{
     <div class="container">
     <div class="row mt-2">
             <div class="col-md-3 ml-4">
-                <label class=" col-form-label">You have fallen in the past year?</label>
+                <label class=" col-form-label">You have fallen in the past year? </label>
             </div>
-            <div class="col-6">Yes
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control" value="<?php echo $preasses_fallrisk_quest[0]->answer=="2" ? "Yes" :"No"; ?>">
             </div>
         </div>
         
@@ -1383,8 +1365,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Do you use or have been advised to use a stick or walker to move around safely?</label>
             </div>
-            <div class="col-6">Yes
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control" value="<?php echo $preasses_fallrisk_quest[1]->answer=="2" ? "Yes" :"No"; ?>">
             </div>
         </div>
        
@@ -1392,8 +1374,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Do you feel unsteady while you are walking ?</label>
             </div>
-            <div class="col-6">No
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control" value="<?php echo $preasses_fallrisk_quest[2]->answer=="1" ? "Yes" :"No"; ?>">
             </div>
         </div>
 
@@ -1401,8 +1383,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Do you steady yourself by holding onto furniture while walking at home?</label>
             </div>
-            <div class="col-6">Yes
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control " value="<?php echo $preasses_fallrisk_quest[3]->answer=="1" ? "Yes" :"No"; ?>">
             </div>
         </div>
 
@@ -1410,8 +1392,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">You are worried about falling?</label>
             </div>
-            <div class="col-6">No
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control " value="<?php echo $preasses_fallrisk_quest[4]->answer=="1" ? "Yes" :"No"; ?>">
             </div>
         </div>
 
@@ -1419,8 +1401,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Do You need to push with your hands to stand up from a chair?</label>
             </div>
-            <div class="col-6">No
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control " value="<?php echo $preasses_fallrisk_quest[5]->answer=="1" ? "Yes" :"No"; ?>">
             </div>
         </div>
 
@@ -1428,8 +1410,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Do You have some trouble to stepping up onto a curb?</label>
             </div>
-            <div class="col-6">Yes
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control " value="<?php echo $preasses_fallrisk_quest[6]->answer=="1" ? "Yes" :"No"; ?>">
             </div>
         </div>
 
@@ -1437,8 +1419,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Do you often have to rush to the toilet?</label>
             </div>
-            <div class="col-6">No
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control " value="<?php echo $preasses_fallrisk_quest[7]->answer=="1" ? "Yes" :"No"; ?>">
             </div>
         </div>
 
@@ -1447,8 +1429,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Have lost some feeling in your feet?</label>
             </div>
-            <div class="col-6">No
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control " value="<?php echo $preasses_fallrisk_quest[8]->answer=="1" ? "Yes" :"No"; ?>">
             </div>
         </div>
 
@@ -1456,8 +1438,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Do you take medicine that sometimes make you feel light- headed or more tired than usual?</label>
             </div>
-            <div class="col-6">Yes
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control " value="<?php echo $preasses_fallrisk_quest[9]->answer=="1" ? "Yes" :"No"; ?>">
             </div>
         </div>
 
@@ -1465,8 +1447,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Do you take medicine to help you sleep or improve your mood?</label>
             </div>
-            <div class="col-6">Yes
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control " value="<?php echo $preasses_fallrisk_quest[10]->answer=="1" ? "Yes" :"No"; ?>">
             </div>
         </div>
 
@@ -1474,8 +1456,8 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">I often feel sad or depressed?</label>
             </div>
-            <div class="col-6">Yes
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control " value="<?php echo $preasses_fallrisk_quest[11]->answer=="1" ? "Yes" :"No"; ?>">
             </div>
         </div>
 
@@ -1483,271 +1465,15 @@ input[type=text]:hover{
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Add up the points for each “Yes” answer. If subject score 4 or more points the subject may be at the risk of falling</label>
             </div>
-            <div class="col-6">No
-                <input type="text" class="form-control ">
+            <div class="col-6">
+                <input type="text" class="form-control " value="<?php echo !empty($preasses_fallrisk_quest[12]->answer) ? $preasses_fallrisk_quest[12]->answer :""; ?>">
             </div>
         </div>
 
     </div>
 </section>
 
-<!-- <table class="table table-striped">
-        <tr>
-          <th>Questions<?php /*print_r($preasses_fallrisk_quest);*/ ?></th><th>Answer</th>
-        </tr>
-        <?php
-        for($qtn=0;$qtn<count($preasses_fallrisk_quest);$qtn++)
-        {
 
-            if($qtn=="0")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="past_year_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio past_year" name="past_year" value="2" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="past_year" class="chkradio past_year" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="1")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="use_stick_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio use_stick" name="use_stick" value="2" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="use_stick" class="chkradio use_stick" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="2")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="feel_stable_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio" name="feel_stable" value="1" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="feel_stable" class="chkradio past_year" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="3")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="steady_holding_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio" name="steady_holding" value="1" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="steady_holding" class="chkradio" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="4")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="worry_fall_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio" name="worry_fall" value="1" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="worry_fall" class="chkradio" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="5")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="from_chair_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio" name="from_chair" value="1" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="from_chair" class="chkradio" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="6")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="curb_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio" name="curb" value="1" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="curb" class="chkradio" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="7")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="toilet_rush_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio" name="toilet_rush" value="1" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="toilet_rush" class="chkradio" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="8")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="lost_feet_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio" name="lost_feet" value="1" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="lost_feet" class="chkradio" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="9")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="light_headed_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio" name="light_headed" value="1" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="light_headed" class="chkradio" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="10")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="take_medicine_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio" name="take_medicine" value="1" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="take_medicine" class="chkradio" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="11")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="feel_sad_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td> 
-                     <input type="radio" class="chkradio" name="feel_sad" value="1" <?php 
-                        if($preasses_fallrisk_quest[$qtn]->answer=="1" || $preasses_fallrisk_quest[$qtn]->answer=="2"){
-                             echo "checked=checked";
-                            }
-                        ?>>Yes  &nbsp;
-                    <input type="radio" name="feel_sad" class="chkradio" value="0" <?php if($preasses_fallrisk_quest[$qtn]->answer=="0" ){
-                            echo "checked=checked";
-                        } ?>>No
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-            if($qtn=="12")
-            {
-                ?>
-               <tr>
-                  <td><?php echo $preasses_fallrisk_quest[$qtn]->questions; ?><input type="hidden" name="fall_total_score_qtn" class="form-control" value="<?php echo $preasses_fallrisk_quest[$qtn]->questions; ?>"></td>
-                  <td>
-                  <input type="text" name="fall_total_score" id="fall_total_score" class="form-control" placeholder="Enter Total Score" value="<?php echo $preasses_fallrisk_quest[$qtn]->answer; ?>"> 
-                 </td>
-                <input type="hidden" value="<?php echo $preasses_fallrisk_quest[$qtn]->fall_risk_id ?>" name="fallrisk_id[]">
-              </tr>
-              <?php 
-            }
-             
-        } ?>
-            
-      </table>
-    </div>
-                                           
-                                         
-
-<section> -->
     <div class="container">
         <div class="row mt-4">
             <div class="col-12">
@@ -1777,49 +1503,6 @@ input[type=text]:hover{
                 <p>Chair Stand Below Average Scores</p>
            </div>
        </div>
-
-        <!-- <table class="table">
-  <thead>
-    <tr>
-     
-      <th scope="col">AGE</th>
-      <th scope="col">MEN</th>
-      <th scope="col">WOMEN</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-     
-      <tr>60-64</tr>
-      <td>65-69</td>
-      <td>70-74</td>
-      <td>75-79</td>
-      <td>80-84</td>
-      <td>85-89</td>
-      <td>90-94</td>
-    </tr>
-    <tr>
-     
-      <td>&lt;14</td>
-      <td>&lt;12</td>
-      <td>&lt;12</td>
-      <td>&lt;11</td>
-      <td>&lt;10</td>
-      <td>&lt;8</td>
-      <td>&lt;7</td>
-    </tr>
-    <tr>
-    
-      <td>&lt;12</td>
-      <td>&lt;11</td>
-      <td>&lt;10</td>
-      <td>&lt;10</td>
-      <td>&lt;9</td>
-      <td>&lt;8</td>
-      <td>&lt;4</td>
-    </tr>
-  </tbody>
-</table> -->
 
 <table class="table table-striped">
         <tr>
@@ -1863,7 +1546,7 @@ input[type=text]:hover{
                 <label class=" col-form-label">Observation by Doctor</label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control ">
+                <input type="text" class="form-control " value="<?php echo $patientInfo[0]->doctor_observation?>">
             </div>
         </div>
 
@@ -1872,7 +1555,7 @@ input[type=text]:hover{
                 <label class=" col-form-label">Recommendation</label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control ">
+                <input type="text" class="form-control " value="<?php echo $patientInfo[0]->recommendation?>">
             </div>
         </div>
 
@@ -1881,7 +1564,7 @@ input[type=text]:hover{
                 <label class=" col-form-label">Eligible for ALF</label>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control ">
+                <input type="text" class="form-control" value="<?php echo $patientInfo[0]->ptn_eligible?>">
             </div>
         </div>
     </div>

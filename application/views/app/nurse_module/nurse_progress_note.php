@@ -192,7 +192,7 @@
                                            <thead>
                                            		<tr>
                                                 	<th>Date Time</th>
-                                                    <!--<th>Focus</th>-->
+                                                    <th>Complain</th>
                                                     <th>Notes</th>
                                                     <th>Prepared by</th>
                                                     <th></th>
@@ -202,7 +202,19 @@
                                            <?php foreach($getNurseProgressNote as $rows){?>
                                            <tr>
                                            		<td><?php echo date("M d, Y h:i:s A",strtotime($rows->dDateTime));?></td>
-                                                <!--<td><?php echo $rows->focus?></td>-->
+                                                <td>
+                                                    <?php
+                                                    if(!empty($rows->complain_id))
+                                                    {
+                                                        $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $compl = $ci_obj->general_model->getComplainById($rows->complain_id);
+                                                        
+                                                        echo $compl->complain_name;
+                                                    }
+                                                    ?>
+                                                    
+                                                </td>
                                                 <td><?php echo $rows->notes?></td>
                                                 <td><?php 
 												$ci_obj = & get_instance();

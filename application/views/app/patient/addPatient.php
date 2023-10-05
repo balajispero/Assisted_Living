@@ -584,6 +584,7 @@
                                                         <tr>
                                                             <td width="20%"><button type="button" required name="add" id="add">Add Medicine</button><div id="dynamic_field"></div></td>
                                                         </tr>
+                                                        <input type="hidden" value="0" id="medicinecuont"></input>
                                                         <tr> 
                                                             <td width="12%">Additional Note</td>
                                                             <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_addtnl_note" id="ptn_addtnl_note"></textarea></td>
@@ -712,13 +713,9 @@
             {
                 if(preasses_id=="")
                 {
-                    
-                    
+                         
                 }
                 else {
-                    /*$(".test_name").hide();
-                     $(".particularitem").show();
-                     $("input[name='test_name']").val('');*/
 
             if (window.XMLHttpRequest)
               {
@@ -735,22 +732,23 @@
                     var res = JSON.parse(xmlhttp1.responseText);
                     console.log(res);
                     var sub_cat="";
-                    varpreassesmed_cnt="";
+                    var preassesmed_cnt="";
 
                     for (var preasses_i = 0; preasses_i < res.length; preasses_i++) {
                             preassesmed_cnt=preasses_i+1;
-                            /*sub_cat +='<div id="row"+"'preassesmed_cnt'"><label for="member_"+"'preassesmed_cnt'"> </label><input type="text" name="member[]" value="'res[preasses_i].medicine'"><button type="button" class="btn_remove" name="remove" id="'preassesmed_cnt'">-</button>';  */ 
-                               sub_cat += '<option value="' + res[preasses_i].medicine + '">' + res[preasses_i].medicine + '</option>';  
+
+                            sub_cat +='<div id="row'+preassesmed_cnt+'">';
+                            sub_cat +='<label for="member_'+preassesmed_cnt+'"> </label><input type="text" name="member[]" value="'+res[preasses_i].medicine+'">';
+                            sub_cat +='<button type="button" class="btn_remove" name="remove" id="'+preassesmed_cnt+'">-</button></div>';   
+                                
                            }
                   
-                // document.getElementById("showCategories").innerHTML=xmlhttp.responseText;
-                           //$("#dynamic_field").html(sub_cat);
-
-                           /*$(".particularitem option[value=" + laboratory_id + "]").attr('selected', 'selected');*/
+                           $("#dynamic_field").html(sub_cat);
+                           $("#medicinecuont").val(preassesmed_cnt);
+                           //console.log(preassesmed_cnt);
 
                 }
               }
-              var supp;
 
             xmlhttp1.open("GET","<?php echo base_url();?>app/patient/getpreassesmedicine/"+preasses_id,true);
             xmlhttp1.send();
@@ -770,10 +768,14 @@
             });
             $(document).ready(function() {
                 var i=0; 
+                var j = 1;
                 $('#add').click(function() {
-                    i++;
+                    var medicinecuont = $('#medicinecuont').val();
+                    var i = j+ + +medicinecuont;
+                    //i=number(i);
+                    //i++;
                     $('#dynamic_field').append('<div id="row'+i+'"> <label" for="member_'+ i +'">  '+ i +' </label> <input type="text" name="member[]" value=""><button type="button" class="btn_remove" name="remove" id="'+ i +'">-</button></div>')
-
+                    j++;
                 });
                 $(document).on('click', '.btn_remove', function() {
                     var button_id = $(this).attr("id");

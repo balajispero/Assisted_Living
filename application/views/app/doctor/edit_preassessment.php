@@ -690,7 +690,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Hearing</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="hearing" value="<?php echo $patientInfo[0]->ears?>">
+                                                                            <input type="text" class="form-control" name="hearing" value="<?php echo $patientInfo[0]->hearing; ?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1586,14 +1586,14 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Observation by Doctor</label><span class="text-danger"></span></br>
-                                                                            <textarea name="doctor_observation" class="form-control"></textarea>
+                                                                            <textarea name="doctor_observation" class="form-control"><?php echo $patientInfo[0]->doctor_observation?></textarea>
                                                                             <span class="text-danger error-text type_category_err"></span>
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Recommendation</label><span class="text-danger"></span></br>
-                                                                            <textarea name="recommendation" class="form-control"></textarea>
+                                                                            <textarea name="recommendation" class="form-control"><?php echo $patientInfo[0]->doctor_observation?></textarea>
                                                                             <span class="text-danger error-text type_category_err"></span>
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->

@@ -227,7 +227,7 @@
                                                  <td> 
                                                 <?php if($this->session->userdata('emr_viewing') == ""){?>  
                                                 <?php if($getOPDPatient->nStatus == "Pending"){?>
-                                                <!--<a href="<?php echo base_url()?>app/ipd/delete_medication/<?php echo $rows->iop_med_id?>/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" onClick="return confirm('Are you sure you want to remove?');">Remove</a>&nbsp;|&nbsp;-->
+                                                <a href="<?php echo base_url()?>app/ipd/delete_medication/<?php echo $rows->iop_med_id?>/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" onClick="return confirm('Are you sure you want to remove?');">Remove</a>&nbsp;|&nbsp;
                                                 <a href="#" class="btn-review" data-from_date="<?php echo $rows->from_date;?>" data-to_date="<?php echo $rows->to_date;?>" data-medicine_name="<?php echo $rows->medicine_name;?>" data-iop_med_id="<?php echo $rows->iop_med_id;?>" data-single_dose="<?php echo $rows->dose;?>" data-iop_id="<?php echo $rows->iop_id;?>">Edit</a>
                                                 <?php }}?>
                                                 </td> 
@@ -507,7 +507,7 @@
                                             <tr id="bold">
                                             <td>Date/Day(for)</td>
                                             <td>To Date</td>
-                                            <td>Quantity</td>
+                                            <!-- <td>Quantity</td> -->
                                             <td>Medicines</td>
                                             <td>Dose</td>
                                             <!-- <td>Advice</td> -->
@@ -547,7 +547,7 @@
                                             <tr id="bold">
                                             <td>Date/Day(for)</td>
                                             <td>To Date</td>
-                                            <td>Quantity</td>
+                                            <!-- <td>Quantity</td> -->
                                             <td>Medicines</td>
                                             <td>Dose</td>
                                             <!-- <td>Advice</td> -->
@@ -665,7 +665,7 @@
                 emerg_html += '<tr>';
                 emerg_html += '<td><input type="datetime-local"  name="med_from_date[]" class="form-control input-sm4" ></td>';
                 emerg_html += '<td><input type="datetime-local"  name="med_to_date[]" class="form-control input-sm4" ></td>';
-                emerg_html += '<td><input type="number" name="qty[]" class="form-control input-sm4" style="width: 200px;"></td>';
+                /*emerg_html += '<td><input type="number" name="qty[]" class="form-control input-sm4" style="width: 200px;"></td>';*/
                 emerg_html += '<td><input type="text" name="drug_name[]" placeholder="Medicine Name" class="form-control"></td>';
                 emerg_html += '<td><input type="checkbox" name="dose['+dose_cnt+'][]" class="input-sm4" value="M">M<input type="checkbox" name="dose['+dose_cnt+'][]" class="input-sm4" value="A">A<input type="checkbox" name="dose['+dose_cnt+'][]" class="input-sm4" value="N">N</td>';
                 emerg_html += '<td><button type="button" name="remove" class="fa fa-minus btn-danger btn-sm remove" style="background-color: #00bbc7;"></button></td></tr>';
@@ -714,7 +714,7 @@
                 html += '<tr>';
                 html += '<td><input type="datetime-local"  name="med_from_date[]" class="form-control input-sm4" ></td>';
                 html += '<td><input type="datetime-local"  name="med_to_date[]" class="form-control input-sm4" ></td>';
-                html += '<td><input type="number" name="qty[]" class="form-control input-sm4" style="width: 200px;"></td>';
+                /*html += '<td><input type="number" name="qty[]" class="form-control input-sm4" style="width: 200px;"></td>';*/
                 html += '<td><select  class="form-control input-sm4" style="width: 200px;" name="drug_name[]"><?php foreach ($medicines1  as $medicines) {?><option value="<?=$medicines?>"><?=$medicines?></option><?php } ?></select></td>';
                 html += '<td><input type="checkbox" name="dose['+dose_cnt+'][]" class="input-sm4" value="M">M<input type="checkbox" name="dose['+dose_cnt+'][]" class="input-sm4" value="A">A<input type="checkbox" name="dose['+dose_cnt+'][]" class="input-sm4" value="N">N</td>';
                /* html += '<td><textarea name="advice[]" class="form-control input-sm4"></textarea></td>';*/
