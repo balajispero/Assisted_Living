@@ -11,27 +11,51 @@
 
     <link rel="stylesheet" href="<?base_url()?>app/doctor/custom.css">
     <style>
+        body{
+            border: 2px solid #00cccc;
+        }
         input[type=text] {
-  width: 100%;
-  /* padding: 12px 20px; */
-  /* margin: 8px 0; */
-  /* box-sizing: border-box; */
-  
-  border: none;
-  border-bottom: 2px solid  #00cccc;
-  
-}
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid  #00cccc;
+    }
 input[type=text]:hover{
     border: none;
     border-bottom: 2px solid  #00cccc;
 }
 
-
-    </style>
+</style>
     
     
 </head>
 <body>
+<<<<<<< Updated upstream
+=======
+    <!-- <table class="table"> 
+    <tr>
+        <td  >
+
+        <p>Respected sir <?php echo "hello"; ?><input type="text" name="iop_no" value="<?php echo "hi"; ?>"></p></td>
+        <td  >
+
+        <p>Respected sir<input type="text" name="iop_no" value="<?php echo "hi"; ?>"></p></td>
+    <tr>
+    </table> -->
+
+    <!-- <div style="width: 50%; color:blueviolet; float:left;">
+<p> Preassessment No. : <span class="link-underline-warning"><?php echo $patientInfo[0]->preasses_no;?></span></p></td>
+
+</div>
+<div style="width: 50%; color:#00cccc; float:right;">
+<p>Name of Applicant : <?php echo $patientInfo[0]->preasses_name?></p></td>
+
+ -->
+
+ 
+
+
+
+>>>>>>> Stashed changes
 <section>
     <div class="container">
         <div class="row mt-4 border" style="background-color: #00cccc; color:white;">
@@ -47,7 +71,7 @@ input[type=text]:hover{
         <div class="row mt-4">
             <div class="col-12">
                 <h6 >Personal Details</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:120px;">
+                <!-- <hr style="color:#00cccc; margin-top:10px; width:120px;"> -->
            </div>
         </div>
 </div>
@@ -55,92 +79,68 @@ input[type=text]:hover{
 
 
 <section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label"> Preassessment No. :</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->preasses_no;?>">
-            </div>
-
-        </div>
-        <div class="row mt-2">
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label"> Name of Applicant :</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control " value="<?php echo $patientInfo[0]->preasses_name?>" required>
-            </div>
-
-        </div>
-        <div class="row mt-2">
-        <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Date of Birth :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control " value="<?php /*echo $patientInfo[0]->preasses_dob*/?>" id="birthday" onchange = "calAge()">
-            </div>
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Age :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->preasses_age?>">
-            </div>
+   
+<div class="container">
+      <table class="table"> 
+    <tr>
+        <td>
+        <p> Preassessment No. : <span class="link-underline-warning"><?php echo $patientInfo[0]->preasses_no;?></span></p></td>
+        <td>
+        <p>Name of Applicant : <?php echo $patientInfo[0]->preasses_name?></p></td>
+    <tr>
+    </table>
+ </div>
+ 
+     
+<div class="container">
+     <table class="table"> 
+    <tr>
+        <td  >
+        <p> Date of Birth : <span><?php echo $patientInfo[0]->preasses_gender?></span></p></td>
+        <td  >
+        <p style="margin-left: -200px;">Age :<?php echo $patientInfo[0]->preasses_age?></p></td>
+    <tr>
+    </table>
+           </div>
+           <div class="container">
+     <table class="table"> 
+    <tr>
+        <td  >
+        <p > Gender : <span><?php echo $patientInfo[0]->preasses_gender?></span></p></td>
+        <td  >
+        <p style="margin-left: 220px;">Marital Status :<?php echo $patientInfo[0]->preasses_marital_status?></p></td>
+    <tr>
+    </table>
            </div>
 
-           <div class="row mt-2">
-           <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Gender :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->preasses_gender?>">
-            
-            </div>
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Marital Status :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control"  value="<?php echo $patientInfo[0]->preasses_marital_status?>">
 
-            </div>
-           </div>
-        <div class="row mt-2">
-           <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Contact No. :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->preasses_mobile?>">
-            </div>
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Email :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->preasses_email?>">
-            </div>
+        <div class="container">
+            <table class="table"> 
+                <tr>
+           <td   >
+          <p> Contact No. :<span><?php echo $patientInfo[0]->preasses_gender?></span></p></td>
+          <td   >
+          <p style="margin-left: -200px;">Email :<?php echo $patientInfo[0]->preasses_email?></p></td>
+    <tr>
+    </table>
 
-            <div class="row mt-2">
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label"> Permanent Address :</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control " value="<?php echo $patientInfo[0]->preasses_add?>" required>
-            </div>
 
         </div>
 
-        <div class="row mt-2">
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Aadhar Number :</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control " value="<?php echo $patientInfo[0]->preasses_aadhar?>" required>
-            </div>
+        <div class="container">
 
+            <table class="table"> 
+                <tr>
+           <td   >
+          <p>Aadhar Number :<span><?php echo $patientInfo[0]->preasses_aadhar?></span></p></td>
+          <td   >
+          <p style="margin-left: -200px;">Religion:<?php echo $patientInfo[0]->preasses_religion?></p></td>
+    <tr>
+    </table>
         </div>
 
-        <div class="row mt-2">
-            <div class="col-md-3 ml-4">
+        <div class="container">
+            <!-- <div class="col-md-3 ml-4">
             <label class=" col-form-label">Religion:</label>
             </div>
             <div class="col-9">
@@ -148,17 +148,27 @@ input[type=text]:hover{
 
             </div>
 
-        </div>
+        </div> -->
+        <table class="table"> 
+                <tr>
+           <td   >
+          <p>Permanent Address :<span><?php echo $patientInfo[0]->preasses_add?></span></p></td>
+         
+    <tr>
+    </table>
         </div>
 </section>
     
+<div class="container">
+<hr style="color:black; margin-top:10px; width:500px;">
+</div>
+  
 
 <section>
     <div class="container">
         <div class="row mt-4">
             <div class="col-12">
                 <h6 >Family</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:120px;">
            </div>
         </div>
 </div>
@@ -166,7 +176,7 @@ input[type=text]:hover{
 
 <section>
     <div class="container">
-        <div class="row mt-2">
+        <!-- <div class="row mt-2">
         <div class="col-md-3 ml-4">
             <label class=" col-form-label"> Name of Father :</label>
             </div>
@@ -181,8 +191,17 @@ input[type=text]:hover{
             <div class="col-9">
             <input type="text" class="form-control" value="<?php echo $patientInfo[0]->mother?>">
             </div>
-        </div>
-        <div class="row mt-2">
+        </div> -->
+        
+        <table class="table"> 
+                <tr>
+           <td   >
+          <p>Name of Father :<span><?php echo $patientInfo[0]->father?></span></p></td>
+          <td   >
+          <p style="margin-left: -200px;"> Name of Mother :<?php echo $patientInfo[0]->mother?></p></td>
+    <tr>
+    </table>
+        <!-- <div class="row mt-2">
         <div class="col-md-3 ml-4">
             <label class=" col-form-label"> Name of Sibling :</label>
             </div>
@@ -197,8 +216,16 @@ input[type=text]:hover{
             <input type="text" class="form-control " value="<?php echo $patientInfo[0]->sublings?>">
             </div>
             
-        </div>
-        <div class="row mt-2">
+        </div> -->
+        <table class="table"> 
+                <tr>
+           <td   >
+          <p>Name of Sibling :<span><?php echo $patientInfo[0]->sublings?></span></p></td>
+          <!-- <td   >
+          <p style="margin-left: -200px;"> Name of Mother :<?php echo $patientInfo[0]->mother?></p></td> -->
+    <tr>
+    </table>
+        <!-- <div class="row mt-2">
         <div class="col-md-3 ml-4">
             <label class=" col-form-label"> Name of Spouse :</label>
             </div>
@@ -213,24 +240,47 @@ input[type=text]:hover{
             <div class="col-9">
             <input type="text" class="form-control " value="<?php echo $patientInfo[0]->spouse_mobile?>">
             </div>
-        </div>
-        <div class="row mt-2">
+        </div> -->
+
+        <table class="table"> 
+                <tr>
+           <td   >
+          <p>Name of Spouse :<span><?php echo $patientInfo[0]->spouse_name?></span></p></td>
+          <td   >
+          <p style="margin-left: -200px;"> Contact no of Spouse :<span><?php echo $patientInfo[0]->spouse_mobile?></span></p></td>
+    <tr>
+    </table>
+
+
+        <!-- <div class="row mt-2">
         <div class="col-md-3 ml-4">
             <label class=" col-form-label"> Permanent Address :</label>
             </div>
             <div class="col-9">
             <input type="text" class="form-control " value="<?php echo $patientInfo[0]->family_add?>">
             </div>
-        </div>
+        </div> -->
+        <table class="table"> 
+                <tr>
+           <td   >
+          <p>Permanent Address :<span><?php echo $patientInfo[0]->family_add?></p></td>
+          <!-- <td   >
+          <p style="margin-left: -200px;"> Name of Mother :<?php echo $patientInfo[0]->mother?></p></td> -->
+    <tr>
+    </table>
     </div>
 </section>
+
+<div class="container">
+<hr style="color:black; margin-top:10px; width:500px;">
+</div>
 
 <section>
     <div class="container">
         <div class="row mt-4">
             <div class="col-12">
                 <h6 >Details of Children</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:120px;">
+                <!-- <hr style="color:#00cccc; margin-top:10px; width:120px;"> -->
            </div>
         </div>
 </div>
@@ -238,48 +288,44 @@ input[type=text]:hover{
 
 <section>
     <div class="container">
-    <div class="row mt-2">
-        <div class="col-md-3 ml-4">
-            <label class=" col-form-label">1.<span> Name </span>:</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->chl_name?>">
-            </div>
-        </div>
+   
+        <table class="table"> 
+                <tr>
+           <td   >
+          <p>1.  Name  :<span><?php echo $patientInfo[0]->chl_name?></p></td>
+         <tr>
+    </table>
 
-        <div class="row mt-2">
-        <div class="col-md-3 ml-4">
-            <label class=" col-form-label">  Address :</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->chl_add?>">
-            </div>
-        </div>
+     
 
-        <div class="row mt-2">
-           <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Contact No. :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control"  value="<?php echo $patientInfo[0]->chl_mobile?>">
-            </div>
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Email :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->chl_email?>">
-            </div>
-        </div>
+        <table class="table"> 
+                <tr>
+           <td   >
+          <p class="mt-5"> Address :<span><?php echo $patientInfo[0]->chl_add?></p></td>
+            <tr>
+        </table>
+
+        <table class="table"> 
+                <tr>
+           <td   >
+          <p>Contact No. :<span><?php echo $patientInfo[0]->chl_mobile?></span></p></td>
+          <td   >
+          <p style="margin-left: -200px;"> Email :<span><?php echo $patientInfo[0]->chl_email?></span></p></td>
+    <tr>
+    </table>
     </div>
 </section>
 
+<div class="container">
+<hr style="color:black; margin-top:10px; width:500px;">
+</div>
 
 <section>
     <div class="container">
         <div class="row mt-4">
             <div class="col-12">
                 <h6>Local Guardian</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:120px;">
+                <!-- <hr style="color:#00cccc; margin-top:10px; width:120px;"> -->
            </div>
         </div>
 </div>
@@ -287,49 +333,37 @@ input[type=text]:hover{
 
 <section>
     <div class="container">
-    <div class="row mt-2">
-        <div class="col-md-3 ml-4">
-            <label class=" col-form-label"> Name of Local Guardin :</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->local_guardian_name?>">
-            </div>
-        </div>
-
-        <div class="row mt-2">
-        <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Address :</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->guardian_add?>">
-            </div>
-        </div>
+        
+        <table class="table"> 
+                <tr>
+           <td   >
+          <p> Name of Local Guardin :<span><?php echo $patientInfo[0]->local_guardian_name?></p></td>
+           </tr>
+        <tr>
+          <p>Address :<span><?php echo $patientInfo[0]->guardian_add?></p></tr>
+         </table>
       
-        <div class="row mt-2">
-           <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Contact No. :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->guardian_mobile?>">
-            </div>
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Email :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->guardian_email?>">
-            </div>
-        </div>
-
-    </div>
+        <table class="table"> 
+                <tr>
+           <td>
+          <p>Contact No. :<span><?php echo $patientInfo[0]->guardian_mobile?></span></p></td>
+          <td   >
+          <p style="margin-left: -200px;"> Email :<span><?php echo $patientInfo[0]->guardian_email?></span></p></td>
+    <tr>
+    </table>
+ </div>
 </section>
 
+<div class="container">
+<hr style="color:black; margin-top:10px; width:500px;">
+</div>
 
 <section>
     <div class="container">
         <div class="row mt-5">
             <div class="col-12">
                 <h6>Have you appointed a Power of Attorney (POA) and/or Health Care Proxy (HCP)</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:600px;">
+                <!-- <hr style="color:#00cccc; margin-top:10px; width:600px;"> -->
            </div>
         </div>
 </div>
@@ -337,52 +371,41 @@ input[type=text]:hover{
 
 <section>
     <div class="container">
-    <div class="row mt-2">
-           <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Healthcare Proxy :</label>
-            </div>
-            <div class="col-3">
-            <!-- <input type="text" class="form-control" > -->
-            <select name="appointment_poa" class="form-control">
-                                                                  <option value="Yes" <?php if($patientInfo[0]->appointment_poa=="Yes") { echo "selected"; } ?>>Yes</option>
-                                                                  <option value="No" <?php if($patientInfo[0]->appointment_poa=="No") { echo "selected"; } ?>>No</option>
-                                                                </select>
-            </div>
-            <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Name of HCP Holder :</label>
-            </div>
-            <div class="col-3">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->poa_name?>">
-            </div>
-        </div>
 
-        
-        
-        <div class="row mt-2">
-            <div class="col-md-3 ml-4">
-                <label class=" col-form-label">Contact No. :</label>
-            </div>
-            <div class="col-3">
-                <input type="text" class="form-control" value="<?php echo $patientInfo[0]->poa_mobile?>">
-            </div>
-            <div class="col-md-3 ml-4">
-                <label class=" col-form-label">Email :</label>
-            </div>
-            <div class="col-3">
-                <input type="text" class="form-control" value="<?php echo $patientInfo[0]->poa_email?>">
-            </div>
-        </div>
+            <table class="table"> 
+                <tr>
+           <td>
+          <p class="mt-2">Healthcare Proxy :<span><?php if($patientInfo[0]->appointment_poa=="Yes") { echo "selected"; } ?></span></p></td>
+          <td   >
+          <p class="mt-2">Name of HCP Holder :<span><?php echo $patientInfo[0]->poa_name?></span></p></td>
+    <tr>
+    </table>
 
-        <div class="row mt-2">
-        <div class="col-md-3 ml-4">
-            <label class=" col-form-label">Address :</label>
-            </div>
-            <div class="col-9">
-            <input type="text" class="form-control" value="<?php echo $patientInfo[0]->poa_add?>">
-            </div>
-        </div>
+
+    <table class="table"> 
+                <tr>
+           <td>
+          <p class="mt-2">Healthcare Proxy :<span><?php echo $patientInfo[0]->poa_mobile?></span></p></td>
+          <td   >
+          <p class="mt-2">Email :<span><?php echo $patientInfo[0]->poa_email?></span></p></td>
+    <tr>
+    </table>
+          
+        <table class="table"> 
+                <tr>
+           <td   >
+          <p class="mt-5"> Address :<span><?php echo $patientInfo[0]->poa_add?></p></td>
+            <tr>
+        </table>
+
+
     </div>
 </section>
+
+
+<div class="container">
+<hr style="color:black; margin-top:10px; width:500px;">
+</div>
 
 <section>
     <div class="container">
@@ -755,11 +778,11 @@ input[type=text]:hover{
                 <label class=" col-form-label">Hearing Aid:</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="hearaid" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="hearaid" class="form-control">
                                                                               <option value="Yes" <?php if($patientInfo[0]->hearing_aid=="Yes") { echo "selected"; } ?>>Yes</option>
                                                                               <option value="No" <?php if($patientInfo[0]->hearing_aid=="No") { echo "selected"; } ?>>No</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
         </div>
 
@@ -789,11 +812,11 @@ input[type=text]:hover{
                 <label class=" col-form-label">Spectacles:</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="spectacles" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="spectacles" class="form-control">
                                                                               <option value="Yes" <?php if($patientInfo[0]->spectacles=="Yes") { echo "selected"; } ?>>Yes</option>
                                                                               <option value="No" <?php if($patientInfo[0]->spectacles=="No") { echo "selected"; } ?>>No</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
         </div>
 
@@ -802,21 +825,21 @@ input[type=text]:hover{
                 <label class=" col-form-label">Cataract :</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="cataract" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="cataract" class="form-control">
                                                                               <option value="Right" <?php if($patientInfo[0]->cataract=="Right") { echo "selected"; } ?>>Right</option>
                                                                               <option value="Left" <?php if($patientInfo[0]->cataract=="Left") { echo "selected"; } ?>>Left</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Glaucoma:</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="glaucoma" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="glaucoma" class="form-control">
                                                                               <option value="Yes" <?php if($patientInfo[0]->glaucoma=="Yes") { echo "selected"; } ?>>Yes</option>
                                                                               <option value="No" <?php if($patientInfo[0]->glaucoma=="No") { echo "selected"; } ?>>No</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
         </div>
 
@@ -846,11 +869,11 @@ input[type=text]:hover{
                 <label class=" col-form-label">Dentures:</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="dentures" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="dentures" class="form-control">
                                                                               <option value="Yes" <?php if($patientInfo[0]->dentures=="Yes") { echo "selected"; } ?>>Yes</option>
                                                                               <option value="No" <?php if($patientInfo[0]->dentures=="No") { echo "selected"; } ?>>No</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
         </div>
 
@@ -970,11 +993,11 @@ input[type=text]:hover{
                 <label class=" col-form-label">Does the patient is recommended physiotherapy or rehabilitation services?:</label>
             </div>
             <div class="col-3 mt-2">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="physiotherapy" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="physiotherapy" class="form-control">
                                                                               <option value="Yes" <?php if($patientInfo[0]->physiotherapy_service=="Yes") { echo "selected"; } ?>>Yes</option>
                                                                               <option value="No" <?php if($patientInfo[0]->physiotherapy_service=="No") { echo "selected"; } ?>>No</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
         </div>
 
@@ -1069,26 +1092,26 @@ input[type=text]:hover{
                 <label class=" col-form-label">Agitation & Aggression:</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="aggression" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="aggression" class="form-control">
                                                                               <option value="NA" <?php if($patientInfo[0]->aggression=="NA") { echo "selected"; } ?>>NA</option>
   <option value="Occasionally" <?php if($patientInfo[0]->aggression=="Occasionally") { echo "selected"; } ?>>Occasionally</option>
   <option value="Frequent" <?php if($patientInfo[0]->aggression=="Frequent") { echo "selected"; } ?>>Frequent</option>
   <option value="Always" <?php if($patientInfo[0]->aggression=="Always") { echo "selected"; } ?>>Always</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Violence:</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="Violence" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="Violence" class="form-control">
                                                                               <option value="No" <?php if($patientInfo[0]->violence=="No") { echo "selected"; } ?>>No</option>
   <option value="May Self Inflict" <?php if($patientInfo[0]->violence=="May Self Inflict") { echo "selected"; } ?>>May Self Inflict</option>
   <option value="Verbally Abusive" <?php if($patientInfo[0]->violence=="Verbally Abusive") { echo "selected"; } ?>>Verbally Abusive</option>
   <option value="Physically Abusive" <?php if($patientInfo[0]->violence=="Physically Abusive") { echo "selected"; } ?>>Physically Abusive</option>
   <option value="Has Suicidal Ideation" <?php if($patientInfo[0]->violence=="Has Suicidal Ideation") { echo "selected"; } ?>>Has Suicidal Ideation</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
         </div>
 
@@ -1097,26 +1120,26 @@ input[type=text]:hover{
                 <label class=" col-form-label">Need of Bed Restrain:</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="bed_restrain" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="bed_restrain" class="form-control">
                                                                               <option value="No" <?php if($patientInfo[0]->bed_restrain=="No") { echo "selected"; } ?>>No</option>
   <option value="Required Temporarily" <?php if($patientInfo[0]->bed_restrain=="Required Temporarily") { echo "selected"; } ?>>Required Temporarily</option>
   <option value="Occasionally" <?php if($patientInfo[0]->bed_restrain=="Occasionally") { echo "selected"; } ?>>Occasionally</option>
   <option value="Permanent" <?php if($patientInfo[0]->bed_restrain=="Permanent") { echo "selected"; } ?>>Permanent</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
             <div class="col-md-3 ml-4">
                 <label class=" col-form-label">Wandering:</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="wandering" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="wandering" class="form-control">
                                                                               <option value="No" <?php if($patientInfo[0]->wandering=="No") { echo "selected"; } ?>>No</option>
   <option value="Occasionally" <?php if($patientInfo[0]->wandering=="Occasionally") { echo "selected"; } ?>>Occasionally</option>
   <option value="Always" <?php if($patientInfo[0]->wandering=="Always") { echo "selected"; } ?>>Always</option>
   <option value="Day Time" <?php if($patientInfo[0]->wandering=="Day Time") { echo "selected"; } ?>>Day Time</option>
   <option value="Night Time" <?php if($patientInfo[0]->wandering=="Night Time") { echo "selected"; } ?>>Night Time</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
         </div>
 
@@ -1125,13 +1148,13 @@ input[type=text]:hover{
                 <label class=" col-form-label">Sleep:</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="sleep" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="sleep" class="form-control">
                                                                               <option value="Able to sleep" <?php if($patientInfo[0]->sleep=="Able to sleep") { echo "selected"; } ?>>Able to sleep</option>
   <option value="Relies on sleeping pills" <?php if($patientInfo[0]->sleep=="Relies on sleeping pills") { echo "selected"; } ?>>Relies on sleeping pills</option>
   <option value="Required sedation" <?php if($patientInfo[0]->sleep=="Required sedation") { echo "selected"; } ?>>Required sedation</option>
   <option value="Chronic sleep issues" <?php if($patientInfo[0]->sleep=="Chronic sleep issues") { echo "selected"; } ?>>Chronic sleep issues</option>
-</select>
+</select> -->
 
                                                 
             </div>
@@ -1139,12 +1162,12 @@ input[type=text]:hover{
                 <label class=" col-form-label">Inappropriate Behaviour with Care:</label>
             </div>
             <div class="col-3">
-                <!-- <input type="text" class="form-control "> -->
-                <select name="giver_care" class="form-control">
+                <input type="text" class="form-control ">
+                <!-- <select name="giver_care" class="form-control">
                                                                               <option value="NA" <?php if($patientInfo[0]->giver_care=="NA") { echo "selected"; } ?>>NA</option>
   <option value="Occasionally" <?php if($patientInfo[0]->giver_care=="Occasionally") { echo "selected"; } ?>>Occasionally</option>
   <option value="Always" <?php if($patientInfo[0]->giver_care=="Always") { echo "selected"; } ?>>Always</option>
-                                                                            </select>
+                                                                            </select> -->
             </div>
         </div>
 
