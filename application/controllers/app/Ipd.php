@@ -1070,6 +1070,7 @@ class Ipd extends General{
 				'temperature'	=>		$this->input->post('temperature'),
 				'height'		=>		$this->input->post('height'),
 				'bp'			=>		$this->input->post('bp'),
+				'spo2'			=>		$this->input->post('spo2'),
 				'respiration'	=>		$this->input->post('respiration'),
 				'bsl_type'	=>		$this->input->post('bsl_type'),
 				'bsl'		=>		!empty($this->input->post('bsl')) ? $this->input->post('bsl') :'',

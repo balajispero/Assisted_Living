@@ -317,6 +317,10 @@
                                                 <td><input type="text" name="temperature" id="temperature" style="width: 100px;" >&nbsp;&nbsp;F</td>
                                            </tr>
                                            <tr>
+                                                <td>SPO2</td>
+                                                <td><input type="text" name="spo2" style="width: 100px;" >&nbsp;&nbsp;</td>
+                                           </tr>
+                                           <tr>
                                            		<td>RR</td>
                                                 <td><input type="text" name="respiration" id="respiration"  style="width: 100px;" >&nbsp;&nbsp;/min</td>
                                            </tr>

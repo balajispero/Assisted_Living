@@ -531,7 +531,8 @@ xmlhttp6.onreadystatechange=function()
         var res = JSON.parse(xmlhttp6.responseText);
         console.log(res);
         //alert(res[0].laboratory_id);
-        var docid='000'+res[0].doctor;
+        var docid=res[0].doctor;
+        //var docid='000'+res[0].doctor;
         $('#lab_id').val(res[0].io_lab_id)
 
         if(res[0].category_id=="7")

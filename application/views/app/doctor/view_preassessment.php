@@ -41,6 +41,9 @@
             textarea{
                 height: 34px !important;
             }
+            .onlypreasses{
+                display:block !important;
+            }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
     </head>

@@ -365,7 +365,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <i class="fa fa-user-md"></i> <span style="color:#00cccc;"> Doctor Module</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                            <ul class="treeview-menu">
+                            <ul class="treeview-menu onlypreasses">
                                 <!-- <?php if($hasAccesstoDoctorOPD){?><li <?php echo $opd_doctor;?>><a href="<?php echo base_url()?>app/doctor/opd"><i class="fa fa-angle-double-right"></i>Out-Patient</a></li><?php }?>  -->
                                 <?php if($hasAccesstoDoctorIPD){?><li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/doctor/ipd"><i class="fa fa-angle-double-right"></i>In-Member</a></li><?php }?>
                                 <?php if($hasAccesstoDoctorPtnDC){?><li <?php echo $ptn_DC;?>><a href="<?php echo base_url()?>app/ipd/patient_discharge"><i class="fa fa-angle-double-right"></i>Member Discharge</a></li>
@@ -397,7 +397,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <i class="fa fa-user-md"></i> <span> Preassessment Module</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                            <ul class="treeview-menu">
+                            <ul class="treeview-menu onlypreasses">
                                 <?php if($hasAccesstoPreassesList){?><li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/doctor/preassessment_list"><i class="fa fa-angle-double-right"></i>Preassessment List</a></li><?php }?>
                             </ul>
                         </li>

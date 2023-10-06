@@ -587,6 +587,7 @@
                                                         <tr>
                                                             <td width="20%"><button type="button" required name="add" id="add">Add Medicine</button><div id="dynamic_field"></div></td>
                                                         </tr>
+                                                        <input type="hidden" value="0" id="medicinecuont"></input>
                                                         <tr> 
                                                             <td width="12%">Additional Note</td>
                                                             <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_addtnl_note" id="ptn_addtnl_note"></textarea></td>
@@ -688,12 +689,61 @@
                     $("#aadhar_no").val(result[0].preasses_aadhar);
                     $("#noofhouse").val(result[0].preasses_add);
                     $("#mobile").val(result[0].preasses_mobile);
+                    showMedicineName(preasses_id);
 
                 }
               }
 
             xmlhttp.open("GET","<?php echo base_url();?>app/patient/get_preasses_id_data/"+preasses_id,true);
             xmlhttp.send();
+            }
+
+            }
+
+            function showMedicineName(preasses_id)
+            {
+                if(preasses_id=="")
+                {
+                         
+                }
+                else {
+
+            if (window.XMLHttpRequest)
+              {
+              xmlhttp1=new XMLHttpRequest();
+              }
+            else
+              {// code for IE6, IE5
+              xmlhttp1=new ActiveXObject("Microsoft.XMLHTTP");
+              }
+            xmlhttp1.onreadystatechange=function()
+              {
+              if (xmlhttp1.readyState==4 && xmlhttp1.status==200)
+                {
+                    var res = JSON.parse(xmlhttp1.responseText);
+                    //console.log(res);                     
+                    var sub_cat="";
+                    var preassesmed_cnt="";
+
+
+                    for (var preasses_i = 0; preasses_i < res.length; preasses_i++) {
+                            preassesmed_cnt=preasses_i+1;
+
+                            sub_cat +='<div id="row'+preassesmed_cnt+'">';
+                            sub_cat +='<label for="member_'+preassesmed_cnt+'"> </label><input type="text" name="member[]" value="'+res[preasses_i].medicine+'">';
+                            sub_cat +='<button type="button" class="btn_remove" name="remove" id="'+preassesmed_cnt+'">-</button></div>';   
+                                
+                           }
+                  
+                           $("#dynamic_field").html(sub_cat);
+                           $("#medicinecuont").val(preassesmed_cnt);
+                           //console.log(preassesmed_cnt);
+
+                }
+              }
+
+            xmlhttp1.open("GET","<?php echo base_url();?>app/patient/getpreassesmedicine/"+preasses_id,true);
+            xmlhttp1.send();
             }
 
             }
@@ -709,11 +759,14 @@
 
             });
             $(document).ready(function() {
-                var i=0; 
+                 var i=0; 
+                var j = 1;
                 $('#add').click(function() {
-                    i++;
-                    $('#dynamic_field').append('<div id="row'+i+'"> <label" for="member_'+ i +'">  '+ i +' </label> <input type="text" name="member[]" value=""><button type="button" class="btn_remove" name="remove" id="'+ i +'">-</button></div>')
-
+                    var medicinecuont = $('#medicinecuont').val();
+                    var i = j+ + +medicinecuont;
+                    //i++;
+                    $('#dynamic_field').append('<div id="row'+i+'"> <label" for="member_'+ i +'">  </label> <input type="text" name="member[]" value=""><button type="button" class="btn_remove" name="remove" id="'+ i +'">-</button></div>')
+                    j++;
                 });
                 $(document).on('click', '.btn_remove', function() {
                     var button_id = $(this).attr("id");

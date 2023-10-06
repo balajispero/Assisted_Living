@@ -32,16 +32,6 @@ input[type=text]:hover{
     
 </head>
 <body>
-    <table class="table"> 
-    <tr>
-        <td bgcolor="#ffffff" style="border: none;">
-
-        <p>Respected sir <?php echo "hello"; ?><input type="text" name="iop_no" value="<?php echo "hi"; ?>">,</p></td>
-        <td bgcolor="#ffffff" style="border: none;">
-
-        <p>Respected sir<input type="text" name="iop_no" value="<?php echo "hi"; ?>">,</p></td>
-    <tr>
-    </table>
 <section>
     <div class="container">
         <div class="row mt-4 border" style="background-color: #00cccc; color:white;">
