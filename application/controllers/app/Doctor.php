@@ -327,6 +327,7 @@ class Doctor extends General{
             'chair_stand_score' => $this->input->post('chair_stand_score'),
             'musculoskeletal_sys' => $this->input->post('musculoskeletal_sys'),
             'doctor_observation' => $this->input->post('doctor_observation'),
+            'entry_datetime'		=>	 date("Y-m-d h:i:s a"),
             'recommendation' => $this->input->post('recommendation'),
             'ptn_eligible' => $this->input->post('ptn_eligible'),
             'on_admission'=>"No",

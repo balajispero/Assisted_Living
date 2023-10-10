@@ -250,7 +250,9 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                             </a>
                             <ul class="treeview-menu">
                                 <?php if($hasAccesstoPOS){?><li><a href="<?php echo base_url()?>app/pos/" target="_blank"><i class="fa fa-angle-double-right"></i>POS</a></li><?php }?>
-                                <?php if($hasAccesstoBilling){?><li <?php echo $bill_history_mod;?>><a href="<?php echo base_url()?>app/billing_history"><i class="fa fa-angle-double-right"></i>Billing List</a></li> <?php }?>
+                                <?php if($hasAccesstoBilling){?><li <?php echo $bill_history_mod;?>><a href="<?php echo base_url()?>app/billing_history"><i class="fa fa-angle-double-right"></i>Billing List</a></li>
+                                <li <?php echo $bill_history_mod;?>><a href="<?php echo base_url()?>app/invoice/invoice_list"><i class="fa fa-angle-double-right"></i>Invoice List</a></li>
+                                 <?php }?>
                                 <?php if($hasAccesstoSurgical){?><li <?php echo $surgical_costing?>><a href="<?php echo base_url()?>app/surgical_costing"><i class="fa fa-angle-double-right"></i>Surgical Quotation Costing</a></li><?php }?>
                             </ul>
                         </li>

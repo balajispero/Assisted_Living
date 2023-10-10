@@ -1596,7 +1596,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Recommendation</label><span class="text-danger"></span></br>
-                                                                            <textarea name="recommendation" class="form-control"><?php echo $patientInfo[0]->doctor_recommendation?></textarea>
+                                                                            <textarea name="recommendation" class="form-control"><?php echo $patientInfo[0]->recommendation; ?></textarea>
                                                                             <span class="text-danger error-text type_category_err"></span>
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->

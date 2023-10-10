@@ -596,7 +596,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>DEWORMING medicine last taken on Date</label><span class="text-danger"></span></br>
+                                                                            <label>Deworming medicine last taken on Date</label><span class="text-danger"></span></br>
                                                                             <input type="date" class="form-control" name="last_taken_medicine_date">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -1106,7 +1106,18 @@
 
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
 
-                                                            <label>SPMSQ Test</label>
+                                                            <label>SPMSQ Test</label><br><br>
+                                                            <div class="table-responsive">      
+                                                                <table class="table table-striped">
+                                                                <tr>
+                                                                  <th>0-2 errors = Intact intellectual functioning</th><th>5-7 errors = Moderate intellectual impairment</th>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>3-4 errors = Mild intellectual impairment</td><td>8-10 errors = Severe intellectual impairment</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+
                                                                 <div class="row">
 
                                                                     <div class="col-md-3">
