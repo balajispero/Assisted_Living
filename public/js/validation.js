@@ -8,6 +8,20 @@ $('.alphaonly').keyup(function() {
     $th.val( $th.val().replace(/[^a-zA-Z ]/g, function(str) { return ''; } ) );
 });
 
+/**************** Barthel index validation******************/
+$('.bi1number').keyup(function() {
+    var $th = $(this);
+    $th.val( $th.val().replace(/[^0-2]{1}/g, function(str) { return ''; } ) );
+});
+$('.bi2number').keyup(function() {
+    var $th = $(this);
+    $th.val( $th.val().replace(/[^0-1]{1}/g, function(str) { return ''; } ) );
+});
+$('.bi3number').keyup(function() {
+    var $th = $(this);
+    $th.val( $th.val().replace(/[^0-3]{1}/g, function(str) { return ''; } ) );
+});
+/**************** Barthel index validation******************/
 /**************** mobile number validation******************/
 
 /*$('.numberonly').keyup(function() {

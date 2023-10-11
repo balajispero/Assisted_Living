@@ -261,6 +261,11 @@ class Doctor extends General{
 	    $dose = $this->input->post('dose', true);
 	    $frequency = $this->input->post('frequency', true);
 	    $duration = $this->input->post('duration', true);
+
+	    $doctor_name = $this->input->post('doctor_name', true);
+	    $doctor_mobile = $this->input->post('doctor_mobile', true);
+	    $doctor_email = $this->input->post('doctor_email', true);
+	    $hospital_name = $this->input->post('hospital_name', true);
 	    
 		$preassessment_details = array(
             'preasses_name' => $this->input->post('applicant_name'),
@@ -333,6 +338,15 @@ class Doctor extends General{
             'on_admission'=>"No",
             'added_by' => $this->session->userdata('user_id'),
         	'date_entry'		=>	 date("Y-m-d h:i:s a"));
+
+			if(@$this->input->post('drug')=="Yes")
+			{
+				$preassessment_details['drug_namefld']=$this->input->post('drugfld');
+			}
+			if(@$this->input->post('food')=="Yes")
+			{
+				$preassessment_details['foodfld']=$this->input->post('foodfld');
+			}
 		$last_ptn_id = $this->preassessment_model->save_preassessment_details($preassessment_details);
 		if($last_ptn_id)
 		{
@@ -359,11 +373,39 @@ class Doctor extends General{
             'guardian_add' => $this->input->post('guardian_add'),
             'guardian_mobile' => $this->input->post('guardian_mobile'),
             'guardian_email' => $this->input->post('guardian_email'),
+            'local_guardian_name2' => $this->input->post('guardian_name2'),
+            'guardian_add2' => $this->input->post('guardian_add2'),
+            'guardian_mobile2' => $this->input->post('guardian_mobile2'),
+            'guardian_email2' => $this->input->post('guardian_email2'),
             'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_child_details($child_details);
 
-		$treating_doctor_details = array(
+
+		if(!empty($doctor_name))
+		{
+		foreach ($doctor_name as $key => $val) { // need index to match other properties
+				$treating_doctor_details = array(
+					'tdoctor_name' => $val,
+					'tdoctor_mobile' => isset($doctor_mobile[$key]) ? $doctor_mobile[$key] : '',
+					'tdoctor_email' => isset($doctor_email[$i]) ? $doctor_email[$i] : '',
+					'hospital_name' => isset($hospital_name[$i]) ? $hospital_name[$i] : '',
+					'appointment_poa' => $this->input->post('appointment_poa'),
+		            'poa_name' => $this->input->post('poa_name'),
+		            'poa_mobile' => $this->input->post('poa_mobile'),
+		            'poa_email' => $this->input->post('poa_email'),
+		            'diagnosis' => @implode(",",$this->input->post('diagnosis')),
+            		'present_complaints' => $this->input->post('present_complaints'),
+            		'past_history' => $this->input->post('past_history'),
+					'preasses_no' => $this->input->post('preasses_no'),
+					'preasses_id' => $last_ptn_id
+				);
+				
+				$this->preassessment_model->treating_doctor_details($treating_doctor_details); 
+			}
+		}else{
+
+			$treating_doctor_details = array(
             'appointment_poa' => $this->input->post('appointment_poa'),
             'poa_name' => $this->input->post('poa_name'),
             'poa_mobile' => $this->input->post('poa_mobile'),
@@ -378,6 +420,24 @@ class Doctor extends General{
             'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->treating_doctor_details($treating_doctor_details);
+
+		}
+		
+		/*$treating_doctor_details = array(
+            'appointment_poa' => $this->input->post('appointment_poa'),
+            'poa_name' => $this->input->post('poa_name'),
+            'poa_mobile' => $this->input->post('poa_mobile'),
+            'poa_email' => $this->input->post('poa_email'),
+            'tdoctor_name' => $this->input->post('doctor_name'),
+            'tdoctor_mobile' => $this->input->post('doctor_mobile'),
+            'tdoctor_email' => $this->input->post('doctor_email'),
+            'hospital_name' => $this->input->post('hospital_name'),
+            'diagnosis' => @implode(",",$this->input->post('diagnosis')),
+            'present_complaints' => $this->input->post('present_complaints'),
+            'past_history' => $this->input->post('past_history'),
+            'preasses_no' => $this->input->post('preasses_no'),
+            'preasses_id' => $last_ptn_id);
+		$this->preassessment_model->treating_doctor_details($treating_doctor_details);*/
 
 		if(!empty($medicine_name))
 		{
@@ -767,6 +827,7 @@ class Doctor extends General{
 			{
 				$preassessment_details['ptn_eligible']=$this->input->post('ptn_eligible');	
 			}
+			
 		$update_ptn = $this->preassessment_model->update_preassessment_details($preassessment_details);
 		
 		if($update_ptn)
