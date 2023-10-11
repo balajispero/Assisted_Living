@@ -1,13 +1,84 @@
  <script language="javascript">
     setTimeout(function timeru(){$('.alert').fadeOut(1000)}, 3000);
    </script> 
+   <style>
+    @media only screen and (max-width:768px) and (min-width:300px) {
+ .logo2{
+    font-size: 15px;
+    margin-top: -48px;
+    margin-left: 35px;
+ }
+ .dropmenu{
+    /* background-color: black; */
+    margin-top: -54px;
+    /* margin-left: 20px; */
+    width: 100%;
+    height: 40px;
+    font-size: 12px;
+ }
+ .droplist{
+  height: 55px !important;
+  width: 100%;
+
+ }
+ .img-circle{
+    height: 40px !important;
+    width: 35% !important;
+    margin-left: -145px !important;
+ }
+ .headname{
+    font-size: 12px !important;
+    margin-top: -30px !important;
+    margin-left: 70px !important;
+ }
+}
+@media only screen and (max-width:420px) {
+ .logo2{
+    font-size: 15px;
+    margin-top: -48px;
+    margin-left: 35px;
+ }
+ .dropmenu{
+    /* background-color: black; */
+    margin-top: -54px;
+    /* margin-left: 20px; */
+    width: 100%;
+    height: 40px;
+    font-size: 12px;
+    background-color: hidden;
+ }
+ .droplist{
+  height: 57px !important;
+  width: 100%;
+
+ }
+ /* .img-circle{
+    height: 40px !important;
+    width: 35% !important;
+    margin-left: -100px;
+ } */
+ .img-circle {
+    height: 40px !important;
+    width: 35% !important;
+    margin-left: -105px !important;
+}
+ .headname{
+    font-size: 12px !important;
+    margin-top: -30px !important;
+    margin-left: 50px;
+ }
+ img.img-circle {
+    margin-left: -104px !important;
+}
+}
+   </style>
 <header class="header" style="background: url('<?php echo base_url()?>public/img/new/header_bar_bg_01.jpg') repeat-x; background-size: 100% 100%; border-bottom:1px solid #CCC">
     <a href="#" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
-        <div class="logo-pms"><img src="<?php echo base_url()?>public/company_logo/SPERO-Final-logo png.png" width="50%%" height="45" ></div>
+        <div class="logo-pms"><img src="<?php echo base_url()?>public/company_logo/spero-final-logo2.png" width="50%%" height="45" ></div>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" role="navigation" style="background: url('<?php echo base_url()?>public/img/new/header.jpg') repeat-x; background-size: 100% 100%; border-bottom:1px solid #CCC">
+    <nav class="navbar navbar-static-top" role="navigation" style="background-color:#2B48B0; background-size: 100% 100%; border-bottom:1px solid #CCC">
         <!-- Sidebar toggle button-->
         <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
@@ -100,20 +171,20 @@
                     </ul>
                 </li>-->
                 <!-- User Account: style can be found in dropdown.less -->
-                <li class="dropdown user user-menu">
+                <li class="dropdown user user-menu dropmenu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
                         <span><?php echo $userInfo->firstname." ".$userInfo->lastname;?><i class="caret"></i></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header bg-light-blue">
+                        <li class="user-header bg-light-blue droplist">
                             <?php if($userInfo->picture == ""){?>
                     	<img src="<?php echo base_url()?>public/user_picture/no_avatar.gif" class="img-circle" alt="User Image" />
                     <?php }else{?>
                     	<img src="<?php echo base_url()?>public/user_picture/<?php echo $userInfo->picture;?>" class="img-circle" alt="User Image" />
                     <?php }?>
-                            <p>
+                            <p class="headname">
                                 <?php echo $userInfo->firstname." ".$userInfo->lastname;?> <br /> <?php echo $userInfo->designation;?>
                             </p>
                         </li>

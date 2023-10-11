@@ -45,6 +45,9 @@
             .onlypreasses{
                 display:block !important;
             }
+            hr {
+                border-top: 2px solid #00cccc !important;  
+            }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
 
@@ -298,7 +301,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #00cccc;"/>
                                                                 <label>Family</label>
                                                                 <div class="row">
 
@@ -384,7 +387,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     </div><!-- / row -->
                                     <!--End preasses common row structure-->                            
-                                                                <hr style="border-top: 1px solid rgb(255 193 7);"/>    
+                                                                <!-- <hr style="border-top: 1px solid rgb(255 193 7);"/>     -->
 
                                                                 <label>Local Guardian</label>
                                                                 <div class="row">                                          

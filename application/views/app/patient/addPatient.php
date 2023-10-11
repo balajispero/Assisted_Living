@@ -131,8 +131,8 @@
                                                     
                                                     <input type="hidden" name="userID2" value="<?php echo $userID2;?>">
                                                     <tr>
-                                                        <td width="12%"><font color="#FF0000">Note:</font></td>
-                                                        <td width="88%"><font color="#FF0000">* (Marked Fields are Compulsory to fill)</font></td>
+                                                        <td width="20%"><font color="#FF0000">Note:</font></td>
+                                                        <td width="80%"><font color="#FF0000">* (Marked Fields are Compulsory to fill)</font></td>
                                                     </tr>
                                                     <tr>
                                                     	<td width="12%">Member No.</td>
@@ -223,7 +223,7 @@
                                                     <tr>
                                    <td width="12%">Age<font color="#FF0000"></font></td>
                                    <td width="88%"><input class="form-control input-sm" name="age" style="width: 250px;" id="age" type="text" placeholder="Age" style="width: 100px;"  value=""></td>
-                               </tr>
+                                                 </tr>
                                                     <tr>
                                                     	<td width="12%">Gender<font color="#FF0000">*</font></td>
                                                         <td width="88%">
@@ -297,14 +297,14 @@
                                        </td>
                                    </tr>
                                    <tr>
-                                                        <td>Previous Discharge Reports<font color="#FF0000"></font></td>
-                                                        <td>
-                                                            <input type="file" name="previous_dischargefile[]" class="form-control" style="width: 250px;" multiple="multiple"> 
+                                   <td>Previous Discharge Reports<font color="#FF0000"></font></td>
+                                    <td>
+                                    <input type="file" name="previous_dischargefile[]" class="form-control" style="width: 250px;" multiple="multiple"> 
                                                         </td>
                                                     </tr>
                                </table>
                            </div>
-                           <div class="tab-pane" id="tab_2">
+                           <div class="tab-pane" id="tab_2" style="margin-top: 10px;">
                                <table cellpadding="3" cellspacing="3" width="100%">
                                 <tr>
                                    <td colspan="2"></td>
@@ -339,6 +339,7 @@
                                                         <td width="86%">
                                                             <?php echo form_input('phone',set_value('phone'),'id="phone" class="form-control input-sm numberonly" maxlength="10"  placeholder="Phone No (Work)" style="width: 250px;"');?>
                                                         </td>
+                                                        
                                                     </tr>
                                                     <tr>
                                                     	<td width="14%">Phone No (Mobile)<font color="#FF0000"></font></td>
@@ -355,13 +356,13 @@
                                                     </tr> -->
                                                 </table>
                                                 <div class="row">
-                                <div class="col-lg-6">
+                                                <div class="col-lg-6">
                                                 <table cellpadding="3" cellspacing="3" width="100%">
                                                     <tr>
                                                         <td colspan="2"></td>
                                                     </tr>
                                                     <div class="form-group row">
-                                                        <div class="col-sm-5 text-center"><h3>Guardian 1</h3>
+                                                        <div class="col-sm-6 text-center justify-content-left"><h3>Guardian 1</h3>
                                                         </div>
                                                     </div>
                                                     <tr>
@@ -408,7 +409,7 @@
                                                         <td colspan="2"></td>
                                                     </tr>
                                                     <div class="form-group row">
-                                                        <div class="col-sm-5 text-center"><h3>Guardian 2</h3>
+                                                        <div class="col-sm-6 text-center"><h3>Guardian 2</h3>
                                                         </div>
                                                     </div>
                                                     <tr>

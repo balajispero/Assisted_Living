@@ -236,7 +236,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         
                          <li>
                             <a href="<?php echo base_url()?>app/dashboard" >
-                                <i class="fa fa-dashboard"></i> <span style="color:#00cccc;">Dashboard</span>
+                                <i class="fa fa-dashboard"></i> <span style="color:#2B48B0;">Dashboard</span>
                             </a>
                         </li>     
                         
@@ -278,7 +278,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoPatient){?>
                         <li class="treeview <?php echo $patient;?>">
                             <a href="#">
-                                <i class="fa fa fa-wheelchair"></i> <span style="color:#00cccc;">Member Management</span>
+                                <i class="fa fa fa-wheelchair"></i> <span style="color:#2B48B0;">Member Management</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -364,7 +364,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoDoctor){?>
                         <li class="treeview <?php echo $doctor;?>" style="display: <?php echo ($this->session->userdata('user_role') == 1) ? "none" : "block";?>">
                             <a href="#">
-                                <i class="fa fa-user-md"></i> <span style="color:#00cccc;"> Doctor Module</span>
+                                <i class="fa fa-user-md"></i> <span style="color:#2B48B0;"> Doctor Module</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu onlypreasses">
@@ -502,7 +502,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <!--START OF USER PROFILE-->
                         <li class="treeview <?php echo $profile;?>">
                             <a href="#">
-                                <i class="fa fa-user"></i> <span style="color:#00cccc;">User Profile</span>
+                                <i class="fa fa-user"></i> <span style="color:#2B48B0;">User Profile</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">

@@ -145,9 +145,10 @@
    
    
       <div id="firstcontainer">
-       <div class="row">
+       <div class="row" style="background-color: #FFF;">
       <div class="col-sm-12">
         <p style="font-weight:bold;">PERSONAL DETAILS OF APPLICANT</p>
+        <hr style="color:#00cccc; margin-top:10px; width:120px;">
         <div class="row" >
           <div class="col-sm-2 ">Preassessment No.</div>
           <div class="col-sm-2 ">
@@ -291,7 +292,8 @@
             <div class="col-sm-2">Permanent Address</div>
           <div class="col-sm-2">
             <!-- <input type="text" class="form-control" name="family_add"> -->
-            <textarea name="" id="" name="family_add" class="form-control"></textarea>
+            <textarea name="" id="" name="family_add" class="form-control
+            "></textarea>
           </div>
           </div>
           <hr>

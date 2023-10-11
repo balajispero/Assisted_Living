@@ -53,18 +53,8 @@ class Backup extends General{
 	    write_file($save, $backup); 
 	  	$this->load->helper('download');
 	    force_download($db_name, $backup);
-		
-
+	
 
 	}
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
 }
