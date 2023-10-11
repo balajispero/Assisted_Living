@@ -393,7 +393,7 @@
                                                                 <div class="row">                                          
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Name of Local Guardian</label><span class="text-danger"></span></br>
+                                                                            <label>Name of Local Guardian 1</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="guardian_name">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -401,8 +401,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Address</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="guardian_add">
-                                                                            <!-- <textarea name="guardian_add" class="form-control"></textarea> -->
+                                                                             <textarea name="guardian_add" class="form-control"></textarea> 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -417,6 +416,36 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Email id</label><span class="text-danger"></span></br>
                                                                            <input type="email" class="form-control" name="guardian_email">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label> Name of Local Guardian 2</label><span class="text-danger"></span></br>
+                                                                            <input type="text" class="form-control" name="guardian_name2">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Address</label><span class="text-danger"></span></br>
+                                                                             <textarea name="guardian_add2" class="form-control"></textarea> 
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Contact Number</label><span class="text-danger"></span></br>
+                                                                           <input type="text" class="form-control" name="guardian_mobile2">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Email id</label><span class="text-danger"></span></br>
+                                                                           <input type="email" class="form-control" name="guardian_email2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -463,48 +492,88 @@
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
 
                                                                 <label>TREATING DOCTOR</label>
+                                                               <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group wrapper-class" >
+                                                                        <label></label><span class="text-danger"></span>
+                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary">Add Treating Doctor</button>
+                                                                </div>
+                                                            </div>
+        
+                                                            </div><!-- / row -->
+                                                               
+                                                            <div id="td_dynamic_field">
+
                                                                 <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Name of Doctor</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Contact Number</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Email id</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Clinic/Hospital Name</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div><!--/row-->
+
+                                                                   
+                                                            </div>
+                                                                                                                                   
+
+
+                                                                <!-- <div class="row">
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Name of Doctor</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="doctor_name">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div><!-- /.form-group wrapper-class -->
-                                                                    </div><!-- /.col-md-3 -->
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="doctor_mobile">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div><!-- /.form-group wrapper-class -->
-                                                                    </div><!-- /.col-md-3 -->
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Email id</label><span class="text-danger"></span></br>
                                                                             <input type="email" class="form-control" name="doctor_email">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div><!-- /.form-group wrapper-class -->
-                                                                    </div><!-- /.col-md-3 -->
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Clinic/Hospital Name</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="hospital_name">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div><!-- /.form-group wrapper-class -->
-                                                                    </div><!-- /.col-md-3 -->
-                                                                </div><!-- / row -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div> --><!-- / row -->
 
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
                                                                  
 
                                                                 <div class="row">
-                                                                    <!-- <table cellpadding="3" cellspacing="3" width="100%">
-                                                        <tr>
-                                                            <td width="20%"><button type="button" required name="add1" id="add1" class="btn btn-primary">Add Diagnosis</button><div id="dynamic_field1"></div></td>
-                                                        </tr>
-                                                        
-                                                    </table> -->
+                                                                    
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>DIAGNOSIS</label><span class="text-danger"></span></br>
@@ -579,14 +648,36 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Drug</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="drug">
+                                                                           <select name="drug" id="drug" class="form-control drug_menu">
+                                                                            <option value="">Select Drug</option>
+                                                                              <option value="Yes">Yes</option>
+                                                                              <option value="No">No</option>
+                                                                            </select>
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3" id="drugfld" style="display: none;">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label></label><span class="text-danger"></span></br>
+                                                                            <input type="text" class="form-control" name="drugfld">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Food</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="food">
+                                                                           <select name="food" id="food" class="form-control food_menu">
+                                                                            <option value="">Select Food</option>
+                                                                              <option value="Yes">Yes</option>
+                                                                              <option value="No">No</option>
+                                                                            </select>
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3" id="foodfld" style="display: none;">
+                                                                        <div class="form-group wrapper-class" id="foodfld">
+                                                                            <label></label><span class="text-danger"></span></br>
+                                                                            <input type="text" class="form-control" name="foodfld">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1008,8 +1099,9 @@
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Agitation & Aggression</label><span class="text-danger"></span></br>
-                                                                             <select name="aggression" class="form-control">
+                                                                            <label>Agitation & Aggression</label><span class="text-danger">*</span></br>
+                                                                             <select name="aggression" class="form-control" required>
+                                                                                <option value=""> Select Agitation & Aggression</option>
                                                                               <option value="NA">NA</option>
                                                                               <option value="Occasionally">Occasionally</option>
                                                                               <option value="Frequent">Frequent</option>
@@ -1020,8 +1112,9 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Violence</label><span class="text-danger"></span></br>
-                                                                            <select name="Violence" class="form-control">
+                                                                            <label>Violence</label><span class="text-danger">*</span></br>
+                                                                            <select name="Violence" class="form-control" required>
+                                                                                <option value=""> Select Violence</option>
                                                                               <option value="No">No</option>
                                                                               <option value="May Self Inflict">May Self Inflict</option>
                                                                               <option value="Verbally Abusive">Verbally Abusive</option>
@@ -1033,8 +1126,9 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Need of Bed Restrain</label><span class="text-danger"></span></br>
-                                                                            <select name="bed_restrain" class="form-control">
+                                                                            <label>Need of Bed Restrain</label><span class="text-danger">*</span></br>
+                                                                            <select name="bed_restrain" class="form-control" required>
+                                                                                <option value=""> Select Need of Bed Restrain</option>
                                                                               <option value="No">No</option>
                                                                               <option value="Required Temporarily">Required Temporarily</option>
                                                                               <option value="Occasionally">Occasionally</option>
@@ -1045,8 +1139,9 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Wandering</label><span class="text-danger"></span></br>
-                                                                            <select name="wandering" class="form-control">
+                                                                            <label>Wandering</label><span class="text-danger">*</span></br>
+                                                                            <select name="wandering" class="form-control" required>
+                                                                                <option value=""> Select Wandering</option>
                                                                               <option value="No">No</option>
                                                                               <option value="Occasionally">Occasionally</option>
                                                                               <option value="Always">Always</option>
@@ -1058,8 +1153,9 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Sleep</label><span class="text-danger"></span></br>
-                                                                            <select name="sleep" class="form-control">
+                                                                            <label>Sleep</label><span class="text-danger">*</span></br>
+                                                                            <select name="sleep" class="form-control" required>
+                                                                                <option value=""> Select Sleep</option>
                                                                               <option value="Able to sleep">Able to sleep</option>
                                                                               <option value="Relies on sleeping pills">Relies on sleeping pills</option>
                                                                               <option value="Required sedation">Required sedation</option>
@@ -1070,8 +1166,9 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Inappropriate Behaviour with Care</label><span class="text-danger"></span></br>
-                                                                           <select name="giver_care" class="form-control">
+                                                                            <label>Inappropriate Behaviour with Care</label><span class="text-danger">*</span></br>
+                                                                           <select name="giver_care" class="form-control" required>
+                                                                            <option value="">Select Inappropriate Behaviour with Care</option>
                                                                               <option value="NA">NA</option>
                                                                               <option value="Occasionally">Occasionally</option>
                                                                               <option value="Always">Always</option>
@@ -1118,8 +1215,8 @@
                                                                 <tr>
                                                                   <td>3-4 errors = Mild intellectual impairment</td><td>8-10 errors = Severe intellectual impairment</td>
                                                                 </tr>
-                                                            </table>
-                                                        </div>
+                                                                </table>
+                                                            </div>
 
                                                                 <div class="row">
 
@@ -1155,8 +1252,19 @@
 
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
 
-                                                                <label>GERIATRIC DEPRESSION SCALE</label>
+                                                                <label>GERIATRIC DEPRESSION SCALE</label><br><br>
+                                                                <div class="table-responsive">      
+                                                                    <table class="table table-striped">
+                                                                    <tr>
+                                                                      <th class="text-center">Score 1 point for each positive answer</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="text-center">Cut-off: normal 0-5,&nbsp;&nbsp;above 5 suggests depression</td>
+                                                                    </tr>
+                                                                    </table>
+                                                                </div>
                                                                 <div class="row">
+                                                                
 
                                                                     <div class="col-md-6">
                                                                         <div class="form-group wrapper-class" >
@@ -1181,72 +1289,72 @@
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Bowels Score</label><span class="text-danger"></span></br>
-                                                                              <input type="text" class="form-control numberonly" name="bowels_score" id="bowels_score" onkeyup="barthelFunc()">
+                                                                            <label>Bowels Score</label><span class="text-danger">*</span></br>
+                                                                              <input type="text" class="form-control numberonly bi1number" name="bowels_score" id="bowels_score" onkeyup="barthelFunc()" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Bladder Score</label><span class="text-danger"></span></br>
-                                                                             <input type="text" class="form-control numberonly" name="bladder_score" id="bladder_score" onkeyup="barthelFunc()">
+                                                                            <label>Bladder Score</label><span class="text-danger">*</span></br>
+                                                                             <input type="text" class="form-control numberonly bi1number" name="bladder_score" id="bladder_score" onkeyup="barthelFunc()" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Toilet Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="toilet_score" onkeyup="barthelFunc()" id="toilet_score">
+                                                                            <label>Toilet Score</label><span class="text-danger">*</span></br>
+                                                                            <input type="text" class="form-control numberonly bi1number" name="toilet_score" onkeyup="barthelFunc()" id="toilet_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Bathing Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="bathing_score" onkeyup="barthelFunc()" id="bathing_score">
+                                                                            <label>Bathing Score</label><span class="text-danger">*</span></br>
+                                                                            <input type="text" class="form-control numberonly bi2number" name="bathing_score" onkeyup="barthelFunc()" id="bathing_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Grooming Score</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control numberonly" name="grooming_score" onkeyup="barthelFunc()" id="grooming_score">
+                                                                            <label>Grooming Score</label><span class="text-danger">*</span></br>
+                                                                           <input type="text" class="form-control numberonly bi2number" name="grooming_score" onkeyup="barthelFunc()" id="grooming_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Dressing Score</label><span class="text-danger"></span></br>
-                                                                          <input type="text" class="form-control numberonly" name="dressing_score" onkeyup="barthelFunc()" id="dressing_score">
+                                                                            <label>Dressing Score</label><span class="text-danger">*</span></br>
+                                                                          <input type="text" class="form-control numberonly bi1number" name="dressing_score" onkeyup="barthelFunc()" id="dressing_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Feeding Score</label><span class="text-danger"></span></br>
-                                                                             <input type="text" class="form-control numberonly" name="feeding_score" onkeyup="barthelFunc()" id="feeding_score">
+                                                                            <label>Feeding Score</label><span class="text-danger">*</span></br>
+                                                                             <input type="text" class="form-control numberonly bi1number" name="feeding_score" onkeyup="barthelFunc()" id="feeding_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Transfer Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="transfer_score" onkeyup="barthelFunc()" id="transfer_score">
+                                                                            <label>Transfer Score</label><span class="text-danger">*</span></br>
+                                                                            <input type="text" class="form-control numberonly bi3number" name="transfer_score" onkeyup="barthelFunc()" id="transfer_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Mobility Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="mobility_score" onkeyup="barthelFunc()" id="mobility_score">
+                                                                            <label>Mobility Score</label><span class="text-danger">*</span></br>
+                                                                            <input type="text" class="form-control numberonly bi3number" name="mobility_score" onkeyup="barthelFunc()" id="mobility_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Stairs Score</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control numberonly" name="stairs_score" onkeyup="barthelFunc()" id="stairs_score">
+                                                                            <label>Stairs Score</label><span class="text-danger">*</span></br>
+                                                                           <input type="text" class="form-control numberonly bi1number" name="stairs_score" onkeyup="barthelFunc()" id="stairs_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1270,7 +1378,7 @@
           <th>Questions</th><th>Answer</th>
         </tr>
        <tr>
-          <td>You have fallen in the past year?<input type="hidden" name="past_year_qtn" class="form-control" value="you have fallen in the past year?"></td><td><!-- <input type="text" name="past_year" class="form-control"> --><input type="radio" class="chkradio past_year" name="past_year" value="2">Yes &nbsp;
+          <td>Have you fallen in the past year?<input type="hidden" name="past_year_qtn" class="form-control" value="you have fallen in the past year?"></td><td><!-- <input type="text" name="past_year" class="form-control"> --><input type="radio" class="chkradio past_year" name="past_year" value="2">Yes &nbsp;
     <input type="radio" name="past_year" class="chkradio past_year" value="0" checked>No</td>
 
         </tr>
@@ -1486,6 +1594,22 @@
                     $('#row' + button_id + '').remove();
                 });
             });
+
+     /**************************Start treating doctor code****************************/
+      $(document).ready(function() {
+                var td_i=0; 
+                $('#td_add').click(function() {
+                    td_i++;
+
+      $('#td_dynamic_field').append('<div class="row" id="row'+td_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_mobile[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="doctor_email[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="hospital_name[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_remove btn-primary" name="remove" id="'+ td_i +'">-</button></label></div></div></div>')              
+
+                });
+                $(document).on('click', '.btn_remove', function() {
+                    var button_id = $(this).attr("id");
+                    $('#row' + button_id + '').remove();
+                });
+            });
+      /**************************End treating doctor code****************************/
 </script>
 <!-- END BDAY -->
         <script>
@@ -1507,9 +1631,37 @@
             $("#barthel_total_score").val(grandTotal);
           }
 
-          /*********************Start Calculate Age**********************/
-          
-          /*********************End Calculate Age**********************/
+            /*********************Start allergies section**********************/
+          $(".drug_menu") // select the radio by its id
+            .change(function(){ // bind a function to the change event
+                
+                     var drug_menu = $('#drug').val();
+                        if(drug_menu == 'Yes')
+                        {
+                            document.getElementById("drugfld").style.display = "block";
+                        }
+                        else{
+                            document.getElementById("drugfld").style.display = "none";   
+                        }
+                    //var val = $(this).val(); // retrieve the value
+                   
+            });
+
+            $(".food_menu") // select the radio by its id
+            .change(function(){ // bind a function to the change event
+                
+                     var food_menu = $('#food').val();
+                        if(food_menu == 'Yes')
+                        {
+                            document.getElementById("foodfld").style.display = "block";
+                        }
+                        else{
+                            document.getElementById("foodfld").style.display = "none";   
+                        }
+                    //var val = $(this).val(); // retrieve the value
+                   
+            });
+        /*********************End allergies section**********************/
         </script>
 <script>
   $(function(){
