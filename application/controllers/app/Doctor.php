@@ -266,6 +266,12 @@ class Doctor extends General{
 	    $doctor_mobile = $this->input->post('doctor_mobile', true);
 	    $doctor_email = $this->input->post('doctor_email', true);
 	    $hospital_name = $this->input->post('hospital_name', true);
+
+	    $chl_name = $this->input->post('chl_name', true);
+	    $chl_add = $this->input->post('chl_add', true);
+	    $chl_mobile = $this->input->post('chl_mobile', true);
+	    $chl_email = $this->input->post('chl_email', true);
+	    
 	    
 		$preassessment_details = array(
             'preasses_name' => $this->input->post('applicant_name'),
@@ -314,6 +320,7 @@ class Doctor extends General{
             'bp' => $this->input->post('bp'),
             'rr' => $this->input->post('rr'),
             'spo2' => $this->input->post('spo2'),
+            'appearance' => $this->input->post('appearance'),
             'rs' => $this->input->post('respirate_sys'),
             'cardiovascular_sys' => $this->input->post('cardiovascular_sys'),
             'gastrointestinal_sys' => $this->input->post('gastrointestinal_sys'),
@@ -364,22 +371,30 @@ class Doctor extends General{
     	    'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->save_family_details($family_details);
 
-		$child_details = array(
+		if(!empty($chl_name))
+		{
+		foreach ($chl_name as $chl_key => $chl_val) { // need index to match other properties
+				$child_details = array(
+					'chl_name' => $chl_val,
+					'chl_add' => isset($chl_add[$chl_key]) ? $chl_add[$chl_key] : '',
+					'chl_mobile' => isset($chl_mobile[$chl_key]) ? $chl_mobile[$chl_key] : '',
+					'chl_email' => isset($chl_email[$chl_key]) ? $chl_email[$chl_key] : '',
+					'preasses_no' => $this->input->post('preasses_no'),
+					'preasses_id' => $last_ptn_id
+				);
+				
+				$this->preassessment_model->child_details($child_details); 
+			}
+		}
+
+		/*$child_details = array(
             'chl_name' => $this->input->post('chl_name'),
             'chl_add' => $this->input->post('chl_add'),
             'chl_mobile' => $this->input->post('chl_mobile'),
             'chl_email' => $this->input->post('chl_email'),
-            'local_guardian_name' => $this->input->post('guardian_name'),
-            'guardian_add' => $this->input->post('guardian_add'),
-            'guardian_mobile' => $this->input->post('guardian_mobile'),
-            'guardian_email' => $this->input->post('guardian_email'),
-            'local_guardian_name2' => $this->input->post('guardian_name2'),
-            'guardian_add2' => $this->input->post('guardian_add2'),
-            'guardian_mobile2' => $this->input->post('guardian_mobile2'),
-            'guardian_email2' => $this->input->post('guardian_email2'),
             'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $last_ptn_id);
-		$this->preassessment_model->save_child_details($child_details);
+		$this->preassessment_model->save_child_details($child_details);*/
 
 
 		if(!empty($doctor_name))
@@ -388,22 +403,22 @@ class Doctor extends General{
 				$treating_doctor_details = array(
 					'tdoctor_name' => $val,
 					'tdoctor_mobile' => isset($doctor_mobile[$key]) ? $doctor_mobile[$key] : '',
-					'tdoctor_email' => isset($doctor_email[$i]) ? $doctor_email[$i] : '',
-					'hospital_name' => isset($hospital_name[$i]) ? $hospital_name[$i] : '',
-					'appointment_poa' => $this->input->post('appointment_poa'),
+					'tdoctor_email' => isset($doctor_email[$key]) ? $doctor_email[$key] : '',
+					'hospital_name' => isset($hospital_name[$key]) ? $hospital_name[$key] : '',
+					/*'appointment_poa' => $this->input->post('appointment_poa'),
 		            'poa_name' => $this->input->post('poa_name'),
 		            'poa_mobile' => $this->input->post('poa_mobile'),
 		            'poa_email' => $this->input->post('poa_email'),
 		            'diagnosis' => @implode(",",$this->input->post('diagnosis')),
             		'present_complaints' => $this->input->post('present_complaints'),
-            		'past_history' => $this->input->post('past_history'),
+            		'past_history' => $this->input->post('past_history'),*/
 					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $last_ptn_id
 				);
 				
 				$this->preassessment_model->treating_doctor_details($treating_doctor_details); 
 			}
-		}else{
+		}/*else{
 
 			$treating_doctor_details = array(
             'appointment_poa' => $this->input->post('appointment_poa'),
@@ -421,7 +436,26 @@ class Doctor extends General{
             'preasses_id' => $last_ptn_id);
 		$this->preassessment_model->treating_doctor_details($treating_doctor_details);
 
-		}
+		}*/
+		$guardian_details = array(
+            'local_guardian_name' => $this->input->post('guardian_name'),
+            'guardian_add' => $this->input->post('guardian_add'),
+            'guardian_mobile' => $this->input->post('guardian_mobile'),
+            'guardian_email' => $this->input->post('guardian_email'),
+            'local_guardian_name2' => $this->input->post('guardian_name2'),
+            'guardian_add2' => $this->input->post('guardian_add2'),
+            'guardian_mobile2' => $this->input->post('guardian_mobile2'),
+            'guardian_email2' => $this->input->post('guardian_email2'),
+            'appointment_poa' => $this->input->post('appointment_poa'),
+		    'poa_name' => $this->input->post('poa_name'),
+		    'poa_mobile' => $this->input->post('poa_mobile'),
+		    'poa_email' => $this->input->post('poa_email'),
+		    'diagnosis' => @implode(",",$this->input->post('diagnosis')),
+            'present_complaints' => $this->input->post('present_complaints'),
+            'past_history' => $this->input->post('past_history'),
+            'preasses_no' => $this->input->post('preasses_no'),
+            'preasses_id' => $last_ptn_id);
+		$this->preassessment_model->save_guardian_details($guardian_details);
 		
 		/*$treating_doctor_details = array(
             'appointment_poa' => $this->input->post('appointment_poa'),
@@ -739,7 +773,11 @@ class Doctor extends General{
 				 $this->data['message'] = $this->session->flashdata('message');
 
 		$this->data['patientInfo'] = $this->preassessment_model->get_preassesment($id);
+		/*echo "<pre>";
+		print_r($this->data['patientInfo']);die;*/
 		$this->data['preasses_medicine'] = $this->preassessment_model->get_preassessment_medicine($id);
+		$this->data['preasses_doctor'] = $this->preassessment_model->get_treating_doctor($id);
+		$this->data['preasses_child'] = $this->preassessment_model->get_preasses_child($id);
 		$this->data['preasses_immunization_his'] = $this->preassessment_model->get_preassessment_immunization_his($id);
 		$this->data['preasses_fallrisk_quest'] = $this->preassessment_model->get_preassessment_fallrisk_quest($id);
 		
@@ -753,6 +791,11 @@ class Doctor extends General{
 	    $dose = $this->input->post('dose', true);
 	    $frequency = $this->input->post('frequency', true);
 	    $duration = $this->input->post('duration', true);
+
+	    $doctor_name = $this->input->post('doctor_name', true);
+	    $doctor_mobile = $this->input->post('doctor_mobile', true);
+	    $doctor_email = $this->input->post('doctor_email', true);
+	    $hospital_name = $this->input->post('hospital_name', true);
 	    
 		$preassessment_details = array(
             'preasses_name' => $this->input->post('applicant_name'),
@@ -848,15 +891,52 @@ class Doctor extends General{
             'chl_add' => $this->input->post('chl_add'),
             'chl_mobile' => $this->input->post('chl_mobile'),
             'chl_email' => $this->input->post('chl_email'),
-            'local_guardian_name' => $this->input->post('guardian_name'),
+            /*'local_guardian_name' => $this->input->post('guardian_name'),
             'guardian_add' => $this->input->post('guardian_add'),
             'guardian_mobile' => $this->input->post('guardian_mobile'),
-            'guardian_email' => $this->input->post('guardian_email'),
+            'guardian_email' => $this->input->post('guardian_email'),*/
             'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $this->input->post('id'));
 		$this->preassessment_model->update_child_details($child_details);
 
-		$treating_doctor_details = array(
+		if(!empty($doctor_name))
+		{
+			$this->db->delete('treating_doctor',array('preasses_id'=>$this->input->post('id')));
+		foreach ($doctor_name as $key => $val) { // need index to match other properties
+				$treating_doctor_details = array(
+					'tdoctor_name' => $val,
+					'tdoctor_mobile' => isset($doctor_mobile[$key]) ? $doctor_mobile[$key] : '',
+					'tdoctor_email' => isset($doctor_email[$i]) ? $doctor_email[$i] : '',
+					'hospital_name' => isset($hospital_name[$i]) ? $hospital_name[$i] : '',
+					'preasses_no' => $this->input->post('preasses_no'),
+					'preasses_id' => $this->input->post('id')
+				);
+				
+				$this->preassessment_model->treating_doctor_details($treating_doctor_details); 
+			}
+		}
+
+		$guardian_details = array(
+            'local_guardian_name' => $this->input->post('guardian_name'),
+            'guardian_add' => $this->input->post('guardian_add'),
+            'guardian_mobile' => $this->input->post('guardian_mobile'),
+            'guardian_email' => $this->input->post('guardian_email'),
+            'local_guardian_name2' => $this->input->post('guardian_name2'),
+            'guardian_add2' => $this->input->post('guardian_add2'),
+            'guardian_mobile2' => $this->input->post('guardian_mobile2'),
+            'guardian_email2' => $this->input->post('guardian_email2'),
+            'appointment_poa' => $this->input->post('appointment_poa'),
+		    'poa_name' => $this->input->post('poa_name'),
+		    'poa_mobile' => $this->input->post('poa_mobile'),
+		    'poa_email' => $this->input->post('poa_email'),
+		    'diagnosis' => @implode(",",$this->input->post('diagnosis')),
+            'present_complaints' => $this->input->post('present_complaints'),
+            'past_history' => $this->input->post('past_history'),
+            'preasses_no' => $this->input->post('preasses_no'),
+            'preasses_id' => $this->input->post('id'));
+		$this->preassessment_model->update_guardian_details($guardian_details);
+
+		/*$treating_doctor_details = array(
             'appointment_poa' => $this->input->post('appointment_poa'),
             'poa_name' => $this->input->post('poa_name'),
             'poa_mobile' => $this->input->post('poa_mobile'),
@@ -870,7 +950,7 @@ class Doctor extends General{
             'past_history' => $this->input->post('past_history'),
             'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $this->input->post('id'));
-		$this->preassessment_model->update_treating_doctor_details($treating_doctor_details);
+		$this->preassessment_model->update_treating_doctor_details($treating_doctor_details);*/
 
 		if(!empty($medicine_name))
 		{

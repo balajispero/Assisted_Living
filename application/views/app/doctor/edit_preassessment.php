@@ -329,6 +329,84 @@
 
                                                                 <!--Start preasses common row structure-->
                                                                 <label>DETAILS OF CHILDREN</label>
+
+                                                                <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group wrapper-class" >
+                                                                        <label></label><span class="text-danger"></span>
+                                                                <button type="button" name="chl_add" id="chl_add" class="btn btn-primary">Add Child</button>
+                                                                </div>
+                                                            </div>
+        
+                                                            </div><!-- / row -->
+                                                            <div id="chl_dynamic_field">
+
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Name</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Address</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Contact Number</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Email id</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div><!--/row-->
+                                                                <?php
+                                                                if(!empty($preasses_child)){
+
+                                                                    foreach($preasses_child as $key_chl => $child){ $key_chl1 = $key_chl+1; ?>
+                                                                <div class="row" id="rowdr<?=$key_chl1?>">
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <input type="text" class="form-control" name="chl_name[]" value="<?=$child->chl_name?>">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <input type="text" class="form-control" name="chl_add[]" value="<?=$child->chl_add?>">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <input type="text" class="form-control" name="chl_mobile[]" value="<?=$child->chl_mobile?>">
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <input type="email" class="form-control" name="chl_email[]" value="<?=$child->chl_email?>">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-1">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label><button type="button" class="btn_remove btn-primary" name="remove" id="'+ key_chl1 +'">-</button></label>
+                                                                        </div>
+                                                                    </div>
+                                                            </div><!-- /row-->
+                                                            <?php } }?>
+                                                            <input type="hidden" value="<?php if(!empty($key_chl1)){ print($key_chl1);}else{ echo '0';}?>" id="chlcuont"></input>
+                                                            </div><!--close chl_dynamic_field id div-->
+
                                                                 <div class="row">
 
                                                                     <div class="col-md-3">
@@ -395,6 +473,35 @@
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label> Name of Local Guardian 2</label><span class="text-danger"></span></br>
+                                                                            <input type="text" class="form-control" name="guardian_name2" value="<?php echo $patientInfo[0]->local_guardian_name2?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Address</label><span class="text-danger"></span></br>
+                                                                             <textarea name="guardian_add2" class="form-control"><?php echo $patientInfo[0]->guardian_add2?></textarea> 
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Contact Number</label><span class="text-danger"></span></br>
+                                                                           <input type="text" class="form-control" name="guardian_mobile2" value="<?php echo $patientInfo[0]->guardian_mobile2?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Email id</label><span class="text-danger"></span></br>
+                                                                           <input type="email" class="form-control" name="guardian_email2" value="<?php echo $patientInfo[0]->guardian_email2?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
                                                                 
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
@@ -439,36 +546,120 @@
 
                                                                 <label>TREATING DOCTOR</label>
                                                                 <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group wrapper-class" >
+                                                                        <label></label><span class="text-danger"></span>
+                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary">Add Treating Doctor</button>
+                                                                </div>
+                                                            </div>
+        
+                                                            </div><!-- / row -->
+                                                               
+                                                            <div id="td_dynamic_field">
+
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Name of Doctor</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Contact Number</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Email id</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Clinic/Hospital Name</label><span class="text-danger"></span></br>
+                                                                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div><!--/row-->
+                                                                <?php
+                                                                if(!empty($preasses_doctor)){
+
+                                                                    foreach($preasses_doctor as $key_dr => $doctor){ $key_dr1 = $key_dr+1; ?>
+                                                                <div class="row" id="rowdr<?=$key_dr1?>">
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <input type="text" class="form-control" name="doctor_name[]" value="<?=$doctor->tdoctor_name?>">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <input type="text" class="form-control" name="doctor_mobile[]" value="<?=$doctor->tdoctor_mobile?>">
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <input type="email" class="form-control" name="doctor_email[]" value="<?=$doctor->tdoctor_email?>">
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <input type="text" class="form-control" name="hospital_name[]" value="<?=$doctor->hospital_name?>">
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="col-md-1">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label><button type="button" class="btn_remove btn-primary" name="remove" id="'+ key_dr1 +'">-</button></label>
+                                                                        </div>
+                                                                    </div>
+                                                            </div><!-- /row-->
+                                                            <?php } }?>
+                                                            <input type="hidden" value="<?php if(!empty($key_dr1)){ print($key_dr1);}else{ echo '0';}?>" id="doctorcuont"></input>
+                                                            </div><!--close td_dynamic_field id div-->
+
+
+
+                                                                <!-- <div class="row">
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Name of Doctor</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="doctor_name" value="<?php echo $patientInfo[0]->tdoctor_name?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div><!-- /.form-group wrapper-class -->
-                                                                    </div><!-- /.col-md-3 -->
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="doctor_mobile" value="<?php echo $patientInfo[0]->tdoctor_mobile?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div><!-- /.form-group wrapper-class -->
-                                                                    </div><!-- /.col-md-3 -->
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Email id</label><span class="text-danger"></span></br>
                                                                             <input type="email" class="form-control" name="doctor_email" value="<?php echo $patientInfo[0]->tdoctor_email?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div><!-- /.form-group wrapper-class -->
-                                                                    </div><!-- /.col-md-3 -->
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Clinic/Hospital Name</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="hospital_name" value="<?php echo $patientInfo[0]->hospital_name?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div><!-- /.form-group wrapper-class -->
-                                                                    </div><!-- /.col-md-3 -->
-                                                                </div><!-- / row -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div> --><!-- / row -->
 
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
                                                                  
@@ -570,21 +761,60 @@
 
                                             <label>ALLERGIES</label>
                                                                 <div class="row">
-
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Drug</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="drug" value="<?php echo $patientInfo[0]->drug_name?>">
+                                                                           <select name="drug" id="drug" class="form-control drug_menu">
+                                                                            <option value="">Select Drug</option>
+                                                                              <option value="Yes" <?php if($patientInfo[0]->drug_name=="Yes") { echo "selected"; } ?>>Yes</option>
+                                                                              <option value="No" <?php if($patientInfo[0]->drug_name=="No") { echo "selected"; } ?>>No</option>
+                                                                            </select>
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3" id="drugfld" style="display: none;">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label></label><span class="text-danger"></span></br>
+                                                                            <input type="text" class="form-control" name="drugfld" value="<?php echo $patientInfo[0]->drug_name?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+
+
+                                                                    <!-- <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Drug</label><span class="text-danger"></span></br>
+                                                                            <input type="text" class="form-control" name="drug" value="<?php echo $patientInfo[0]->drug_name?>">
+                                                                            <span class="text-danger error-text type_category_err"></span> 
+                                                                        </div>
+                                                                    </div> --><!-- /.col-md-3 -->
+
                                                                     <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Food</label><span class="text-danger"></span></br>
+                                                                           <select name="food" id="food" class="form-control food_menu">
+                                                                            <option value="">Select Food</option>
+                                                                              <option value="Yes" <?php if($patientInfo[0]->food=="Yes") { echo "selected"; } ?>>Yes</option>
+                                                                              <option value="No" <?php if($patientInfo[0]->food=="No") { echo "selected"; } ?>>No</option>
+                                                                            </select>
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3" id="foodfld" style="display: none;">
+                                                                        <div class="form-group wrapper-class" id="foodfld">
+                                                                            <label></label><span class="text-danger"></span></br>
+                                                                            <input type="text" class="form-control" name="foodfld" value="<?php echo $patientInfo[0]->food?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+
+                                                                    <!-- <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Food</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="food" value="<?php echo $patientInfo[0]->food?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div><!-- /.form-group wrapper-class -->
-                                                                    </div><!-- /.col-md-3 -->
+                                                                        </div>
+                                                                    </div> --><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Any Other</label><span class="text-danger"></span></br>
@@ -594,7 +824,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>DEWORMING medicine last taken on Date</label><span class="text-danger"></span></br>
+                                                                            <label>Deworming medicine last taken on Date</label><span class="text-danger"></span></br>
                                                                             <input type="date" class="form-control" name="last_taken_medicine_date" value="<?php echo $patientInfo[0]->last_taken_medicine_date?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -925,35 +1155,35 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Temp</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="temp" value="<?php echo $patientInfo[0]->temp?>">
+                                                                           <input type="number" class="form-control" name="temp" value="<?php echo $patientInfo[0]->temp?>" placeholder="Enter 82 to 110">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Pulse</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="pulse" value="<?php echo $patientInfo[0]->pulse?>">
+                                                                            <input type="number" class="form-control" name="pulse" value="<?php echo $patientInfo[0]->pulse?>" placeholder="Enter 60 to 100">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>BP</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="bp" value="<?php echo $patientInfo[0]->bp?>">
+                                                                            <input type="number" class="form-control" name="bp" value="<?php echo $patientInfo[0]->bp?>" placeholder="Enter 100 to 300">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>RR</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="rr" value="<?php echo $patientInfo[0]->rr?>">
+                                                                           <input type="number" class="form-control" name="rr" value="<?php echo $patientInfo[0]->rr?>" placeholder="Enter 12 to 18">
                                                                             <span class="text-danger error-text type_category_err"></span>                       
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>SPO2</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="spo2" value="<?php echo $patientInfo[0]->spo2?>">
+                                                                           <input type="number" class="form-control" name="spo2" value="<?php echo $patientInfo[0]->spo2?>" placeholder="Enter 95 to 100">
                                                                             <span class="text-danger error-text type_category_err"></span>                       
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1028,8 +1258,9 @@
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Agitation & Aggression</label><span class="text-danger"></span></br>
-                                                                             <select name="aggression" class="form-control">
+                                                                            <label>Agitation & Aggression</label><span class="text-danger">*</span></br>
+                                                                             <select name="aggression" class="form-control" required>
+                                                                                <option value=""> Select Agitation & Aggression</option>
                                                                               <option value="NA" <?php if($patientInfo[0]->aggression=="NA") { echo "selected"; } ?>>NA</option>
   <option value="Occasionally" <?php if($patientInfo[0]->aggression=="Occasionally") { echo "selected"; } ?>>Occasionally</option>
   <option value="Frequent" <?php if($patientInfo[0]->aggression=="Frequent") { echo "selected"; } ?>>Frequent</option>
@@ -1040,8 +1271,9 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Violence</label><span class="text-danger"></span></br>
-                                                                            <select name="Violence" class="form-control">
+                                                                            <label>Violence</label><span class="text-danger">*</span></br>
+                                                                            <select name="Violence" class="form-control" required>
+                                                                                <option value=""> Select Violence</option>
                                                                               <option value="No" <?php if($patientInfo[0]->violence=="No") { echo "selected"; } ?>>No</option>
   <option value="May Self Inflict" <?php if($patientInfo[0]->violence=="May Self Inflict") { echo "selected"; } ?>>May Self Inflict</option>
   <option value="Verbally Abusive" <?php if($patientInfo[0]->violence=="Verbally Abusive") { echo "selected"; } ?>>Verbally Abusive</option>
@@ -1053,8 +1285,9 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Need of Bed Restrain</label><span class="text-danger"></span></br>
-                                                                            <select name="bed_restrain" class="form-control">
+                                                                            <label>Need of Bed Restrain</label><span class="text-danger">*</span></br>
+                                                                            <select name="bed_restrain" class="form-control" required>
+                                                                                <option value=""> Select Need of Bed Restrain</option>
                                                                               <option value="No" <?php if($patientInfo[0]->bed_restrain=="No") { echo "selected"; } ?>>No</option>
   <option value="Required Temporarily" <?php if($patientInfo[0]->bed_restrain=="Required Temporarily") { echo "selected"; } ?>>Required Temporarily</option>
   <option value="Occasionally" <?php if($patientInfo[0]->bed_restrain=="Occasionally") { echo "selected"; } ?>>Occasionally</option>
@@ -1065,8 +1298,9 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Wandering</label><span class="text-danger"></span></br>
-                                                                            <select name="wandering" class="form-control">
+                                                                            <label>Wandering</label><span class="text-danger">*</span></br>
+                                                                            <select name="wandering" class="form-control" required>
+                                                                                <option value=""> Select Wandering</option>
                                                                               <option value="No" <?php if($patientInfo[0]->wandering=="No") { echo "selected"; } ?>>No</option>
   <option value="Occasionally" <?php if($patientInfo[0]->wandering=="Occasionally") { echo "selected"; } ?>>Occasionally</option>
   <option value="Always" <?php if($patientInfo[0]->wandering=="Always") { echo "selected"; } ?>>Always</option>
@@ -1078,8 +1312,9 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Sleep</label><span class="text-danger"></span></br>
-                                                                            <select name="sleep" class="form-control">
+                                                                            <label>Sleep</label><span class="text-danger">*</span></br>
+                                                                            <select name="sleep" class="form-control" required>
+                                                                                <option value=""> Select Sleep</option>
                                                                               <option value="Able to sleep" <?php if($patientInfo[0]->sleep=="Able to sleep") { echo "selected"; } ?>>Able to sleep</option>
   <option value="Relies on sleeping pills" <?php if($patientInfo[0]->sleep=="Relies on sleeping pills") { echo "selected"; } ?>>Relies on sleeping pills</option>
   <option value="Required sedation" <?php if($patientInfo[0]->sleep=="Required sedation") { echo "selected"; } ?>>Required sedation</option>
@@ -1092,8 +1327,9 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Inappropriate Behaviour with Care</label><span class="text-danger"></span></br>
-                                                                           <select name="giver_care" class="form-control">
+                                                                            <label>Inappropriate Behaviour with Care</label><span class="text-danger">*</span></br>
+                                                                           <select name="giver_care" class="form-control" required>
+                                                                            <option value="">Select Inappropriate Behaviour with Care</option>
                                                                               <option value="NA" <?php if($patientInfo[0]->giver_care=="NA") { echo "selected"; } ?>>NA</option>
   <option value="Occasionally" <?php if($patientInfo[0]->giver_care=="Occasionally") { echo "selected"; } ?>>Occasionally</option>
   <option value="Always" <?php if($patientInfo[0]->giver_care=="Always") { echo "selected"; } ?>>Always</option>
@@ -1131,7 +1367,17 @@
 
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
 
-                                                            <label>SPMSQ Test</label>
+                                                            <label>Short portable mental status questionnaire(SPMSQ) Test</label><br><br>
+                                                            <div class="table-responsive">      
+                                                                <table class="table table-striped">
+                                                                <tr>
+                                                                  <th>0-2 errors = Intact intellectual functioning</th><th>5-7 errors = Moderate intellectual impairment</th>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td>3-4 errors = Mild intellectual impairment</td><td>8-10 errors = Severe intellectual impairment</td>
+                                                                </tr>
+                                                                </table>
+                                                            </div>
                                                                 <div class="row">
 
                                                                     <div class="col-md-3">
@@ -1166,7 +1412,17 @@
 
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
 
-                                                                <label>GERIATRIC DEPRESSION SCALE</label>
+                                                                <label>GERIATRIC DEPRESSION SCALE</label><br><br>
+                                                                <div class="table-responsive">      
+                                                                    <table class="table table-striped">
+                                                                    <tr>
+                                                                      <th class="text-center">Score 1 point for each positive answer</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td class="text-center">Cut-off: normal 0-5,&nbsp;&nbsp;above 5 suggests depression</td>
+                                                                    </tr>
+                                                                    </table>
+                                                                </div>
                                                                 <div class="row">
 
                                                                     <div class="col-md-6">
@@ -1192,72 +1448,72 @@
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Bowels Score</label><span class="text-danger"></span></br>
-                                                                              <input type="text" class="form-control numberonly" name="bowels_score" value="<?php echo $patientInfo[0]->bowels_score?>" id="bowels_score" onkeyup="barthelFunc()">
+                                                                            <label>Bowels Score</label><span class="text-danger">*</span></br>
+                                                                              <input type="text" class="form-control numberonly bi1number" name="bowels_score" value="<?php echo $patientInfo[0]->bowels_score?>" id="bowels_score" onkeyup="barthelFunc()" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Bladder Score</label><span class="text-danger"></span></br>
-                                                                             <input type="text" class="form-control numberonly" name="bladder_score" value="<?php echo $patientInfo[0]->bladder_score?>" id="bladder_score" onkeyup="barthelFunc()">
+                                                                            <label>Bladder Score</label><span class="text-danger">*</span></br>
+                                                                             <input type="text" class="form-control numberonly bi1number" name="bladder_score" value="<?php echo $patientInfo[0]->bladder_score?>" id="bladder_score" onkeyup="barthelFunc()" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Toilet Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="toilet_score" value="<?php echo $patientInfo[0]->toilet_score?>" onkeyup="barthelFunc()" id="toilet_score">
+                                                                            <label>Toilet Score</label><span class="text-danger">*</span></br>
+                                                                            <input type="text" class="form-control numberonly bi1number" name="toilet_score" value="<?php echo $patientInfo[0]->toilet_score?>" onkeyup="barthelFunc()" id="toilet_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Bathing Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="bathing_score" value="<?php echo $patientInfo[0]->bathing_score?>" onkeyup="barthelFunc()" id="bathing_score">
+                                                                            <label>Bathing Score</label><span class="text-danger">*</span></br>
+                                                                            <input type="text" class="form-control numberonly bi2number" name="bathing_score" value="<?php echo $patientInfo[0]->bathing_score?>" onkeyup="barthelFunc()" id="bathing_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Grooming Score</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control numberonly" name="grooming_score" value="<?php echo $patientInfo[0]->grooming_score?>" onkeyup="barthelFunc()" id="grooming_score">
+                                                                            <label>Grooming Score</label><span class="text-danger">*</span></br>
+                                                                           <input type="text" class="form-control numberonly bi2number" name="grooming_score" value="<?php echo $patientInfo[0]->grooming_score?>" onkeyup="barthelFunc()" id="grooming_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Dressing Score</label><span class="text-danger"></span></br>
-                                                                          <input type="text" class="form-control numberonly" name="dressing_score" value="<?php echo $patientInfo[0]->dressing_score?>" onkeyup="barthelFunc()" id="dressing_score">
+                                                                            <label>Dressing Score</label><span class="text-danger">*</span></br>
+                                                                          <input type="text" class="form-control numberonly bi1number" name="dressing_score" value="<?php echo $patientInfo[0]->dressing_score?>" onkeyup="barthelFunc()" id="dressing_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Feeding Score</label><span class="text-danger"></span></br>
-                                                                             <input type="text" class="form-control numberonly" name="feeding_score" value="<?php echo $patientInfo[0]->feeding_score?>" onkeyup="barthelFunc()" id="feeding_score">
+                                                                            <label>Feeding Score</label><span class="text-danger">*</span></br>
+                                                                             <input type="text" class="form-control numberonly bi1number" name="feeding_score" value="<?php echo $patientInfo[0]->feeding_score?>" onkeyup="barthelFunc()" id="feeding_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Transfer Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="transfer_score" value="<?php echo $patientInfo[0]->transfer_score?>" onkeyup="barthelFunc()" id="transfer_score">
+                                                                            <label>Transfer Score</label><span class="text-danger">*</span></br>
+                                                                            <input type="text" class="form-control numberonly bi3number" name="transfer_score" value="<?php echo $patientInfo[0]->transfer_score?>" onkeyup="barthelFunc()" id="transfer_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Mobility Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="mobility_score" value="<?php echo $patientInfo[0]->mobility_score?>" onkeyup="barthelFunc()" id="mobility_score">
+                                                                            <label>Mobility Score</label><span class="text-danger">*</span></br>
+                                                                            <input type="text" class="form-control numberonly bi3number" name="mobility_score" value="<?php echo $patientInfo[0]->mobility_score?>" onkeyup="barthelFunc()" id="mobility_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Stairs Score</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control numberonly" name="stairs_score" value="<?php echo $patientInfo[0]->stairs_score?>" onkeyup="barthelFunc()" id="stairs_score">
+                                                                            <label>Stairs Score</label><span class="text-danger">*</span></br>
+                                                                           <input type="text" class="form-control numberonly bi1number" name="stairs_score" value="<?php echo $patientInfo[0]->stairs_score?>" onkeyup="barthelFunc()" id="stairs_score" required maxlength="1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1575,7 +1831,7 @@
                                                                 <div class="row">
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Score</label><span class="text-danger">*</span></br>
+                                                                            <label>Score</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="chair_stand_score" value="<?php echo $patientInfo[0]->chair_stand_score?>">
                                                                             <span class="text-danger error-text type_category_err"></span>
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -1710,6 +1966,42 @@
                     $('#row' + button_id + '').remove();
                 });
             });
+
+     /**************************Start treating doctor code****************************/
+      $(document).ready(function() {
+                var td_i=0;
+                var td_j = 1; 
+                $('#td_add').click(function() {
+                    var doctorcuont = $('#doctorcuont').val();
+                // console.log(doctorcuont);
+                var td_i = td_j+ + +doctorcuont;
+                    //td_i++;
+
+      $('#td_dynamic_field').append('<div class="row" id="rowdr'+td_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_mobile[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="doctor_email[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="hospital_name[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removedr btn-primary" name="remove" id="'+ td_i +'">-</button></label></div></div></div>')              
+
+                });
+                $(document).on('click', '.btn_removedr', function() {
+                    var button_id = $(this).attr("id");
+                    $('#rowdr' + button_id + '').remove();
+                });
+            });
+      /**************************End treating doctor code****************************/
+
+      /**************************Start child code****************************/
+      $(document).ready(function() {
+                var chl_i=0; 
+                $('#chl_add').click(function() {
+                    chl_i++;
+
+      $('#chl_dynamic_field').append('<div class="row" id="rowchl'+chl_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_add[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_mobile[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="chl_email[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removechl btn-primary" name="remove" id="'+ chl_i +'">-</button></label></div></div></div>')              
+
+                });
+                $(document).on('click', '.btn_removechl', function() {
+                    var button_id = $(this).attr("id");
+                    $('#rowchl' + button_id + '').remove();
+                });
+            });
+      /**************************End child code****************************/
 </script>
 <!-- END BDAY -->
         <script>
@@ -1734,7 +2026,37 @@
 
           /*********************Start Calculate Age**********************/
           
-          /*********************End Calculate Age**********************/
+          /*********************Start allergies section**********************/
+          $(".drug_menu") // select the radio by its id
+            .change(function(){ // bind a function to the change event
+                
+                     var drug_menu = $('#drug').val();
+                        if(drug_menu == 'Yes')
+                        {
+                            document.getElementById("drugfld").style.display = "block";
+                        }
+                        else{
+                            document.getElementById("drugfld").style.display = "none";   
+                        }
+                    //var val = $(this).val(); // retrieve the value
+                   
+            });
+
+            $(".food_menu") // select the radio by its id
+            .change(function(){ // bind a function to the change event
+                
+                     var food_menu = $('#food').val();
+                        if(food_menu == 'Yes')
+                        {
+                            document.getElementById("foodfld").style.display = "block";
+                        }
+                        else{
+                            document.getElementById("foodfld").style.display = "none";   
+                        }
+                    //var val = $(this).val(); // retrieve the value
+                   
+            });
+        /*********************End allergies section**********************/
         </script>
 <script>
   $(function(){

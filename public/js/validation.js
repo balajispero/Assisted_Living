@@ -22,6 +22,62 @@ $('.bi3number').keyup(function() {
     $th.val( $th.val().replace(/[^0-3]{1}/g, function(str) { return ''; } ) );
 });
 /**************** Barthel index validation******************/
+
+/**************** Vital Sign validation******************/
+    $("input[name='temp']").change(function() {
+        
+      var tempnumber = parseInt($("input[name='temp']").val());
+      //requirement range is 82 to 110
+       if( tempnumber < 82 || tempnumber > 110 ) {
+           $(this).val('');
+          
+         }
+       });
+
+    $("input[name='pulse']").change(function() {
+        
+      var pulsenumber = parseInt($("input[name='pulse']").val());
+      //requirement range is 60 to 100
+       if( pulsenumber < 60 || pulsenumber > 100 ) {
+           //$("input[name='pulse']").val('');
+           $(this).val('');
+          
+         }
+       });
+
+    $("input[name='bp']").change(function() {
+        
+      var number = parseInt($("input[name='bp']").val());
+      //requirement range is 100 to 300
+       if( number < 100 || number > 300 ) {
+           //$("input[name='bp']").val('');
+           $(this).val('');
+          
+         }
+       });
+    
+    $("input[name='rr']").change(function() {
+        
+      var number = parseInt($("input[name='rr']").val());
+      //requirement range is 12 to 18
+       if( number < 12 || number > 18 ) {
+           //$("input[name='rr']").val('');
+           $(this).val('');
+          
+         }
+       });
+    $("input[name='spo2']").change(function() {
+        
+      var number = parseInt($("input[name='spo2']").val());
+      //requirement range is 95 to 100
+       if( number < 95 || number > 100 ) {
+           //$("input[name='spo2']").val('');
+           $(this).val('');
+          
+         }
+       });
+/**************** Vital Sign validation******************/    
+
 /**************** mobile number validation******************/
 
 /*$('.numberonly').keyup(function() {

@@ -16,7 +16,15 @@ class Preassessment_model extends CI_Model{
 	{     
         return $this->db->insert('patient_family', $data);    
 	}
-		public function save_child_details($data)
+	/*public function save_child_details($data)
+	{     
+        return $this->db->insert('patient_chl', $data);    
+	}*/
+	public function save_guardian_details($data)
+	{     
+        return $this->db->insert('preassessment_guardian', $data);    
+	}
+		public function child_details($data)
 	{     
         return $this->db->insert('patient_chl', $data);    
 	}
@@ -66,13 +74,16 @@ class Preassessment_model extends CI_Model{
         return  $this->db->update("preassessment_fall_risk_questions",$data);*/    
 	}
 	public function get_preassesment($id){
-			$this->db->select('ptn_preasses.*,ptn_fmly.*,ptn_chl.*,treat_dr.*,psycho_cond.*,immuniz_his.*,barthel_index.*');
+			$this->db->select('ptn_preasses.*,ptn_fmly.*,ptn_chl.*,treat_dr.*,psycho_cond.*,immuniz_his.*,barthel_index.*,local_guardian.*');
 			$this->db->from('patient_preassessment ptn_preasses');
 			$this->db->join('patient_family ptn_fmly', 'ptn_fmly.preasses_id = ptn_preasses.preasses_id', 'left');
+			$this->db->join('preassessment_guardian local_guardian','local_guardian.preasses_id = ptn_preasses.preasses_id','left');
 			$this->db->join('patient_chl ptn_chl', 'ptn_chl.preasses_id = ptn_preasses.preasses_id', 'left');
 			/*$this->db->join('preassessment_medicines ptn_med', 'ptn_med.preasses_id = ptn_preasses.preasses_id','left');*/
+
 			$this->db->join('treating_doctor treat_dr', 'treat_dr.preasses_id = ptn_preasses.preasses_id','left');
 			$this->db->join('patient_psychological_cond psycho_cond', 'psycho_cond.preasses_id = ptn_preasses.preasses_id','left');
+
 			$this->db->join('preassessment_immunization_his immuniz_his','immuniz_his.preasses_id = ptn_preasses.preasses_id','left');
 			$this->db->join('preassessment_barthel_index barthel_index','barthel_index.preasses_id = ptn_preasses.preasses_id','left');
  		
@@ -114,12 +125,17 @@ class Preassessment_model extends CI_Model{
 		$this->db->where("preasses_id",$this->input->post('id'));
         return  $this->db->update("patient_chl",$data);         
 	}
-		public function update_treating_doctor_details($data)
+		public function update_guardian_details($data)
+	{
+		$this->db->where("preasses_id",$this->input->post('id'));
+        return  $this->db->update("preassessment_guardian",$data);         
+	}
+	/*	public function update_treating_doctor_details($data)
 	{
 		$this->db->where("preasses_id",$this->input->post('id'));
         return  $this->db->update("treating_doctor",$data);       
             
-	}
+	}*/
 		public function update_psychological_cond_details($data)
 	{   
 		$this->db->where("preasses_id",$this->input->post('id'));
@@ -145,13 +161,28 @@ class Preassessment_model extends CI_Model{
 		$this->db->where(array("fall_risk_id"=>$fallrisk_id,"preasses_id"=>$this->input->post('id')));
         return  $this->db->update("preassessment_fall_risk_questions",$data);    
 	}
-
 	public function get_preassessment_medicine($preasses_id){
 		$this->db->where(array(
 			'preasses_id'		=>		$preasses_id,
 			/*'InActive'	=>		0*/
 		));	
 		$query = $this->db->get("preassessment_medicines");
+		return $query->result();
+	}
+	public function get_treating_doctor($preasses_id){
+		$this->db->where(array(
+			'preasses_id'		=>		$preasses_id,
+			/*'InActive'	=>		0*/
+		));	
+		$query = $this->db->get("treating_doctor");
+		return $query->result();
+	}
+	public function get_preasses_child($preasses_id){
+		$this->db->where(array(
+			'preasses_id'		=>		$preasses_id,
+			/*'InActive'	=>		0*/
+		));	
+		$query = $this->db->get("patient_chl");
 		return $query->result();
 	}
 	public function get_preassessment_immunization_his($preasses_id){
