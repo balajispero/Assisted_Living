@@ -137,7 +137,7 @@
                                         </div>
                                         
                                         <div class="form-group">
-                                            <button class="btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit">Proceed</button>
+                                            <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit">Proceed</button>
                                         </div>
                                         
                                 </form>

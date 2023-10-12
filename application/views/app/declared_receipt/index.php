@@ -119,7 +119,7 @@
                                                 <td><input class="form-control input-sm" name="cTo" id="cTo" type="text" value="<?php echo date("Y-m-d");?>" placeholder="to Date Registration" style="width: 180px;" required></td>
                                             	
                                                 <td>
-                                                <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
+                                                <button class="btn btn-sm btn-primary bg_color" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
                                                 <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal">Add New Declared</a>
                                                 </td>
                                             </tr>

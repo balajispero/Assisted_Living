@@ -71,6 +71,16 @@
     margin-left: -104px !important;
 }
 }
+.bg_color{
+    background-color:#2B48B0 !important;
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+     background-color:#2B48B0; 
+    border-color: #428bca;
+}
    </style>
 <header class="header" style="background: url('<?php echo base_url()?>public/img/new/header_bar_bg_01.jpg') repeat-x; background-size: 100% 100%; border-bottom:1px solid #CCC">
     <a href="#" class="logo">
@@ -178,7 +188,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header bg-light-blue droplist">
+                        <li class="user-header bg-light-blue droplist bg_color">
                             <?php if($userInfo->picture == ""){?>
                     	<img src="<?php echo base_url()?>public/user_picture/no_avatar.gif" class="img-circle" alt="User Image" />
                     <?php }else{?>

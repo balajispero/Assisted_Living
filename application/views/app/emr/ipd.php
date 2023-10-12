@@ -155,7 +155,7 @@
                                                 <input type="text" class="form-control input-sm" name="search" id="search" placeholder="Member No." style="width: 180px;">
                                                 </td>
                                                 <td>
-                                                <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
+                                                <button class="btn btn-sm btn-primary bg_color" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
                                                 </td>
                                             </tr>
                                             </table>

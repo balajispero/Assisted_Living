@@ -201,7 +201,7 @@
                                             <tr>
                                             	<tD></tD>
                                             	<td>
-                                                <input type="submit" value="View Report" class="btn btn-primary" style="width: 100%;" name="btnView">
+                                                <input type="submit" value="View Report" class="btn btn-primary bg_color" style="width: 100%;" name="btnView">
                                                 </td>
                                             </tr>
                                             </table>

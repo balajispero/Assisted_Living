@@ -133,10 +133,12 @@
                                                     <tr>
                                                         <td width="20%"><font color="#FF0000">Note:</font></td>
                                                         <td width="80%"><font color="#FF0000">* (Marked Fields are Compulsory to fill)</font></td>
+                                                        
                                                     </tr>
                                                     <tr>
                                                     	<td width="12%">Member No.</td>
                                                         <td width="88%"><input class="form-control input-sm" name="patientID" id="patientID" type="text" style="width: 100px;"  readonly value="<?php echo $userID;?>"></td>
+                                                        
                                                     </tr>
                                                     <tr>
                                                         <td width="12%">Preassessment No <font color="#FF0000"></font></td>
@@ -150,8 +152,7 @@
                                                                  <option value="<?php echo $preassesNoList->preasses_no;?>"><?php echo $preassesNoList->preasses_no;?></option>
                                                              <?php }?>
                                                          </select>
-                                                         
-                                                     </td>
+                                                    </td>
                                                  </tr>
                                                     <tr>
                                                         <td>Admission Date<font color="#FF0000"></font></td>
@@ -221,8 +222,8 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                   <td width="12%">Age<font color="#FF0000"></font></td>
-                                   <td width="88%"><input class="form-control input-sm" name="age" style="width: 250px;" id="age" type="text" placeholder="Age" style="width: 100px;"  value=""></td>
+                                                  <td width="12%">Age<font color="#FF0000"></font></td>
+                                                  <td width="88%"><input class="form-control input-sm" name="age" style="width: 250px;" id="age" type="text" placeholder="Age" style="width: 100px;"  value=""></td>
                                                  </tr>
                                                     <tr>
                                                     	<td width="12%">Gender<font color="#FF0000">*</font></td>
@@ -370,6 +371,8 @@
                                                         <td>
                                                             <?php echo form_input('rel_name1',set_value('relation_name1'),' class="form-control input-sm" placeholder="Name" style="width: 250px;"');?> 
                                                         </td>
+                                                        
+                                                        
                                                     </tr>
                                                     <tr>
                                                         <td>Relation With<font color="#FF0000"></font></td>
@@ -451,9 +454,9 @@
                                                 </table>
                                             </div>
                                         </div>
-                                            </div>
-                                            <div class="tab-pane" id="tab_3">
-                                               <table cellpadding="3" cellspacing="3" width="100%">
+                                        </div>
+                                        <div class="tab-pane" id="tab_3">
+                                        <table cellpadding="3" cellspacing="3" width="100%">
                                                 <tr>
                                                    <td colspan="2"></td>
                                                </tr>
@@ -463,8 +466,8 @@
                                             <?php echo form_input('aadhar_no',set_value('aadhar_no'),'class="form-control input-sm" id="aadhar_no" placeholder="Aadhar Number" style="width: 250px;"');?>
                                         </td>
                                     </tr>
-                                               <tr>
-                                                        <td>Upload Aadhar<font color="#FF0000"></font></td>
+                                    <tr>
+                                    <td>Upload Aadhar<font color="#FF0000"></font></td>
                                                         <td>
                                                             <input type="file" name="aadharfile" class="form-control input-sm" style="width: 250px;"/> 
                                                         </td>
@@ -595,7 +598,7 @@
                                                 
                                             </div>
                                             <div class="box-footer clearfix">
-                                                <button class="btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                                <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                                 <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a>
                                                 
                                             </div>

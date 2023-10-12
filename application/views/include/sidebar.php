@@ -245,7 +245,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoBilling){?>
                         <li class="treeview <?php echo $billing;?>">
                             <a href="#">
-                                <i class="fa fa-credit-card"></i> <span >Billing</span>
+                                <i class="fa fa-credit-card"></i> <span style="color:#2B48B0;">Billing</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -262,7 +262,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoAppointment){?>
                         <li class="treeview <?php echo $appointmentTab;?>">
                             <a href="#">
-                                <i class="fa fa fa-male"></i> <span >Member Appointment</span>
+                                <i class="fa fa fa-male"></i> <span style="color:#2B48B0;">Member Appointment</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -323,7 +323,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoRooms){?>
                         <li class="treeview <?php echo $room_m;?>">
                             <a href="#">
-                                <i class="fa fa-hospital-o"></i> <span> Room Management</span>
+                                <i class="fa fa-hospital-o"></i> <span style="color:#2B48B0;"> Room Management</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -340,7 +340,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoNurse){?>
                         <li class="treeview <?php echo $nurse_module;?>">
                             <a href="#">
-                                <i class="fa fa-plus-square"></i> <span> Nurse Module</span>
+                                <i class="fa fa-plus-square"></i> <span style="color:#2B48B0;"> Nurse Module</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -409,7 +409,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoEMR){?>
                         <li class="treeview <?php echo $emr;?>">
                             <a href="#">
-                                <i class="fa fa-book"></i> <span> EMR Sheet</span>
+                                <i class="fa fa-book"></i> <span style="color:#2B48B0;"> EMR Sheet</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -425,7 +425,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoUsers){?>
                         <li class="treeview <?php echo $user_mgnmt;?>">
                             <a href="#">
-                                <i class="fa fa-group "></i> <span style="color:#00cccc;">User Management</span>
+                                <i class="fa fa-group "></i> <span style="color:#2B48B0;">User Management</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -440,7 +440,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoAdmin){?>
                        <li class="treeview <?php echo $admin;?>">
                             <a href="#">
-                                <i class="fa fa-gear"></i> <span>Administrator</span>
+                                <i class="fa fa-gear"></i> <span style="color:#2B48B0;">Administrator</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -482,7 +482,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoReport){?>
                         <li class="treeview <?php echo $reports;?>">
                             <a href="#">
-                                <i class="fa fa-print"></i> <span> Reports Generation</span>
+                                <i class="fa fa-print"></i> <span style="color:#2B48B0;"> Reports Generation</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
