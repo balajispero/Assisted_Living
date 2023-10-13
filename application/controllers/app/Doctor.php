@@ -796,6 +796,11 @@ class Doctor extends General{
 	    $doctor_mobile = $this->input->post('doctor_mobile', true);
 	    $doctor_email = $this->input->post('doctor_email', true);
 	    $hospital_name = $this->input->post('hospital_name', true);
+
+	    $chl_name = $this->input->post('chl_name', true);
+	    $chl_add = $this->input->post('chl_add', true);
+	    $chl_mobile = $this->input->post('chl_mobile', true);
+	    $chl_email = $this->input->post('chl_email', true);
 	    
 		$preassessment_details = array(
             'preasses_name' => $this->input->post('applicant_name'),
@@ -886,18 +891,33 @@ class Doctor extends General{
     	    'preasses_id' => $this->input->post('id'));
 		$this->preassessment_model->update_family_details($family_details);
 
-		$child_details = array(
+		if(!empty($chl_name))
+		{
+			$this->db->delete('patient_chl',array('preasses_id'=>$this->input->post('id')));
+		foreach ($chl_name as $chl_key => $chl_val) { // need index to match other properties
+				$child_details = array(
+					'chl_name' => $chl_val,
+					'chl_add' => isset($chl_add[$chl_key]) ? $chl_add[$chl_key] : '',
+					'chl_mobile' => isset($chl_mobile[$chl_key]) ? $chl_mobile[$chl_key] : '',
+					'chl_email' => isset($chl_email[$chl_key]) ? $chl_email[$chl_key] : '',
+					'preasses_no' => $this->input->post('preasses_no'),
+					'preasses_id' => $this->input->post('id')
+				);
+				
+				$this->preassessment_model->child_details($child_details); 
+			}
+		}
+
+		
+
+		/*$child_details = array(
             'chl_name' => $this->input->post('chl_name'),
             'chl_add' => $this->input->post('chl_add'),
             'chl_mobile' => $this->input->post('chl_mobile'),
             'chl_email' => $this->input->post('chl_email'),
-            /*'local_guardian_name' => $this->input->post('guardian_name'),
-            'guardian_add' => $this->input->post('guardian_add'),
-            'guardian_mobile' => $this->input->post('guardian_mobile'),
-            'guardian_email' => $this->input->post('guardian_email'),*/
             'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $this->input->post('id'));
-		$this->preassessment_model->update_child_details($child_details);
+		$this->preassessment_model->update_child_details($child_details);*/
 
 		if(!empty($doctor_name))
 		{
