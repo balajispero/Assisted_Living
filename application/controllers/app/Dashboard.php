@@ -51,6 +51,46 @@ class Dashboard extends General{
 		
 		$this->data['patientDiagnosis'] = $this->ipd_model->patientDiagnosis($iop_no);
 		$this->data['patientComplain'] = $this->Opd_model->patientComplain($iop_no);
+		$uri_segment = 6;
+		$offset_lab_test = $this->uri->segment($uri_segment);
+		
+		$patient = $this->Opd_model->getLabTest_pagination($this->limit, $offset_lab_test, $iop_no);
+		
+		$config6['base_url'] = base_url().'app/dashboard/view_details/'.$id.'/'.$iop_no;
+ 		$config6['total_rows'] = $this->Opd_model->getLabTest_cnt($iop_no);
+ 		$config6['per_page'] = $this->limit;
+		
+		
+		$config6['uri_segment'] = $uri_segment;
+		$config6['full_tag_open'] = '<ul class="pagination pagination no-margin pull-right">';
+		$config6['full_tag_close'] = '</ul><!--pagination-->';
+
+		$config6['first_link'] = '&laquo; First';
+		$config6['first_tag_open'] = '<li class="prev page">';
+		$config6['first_tag_close'] = '</li>';
+
+		$config6['last_link'] = 'Last &raquo;';
+		$config6['last_tag_open'] = '<li class="next page">';
+		$config6['last_tag_close'] = '</li>';
+
+		$config6['next_link'] = 'Next &rarr;';
+		$config6['next_tag_open'] = '<li class="next page">';
+		$config6['next_tag_close'] = '</li>';
+
+		$config6['prev_link'] = '&larr; Previous';
+		$config6['prev_tag_open'] = '<li class="prev page">';
+		$config6['prev_tag_close'] = '</li>';
+
+		$config6['cur_tag_open'] = '<li class="active"><a href="">';
+		$config6['cur_tag_close'] = '</a></li>';
+
+		$config6['num_tag_open'] = '<li class="page">';
+		$config6['num_tag_close'] = '</li>';
+		
+		$this->pagination->initialize($config6);
+		$this->data['pagination6'] = $this->pagination->create_links();
+		$this->data['getLabTest'] = $this->Opd_model->getLabTest_pagination($this->limit, $offset_lab_test, $iop_no);
+
 
 		$uri_segment = 6;
 		$offset_progress_note = $this->uri->segment($uri_segment);

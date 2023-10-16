@@ -188,7 +188,7 @@
                                     <th>Consultant Doctor</th>
                                     <th>Room Type</th>
                                     <th>Floor</th>
-                                    <th>Room Allocated</th>
+                                    <th>Allocated Room</th>
                                     <th>Allocated Bed</th>
                                     <th>Status</th>
                                 </tr>

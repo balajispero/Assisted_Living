@@ -93,7 +93,7 @@
         </script>
         <div class="row">
           <div class="col-md-12">
-            <form action="<?php echo base_url()?>app/doctor/preassessment_update" method="post" enctype="multipart/form-data">
+            <form action="<?php echo base_url()?>app/doctor/preassessment_update" method="post" id="preassessment_form" enctype="multipart/form-data">
       <input type="hidden" name="id" value="<?php echo $patientInfo[0]->preasses_id;?>">    
               <div class="box">
 
@@ -381,7 +381,7 @@
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <input type="text" class="form-control" name="chl_add[]" value="<?=$child->chl_add?>">
+                                                                            <textarea name="chl_add[]" class="form-control"><?=$child->chl_add?></textarea>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-3">
@@ -399,7 +399,8 @@
 
                                                                     <div class="col-md-1">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label><button type="button" class="btn_removechl btn-primary" name="remove" id="'+ key_chl1 +'">-</button></label>
+                                                                            <label><button type="button" class="btn_removechl btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key_chl1?>"><span class="glyphicon glyphicon-minus"></span></button>
+                                                                            </label>
                                                                         </div>
                                                                     </div>
                                                             </div><!-- /row-->
@@ -407,37 +408,7 @@
                                                             <input type="hidden" value="<?php if(!empty($key_chl1)){ print($key_chl1);}else{ echo '0';}?>" id="chlcuont"></input>
                                                             </div><!--close chl_dynamic_field id div-->
 
-                                                                <!-- <div class="row">
-
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Name</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="chl_name" value="<?php echo $patientInfo[0]->chl_name?>">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Address</label><span class="text-danger"></span></br>
-                                                                            <textarea name="chl_add" class="form-control"><?php echo $patientInfo[0]->chl_add?></textarea>
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="chl_mobile" value="<?php echo $patientInfo[0]->chl_mobile?>">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Email id</label><span class="text-danger"></span></br>
-                                                                            <input type="email" class="form-control" name="chl_email" value="<?php echo $patientInfo[0]->chl_email?>">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    </div> --><!-- / row -->
+                                                                
                                     <!--End preasses common row structure-->                            
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>    
 
@@ -548,7 +519,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group wrapper-class" >
                                                                         <label></label><span class="text-danger"></span>
-                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary">Add Treating Doctor</button>
+                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary">Add Doctor</button>
                                                                 </div>
                                                             </div>
         
@@ -618,7 +589,7 @@
 
                                                                     <div class="col-md-1">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label><button type="button" class="btn_remove btn-primary" name="remove" id="'+ key_dr1 +'">-</button></label>
+                                                                            <label><button type="button" class="btn_removedr btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key_dr1?>"><span class="glyphicon glyphicon-minus"></span></button></label>
                                                                         </div>
                                                                     </div>
                                                             </div><!-- /row-->
@@ -628,48 +599,11 @@
 
 
 
-                                                                <!-- <div class="row">
-
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Name of Doctor</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="doctor_name" value="<?php echo $patientInfo[0]->tdoctor_name?>">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="doctor_mobile" value="<?php echo $patientInfo[0]->tdoctor_mobile?>">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Email id</label><span class="text-danger"></span></br>
-                                                                            <input type="email" class="form-control" name="doctor_email" value="<?php echo $patientInfo[0]->tdoctor_email?>">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Clinic/Hospital Name</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="hospital_name" value="<?php echo $patientInfo[0]->hospital_name?>">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                </div> --><!-- / row -->
-
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
                                                                  
 
                                                                 <div class="row">
-                                                                    <!-- <table cellpadding="3" cellspacing="3" width="100%">
-                                                        <tr>
-                                                            <td width="20%"><button type="button" required name="add1" id="add1" class="btn btn-primary">Add Diagnosis</button><div id="dynamic_field1"></div></td>
-                                                        </tr>
-                                                        
-                                                    </table> -->
+                                                                   
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>DIAGNOSIS</label><span class="text-danger"></span></br>
@@ -680,7 +614,7 @@
                                                                                 <div id="row1<?=$key_dg1?>"> 
                                                                 <label" for="member_<?=$key_dg1?>"> </label> 
                                                                 <input type="text" name="diagnosis[].." value="<?=$diagnosis1?>">
-                                                                <button type="button" class="btn_remove1" name="remove" id="<?=$key_dg1?>">-</button>
+                                                                <button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key_dg1?>"><span class="glyphicon glyphicon-minus"></span></button>
                                                             </div>
                                                                             </div><!--close dynamic_field1 id-->
                                                                             <?php }?>
@@ -748,7 +682,7 @@
 
       foreach($preasses_medicine as $key => $medicine){ $key1 = $key+1; ?>
         <tr id="row<?=$key1?>">
-          <!-- <td></td> --><td><input type="text" class="form-control" name="medicine_name[]" value="<?=$medicine->medicine?>"></td><td><input type="text" class="form-control" name="dose[]" value="<?=$medicine->dose?>"></td><td><input type="text" class="form-control" name="frequency[]" value="<?=$medicine->frequency?>"></td><td><input type="text" class="form-control" name="duration[]" value="<?=$medicine->duration?>"></td><td><button type="button" class="btn_remove" name="remove" id="<?=$key1?>">-</button></td>
+          <!-- <td></td> --><td><input type="text" class="form-control" name="medicine_name[]" value="<?=$medicine->medicine?>"></td><td><input type="text" class="form-control" name="dose[]" value="<?=$medicine->dose?>"></td><td><input type="text" class="form-control" name="frequency[]" value="<?=$medicine->frequency?>"></td><td><input type="text" class="form-control" name="duration[]" value="<?=$medicine->duration?>"></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key1?>"><span class="glyphicon glyphicon-minus"></span></button></td>
         </tr>
         <?php } }?>
         <input type="hidden" value="<?php if(!empty($key1)){ print($key1);}else{ echo '0';}?>" id="medicinecuont"></input>
@@ -1938,7 +1872,7 @@
             var diagnosiscuont = $('#diagnosiscuont').val();
                 
                  i1 = j1+ + +diagnosiscuont;
-            $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'">   </label> <input type="text" name="diagnosis[]" value=""><button type="button" class="btn_remove1" name="remove" id="'+ i1 +'">-</button></div>')
+            $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'">   </label> <input type="text" class="" name="diagnosis[]" value=""><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
             j1++;
 
         });
@@ -1957,7 +1891,7 @@
                 var i = j+ + +medicinecuont;
                     //i++;
                     
-      $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" class="form-control" name="medicine_name[]"></td><td><input type="text" class="form-control" name="dose[]"></td><td><input type="text" class="form-control" name="frequency[]"></td><td><input type="text" class="form-control" name="duration[]"></td><td><button type="button" class="btn_remove" name="remove" id="'+ i +'">-</button></td></tr>')
+      $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" class="form-control" name="medicine_name[]"></td><td><input type="text" class="form-control" name="dose[]"></td><td><input type="text" class="form-control" name="frequency[]"></td><td><input type="text" class="form-control" name="duration[]"></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
             j++;
                 });
                 $(document).on('click', '.btn_remove', function() {
@@ -1976,7 +1910,7 @@
                 var td_i = td_j+ + +doctorcuont;
                     //td_i++;
 
-      $('#td_dynamic_field').append('<div class="row" id="rowdr'+td_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_mobile[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="doctor_email[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="hospital_name[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removedr btn-primary" name="remove" id="'+ td_i +'">-</button></label></div></div></div>') 
+      $('#td_dynamic_field').append('<div class="row" id="rowdr'+td_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_mobile[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="doctor_email[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="hospital_name[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removedr btn btn-danger btn-circle btn-sm" name="remove" id="'+ td_i +'"><span class="glyphicon glyphicon-minus"></span></button></label></div></div></div>') 
             td_j++;             
 
                 });
@@ -1997,7 +1931,7 @@
                 var chl_i = chl_j+ + +chlcuont;
                     //chl_i++;
 
-      $('#chl_dynamic_field').append('<div class="row" id="rowchl'+chl_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_add[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_mobile[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="chl_email[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removechl btn-primary" name="remove" id="'+ chl_i +'">-</button></label></div></div></div>')   
+      $('#chl_dynamic_field').append('<div class="row" id="rowchl'+chl_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><textarea name="chl_add[]" class="form-control"></textarea></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_mobile[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="chl_email[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removechl btn btn-danger btn-circle btn-sm" name="remove" id="'+ chl_i +'"><span class="glyphicon glyphicon-minus"></span></button></label></div></div></div>')   
 
         chl_j++;            
 
@@ -2080,6 +2014,27 @@
         $('#birthday').attr('max', maxDate);
     });
 </script>
+<!-----------Start Jquery validation CDN----------->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<!-----------End Jquery validation CDN----------->
+    <script>
+
+        $( "#preassessment_form" ).validate({
+          rules: {
+            field: {
+              required: true
+            }
+          }
+        });
+
+        $(document).on('click', '.submit_btn', function() {
+        $(".compulsory").text("Note :* (Marked Fields are Compulsory to fill)");
+                    
+                });
+
+    </script>
 
 </body>
 </html>

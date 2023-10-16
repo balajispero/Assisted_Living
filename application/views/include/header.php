@@ -3,84 +3,76 @@
    </script> 
    <style>
     @media only screen and (max-width:768px) and (min-width:300px) {
- .logo2{
-    font-size: 15px;
-    margin-top: -48px;
-    margin-left: 35px;
- }
- .dropmenu{
-    /* background-color: black; */
-    margin-top: -54px;
-    /* margin-left: 20px; */
-    width: 100%;
-    height: 40px;
-    font-size: 12px;
- }
- .droplist{
-  height: 55px !important;
-  width: 100%;
+         .logo2{
+            font-size: 15px;
+            margin-top: -48px;
+            margin-left: 35px;
+         }
+         .dropmenu{
+            margin-top: -54px;
+            width: 100%;
+            height: 40px;
+            font-size: 12px;
+         }
+         .droplist{
+          height: 55px !important;
+          width: 100%;
 
- }
- .img-circle{
-    height: 40px !important;
-    width: 35% !important;
-    margin-left: -145px !important;
- }
- .headname{
-    font-size: 12px !important;
-    margin-top: -30px !important;
-    margin-left: 70px !important;
- }
-}
-@media only screen and (max-width:420px) {
- .logo2{
-    font-size: 15px;
-    margin-top: -48px;
-    margin-left: 35px;
- }
- .dropmenu{
-    /* background-color: black; */
-    margin-top: -54px;
-    /* margin-left: 20px; */
-    width: 100%;
-    height: 40px;
-    font-size: 12px;
-    background-color: hidden;
- }
- .droplist{
-  height: 57px !important;
-  width: 100%;
+         }
+         .img-circle{
+            height: 40px !important;
+            width: 35% !important;
+            margin-left: -145px !important;
+         }
+         .headname{
+            font-size: 12px !important;
+            margin-top: -30px !important;
+            margin-left: 70px !important;
+         }
+        }
+        @media only screen and (max-width:420px) {
+         .logo2{
+            font-size: 15px;
+            margin-top: -48px;
+            margin-left: 35px;
+         }
+         .dropmenu{
+            margin-top: -54px;
+            width: 100%;
+            height: 40px;
+            font-size: 12px;
+            background-color: hidden;
+         }
+         .droplist{
+          height: 57px !important;
+          width: 100%;
 
- }
- /* .img-circle{
-    height: 40px !important;
-    width: 35% !important;
-    margin-left: -100px;
- } */
- .img-circle {
-    height: 40px !important;
-    width: 35% !important;
-    margin-left: -105px !important;
-}
- .headname{
-    font-size: 12px !important;
-    margin-top: -30px !important;
-    margin-left: 50px;
- }
- img.img-circle {
-    margin-left: -104px !important;
-}
-}
-.bg_color{
-    background-color:#2B48B0 !important;
-}
-.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
-    z-index: 2;
-    color: #fff;
-    cursor: default;
-     background-color:#2B48B0; 
-    border-color: #428bca;
-}
+         }
+         
+         .img-circle {
+            height: 40px !important;
+            width: 35% !important;
+            margin-left: -105px !important;
+        }
+         .headname{
+            font-size: 12px !important;
+            margin-top: -30px !important;
+            margin-left: 50px;
+         }
+         img.img-circle {
+            margin-left: -104px !important;
+        }
+        }
+        .bg_color{
+            background-color:#2B48B0 !important;
+        }
+        .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+            z-index: 2;
+            color: #fff;
+            cursor: default;
+             background-color:#2B48B0; 
+            border-color: #428bca;
+        }
    </style>
 <header class="header" style="background: url('<?php echo base_url()?>public/img/new/header_bar_bg_01.jpg') repeat-x; background-size: 100% 100%; border-bottom:1px solid #CCC">
     <a href="#" class="logo">

@@ -78,7 +78,7 @@
                                                 <li><a href="#tab_3" data-toggle="tab">Other Information</a></li>
                                                 <li><a href="#tab_4" data-toggle="tab">General Examination</a></li>
                                                 <li><a href="#tab_5" data-toggle="tab">Ongoing Medication</a></li>
-                                                <li><a href="#tab_6" data-toggle="tab">Upload Assesment Form</a></li>
+                                                <!-- <li><a href="#tab_6" data-toggle="tab">Upload Assesment Form</a></li> -->
                                 			</ul>
                                             <div class="tab-content">
                                             	<div class="tab-pane active" id="tab_1">

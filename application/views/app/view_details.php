@@ -250,11 +250,11 @@
                                             <th>B.P</th>
                                             <th>CNS</th>
                                             <th>SPO2</th>
-                                            <th>Local Examination</th>
+                                            <!-- <th>Local Examination</th> -->
                                             <th>Temp</th>
                                             <th>Urine/Motion</th>
-                                            <th>pa</th>
-                                            <th>RS</th>
+                                            <th>P/A</th>
+                                            <th>R/S</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -269,7 +269,7 @@
                                            <td><?php echo $patientInfo->ptn_bp?></td>
                                            <td><?php echo $patientInfo->ptn_cns;?></td>
                                            <td><?php echo $patientInfo->ptn_spo2?></td>
-                                           <td><?php echo $patientInfo->ptn_localex?></td>
+                                           <!-- <td><?php echo $patientInfo->ptn_localex?></td> -->
                                             <td><?php echo $patientInfo->ptn_temp?></td>
                                            <td><?php echo $patientInfo->ptn_um?></td>
                                            <td><?php echo $patientInfo->ptn_pa?></td>
@@ -393,37 +393,52 @@
                     <section class="col-lg-6 connectedSortable">
                     
                     	<!--Start of Patient Visited-->
-                    	<div class="box box-primary" id="loading-example">
-                        	<div class="box-header">
-                            	<div class="pull-right box-tools">
+                    	
+                        <div class="box box-primary" id="loading-example">
+                            <div class="box-header">
+                                <div class="pull-right box-tools">
                                         <button class="btn btn-primary btn-sm" data-widget='collapse' data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                                         
                                  </div>
                                  <i class="fa fa-male"></i>
-								<h3 class="box-title">Complain</h3>
+                                <h3 class="box-title">Lab</h3>
                             </div>
                             <div class="box-body no-padding">
-                            	<div class="table-responsive">
-                                	<table class="table table-hover">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Complain</th>
-                                            <th>Remarks</th>
+                                            <th>IOP No</th>
+                                            <th>Test Date</th>
+                                            <th>Test Name</th>
+                                            <th>Patient Name</th>
+                                            <!-- <th>Doctor</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php if(!empty($patientComplain)){ ?>
-                                        <?php foreach($patientComplain as $patientComplain){?>
+                                        <?php if(!empty($getLabTest)){ ?>
+                                        <?php foreach($getLabTest as $getLabTest){?>
                                         <tr>
-                                           <td><?php echo $patientComplain->complain_name;?></td>
-                                           <td><?php echo $patientComplain->remarks?></td>
+                                           <td><?php echo anchor('app/lab/view_lab_sample_report/'.$getLabTest->io_lab_id,$getLabTest->iop_id, 'target="_blank"');?></td>
+                                           <td><?php echo $getLabTest->dDate?></td>
+                                           <td><?php echo $getLabTest->laboratory_id;?></td>
+                                           <td>
+                                            <?php 
+                                                $ci_obj = & get_instance();
+                                                $ci_obj->load->model('app/lab_model');
+                                                $ptn_name = $ci_obj->lab_model->get_ptn_name_by_patient_no($getLabTest->patient_no);
+                                                echo @$ptn_name[0]->middlename;
+                                                ?>
+                                            </td>
+                                           <!-- <td><?php echo $getLabTest->doctor;?></td> -->
                                         </tr>
                                         <?php } }?>
                                     </tbody>
                                     </table>
                                 </div>
                             </div>
-                             <div class="box-footer">
+                             <div class="box-footer clearfix">
+                                <?php echo $pagination6; ?>
                             </div>
                         </div>
                         <!--End of Patient Visited-->
@@ -450,7 +465,7 @@
                                     <thead>
                                         <tr>
                                             <th>Date Time</th>
-                                            <th>Focus</th>
+                                            <th>Complain</th>
                                             <th>Notes</th>
                                             <th>Prepared by</th>
                                         </tr>
@@ -460,7 +475,18 @@
                                         <?php foreach($getNurseProgressNote as $rows){?>
                                         <tr>
                                            <td><?php echo date("M d, Y h:i:s A",strtotime($rows->dDateTime));?></td>
-                                                <td><?php echo $rows->focus?></td>
+                                                <td>
+                                                    <?php
+                                                    if(!empty($rows->complain_id))
+                                                    {
+                                                        $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $compl = $ci_obj->general_model->getComplainById($rows->complain_id);
+                                                        
+                                                        echo $compl->complain_name;
+                                                    }
+                                                    ?>
+                                                </td>
                                                 <td><?php echo $rows->notes?></td>
                                                 <td><?php 
                                                 $ci_obj = & get_instance();

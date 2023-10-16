@@ -100,7 +100,7 @@
     
         <div class="row">
           <div class="col-md-12">
-            <form action="<?php echo base_url()?>app/doctor/preassessment_save" method="post" enctype="multipart/form-data">    
+            <form action="<?php echo base_url()?>app/doctor/preassessment_save" method="post" id="preassessment_form" enctype="multipart/form-data">    
               <div class="box">
 
                         <div class="box-body table-responsive">
@@ -150,7 +150,7 @@
                                                                 <div class="row">
                                                                     <div class="row container form-group text-danger" >
                                                                         <div class="col-md-12">
-                                                                            <label>Note :* (Marked Fields are Compulsory to fill)</label>
+                                                                            <label class="compulsory">Note :* (Marked Fields are Compulsory to fill)</label>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-3">
@@ -166,7 +166,7 @@
                                                                             <label>Name of Applicant</label><span class="text-danger">*</span></br>
                                                                             <input type="text" class="form-control alphaonly" name="applicant_name" required>
 
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                            <!-- <span class="text-danger error-text type_category_err" id="applicant_name"></span> -->                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
@@ -400,37 +400,7 @@
 
 
 
-                                                                <!-- <div class="row">
-
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Name</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="chl_name">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Address</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="chl_add">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="chl_mobile">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Email id</label><span class="text-danger"></span></br>
-                                                                            <input type="email" class="form-control" name="chl_email">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    </div> --><!-- / row -->
+                                                                
                                     <!--End preasses common row structure-->                            
                                                                  <hr style="border-top: 1px solid rgb(255 193 7);"/>     
 
@@ -541,7 +511,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group wrapper-class" >
                                                                         <label></label><span class="text-danger"></span>
-                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary">Add Treating Doctor</button>
+                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary">Add Doctor</button>
                                                                 </div>
                                                             </div>
         
@@ -580,39 +550,7 @@
                                                                    
                                                             </div><!--close td_dynamic_field id div-->
                                                                                                                                    
-
-
-                                                                <!-- <div class="row">
-
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Name of Doctor</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="doctor_name">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="doctor_mobile">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Email id</label><span class="text-danger"></span></br>
-                                                                            <input type="email" class="form-control" name="doctor_email">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>Clinic/Hospital Name</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="hospital_name">
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>
-                                                                    </div>
-                                                                </div> --><!-- / row -->
+                                                                
 
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
                                                                  
@@ -785,7 +723,14 @@
                          </div>
                                             <div class="tab-pane" id="tab_3">
                                                 <label>GENERAL EXAMINATION</label>
+                                                
                                                                 <div class="row">
+                                                                    
+                                                                    <div class="row container form-group text-danger" >
+                                                                        <div class="col-md-12">
+                                                                            <label class="compulsory"></label>
+                                                                        </div>
+                                                                    </div>
 
                                                                     <div class="col-md-6">
                                                                         <div class="form-group wrapper-class" >
@@ -1141,6 +1086,11 @@
                 <div class="tab-pane" id="tab_4">
                         <label>PSYCHOLOGICAL & BEHAVIOURAL CONDITION</label>
                                                                 <div class="row">
+                                                                    <div class="row container form-group text-danger" >
+                                                                        <div class="col-md-12">
+                                                                            <label class="compulsory"></label>
+                                                                        </div>
+                                                                    </div>
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
@@ -1237,13 +1187,145 @@
                                                                 </div><!-- / row -->
 
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <label>TYPICAL DAY OF APPLICANT</label><br>
+                                                                <label>Morning hours</label>
+                                                                <div class="row">
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Wake up time</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="wake_up_time">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Washroom</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="washroom">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Breakfast time</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="breakfast_time">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Exercises</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="exercises">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Social</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="morning_social">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                </div><!-- / row -->
+
+                                                                <label>Afternoon hours</label>
+                                                                <div class="row">
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Lunch</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="lunch">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Afternoon nap</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="afternoon_nap">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                </div><!-- / row -->
+
+                                                                <label>Evening hours</label>
+                                                                <div class="row">
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Walk/sitting outside</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="walk_sitting_outside">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Tea/coffee/snacks time</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="tea_snacks_time">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Social</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="eve_social">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Any other</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="eve_any_other">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    
+                                                                </div><!-- / row -->
+                                                                <label>Late evening/night</label>
+                                                                <div class="row">
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Recreational</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="recreational">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Reading</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="reading">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Dinner</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="dinner">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Any other</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="night_any_other">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Light off time</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="light_off_time">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                </div><!-- / row -->
 
                                                                 <div class="row">
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>TYPICAL DAY OF APPLICANT</label><span class="text-danger"></span></br>
-                                                                             <input type="text" class="form-control" name="typical_day_appl">
+                                                                            <label>Describe any other activities</label><span class="text-danger"></span></br>
+                                                                             <textarea name="describe_any_other_activity" class="form-control"></textarea>
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1570,8 +1652,8 @@
                                             </div>
                                             <div class="box-footer clearfix">
                                                 <!-- <button class="btn btn-primary" name="submit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button> -->
-                                                 <input type="submit" class="btn btn-primary" name="submit" value="submit">
-                                                <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a>
+                                                 <input type="submit" class="submit_btn btn btn-primary" name="submit" value="submit">
+                                                <!-- <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a> -->
                                             </div>
                                         </div>
 
@@ -1617,7 +1699,7 @@
         var i1=0; 
         $('#add1').click(function() {
             i1++;
-            $('#dynamic_field1').append('<div id="row'+i1+'"> <label" for="member_'+ i1 +'">  '+ i1 +' </label> <input type="text" name="diagnosis[]" value=""><button type="button" class="btn_remove1" name="remove" id="'+ i1 +'">-</button></div>')
+            $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'">  '+ i1 +' </label> <input type="text" name="diagnosis[]" value=""><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
 
         });
         $(document).on('click', '.btn_remove1', function() {
@@ -1631,7 +1713,7 @@
                 $('#add').click(function() {
                     i++;
                     
-      $('#dynamic_field').append('<tr id="row'+i+'"><td>'+ i +'</td><td><input type="text" class="form-control" name="medicine_name[]"></td><td><input type="text" class="form-control" name="dose[]"></td><td><input type="text" class="form-control" name="frequency[]"></td><td><input type="text" class="form-control" name="duration[]"></td><td><button type="button" class="btn_remove" name="remove" id="'+ i +'">-</button></td></tr>')
+      $('#dynamic_field').append('<tr id="row'+i+'"><td>'+ i +'</td><td><input type="text" class="form-control" name="medicine_name[]"></td><td><input type="text" class="form-control" name="dose[]"></td><td><input type="text" class="form-control" name="frequency[]"></td><td><input type="text" class="form-control" name="duration[]"></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
 
                 });
                 $(document).on('click', '.btn_remove', function() {
@@ -1646,7 +1728,7 @@
                 $('#td_add').click(function() {
                     td_i++;
 
-      $('#td_dynamic_field').append('<div class="row" id="rowdr'+td_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_mobile[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="doctor_email[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="hospital_name[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removedr btn-primary" name="remove" id="'+ td_i +'">-</button></label></div></div></div>')              
+      $('#td_dynamic_field').append('<div class="row" id="rowdr'+td_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_mobile[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="doctor_email[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="hospital_name[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removedr btn btn-danger btn-circle btn-sm" name="remove" id="'+ td_i +'"><span class="glyphicon glyphicon-minus"></span></button></label></div></div></div>')              
 
                 });
                 $(document).on('click', '.btn_removedr', function() {
@@ -1662,7 +1744,7 @@
                 $('#chl_add').click(function() {
                     chl_i++;
 
-      $('#chl_dynamic_field').append('<div class="row" id="rowchl'+chl_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_add[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_mobile[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="chl_email[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removechl btn-primary" name="remove" id="'+ chl_i +'">-</button></label></div></div></div>')              
+      $('#chl_dynamic_field').append('<div class="row" id="rowchl'+chl_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><textarea name="chl_add[]" class="form-control"></textarea></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_mobile[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="chl_email[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removechl btn btn-danger btn-circle btn-sm" name="remove" id="'+ chl_i +'"><span class="glyphicon glyphicon-minus"></span></button></label></div></div></div>')              
 
                 });
                 $(document).on('click', '.btn_removechl', function() {
@@ -1739,8 +1821,69 @@
         var maxDate = year + '-' + month + '-' + day;
         $('#birthday').attr('max', maxDate);
     });
-</script>
 
+/*$(document).ready(function() {
+    if(name.length == 0){
+        $('#Name').after('<div class="red">Name is Required</div>');
+    }
+    $('form').submit(function(event) {
+        $('#bowels_score').after('<div class="red">Name is Required</div>');
+            var isValid = true;
+  $('input[required]').each(function() {
+                if ($(this).val() == '') {
+                    isValid = false;
+                    $('#bowels_score').after('<div class="red">Name is Required</div>');
+                    $(this).addClass('is-invalid');
+                }
+            });
+   });
+});*/
+  
+</script>
+<!-----------Start Jquery validation CDN----------->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<!-----------End Jquery validation CDN----------->
+<script>
+            /*jQuery.validator.setDefaults({
+          debug: true,
+          success: "valid"
+        });*/
+        $( "#preassessment_form" ).validate({
+          rules: {
+            field: {
+              required: true
+            }
+          }
+        });
+
+        $(document).on('click', '.submit_btn', function() {
+        $(".compulsory").text("Note :* (Marked Fields are Compulsory to fill)");
+                    
+                });
+
+
+/*$('#preassessment_form').validate({
+    rules: {
+      applicant_name: {
+        required: true
+      },
+      applicant_gender: {
+        required: true,
+      }
+    },
+    messages: {
+      applicant_name: {
+        required: 'Please Enter Name.',
+      },
+      applicant_gender: {
+        required: 'Please Select Gender.',
+      }
+    }
+  });*/
+
+    </script>
 
 </body>
 </html>

@@ -16,10 +16,7 @@ class Preassessment_model extends CI_Model{
 	{     
         return $this->db->insert('patient_family', $data);    
 	}
-	/*public function save_child_details($data)
-	{     
-        return $this->db->insert('patient_chl', $data);    
-	}*/
+	
 	public function save_guardian_details($data)
 	{     
         return $this->db->insert('preassessment_guardian', $data);    
@@ -31,6 +28,10 @@ class Preassessment_model extends CI_Model{
 		public function treating_doctor_details($data)
 	{     
         return $this->db->insert('treating_doctor', $data);    
+	}
+	public function save_typical_day_details($data)
+	{     
+        return $this->db->insert('preassessment_typical_day', $data);    
 	}
 		public function save_psychological_cond_details($data)
 	{     
@@ -120,22 +121,13 @@ class Preassessment_model extends CI_Model{
 		$this->db->where("preasses_id",$this->input->post('id'));
         return  $this->db->update("patient_family",$data);  
 	}
-		public function update_child_details($data)
-	{
-		$this->db->where("preasses_id",$this->input->post('id'));
-        return  $this->db->update("patient_chl",$data);         
-	}
+	
 		public function update_guardian_details($data)
 	{
 		$this->db->where("preasses_id",$this->input->post('id'));
         return  $this->db->update("preassessment_guardian",$data);         
 	}
-	/*	public function update_treating_doctor_details($data)
-	{
-		$this->db->where("preasses_id",$this->input->post('id'));
-        return  $this->db->update("treating_doctor",$data);       
-            
-	}*/
+	
 		public function update_psychological_cond_details($data)
 	{   
 		$this->db->where("preasses_id",$this->input->post('id'));

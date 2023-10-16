@@ -701,6 +701,28 @@ class Opd_model extends CI_Model{
     //echo $this->db->last_query();die;
     return $res;
     }
+    public function getLabTest_pagination($limit = 10, $offset = 0,$iop_no){
+		
+		$this->db->where(array(
+			'iop_id'		=>		$iop_no,
+			'category_id'=>7,
+			'InActive'	=>		0
+		));	
+		//$this->db->order_by("dDate","DESC");
+		$query = $this->db->get("iop_laboratory", $limit, $offset);
+		return $query->result();
+	}
+	public function getLabTest_cnt($iop_no){
+		
+		$this->db->where(array(
+			'iop_id'		=>		$iop_no,
+			'category_id'=>7,
+			'InActive'	=>		0
+		));	
+		//$this->db->order_by("dDate","DESC");	
+		$query = $this->db->get("iop_laboratory");
+		return $query->num_rows();
+	}
 	
 	
 }
