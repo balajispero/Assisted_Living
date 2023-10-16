@@ -731,6 +731,9 @@ class Doctor extends General{
 
 		$this->data['patientInfo'] = $this->preassessment_model->get_preassesment($id);
 		$this->data['preasses_medicine'] = $this->preassessment_model->get_preassessment_medicine($id);
+
+		$this->data['preasses_doctor'] = $this->preassessment_model->get_treating_doctor($id);
+		$this->data['preasses_child'] = $this->preassessment_model->get_preasses_child($id);
 		$this->data['preasses_immunization_his'] = $this->preassessment_model->get_preassessment_immunization_his($id);
 		$this->data['preasses_fallrisk_quest'] = $this->preassessment_model->get_preassessment_fallrisk_quest($id);
 		
@@ -918,6 +921,28 @@ class Doctor extends General{
             'preasses_no' => $this->input->post('preasses_no'),
             'preasses_id' => $this->input->post('id'));
 		$this->preassessment_model->update_guardian_details($guardian_details);
+
+		$typical_day_details = array(
+            'wake_up_time' => $this->input->post('wake_up_time'),
+            'washroom' => $this->input->post('washroom'),
+            'breakfast_time' => $this->input->post('breakfast_time'),
+            'exercises' => $this->input->post('exercises'),
+            'morning_social' => $this->input->post('morning_social'),
+            'lunch' => $this->input->post('lunch'),
+            'afternoon_nap' => $this->input->post('afternoon_nap'),
+            'walk_sitting_outside' => $this->input->post('walk_sitting_outside'),
+            'tea_snacks_time' => $this->input->post('tea_snacks_time'),
+		    'eve_social' => $this->input->post('eve_social'),
+		    'eve_any_other' => $this->input->post('eve_any_other'),
+		    'recreational' => $this->input->post('recreational'),
+		    'reading' => $this->input->post('reading'),
+            'dinner' => $this->input->post('dinner'),
+            'night_any_other' => $this->input->post('night_any_other'),
+            'light_off_time' => $this->input->post('light_off_time'),
+            'describe_any_other_activity' => $this->input->post('describe_any_other_activity'),
+            'preasses_no' => $this->input->post('preasses_no'),
+            'preasses_id' => $this->input->post('id'));
+		$this->preassessment_model->update_typical_day_details($typical_day_details);
 
 		if(!empty($medicine_name))
 		{

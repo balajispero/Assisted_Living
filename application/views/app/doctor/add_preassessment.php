@@ -107,8 +107,8 @@
 
                           <div class="nav-tabs-custom">
                              <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab_1" data-toggle="tab">Personal Details</a></li>
-                                <li><a href="#tab_2" data-toggle="tab">Medications</a></li>
+                                <li class="active" id="point_1"><a href="#tab_1" data-toggle="tab">Personal Details</a></li>
+                                <li id="point_2"><a href="#tab_2" data-toggle="tab">Medications</a></li>
                                 <li><a href="#tab_3" data-toggle="tab">General Examination</a></li>
                                                   <li><a href="#tab_4" data-toggle="tab">Psychological & Behavioural</a></li>
                                                     <li><a href="#tab_5" data-toggle="tab">Fall Risk Assessment</a></li>  
@@ -1651,6 +1651,7 @@
 
                                             </div>
                                             <div class="box-footer clearfix">
+                                                <!-- <button type="button" class="btn btn-outline-dark" id="next1" style="background-color:#00cccc;">Next</button> -->
                                                 <!-- <button class="btn btn-primary" name="submit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button> -->
                                                  <input type="submit" class="submit_btn btn btn-primary" name="submit" value="submit">
                                                 <!-- <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a> -->
@@ -1850,7 +1851,7 @@
           debug: true,
           success: "valid"
         });*/
-        $( "#preassessment_form" ).validate({
+        /*$( "#preassessment_form" ).validate({
           rules: {
             field: {
               required: true
@@ -1861,15 +1862,20 @@
         $(document).on('click', '.submit_btn', function() {
         $(".compulsory").text("Note :* (Marked Fields are Compulsory to fill)");
                     
-                });
+                });*/
 
 
 /*$('#preassessment_form').validate({
+    
+    //alert("hi")
     rules: {
       applicant_name: {
         required: true
       },
       applicant_gender: {
+        required: true,
+      },
+      bowels_score: {
         required: true,
       }
     },
@@ -1879,9 +1885,34 @@
       },
       applicant_gender: {
         required: 'Please Select Gender.',
+      },
+      bowels_score: {
+        required: 'Please Enter Score.',
       }
     }
   });*/
+
+
+         /* $(document).ready(function(){
+            $("#next1").click(function(){
+                $( "#preassessment_form" ).validate({
+          rules: {
+            field: {
+              required: true
+            }
+          }
+        });
+              $("#tab_1").hide();
+              $("#tab_2").show();
+              $("li#point_1").removeClass("active");
+              $("li#point_2").addClass("active");
+            });
+            /*$("#prev1").click(function(){
+              $("#tab_2").hide();
+              $("#tab_1").show();
+              $("li#point_1").removeClass("active");
+            });*/
+        /*});*/
 
     </script>
 

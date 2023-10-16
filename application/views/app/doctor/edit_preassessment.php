@@ -1287,12 +1287,145 @@
 
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
 
+                                                                <label>TYPICAL DAY OF APPLICANT</label><br>
+                                                                <label>Morning hours</label>
                                                                 <div class="row">
 
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>TYPICAL DAY OF APPLICANT</label><span class="text-danger"></span></br>
-                                                                             <input type="text" class="form-control" name="typical_day_appl" value="<?php echo $patientInfo[0]->typical_day_appl?>">
+                                                                            <label>Wake up time</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="wake_up_time" value="<?php echo $patientInfo[0]->wake_up_time?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Washroom</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="washroom" value="<?php echo $patientInfo[0]->washroom?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Breakfast time</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="breakfast_time" value="<?php echo $patientInfo[0]->breakfast_time?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Exercises</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="exercises" value="<?php echo $patientInfo[0]->exercises?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Social</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="morning_social" value="<?php echo $patientInfo[0]->morning_social?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                </div><!-- / row -->
+
+                                                                <label>Afternoon hours</label>
+                                                                <div class="row">
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Lunch</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="lunch" value="<?php echo $patientInfo[0]->lunch?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Afternoon nap</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="afternoon_nap" value="<?php echo $patientInfo[0]->afternoon_nap?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                </div><!-- / row -->
+
+                                                                <label>Evening hours</label>
+                                                                <div class="row">
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Walk/sitting outside</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="walk_sitting_outside" value="<?php echo $patientInfo[0]->walk_sitting_outside?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Tea/coffee/snacks time</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="tea_snacks_time" value="<?php echo $patientInfo[0]->tea_snacks_time?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Social</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="eve_social" value="<?php echo $patientInfo[0]->eve_social?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Any other</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="eve_any_other" value="<?php echo $patientInfo[0]->eve_any_other?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    
+                                                                </div><!-- / row -->
+                                                                <label>Late evening/night</label>
+                                                                <div class="row">
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Recreational</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="recreational" value="<?php echo $patientInfo[0]->recreational?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Reading</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="reading" value="<?php echo $patientInfo[0]->reading?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Dinner</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="dinner" value="<?php echo $patientInfo[0]->dinner?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Any other</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="night_any_other" value="<?php echo $patientInfo[0]->night_any_other?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Light off time</label><span class="text-danger"></span></br>
+                                                                             <input type="text" class="form-control" name="light_off_time" value="<?php echo $patientInfo[0]->light_off_time?>">
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div><!-- /.form-group wrapper-class -->
+                                                                    </div><!-- /.col-md-3 -->
+                                                                </div><!-- / row -->
+
+                                                                <div class="row">
+
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>Describe any other activities</label><span class="text-danger"></span></br>
+                                                                             <textarea name="describe_any_other_activity" class="form-control"><?php echo $patientInfo[0]->describe_any_other_activity?></textarea>
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -2015,13 +2148,13 @@
     });
 </script>
 <!-----------Start Jquery validation CDN----------->
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> -->
 <!-----------End Jquery validation CDN----------->
     <script>
 
-        $( "#preassessment_form" ).validate({
+        /*$( "#preassessment_form" ).validate({
           rules: {
             field: {
               required: true
@@ -2032,7 +2165,7 @@
         $(document).on('click', '.submit_btn', function() {
         $(".compulsory").text("Note :* (Marked Fields are Compulsory to fill)");
                     
-                });
+                });*/
 
     </script>
 
