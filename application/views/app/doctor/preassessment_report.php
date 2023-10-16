@@ -335,7 +335,6 @@ tr.border_bottom td {
 
 <section>
     <div class="container">
-<<<<<<< Updated upstream
     <table width="100%" cellpadding="5">
     <tr>
     <td width="50%">
@@ -357,33 +356,6 @@ tr.border_bottom td {
     </table>
 </div>
 
-=======
-        <table class="table"> 
-                <tr>
-           <td   >
-          <p class="mt-5">Name of Doctor :<span><?php echo $patientInfo[0]->tdoctor_name?></p></td>
-            <tr>
-        </table>
-
-        <table class="table"> 
-                <tr>
-           <td>
-          <p class="mt-4">Contact No. :<span><?php echo $patientInfo[0]->tdoctor_mobile?></span></p></td>
-          <td   >
-          <p class="mt-4">Email :<span><?php echo $patientInfo[0]->tdoctor_email?></span></p></td>
-    <tr>
-    </table>
-          
-
-
- <table class="table"> 
-    <tr>
-        <td>
-          <p class="mt-5">Clinic/Hospital Name :<span><?php echo $patientInfo[0]->hospital_name?></p></td>
-            <tr>
-        </table>
-    </div>
->>>>>>> Stashed changes
 </section>
 
 <section>
