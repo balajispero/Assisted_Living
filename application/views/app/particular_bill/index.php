@@ -7,8 +7,8 @@
         <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
- <meta content="Live Demo Assisted Living,HMS is designed for medical practitioners and health-related institutions to assistant them in storing and keeping track of all correlated information such as patient medical records, admission/discharge reports, pharmaceutical management, billing and report generation and more. " name="description">
- <meta content="free live demo hms,free live demo Assisted Living,live demo,demo,live,Assisted Living live demo,Assisted Living free source codes,source codes,php,mysql,codeigniter,mvc,php frameworks,Assisted Living,hospital,management,system,solution,online demo,demo Assisted Living,live demo,demo trial,trial,hospital solution,clinic management system,clinic solution,management system,system,online management system" name="keywords">
+  <meta content="Live Demo Assisted Living,HMS is designed for medical practitioners and health-related institutions to assistant them in storing and keeping track of all correlated information such as patient medical records, admission/discharge reports, pharmaceutical management, billing and report generation and more. " name="description">
+  <meta content="free live demo hms,free live demo Assisted Living,live demo,demo,live,Assisted Living live demo,Assisted Living free source codes,source codes,php,mysql,codeigniter,mvc,php frameworks,Assisted Living,hospital,management,system,solution,online demo,demo Assisted Living,live demo,demo trial,trial,hospital solution,clinic management system,clinic solution,management system,system,online management system" name="keywords">
   <meta content="Jayson Sarino" name="author">
 
   <meta property="og:site_name" content="Assisted Living Free Trial Demo">
@@ -108,7 +108,7 @@
                     	 <div class="box">
                          		<form class="form-search" method="post" action="<?php echo base_url();?>app/particular_bill">
                          		<div class="box-header">
-                                    <h3 class="box-title"><a href="<?php echo base_url();?>app/particular_bill/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</a></h3>
+                                    <h3 class="box-title"><a href="<?php echo base_url();?>app/particular_bill/add" class="btn btn-primary bg_color"><i class="fa fa-plus"></i> Add New</a></h3>
                                     
                                     <div class="box-tools">
                                         <div class="input-group">

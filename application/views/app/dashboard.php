@@ -38,6 +38,13 @@
         <!--Start for dashboard count cdn-->
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"> -->
         <!--End for dashboard count cdn-->
+        <style>
+            .btn.btn-primary {
+                background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%);
+
+            /* border-color: #367fa9; */
+            }
+            </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

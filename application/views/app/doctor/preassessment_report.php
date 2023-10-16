@@ -12,21 +12,22 @@
     <link rel="stylesheet" href="<?base_url()?>app/doctor/custom.css">
     <style>
         body{
-            border: 2px solid #00cccc;
+            border: 2px solid #3B4BDF;
         }
         input[type=text] {
         width: 100%;
         border: none;
-        border-bottom: 2px solid  #00cccc;
+        border-bottom: 2px solid  #3B4BDF;
     }
 input[type=text]:hover{
     border: none;
-    border-bottom: 2px solid  #00cccc;
+    border-bottom: 2px solid  #3B4BDF;
 }
 tr.border_bottom td {
-  border-bottom: 1px solid  #00cccc;
+  border-bottom: 1px solid  #3B4BDF;
    padding-bottom:10px
 }
+
 
 </style>
     
@@ -35,7 +36,7 @@ tr.border_bottom td {
 <body>
 <section>
     <!-- <div class="container"> -->
-        <div class="row mt-4 border" style="background-color: #00cccc; color:white;">
+        <div class="row mt-4 border" style="background-color: #3B4BDF; color:white;">
             <div class="col-12">
                 <h3 class="text-center">Preassessment Report</h3>
              </div>
@@ -44,7 +45,7 @@ tr.border_bottom td {
 </section>
 <section>
     <div class="container"> 
-        <div class="row mt-4 border" style="background-color: #00cccc; color:white;">
+        <div class="row mt-4 border" style="background-color: #3B4BDF; color:white;">
             <div class="col-12">
                 <h3 class="text-center"><u>COMPREHESIVE GERIATRIC ASSESSMENT</u></h3>
              </div>
@@ -74,7 +75,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-    <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+    <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 </div>
 </section>
 <section>
@@ -82,7 +83,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6 >Personal Details</h6>
-                <!-- <hr style="color:#00cccc; margin-top:10px; width:120px;"> -->
+                <!-- <hr style="color: #3B4BDF; margin-top:10px; width:120px;"> -->
            </div>
         </div>
 </div>
@@ -148,7 +149,7 @@ tr.border_bottom td {
 </section>
     
 <div class="container">
-<hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 </div>
   
 
@@ -190,7 +191,7 @@ tr.border_bottom td {
     </td>
     </tr>
     </table>
-    <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+    <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 </div>
     
 </section>
@@ -200,7 +201,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6 >Details of Children</h6>
-                <!-- <hr style="color:#00cccc; margin-top:10px; width:120px;"> -->
+                <!-- <hr style="color: #3B4BDF; margin-top:10px; width:120px;"> -->
            </div>
         </div>
 </div>
@@ -232,7 +233,7 @@ tr.border_bottom td {
 </section>
 
 <div class="container">
-<hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 </div>
 
 <section>
@@ -240,7 +241,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>Local Guardian</h6>
-                <!-- <hr style="color:#00cccc; margin-top:10px; width:120px;"> -->
+                <!-- <hr style="color: #3B4BDF; margin-top:10px; width:120px;"> -->
            </div>
         </div>
 </div>
@@ -272,7 +273,7 @@ tr.border_bottom td {
 </section>
 
 <div class="container">
-<hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 </div>
 
 <section>
@@ -280,7 +281,7 @@ tr.border_bottom td {
         <div class="row mt-5">
             <div class="col-12">
                 <h6>Have you appointed a Power of Attorney (POA) and/or Health Care Proxy (HCP) : <?php echo $patientInfo[0]->appointment_poa; ?></h6>
-                <!-- <hr style="color:#00cccc; margin-top:10px; width:600px;"> -->
+                <!-- <hr style="color: #3B4BDF; margin-top:10px; width:600px;"> -->
            </div>
         </div>
 </div>
@@ -319,7 +320,7 @@ tr.border_bottom td {
 
 
 <div class="container">
-<hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 </div>
 
 <section>
@@ -327,7 +328,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>TREATING DOCTOR</h6>
-                <!-- <hr style="color:#00cccc; margin-top:10px; width:120px;"> -->
+                <!-- <hr style="color: #3B4BDF; margin-top:10px; width:120px;"> -->
            </div>
         </div>
 </div>
@@ -363,7 +364,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>Diagnosis</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:120px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:120px;">
             </div>
         </div>
 </div>
@@ -395,7 +396,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>Case History</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:120px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:120px;">
             </div>
            </div>
         </div>
@@ -422,7 +423,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>DETAILS OF CURRENT MEDICATIONS</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:270px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:270px;">
            </div>
         </div>
 </div>
@@ -456,7 +457,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>ALLERGIES</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:120px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:120px;">
            </div>
         </div>
 </div>
@@ -491,7 +492,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>IMMUNIZATION HISTORY</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:190px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:190px;">
            </div>
         </div>
 </div>
@@ -547,7 +548,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>COVID19</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:90px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:90px;">
            </div>
         </div>
 </div>
@@ -582,7 +583,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>GENERAL EXAMINATION</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:200px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:200px;">
            </div>
         </div>
 </div>
@@ -651,7 +652,7 @@ tr.border_bottom td {
             </td>
             </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 
             <!-- <div class="row mt-4">
                 <div class="col-12">
@@ -717,7 +718,7 @@ tr.border_bottom td {
             </td>
             </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 </div>
     
 </section>
@@ -727,7 +728,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>PERSONAL HISTORY</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:180px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:180px;">
            </div>
         </div>
 </div>
@@ -754,7 +755,7 @@ tr.border_bottom td {
     </td>
     </tr>
     </table>
-    <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+    <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 </div>
 </section>
 
@@ -763,7 +764,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>PHYSICAL EXAMINATION </h6>
-                <hr style="color:#00cccc; margin-top:10px; width:200px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:200px;">
            </div>
         </div>
     </div>
@@ -802,7 +803,7 @@ tr.border_bottom td {
         </td>
         </tr>
         </table>
-        <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+        <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
     </div>
 
 </section>
@@ -812,7 +813,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>SYSTEMIC EXAMINATION </h6>
-                <hr style="color:#00cccc; margin-top:10px; width:200px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:200px;">
            </div>
         </div>
     </div>
@@ -847,7 +848,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
         </div> 
 </section>
 
@@ -856,7 +857,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>PSYCHOLOGICAL & BEHAVIOURAL CONDITION </h6>
-                <hr style="color:#00cccc; margin-top:10px; width:200px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:200px;">
            </div>
         </div>
     </div>
@@ -891,7 +892,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
         </div>
     
 </section>
@@ -917,7 +918,7 @@ tr.border_bottom td {
                 </tr>
                 
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
         </div>
     
 </section>
@@ -927,7 +928,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>CLOCK DRAWING TEST</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:120px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:120px;">
            </div>
         </div>
     </div>
@@ -945,7 +946,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
         </div>
     
 </section>
@@ -955,7 +956,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>GERIATRIC DEPRESSION SCALE</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:200px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:200px;">
            </div>
         </div>
     </div>
@@ -973,7 +974,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
         </div>
     
 </section>
@@ -983,7 +984,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>BARTHEL INDEX</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:120px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:120px;">
            </div>
         </div>
     </div>
@@ -1041,7 +1042,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
         </div>
     
 </section>
@@ -1051,7 +1052,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>Fall Risk Assessment</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:150px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:150px;">
            </div>
         </div>
     </div>
@@ -1117,7 +1118,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
         </div>
     
 </section>
@@ -1127,7 +1128,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>TIME UP AND GO TEST</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:150px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:150px;">
            </div>
         </div>
         <table width="100%" cellpadding="5">
@@ -1139,7 +1140,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">      
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">      
     </div>
 </section>
 
@@ -1148,7 +1149,7 @@ tr.border_bottom td {
         <div class="row mt-4">
             <div class="col-12">
                 <h6>30 Second Chair Stand Test</h6>
-                <hr style="color:#00cccc; margin-top:10px; width:150px;">
+                <hr style="color: #3B4BDF; margin-top:10px; width:150px;">
                 <p>Chair Stand Below Average Scores</p>
            </div>
        </div>
@@ -1189,7 +1190,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 
         <table width="100%" cellpadding="5">
                 <tr>
@@ -1208,7 +1209,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #00cccc; margin-top:10px; width:500px;">    
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">    
     </div>
 </section>
 
