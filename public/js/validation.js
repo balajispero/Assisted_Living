@@ -100,10 +100,8 @@ $('.bi3number').keyup(function() {
             var dob=$("#birthday").val();
             dob = new Date(dob);
             var today = new Date();
-            var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+            var age = Math.floor((today-dob) / (365.20 * 24 * 60 * 60 * 1000));
             $('#age').val(age);
-            /*document.getElementById("result").innerHTML =  
-             "Age is: "+ age + "";*/
           }
         /*********************End Calculate Age**********************/
 

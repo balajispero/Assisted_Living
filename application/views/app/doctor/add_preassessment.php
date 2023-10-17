@@ -103,7 +103,7 @@
             <form action="<?php echo base_url()?>app/doctor/preassessment_save" method="post" id="preassessment_form" enctype="multipart/form-data">    
               <div class="box">
 
-                        <div class="box-body table-responsive">
+                        <div class="box-body">
 
                           <div class="nav-tabs-custom">
                              <ul class="nav nav-tabs">

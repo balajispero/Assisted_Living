@@ -198,43 +198,33 @@ tr.border_bottom td {
 
 <section>
     <div class="container">
-        <div class="row mt-4">
+         <div class="row mt-4">
             <div class="col-12">
                 <h6 >Details of Children</h6>
-                <!-- <hr style="color: #3B4BDF; margin-top:10px; width:120px;"> -->
+               
            </div>
         </div>
-</div>
-</section>
-
-<section>
-    <div class="container">
-    <table width="100%" cellpadding="5">
-    <tr>
-    <td width="50%">
-    Name : <?php echo $patientInfo[0]->chl_name;?> 
-    </td>
-    <td width="50%">         
-    Address : <?php echo $patientInfo[0]->chl_add?>
-    </td>
-    </tr>
-
-    <tr>
-    <td width="50%">
-    Contact No. : <?php echo $patientInfo[0]->chl_mobile;?> 
-    </td>
-    <td width="50%">         
-    Email : <?php echo $patientInfo[0]->chl_email?>
-    </td>
-    </tr>
-    </table>
-</div>
-    
-</section>
-
+</div> 
 <div class="container">
-<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
-</div>
+    <table class="table table-striped">
+                                                <tr>
+                                                   <!-- <th>No.</th> --> <th>Name</th><th>Address</th><th>Contact No.</th><th>Email</th>
+                                                </tr>
+                                                
+                                                    <?php
+      if(!empty($preasses_child)){
+
+      foreach($preasses_child as $key => $preasses_child){ $key1 = $key+1; ?>
+        <tr class="border_bottom" id="row<?=$key1?>">
+          <!-- <td></td> --><td><?=$preasses_child->chl_name?></td><td><?=$preasses_child->chl_add?></td><td><?=$preasses_child->chl_mobile?></td><td><?=$preasses_child->chl_email?></td>
+        </tr>
+        <?php } }?>
+       
+                                                   
+                                             </table>
+    
+      </div>
+</section>
 
 <section>
     <div class="container">
@@ -252,7 +242,7 @@ tr.border_bottom td {
     <table width="100%" cellpadding="5">
     <tr>
     <td width="50%">
-    Name of Local Guardin : <?php echo $patientInfo[0]->local_guardian_name;?> 
+    Name of Local Guardian 1 : <?php echo $patientInfo[0]->local_guardian_name;?> 
     </td>
     <td width="50%">         
     Address : <?php echo $patientInfo[0]->guardian_add?>
@@ -265,6 +255,23 @@ tr.border_bottom td {
     </td>
     <td width="50%">         
     Email : <?php echo $patientInfo[0]->guardian_email?>
+    </td>
+    </tr>
+    <tr>
+    <td width="50%">
+    Name of Local Guardian 2 : <?php echo $patientInfo[0]->local_guardian_name2;?> 
+    </td>
+    <td width="50%">         
+    Address : <?php echo $patientInfo[0]->guardian_add2?>
+    </td>
+    </tr>
+
+    <tr>
+    <td width="50%">
+    Contact No. : <?php echo $patientInfo[0]->guardian_mobile2;?> 
+    </td>
+    <td width="50%">         
+    Email : <?php echo $patientInfo[0]->guardian_email2?>
     </td>
     </tr>
     </table>
@@ -332,31 +339,26 @@ tr.border_bottom td {
            </div>
         </div>
 </div>
-</section>
 
-<section>
-    <div class="container">
-    <table width="100%" cellpadding="5">
-    <tr>
-    <td width="50%">
-    Name of Doctor : <?php echo $patientInfo[0]->tdoctor_name;?> 
-    </td>
-    <td width="50%">         
-    Contact No. : <?php echo $patientInfo[0]->tdoctor_mobile?>
-    </td>
-    </tr>
+<div class="container">
+    <table class="table table-striped">
+                                                <tr>
+                                                   <!-- <th>No.</th> --> <th>Doctor Name</th><th>Contact No.</th><th>Email</th><th>Clinic Name</th>
+                                                </tr>
+                                                
+                                                    <?php
+      if(!empty($preasses_doctor)){
 
-    <tr>
-    <td width="50%">
-    Email : <?php echo $patientInfo[0]->tdoctor_email;?> 
-    </td>
-    <td width="50%">         
-    Clinic/Hospital Name : <?php echo $patientInfo[0]->hospital_name?>
-    </td>
-    </tr>
-    </table>
-</div>
-
+      foreach($preasses_doctor as $key => $preasses_doctor){ $key1 = $key+1; ?>
+        <tr class="border_bottom" id="row<?=$key1?>">
+          <!-- <td></td> --><td><?=$preasses_doctor->tdoctor_name?></td><td><?=$preasses_doctor->tdoctor_mobile?></td><td><?=$preasses_doctor->tdoctor_email?></td><td><?=$preasses_doctor->hospital_name?></td>
+        </tr>
+        <?php } }?>
+       
+                                                   
+                                             </table>
+    
+      </div>
 </section>
 
 <section>
@@ -654,11 +656,7 @@ tr.border_bottom td {
             </table>
             <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
 
-            <!-- <div class="row mt-4">
-                <div class="col-12">
-                    <h6>Oral Exam</h6>
-               </div>
-            </div> -->
+          
             <table width="100%" cellpadding="5">
             <tr>
             <td width="50%">
@@ -899,16 +897,182 @@ tr.border_bottom td {
 
 <section>
     <div class="container">
+        <div class="row mt-4">
+            <div class="col-12">
+                <h6>TYPICAL DAY OF APPLICANT </h6>
+                <hr style="color: #3B4BDF; margin-top:10px; width:200px;">
+           </div>
+        </div>
+    </div>
+</section>
+
+<section>
+            <div class="container">
+                <div class="row mt-4">
+                <div class="col-12">
+                    <h6>Morning hours</h6>
+               </div>
+            </div>
+            <table width="100%" cellpadding="5">
+                <tr>
+                <td width="50%">
+                Wake up time : <?php echo $patientInfo[0]->wake_up_time;?> 
+                </td>
+                <td width="50%">         
+                Washroom : <?php echo $patientInfo[0]->washroom;?>
+                </td>
+                </tr>
+
+                <tr>
+                <td width="50%">
+                Breakfast time : <?php echo $patientInfo[0]->breakfast_time;?> 
+                </td>
+                <td width="50%">
+                Exercises : <?php echo $patientInfo[0]->exercises;?>         
+                </td>
+                </tr>
+                <tr>
+                <td width="50%">
+                Social : <?php echo $patientInfo[0]->morning_social;?> 
+                </td>
+                </tr>
+
+            </table>
+            
+        </div>
+
+                <div class="container">
+                <div class="row mt-4">
+                <div class="col-12">
+                    <h6>Afternoon hours</h6>
+               </div>
+            </div>
+            <table width="100%" cellpadding="5">
+                <tr>
+                <td width="50%">
+                Lunch : <?php echo $patientInfo[0]->lunch;?> 
+                </td>
+                <td width="50%">         
+                Afternoon nap : <?php echo $patientInfo[0]->afternoon_nap;?>
+                </td>
+                </tr>     
+            </table>
+            
+        </div>
+
+        <div class="container">
+                <div class="row mt-4">
+                <div class="col-12">
+                    <h6>Evening hours</h6>
+               </div>
+            </div>
+            <table width="100%" cellpadding="5">
+                <tr>
+                <td width="50%">
+                Walk/sitting outside : <?php echo $patientInfo[0]->walk_sitting_outside;?> 
+                </td>
+                <td width="50%">         
+                Tea/coffee/snacks time : <?php echo $patientInfo[0]->tea_snacks_time;?>
+                </td>
+                </tr>
+
+                <tr>
+                <td width="50%">
+                Social : <?php echo $patientInfo[0]->eve_social;?> 
+                </td>
+                <td width="50%">         
+                Any other : <?php echo $patientInfo[0]->eve_any_other;?>
+                </td>
+                </tr>     
+            </table>
+            
+        </div>
+
+        <div class="container">
+                <div class="row mt-4">
+                <div class="col-12">
+                    <h6>Late evening/night</h6>
+               </div>
+            </div>
+            <table width="100%" cellpadding="5">
+                <tr>
+                <td width="50%">
+                Recreational : <?php echo $patientInfo[0]->recreational;?> 
+                </td>
+                <td width="50%">         
+                Reading : <?php echo $patientInfo[0]->reading;?>
+                </td>
+                </tr>
+
+                <tr>
+                <td width="50%">
+                Dinner : <?php echo $patientInfo[0]->dinner;?> 
+                </td>
+                <td width="50%">         
+                Any other : <?php echo $patientInfo[0]->night_any_other;?>
+                </td>
+                </tr>
+                <tr>
+                <td width="50%">
+                Light off time : <?php echo $patientInfo[0]->light_off_time;?> 
+                </td>
+                <td width="50%">         
+                </td>
+                </tr>
+
+                <tr>
+                <td width="90%">
+                Describe any other activities : <?php echo $patientInfo[0]->describe_any_other_activity;?> 
+                </td>
+                <td width="10%">         
+                </td>
+                </tr>     
+            </table>
+            
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;"> 
+            
+        </div>
+    
+</section>
+
+<section>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12">
+                <h6> Diagnostic Tests </h6>
+                
+           </div>
+        </div>
+    </div>
+
+    <div class="container">
             <table width="100%" cellpadding="5">
                 <tr>
                 <td width="50%">
                 Diagnostic Tests : <?php echo $patientInfo[0]->diagnostic_test;?> 
                 </td>
                 <td width="50%">         
-                TYPICAL DAY OF APPLICANT : <?php echo $patientInfo[0]->typical_day_appl;?>
                 </td>
                 </tr>
+                
+            </table>
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+        </div>
+    
+</section>
 
+<section>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12">
+                <h6>Short portable mental status questionnaire(SPMSQ) Test </h6>
+                
+           </div>
+        </div>
+    </div>
+
+    <div class="container">
+            <table width="100%" cellpadding="5">
                 <tr>
                 <td width="50%">
                 SPMSQ Test Total no. of error : <?php echo $patientInfo[0]->total_no_of_error;?> 

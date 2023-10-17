@@ -415,6 +415,7 @@ class Doctor extends General{
             'guardian_email2' => $this->input->post('guardian_email2'),
             'appointment_poa' => $this->input->post('appointment_poa'),
 		    'poa_name' => $this->input->post('poa_name'),
+		    'poa_add' => $this->input->post('poa_add'),
 		    'poa_mobile' => $this->input->post('poa_mobile'),
 		    'poa_email' => $this->input->post('poa_email'),
 		    'diagnosis' => @implode(",",$this->input->post('diagnosis')),
@@ -913,6 +914,7 @@ class Doctor extends General{
             'guardian_email2' => $this->input->post('guardian_email2'),
             'appointment_poa' => $this->input->post('appointment_poa'),
 		    'poa_name' => $this->input->post('poa_name'),
+		    'poa_add' => $this->input->post('poa_add'),
 		    'poa_mobile' => $this->input->post('poa_mobile'),
 		    'poa_email' => $this->input->post('poa_email'),
 		    'diagnosis' => @implode(",",$this->input->post('diagnosis')),
@@ -1300,6 +1302,9 @@ class Doctor extends General{
 
 		$this->data['patientInfo'] = $this->preassessment_model->get_preassesment($id);
 		$this->data['preasses_medicine'] = $this->preassessment_model->get_preassessment_medicine($id);
+
+		$this->data['preasses_doctor'] = $this->preassessment_model->get_treating_doctor($id);
+		$this->data['preasses_child'] = $this->preassessment_model->get_preasses_child($id);
 		$this->data['preasses_immunization_his'] = $this->preassessment_model->get_preassessment_immunization_his($id);
 		$this->data['preasses_fallrisk_quest'] = $this->preassessment_model->get_preassessment_fallrisk_quest($id);
 		

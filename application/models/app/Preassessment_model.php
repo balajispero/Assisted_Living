@@ -75,15 +75,15 @@ class Preassessment_model extends CI_Model{
         return  $this->db->update("preassessment_fall_risk_questions",$data);*/    
 	}
 	public function get_preassesment($id){
-			$this->db->select('ptn_preasses.*,ptn_fmly.*,ptn_chl.*,treat_dr.*,psycho_cond.*,immuniz_his.*,barthel_index.*,local_guardian.*,typical_day.*');
+			$this->db->select('ptn_preasses.*,ptn_fmly.*,psycho_cond.*,immuniz_his.*,barthel_index.*,local_guardian.*,typical_day.*');
 			$this->db->from('patient_preassessment ptn_preasses');
 			$this->db->join('patient_family ptn_fmly', 'ptn_fmly.preasses_id = ptn_preasses.preasses_id', 'left');
 			$this->db->join('preassessment_guardian local_guardian','local_guardian.preasses_id = ptn_preasses.preasses_id','left');
 			$this->db->join('preassessment_typical_day typical_day','typical_day.preasses_id = ptn_preasses.preasses_id','left');
-			$this->db->join('patient_chl ptn_chl', 'ptn_chl.preasses_id = ptn_preasses.preasses_id', 'left');
+			/*$this->db->join('patient_chl ptn_chl', 'ptn_chl.preasses_id = ptn_preasses.preasses_id', 'left');*/
 			/*$this->db->join('preassessment_medicines ptn_med', 'ptn_med.preasses_id = ptn_preasses.preasses_id','left');*/
 
-			$this->db->join('treating_doctor treat_dr', 'treat_dr.preasses_id = ptn_preasses.preasses_id','left');
+			/*$this->db->join('treating_doctor treat_dr', 'treat_dr.preasses_id = ptn_preasses.preasses_id','left');*/
 			$this->db->join('patient_psychological_cond psycho_cond', 'psycho_cond.preasses_id = ptn_preasses.preasses_id','left');
 
 			$this->db->join('preassessment_immunization_his immuniz_his','immuniz_his.preasses_id = ptn_preasses.preasses_id','left');

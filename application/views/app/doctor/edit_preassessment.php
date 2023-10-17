@@ -416,7 +416,7 @@
                                                                 <div class="row">                                          
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Name of Local Guardian</label><span class="text-danger"></span></br>
+                                                                            <label>Name of Local Guardian 1</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="guardian_name" value="<?php echo $patientInfo[0]->local_guardian_name?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
