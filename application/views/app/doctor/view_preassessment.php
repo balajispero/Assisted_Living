@@ -1048,7 +1048,7 @@
 
                                                                     <div class="col-md-4">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Diet</label><span class="text-danger">*</span></br>
+                                                                            <label>Diet</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="diet" value="<?php echo $patientInfo[0]->diet?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -1928,8 +1928,8 @@
                                                                 <div class="row">
                                                                     <div class="col-md-3">
                                                                         <?php
-                                                                            if($this->session->userdata('user_role') == 5)
-                                                                            {
+                                                                            /*if($this->session->userdata('user_role') == 5)
+                                                                            {*/
                                                                         ?>
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Eligible for ALF<?php /*print_r($patientInfo);*/?></label><span class="text-danger"></span>&nbsp;
@@ -1947,7 +1947,7 @@
                                                                             ?>>No
                                                                             <span class="text-danger error-text type_category_err"></span>
                                                                         </div><!-- /.form-group wrapper-class -->
-                                                                    <?php } ?>
+                                                                    <?php /*}*/ ?>
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 

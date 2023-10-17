@@ -1048,7 +1048,7 @@
 
                                                                     <div class="col-md-4">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Diet</label><span class="text-danger">*</span></br>
+                                                                            <label>Diet</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="diet" value="<?php echo $patientInfo[0]->diet?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -1515,42 +1515,42 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Bowels Score</label><span class="text-danger">*</span></br>
-                                                                              <input type="text" class="form-control numberonly bi1number" name="bowels_score" value="<?php echo $patientInfo[0]->bowels_score?>" id="bowels_score" onkeyup="barthelFunc()" required maxlength="1">
+                                                                              <input type="text" class="form-control numberonly bi1number" name="bowels_score" value="<?php echo $patientInfo[0]->bowels_score?>" id="bowels_score" onkeyup="barthelFunc()" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Bladder Score</label><span class="text-danger">*</span></br>
-                                                                             <input type="text" class="form-control numberonly bi1number" name="bladder_score" value="<?php echo $patientInfo[0]->bladder_score?>" id="bladder_score" onkeyup="barthelFunc()" required maxlength="1">
+                                                                             <input type="text" class="form-control numberonly bi1number" name="bladder_score" value="<?php echo $patientInfo[0]->bladder_score?>" id="bladder_score" onkeyup="barthelFunc()" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Toilet Score</label><span class="text-danger">*</span></br>
-                                                                            <input type="text" class="form-control numberonly bi1number" name="toilet_score" value="<?php echo $patientInfo[0]->toilet_score?>" onkeyup="barthelFunc()" id="toilet_score" required maxlength="1">
+                                                                            <input type="text" class="form-control numberonly bi1number" name="toilet_score" value="<?php echo $patientInfo[0]->toilet_score?>" onkeyup="barthelFunc()" id="toilet_score" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Bathing Score</label><span class="text-danger">*</span></br>
-                                                                            <input type="text" class="form-control numberonly bi2number" name="bathing_score" value="<?php echo $patientInfo[0]->bathing_score?>" onkeyup="barthelFunc()" id="bathing_score" required maxlength="1">
+                                                                            <input type="text" class="form-control numberonly bi2number" name="bathing_score" value="<?php echo $patientInfo[0]->bathing_score?>" onkeyup="barthelFunc()" id="bathing_score" required maxlength="1" placeholder="Enter 0 to 1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Grooming Score</label><span class="text-danger">*</span></br>
-                                                                           <input type="text" class="form-control numberonly bi2number" name="grooming_score" value="<?php echo $patientInfo[0]->grooming_score?>" onkeyup="barthelFunc()" id="grooming_score" required maxlength="1">
+                                                                           <input type="text" class="form-control numberonly bi2number" name="grooming_score" value="<?php echo $patientInfo[0]->grooming_score?>" onkeyup="barthelFunc()" id="grooming_score" required maxlength="1" placeholder="Enter 0 to 1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Dressing Score</label><span class="text-danger">*</span></br>
-                                                                          <input type="text" class="form-control numberonly bi1number" name="dressing_score" value="<?php echo $patientInfo[0]->dressing_score?>" onkeyup="barthelFunc()" id="dressing_score" required maxlength="1">
+                                                                          <input type="text" class="form-control numberonly bi1number" name="dressing_score" value="<?php echo $patientInfo[0]->dressing_score?>" onkeyup="barthelFunc()" id="dressing_score" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1558,28 +1558,28 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Feeding Score</label><span class="text-danger">*</span></br>
-                                                                             <input type="text" class="form-control numberonly bi1number" name="feeding_score" value="<?php echo $patientInfo[0]->feeding_score?>" onkeyup="barthelFunc()" id="feeding_score" required maxlength="1">
+                                                                             <input type="text" class="form-control numberonly bi1number" name="feeding_score" value="<?php echo $patientInfo[0]->feeding_score?>" onkeyup="barthelFunc()" id="feeding_score" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Transfer Score</label><span class="text-danger">*</span></br>
-                                                                            <input type="text" class="form-control numberonly bi3number" name="transfer_score" value="<?php echo $patientInfo[0]->transfer_score?>" onkeyup="barthelFunc()" id="transfer_score" required maxlength="1">
+                                                                            <input type="text" class="form-control numberonly bi3number" name="transfer_score" value="<?php echo $patientInfo[0]->transfer_score?>" onkeyup="barthelFunc()" id="transfer_score" required maxlength="1" placeholder="Enter 0 to 3">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Mobility Score</label><span class="text-danger">*</span></br>
-                                                                            <input type="text" class="form-control numberonly bi3number" name="mobility_score" value="<?php echo $patientInfo[0]->mobility_score?>" onkeyup="barthelFunc()" id="mobility_score" required maxlength="1">
+                                                                            <input type="text" class="form-control numberonly bi3number" name="mobility_score" value="<?php echo $patientInfo[0]->mobility_score?>" onkeyup="barthelFunc()" id="mobility_score" required maxlength="1" placeholder="Enter 0 to 3">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Stairs Score</label><span class="text-danger">*</span></br>
-                                                                           <input type="text" class="form-control numberonly bi1number" name="stairs_score" value="<?php echo $patientInfo[0]->stairs_score?>" onkeyup="barthelFunc()" id="stairs_score" required maxlength="1">
+                                                                           <input type="text" class="form-control numberonly bi1number" name="stairs_score" value="<?php echo $patientInfo[0]->stairs_score?>" onkeyup="barthelFunc()" id="stairs_score" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -2146,28 +2146,6 @@
         var maxDate = year + '-' + month + '-' + day;
         $('#birthday').attr('max', maxDate);
     });
-</script>
-<!-----------Start Jquery validation CDN----------->
-<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> -->
-<!-----------End Jquery validation CDN----------->
-    <script>
-
-        /*$( "#preassessment_form" ).validate({
-          rules: {
-            field: {
-              required: true
-            }
-          }
-        });
-
-        $(document).on('click', '.submit_btn', function() {
-        $(".compulsory").text("Note :* (Marked Fields are Compulsory to fill)");
-                    
-                });*/
-
-    </script>
 
 </body>
 </html>

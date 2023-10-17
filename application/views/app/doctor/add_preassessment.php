@@ -107,11 +107,11 @@
 
                           <div class="nav-tabs-custom">
                              <ul class="nav nav-tabs">
-                                <li class="active" id="point_1"><a href="#tab_1" data-toggle="tab">Personal Details</a></li>
-                                <li id="point_2"><a href="#tab_2" data-toggle="tab">Medications</a></li>
-                                <li><a href="#tab_3" data-toggle="tab">General Examination</a></li>
-                                                  <li><a href="#tab_4" data-toggle="tab">Psychological & Behavioural</a></li>
-                                                    <li><a href="#tab_5" data-toggle="tab">Fall Risk Assessment</a></li>  
+                                <li class="active" id="point_1"><a href="#" data-toggle="tab1">Personal Details</a></li>
+                                <li id="point_2"><a href="#" data-toggle="tab1">Medications</a></li>
+                                <li id="point_3"><a href="#" data-toggle="tab1">General Examination</a></li>
+                                                  <li id="point_4"><a href="#" data-toggle="tab1">Psychological & Behavioural</a></li>
+                                                    <li id="point_5"><a href="#" data-toggle="tab1">Fall Risk Assessment</a></li>  
                                                     <!-- <li><a href="#tab_6" data-toggle="tab">Upload Assesment Form</a></li> --> 
                                                 </ul>
                                                 <div class="tab-content">
@@ -210,8 +210,8 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Permanent Address</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="applicant_add">
-                                                                            <!-- <textarea name="applicant_add" class="form-control"></textarea> -->
+                                                                            <!-- <input type="text" class="form-control" name="applicant_add"> -->
+                                                                            <textarea name="applicant_add" class="form-control"></textarea>
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -588,8 +588,9 @@
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
-                                                                </div><!-- / row -->
 
+                                                                </div><!-- / row -->
+                                                                <input type="submit" class="submit_btn btn btn-primary" id="next1" name="submit" value="submit">
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
     
 
@@ -601,6 +602,7 @@
         </div>
         
                             </table>
+
                         </div>
                         <div class="tab-pane" id="tab_2">
                                              <div class="row">
@@ -717,6 +719,7 @@
                                                                 </tr>    
                                                               </table>
                                                             </div>
+                                                            <input type="submit" class="submit_btn btn btn-primary" id="next2" name="submit" value="submit">
 
                                                                  <hr style="border-top: 2px solid rgb(255 193 7);"/>
 
@@ -946,7 +949,7 @@
 
                                                                     <div class="col-md-4">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Diet</label><span class="text-danger">*</span></br>
+                                                                            <label>Diet</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control" name="diet">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -1079,7 +1082,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-
+                                                                <input type="submit" class="submit_btn btn btn-primary" id="next3" name="submit" value="submit">
                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
                                             
                 </div>
@@ -1417,42 +1420,42 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Bowels Score</label><span class="text-danger">*</span></br>
-                                                                              <input type="text" class="form-control numberonly bi1number" name="bowels_score" id="bowels_score" onkeyup="barthelFunc()" required maxlength="1">
+                                                                              <input type="text" class="form-control numberonly bi1number" name="bowels_score" id="bowels_score" onkeyup="barthelFunc()" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Bladder Score</label><span class="text-danger">*</span></br>
-                                                                             <input type="text" class="form-control numberonly bi1number" name="bladder_score" id="bladder_score" onkeyup="barthelFunc()" required maxlength="1">
+                                                                             <input type="text" class="form-control numberonly bi1number" name="bladder_score" id="bladder_score" onkeyup="barthelFunc()" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Toilet Score</label><span class="text-danger">*</span></br>
-                                                                            <input type="text" class="form-control numberonly bi1number" name="toilet_score" onkeyup="barthelFunc()" id="toilet_score" required maxlength="1">
+                                                                            <input type="text" class="form-control numberonly bi1number" name="toilet_score" onkeyup="barthelFunc()" id="toilet_score" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Bathing Score</label><span class="text-danger">*</span></br>
-                                                                            <input type="text" class="form-control numberonly bi2number" name="bathing_score" onkeyup="barthelFunc()" id="bathing_score" required maxlength="1">
+                                                                            <input type="text" class="form-control numberonly bi2number" name="bathing_score" onkeyup="barthelFunc()" id="bathing_score" required maxlength="1" placeholder="Enter 0 to 1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Grooming Score</label><span class="text-danger">*</span></br>
-                                                                           <input type="text" class="form-control numberonly bi2number" name="grooming_score" onkeyup="barthelFunc()" id="grooming_score" required maxlength="1">
+                                                                           <input type="text" class="form-control numberonly bi2number" name="grooming_score" onkeyup="barthelFunc()" id="grooming_score" required maxlength="1" placeholder="Enter 0 to 1">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Dressing Score</label><span class="text-danger">*</span></br>
-                                                                          <input type="text" class="form-control numberonly bi1number" name="dressing_score" onkeyup="barthelFunc()" id="dressing_score" required maxlength="1">
+                                                                          <input type="text" class="form-control numberonly bi1number" name="dressing_score" onkeyup="barthelFunc()" id="dressing_score" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1460,28 +1463,28 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Feeding Score</label><span class="text-danger">*</span></br>
-                                                                             <input type="text" class="form-control numberonly bi1number" name="feeding_score" onkeyup="barthelFunc()" id="feeding_score" required maxlength="1">
+                                                                             <input type="text" class="form-control numberonly bi1number" name="feeding_score" onkeyup="barthelFunc()" id="feeding_score" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Transfer Score</label><span class="text-danger">*</span></br>
-                                                                            <input type="text" class="form-control numberonly bi3number" name="transfer_score" onkeyup="barthelFunc()" id="transfer_score" required maxlength="1">
+                                                                            <input type="text" class="form-control numberonly bi3number" name="transfer_score" onkeyup="barthelFunc()" id="transfer_score" required maxlength="1" placeholder="Enter 0 to 3">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Mobility Score</label><span class="text-danger">*</span></br>
-                                                                            <input type="text" class="form-control numberonly bi3number" name="mobility_score" onkeyup="barthelFunc()" id="mobility_score" required maxlength="1">
+                                                                            <input type="text" class="form-control numberonly bi3number" name="mobility_score" onkeyup="barthelFunc()" id="mobility_score" required maxlength="1" placeholder="Enter 0 to 3">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Stairs Score</label><span class="text-danger">*</span></br>
-                                                                           <input type="text" class="form-control numberonly bi1number" name="stairs_score" onkeyup="barthelFunc()" id="stairs_score" required maxlength="1">
+                                                                           <input type="text" class="form-control numberonly bi1number" name="stairs_score" onkeyup="barthelFunc()" id="stairs_score" required maxlength="1" placeholder="Enter 0 to 2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1493,7 +1496,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-
+                                                                <input type="submit" class="submit_btn btn btn-primary" id="next4" name="submit" value="submit">
                                                                  <hr style="border-top: 2px solid rgb(255 193 7);"/>
                    
                                                 </div>
@@ -1619,8 +1622,8 @@
                                                                  <div class="row">
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Observation by Doctor</label><span class="text-danger"></span></br>
-                                                                            <textarea name="doctor_observation" class="form-control"></textarea>
+                                                                            <label>Observation by Doctor</label><span class="text-danger">*</span></br>
+                                                                            <textarea name="doctor_observation" class="form-control" required></textarea>
                                                                             <span class="text-danger error-text type_category_err"></span>
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1645,15 +1648,14 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
+                                                                <input type="submit" class="submit_btn btn btn-primary" name="submit" value="submit">
                                                                  <hr style="border-top: 2px solid rgb(255 193 7);"/>
                                                     
                                                 </div>
 
                                             </div>
                                             <div class="box-footer clearfix">
-                                                <!-- <button type="button" class="btn btn-outline-dark" id="next1" style="background-color:#00cccc;">Next</button> -->
-                                                <!-- <button class="btn btn-primary" name="submit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button> -->
-                                                 <input type="submit" class="submit_btn btn btn-primary" name="submit" value="submit">
+                                                 <!-- <input type="submit" class="submit_btn btn btn-primary" id="next1" name="submit" value="submit"> -->
                                                 <!-- <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a> -->
                                             </div>
                                         </div>
@@ -1842,77 +1844,77 @@
   
 </script>
 <!-----------Start Jquery validation CDN----------->
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> -->
 <!-----------End Jquery validation CDN----------->
 <script>
-            /*jQuery.validator.setDefaults({
-          debug: true,
-          success: "valid"
-        });*/
-        /*$( "#preassessment_form" ).validate({
-          rules: {
-            field: {
-              required: true
-            }
-          }
-        });
 
-        $(document).on('click', '.submit_btn', function() {
-        $(".compulsory").text("Note :* (Marked Fields are Compulsory to fill)");
-                    
-                });*/
+          $(document).ready(function(){
 
-
-/*$('#preassessment_form').validate({
-    
-    //alert("hi")
-    rules: {
-      applicant_name: {
-        required: true
-      },
-      applicant_gender: {
-        required: true,
-      },
-      bowels_score: {
-        required: true,
-      }
-    },
-    messages: {
-      applicant_name: {
-        required: 'Please Enter Name.',
-      },
-      applicant_gender: {
-        required: 'Please Select Gender.',
-      },
-      bowels_score: {
-        required: 'Please Enter Score.',
-      }
-    }
-  });*/
-
-
-         /* $(document).ready(function(){
             $("#next1").click(function(){
-                $( "#preassessment_form" ).validate({
-          rules: {
-            field: {
-              required: true
-            }
-          }
-        });
-              $("#tab_1").hide();
-              $("#tab_2").show();
-              $("li#point_1").removeClass("active");
-              $("li#point_2").addClass("active");
+                    var applicant_gender = $("select[name='applicant_gender']").find('option:selected').val();
+                    var applicant_name=$("input[name='applicant_name']").val();
+                
+                    if (applicant_name == "" || applicant_gender == "")
+                    {
+
+                    }
+                    else{
+                          $("#tab_1").hide();
+                          $("#tab_2").show();
+                          $("li#point_1").removeClass("active");
+                          $("li#point_2").addClass("active");
+                        }
             });
-            /*$("#prev1").click(function(){
-              $("#tab_2").hide();
-              $("#tab_1").show();
-              $("li#point_1").removeClass("active");
-            });*/
-        /*});*/
+            $("#next2").click(function(){
+                    
+                          $("#tab_2").hide();
+                          $("#tab_3").show();
+                          $("li#point_2").removeClass("active");
+                          $("li#point_3").addClass("active");
+                    
+            });
+            $("#next3").click(function(){
+                    
+                          $("#tab_3").hide();
+                          $("#tab_4").show();
+                          $("li#point_3").removeClass("active");
+                          $("li#point_4").addClass("active");
+                    
+            });
+            $("#next4").click(function(){
+                    var aggression = $("select[name='aggression']").find('option:selected').val();
+                    var Violence = $("select[name='Violence']").find('option:selected').val();
+                    var bed_restrain = $("select[name='bed_restrain']").find('option:selected').val();
+                    var wandering = $("select[name='wandering']").find('option:selected').val();
+                    var sleep = $("select[name='sleep']").find('option:selected').val();
+                    var giver_care = $("select[name='giver_care']").find('option:selected').val();
+
+                    var bowels_score=$("input[name='bowels_score']").val();
+                    var bladder_score=$("input[name='bladder_score']").val();
+                    var toilet_score=$("input[name='toilet_score']").val();
+                    var bathing_score=$("input[name='bathing_score']").val();
+                    var grooming_score=$("input[name='grooming_score']").val();
+                    var dressing_score=$("input[name='dressing_score']").val();
+                    var feeding_score=$("input[name='feeding_score']").val();
+                    var transfer_score=$("input[name='transfer_score']").val();
+                    var mobility_score=$("input[name='mobility_score']").val();
+                    var stairs_score=$("input[name='stairs_score']").val();
+                
+                    if (bowels_score == "" || bladder_score == "" || toilet_score == "" || bathing_score == "" || grooming_score == "" || dressing_score == "" || feeding_score == "" || transfer_score == "" || mobility_score == "" || stairs_score == "")
+                    {
+
+                    }
+                    else{
+                          $("#tab_4").hide();
+                          $("#tab_5").show();
+                          $("li#point_4").removeClass("active");
+                          $("li#point_5").addClass("active");
+                        }
+            });
+            
+        });
 
     </script>
 
