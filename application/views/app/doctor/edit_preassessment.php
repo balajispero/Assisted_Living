@@ -98,7 +98,7 @@
       <input type="hidden" name="id" value="<?php echo $patientInfo[0]->preasses_id;?>">    
               <div class="box">
 
-                        <div class="box-body table-responsive">
+                        <div class="box-body">
 
                           <div class="nav-tabs-custom">
                              <ul class="nav nav-tabs">
