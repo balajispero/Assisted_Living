@@ -46,7 +46,7 @@
                 display:block !important;
             }
             hr {
-                border-top: 2px solid #00cccc !important;  
+                border-top: 2px solid #2B48B0 !important;  
             }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
@@ -189,7 +189,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Age</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="applicant_age" id="age">
+                                                                            <input type="text" class="form-control numberonly" name="applicant_age" id="age">
 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -301,7 +301,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <hr style="border-top: 2px solid #00cccc;"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
                                                                 <label>Family</label>
                                                                 <div class="row">
 

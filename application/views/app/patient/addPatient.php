@@ -223,7 +223,7 @@
                                                     </tr>
                                                     <tr>
                                                   <td width="12%">Age<font color="#FF0000"></font></td>
-                                                  <td width="88%"><input class="form-control input-sm" name="age" style="width: 250px;" id="age" type="text" placeholder="Age" style="width: 100px;"  value=""></td>
+                                                  <td width="88%"><input class="form-control input-sm numberonly" name="age" style="width: 250px;" id="age" type="text" placeholder="Age" style="width: 100px;"  value=""></td>
                                                  </tr>
                                                     <tr>
                                                     	<td width="12%">Gender<font color="#FF0000">*</font></td>
@@ -369,7 +369,7 @@
                                                     <tr>
                                                         <td>Name<font color="#FF0000"></font></td>
                                                         <td>
-                                                            <?php echo form_input('rel_name1',set_value('relation_name1'),' class="form-control input-sm" placeholder="Name" style="width: 250px;"');?> 
+                                                            <?php echo form_input('rel_name1',set_value('relation_name1'),' class="form-control input-sm alphaonly" placeholder="Name" style="width: 250px;"');?> 
                                                         </td>
                                                         
                                                         
@@ -418,7 +418,7 @@
                                                     <tr>
                                                         <td>Name<font color="#FF0000"></font></td>
                                                         <td>
-                                                            <?php echo form_input('rel_name2',set_value('relation_name2'),' class="form-control input-sm" placeholder="Name" style="width: 250px;"');?> 
+                                                            <?php echo form_input('rel_name2',set_value('relation_name2'),' class="form-control input-sm alphaonly" placeholder="Name" style="width: 250px;"');?> 
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -463,7 +463,7 @@
                                                <tr>
                                            <td width="18%">Aadhar No.</td>
                                            <td width="82%">
-                                            <?php echo form_input('aadhar_no',set_value('aadhar_no'),'class="form-control input-sm" id="aadhar_no" placeholder="Aadhar Number" style="width: 250px;"');?>
+                                            <?php echo form_input('aadhar_no',set_value('aadhar_no'),'class="form-control input-sm numberonly" id="aadhar_no" placeholder="Aadhar Number" style="width: 250px;"');?>
                                         </td>
                                     </tr>
                                     <tr>
