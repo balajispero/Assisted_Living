@@ -265,7 +265,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="applicant_mobile">
+                                                                            <input type="text" class="form-control numberonly" name="applicant_mobile">
 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -308,28 +308,28 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Name of Father</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="father_name">
+                                                                            <input type="text" class="form-control alphaonly" name="father_name">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Name of Mother</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="mother_name">
+                                                                           <input type="text" class="form-control alphaonly" name="mother_name">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Name of Siblings</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="sublings_name">
+                                                                            <input type="text" class="form-control alphaonly" name="sublings_name">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Name of Spouse</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="spouse_name">
+                                                                           <input type="text" class="form-control alphaonly" name="spouse_name">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -337,7 +337,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact number of spouse</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="spouse_mobile">
+                                                                           <input type="text" class="form-control numberonly" name="spouse_mobile">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -350,7 +350,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                                 <!--Start preasses common row structure-->
                                                                 <label>DETAILS OF CHILDREN</label>
@@ -359,7 +359,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group wrapper-class" >
                                                                         <label></label><span class="text-danger"></span>
-                                                                <button type="button" name="chl_add" id="chl_add" class="btn btn-primary">Add Child</button>
+                                                                <button type="button" name="chl_add" id="chl_add" class="btn btn-primary bg_color">Add Child</button>
                                                                 </div>
                                                             </div>
         
@@ -387,7 +387,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-2">
-                                                                        <div class="form-group wrapper-class" >
+                                                                        <div class="form-group wrapper-class">
                                                                             <label>Email id</label><span class="text-danger"></span></br>
                                                                                                        
                                                                         </div>
@@ -402,14 +402,14 @@
 
                                                                 
                                     <!--End preasses common row structure-->                            
-                                                                 <hr style="border-top: 1px solid rgb(255 193 7);"/>     
+                                                                 <hr style="border-top: 1px solid #2B48B0;"/>     
 
                                                                 <label>Local Guardian</label>
                                                                 <div class="row">                                          
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Name of Local Guardian 1</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="guardian_name">
+                                                                            <input type="text" class="form-control alphaonly" name="guardian_name">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -423,7 +423,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="guardian_mobile">
+                                                                           <input type="text" class="form-control numberonly" name="guardian_mobile">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -439,7 +439,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label> Name of Local Guardian 2</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="guardian_name2">
+                                                                            <input type="text" class="form-control alphaonly" name="guardian_name2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -453,7 +453,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="guardian_mobile2">
+                                                                           <input type="text" class="form-control numberonly" name="guardian_mobile2">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -466,7 +466,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
                                                                 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
                                                                 <label>Have you appointed a Power of Attorney (POA) and/or Health Care Proxy (HCP)</label>
                                                                 <select name="appointment_poa" class="form-control">
                                                                   <option value="Yes">Yes</option>
@@ -483,7 +483,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="poa_mobile"> 
+                                                                           <input type="text" class="form-control numberonly" name="poa_mobile"> 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -504,14 +504,14 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
                                                                 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                                 <label>TREATING DOCTOR</label>
                                                                <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group wrapper-class" >
                                                                         <label></label><span class="text-danger"></span>
-                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary">Add Doctor</button>
+                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary bg_color">Add Doctor</button>
                                                                 </div>
                                                             </div>
         
@@ -552,7 +552,7 @@
                                                                                                                                    
                                                                 
 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
                                                                  
 
                                                                 <div class="row">
@@ -560,14 +560,14 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>DIAGNOSIS</label><span class="text-danger"></span></br>
-                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary">Add Diagnosis</button><div id="dynamic_field1"></div>
+                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary bg_color">Add Diagnosis</button><div id="dynamic_field1"></div>
                                                                             
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                                 <label>CASE HISTORY</label>
                                                                 <div class="row">
@@ -590,8 +590,8 @@
                                                                     </div><!-- /.col-md-3 -->
 
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-primary" id="next1" name="submit" value="submit">
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next1" name="submit" value="next">
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
     
 
                                                             </div>
@@ -610,7 +610,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group wrapper-class" >
                                                         <label>DETAILS OF CURRENT MEDICATIONS</label><span class="text-danger"></span></br>
-                                                            <button type="button" name="add" id="add" class="btn btn-primary">Add Medicine</button>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary bg_color">Add Medicine</button>
                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                     </div><!-- /.form-group wrapper-class -->
                                                 </div><!-- /.col-md-3 -->
@@ -625,7 +625,7 @@
                                              </table>
                                             </div>
 
-                                            <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                            <hr style="border-top: 2px solid #2B48B0;"/>
 
                                             <label>ALLERGIES</label>
                                                                 <div class="row">
@@ -719,9 +719,9 @@
                                                                 </tr>    
                                                               </table>
                                                             </div>
-                                                            <input type="submit" class="submit_btn btn btn-primary" id="next2" name="submit" value="submit">
+                                                            <input type="submit" class="submit_btn btn btn-primary bg_color" id="next2" name="submit" value="next">
 
-                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
 
                          </div>
                                             <div class="tab-pane" id="tab_3">
@@ -942,7 +942,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                                 <label>PERSONAL HISTORY</label>
                                                                 <div class="row">
@@ -980,7 +980,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                                 <label>PHYSICAL EXAMINATION</label><br>
                                                                 <label>Vitals</label>
@@ -1034,7 +1034,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                                  <label>SYSTEMIC EXAMINATION</label>
                                                                 <div class="row">
@@ -1082,8 +1082,8 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-primary" id="next3" name="submit" value="submit">
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next3" name="submit" value="next">
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
                                             
                 </div>
                 <div class="tab-pane" id="tab_4">
@@ -1176,7 +1176,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
                                     <!--End preasses common row structure-->                            
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                                 <div class="row">
 
@@ -1189,7 +1189,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
                                                                 <label>TYPICAL DAY OF APPLICANT</label><br>
                                                                 <label>Morning hours</label>
                                                                 <div class="row">
@@ -1334,7 +1334,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                             <label>Short portable mental status questionnaire(SPMSQ) Test</label><br><br>
                                                             <div class="table-responsive">      
@@ -1359,7 +1359,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                             <label>CLOCK DRAWING TEST</label>
                                                                 <div class="row">
@@ -1380,7 +1380,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                                 <label>GERIATRIC DEPRESSION SCALE</label><br><br>
                                                                 <div class="table-responsive">      
@@ -1412,7 +1412,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                                 <label>BARTHEL INDEX</label>
                                                                 <div class="row">
@@ -1496,8 +1496,8 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-primary" id="next4" name="submit" value="submit">
-                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next4" name="submit" value="next">
+                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
                    
                                                 </div>
                                                 <div class="tab-pane" id="tab_5">
@@ -1563,7 +1563,7 @@
         </tr>    
       </table>
     </div>
-                                            <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                            <hr style="border-top: 2px solid #2B48B0;"/>
                                                     <label>TIME UP AND GO TEST</label>
                                                                 <div class="row">
 
@@ -1617,7 +1617,7 @@
                                                                     
                                                                 </div><!-- / row -->
 
-                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
 
                                                                  <div class="row">
                                                                     <div class="col-md-3">
@@ -1648,8 +1648,8 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <input type="submit" class="submit_btn btn btn-primary" name="submit" value="submit">
-                                                                 <hr style="border-top: 2px solid rgb(255 193 7);"/>
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" name="submit" value="submit">
+                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
                                                     
                                                 </div>
 

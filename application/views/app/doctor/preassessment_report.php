@@ -98,7 +98,7 @@ tr.border_bottom td {
     Preassessment No. : <?php echo $patientInfo[0]->preasses_no;?> 
     </td>
     <td width="50%">         
-    Name of Applicant : <b><?php echo $patientInfo[0]->preasses_name?></b>
+    Name of Applicant : <?php echo $patientInfo[0]->preasses_name?>
     </td>
     </tr>
 
@@ -107,7 +107,7 @@ tr.border_bottom td {
     Date of Birth : <?php echo $patientInfo[0]->birthday;?> 
     </td>
     <td width="50%">         
-    Age : <b><?php echo $patientInfo[0]->preasses_age?></b>
+    Age :<?php echo $patientInfo[0]->preasses_age?>
     </td>
     </tr>
     <tr>
@@ -116,7 +116,7 @@ tr.border_bottom td {
     Gender : <?php echo $patientInfo[0]->preasses_gender;?> 
     </td>
     <td width="50%">         
-    Marital Status : <b><?php echo $patientInfo[0]->preasses_marital_status?></b>
+    Marital Status : <?php echo $patientInfo[0]->preasses_marital_status?>
     </td>
     </tr>
     <tr>
@@ -124,7 +124,7 @@ tr.border_bottom td {
     Contact No. : <?php echo $patientInfo[0]->preasses_mobile;?> 
     </td>
     <td width="50%">         
-    Email : <b><?php echo $patientInfo[0]->preasses_email?></b>
+    Email :<?php echo $patientInfo[0]->preasses_email?>
     </td>
     </tr>
     <tr>
@@ -132,7 +132,7 @@ tr.border_bottom td {
     Aadhar Number : <?php echo $patientInfo[0]->preasses_aadhar;?> 
     </td>
     <td width="50%">         
-    Religion : <b><?php echo $patientInfo[0]->preasses_religion?></b>
+    Religion : <?php echo $patientInfo[0]->preasses_religion?>
     </td>
     </tr>
     </table>
