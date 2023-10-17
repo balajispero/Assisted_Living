@@ -156,7 +156,7 @@
                                                     </tr>
                                                     <tr>
                                    <td width="12%">Age<font color="#FF0000"></font></td>
-                                   <td width="88%"><input class="form-control input-sm" name="age" style="width: 250px;" value="<?php echo $patientInfo->age?>" type="text" placeholder="Age" style="width: 100px;"  value=""></td>
+                                   <td width="88%"><input class="form-control input-sm numberonly" name="age" style="width: 250px;" value="<?php echo $patientInfo->age?>" type="text" placeholder="Age" style="width: 100px;"  value=""></td>
                                </tr>
                                                     <tr>
                                                     	<td width="12%">Gender</td>
@@ -301,7 +301,7 @@
                                                     <tr>
                                                         <td>Name<font color="#FF0000"></font></td>
                                                         <td>
-                                                            <?php echo form_input('rel_name1',set_value('rel_name1',$patientInfo->rel_name1),' class="form-control input-sm" placeholder="Name" style="width: 250px;"');?> 
+                                                            <?php echo form_input('rel_name1',set_value('rel_name1',$patientInfo->rel_name1),' class="form-control input-sm alphaonly" placeholder="Name" style="width: 250px;"');?> 
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -349,7 +349,7 @@
                                                     <tr>
                                                         <td>Name<font color="#FF0000"></font></td>
                                                         <td>
-                                                            <?php echo form_input('rel_name2',set_value('rel_name2',$patientInfo->rel_name2),' class="form-control input-sm" placeholder="Name" style="width: 250px;"');?> 
+                                                            <?php echo form_input('rel_name2',set_value('rel_name2',$patientInfo->rel_name2),' class="form-control input-sm 00029" placeholder="Name" style="width: 250px;"');?> 
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -394,7 +394,7 @@
                                                     <tr>
                                                         <td width="18%">Aadhar No.</td>
                                                         <td width="82%">
-                                                        <?php echo form_input('aadhar_no',set_value('aadhar_no',$patientInfo->aadhar_no),'class="form-control input-sm" placeholder="Aadhar Number" style="width: 250px;"');?>
+                                                        <?php echo form_input('aadhar_no',set_value('aadhar_no',$patientInfo->aadhar_no),'class="form-control input-sm numberonly" placeholder="Aadhar Number" style="width: 250px;"');?>
                                                         </td>
                                                     </tr>
                                                     <tr>
