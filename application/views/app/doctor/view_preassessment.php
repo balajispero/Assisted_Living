@@ -416,13 +416,8 @@
                                                                 <div class="row">                                          
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-<<<<<<< Updated upstream
                                                                             <label>Name of Local Guardian 1</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="guardian_name" value="<?php echo $patientInfo[0]->local_guardian_name?>">
-=======
-                                                                            <label>Name of Local Guardian</label><span class="text-danger"></span></br>
                                                                             <input type="text" class="form-control alphaonly" name="guardian_name" value="<?php echo $patientInfo[0]->local_guardian_name?>">
->>>>>>> Stashed changes
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->

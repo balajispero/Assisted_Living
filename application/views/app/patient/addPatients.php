@@ -689,6 +689,16 @@
                     $("#aadhar_no").val(result[0].preasses_aadhar);
                     $("#noofhouse").val(result[0].preasses_add);
                     $("#mobile").val(result[0].preasses_mobile);
+
+                     $("input[name='rel_name1']").val(result[0].local_guardian_name);
+                    $("input[name='rel_email1']").val(result[0].guardian_email);
+                    $("input[name='rel_add']").val(result[0].guardian_add);
+                    $("input[name='rel_phone']").val(result[0].guardian_mobile);
+
+                    $("input[name='rel_name2']").val(result[0].local_guardian_name2);
+                    $("input[name='rel_email2']").val(result[0].guardian_email2);
+                    $("input[name='rel_add2']").val(result[0].guardian_add2);
+                    $("input[name='rel_phone2']").val(result[0].guardian_mobile2);
                     showMedicineName(preasses_id);
 
                 }

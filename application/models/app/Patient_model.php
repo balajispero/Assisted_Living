@@ -77,11 +77,25 @@ class Patient_model extends CI_Model{
 		$query = $this->db->get("patient_preassessment");
 		return $query->result();
 	}
-	public function get_preasses_id_data($preasses_id){
+	/*public function get_preasses_id_data($preasses_id){
 		$this->db->select("*");
 		$query = $this->db->get_where("patient_preassessment",array('preasses_no' => $preasses_id));	
 		return $query->result();
-	}
+	}*/
+	public function get_preasses_id_data($preasses_id){
+		$this->db->select('ptn_preasses.*,ptn_fmly.*,local_guardian.*');
+			$this->db->from('patient_preassessment ptn_preasses');
+			$this->db->join('patient_family ptn_fmly', 'ptn_fmly.preasses_id = ptn_preasses.preasses_id', 'left');
+			$this->db->join('preassessment_guardian local_guardian','local_guardian.preasses_id = ptn_preasses.preasses_id','left');
+			$this->db->where(array('ptn_preasses.InActive'=>0,'ptn_preasses.preasses_no'=>$preasses_id));
+			$query = $this->db->get();
+			if ( $query->num_rows() > 0 )
+			{
+				$row = $query->result();
+				// print_r();
+				return $row;
+			}
+			}
 	
 	public function validate_email(){
 		$this->db->where(array(
