@@ -586,7 +586,7 @@
                                                 <div class="tab-pane" id="tab_5">
                                                     <table cellpadding="3" cellspacing="3" width="100%">
                                                         <tr>
-                                                            <td width="20%"><button type="button" required name="add" id="add">Add Medicine</button><div id="dynamic_field"></div></td>
+                                                            <td width="20%"><button type="button" class="btn btn-primary bg_color" required name="add" id="add">Add Medicine</button><div id="dynamic_field"></div></td>
                                                         </tr>
                                                         <input type="hidden" value="0" id="medicinecuont"></input>
                                                         <tr> 

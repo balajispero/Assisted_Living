@@ -1463,7 +1463,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Score</label><span class="text-danger"></span></br>
-                                                                              <input type="text" class="form-control" name="clock_score" value="<?php echo $patientInfo[0]->clock_score?>">
+                                                                              <input type="text" class="form-control numberonly" name="clock_score" value="<?php echo $patientInfo[0]->clock_score?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1494,7 +1494,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Score</label><span class="text-danger"></span></br>
-                                                                              <input type="text" class="form-control" name="geriatric_score" value="<?php echo $patientInfo[0]->geriatric_score?>">
+                                                                              <input type="text" class="form-control numberonly" name="geriatric_score" value="<?php echo $patientInfo[0]->geriatric_score?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->

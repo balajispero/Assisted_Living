@@ -221,7 +221,7 @@
                                                                 <?php }?>
                                                             </select>&nbsp;
                                                             <?php if($getOPDPatient->nStatus == "Pending"){?>
-                                                             <button class="btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit">Update</button>
+                                                             <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit">Update</button>
                                                          <?php } ?>
                                                 
                                             </td>

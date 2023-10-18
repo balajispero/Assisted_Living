@@ -188,7 +188,7 @@
                                         	<?php echo $message;?>
                                             <?php //if($this->session->userdata('emr_viewing') == ""){?>	
                                        
-                                           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#OpenModal"><i class="fa fa-plus"></i> Add Vital Parameters</button>
+                                           <button type="button" class="btn btn-primary bg_color" data-toggle="modal" data-target="#OpenModal"><i class="fa fa-plus"></i> Add Vital Parameters</button>
                                      
                                            <a href="<?php echo base_url()?>app/ipd_print/print_vital/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                            <!-- <a href="<?php echo base_url()?>app/ipd_print/pdf_vital/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-success" target="_blank"><i class="fa fa-print"></i> PDF</a> -->
