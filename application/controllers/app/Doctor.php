@@ -893,8 +893,8 @@ class Doctor extends General{
 				$treating_doctor_details = array(
 					'tdoctor_name' => $val,
 					'tdoctor_mobile' => isset($doctor_mobile[$key]) ? $doctor_mobile[$key] : '',
-					'tdoctor_email' => isset($doctor_email[$i]) ? $doctor_email[$i] : '',
-					'hospital_name' => isset($hospital_name[$i]) ? $hospital_name[$i] : '',
+					'tdoctor_email' => isset($doctor_email[$key]) ? $doctor_email[$key] : '',
+					'hospital_name' => isset($hospital_name[$key]) ? $hospital_name[$key] : '',
 					'preasses_no' => $this->input->post('preasses_no'),
 					'preasses_id' => $this->input->post('id')
 				);

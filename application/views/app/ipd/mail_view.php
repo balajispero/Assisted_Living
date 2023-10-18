@@ -218,6 +218,23 @@
       </div>
     </td> 
   </tr> 
+  <tr>
+    <td bgcolor="#ffffff" style="padding:5px 20px 1px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #FFFFFF;">
+       <p>To &nbsp;<?php  
+       echo @$patientInfo->rel_email1; ?> </p>
+
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
+       <p>Cc &nbsp;<?php  
+        echo "kaushikpanditrao@ahpl.in" .", ". "avinash@sperohealthcare.in" .", ". @$patientInfo->rel_email2; 
+        ?> 
+    </p>
+
+    </td>
+
+  </tr>
 
   <tr>
     <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
@@ -225,6 +242,7 @@
     <p>Respected <?php echo $patientInfo->rel_name1; ?>,</p>
     <input type="hidden" name="iop_no" value="<?php echo @$getOPDPatient->IO_ID; ?>">
     <input type="hidden" name="mail_to" value="<?php echo @$patientInfo->rel_email1; ?>">
+    <input type="hidden" name="rel_email2" value="<?php echo @$patientInfo->rel_email2; ?>">
     <input type="hidden" name="rel_name" value="<?php echo @$patientInfo->rel_name1; ?>">
     <input type="hidden" name="patient_name" value="<?php echo @$patientInfo->middlename; ?>">
     <p>Greetings from Team Spero at Aastha!</p>

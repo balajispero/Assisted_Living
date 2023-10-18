@@ -122,7 +122,7 @@
                                                 <td><input class="form-control input-sm" name="cTo" id="cTo" type="date" value="<?php /*echo date("Y-m-d");*/?>" placeholder="to Date Registration" style="width: 130px;"></td>
                                             	
                                                 <td>
-                                                <input type="text" class="form-control input-sm" name="search" id="search" placeholder="Member No./Name" style="width: 180px;">
+                                                <input type="text" class="form-control input-sm" name="search" id="search" placeholder="Preassessment No./Name" style="width: 180px;">
                                                 </td>
                                                 <td>
                                                 <button class="btn btn-sm btn-primary bg_color" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>

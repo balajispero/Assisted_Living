@@ -260,7 +260,7 @@ class Doctor_model extends CI_Model{
 		if($this->session->userdata('user_role') == 5)
 		{
 			$where = "(
-				A.preasses_id like '%".$this->input->post('search')."%' or 
+				A.preasses_no like '%".$this->input->post('search')."%' or 
 				A.preasses_name like '%".$this->input->post('search')."%'
 				) 
 				and A.date_entry between '".$cFrom."' and '".$cTo."'
@@ -268,7 +268,7 @@ class Doctor_model extends CI_Model{
 
 		}else{
 				$where = "(
-				A.preasses_id like '%".$this->input->post('search')."%' or 
+				A.preasses_no like '%".$this->input->post('search')."%' or 
 				A.preasses_name like '%".$this->input->post('search')."%'
 				) 
 				and A.date_entry between '".$cFrom."' and '".$cTo."'

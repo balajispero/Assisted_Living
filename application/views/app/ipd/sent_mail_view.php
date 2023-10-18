@@ -186,11 +186,21 @@
     </td> 
   </tr> --> 
 <tr>
-    <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
+    <td bgcolor="#ffffff" style="padding:5px 20px 1px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #FFFFFF;">
        <p>To &nbsp;<?php  
        echo $getSentMail[0]->mail_to; ?> </p>
 
     </td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
+       <p>Cc &nbsp;<?php  
+        echo "kaushikpanditrao@ahpl.in" .", ". "avinash@sperohealthcare.in" .", ". @$getSentMail[0]->rel_email2; 
+        ?> 
+    </p>
+
+    </td>
+
   </tr>
   <tr>
     <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">

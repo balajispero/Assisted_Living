@@ -197,10 +197,12 @@ class Patient extends General{
 	public function save(){
 		// $this->form_validation->set_rules("lastname","Last Name","trim|xss_clean|required|callback_validate_patient");
 		// $this->form_validation->set_rules("firstname","First Name","trim|xss_clean|required");		
-		$this->form_validation->set_rules("email","Email Address","trim|xss_clean|valid_email|callback_validate_email");
+		/*$this->form_validation->set_rules("email","Email Address","trim|xss_clean|valid_email|callback_validate_email");*/
 		$this->form_validation->set_error_delimiters("<div class='alert alert-warning alert-dismissable'><i class='fa fa-warning'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>","</div>");
 	
-		if($this->form_validation->run()){
+		/*if($this->form_validation->run()){*/
+		if(@$_POST['btnSubmit']=='save')
+		{	
 		/*********************Start upload image code*********************/	
 			/*$config = array(
 					'allowed_types'		=>		'*',
@@ -297,11 +299,12 @@ class Patient extends General{
 		// $this->form_validation->set_rules("lastname","Last Name","trim|xss_clean|required|callback_validate_patient_edit");
 		// $this->form_validation->set_rules("firstname","First Name","trim|xss_clean|required");	
 		// $this->form_validation->set_rules("middlename","Middle Name","trim|xss_clean|required");	
-		$this->form_validation->set_rules("email","Email Address","trim|xss_clean|valid_email|callback_validate_email_edit");	
+		/*$this->form_validation->set_rules("email","Email Address","trim|xss_clean|valid_email|callback_validate_email_edit");*/	
 		$this->form_validation->set_error_delimiters("<div class='alert alert-warning alert-dismissable'><i class='fa fa-warning'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>","</div>");
 	
-		if($this->form_validation->run()){
-			
+		// if($this->form_validation->run()){
+		  if(@$_POST['btnSubmit']=='save')
+		   {
 			//save the data
 			$this->patient_model->update();
 			
@@ -330,11 +333,12 @@ class Patient extends General{
 		}	
 	}
 	public function edits_save(){	
-		$this->form_validation->set_rules("email","Email Address","trim|xss_clean|valid_email|callback_validate_email_edit");	
+		/*$this->form_validation->set_rules("email","Email Address","trim|xss_clean|valid_email|callback_validate_email_edit");*/	
 		$this->form_validation->set_error_delimiters("<div class='alert alert-warning alert-dismissable'><i class='fa fa-warning'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>","</div>");
 	
-		if($this->form_validation->run()){
-			
+		/*if($this->form_validation->run()){*/
+		if(@$_POST['btnSubmit']=='save')
+		   {	
 			//save the data
 			$this->patient_model->updates();
 			

@@ -290,6 +290,7 @@ class Ipd_model extends CI_Model{
 		$this->data = array(
 			'iop_id'	=>		$this->input->post('opd_no'),
 			'mail_to'				=>		$this->input->post('mail_to'),
+			'rel_email2'				=>		$this->input->post('rel_email2'),
 			'patient_name'		=>		$this->input->post('patient_name'),
 			'mail_from'		=>		!empty($this->input->post('mail_to')) ? $this->input->post('mail_to') : '',
 			'msg'			=>		!empty($this->input->post('msg')) ? $this->input->post('msg') : '',

@@ -70,7 +70,7 @@
                 <li><?php echo $rows->medicine_name; ?></li>
             <?php }?>
           </ul>
-    <p>Doctors comments/observations:</p>
+    <p></p>
     <p><?php echo $doctor_comments; ?></p><br>
 
     <p>For any further information, feel free to revert.</p>
