@@ -185,7 +185,7 @@
                                            <table class="table table-hover table-striped">
                                            <thead>
                                            <tr>
-                                           		<th>Diagnosis</th>
+                                           		<th>Diagnosis </th>
                                                 <th>Remarks</th>
                                                 <th></th>
                                            </tr>
@@ -240,7 +240,7 @@
                                         <table class="table table-hover">
                                         <tbody>
                                         <tr>
-                                        	<td>Diagnosis</td>
+                                        	<td>Diagnosis <font color="#FF0000">*</font></td>
                                             <td>
                                             <select name="diagnosis" id="diagnosis" style="width: 100%;" required class="form-control input-sm">
                                                             	<option value="">- Diagnosis -</option>

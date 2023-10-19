@@ -288,7 +288,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Co-morbid Condition</td>
+                                            <td>Co-morbid Condition <font color="#FF0000">*</font></td>
                                             <td><input type="text" name="comorbid_cond" placeholder="Co-morbid Condition" class="form-control input-sm comorbid_cond" style="width: 250px;" required>
                                             </td>
                                             
@@ -434,7 +434,7 @@
                                             <td><input type="text" name="todDate" id="dDate3" value="<?php echo date("Y-m-d");?>" placeholder="Date" class="dDate form-control input-sm" style="width: 100%;" required></td>
                                         </tr> 
                                         <tr>
-                                            <td>Co-morbid Condition</td>
+                                            <td>Co-morbid Condition <font color="#FF0000">*</font></td>
                                             <td><input type="text" name="comorbid_cond" placeholder="Co-morbid Condition" class="form-control input-sm" style="width: 250px;" required></td>
                                         </tr>
                                         <tr>

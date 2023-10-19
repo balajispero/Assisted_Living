@@ -184,7 +184,7 @@
                                         	
                                             <?php echo $message;?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                           <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Intake Record</a>
+                                           <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Intake Record</a>
                                             <?php } ?>
                                            <a href="<?php echo base_url()?>app/ipd_print/print_intake/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                 	<div class="alt2" dir="ltr" style="
@@ -235,7 +235,7 @@
                                            
                                            <hr>
                                            <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                           <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i> Add Output Record</a>
+                                           <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i> Add Output Record</a>
                                             <?php } ?>
                                            <a href="<?php echo base_url()?>app/ipd_print/print_output/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                 	<div class="alt2" dir="ltr" style="
@@ -359,7 +359,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                        	<td>Particular</td>
+                                        	<td>Particular <font color="#FF0000">*</font></td>
                                             <td><input type="text" name="particular" placeholder="Particular" class="form-control input-sm" style="width: 250px;" required></td>
                                         </tr>
                                         <tr>
@@ -383,7 +383,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -436,7 +436,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                        	<td>Urine(ml)</td>
+                                        	<td>Urine(ml) <font color="#FF0000">*</font></td>
                                             <td><input type="text" name="urine" placeholder="Urine(ml)" class="form-control input-sm" style="width: 250px;" required></td>
                                         </tr>
                                         <tr>
@@ -464,7 +464,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>

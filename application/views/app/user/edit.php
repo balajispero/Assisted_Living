@@ -321,7 +321,7 @@
                                                     <tr>
                                                         <td colspan="2">
                                                                 <a href="<?php echo base_url();?>app/user" class="btn btn-default">Cancel</a>
-                                                                 <button class="btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                                                 <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                                         </td>
                                                     </tr>
                                                     </table>
@@ -348,7 +348,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
-                                                    <button class="btn btn-primary" name="btnchangepassword" id="btnchangepassword" type="submit">Change Password</button>
+                                                    <button class="btn btn-primary bg_color" name="btnchangepassword" id="btnchangepassword" type="submit">Change Password</button>
                                                 </td>
                                             </tr>
                                             </table>

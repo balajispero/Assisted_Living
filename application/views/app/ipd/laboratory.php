@@ -250,7 +250,7 @@
                                         <table class="table table-hover">
                                         <tbody>
                                             <tr>
-                                                <td>Particular Category</td>
+                                                <td>Particular Category <font color="#FF0000">*</font></td>
                                                 <td>
                                                                 <select name="category" onChange="showDrugName(this.value);" id="category" class="form-control input-sm" style="width: 100%; " required>
                                                                     <option value="">- Particular Category -</option>
@@ -297,7 +297,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                        	<td>Doctor</td>
+                                        	<td>Doctor <font color="#FF0000">*</font></td>
                                             <td>
                                             <select name="doctor" id="doctor" class="form-control input-sm" style="width: 100%;" required>
                                                             	<option value="">- Consultant Doctor -</option>

@@ -393,7 +393,7 @@ xmlhttp3.send();
                                             </td>
                                         </tr>
                                         <tr>
-                                        	<td>Room Name</td>
+                                        	<td>Room Name <font color="#FF0000">*</font></td>
                                             <td>
                                             				<span id="showroom_name">
                         									<select name="room_name2" id="room_name2" class="form-control input-sm" style="width: 250px;" required>
