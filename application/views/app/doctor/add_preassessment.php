@@ -48,6 +48,9 @@
             hr {
                 border-top: 2px solid #2B48B0 !important;  
             }
+            #add1{
+                 margin-top: 20px;
+            }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
 
@@ -765,6 +768,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Hearing Aid</label><span class="text-danger"></span></br>
                                                                            <select name="hearaid" class="form-control">
+                                                                           <option value="">Select Hearing Aid</option>
                                                                               <option value="Yes">Yes</option>
                                                                               <option value="No">No</option>
                                                                             </select>
@@ -805,6 +809,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Spectacles</label><span class="text-danger"></span></br>
                                                                            <select name="spectacles" class="form-control">
+                                                                           <option value="">Select Spectacles</option>
                                                                               <option value="Yes">Yes</option>
                                                                               <option value="No">No</option>
                                                                             </select>
@@ -816,6 +821,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Cataract</label><span class="text-danger"></span></br>
                                                                             <select name="cataract" class="form-control">
+                                                                            <option value="">Select Cataract</option>
                                                                               <option value="Right">Right</option>
                                                                               <option value="Left">Left</option>
                                                                             </select>
@@ -826,6 +832,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Glaucoma</label><span class="text-danger"></span></br>
                                                                            <select name="glaucoma" class="form-control">
+                                                                           <option value="">Select Glaucoma</option>
                                                                               <option value="Yes">Yes</option>
                                                                               <option value="No">No</option>
                                                                             </select>
@@ -862,6 +869,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Dentures</label><span class="text-danger"></span></br>
                                                                             <select name="dentures" class="form-control">
+                                                                            <option value="">Select Dentures</option>
                                                                               <option value="Yes">Yes</option>
                                                                               <option value="No">No</option>
                                                                             </select>
@@ -1025,6 +1033,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Appearance</label><span class="text-danger"></span></br>
                                                                             <select name="appearance" class="form-control">
+                                                                            <option value="">Select Appearance</option>
                                                                               <option value="Normal">Normal</option>
                                                                               <option value="Obese">Obese</option>
                                                                               <option value="Frail">Frail</option>

@@ -905,6 +905,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Spectacles</label><span class="text-danger"></span></br>
                                                                            <select name="spectacles" class="form-control">
+                                                                           <option value="">Select Spectacles</option>
                                                                               <option value="Yes" <?php if($patientInfo[0]->spectacles=="Yes") { echo "selected"; } ?>>Yes</option>
                                                                               <option value="No" <?php if($patientInfo[0]->spectacles=="No") { echo "selected"; } ?>>No</option>
                                                                             </select>
@@ -916,6 +917,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Cataract</label><span class="text-danger"></span></br>
                                                                             <select name="cataract" class="form-control">
+                                                                            <option value="">Select Cataract</option>
                                                                               <option value="Right" <?php if($patientInfo[0]->cataract=="Right") { echo "selected"; } ?>>Right</option>
                                                                               <option value="Left" <?php if($patientInfo[0]->cataract=="Left") { echo "selected"; } ?>>Left</option>
                                                                             </select>
@@ -926,6 +928,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Glaucoma</label><span class="text-danger"></span></br>
                                                                            <select name="glaucoma" class="form-control">
+                                                                           <option value="">Select Glaucoma</option>
                                                                               <option value="Yes" <?php if($patientInfo[0]->glaucoma=="Yes") { echo "selected"; } ?>>Yes</option>
                                                                               <option value="No" <?php if($patientInfo[0]->glaucoma=="No") { echo "selected"; } ?>>No</option>
                                                                             </select>
@@ -962,6 +965,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Dentures</label><span class="text-danger"></span></br>
                                                                             <select name="dentures" class="form-control">
+                                                                            <option value="">Select Dentures</option>
                                                                               <option value="Yes" <?php if($patientInfo[0]->dentures=="Yes") { echo "selected"; } ?>>Yes</option>
                                                                               <option value="No" <?php if($patientInfo[0]->dentures=="No") { echo "selected"; } ?>>No</option>
                                                                             </select>
@@ -1125,6 +1129,7 @@
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Appearance</label><span class="text-danger"></span></br>
                                                                             <select name="appearance" class="form-control">
+                                                                            <option value="">Select Appearance</option>
                                                                               <option value="Normal">Normal</option>
                                                                               <option value="Obese">Obese</option>
                                                                               <option value="Frail">Frail</option>
