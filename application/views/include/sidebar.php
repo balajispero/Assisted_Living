@@ -243,7 +243,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <!--START OF POS-->
                         
                         <?php if($hasAccesstoBilling){?>
-                        <li class="treeview <?php echo $billing;?>">
+                        <!-- <li class="treeview <?php echo $billing;?>">
                             <a href="#">
                                 <i class="fa fa-credit-card"></i> <span style="color:#2B48B0;">Billing</span>
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -255,12 +255,12 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                  <?php }?>
                                 <?php if($hasAccesstoSurgical){?><li <?php echo $surgical_costing?>><a href="<?php echo base_url()?>app/surgical_costing"><i class="fa fa-angle-double-right"></i>Surgical Quotation Costing</a></li><?php }?>
                             </ul>
-                        </li>
+                        </li> -->
                         <?php }?>
                         
                         <!--START OF Appointment-->
                         <?php if($hasAccesstoAppointment){?>
-                        <li class="treeview <?php echo $appointmentTab;?>">
+                        <!-- <li class="treeview <?php echo $appointmentTab;?>">
                             <a href="#">
                                 <i class="fa fa fa-male"></i> <span style="color:#2B48B0;">Member Appointment</span>
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -269,7 +269,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <?php if($hasAccesstoAddAppointment){?><li <?php echo $appointmentAdd;?>><a href="<?php echo base_url()?>app/appointment/addAppointmentList"><i class="fa fa-angle-double-right"></i>Add New Appointment</a></li> <?php }?>
                                 <?php if($hasAccesstoAppointment){?><li <?php echo $appointmentList;?>><a href="<?php echo base_url()?>app/appointment/index"><i class="fa fa-angle-double-right"></i>Manage Appointment</a></li><?php }?>
                             </ul>
-                        </li>
+                        </li> -->
                         <?php }?>
                         <!--END OF Appointment-->
                     
@@ -407,7 +407,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <!--END OF Preassessment-->
                         
                         <?php if($hasAccesstoEMR){?>
-                        <li class="treeview <?php echo $emr;?>">
+                        <!-- <li class="treeview <?php echo $emr;?>">
                             <a href="#">
                                 <i class="fa fa-book"></i> <span style="color:#2B48B0;"> EMR Sheet</span>
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -416,7 +416,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <?php if($hasAccesstoEMROPD){?><li <?php echo $opd_emr;?>><a href="<?php echo base_url()?>app/emr/opd"><i class="fa fa-angle-double-right"></i>Out-Patient EMR</a></li> <?php }?>
                                 <?php if($hasAccesstoEMRIPD){?><li <?php echo $ipd_emr;?>><a href="<?php echo base_url()?>app/emr/ipd"><i class="fa fa-angle-double-right"></i>In-Member EMR</a></li><?php }?>
                             </ul>
-                        </li>
+                        </li> -->
                         <?php }?>
                         <!--END OF Consultant-->
                         

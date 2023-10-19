@@ -324,7 +324,7 @@
                                             <tr>
                                             	<td>
                                                 	<select name="roomType" id="roomType" class="form-control input-sm" onChange="getData()">
-                                                    	<option value="">All Room Type</option>
+                                                    	<option value="">Select Room Type</option>
                                                         <?php foreach($room_category as $room_category){?>
                                                         <option value="<?php echo $room_category->category_id?>"><?php echo $room_category->category_name?></option>
                                                         <?php }?>

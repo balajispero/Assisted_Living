@@ -225,6 +225,27 @@ class Nurse_module extends General{
 				echo "<br>";*/
 			}
 			$dose2=@implode(",",$_POST['dose'][$key]);
+			/***********Start code for add dosewise nurse name***********/
+			 										$ci_obj = & get_instance();
+												$ci_obj->load->model('app/general_model');
+												$pages = $ci_obj->general_model->getPreparedBy($this->session->userdata('user_id'));
+												
+			for($sd_i=0;$sd_i<count($_POST['dose'][$key]);$sd_i++)
+			{
+			if($_POST['dose'][$key][$sd_i]=="M")
+			{
+				$mor_nurse=$pages->cPreparedBy;
+			}
+			if($_POST['dose'][$key][$sd_i]=="A")
+			{
+				$afternoon_nurse=$pages->cPreparedBy;
+			}
+			if($_POST['dose'][$key][$sd_i]=="N")
+			{
+				$night_nurse=$pages->cPreparedBy;
+			}		
+			}
+			/***********End code for add dosewise nurse name***********/
 		
 			$where = "(
 		iop_med_id= '".$_POST['medicine_id'][$key]."' and
@@ -238,8 +259,11 @@ class Nurse_module extends General{
 		{
 			$this->data = array(
 			 'dose'	=>		$dose2,
+			 'mor_nurse'	=>		$mor_nurse,
+			 'afternoon_nurse'	=>		$afternoon_nurse,
+			 'night_nurse'	=>		$night_nurse,
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
-			'added_date'			=>		date("Y-m-d h:i:s A"),
+			'updated_date'			=>		date("Y-m-d h:i:s A"),
 		);
 
 		$id=array('iop_med_id'=>$_POST['medicine_id'][$key],'iop_id'=>$_POST['iop_id'][$key],'given_date'=>date("Y-m-d"));
@@ -251,6 +275,9 @@ class Nurse_module extends General{
 			'iop_id'		=>		$_POST['iop_id'][$key],
 			'iop_med_id'		=>		$_POST['medicine_id'][$key],
 			 'dose'	=>		$dose2,
+			 'mor_nurse'	=>		$mor_nurse,
+			 'afternoon_nurse'	=>		$afternoon_nurse,
+			 'night_nurse'	=>		$night_nurse,
 			 'given_date'			=>		date("Y-m-d h:i:s A"),
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
 			'added_date'			=>		date("Y-m-d h:i:s A"),
