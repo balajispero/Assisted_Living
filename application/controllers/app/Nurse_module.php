@@ -234,15 +234,15 @@ class Nurse_module extends General{
 			{
 			if($_POST['dose'][$key][$sd_i]=="M")
 			{
-				$mor_nurse=$pages->cPreparedBy;
+				@$mor_nurse=$pages->cPreparedBy;
 			}
 			if($_POST['dose'][$key][$sd_i]=="A")
 			{
-				$afternoon_nurse=$pages->cPreparedBy;
+				@$afternoon_nurse=$pages->cPreparedBy;
 			}
 			if($_POST['dose'][$key][$sd_i]=="N")
 			{
-				$night_nurse=$pages->cPreparedBy;
+				@$night_nurse=$pages->cPreparedBy;
 			}		
 			}
 			/***********End code for add dosewise nurse name***********/
@@ -259,15 +259,16 @@ class Nurse_module extends General{
 		{
 			$this->data = array(
 			 'dose'	=>		$dose2,
-			 'mor_nurse'	=>		$mor_nurse,
-			 'afternoon_nurse'	=>		$afternoon_nurse,
-			 'night_nurse'	=>		$night_nurse,
+			 'mor_nurse'	=>		@$mor_nurse,
+			 'afternoon_nurse'	=>		@$afternoon_nurse,
+			 'night_nurse'	=>		@$night_nurse,
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
 			'updated_date'			=>		date("Y-m-d h:i:s A"),
 		);
 
 		$id=array('iop_med_id'=>$_POST['medicine_id'][$key],'iop_id'=>$_POST['iop_id'][$key],'given_date'=>date("Y-m-d"));
 		$this->db->update('iop_nurse_medicine',$this->data,$id);
+		$mor_nurse = $afternoon_nurse = $night_nurse = "";
 		}
 		else{
 			
@@ -275,16 +276,16 @@ class Nurse_module extends General{
 			'iop_id'		=>		$_POST['iop_id'][$key],
 			'iop_med_id'		=>		$_POST['medicine_id'][$key],
 			 'dose'	=>		$dose2,
-			 'mor_nurse'	=>		$mor_nurse,
-			 'afternoon_nurse'	=>		$afternoon_nurse,
-			 'night_nurse'	=>		$night_nurse,
+			 'mor_nurse'	=>		@$mor_nurse,
+			 'afternoon_nurse'	=>		@$afternoon_nurse,
+			 'night_nurse'	=>		@$night_nurse,
 			 'given_date'			=>		date("Y-m-d h:i:s A"),
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
 			'added_date'			=>		date("Y-m-d h:i:s A"),
 			'InActive'		=>		0
 		);
 			$this->db->insert("iop_nurse_medicine",$this->data);
-
+			$mor_nurse = $afternoon_nurse = $night_nurse = "";
 		}
 			
 		}
