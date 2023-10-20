@@ -130,7 +130,7 @@ class Room_master extends General{
 		$this->form_validation->set_rules("room_name","Room Name","trim|xss_clean|required|callback_validate_room");	
 		$this->form_validation->set_rules("floor","Floor","trim|xss_clean|required");	
 		$this->form_validation->set_rules("roomType","Room Type","trim|xss_clean|required");	
-		$this->form_validation->set_rules("room_rates","Room Rate","trim|xss_clean|required|decimal");	
+		$this->form_validation->set_rules("room_rates","Room Rate","trim|xss_clean|required|numeric");	
 		$this->form_validation->set_error_delimiters("<div class='alert alert-warning alert-dismissable'><i class='fa fa-warning'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>","</div>");
 	
 		if($this->form_validation->run()){
@@ -206,7 +206,7 @@ class Room_master extends General{
 		$this->form_validation->set_rules("room_name","Room Name","trim|xss_clean|required|callback_validate_room_edit");	
 		$this->form_validation->set_rules("floor","Floor","trim|xss_clean|required");	
 		$this->form_validation->set_rules("roomType","Room Type","trim|xss_clean|required");	
-		$this->form_validation->set_rules("room_rates","Room Rate","trim|xss_clean|required|decimal");	
+		$this->form_validation->set_rules("room_rates","Room Rate","trim|xss_clean|required|numeric");	
 		$this->form_validation->set_error_delimiters("<div class='alert alert-warning alert-dismissable'><i class='fa fa-warning'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>","</div>");
 	
 		if($this->form_validation->run()){

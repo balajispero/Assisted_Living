@@ -150,13 +150,13 @@
                                                     <tr>
                                                     	<td>Birthday <font color="#FF0000"></font></td>
                                                         <td>
-                                                        <input class="form-control input-sm" name="birthday" id="birthday" type="date" value="<?php echo $patientInfo->birthday?>" placeholder="Birthday" style="width:150px;">
+                                                        <input class="form-control input-sm" name="birthday" id="birthday" type="date" value="<?php echo $patientInfo->birthday?>" placeholder="Birthday" onchange = "calAge()" style="width:150px;">
                                                         
                                                         </td>
                                                     </tr>
                                                     <tr>
                                    <td width="12%">Age<font color="#FF0000"></font></td>
-                                   <td width="88%"><input class="form-control input-sm numberonly" name="age" style="width: 250px;" value="<?php echo $patientInfo->age?>" type="text" placeholder="Age" style="width: 100px;"  value=""></td>
+                                   <td width="88%"><input class="form-control input-sm numberonly" name="age" style="width: 250px;" value="<?php echo $patientInfo->age?>" type="text" placeholder="Age" style="width: 100px;"  value="" id="age"></td>
                                </tr>
                                                     <tr>
                                                     	<td width="12%">Gender</td>
