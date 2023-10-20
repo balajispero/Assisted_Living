@@ -51,6 +51,20 @@
             #add1{
                  margin-top: 20px;
             }
+            .btn.btn-circle {
+                width: 23px !important;
+                height: 23px !important;
+                line-height: 23px !important;
+                padding: 0;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            }
+            .dis_inline {
+                display: inline-block;
+                width: 80%;
+                margin: 2px;
+            }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
 
@@ -563,7 +577,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>DIAGNOSIS</label><span class="text-danger"></span></br>
-                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary bg_color">Add Diagnosis</button><div id="dynamic_field1"></div>
+                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary bg_color">Add Diagnosis</button><br><br><div id="dynamic_field1"></div>
                                                                             
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -1579,7 +1593,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Test Score</label><span class="text-danger"></span></br>
-                                                                             <input type="text" class="form-control" name="time_test_score">
+                                                                             <input type="text" class="form-control numberonly" name="time_test_score">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1619,7 +1633,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="chair_stand_score">
+                                                                            <input type="text" class="form-control numberonly" name="chair_stand_score">
                                                                             <span class="text-danger error-text type_category_err"></span>
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1630,7 +1644,7 @@
 
                                                                  <div class="row">
                                                                     <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
+                                                                        <div class="form-group wrapper-class">
                                                                             <label>Observation by Doctor</label><span class="text-danger">*</span></br>
                                                                             <textarea name="doctor_observation" class="form-control" required></textarea>
                                                                             <span class="text-danger error-text type_category_err"></span>
@@ -1711,7 +1725,7 @@
         var i1=0; 
         $('#add1').click(function() {
             i1++;
-            $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'">  '+ i1 +' </label> <input type="text" name="diagnosis[]" value=""><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
+            $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'">  '+ i1 +' </label> <input type="text" class="form-control dis_inline" name="diagnosis[]" value=""><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
 
         });
         $(document).on('click', '.btn_remove1', function() {

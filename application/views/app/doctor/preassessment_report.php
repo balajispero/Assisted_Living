@@ -27,6 +27,9 @@ tr.border_bottom td {
   border-bottom: 1px solid  #3B4BDF;
    padding-bottom:10px
 }
+.table td {
+ padding:5px !important;
+}
 
 
 </style>
@@ -75,7 +78,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-    <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+    <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
 </div>
 </section>
 <section>
@@ -149,7 +152,7 @@ tr.border_bottom td {
 </section>
     
 <div class="container">
-<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
 </div>
   
 
@@ -191,7 +194,7 @@ tr.border_bottom td {
     </td>
     </tr>
     </table>
-    <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+    <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
 </div>
     
 </section>
@@ -205,8 +208,11 @@ tr.border_bottom td {
            </div>
         </div>
 </div> 
+</section>
+<section>
 <div class="container">
-    <table class="table table-striped">
+    
+    <table class="table table-striped" width="50%">
                                                 <tr>
                                                    <!-- <th>No.</th> --> <th>Name</th><th>Address</th><th>Contact No.</th><th>Email</th>
                                                 </tr>
@@ -216,8 +222,9 @@ tr.border_bottom td {
 
       foreach($preasses_child as $key => $preasses_child){ $key1 = $key+1; ?>
         <tr class="border_bottom" id="row<?=$key1?>">
-          <!-- <td></td> --><td><?=$preasses_child->chl_name?></td><td><?=$preasses_child->chl_add?></td><td><?=$preasses_child->chl_mobile?></td><td><?=$preasses_child->chl_email?></td>
+          <!-- <td></td> --><td><?=$preasses_child->chl_name?></td><td width="25%"><?=$preasses_child->chl_add?></td><td><?=$preasses_child->chl_mobile?></td><td><?=$preasses_child->chl_email?></td>
         </tr>
+        
         <?php } }?>
        
                                                    
@@ -280,7 +287,7 @@ tr.border_bottom td {
 </section>
 
 <div class="container">
-<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
 </div>
 
 <section>
@@ -327,7 +334,7 @@ tr.border_bottom td {
 
 
 <div class="container">
-<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+<hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
 </div>
 
 <section>
@@ -341,7 +348,7 @@ tr.border_bottom td {
 </div>
 
 <div class="container">
-    <table class="table table-striped">
+    <table class="table table-striped" width="50%">
                                                 <tr>
                                                    <!-- <th>No.</th> --> <th>Doctor Name</th><th>Contact No.</th><th>Email</th><th>Clinic Name</th>
                                                 </tr>
@@ -378,10 +385,7 @@ tr.border_bottom td {
         <div class="col-md-3 ml-4">
             <label class=" col-form-label"> Diagnosis :</label>
             </div>
-            <div class="col-3">
-            <input type="text" class="form-control ">
-           </div>
-
+           
             <div class="col-3">
                 <?php
                  $diagnosis = @explode(',',$patientInfo[0]->diagnosis); foreach($diagnosis as $key_dg => $diagnosis1){ 
@@ -433,7 +437,7 @@ tr.border_bottom td {
 
 <section>
 <div class="container">
-    <table class="table table-striped">
+    <table class="table table-striped" width="50%">
                                                 <tr>
                                                    <!-- <th>No.</th> --> <th>Name of Medicine</th><th>Dose</th><th>Frequency</th><th>Duration</th>
                                                 </tr>
@@ -560,21 +564,17 @@ tr.border_bottom td {
     <div class="container">
     <table width="100%" cellpadding="5">
     <tr>
-    <td width="50%">
+    <td width="35%">
     1st Vaccine : <?php echo $immunize_his->covid_vac_1;?> 
     </td>
-    <td width="50%">         
+    <td width="35%">         
     2nd Vaccine : <?php echo $immunize_his->covid_vac_2;?>
+    </td>
+    <td width="30%">         
+    3rd Vaccine : <?php echo $immunize_his->covid_vac_3;?>
     </td>
     </tr>
 
-    <tr>
-    <td width="50%">
-    3rd Vaccine : <?php echo $immunize_his->covid_vac_3;?> 
-    </td>
-    <td width="50%">         
-    </td>
-    </tr>
     </table>
 </div>
     
@@ -654,7 +654,7 @@ tr.border_bottom td {
             </td>
             </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
 
           
             <table width="100%" cellpadding="5">
@@ -716,7 +716,7 @@ tr.border_bottom td {
             </td>
             </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
 </div>
     
 </section>
@@ -753,7 +753,7 @@ tr.border_bottom td {
     </td>
     </tr>
     </table>
-    <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+    <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
 </div>
 </section>
 
@@ -801,7 +801,7 @@ tr.border_bottom td {
         </td>
         </tr>
         </table>
-        <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+        <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
     </div>
 
 </section>
@@ -846,7 +846,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
         </div> 
 </section>
 
@@ -890,7 +890,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
         </div>
     
 </section>
@@ -1029,7 +1029,7 @@ tr.border_bottom td {
                 </tr>     
             </table>
             
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;"> 
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;"> 
             
         </div>
     
@@ -1056,7 +1056,7 @@ tr.border_bottom td {
                 </tr>
                 
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
         </div>
     
 </section>
@@ -1082,7 +1082,7 @@ tr.border_bottom td {
                 </tr>
                 
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
         </div>
     
 </section>
@@ -1110,7 +1110,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
         </div>
     
 </section>
@@ -1138,7 +1138,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
         </div>
     
 </section>
@@ -1206,7 +1206,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
         </div>
     
 </section>
@@ -1282,7 +1282,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
         </div>
     
 </section>
@@ -1304,7 +1304,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">      
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">      
     </div>
 </section>
 
@@ -1354,7 +1354,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">
 
         <table width="100%" cellpadding="5">
                 <tr>
@@ -1373,7 +1373,7 @@ tr.border_bottom td {
                 </td>
                 </tr>
             </table>
-            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:500px;">    
+            <hr style="border-top:2px solid #3B4BDF; margin-top:10px; width:542px;">    
     </div>
 </section>
 

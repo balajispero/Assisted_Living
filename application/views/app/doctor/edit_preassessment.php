@@ -44,6 +44,21 @@
             .onlypreasses{
                 display:block !important;
             }
+            .btn.btn-circle {
+                width: 23px !important;
+                height: 23px !important;
+                line-height: 23px !important;
+                padding: 0;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            }
+            input.form-control.dis_inline {
+                display: inline-block;
+                width: 85%;
+                margin: 2px;
+            }
+
            
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
@@ -608,13 +623,13 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>DIAGNOSIS</label><span class="text-danger"></span></br>
-                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary bg_color">Add Diagnosis</button>
+                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary bg_color">Add Diagnosis</button><br><br>
                                                                             <?php $diagnosis = @explode(',',$patientInfo[0]->diagnosis); foreach($diagnosis as $key_dg => $diagnosis1){ $key_dg1 = $key_dg+1; ?>
                                                                             <div id="dynamic_field1">
 
                                                                                 <div id="row1<?=$key_dg1?>"> 
                                                                 <label" for="member_<?=$key_dg1?>"> </label> 
-                                                                <input type="text" name="diagnosis[].." value="<?=$diagnosis1?>">
+                                                                <input type="text" class="form-control dis_inline" name="diagnosis[].." value="<?=$diagnosis1?>">
                                                                 <button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key_dg1?>"><span class="glyphicon glyphicon-minus"></span></button>
                                                             </div>
                                                                             </div><!--close dynamic_field1 id-->
@@ -1864,7 +1879,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Test Score</label><span class="text-danger"></span></br>
-                                                                             <input type="text" class="form-control" name="time_test_score" value="<?php echo $patientInfo[0]->time_up_go_score?>">
+                                                                             <input type="text" class="form-control numberonly" name="time_test_score" value="<?php echo $patientInfo[0]->time_up_go_score?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -1904,7 +1919,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control" name="chair_stand_score" value="<?php echo $patientInfo[0]->chair_stand_score?>">
+                                                                            <input type="text" class="form-control numberonly" name="chair_stand_score" value="<?php echo $patientInfo[0]->chair_stand_score?>">
                                                                             <span class="text-danger error-text type_category_err"></span>
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -2011,7 +2026,7 @@
             var diagnosiscuont = $('#diagnosiscuont').val();
                 
                  i1 = j1+ + +diagnosiscuont;
-            $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'">   </label> <input type="text" class="" name="diagnosis[]" value=""><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
+            $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'">   </label> <input type="text" class="form-control dis_inline" name="diagnosis[]" value=""><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
             j1++;
 
         });

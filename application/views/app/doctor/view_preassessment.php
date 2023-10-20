@@ -44,6 +44,20 @@
             .onlypreasses{
                 display:block !important;
             }
+            .btn.btn-circle {
+                width: 23px !important;
+                height: 23px !important;
+                line-height: 23px !important;
+                padding: 0;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            }
+            input.form-control.dis_inline {
+                display: inline-block;
+                width: 85%;
+                margin: 2px;
+            }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
     </head>
@@ -613,7 +627,7 @@
 
                                                                                 <div id="row1<?=$key_dg1?>"> 
                                                                 <label" for="member_<?=$key_dg1?>"> </label> 
-                                                                <input type="text" name="diagnosis[].." value="<?=$diagnosis1?>">
+                                                                <input type="text" class="form-control dis_inline" name="diagnosis[].." value="<?=$diagnosis1?>">
                                                                 <button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key_dg1?>"><span class="glyphicon glyphicon-minus"></span></button>
                                                             </div>
                                                                             </div><!--close dynamic_field1 id-->
