@@ -178,7 +178,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Apply</button>
+        <button type="button" class="btn btn-primary bg_color">Apply</button>
       </div>
     </div>
   </div>

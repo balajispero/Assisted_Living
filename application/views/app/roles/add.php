@@ -129,7 +129,7 @@
                                         
                                         <div class="form-group">
                                             <a href="<?php echo base_url();?>app/roles" class="btn btn-default">Cancel</a>
-                                            <button class="btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                            <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                         </div>
                                         
                                 </form>

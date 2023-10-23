@@ -248,7 +248,7 @@
                                 </div>					
                                 
                                  <div class="form-group">
-                                <button class="form-control btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                <button class="form-control btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                 </div>
                                 
                             </div>

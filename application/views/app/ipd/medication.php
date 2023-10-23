@@ -480,7 +480,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -513,7 +513,7 @@
                                             <!-- <td>Advice</td> -->
                                             <!-- <td>Mobilization</td> -->
                                             <!-- <td>prepared by</td> -->
-                                            <td><button type="button" id="add" name="add" class="fa fa-plus btn-success btn-sm add" style="background-color: #00bbc7;"></button></td>
+                                            <td><button type="button" id="add" name="add" class="fa fa-plus btn-light btn-sm add bg_color" ></button></td>
                                             </tr>
                                             </tr>
                                             <input type="hidden" value="<?php if(!empty($key1)){ print($key1);}else{ echo '0';}?>" id="prescuont"></input>
@@ -522,7 +522,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color">Save</button>
                                         </div>
                                        
                                     </div>
@@ -552,7 +552,7 @@
                                             <td>Dose</td>
                                             <!-- <td>Advice</td> -->
                 
-                                            <td><button type="button" name="add" class="fa fa-plus btn-success btn-sm emerg_add" style="background-color: #00bbc7;"></button></td>
+                                            <td><button type="button" name="add" class="fa fa-plus  btn-sm emerg_add bg_color" style="background-color: #00bbc7;"></button></td>
                                             </tr>
                                             </tr>
                                             <input type="hidden" value="<?php if(!empty($key1)){ print($key1);}else{ echo '0';}?>" id="prescuont"></input>
@@ -561,7 +561,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color">Save</button>
                                         </div>
                                        
                                     </div>

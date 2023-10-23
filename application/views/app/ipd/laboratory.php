@@ -322,7 +322,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                             <button name="btnSubmit" class="btn btn-primary" id="btnSubmit" type="submit" style="font-size:12px;">Save</button>
+                                             <button name="btnSubmit" class="btn btn-primary bg_color" id="btnSubmit" type="submit" style="font-size:12px;">Save</button>
                                         </div>
                                        
                                     </div>
@@ -456,7 +456,7 @@
 
       <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="submit" id="editBtn" class="btn btn-sm btn-primary"  tabindex="11">Update</button>
+                                            <button type="submit" id="editBtn" class="btn btn-sm btn-primary bg_color"  tabindex="11">Update</button>
                                         </div>
                                         </form>
 

@@ -103,7 +103,7 @@
                     	 <div class="box">
                          		<form class="form-search" method="post" action="<?php echo base_url();?>app/surgical_package/view">
                          		<div class="box-header">
-                                    <h3 class="box-title"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Item</a></h3>
+                                    <h3 class="box-title"><a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Item</a></h3>
                                     
                                     <div class="box-tools">
                                         <div class="input-group">
@@ -214,7 +214,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Add</button>
+                                            <button type="submit" class="btn btn-primary bg_color">Add</button>
                                         </div>
                                        
                                     </div>
