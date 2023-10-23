@@ -143,7 +143,7 @@
                                            <td><?php echo $patientInfo->patient_no;?></td>
                                            <td><?php echo !empty($patientInfo->middlename) ? $patientInfo->middlename : ''?></td>
                                            <td><?php echo !empty($patientInfo->email_address) ? $patientInfo->email_address : ''?></td>
-                                            <td><?php echo !empty($patientInfo->birthday) ? $patientInfo->birthday : ''?></td>
+                                            <td><?php echo ($patientInfo->birthday=="0000-00-00") ? '' : $patientInfo->birthday?></td>
                                            <td><?php /*echo $patientInfo->gender*/?>
                                                <?php
                                                  $ci_obj = & get_instance();
@@ -705,6 +705,9 @@
                                                     <th>Date & Time</th>
                                                     <th>Medicine Name</th>
                                                     <th>Dose</th>
+                                                    <!-- <th>Morning Nurse</th>
+                                                    <th>Afternoon Nurse</th>
+                                                    <th>Night Nurse</th> -->
                                                     <th>Prepared By</th>
                                         </tr>
                                     </thead>
@@ -718,6 +721,9 @@
                                                  echo $pages->medicine_name;
                                              ?></td>
                                                 <td><?php echo $given_medicine->dose?></td>
+                                                <!-- <td><?php echo $given_medicine->mor_nurse?></td>
+                                                <td><?php echo $given_medicine->afternoon_nurse?></td>
+                                                <td><?php echo $given_medicine->night_nurse?></td> -->
                                                 <td><?php 
                                                 $ci_obj = & get_instance();
                                                 $ci_obj->load->model('app/general_model');

@@ -108,8 +108,8 @@
                                     <?php echo validation_errors(); ?>   
                                     
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Test Name</label>
-                                        <input class="form-control input-sm" name="sample_test_name" type="text" style="width: 350px;" value="<?php echo !empty($lab_test_info[0]->lab_test_name) ? $lab_test_info[0]->lab_test_name : $lab_test_info[0]->laboratory_id;?>" required>
+                                        <label for="exampleInputEmail1">Test Name<font color="#FF0000">*</font></label>
+                                        <input class="form-control input-sm" name="sample_test_name" type="text" style="width: 350px;" value="<?php echo !empty($lab_test_info[0]->lab_test_name) ? $lab_test_info[0]->lab_test_name : $lab_test_info[0]->laboratory_id;?>" required readonly>
                                     </div>
                                     
                                     <div class="form-group">

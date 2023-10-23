@@ -19,6 +19,23 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+            <style>
+            .btn.btn-circle {
+                width: 23px !important;
+                height: 23px !important;
+                line-height: 23px !important;
+                padding: 0;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            }
+            .dis_inline {
+                display: inline-block !important;
+                width: 80% !important;
+                margin: 2px;
+            }
+            
+        </style>
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
     </head>
     <body class="skin-blue" >
@@ -517,13 +534,13 @@
                                                 <div class="tab-pane" id="tab_5">
                                                 <table cellpadding="3" cellspacing="3" width="100%">
                                                     <tr>
-                                                        <td width="20%"><button type="button" name="add" id="add">Add Medicine</button>
+                                                        <td width="20%"><button type="button" name="add" id="add" class="btn btn-primary bg_color">Add Medicine</button><br><br>
                                                         <?php $medicine = explode(',',$patientInfo->ptn_sugess_medi); foreach($medicine as $key => $medicine1){ $key1 = $key+1; ?>
                                                         <div id="dynamic_field">
-                                                            <div id="row<?=$key1?>"> 
-                                                                <label" for="member_<?=$key1?>"> </label> 
-                                                                <input type="text" name="medicine[].." value="<?=$medicine1?>">
-                                                                <button type="button" class="btn_remove" name="remove" id="<?=$key1?>">-</button>
+                                                            <div id="row<?=$key1?>" class="dis_flex"> 
+                                                                <label for="member_<?=$key1?>"> </label> 
+                                                                <input type="text" name="medicine[].." class="form-control dis_inline" value="<?=$medicine1?>">
+                                                                <button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key1?>"><span class="glyphicon glyphicon-minus"></span></button>
                                                             </div>
                                                         </div>
                                                         <?php }?>
@@ -873,7 +890,7 @@
 				// console.log(diagcount);
 				var i = j+ + +medicinecuont;
                 // i++;
-                $('#dynamic_field').append('<div id="row'+i+'"> <label" for="member_'+ i +'"> </label> <input type="text" name="medicine[]" value=""><button type="button" class="btn_remove" name="remove" id="'+ i +'">-</button></div>')
+                $('#dynamic_field').append('<div id="row'+i+'" class="dis_flex"> <label for="member_'+ i +'"> </label> <input type="text" name="medicine[]" value="" class="form-control dis_inline"><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
                 j++;
             });
             $(document).on('click', '.btn_remove', function() {

@@ -19,6 +19,7 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
       <![endif]-->
+        
       </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -109,7 +110,7 @@
                                     
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Test Name</label>
-                                        <input class="form-control input-sm" name="sample_test_name" type="text" style="width: 350px;" value="<?php echo $lab_test_info[0]->laboratory_id;?>" required>
+                                        <input class="form-control input-sm" name="sample_test_name" type="text" style="width: 350px;" value="<?php echo $lab_test_info[0]->laboratory_id;?>" required readonly>
                                     </div>
                                     
                                     <h2>Uploaded Report</h2>
@@ -131,17 +132,27 @@
                                                         <?php
                                                         $ext = pathinfo($arrayd[$i], PATHINFO_EXTENSION);
                                                                 // print_r($ext);
-                                                        if($ext=="pdf" || $ext=="docx" || $ext=="doc")
+                                                        if($ext=="pdf")
                                                         {
                                                             ?>
-                                                            <?php echo $arrayd[$i];?>
-                                                        <?php }else{ ?>
-                                                          <img src="<?php echo base_url('public/lab_test_report/');?><?php echo $arrayd[$i];?>" alt="not found" style="width:100%;height:50%">
+                                                            
+                                                              <iframe src="<?php echo base_url('public/lab_test_report/');?><?php echo $arrayd[$i];?>" width="332" height="240" scrolling="no"></iframe>
+                                                             <a href="<?php echo base_url('public/lab_test_report/'); ?><?php echo $arrayd[$i]; ?>" target="_blank">Download PDF</a> 
+                                                            
+                                                        <?php }elseif($ext=="png" || $ext=="jpeg" || $ext=="jpg"){ ?>
+                                                            <a href="<?php echo base_url('public/lab_test_report/'); ?><?php echo $arrayd[$i]; ?>" download>
+                                                                <img src="<?php echo base_url('public/lab_test_report/');?><?php echo $arrayd[$i];?>" alt="not found" style="width:100%;height:50%">
+                                                            </a>
 
-                                                      <?php } ?>
-                                                      <!-- <div class="caption">
+                                                      <?php 
+                                                        }
+                                                            else{
+                                                                  echo $arrayd[$i];
+                                                                 } 
+                                                        ?>
+                                                        <!-- <div class="caption">
                                                         <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p> 
-                                                    </div> -->
+                                                    </div> -->  
                                                 </a>
                                                 
                                             </div>

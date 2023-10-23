@@ -163,7 +163,7 @@ class Doctor extends General{
 		$tmpl = array('table_open' => '<table class="table table-hover table-striped">');
         $this->table->set_template($tmpl);
 		$this->table->set_empty("&nbsp;");
-		$this->table->set_heading('Preassessment No','Preassessment Name','Email','Aadhar No','Gender','Age','Action');
+		$this->table->set_heading('Preassessment No','Preassessment Name','Email','Aadhar No','Gender','Age','Action','Report');
 // 		$i = 0 + $offset;
 		
 		

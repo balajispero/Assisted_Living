@@ -870,7 +870,7 @@
 				// console.log(diagcount);
 				var i = j+ + +medicinecuont;
                 // i++;
-                $('#dynamic_field').append('<div id="row'+i+'"> <label" for="member_'+ i +'"> </label> <input type="text" name="medicine[]" value=""><button type="button" class="btn_remove" name="remove" id="'+ i +'">-</button></div>')
+                $('#dynamic_field').append('<div id="row'+i+'" class="dis_flex"> <label for="member_'+ i +'"> </label> <input type="text" name="medicine[]" value="" class="form-control dis_inline"><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
                 j++;
             });
             $(document).on('click', '.btn_remove', function() {

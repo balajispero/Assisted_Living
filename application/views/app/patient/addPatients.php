@@ -33,6 +33,22 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
       <![endif]-->
+        <style>
+            .btn.btn-circle {
+                width: 23px !important;
+                height: 23px !important;
+                line-height: 23px !important;
+                padding: 0;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            }
+            .dis_inline {
+                display: inline-block !important;
+                width: 80%;
+                margin: 2px;
+            }
+        </style>
       <?php require_once(APPPATH.'views/include/responsive_design.php');?>
       </head>
       <body class="skin-blue">
@@ -155,7 +171,7 @@
                                                          </select>
                                                          
                                                      </td>
-                                                 </tr>x
+                                                 </tr>
                                                     <tr>
                                                         <td>Admission Date<font color="#FF0000"></font></td>
                                                         <td>
@@ -739,9 +755,9 @@
                     for (var preasses_i = 0; preasses_i < res.length; preasses_i++) {
                             preassesmed_cnt=preasses_i+1;
 
-                            sub_cat +='<div id="row'+preassesmed_cnt+'">';
-                            sub_cat +='<label for="member_'+preassesmed_cnt+'"> </label><input type="text" name="member[]" value="'+res[preasses_i].medicine+'">';
-                            sub_cat +='<button type="button" class="btn_remove" name="remove" id="'+preassesmed_cnt+'">-</button></div>';   
+                            sub_cat +='<div id="row'+preassesmed_cnt+'" class="dis_flex">';
+                            sub_cat +='<label for="member_'+preassesmed_cnt+'"> </label><input type="text" name="member[]" class="form-control dis_inline" value="'+res[preasses_i].medicine+'">';
+                            sub_cat +='<button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+preassesmed_cnt+'"><span class="glyphicon glyphicon-minus"></span></button></div>';   
                                 
                            }
                   
@@ -775,7 +791,7 @@
                     var medicinecuont = $('#medicinecuont').val();
                     var i = j+ + +medicinecuont;
                     //i++;
-                    $('#dynamic_field').append('<div id="row'+i+'"> <label" for="member_'+ i +'">  </label> <input type="text" name="member[]" value=""><button type="button" class="btn_remove" name="remove" id="'+ i +'">-</button></div>')
+                    $('#dynamic_field').append('<div id="row'+i+'" class="dis_flex"> <label for="member_'+ i +'">  </label> <input type="text" name="member[]" value="" class="form-control dis_inline"><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
                     j++;
                 });
                 $(document).on('click', '.btn_remove', function() {

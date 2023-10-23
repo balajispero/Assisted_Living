@@ -486,6 +486,7 @@
                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
                                                                 <label>Have you appointed a Power of Attorney (POA) and/or Health Care Proxy (HCP)</label>
                                                                 <select name="appointment_poa" class="form-control">
+                                                                    <option value=""> Select POA & HCP</option>
                                                                   <option value="Yes">Yes</option>
                                                                   <option value="No">No</option>
                                                                 </select><br>

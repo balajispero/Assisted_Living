@@ -491,6 +491,7 @@
                                                                 <hr style="border-top: 2px solid #3B4BDF;"/>
                                                                 <label>Have you appointed a Power of Attorney (POA) and/or Health Care Proxy (HCP)</label>
                                                                 <select name="appointment_poa" class="form-control">
+                                                                    <option value=""> Select POA & HCP</option>
                                                                   <option value="Yes" <?php if($patientInfo[0]->appointment_poa=="Yes") { echo "selected"; } ?>>Yes</option>
                                                                   <option value="No" <?php if($patientInfo[0]->appointment_poa=="No") { echo "selected"; } ?>>No</option>
                                                                 </select><br>

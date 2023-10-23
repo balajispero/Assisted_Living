@@ -18,6 +18,12 @@
     {
         width: 100% !important;
     }
+    .dis_flex {
+                display: flex;
+            }
+            .btn.btn-circle {
+                margin-top: 7px;
+            }
 } 
 @media only screen and (min-width: 1024px)
 {    
@@ -150,6 +156,12 @@
       #ptn_cvs,#ptn_cns {
         width: 60% !important;
     }
+    .dis_flex {
+                display: flex;
+            }
+            .btn.btn-circle {
+                margin-top: 7px;
+            }
 
 }
 </style>
