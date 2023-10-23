@@ -235,6 +235,7 @@ class Nurse_module extends General{
 			if($_POST['dose'][$key][$sd_i]=="M")
 			{
 				@$mor_nurse=$pages->cPreparedBy;
+
 			}
 			if($_POST['dose'][$key][$sd_i]=="A")
 			{
@@ -265,6 +266,31 @@ class Nurse_module extends General{
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
 			'updated_date'			=>		date("Y-m-d h:i:s A"),
 		);
+
+		/***********Start code for add dosewise nurse name***********/
+			 										/*$ci_obj = & get_instance();
+												$ci_obj->load->model('app/general_model');
+												$pages = $ci_obj->general_model->getPreparedBy($this->session->userdata('user_id'));
+												
+			for($sd_i=0;$sd_i<count($_POST['dose'][$key]);$sd_i++)
+			{
+			if($_POST['dose'][$key][$sd_i]=="M")
+			{
+				@$mor_nurse=$pages->cPreparedBy;
+				$this->data['mor_nurse']=@$mor_nurse;
+			}
+			if($_POST['dose'][$key][$sd_i]=="A")
+			{
+				@$afternoon_nurse=$pages->cPreparedBy;
+				$this->data['afternoon_nurse']=@$afternoon_nurse;
+			}
+			if($_POST['dose'][$key][$sd_i]=="N")
+			{
+				@$night_nurse=$pages->cPreparedBy;
+				$this->data['night_nurse']=@$night_nurse;
+			}		
+			}*/
+			/***********End code for add dosewise nurse name***********/	
 
 		$id=array('iop_med_id'=>$_POST['medicine_id'][$key],'iop_id'=>$_POST['iop_id'][$key],'given_date'=>date("Y-m-d"));
 		$this->db->update('iop_nurse_medicine',$this->data,$id);

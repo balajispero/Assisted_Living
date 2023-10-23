@@ -29,6 +29,7 @@
     margin: 3px !important;
 }
         </style>
+       
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -503,6 +504,16 @@ xmlhttp.send();
                         });
             });
         </script>
+        <!-- Start check one checkbox allowed -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+         <script>
+        $(document).on('click', 'input[type="checkbox"]', function() {      
+        // $('input[type="checkbox"]').not(this).prop('checked', false);
+        $(this).closest('tr').find('input[type="checkbox"]').not(this).prop('checked', false);      
+        });
+        </script> -->
+        <!-- End check one checkbox allowed -->
+
         
         
         

@@ -3,7 +3,7 @@
 
   
 <head>
-<head>
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
 <style>
     body, html {
       height: 100%;
@@ -21,20 +21,33 @@
 	.account-container{
 		margin: 50px 60px 0 auto !important;
 	}
-	 @media only screen and (min-width: 300px) and (max-width: 425px)
+	 @media only screen and (min-width: 300px) and (max-width: 500px)
 	{ 
 		.account-container {
-    margin-top: 300px !important;
-    width: 380px;
-    display: block;
-    background: #f9f9f9;
-    border: 1px solid #d5d5d5;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 2px #dadada, inset 0px -3px 0px #e6e6e6;
-}
-	 } 
+    margin: -50px 0px 0 auto !important;
+	}
+	h1{
+		font-size:25px !important;
+		line-height:15px !important;
+	 }
+	 .username-field{
+	 	margin-top:-22px !important;
+	 }
+	 .button {
+	 	margin-top:10px !important;
+	 }
+	 .content {
+    	padding: 16px 28px 0px !important;
+	} 
+	}
+	@media only screen and (min-width: 500px) and (max-width: 1400px)
+	{ 
+		.account-container {
+    margin-top: -10px !important;
+	}
+	
+	}
+	
 </style>
 
     <meta charset="utf-8">
@@ -135,7 +148,7 @@
 								
 							</div>
 							<div class="login-actions">
-								<button class="button btn btn-primary btn-large">Log In</button>
+								<button class="button btn btn-primary btn-large" style="background-color: #3B4BDF;">Log In</button>
 							</div> <!-- .actions -->
 						</form>
 						
