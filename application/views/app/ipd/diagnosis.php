@@ -260,7 +260,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                             <button class="btn btn-primary" id="btnSubmit" type="submit" style="font-size:12px;">Save</button>
+                                             <button class="btn btn-primary bg_color" id="btnSubmit" type="submit" style="font-size:12px;">Save</button>
                                         </div>
                                        
                                     </div>
