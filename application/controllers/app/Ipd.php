@@ -465,6 +465,66 @@ class Ipd extends General{
 
 	/*********************Start mail send code*********************/
 	public function mail_view(){
+    $iop_no = $this->uri->segment("4");
+    $patient_no = $this->uri->segment("5");
+
+    $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+    $this->data['getvitalsign'] = $this->ipd_model->getvitalsign_for_mail($iop_no);
+    $this->data['patient_Medication'] = $this->Opd_model->patient_Medication($iop_no);
+
+    $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+    $this->data['departmentList'] = $this->general_model->departmentList();
+    $this->data['message'] = $this->session->flashdata('message');
+
+    if (@$_POST['submit'] == 'sent_mail') {
+        $this->data['doctor_comments'] = $this->input->post('doctor_comments');
+        $to_email = $this->input->post('mail_to');
+        $rel_email2 = $this->input->post('rel_email2');
+
+        $to_email = "balajimuttepwar892@gmail.com";
+         $rel_email2 = "balajimuttepawar7058@gmail.com";
+        
+        if (filter_var($to_email, FILTER_VALIDATE_EMAIL)) {
+        $subject = "Health updates of " . @$this->data['patientInfo']->middlename;
+
+        $msg1 = $this->load->view('app/ipd/mail_generate', $this->data, TRUE);
+
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        $headers .= 'From: balajiM@sperohealthcare.in' . "\r\n";
+        //$headers .= 'From: doctoraastha@sperohealthcare.in' . "\r\n";
+        
+        $headers .= "CC: balajim.speroinfosystems@gmail.com, $rel_email2\r\n";
+        //$headers .= "CC: avinash@sperohealthcare.in, kaushikpanditrao@ahpl.in, $rel_email2\r\n";
+
+        if (mail($to_email, $subject, $msg1, $headers)) {
+            $res = $this->ipd_model->save_sent_mail();
+
+            if ($res) {
+                $this->session->set_flashdata('message', "<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully</div>");
+                redirect(base_url() . 'app/ipd/mail_view/' . $iop_no . '/' . $patient_no, $this->data);
+            } else {
+                $this->session->set_flashdata('message', "<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully</div>");
+                redirect(base_url() . 'app/ipd/mail_view/' . $iop_no . '/' . $patient_no, $this->data);
+            }
+        } else {
+            $this->session->set_flashdata('message', "<div class='alert alert-danger alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sending failed...</div>");
+            redirect(base_url() . 'app/ipd/mail_view/' . $iop_no . '/' . $patient_no, $this->data);
+        }
+        } else {
+            // Handle the case where the email address is not valid
+            $this->session->set_flashdata('message', "<div class='alert alert-danger alert-dismissable'><i class='fa fa-exclamation-circle'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Invalid email address</div>");
+            redirect(base_url() . 'app/ipd/mail_view/' . $iop_no . '/' . $patient_no, $this->data);
+        }
+    }
+
+    $this->load->view("app/ipd/mail_view", $this->data);
+}
+	/*********************End mail send code*********************/
+
+	/*********************Start CI mail send code*********************/
+	/*public function cimail_view(){
 
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
@@ -483,13 +543,13 @@ class Ipd extends General{
 		$rel_email2=$this->input->post('rel_email2');
 		
 		$to_email="balajimuttepawar7058@gmail.com";
-		/*$cc1="avinash@sperohealthcare.in";
-		$cc2="kaushikpanditrao@ahpl.in";
-		$cc3="@$this->input->post('rel_email2')";*/
+		//$cc1="avinash@sperohealthcare.in";
+		//$cc2="kaushikpanditrao@ahpl.in";
+		//$cc3="@$this->input->post('rel_email2')";
 		 $this->load->library('email');
 
         // Email content
-        $subject = "Health updates of @". $this->data['patientInfo']->middlename;
+        $subject = "Health updates of ". @$this->data['patientInfo']->middlename;
         
         $msg1=$this->load->view('app/ipd/mail_generate',$this->data,TRUE);
 
@@ -498,13 +558,11 @@ class Ipd extends General{
         $this->email->initialize($config);
         $this->email->from('balajimuttepawar7058@gmail.com', 'Ashtha Team');
         $this->email->to($to_email); // Replace with the recipient's email address
-        /*$cclist = array($cc1, $cc2, $cc3);
-        $this->email->cc($cclist);*/
+        //$cclist = array($cc1, $cc2, $cc3);
+        //$this->email->cc($cclist);
         $this->email->subject($subject);
         $this->email->message($msg1);
-        /*$this->email->send();
-        echo $this->email->print_debugger();die;*/
-
+        
         // Send the email
         if ($this->email->send()) {
 
@@ -525,8 +583,8 @@ class Ipd extends General{
         }
     }
 		$this->load->view("app/ipd/mail_view",$this->data);	
-	}
-	/*********************End mail send code*********************/
+	}*/
+	/*********************End CI mail send code*********************/
 	public function diagnosis(){
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");

@@ -24,7 +24,7 @@
 	 @media only screen and (min-width: 300px) and (max-width: 500px)
 	{ 
 		.account-container {
-    margin: -50px 0px 0 auto !important;
+    margin: 2px 0px 0 auto !important;
 	}
 	h1{
 		font-size:25px !important;

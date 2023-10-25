@@ -19,7 +19,7 @@
 </head>
 <body bgcolor="#dddddd" style="margin: 0; padding: 0;" yahoo="fix">
                                             <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 600px;" class="table content"> 
-  <tr>
+  <!-- <tr>
     <td align="center" bgcolor="#0F0F0F" style="padding: 20px 20px 20px 20px; color: #ffffff; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; ">
       <div  style="padding: 10px; height: 120px;width: 120px;border-radius: 50%;background: #fff; display: table-cell !important;vertical-align: middle !important;text-align: center !important;">
         <center>
@@ -30,7 +30,7 @@
         <span style="margin: 8px">ALF</span>
       </div>
     </td> 
-  </tr> 
+  </tr>  -->
 
   <tr>
     <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">

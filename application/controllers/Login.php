@@ -20,6 +20,7 @@ class Login extends General{
 	}
 	
 	function login(){
+		
 		$this->session->unset_userdata(array(
                 'username'          =>      '',
                 'is_logged_in'      =>      false,
@@ -62,12 +63,16 @@ class Login extends General{
              )); 
 			 
 			 $userModule = $this->login_model->getMyModule($this->session->userdata('user_id'));
+			 if ($this->session->userdata('user_role')=='12'){
+			 	redirect(base_url().'app/doctor/preassessment_list',$this->data);
+			 }
 			 redirect(base_url().'app/dashboard',$this->data);
 			
 			 
 			 
 			 
         }else{
+
             $this->login();        
         }
 	}

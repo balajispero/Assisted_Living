@@ -233,12 +233,14 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        
+                         <?php if ($this->session->userdata('user_role')!='12'){ ?>
                          <li>
+
                             <a href="<?php echo base_url()?>app/dashboard" >
                                 <i class="fa fa-dashboard"></i> <span style="color:#2B48B0;">Dashboard</span>
                             </a>
-                        </li>     
+                        </li>
+                        <?php } ?>     
                         
                         <!--START OF POS-->
                         
@@ -505,7 +507,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <i class="fa fa-user"></i> <span style="color:#2B48B0;">User Profile</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                            <ul class="treeview-menu">
+                            <ul class="treeview-menu onlypreasses">
                                 <li <?php echo $myprofile_mod;?>><a href="<?php echo base_url()?>myprofile"><i class="fa fa-angle-double-right"></i>My Profile</a></li>
                                 <li <?php echo $editprofile_mod;?>><a href="<?php echo base_url()?>myprofile/editprofile"><i class="fa fa-angle-double-right"></i>Edit Profile</a></li>
                                 <!-- <li <?php echo $change_pwd_mod;?>><a href="<?php echo base_url()?>myprofile/changepwd"><i class="fa fa-angle-double-right"></i>Change Password</a></li> -->
