@@ -260,7 +260,7 @@
                                             if(!empty($medicine_chart)){ ?>
                             <tr>
                                 <td>
-                                    <input type="submit" class="btn btn-primary" value="Save Changes" name="save">
+                                    <input type="submit" class="btn btn-primary bg_color" value="Save Changes" name="save">
                                 </td>   
                         </tr> 
                         <?php } ?>

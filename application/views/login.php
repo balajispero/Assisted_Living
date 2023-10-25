@@ -47,6 +47,10 @@
 	}
 	
 	}
+	.bg_color{
+            background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;
+
+        }
 	
 </style>
 
@@ -148,7 +152,7 @@
 								
 							</div>
 							<div class="login-actions">
-								<button class="button btn btn-primary btn-large" style="background-color: #3B4BDF;">Log In</button>
+								<button class="button btn btn-primary btn-large bg_color" >Log In</button>
 							</div> <!-- .actions -->
 						</form>
 						
