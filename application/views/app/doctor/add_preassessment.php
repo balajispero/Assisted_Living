@@ -608,7 +608,7 @@
                                                                     </div><!-- /.col-md-3 -->
 
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next1" name="submit" value="next">
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next1" name="submit" value="Next">
                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
     
 
@@ -737,7 +737,7 @@
                                                                 </tr>    
                                                               </table>
                                                             </div>
-                                                            <input type="submit" class="submit_btn btn btn-primary bg_color" id="next2" name="submit" value="next">
+                                                            <input type="submit" class="submit_btn btn btn-primary bg_color" id="next2" name="submit" value="Next">
 
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
 
@@ -1106,7 +1106,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next3" name="submit" value="next">
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next3" name="submit" value="Next">
                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
                                             
                 </div>
@@ -1520,7 +1520,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next4" name="submit" value="next">
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next4" name="submit" value="Next">
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
                    
                                                 </div>
@@ -1672,7 +1672,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" name="submit" value="submit">
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" name="submit" value="Submit">
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
                                                     
                                                 </div>
