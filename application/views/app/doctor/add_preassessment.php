@@ -1532,7 +1532,7 @@
           <th>Questions</th><th>Answer</th>
         </tr>
        <tr>
-          <td>Have you fallen in the past year?<input type="hidden" name="past_year_qtn" class="form-control" value="you have fallen in the past year?"></td><td><!-- <input type="text" name="past_year" class="form-control"> --><input type="radio" class="chkradio past_year" name="past_year" value="2">Yes &nbsp;
+          <td>Have you fallen in the past year?<input type="hidden" name="past_year_qtn" class="form-control" value="Have you fallen in the past year?"></td><td><!-- <input type="text" name="past_year" class="form-control"> --><input type="radio" class="chkradio past_year" name="past_year" value="2">Yes &nbsp;
     <input type="radio" name="past_year" class="chkradio past_year" value="0" checked>No</td>
 
         </tr>
