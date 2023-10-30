@@ -19,6 +19,18 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+
+        <style>
+          @media screen and (max-width: 320px) {
+                 .search_field{
+                    width: 140px !important;
+                    margin-top: 6px;
+                }
+                .search_btn{
+                    margin-top: 7px !important;
+                } 
+            }
+        </style>
         
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -102,9 +114,9 @@
                                     
                                     <div class="box-tools">
                                         <div class="input-group">
-                                            <input type="text" name="search" id="search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                                            <input type="text" name="search" id="search" class="form-control input-sm pull-right search_field" style="width: 150px;" placeholder="Search"/>
                                             <div class="input-group-btn">
-                                                <button class="btn btn-sm btn-default" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i></button>
+                                                <button class="btn btn-sm btn-default search_btn"  name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i></button>
                                             </div>
                                         </div>
                                     </div>
