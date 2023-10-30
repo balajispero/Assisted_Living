@@ -1634,7 +1634,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Score</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="chair_stand_score">
+                                                                            <input type="text" class="form-control numberonly" name="chair_stand_score" placeholder="Enter 1 to 13">
                                                                             <span class="text-danger error-text type_category_err"></span>
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->

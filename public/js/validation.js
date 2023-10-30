@@ -21,6 +21,7 @@ $('.bi3number').keyup(function() {
     var $th = $(this);
     $th.val( $th.val().replace(/[^0-3]{1}/g, function(str) { return ''; } ) );
 });
+
 /**************** Barthel index validation******************/
 
 /**************** Vital Sign validation******************/
@@ -76,8 +77,18 @@ $('.bi3number').keyup(function() {
           
          }
        });
-/**************** Vital Sign validation******************/    
-
+/**************** Vital Sign validation******************/
+/**************** Chair stand score validation******************/    
+$("input[name='chair_stand_score']").change(function() {
+        
+      var chair_stand_score = parseInt($("input[name='chair_stand_score']").val());
+      //requirement range is 1 to 13
+       if( chair_stand_score < 1 || chair_stand_score > 13 ) {
+           $(this).val('');
+          
+         }
+       });    
+/**************** Chair stand score validation******************/
 /**************** mobile number validation******************/
 
 /*$('.numberonly').keyup(function() {
