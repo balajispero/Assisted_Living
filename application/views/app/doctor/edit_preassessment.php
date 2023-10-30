@@ -76,11 +76,11 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>Member Registration</h1>
+                    <h1>Edit Preassessment</h1>
                     <ol class="breadcrumb">
-                        <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <!-- <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Member Management</a></li>
-                        <li class="active">Member Registration</li>
+                        <li class="active">Member Registration</li> -->
                     </ol>
                 </section>
 
@@ -1980,7 +1980,7 @@
                                             </div>
                                             <div class="box-footer clearfix">
                                                 <!-- <button class="btn btn-primary" name="submit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button> -->
-                                                 <input type="submit" class="btn btn-primary bg_color" name="submit" value="submit">
+                                                 <input type="submit" class="btn btn-primary bg_color" name="submit" value="Submit">
                                                 <!-- <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a> -->
                                             </div>
                                         </div>

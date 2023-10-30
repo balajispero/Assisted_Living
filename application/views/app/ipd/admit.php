@@ -320,6 +320,14 @@
 												document.getElementById("bed_name").value = bed_name;
 											}
                                             </script>
+                                            <div class="alt2" dir="ltr" style="
+                                    margin: 0px;
+                                    padding: 0px;
+                                    border: 0px solid #919b9c;
+                                    width: 100%;
+                                    height: 300px;
+                                    text-align: left;
+                                    overflow: auto"> 
                                             <table cellpadding="4" width="100%">
                                             <tr>
                                             	<td>
@@ -341,14 +349,14 @@
                                             <tr>
                                             	<td colspan="2">
                                                 <span id="master_room">
-                                                	 <div class="alt2" dir="ltr" style="
+                                                	 <!-- <div class="alt2" dir="ltr" style="
 														margin: 0px;
 														padding: 0px;
 														border: 0px solid #919b9c;
 														width: 100%;
 														height: 400px;
 														text-align: left;
-														overflow: auto">
+														overflow: auto"> -->
                                                       <table class="table" id="myTable" width="100%" cellpadding="2" cellspacing="2">
                                                       <thead>
                                                       	<tr style="border-bottom:1px #999 solid; border-collapse:collapse">
@@ -362,7 +370,7 @@
                                                         </tr>
                                                       </thead>
                                                       </table>  
-                                                      </div>
+                                                      <!-- </div> -->
                                                 </span>
                                                 </td>
                                             </tr>
@@ -370,14 +378,14 @@
                                             	<td colspan="2">
                                                 <hr>
                                                 <span id="master_bed">
-                                                	 <div class="alt2" dir="ltr" style="
+                                                	 <!-- <div class="alt2" dir="ltr" style="
 														margin: 0px;
 														padding: 0px;
 														border: 0px solid #919b9c;
 														width: 100%;
 														height: 300px;
 														text-align: left;
-														overflow: auto">
+														overflow: auto"> -->
                                                         <table class="table" id="myTable" width="100%" cellpadding="2" cellspacing="2">
                                                       <thead>
                                                       	<tr style="border-bottom:1px #999 solid; border-collapse:collapse">
@@ -390,11 +398,12 @@
                                                         </tr>
                                                       </thead>
                                                       </table>  
-                                                      </div>
+                                                      <!-- </div> -->
                                                 </span>
                                                 </td>
                                             </tr>
                                             </table>
+                                        </div>
                                             
                                             
                                         </div>

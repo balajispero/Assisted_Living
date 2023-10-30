@@ -77,17 +77,15 @@ class Preassessment_model extends CI_Model{
 	public function get_preassesment($id){
 			$this->db->select('ptn_preasses.*,ptn_fmly.*,psycho_cond.*,immuniz_his.*,barthel_index.*,local_guardian.*,typical_day.*');
 			$this->db->from('patient_preassessment ptn_preasses');
-			$this->db->join('patient_family ptn_fmly', 'ptn_fmly.preasses_id = ptn_preasses.preasses_id', 'left');
-			$this->db->join('preassessment_guardian local_guardian','local_guardian.preasses_id = ptn_preasses.preasses_id','left');
-			$this->db->join('preassessment_typical_day typical_day','typical_day.preasses_id = ptn_preasses.preasses_id','left');
-			/*$this->db->join('patient_chl ptn_chl', 'ptn_chl.preasses_id = ptn_preasses.preasses_id', 'left');*/
+			$this->db->join('patient_family ptn_fmly', 'ptn_fmly.preasses_no = ptn_preasses.preasses_no', 'left');
+			$this->db->join('preassessment_guardian local_guardian','local_guardian.preasses_no = ptn_preasses.preasses_no','left');
+			$this->db->join('preassessment_typical_day typical_day','typical_day.preasses_no = ptn_preasses.preasses_no','left');
+			
 			/*$this->db->join('preassessment_medicines ptn_med', 'ptn_med.preasses_id = ptn_preasses.preasses_id','left');*/
+			$this->db->join('patient_psychological_cond psycho_cond', 'psycho_cond.preasses_no = ptn_preasses.preasses_no','left');
 
-			/*$this->db->join('treating_doctor treat_dr', 'treat_dr.preasses_id = ptn_preasses.preasses_id','left');*/
-			$this->db->join('patient_psychological_cond psycho_cond', 'psycho_cond.preasses_id = ptn_preasses.preasses_id','left');
-
-			$this->db->join('preassessment_immunization_his immuniz_his','immuniz_his.preasses_id = ptn_preasses.preasses_id','left');
-			$this->db->join('preassessment_barthel_index barthel_index','barthel_index.preasses_id = ptn_preasses.preasses_id','left');
+			$this->db->join('preassessment_immunization_his immuniz_his','immuniz_his.preasses_no = ptn_preasses.preasses_no','left');
+			$this->db->join('preassessment_barthel_index barthel_index','barthel_index.preasses_no = ptn_preasses.preasses_no','left');
  		
  			if($this->session->userdata('user_role') == 5)
 			{
@@ -95,7 +93,6 @@ class Preassessment_model extends CI_Model{
 			}else{
 					$this->db->where(array('ptn_preasses.InActive'=>0,'ptn_preasses.preasses_id'=>$id,'ptn_preasses.added_by'=>$this->session->userdata('user_id')));
 				}
- 			//$this->db->where(array('ptn_preasses.InActive'=>0,'ptn_preasses.preasses_id'=>$id));
 			/*$this->db->order_by('rbed.room_bed_id', 'ASC');*/
 			//$this->db->limit('7');
 			$query = $this->db->get();

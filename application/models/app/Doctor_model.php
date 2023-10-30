@@ -254,6 +254,7 @@ class Doctor_model extends CI_Model{
 			A.preasses_aadhar,
 			A.preasses_gender,
 			A.preasses_age,
+			concat(E.firstname,' ',E.middlename,' ',E.lastname) as 'name',
 			A.preasses_add
 			",false);
 		
@@ -278,7 +279,8 @@ class Doctor_model extends CI_Model{
 		
 		$this->db->where($where);
 		$this->db->order_by('A.preasses_id','desc');
-		$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
+		$this->db->join("patient_psychological_cond B","B.preasses_no = A.preasses_no","left outer");
+		$this->db->join("users E","E.user_id = A.added_by","left outer");
 		/*$this->db->join("system_parameters C","C.param_id = B.title","left outer");
 		$this->db->join("department D","D.department_id = A.department_id","left outer");
 		$this->db->join("patient_type D","D.patient_type = A.patient_type","left outer");
@@ -310,6 +312,7 @@ class Doctor_model extends CI_Model{
 			A.preasses_aadhar,
 			A.preasses_gender,
 			A.preasses_age,
+			concat(E.firstname,' ',E.middlename,' ',E.lastname) as 'name',
 			A.preasses_add
 			",false);
 		
@@ -334,6 +337,7 @@ class Doctor_model extends CI_Model{
 		$this->db->where($where);
 		$this->db->order_by('A.preasses_id','desc');
 		$this->db->join("patient_psychological_cond B","B.preasses_id = A.preasses_id","left outer");
+		$this->db->join("users E","E.user_id = A.added_by","left outer");
 		/*$this->db->join("system_parameters C","C.param_id = B.title","left outer");
 		$this->db->join("department D","D.department_id = A.department_id","left outer");
 		$this->db->join("patient_type D","D.patient_type = A.patient_type","left outer");

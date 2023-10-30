@@ -112,12 +112,12 @@ class Doctor extends General{
 				 'submodule'	=>		''));
 				 
 				// user restriction function
-				$this->session->set_userdata('page_name','ipd_doctor');
-				/*$page_id = $this->General_model->getPageID();
+				$this->session->set_userdata('page_name','preassessment_list');
+				$page_id = $this->General_model->getPageID();
 				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
 				if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
 					redirect(base_url().'access_denied');
-				}*/
+				}
 				// end of user restriction function		 
 				 
 				 //print_r($this->session->userdata());die;
@@ -163,7 +163,7 @@ class Doctor extends General{
 		$tmpl = array('table_open' => '<table class="table table-hover table-striped">');
         $this->table->set_template($tmpl);
 		$this->table->set_empty("&nbsp;");
-		$this->table->set_heading('Preassessment No','Preassessment Name','Email','Aadhar No','Gender','Age','Action','Report');
+		$this->table->set_heading('Preassessment No','Preassessment Name','Email','Age','Gender','Added By','Action','Report');
 // 		$i = 0 + $offset;
 		
 		
@@ -179,9 +179,9 @@ class Doctor extends General{
 									anchor('app/doctor/view_preassessment/'.$patient->preasses_id,$patient->preasses_no),
 									$patient->preasses_name, 
 									$patient->preasses_email, 
-									$patient->preasses_aadhar,
-									$patient->preasses_gender,  
 									$patient->preasses_age,
+									$patient->preasses_gender,  
+									$patient->name,
 									anchor('app/doctor/edit_preassessment/'.$patient->preasses_id,'Modify'),
 									anchor('app/doctor/preassessment_report/'.$patient->preasses_id,'Pdf')
 									
@@ -222,6 +222,15 @@ class Doctor extends General{
 				 'module'		=>		'',
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
+
+		// user restriction function
+				$this->session->set_userdata('page_name','preassessment_add');
+				$page_id = $this->General_model->getPageID();
+				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
+				if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
+					redirect(base_url().'access_denied');
+				}
+				// end of user restriction function
 				 $this->data['message'] = $this->session->flashdata('message');
 
 				 $this->data['lastPreassesID'] = $this->preassessment_model->lastPreassesID();
@@ -728,6 +737,15 @@ class Doctor extends General{
 				 'module'		=>		'ipd_doctor',
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
+
+		// user restriction function
+				$this->session->set_userdata('page_name','preassessment_view');
+				$page_id = $this->General_model->getPageID();
+				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
+				if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
+					redirect(base_url().'access_denied');
+				}
+				// end of user restriction function
 				 $this->data['message'] = $this->session->flashdata('message');
 
 		$this->data['patientInfo'] = $this->preassessment_model->get_preassesment($id);
@@ -747,7 +765,15 @@ class Doctor extends General{
 				 'module'		=>		'ipd_doctor',
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
-		//$this->session->set_userdata('page_name','ipd_doctor');
+
+		// user restriction function
+				$this->session->set_userdata('page_name','preassessment_modify');
+				$page_id = $this->General_model->getPageID();
+				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
+				if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
+					redirect(base_url().'access_denied');
+				}
+				// end of user restriction function
 				 $this->data['message'] = $this->session->flashdata('message');
 
 		$this->data['patientInfo'] = $this->preassessment_model->get_preassesment($id);
@@ -1320,7 +1346,7 @@ class Doctor extends General{
             // Render the HTML as PDF
             $dompdf->render();
             // Output the generated PDF to Browser
-            $dompdf->stream('preassessment_report.pdf',array("Attachment" => 0));
+            $dompdf->stream('preassessment_report.pdf',array("Attachment" => 1));
 	}
 
 	public function preassessment_report_new($id=0)

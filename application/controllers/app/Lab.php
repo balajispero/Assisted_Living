@@ -30,12 +30,12 @@ class Lab extends General{
 			'submodule'	=>		''));
 		
 				// user restriction function
-				/*$this->session->set_userdata('page_name','ipd_doctor');
+				$this->session->set_userdata('page_name','lab_sample');
 				$page_id = $this->General_model->getPageID();
 				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
 				if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
 					redirect(base_url().'access_denied');
-				}*/
+				}
 				// end of user restriction function		 
 				
 				 //print_r($this->session->userdata());die;
@@ -120,6 +120,15 @@ class Lab extends General{
 				'module'		=>		'',
 				'subtab'		=>		'',
 				'submodule'	=>		''));
+
+			// user restriction function
+				$this->session->set_userdata('page_name','lab_sample_add');
+				$page_id = $this->General_model->getPageID();
+				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
+				if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
+					redirect(base_url().'access_denied');
+				}
+				// end of user restriction function
 			$this->data['message'] = $this->session->flashdata('message');
 
 			$this->data['lab_test_info'] = $this->lab_model->get_lab_sample_test_single($id);
@@ -184,6 +193,14 @@ class Lab extends General{
 				'module'		=>		'doctor',
 				'subtab'		=>		'',
 				'submodule'	=>		''));
+			// user restriction function
+				$this->session->set_userdata('page_name','lab_sample_view');
+				$page_id = $this->General_model->getPageID();
+				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
+				if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
+					redirect(base_url().'access_denied');
+				}
+				// end of user restriction function
 			$this->data['message'] = $this->session->flashdata('message');
 
 			$this->data['lab_test_info'] = $this->lab_model->get_lab_sample_test_single($id);
@@ -197,6 +214,14 @@ class Lab extends General{
 				'module'		=>		'doctor',
 				'subtab'		=>		'',
 				'submodule'	=>		''));
+			// user restriction function
+				$this->session->set_userdata('page_name','lab_sample_modify');
+				$page_id = $this->General_model->getPageID();
+				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
+				if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
+					redirect(base_url().'access_denied');
+				}
+				// end of user restriction function
 			$this->data['message'] = $this->session->flashdata('message');
 
 			$this->data['lab_test_info'] = $this->lab_model->get_lab_sample_test_single($id);

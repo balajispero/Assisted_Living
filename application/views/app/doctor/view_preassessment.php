@@ -74,11 +74,11 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>Member Registration</h1>
+                    <h1>View Preassessment</h1>
                     <ol class="breadcrumb">
-                        <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+                       <!--  <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Member Management</a></li>
-                        <li class="active">Member Registration</li>
+                        <li class="active">Member Registration</li> -->
                     </ol>
                 </section>
 

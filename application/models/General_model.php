@@ -165,6 +165,7 @@ class General_model extends CI_Model{
 		$this->db->select('page_id');
 		$this->db->where("page_link", $this->session->userdata('page_name'));
 		$query = $this->db->get('pages');
+		//echo $this->db->last_query(); die;
 		return $query->row();		
 	}
 	

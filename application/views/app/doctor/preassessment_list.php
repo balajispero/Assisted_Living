@@ -85,12 +85,12 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>In-Member Master</h1>
+                    <h1>Preassessment</h1>
                     <ol class="breadcrumb">
-                        <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <!-- <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Doctor Module</a></li>
                         <li><a href="#">IPD</a></li>
-                        <li class="active">In-Member Master</li>
+                        <li class="active">In-Member Master</li> -->
                     </ol>
                 </section>
 

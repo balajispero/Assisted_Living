@@ -243,7 +243,15 @@
                                 <h3 class="box-title">General Examination</h3>
                             </div>
                             <div class="box-body no-padding">
-                                <div class="table-responsive">
+                                <!-- <div class="table-responsive"> -->
+                                     <div class="alt2" dir="ltr" style="
+                                    margin: 0px;
+                                    padding: 0px;
+                                    border: 0px solid #919b9c;
+                                    width: 100%;
+                                    height: 200px;
+                                    text-align: left;
+                                    overflow: auto">  
                                     <table class="table table-hover">
                                     <thead>
                                         <tr>
