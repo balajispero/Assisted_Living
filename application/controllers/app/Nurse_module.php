@@ -215,7 +215,7 @@ class Nurse_module extends General{
 		redirect(base_url().'app/nurse_module/medication/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 		
 	}
-	public function save_medication_chart(){
+	public function save_medication_chartss(){
 		 // print_r($_POST);die;
 		foreach($_POST['dose'] as $key=>$row){
 			foreach($row as $r){
@@ -359,6 +359,138 @@ class Nurse_module extends General{
 			'InActive'		=>		0
 		);
 		$this->db->insert("iop_medication",$this->data);*/
+		
+		$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Medication successfully Added!</div>");
+		
+		$this->session->set_userdata("abc","1");
+		redirect(base_url().'app/nurse_module/medication/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+		
+	}
+		public function save_medication_chart(){
+		 // print_r($_POST);die;
+		foreach($_POST['dose'] as $key=>$row){
+			foreach($row as $r){
+				/*echo "Medicine id = ".$_POST['medicine_id'][$key];
+				echo "iop id = ".$_POST['iop_id'][$key];
+				echo "Dosage = ".$r;
+				echo "<br>";*/
+			}
+			$dose2=@implode(",",$_POST['dose'][$key]);
+		
+			$where = "(
+		iop_med_id= '".$_POST['medicine_id'][$key]."' and
+		added_date like '%".date("Y-m-d")."%' 
+		) 
+		and InActive = 0";
+		$this->db->where($where);
+		$query = $this->db->get("iop_nurse_medicine");
+		$nurse_med=$query->result();
+		
+		if($query->num_rows() > 0)
+		{
+			$this->data = array(
+			'cPreparedBy'	=>		$this->session->userdata('user_id'),
+			'updated_date'			=>		date("Y-m-d h:i:s A"),
+		);
+
+		
+		if (preg_match("/{$dose2}/i", @$nurse_med[0]->dose)) {
+				
+			$merge_dose=@$nurse_med[0]->dose;
+			$this->data['dose']=@$merge_dose;
+			
+		}
+		else{	
+			$merge_dose=@$nurse_med[0]->dose.','.$dose2;
+			$this->data['dose']=@$merge_dose;
+				if(@$nurse_med[0]->dose=="M")
+				{
+
+				}
+				if(@$nurse_med[0]->dose=="A")
+				{
+					
+				}
+				if(@$nurse_med[0]->dose=="N")
+				{
+					//$this->data['night_nurse']=@$nurse_med[$key]->night_nurse;
+				}
+			}
+		//print_r($merge_dose);die;
+
+		/***********Start code for add dosewise nurse name***********/
+			 										
+												
+			for($sd_i=0;$sd_i<count($_POST['dose'][$key]);$sd_i++)
+			{
+			if($_POST['dose'][$key][$sd_i]=="M")
+			{
+				
+				$this->data['mor_nurse']=$this->session->userdata('user_id');
+				$this->data['mor_dose_updated_dtime']=date("Y-m-d h:i:s A");
+			}
+			if($_POST['dose'][$key][$sd_i]=="A")
+			{
+				
+				$this->data['afternoon_nurse']=$this->session->userdata('user_id');
+				$this->data['afternoon_dose_updated_dtime']=date("Y-m-d h:i:s A");
+			}
+			if($_POST['dose'][$key][$sd_i]=="N")
+			{
+				
+				$this->data['night_nurse']=$this->session->userdata('user_id');
+				$this->data['night_dose_updated_dtime']=date("Y-m-d h:i:s A");
+			}		
+			}
+			/***********End code for add dosewise nurse name***********/	
+
+		$id=array('iop_med_id'=>$_POST['medicine_id'][$key],'iop_id'=>$_POST['iop_id'][$key],'given_date'=>date("Y-m-d"));
+		$this->db->update('iop_nurse_medicine',$this->data,$id);
+		$mor_nurse = $afternoon_nurse = $night_nurse = $dose2 ="";
+		}
+		else{
+			
+			$this->data = array(
+			'iop_id'		=>		$_POST['iop_id'][$key],
+			'iop_med_id'		=>		$_POST['medicine_id'][$key],
+			 'dose'	=>		$dose2,
+			 'given_date'			=>		date("Y-m-d h:i:s A"),
+			'cPreparedBy'	=>		$this->session->userdata('user_id'),
+			'added_date'			=>		date("Y-m-d h:i:s A"),
+			'InActive'		=>		0
+		);
+			
+			/***********Start code for add dosewise nurse name***********/
+			 										
+												
+			for($sd_i=0;$sd_i<count($_POST['dose'][$key]);$sd_i++)
+			{
+			if($_POST['dose'][$key][$sd_i]=="M")
+			{
+				
+				$this->data['mor_nurse']=$this->session->userdata('user_id');
+				$this->data['mor_dose_added_dtime']=date("Y-m-d h:i:s A");
+			}
+			if($_POST['dose'][$key][$sd_i]=="A")
+			{
+				
+				$this->data['afternoon_nurse']=$this->session->userdata('user_id');
+				$this->data['afternoon_dose_added_dtime']=date("Y-m-d h:i:s A");
+			}
+			if($_POST['dose'][$key][$sd_i]=="N")
+			{
+				
+				$this->data['night_nurse']=$this->session->userdata('user_id');
+				$this->data['night_dose_added_dtime']=date("Y-m-d h:i:s A");
+			}		
+			}
+			/***********End code for add dosewise nurse name***********/
+
+			$this->db->insert("iop_nurse_medicine",$this->data);
+			$mor_nurse = $afternoon_nurse = $night_nurse = "";
+		}
+			
+		}
 		
 		$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Medication successfully Added!</div>");
 		

@@ -729,9 +729,26 @@
                                                  echo $pages->medicine_name;
                                              ?></td>
                                                 <td><?php echo $given_medicine->dose?></td>
-                                                <!-- <td><?php echo $given_medicine->mor_nurse?></td>
-                                                <td><?php echo $given_medicine->afternoon_nurse?></td>
-                                                <td><?php echo $given_medicine->night_nurse?></td> -->
+                                                <!-- <td>
+                                                    <?php
+                                                       /* $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $pages = $ci_obj->general_model->getPreparedBy($given_medicine->mor_nurse);  
+                                                        echo @$pages->cPreparedBy*/
+                                                    ?>
+                                                 </td>
+                                                 <td>
+                                                    <?php
+                                                        /* $pages = $ci_obj->general_model->getPreparedBy($given_medicine->afternoon_nurse);    
+                                                        echo @$pages->cPreparedBy*/
+                                                    ?>
+                                                 </td>
+                                                <td>
+                                                    <?php
+                                                        /*$pages = $ci_obj->general_model->getPreparedBy($given_medicine->night_nurse);
+                                                        echo @$pages->cPreparedBy*/
+                                                    ?>
+                                                </td> -->
                                                 <td><?php 
                                                 $ci_obj = & get_instance();
                                                 $ci_obj->load->model('app/general_model');

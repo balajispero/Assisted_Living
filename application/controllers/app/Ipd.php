@@ -1541,7 +1541,7 @@ class Ipd extends General{
 		redirect(base_url().'app/ipd/nurse_progress_note/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 		
 	}
-	public function edit_given_medication(){
+	public function edit_given_medicationss(){
 		$dose2=@implode(",",$_POST['dose']);
 		$this->data = array(
 			'given_date'		=>		$this->input->post('given_date'),
@@ -1549,6 +1549,50 @@ class Ipd extends General{
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
 			/*'updated_date'			=>		date("Y-m-d h:i:s A"),*/
 		);
+
+		$id=array('iop_nurse_med_id'=>$this->input->post('iop_nurse_med_id'));	
+		$query = $this->db->update('iop_nurse_medicine',$this->data,$id);
+		
+		$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Medication Successfully Updated!</div>");
+		
+		redirect(base_url().'app/ipd/medication/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+		
+	}
+
+	public function edit_given_medication(){
+		$dose2=@implode(",",$_POST['dose']);
+		
+		$this->data = array(
+			'given_date'		=>		$this->input->post('given_date'),
+			 'dose'	=>		$dose2,
+			'cPreparedBy'	=>		$this->session->userdata('user_id'),
+			'updated_date'			=>		date("Y-m-d h:i:s A")
+		);
+		/***********Start code for add dosewise nurse name***********/
+												
+			for($sd_i=0;$sd_i<count($_POST['dose']);$sd_i++)
+			{
+			if($_POST['dose'][$sd_i]=="M")
+			{
+			
+				$this->data['mor_nurse']=$this->session->userdata('user_id');
+				$this->data['mor_dose_updated_dtime']=date("Y-m-d h:i:s A");
+			}
+			if($_POST['dose'][$sd_i]=="A")
+			{
+				
+				$this->data['afternoon_nurse']=$this->session->userdata('user_id');
+				$this->data['afternoon_dose_updated_dtime']=date("Y-m-d h:i:s A");
+			}
+			if($_POST['dose'][$sd_i]=="N")
+			{
+			
+				$this->data['night_nurse']=$this->session->userdata('user_id');
+				$this->data['night_dose_updated_dtime']=date("Y-m-d h:i:s A");
+			}		
+			}
+			/***********End code for add dosewise nurse name***********/
+			
 
 		$id=array('iop_nurse_med_id'=>$this->input->post('iop_nurse_med_id'));	
 		$query = $this->db->update('iop_nurse_medicine',$this->data,$id);
