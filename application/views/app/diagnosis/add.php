@@ -108,7 +108,7 @@
                                 
                                 		<div class="form-group">
                                             <label for="exampleInputEmail1">Diagnosis Name</label>
-                                            <input class="form-control input-sm" name="diagnosis" id="diagnosis" type="text" placeholder="Group Name" style="width: 250px;" required>
+                                            <input class="form-control input-sm" name="diagnosis" id="diagnosis" type="text" placeholder="Group Name" style="width: 350px;" required>
                                         </div>
                                         
                                         <div class="form-group">

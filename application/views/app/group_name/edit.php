@@ -108,7 +108,7 @@
                                 
                                 		<div class="form-group">
                                             <label for="exampleInputEmail1">Group Name</label>
-                                            <input class="form-control input-sm" value="<?php echo $group_name->group_name;?>" name="group_name" id="group_name" type="text" placeholder="Group Name" style="width: 250px;" required>
+                                            <input class="form-control input-sm" value="<?php echo $group_name->group_name;?>" name="group_name" id="group_name" type="text" placeholder="Group Name" style="width: 350px;" required>
                                         </div>
                                         
                                         <div class="form-group">

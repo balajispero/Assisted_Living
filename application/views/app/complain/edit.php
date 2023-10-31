@@ -108,7 +108,7 @@
                                 
                                 		<div class="form-group">
                                             <label for="exampleInputEmail1">Complaint Name</label>
-                                            <input class="form-control input-sm" value="<?php echo $complain->complain_name?>" name="complain" id="complain" type="text" placeholder="Complain Name" style="width: 250px;" required>
+                                            <input class="form-control input-sm" value="<?php echo $complain->complain_name?>" name="complain" id="complain" type="text" placeholder="Complain Name" style="width: 350px;" required>
                                         </div>
                                         
                                         <div class="form-group">

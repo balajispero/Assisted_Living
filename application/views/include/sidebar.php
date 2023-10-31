@@ -215,7 +215,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                             
                         </div>
                         <div class="pull-left info">
-                            <p style="font-size:20px;">Hello, <?php echo $userInfo->firstname;?></p>
+                            <p style="font-size:15px;">Hello, <?php echo $userInfo->firstname;?></p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>

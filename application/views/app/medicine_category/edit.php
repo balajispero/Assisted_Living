@@ -109,7 +109,7 @@
                                 
                                 		<div class="form-group">
                                             <label for="exampleInputEmail1">Category Name</label>
-                                            <input class="form-control input-sm" value="<?php echo $medicine_category->med_category_name;?>" name="category" id="category" type="text" placeholder="Group Name" style="width: 250px;" required>
+                                            <input class="form-control input-sm" value="<?php echo $medicine_category->med_category_name;?>" name="category" id="category" type="text" placeholder="Group Name" style="width: 350px;" required>
                                         </div>
                                         
                                         <div class="form-group">
