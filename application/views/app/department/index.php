@@ -20,18 +20,7 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        <style>
-          @media screen and (max-width: 320px) {
-                 .search_field{
-                    width: 140px !important;
-                    margin-top: 6px;
-                }
-                .search_btn{
-                    margin-top: 7px;
-                } 
-            }
-        </style>
-        
+      
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
