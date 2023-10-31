@@ -74,6 +74,12 @@
              background-color:#2B48B0; 
             border-color: #428bca;
         }
+        .search_field{
+                    width: 143px !important;    
+                }
+                .box .box-header > .box-tools {
+                    padding: 11px 10px 5px 5px !important;
+                    }
    </style>
 <header class="header" style="background: url('<?php echo base_url()?>public/img/new/header_bar_bg_01.jpg') repeat-x; background-size: 100% 100%; border-bottom:1px solid #CCC">
     <a href="#" class="logo">

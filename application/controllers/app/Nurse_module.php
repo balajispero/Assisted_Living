@@ -42,7 +42,7 @@ class Nurse_module extends General{
 		$offset = $this->uri->segment($uri_segment);
 		
 		$patient = $this->doctor_model->getAll2($this->limit, $offset);
-// 		print_r($patient);die;
+ 		//print_r($patient);die;
 		$config['base_url'] = base_url().'app/nurse_module/medications/';
  		$config['total_rows'] = $this->doctor_model->count_all2();
  		$config['per_page'] = $this->limit;

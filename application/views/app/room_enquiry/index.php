@@ -174,6 +174,14 @@
 												document.getElementById("bed_name").value = bed_name;
 											}
                                             </script>
+                                            <div class="alt2" dir="ltr" style="
+                                                        margin: 0px;
+                                                        padding: 0px;
+                                                        border: 0px solid #919b9c;
+                                                        width: 100%;
+                                                        height: 400px;
+                                                        text-align: left;
+                                                        overflow: auto">
                                             <table cellpadding="4" width="100%">
                                             <tr>
                                             	<td>
@@ -249,6 +257,7 @@
                                                 </td>
                                             </tr>
                                             </table>
+                                        </div>
                                             
                                             
                                         </div>
