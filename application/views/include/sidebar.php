@@ -345,7 +345,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <i class="fa fa-plus-square"></i> <span style="color:#2B48B0;"> Nurse Module</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                            <ul class="treeview-menu">
+                            <ul class="treeview-menu onlynurse_module">
                                 <!--<li <?php echo $nurse_diagnosis;?>><a href="<?php echo base_url()?>app/nurse_module/diagnosis">&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i>Diagnosis</a></li>-->
                                 <?php if($hasAccesstoNurseMedication){?><li <?php echo $nurse_medication;?>><a href="<?php echo base_url()?>app/nurse_module/medications">&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i>Member Medication</a></li><?php }?>
                                 <?php if($hasAccesstoNurseInOutTake){?><li <?php echo $nurse_intake_output;?>><a href="<?php echo base_url()?>app/nurse_module/intake_outputs">&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i>Input/Output Record</a></li><?php }?>

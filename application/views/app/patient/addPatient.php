@@ -229,7 +229,8 @@
                                                     <tr>
                                                         <td width="14%">Email Address<font color="#FF0000">*</font></td>
                                                         <td width="86%"> 
-                                                            <?php echo form_input('email',set_value('email'),'id="email" class="form-control input-sm" placeholder="Email Address" style="width: 250px;"');?>
+                                                            <?php /*echo form_input('email',set_value('email'),'id="email" class="form-control input-sm" placeholder="Email Address" style="width: 250px;"');*/?>
+                                                            <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" style="width: 250px;" required>
                                                         </td>
                                                     </tr>
                                                     <tr>

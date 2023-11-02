@@ -24,6 +24,12 @@
             .btn.btn-circle {
                 margin-top: 7px;
             }
+            input#ptn_cvs {
+            width: 60% !important;
+        }
+        input#ptn_cns {
+            width: 60% !important;
+        }
 } 
 @media only screen and (min-width: 1024px)
 {    

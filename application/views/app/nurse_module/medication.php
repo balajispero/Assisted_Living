@@ -26,8 +26,11 @@
         <![endif]-->
         <style>
             .icheckbox_minimal {
-    margin: 3px !important;
-}
+            margin: 3px !important;
+            }
+            .onlynurse_module{
+                display:block !important;
+            }
         </style>
        
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -220,7 +223,7 @@
                                             <form method="post" action="<?php echo base_url()?>app/nurse_module/save_medication_chart">
                                                 <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                                                     <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
-                                                <div class="well">Today prepared medice by doctor</div>
+                                                <div class="well">Today prepared medicine by doctor</div>
                                             <table class="table table-hover table-striped">
                                            <thead>
                                                 <tr>
@@ -267,7 +270,7 @@
                         </table>
                     </form>
                                             <br><br><br><br><br><br><br>
-  <div class="well">Today given medice by nurse</div>
+  <div class="well">Today given medicine by nurse</div>
                                             <table class="table table-hover table-striped">
                                            <thead>
                                                 <tr>
@@ -505,13 +508,13 @@ xmlhttp.send();
             });
         </script>
         <!-- Start check one checkbox allowed -->
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
          <script>
         $(document).on('click', 'input[type="checkbox"]', function() {      
         // $('input[type="checkbox"]').not(this).prop('checked', false);
         $(this).closest('tr').find('input[type="checkbox"]').not(this).prop('checked', false);      
         });
-        </script> -->
+        </script>
         <!-- End check one checkbox allowed -->
 
         
