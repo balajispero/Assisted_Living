@@ -80,6 +80,15 @@
                 .box .box-header > .box-tools {
                     padding: 11px 10px 5px 5px !important;
                     }
+                    .user-panel {
+                        padding: 5px;
+                    }
+                    .user-panel > .info {
+                        font-weight: 500;
+                        padding: 5px 5px 5px 10px;
+                        font-size: 14px;
+                        line-height: 1;
+                    }
    </style>
 <header class="header" style="background: url('<?php echo base_url()?>public/img/new/header_bar_bg_01.jpg') repeat-x; background-size: 100% 100%; border-bottom:1px solid #CCC">
     <a href="#" class="logo">
