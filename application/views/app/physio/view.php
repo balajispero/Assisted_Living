@@ -14,8 +14,8 @@
         <link href="<?php echo base_url();?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         
            <!----------BOOTSTRAP DATEPICKER----------------------------->
-    	<link rel="stylesheet" href="<?php echo base_url();?>public/datepicker/css/datepicker.css">
-		<!---------------------------------------------------------->
+        <link rel="stylesheet" href="<?php echo base_url();?>public/datepicker/css/datepicker.css">
+        <!---------------------------------------------------------->
         
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -85,7 +85,7 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                	<?php if($this->session->userdata('emr_viewing') == "ipd_emr_viewing"){?>	
+                    <?php if($this->session->userdata('emr_viewing') == "ipd_emr_viewing"){?>   
                    <h1>IPD Member Information</h1>
                    <ol class="breadcrumb">
                         <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -110,38 +110,38 @@
                 <?php   
                  ?>
                 
-                    <!-- <form action="<?php echo base_url()?>app/ipd/update_patient_type/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post"> -->
+                    <!-- <form action="<?php echo base_url()?>app/physio/update_patient_type/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post"> -->
                 <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
 
                 <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
                  
                  <div class="row">
-                 	
+                    
                      <div class="col-md-3">
-                    	 <div class="box">
-                         	 <div class="box-header"></div>
-                        	<div class="box-body table-responsive no-padding">
-                            	<table width="100%" cellpadding="3" cellspacing="3">
+                         <div class="box">
+                             <div class="box-header"></div>
+                            <div class="box-body table-responsive no-padding">
+                                <table width="100%" cellpadding="3" cellspacing="3">
                                 <tr>
-                                	<!-- <td width="15%" valign="top" align="center">
+                                    <!-- <td width="15%" valign="top" align="center">
                                     <?php
-									if(!$patientInfo->picture){
-										$picture = "avatar.png";	
-									}else{
-										$picture = $patientInfo->picture;
-									}
-									?>
-									<img src="<?php echo base_url();?>public/patient_picture/<?php echo $picture;?>" class="img-rounded" width="86" height="81">
+                                    if(!$patientInfo->picture){
+                                        $picture = "avatar.png";    
+                                    }else{
+                                        $picture = $patientInfo->picture;
+                                    }
+                                    ?>
+                                    <img src="<?php echo base_url();?>public/patient_picture/<?php echo $picture;?>" class="img-rounded" width="86" height="81">
                                     </td> -->
                                     <td>
-                                    	<table width="100%">
+                                        <table width="100%">
                                         <tr>
-                                        	<td><u>Member No.</u></td>
-                                        	<td><?php echo  $patientInfo->patient_no?></td>
+                                            <td><u>Member No.</u></td>
+                                            <td><?php echo  $patientInfo->patient_no?></td>
                                         </tr>
                                         <tr>
-                                        	<td><u>Member Name</u></td>
-                                        	<td><?php echo @$patientInfo->middlename?></td>
+                                            <td><u>Member Name</u></td>
+                                            <td><?php echo @$patientInfo->middlename?></td>
                                         </tr>
                             
                                         </table>
@@ -150,13 +150,13 @@
                                 </table>
                             </div>
                             <div class="box-footer clearfix">
-                            	<div style="margin-top: 15px;">
+                                <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
-                                 	<li class="active"><a href="<?php echo base_url()?>app/ipd/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
-                                 	<!-- <li><a href="<?php echo base_url()?>app/ipd/individual_care_plan/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
+                                    <li class="active"><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
+                                    <!-- <li><a href="<?php echo base_url()?>app/ipd/individual_care_plan/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                 
-                                 	<li><a href="<?php echo base_url()?>app/ipd/diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li>
-                                 	<li><a href="<?php echo base_url()?>app/ipd/medication/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li> -->
+                                    <li><a href="<?php echo base_url()?>app/ipd/diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li>
+                                    <li><a href="<?php echo base_url()?>app/ipd/medication/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li> -->
                                     
                                  </ul>
                                 </div>
@@ -166,17 +166,17 @@
                      
                      <div class="col-md-9"> 
                                 <div class="nav-tabs-custom">
-                                	<ul class="nav nav-tabs">
-                                		<li class="active"><a href="#tab_1" data-toggle="tab">Evaluation</a></li>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#tab_1" data-toggle="tab">Evaluation</a></li>
                                         
-                                	</ul>
+                                    </ul>
                                     <div class="tab-content">
-                                    	<div class="tab-pane active" id="tab_1">
+                                        <div class="tab-pane active" id="tab_1">
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
                                             <!-- <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Evaluation</a> -->
                                             <a href="<?php echo base_url();?>app/physio/add_evaluation" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a>
                                             <?php } ?>
-                                        	<div class="alt2" dir="ltr" style="
+                                            <div class="alt2" dir="ltr" style="
                                     margin: 0px;
                                     padding: 0px;
                                     border: 0px solid #919b9c;
@@ -200,28 +200,28 @@
                                            </thead>
                                            <tbody>
                                            <?php /*foreach($getProgressNote as $rows){*/?>
-                                           <tr>
-                                                <!-- <td><?php echo date("d M, Y h:i:s A",strtotime($rows->dDateTime));?></td>
-                                                <td><?php echo date("d M, Y",strtotime($rows->to_date));?></td>
-                                                <td><?php echo $rows->comorbid_cond?></td>
-                                                <td><?php echo $rows->goal?></td>
-                                                <td><?php echo $rows->plan_action?></td>
-                                                <td><?php echo $rows->action_taken?></td>
-                                                <td><?php echo $rows->review?></td>
+                                           <!-- <tr>
+                                                <td><?php /*echo date("d M, Y h:i:s A",strtotime($rows->dDateTime));*/?></td>
+                                                <td><?php /*echo date("d M, Y",strtotime($rows->to_date));*/?></td>
+                                                <td><?php /*echo $rows->comorbid_cond*/?></td>
+                                                <td><?php /*echo $rows->goal*/?></td>
+                                                <td><?php /*echo $rows->plan_action*/?></td>
+                                                <td><?php /*echo $rows->action_taken*/?></td>
+                                                <td><?php /*echo $rows->review*/?></td>
                                                 <td><?php 
-                                                $ci_obj = & get_instance();
+                                                /*$ci_obj = & get_instance();
                                                 $ci_obj->load->model('app/general_model');
-                                                $pages = $ci_obj->general_model->getPreparedBy($rows->cPreparedBy);
+                                                $pages = $ci_obj->general_model->getPreparedBy($rows->cPreparedBy);*/
                                                 
-                                                echo $pages->cPreparedBy?></td> -->
-                                                <!-- <td>
-                                                <?php if($this->session->userdata('emr_viewing') == ""){?>  
-                                                <?php if($getOPDPatient->nStatus == "Pending"){?>
-                                                <?php if(strtotime($rows->to_date) <= strtotime(date("Y-m-d"))) { ?> <a href="#" class="btn-review" data-id="<?php echo $rows->ind_care_plan_id;?>" data-review="<?php echo $rows->review;?>" data-io_id="<?php echo $getOPDPatient->IO_ID;?>" data-patient_no="<?php echo $getOPDPatient->patient_no;?>" data-comorbid_cond="<?php echo $rows->comorbid_cond;?>" data-goal="<?php echo $rows->goal;?>" data-plan_action="<?php echo $rows->plan_action;?>" data-action_taken="<?php echo $rows->action_taken;?>">Review</a> <?php } else{ } ?>
+                                                /*echo $pages->cPreparedBy*/?></td>
+                                                <td>
+                                                <?php /*if($this->session->userdata('emr_viewing') == ""){*/?>  
+                                                <?php /*if($getOPDPatient->nStatus == "Pending"){*/?>
+                                                <?php /*if(strtotime($rows->to_date) <= strtotime(date("Y-m-d"))) /*{*/ ?>  <?php /*} else{ } */?>
                                                 
-                                                <?php }}?>
-                                                </td> -->
-                                           </tr>
+                                                <?php /*}}*/?>
+                                                </td>
+                                           </tr> -->
                                            <?php /*}*/?> 
                                            </tbody>
                                            </table>
@@ -229,9 +229,9 @@
                                             
                                             <br><br><br><br><br><br><br>
                                         </div>
-                           			</div>
+                                    </div>
                             <div class="box-footer clearfix">
-                                	
+                                    
                             </div>
                         </div>
                     </div>
@@ -247,6 +247,7 @@
          <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
         
+        
          <!-- BDAY -->
          <script src="<?php echo base_url();?>public/datepicker/js/jquery-1.9.1.min.js"></script>
         <script src="<?php echo base_url();?>public/datepicker/js/bootstrap-datepicker.js"></script>
@@ -256,12 +257,12 @@
                 
                 $('#cFrom').datepicker({
                     //format: "dd/mm/yyyy"
-					format: "yyyy-mm-dd"
+                    format: "yyyy-mm-dd"
                 });  
-				
-				$('#cTo').datepicker({
+                
+                $('#cTo').datepicker({
                     //format: "dd/mm/yyyy"
-					format: "yyyy-mm-dd"
+                    format: "yyyy-mm-dd"
                 });  
             
             });

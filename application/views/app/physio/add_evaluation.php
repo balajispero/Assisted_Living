@@ -86,25 +86,36 @@
 
                 <section class="content">
                     <?php echo $message;?>
-                    <form action="<?php echo base_url()?>app/doctor/preassessment_save" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo base_url()?>app/physio/preassessment_save1" method="post" enctype="multipart/form-data">
                       <?php
-                          /*$userID = $lastPreassesID->cValue;
+                          $userID = $lastPreassesID->cValue;
                           $userID2 = $lastPreassesID->cValue;
                           if(strlen($userID) == 1){
-                            $userID = "PREASSES0000".$userID;
+                            $userID = "EVAL0000".$userID;
                           }else if(strlen($userID) == 2){
-                            $userID = "PREASSES000".$userID;
+                            $userID = "EVAL000".$userID;
                           }else if(strlen($userID) == 3){
-                            $userID = "PREASSES00".$userID;
+                            $userID = "EVAL00".$userID;
                           }else if(strlen($userID) == 4){
-                            $userID = "PREASSES0".$userID;
+                            $userID = "EVAL0".$userID;
                           }else if(strlen($userID) == 5){
                             $userID = $userID;
-                        }*/
+                        }
                         ?>
-                        <input type="hidden" name="userID2" value="<?php /*echo $userID2;*/?>">
-                        <label>CASE HISTORY</label>
+                        <input type="hidden" name="userID2" value="<?php echo $userID2;?>">
+                        
+                        <!-- <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
+                        <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>"> -->
+                        
                         <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Evaluation No.</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $userID;?>"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Name</label><span class="text-danger"></span></br>
@@ -449,7 +460,7 @@
 
                         </div><!-- / row -->
 
-                <input type="submit" class="btn btn-primary bg_color" name="submit" value="submit">
+                <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit">
             </form>
 
         </section>

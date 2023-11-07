@@ -13,6 +13,7 @@ class Physio extends General{
 		$this->load->model("app/ipd_model");
 		$this->load->model("app/patient_model");
 		$this->load->model("app/doctor_model");
+		$this->load->model("app/physio_model");
 		$this->load->model("General_model");
 		if(General::is_logged_in() == FALSE){
             redirect(base_url().'login');    
@@ -101,7 +102,7 @@ class Physio extends General{
 									/*$patient->patient_type,*/ 
 									"Rm ".$patient->room_name." Bed No.".$patient->bed_name, 
 									/*$patient->doctor,*/
-									$nStatus,
+									$nStatus
 									/*anchor('app/ipd/mail_view/'.$patient->IO_ID.'/'.$patient->patient_no,'Mail')*/
 			);
 		}
@@ -129,9 +130,36 @@ class Physio extends General{
 				 'submodule'	=>		''));
 				 $this->data['message'] = $this->session->flashdata('message');
 
-				 //$this->data['lastPreassesID'] = $this->preassessment_model->lastPreassesID();
+				 $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+				 $this->data['lastPreassesID'] = $this->physio_model->lastPreassesID();
 		
 		$this->load->view('app/physio/add_evaluation',$this->data);
+	}
+	public function evaluation_save()
+	{
+	   if(isset($_POST['btnSave'])){
+	    
+		$evaluation_details = array(
+            'preasses_name' => $this->input->post('applicant_name'),
+            'preasses_no' => $this->input->post('preasses_no'),
+            'birthday' => $this->input->post('applicant_dob'),
+            'preasses_age' => $this->input->post('applicant_age'),
+            'entry_datetime'		=>	 date("Y-m-d h:i:s a"),
+            'recommendation' => $this->input->post('recommendation'),
+            'ptn_eligible' => $this->input->post('ptn_eligible'),
+            'on_admission'=>"No",
+            'added_by' => $this->session->userdata('user_id'),
+        	'date_entry'		=>	 date("Y-m-d h:i:s a"));
+
+			
+		$last_ptn_id = $this->physio_model->save_evaluation_details($evaluation_details);
+		if($last_ptn_id)
+		{
+			//update preassessmentID autonumber();
+			$this->physio_model->updateAutoNum();
+			/*redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);*/
+		}
+	}
 	}
 	
 
