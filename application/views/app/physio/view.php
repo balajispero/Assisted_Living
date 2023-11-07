@@ -174,7 +174,7 @@
                                         <div class="tab-pane active" id="tab_1">
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
                                             <!-- <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Evaluation</a> -->
-                                            <a href="<?php echo base_url();?>app/physio/add_evaluation" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a>
+                                            <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a>
                                             <?php } ?>
                                             <div class="alt2" dir="ltr" style="
                                     margin: 0px;
