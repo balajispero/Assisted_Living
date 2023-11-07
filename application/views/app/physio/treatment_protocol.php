@@ -167,14 +167,14 @@
                      <div class="col-md-9"> 
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab_1" data-toggle="tab">Evaluation</a></li>
+                                        <li class="active"><a href="#tab_1" data-toggle="tab">Treatment Protocol</a></li>
                                         
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab_1">
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
                                             <!-- <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Evaluation</a> -->
-                                            <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a>
+                                            <!-- <a href="<?php echo base_url();?>app/physio/add_evaluation" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a> -->
                                             <?php } ?>
                                             <div class="alt2" dir="ltr" style="
                                     margin: 0px;
@@ -187,14 +187,14 @@
                                            <table class="table table-hover table-striped">
                                            <thead>
                                            <tr>
-                                            <th>Evaluation Id</th>
-                                            <th>Member No</th>
-                                            <th>Member Name</th>
-                                                    <th>Duration</th>
+                                            <th>Member No.</th>
+                                            <th>Name</th>
+                                            <th>Complain</th>
+                                                    <th>Treatment Duration</th>
                                                     <th>Session</th>
-                                                    <th>Added by</th>
-                                                    <th>Action</th>
-                                                    <th>Prepared by</th>
+                                                    <th>Email Id</th>
+                                                    <th>Treatment Protocol</th>
+                                                    <!-- <th>Prepared by</th> -->
                                                     <th></th>
                                            </tr>
                                            </thead>

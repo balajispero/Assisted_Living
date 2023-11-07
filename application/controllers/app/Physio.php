@@ -138,6 +138,7 @@ class Physio extends General{
 		
 		$this->load->view('app/physio/add_evaluation',$this->data);
 	}
+	
 	public function evaluation_save()
 	{
 	   if(isset($_POST['btnSave'])){
@@ -163,6 +164,29 @@ class Physio extends General{
 			/*redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);*/
 		}
 	}
+	}
+	public function treatment_protocol(){
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		
+		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+		
+		$this->load->view("app/physio/treatment_protocol",$this->data);	
+	}
+	public function add_treatment_protocol()
+	{
+		$this->session->set_userdata(array(
+				 'tab'			=>		'',
+				 'module'		=>		'',
+				 'subtab'		=>		'',
+				 'submodule'	=>		''));
+				 $this->data['message'] = $this->session->flashdata('message');
+
+				 $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+				 $this->data['lastPreassesID'] = $this->physio_model->lastPreassesID();
+		
+		$this->load->view('app/physio/add_treatment_protocol',$this->data);
 	}
 	
 
