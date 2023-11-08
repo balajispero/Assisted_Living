@@ -209,31 +209,31 @@
 
     <p>Greetings from Team Spero at Aastha!</p>
 
-    <p>Hope you are doing well. This is the health update about Mr/Mrs/Smt <?php echo $getSentMail[0]->patient_name; ?>.</p>
+    <p>Hope you are doing well. This is the health update about <?php echo $ptn_title->cValue; ?> <?php echo $getSentMail[0]->patient_name; ?>.</p>
 
-    <p>His/her today’s vitals are as below…</p>
+    <p><?php echo $ptn_gen; ?> today’s vitals are as below…</p>
       <table class="table" border="1">
         <tr>
             <th>Blood pressure</th>
             <th>Spo2</th>
             <th>Pulse</th>
             <th>Temperature</th>
-            <th>Weight</th>
-            <th>BSL</th>
+            <!-- <th>Weight</th>
+            <th>BSL</th> -->
         </tr>
         <tr>
             <td><?php echo !empty(@$getSentMail[0]->bp) ? @$getSentMail[0]->bp : 'NA'; ?></td>
             <td><?php echo !empty(@$getSentMail[0]->spo2) ? @$getSentMail[0]->spo2 : 'NA'; ?></td>
             <td><?php echo !empty(@$getSentMail[0]->pulse_rate) ? @$getSentMail[0]->pulse_rate : 'NA'; ?></td>
             <td><?php echo !empty(@$getSentMail[0]->temperature) ? @$getSentMail[0]->temperature : 'NA'; ?></td>
-            <td><?php echo !empty(@$getSentMail[0]->weight) ? @$getSentMail[0]->weight : 'NA'; ?></td>
-            <td><?php echo !empty(@$getSentMail[0]->bsl) ? @$getSentMail[0]->bsl : 'NA'; ?></td>
+           <!--  <td><?php echo !empty(@$getSentMail[0]->weight) ? @$getSentMail[0]->weight : 'NA'; ?></td>
+            <td><?php echo !empty(@$getSentMail[0]->bsl) ? @$getSentMail[0]->bsl : 'NA'; ?></td> -->
         </tr>
         
         
     </table>
 
-    <p>Currently, he/she is taking the following medications:</p>
+    <p>Currently, <?php if($ptn_gender->cValue=="Male"){ echo "he"; }else{ echo "she"; } ?> is taking the following medications:</p>
     <?php $medicines = explode(',',(@$getSentMail[0]->medicine_name)); ?>
           <ul>
             <?php foreach($medicines as $rows){?>

@@ -104,8 +104,8 @@
                         ?>
                         <input type="hidden" name="userID2" value="<?php echo $userID2;?>">
                         
-                        <!-- <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
-                        <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>"> -->
+                         <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
+                        <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>"> 
                         
                         <div class="row">
                             <div class="col-md-3">
@@ -138,7 +138,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Medical Diagnosis</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
-                                    <textarea name="present_complaints" class="form-control"></textarea>
+                                    <textarea name="ptn_diagnosis" class="form-control"></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -146,7 +146,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Present Complaints</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="past_history" class="form-control"></textarea>
+                                    <textarea name="ptn_complain" class="form-control"></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -157,7 +157,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Tightness</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_name"> 
+                                    <input type="text" class="form-control" name="ptn_tightness"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -165,7 +165,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Upper body</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_age"> 
+                                    <input type="text" class="form-control" name="ptn_upper_body"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -176,7 +176,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Lower body</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
-                                    <textarea name="present_complaints" class="form-control"></textarea>
+                                    <textarea name="lower_body" class="form-control"></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -184,7 +184,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="past_history" class="form-control"></textarea>
+                                    <textarea name="ptn_pain" class="form-control"></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -205,109 +205,109 @@
                           <tr>
                               <td>Total Assistance 1</td><td><input type="date" name="mobility_assist1_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist1_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist1_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist1_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist1_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist1_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist1_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_supine" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist1_stand" value="Yes">Yes &nbsp;<input type="radio" name="assist1_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist1_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_stand" class="" value="No">No
                               </td>
                           </tr>
                           <tr>
                               <td>Maximal Assistance 2</td><td><input type="date" name="mobility_assist2_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist2_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist1_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist2_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist2_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist1_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist2_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_supine" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist2_stand" value="Yes">Yes &nbsp;<input type="radio" name="assist1_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist2_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_stand" class="" value="No">No
                               </td>
                           </tr>
                           <tr>
                               <td>Moderate Assistance 3</td><td><input type="date" name="mobility_assist3_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist3_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist3_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist3_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist3_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist3_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist3_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_supine" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist3_stand" value="Yes">Yes &nbsp;<input type="radio" name="assist3_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist3_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_stand" class="" value="No">No
                               </td>
                           </tr>
                           <tr>
                               <td>Minimal Assistance 4</td><td><input type="date" name="mobility_assist4_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist4_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist4_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist4_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist4_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist4_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist4_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_supine" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist4_stand" value="Yes">Yes &nbsp;<input type="radio" name="assist4_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist4_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_stand" class="" value="No">No
                               </td>
                           </tr>
                           <tr>
                               <td>Contact  Guarding 5 A</td><td><input type="date" name="mobility_assist5a_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist5a_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist5_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist5a_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist5a_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist5_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist5a_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5_supine" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist5a_stand" value="Yes">Yes &nbsp;<input type="radio" name="assist5a_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist5a_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_stand" class="" value="No">No
                               </td>
                           </tr>
                           <tr>
                               <td>Supervision or setup 5 B</td><td><input type="date" name="mobility_assist5b_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist5b_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist5b_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist5b_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist5b_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist5b_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist5b_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_supine" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist5b_stand" value="Yes">Yes &nbsp;<input type="radio" name="assist5b_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist5b_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_stand" class="" value="No">No
                               </td>
                           </tr>
                           <tr>
                               <td>Modified Independence 6</td><td><input type="date" name="mobility_assist6_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist6_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist6_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist6_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist6_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist6_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist6_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_supine" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist6_stand" value="Yes">Yes &nbsp;<input type="radio" name="assist6_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist6_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_stand" class="" value="No">No
                               </td>
                           </tr>
                           <tr>
                               <td>Complete Independence 7</td><td><input type="date" name="mobility_assist7_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist7_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist7_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist7_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist7_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist7_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist7_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_supine" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist7_stand" value="Yes">Yes &nbsp;<input type="radio" name="assist7_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist7_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_stand" class="" value="No">No
                               </td>
                           </tr>
                           <tr>
                               <td>Not Applicable</td><td><input type="date" name="mobility_notappl_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="notappl_rolling" value="Yes" <?php $a=5; echo ($a == 5) ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="notappl_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_notappl_rolling" value="Yes" <?php $a=5; echo ($a == 5) ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_notappl_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="notappl_supine" value="Yes">Yes &nbsp;<input type="radio" name="notappl_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_notappl_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_notappl_supine" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="notappl_stand" value="Yes">Yes &nbsp;<input type="radio" name="notappl_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_notappl_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_notappl_stand" class="" value="No">No
                               </td>
                           </tr>    
                       </table>
@@ -327,90 +327,90 @@
                           <tr>
                               <td>Total Assistance 1</td><td><input type="date" name="transfer_assist1_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist1_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist1_rolling" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist1_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist1_wheelchair" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist1_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist1_supine" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist1_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist1_car" class="" value="No">No
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Maximal Assistance 2</td><td><input type="date" name="transfer_assist2_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist2_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist1_rolling" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist2_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist2_wheelchair" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist2_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist1_supine" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist2_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist2_car" class="" value="No">No
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Moderate Assistance 3</td><td><input type="date" name="transfer_assist3_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist3_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist3_rolling" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist3_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist3_wheelchair" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist3_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist3_supine" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist3_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist3_car" class="" value="No">No
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Minimal Assistance 4</td><td><input type="date" name="transfer_assist4_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist4_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist4_rolling" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist4_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist4_wheelchair" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist4_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist4_supine" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist4_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist4_car" class="" value="No">No
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Contact  Guarding 5 B</td><td><input type="date" name="transfer_assist5b_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist5a_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist5_rolling" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist5b_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5b_wheelchair" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist5a_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist5_supine" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist5b_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5b_car" class="" value="No">No
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Supervision or setup 5 A</td><td><input type="date" name="transfer_assist5a_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist5b_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist5b_rolling" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist5a_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5a_wheelchair" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist5b_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist5b_supine" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist5a_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5a_car" class="" value="No">No
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Modified Independence 6</td><td><input type="date" name="transfer_assist6_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist6_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist6_rolling" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist6_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist6_wheelchair" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist6_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist6_supine" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist6_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist6_car" class="" value="No">No
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Complete Independence 7</td><td><input type="date" name="transfer_assist7_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="assist7_rolling" value="Yes">Yes &nbsp;<input type="radio" name="assist7_rolling" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist7_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist7_wheelchair" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="assist7_supine" value="Yes">Yes &nbsp;<input type="radio" name="assist7_supine" class="" value="No">No
+                                <input type="radio" class="" name="transfer_assist7_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist7_car" class="" value="No">No
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Not Applicable</td><td><input type="date" name="transfer_notappl_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="notappl_rolling" value="Yes" <?php $a=5; echo ($a == 5) ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="notappl_rolling" class="" value="No">No
+                                <input type="radio" class="" name="transfer_notappl_wheelchair" value="Yes" <?php $a=5; echo ($a == 5) ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_notappl_wheelchair" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="notappl_supine" value="Yes">Yes &nbsp;<input type="radio" name="notappl_supine" class="" value="No">No
+                                <input type="radio" class="" name="transfer_notappl_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_notappl_car" class="" value="No">No
                               </td>
                               
                           </tr>    
@@ -418,10 +418,10 @@
                   </div>
 
                 <div class="row">
-                  <div class="col-sm-2">Recommendation for physiotherapy</div>
+                  <div class="col-sm-4">Recommendation for physiotherapy</div>
                   <div class="col-sm-4">
-                    <input type="radio" class="form-control" name="ptn_eligible" value="Yes" checked>Yes &nbsp;
-                    <input type="radio" name="ptn_eligible" class="form-control" value="No">No</div>
+                    <input type="radio" class="form-control" name="ptn_rec" value="Yes" checked>Yes &nbsp;
+                    <input type="radio" name="ptn_rec" class="form-control" value="No">No</div>
                 </div><br>
 
                 <div class="row">

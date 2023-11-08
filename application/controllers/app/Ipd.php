@@ -313,6 +313,7 @@ class Ipd extends General{
 		$patient_no = $this->uri->segment("5");
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
     	$this->data['patientInfo'] = $this->patient_model->getPatient($patient_no);
+
     	$this->data['dischargeInfo'] = $this->patient_model->getDCPatient($patient_no);
             
             $dompdf = new Dompdf();
@@ -473,6 +474,16 @@ class Ipd extends General{
     $this->data['patient_Medication'] = $this->Opd_model->patient_Medication($iop_no);
 
     $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+
+    $this->data['ptn_title'] = $this->General_model->getTitle($this->data['patientInfo']->title);
+    $this->data['ptn_gender'] = $this->General_model->getTitle($this->data['patientInfo']->gender);
+    if($this->data['ptn_gender']->cValue=="Male")
+    {
+    	$this->data['ptn_gen']="His";
+    }else{
+    	$this->data['ptn_gen']="Her";
+    }
+    
     $this->data['departmentList'] = $this->general_model->departmentList();
     $this->data['message'] = $this->session->flashdata('message');
 
@@ -1197,6 +1208,15 @@ class Ipd extends General{
 			$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 			$this->data['getSentMail'] = $this->Opd_model->getSentMailList($iop_no);
 			$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+
+			$this->data['ptn_title'] = $this->General_model->getTitle($this->data['patientInfo']->title);
+		    $this->data['ptn_gender'] = $this->General_model->getTitle($this->data['patientInfo']->gender);
+		    if($this->data['ptn_gender']->cValue=="Male")
+		    {
+		    	$this->data['ptn_gen']="His";
+		    }else{
+		    	$this->data['ptn_gen']="Her";
+		    }
 			
 			$this->data['message'] = $this->session->flashdata('message');
 		

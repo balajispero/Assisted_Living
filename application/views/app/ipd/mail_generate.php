@@ -39,17 +39,17 @@
 
     <p>Greetings from Team Spero at Aastha!</p>
 
-    <p>Hope you are doing well. This is the health update about Mr/Mrs/Smt <?php echo $patientInfo->middlename; ?>.</p>
+    <p>Hope you are doing well. This is the health update about <?php echo $ptn_title->cValue; ?> <?php echo $patientInfo->middlename; ?>.</p>
 
-    <p>His/her today’s vitals are as below…</p>
+    <p><?php echo $ptn_gen; ?> today’s vitals are as below…</p>
       <table class="table" border="1">
         <tr>
             <th>Blood pressure</th>
             <th>Spo2</th>
             <th>Pulse</th>
             <th>Temperature</th>
-            <th>Weight</th>
-            <th>BSL</th>
+           <!--  <th>Weight</th>
+            <th>BSL</th> -->
         </tr>
         <?php foreach($getvitalsign as $rows){?>
         <tr>
@@ -57,14 +57,14 @@
             <td><?php echo !empty($rows->spo2) ? $rows->spo2 : 'NA'; ?></td>
             <td><?php echo !empty($rows->pulse_rate) ? $rows->pulse_rate : 'NA'; ?></td>
             <td><?php echo !empty($rows->temperature) ? $rows->temperature : 'NA'; ?></td>
-            <td><?php echo !empty($rows->weight) ? $rows->weight : 'NA'; ?></td>
-            <td><?php echo !empty($rows->bsl) ? $rows->bsl : 'NA'; ?></td>
+            <!-- <td><?php echo !empty($rows->weight) ? $rows->weight : 'NA'; ?></td>
+            <td><?php echo !empty($rows->bsl) ? $rows->bsl : 'NA'; ?></td> -->
         </tr>
         <?php }?>
         
     </table>
 
-    <p>Currently, he/she is taking the following medications:</p>
+    <p>Currently, <?php if($ptn_gender->cValue=="Male"){ echo "he"; }else{ echo "she"; } ?> is taking the following medications:</p>
           <ul>
             <?php foreach($patient_Medication as $rows){?>
                 <li><?php echo $rows->medicine_name; ?></li>

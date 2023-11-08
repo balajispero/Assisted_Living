@@ -427,51 +427,51 @@
                                                     <input type="hidden" name="userID2" value="<?php echo $patientInfo->patient_no;?>">
                                                     <tr>
                                                     	<td width="12%">KCO</td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_kco" id="ptn_kco"><?php echo $patientInfo->ptn_kco ?></textarea></td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_kco" id="ptn_kco"><?php /*echo $patientInfo->ptn_kco*/ ?></textarea></td>
                                                         <td width="12%">Chief Complaint</td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_chf_comp" id="ptn_chf_comp"><?php echo $patientInfo->ptn_chf_comp ?></textarea></td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_chf_comp" id="ptn_chf_comp"><?php /*echo $patientInfo->ptn_chf_comp*/ ?></textarea></td>
                                                     </tr>
                                                     <tr>
                                                     	<td width="12%">Family History</td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_fam_his" id="ptn_fam_his"><?php echo $patientInfo->ptn_fam_his ?></textarea></td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_fam_his" id="ptn_fam_his"><?php /*echo $patientInfo->ptn_fam_his*/ ?></textarea></td>
                                                         <td width="12%">Past History(Surgical/Medical)</td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_past_his" id="ptn_past_his"><?php echo $patientInfo->ptn_past_his  ?></textarea></td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_past_his" id="ptn_past_his"><?php /*echo $patientInfo->ptn_past_his*/  ?></textarea></td>
                                                     </tr>
                                                     <tr>
                                                     	<td width="12%">Pulse</td>
-                                                        <td width="88%"><input class="form-control input-sm" name="ptn_pulse" style="width: 250px;" id="ptn_pulse" type="text" style="width: 100px;"   value="<?php echo $patientInfo->ptn_pulse  ?>"></td>
+                                                        <td width="88%"><input class="form-control input-sm" name="ptn_pulse" style="width: 250px;" id="ptn_pulse" type="text" style="width: 100px;"   value="<?php /*echo $patientInfo->ptn_pulse*/  ?>"></td>
                                                         <td width="12%">CVS</td>
-                                                        <td width="88%"> <input class="form-control input-sm" type="text" style="width: 250px;margin-right: 400px;" name="ptn_cvs" id="ptn_cvs" value="<?php echo $patientInfo->ptn_cvs  ?>"></td>
+                                                        <td width="88%"> <input class="form-control input-sm" type="text" style="width: 250px;margin-right: 400px;" name="ptn_cvs" id="ptn_cvs" value="<?php /*echo $patientInfo->ptn_cvs*/  ?>"></td>
                                                     </tr>
                                                     <tr>
                                                     	<td width="12%">B.P</td>
-                                                        <td width="88%"><input class="form-control input-sm" name="ptn_bp" style="width: 250px;" id="ptn_bp" type="text" style="width: 100px;"   value="<?php echo $patientInfo->ptn_bp  ?>"></td>
+                                                        <td width="88%"><input class="form-control input-sm" name="ptn_bp" style="width: 250px;" id="ptn_bp" type="text" style="width: 100px;"   value="<?php /*echo $patientInfo->ptn_bp*/  ?>"></td>
                                                         <td width="12%">CNS</td>
-                                                        <td width="88%"> <input class="form-control input-sm" type="text" style="width: 250px;margin-right: 400px;" name="ptn_cns" id="ptn_cns" value="<?php echo $patientInfo->ptn_cns  ?>"></td>
+                                                        <td width="88%"> <input class="form-control input-sm" type="text" style="width: 250px;margin-right: 400px;" name="ptn_cns" id="ptn_cns" value="<?php /*echo $patientInfo->ptn_cns*/  ?>"></td>
                                                     </tr>
                                                     <tr>
                                                     	<td width="12%">SPO2</td>
-                                                        <td width="88%"><input class="form-control input-sm" name="ptn_spo2" style="width: 250px;" id="ptn_spo2" type="text" style="width: 100px;"   value="<?php echo $patientInfo->ptn_spo2  ?>"></td>
+                                                        <td width="88%"><input class="form-control input-sm" name="ptn_spo2" style="width: 250px;" id="ptn_spo2" type="text" style="width: 100px;"   value="<?php /*echo $patientInfo->ptn_spo2*/  ?>"></td>
                                                         <td width="12%">Local Examination</td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_localex" id="ptn_localex"><?php echo $patientInfo->ptn_localex  ?></textarea></td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_localex" id="ptn_localex"><?php /*echo $patientInfo->ptn_localex*/  ?></textarea></td>
                                                     </tr>
                                                     <tr>
                                                     	<td width="12%">Temp</td>
-                                                        <td width="88%"><input class="form-control input-sm" name="ptn_temp" style="width: 250px;" id="ptn_temp" type="text" style="width: 100px;"   value="<?php echo $patientInfo->ptn_temp  ?>"></td>
+                                                        <td width="88%"><input class="form-control input-sm" name="ptn_temp" style="width: 250px;" id="ptn_temp" type="text" style="width: 100px;"   value="<?php /*echo $patientInfo->ptn_temp*/  ?>"></td>
                                                         <td width="12%">Urine/Motion</td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_um" id="ptn_um"><?php echo $patientInfo->ptn_um  ?></textarea></td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_um" id="ptn_um"><?php /*echo $patientInfo->ptn_um*/  ?></textarea></td>
                                                     </tr>
                                                     <tr>
                                                     	<td width="12%">pa</td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_pa" id="ptn_pa"><?php echo $patientInfo->ptn_pa  ?></textarea></td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_pa" id="ptn_pa"><?php /*echo $patientInfo->ptn_pa*/  ?></textarea></td>
                                                         <td width="12%">RS</td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_rs" id="ptn_rs"><?php echo $patientInfo->ptn_rs  ?></textarea></td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_rs" id="ptn_rs"><?php /*echo $patientInfo->ptn_rs*/  ?></textarea></td>
                                                     </tr>
                                                     <tr>
                                                     	<!-- <td width="12%">Mobilization</td>
                                                         <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_mobi" id="ptn_mobi"><?php echo $patientInfo->ptn_mobi  ?></textarea></td> -->
                                                         <td width="12%">Food Intake </td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_foodin" id="ptn_foodin"><?php echo $patientInfo->ptn_foodin  ?></textarea></td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_foodin" id="ptn_foodin"><?php /*echo $patientInfo->ptn_foodin*/  ?></textarea></td>
                                                     </tr>
                                                     
                                                     <tr>

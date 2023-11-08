@@ -42,6 +42,10 @@ class General_model extends CI_Model{
 		$query = $this->db->get("system_parameters");
 		return $query->result();
 	}
+	public function getTitle($user_id){
+		$query = $this->db->query("SELECT cValue FROM `system_parameters` A WHERE `A`.`param_id` = $user_id");
+		return $query->row();
+	}
 	
 	public function gender(){
 		$this->db->select("param_id, cValue");	
