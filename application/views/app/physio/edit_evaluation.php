@@ -88,7 +88,7 @@
                     <?php echo $message;?>
                     <form action="<?php echo base_url()?>app/physio/evaluation_save" method="post" enctype="multipart/form-data">
                       <?php
-                          $userID = $lastPreassesID->cValue;
+                          /*$userID = $lastPreassesID->cValue;
                           $userID2 = $lastPreassesID->cValue;
                           if(strlen($userID) == 1){
                             $userID = "EVAL0000".$userID;
@@ -100,18 +100,18 @@
                             $userID = "EVAL0".$userID;
                           }else if(strlen($userID) == 5){
                             $userID = $userID;
-                        }
+                        }*/
                         ?>
-                        <input type="hidden" name="userID2" value="<?php echo $userID2;?>">
+                        <input type="hidden" name="userID2" value="<?php /*echo $userID2;*/?>">
                         
-                         <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
-                        <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>"> 
+                         <input type="hidden" name="opd_no" value="<?php /*echo $getOPDPatient->IO_ID*/?>">
+                        <input type="hidden" name="patient_no" value="<?php /*echo $getOPDPatient->patient_no*/?>"> 
                         
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Evaluation No.</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="eval_no" value="<?php echo $userID;?>"> 
+                                    <input type="text" class="form-control" name="eval_no" value="<?php echo $ptnEvalInfo->eval_no; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -119,7 +119,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Name</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_name"> 
+                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $ptnEvalInfo->ptn_name; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -127,7 +127,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Age</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_age"> 
+                                    <input type="text" class="form-control" name="ptn_age" value="<?php echo $ptnEvalInfo->ptn_age; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -138,7 +138,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Medical Diagnosis</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
-                                    <textarea name="ptn_diagnosis" class="form-control"></textarea>
+                                    <textarea name="ptn_diagnosis" class="form-control"><?php echo $ptnEvalInfo->ptn_diagnosis; ?></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -146,7 +146,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Present Complaints</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="ptn_complain" class="form-control"></textarea>
+                                    <textarea name="ptn_complain" class="form-control"><?php echo $ptnEvalInfo->ptn_complain; ?></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -157,7 +157,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Tightness</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_tightness"> 
+                                    <input type="text" class="form-control" name="ptn_tightness" value="<?php echo $ptnEvalInfo->ptn_tightness; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -165,7 +165,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Upper body</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_upper_body"> 
+                                    <input type="text" class="form-control" name="ptn_upper_body" value="<?php echo $ptnEvalInfo->ptn_upper_body; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -176,7 +176,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Lower body</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
-                                    <textarea name="lower_body" class="form-control"></textarea>
+                                    <textarea name="lower_body" class="form-control"><?php echo $ptnEvalInfo->lower_body; ?></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -184,7 +184,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="ptn_pain" class="form-control"></textarea>
+                                    <textarea name="ptn_pain" class="form-control"><?php echo $ptnEvalInfo->ptn_pain; ?></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -203,55 +203,103 @@
                               <th>FIM score / Activity</th><th>Date of eval</th><th>Rolling</th><th>Supine to sit</th><th>Sit to stand</th>
                           </tr>
                           <tr>
-                              <td>Total Assistance 1</td><td><input type="date" name="mobility_assist1_evaldate" class="form-control"></td>
+                              <td>Total Assistance 1</td><td><input type="date" name="mobility_assist1_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist1_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist1_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist1_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist1_rolling=="Yes" ){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist1_rolling=="No" ){
+                            echo "checked=checked";
+                        } ?>>No
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist1_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist1_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist1_supine=="Yes" ){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist1_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist1_supine=="No" ){
+                            echo "checked=checked";
+                        } ?>>No
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist1_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_stand" class="" value="No">No
-                              </td>
-                          </tr>
-                          <tr>
-                              <td>Maximal Assistance 2</td><td><input type="date" name="mobility_assist2_evaldate" class="form-control"></td>
-                              <td>
-                                <input type="radio" class="" name="mobility_assist2_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="" value="No">No
-                              </td>
-                              <td>
-                                <input type="radio" class="" name="mobility_assist2_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_supine" class="" value="No">No
-                              </td>
-                              <td>
-                                <input type="radio" class="" name="mobility_assist2_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_stand" class="" value="No">No
-                              </td>
-                          </tr>
-                          <tr>
-                              <td>Moderate Assistance 3</td><td><input type="date" name="mobility_assist3_evaldate" class="form-control"></td>
-                              <td>
-                                <input type="radio" class="" name="mobility_assist3_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_rolling" class="" value="No">No
-                              </td>
-                              <td>
-                                <input type="radio" class="" name="mobility_assist3_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_supine" class="" value="No">No
-                              </td>
-                              <td>
-                                <input type="radio" class="" name="mobility_assist3_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist1_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist1_stand=="Yes" ){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist1_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist1_stand=="No" ){
+                            echo "checked=checked";
+                        } ?>>No
                               </td>
                           </tr>
                           <tr>
-                              <td>Minimal Assistance 4</td><td><input type="date" name="mobility_assist4_evaldate" class="form-control"></td>
+                              <td>Maximal Assistance 2</td><td><input type="date" name="mobility_assist2_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist2_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist4_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist2_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist2_rolling=="Yes"){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist2_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist2_rolling=="No"){
+                            echo "checked=checked";
+                        } ?>>No
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist4_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist2_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist2_supine=="Yes"){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist2_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist2_supine=="No"){
+                            echo "checked=checked";
+                        } ?>>No
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist4_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist2_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist2_stand=="Yes"){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist2_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist2_stand=="No"){
+                            echo "checked=checked";
+                        } ?>>No
                               </td>
                           </tr>
                           <tr>
-                              <td>Contact  Guarding 5 A</td><td><input type="date" name="mobility_assist5a_evaldate" class="form-control"></td>
+                              <td>Moderate Assistance 3</td><td><input type="date" name="mobility_assist3_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist3_evaldate; ?>"></td>
+                              <td>
+                                <input type="radio" class="" name="mobility_assist3_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist3_rolling=="Yes" ){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist3_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist1_rolling=="No" ){
+                            echo "checked=checked";
+                        } ?>>No
+                              </td>
+                              <td>
+                                <input type="radio" class="" name="mobility_assist3_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist3_supine=="Yes"){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist3_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist3_supine=="No"){
+                            echo "checked=checked";
+                        } ?>>No
+                              </td>
+                              <td>
+                                <input type="radio" class="" name="mobility_assist3_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist3_stand=="Yes"){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist3_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist3_stand=="No"){
+                            echo "checked=checked";
+                        } ?>>No
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>Minimal Assistance 4</td><td><input type="date" name="mobility_assist4_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist4_evaldate; ?>"></td>
+                              <td>
+                                <input type="radio" class="" name="mobility_assist4_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist4_rolling=="Yes" ){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist4_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist1_rolling=="No" ){
+                            echo "checked=checked";
+                        } ?>>No
+                              </td>
+                              <td>
+                                <input type="radio" class="" name="mobility_assist4_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist4_supine=="Yes"){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist4_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist4_supine=="No"){
+                            echo "checked=checked";
+                        } ?>>No
+                              </td>
+                              <td>
+                                <input type="radio" class="" name="mobility_assist4_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist4_stand=="Yes"){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist4_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist4_stand=="No"){
+                            echo "checked=checked";
+                        } ?>>No
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>Contact  Guarding 5 A</td><td><input type="date" name="mobility_assist5a_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist5a_evaldate; ?>"></td>
                               <td>
                                 <input type="radio" class="" name="mobility_assist5a_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5_rolling" class="" value="No">No
                               </td>
@@ -263,7 +311,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Supervision or setup 5 B</td><td><input type="date" name="mobility_assist5b_evaldate" class="form-control"></td>
+                              <td>Supervision or setup 5 B</td><td><input type="date" name="mobility_assist5b_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist5a_evaldate; ?>"></td>
                               <td>
                                 <input type="radio" class="" name="mobility_assist5b_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_rolling" class="" value="No">No
                               </td>
@@ -275,19 +323,31 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Modified Independence 6</td><td><input type="date" name="mobility_assist6_evaldate" class="form-control"></td>
+                              <td>Modified Independence 6</td><td><input type="date" name="mobility_assist6_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist6_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist6_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist6_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist6_rolling=="Yes" ){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist6_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist6_rolling=="No" ){
+                            echo "checked=checked";
+                        } ?>>No
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist6_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist6_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist6_supine=="Yes" ){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist6_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist6_supine=="No" ){
+                            echo "checked=checked";
+                        } ?>>No
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist6_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist6_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist6_stand=="Yes" ){
+                            echo "checked=checked";
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist6_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist6_stand=="No" ){
+                            echo "checked=checked";
+                        } ?>>No
                               </td>
                           </tr>
                           <tr>
-                              <td>Complete Independence 7</td><td><input type="date" name="mobility_assist7_evaldate" class="form-control"></td>
+                              <td>Complete Independence 7</td><td><input type="date" name="mobility_assist7_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist7_evaldate; ?>"></td>
                               <td>
                                 <input type="radio" class="" name="mobility_assist7_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_rolling" class="" value="No">No
                               </td>
@@ -299,7 +359,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Not Applicable</td><td><input type="date" name="mobility_notappl_evaldate" class="form-control"></td>
+                              <td>Not Applicable</td><td><input type="date" name="mobility_notappl_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_notappl_evaldate; ?>"></td>
                               <td>
                                 <input type="radio" class="" name="mobility_notappl_rolling" value="Yes" <?php $a=5; echo ($a == 5) ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_notappl_rolling" class="" value="No">No
                               </td>
@@ -428,7 +488,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Treatment Goals</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="treatment_goal"> 
+                                    <input type="text" class="form-control" name="treatment_goal" value="<?php echo $ptnEvalInfo->treatment_goal; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -460,9 +520,9 @@
                                     <!-- <input type="text" class="form-control" name="exp_session"> -->
                                     <select name="exp_session" class="form-control">
                                                                     <option value=""> Select Expected Session</option>
-                                                                  <option value="Daily">Daily</option>
-                                                                  <option value="Daily Twice">Daily Twice</option>
-                                                                  <option value="Weekly Twice">Weekly Twice</option>
+                                                                  <option value="Daily" <?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>>Daily</option>
+                                                                  <option value="Daily Twice" <?php if($ptnEvalInfo->exp_session=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option>
+                                                                  <option value="Weekly Twice" <?php if($ptnEvalInfo->exp_session=="Weekly Twice"){ echo "selected"; } ?>>Weekly Twice</option>
                                                                   
                                                                 </select>
                                     
@@ -472,7 +532,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Next Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="next_eval_date">
+                                    <input type="text" class="form-control" name="next_eval_date" value="<?php echo $ptnEvalInfo->next_eval_date; ?>">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->

@@ -173,7 +173,6 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab_1">
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                            <!-- <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Evaluation</a> -->
                                             <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a>
                                             <?php } ?>
                                             <div class="alt2" dir="ltr" style="
@@ -190,39 +189,36 @@
                                             <th>Evaluation Id</th>
                                             <th>Member No</th>
                                             <th>Member Name</th>
-                                                    <th>Duration</th>
+                                                    <th>Complain</th>
                                                     <th>Session</th>
                                                     <th>Added by</th>
                                                     <th>Action</th>
-                                                    <th>Prepared by</th>
-                                                    <th></th>
+                                                    
                                            </tr>
                                            </thead>
                                            <tbody>
-                                           <?php /*foreach($getProgressNote as $rows){*/?>
-                                           <!-- <tr>
-                                                <td><?php /*echo date("d M, Y h:i:s A",strtotime($rows->dDateTime));*/?></td>
-                                                <td><?php /*echo date("d M, Y",strtotime($rows->to_date));*/?></td>
-                                                <td><?php /*echo $rows->comorbid_cond*/?></td>
-                                                <td><?php /*echo $rows->goal*/?></td>
-                                                <td><?php /*echo $rows->plan_action*/?></td>
-                                                <td><?php /*echo $rows->action_taken*/?></td>
-                                                <td><?php /*echo $rows->review*/?></td>
-                                                <td><?php 
-                                                /*$ci_obj = & get_instance();
-                                                $ci_obj->load->model('app/general_model');
-                                                $pages = $ci_obj->general_model->getPreparedBy($rows->cPreparedBy);*/
-                                                
-                                                /*echo $pages->cPreparedBy*/?></td>
+                                           <?php foreach($patientPhysioEval as $rows){?>
+                                            <tr>
+                                                <td><?php echo $rows->eval_no?></td>
+                                                <td><?php echo $rows->patient_no?></td>
+                                                <td><?php echo $rows->ptn_name?></td>
+                                                <td><?php echo $rows->ptn_complain?></td>
+                                                <td><?php echo $rows->exp_session?></td>
                                                 <td>
-                                                <?php /*if($this->session->userdata('emr_viewing') == ""){*/?>  
-                                                <?php /*if($getOPDPatient->nStatus == "Pending"){*/?>
-                                                <?php /*if(strtotime($rows->to_date) <= strtotime(date("Y-m-d"))) /*{*/ ?>  <?php /*} else{ } */?>
-                                                
-                                                <?php /*}}*/?>
+                                                    <?php
+                                                        $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $pages = $ci_obj->general_model->getPreparedBy($rows->added_by);
+                                                         echo $pages->cPreparedBy;
+                                                     ?> 
                                                 </td>
-                                           </tr> -->
-                                           <?php /*}*/?> 
+                                                <td><?php  if($getOPDPatient->nStatus == "Pending"){?>
+                                            <a href="<?php echo base_url();?>app/physio/edit_evaluation/<?php echo $rows->eval_no;?>">Modify</a>
+                                            <?php } ?></td>
+                                                
+                                            </tr>    
+
+                                           <?php }?> 
                                            </tbody>
                                            </table>
                                        </div>

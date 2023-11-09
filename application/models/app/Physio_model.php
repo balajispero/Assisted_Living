@@ -7,10 +7,21 @@ class Physio_model extends CI_Model{
 	}
 	public function save_evaluation_details($data)
 	{     
-        $this->db->insert('patient_preassessment', $data);
+        $this->db->insert('physio_evaluation', $data);
         $insert_id = $this->db->insert_id();
 
         return  $insert_id;
+	}
+	public function get_physio_evaluation($eval_no=""){
+		//$this->db->order_by("dDateTime","DESC");
+		$query = $this->db->get_where("physio_evaluation",array(
+			'InActive'	=>		0
+		));	
+		return $query->result();
+	}
+	public function get_evaluation_data($eval_no){
+		$query = $this->db->get_where("physio_evaluation", array('eval_no' => $eval_no));	
+		return $query->row();
 	}
 	
 

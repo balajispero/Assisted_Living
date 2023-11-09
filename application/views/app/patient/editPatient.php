@@ -504,8 +504,10 @@
                                                     <tr>
                                                     	<td width="12%">SPO2</td>
                                                         <td width="88%"><input class="form-control input-sm" name="ptn_spo2" style="width: 250px;" id="ptn_spo2" type="text" style="width: 100px;"   value="<?php echo $patientInfo->ptn_spo2  ?>"></td>
-                                                        <td width="12%">Local Examination</td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_localex" id="ptn_localex"><?php echo $patientInfo->ptn_localex  ?></textarea></td>
+                                                        <!-- <td width="12%">Local Examination</td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_localex" id="ptn_localex"><?php echo $patientInfo->ptn_localex  ?></textarea></td> -->
+                                                        <td width="12%">Food Intake </td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_foodin" id="ptn_foodin"><?php echo $patientInfo->ptn_foodin  ?></textarea></td>
                                                     </tr>
                                                     <tr>
                                                     	<td width="12%">Temp</td>
@@ -522,8 +524,8 @@
                                                     <tr>
                                                     	<!-- <td width="12%">Mobilization</td>
                                                         <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_mobi" id="ptn_mobi"><?php echo $patientInfo->ptn_mobi  ?></textarea></td> -->
-                                                        <td width="12%">Food Intake </td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_foodin" id="ptn_foodin"><?php echo $patientInfo->ptn_foodin  ?></textarea></td>
+                                                        <!-- <td width="12%">Food Intake </td>
+                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_foodin" id="ptn_foodin"><?php echo $patientInfo->ptn_foodin  ?></textarea></td> -->
                                                     </tr>
                                                     
                                                     <tr>

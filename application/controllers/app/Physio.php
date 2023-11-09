@@ -118,9 +118,11 @@ class Physio extends General{
 		
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+		$this->data['patientPhysioEval'] = $this->physio_model->get_physio_evaluation();
 		
 		$this->load->view("app/physio/view",$this->data);	
 	}
+	
 	public function add_evaluation()
 	{
 		$iop_no = $this->uri->segment("4");
@@ -157,7 +159,6 @@ class Physio extends General{
 	            'lower_body' => $this->input->post('lower_body'),
 	            'ptn_pain' => $this->input->post('ptn_pain'),
 
-
 	           	'mobility_total_assist1' => "Total Assistance 1",
 	            'mobility_assist1_evaldate' => $this->input->post('mobility_assist1_evaldate'),
 	            'mobility_assist1_rolling' => $this->input->post('mobility_assist1_rolling'),
@@ -168,7 +169,6 @@ class Physio extends General{
 	            'mobility_assist2_rolling' => $this->input->post('mobility_assist2_rolling'),
 	            'mobility_assist2_supine' => $this->input->post('mobility_assist2_supine'),
 	            'mobility_assist2_stand' => $this->input->post('mobility_assist2_stand'),
-
 	            'mobility_moderate_assist3' => "Moderate Assistance 3",
 	            'mobility_assist3_evaldate' => $this->input->post('mobility_assist3_evaldate'),
 	            'mobility_assist3_rolling' => $this->input->post('mobility_assist3_rolling'),
@@ -179,7 +179,6 @@ class Physio extends General{
 	            'mobility_assist4_rolling' => $this->input->post('mobility_assist4_rolling'),
 	            'mobility_assist4_supine' => $this->input->post('mobility_assist4_supine'),
 	            'mobility_assist4_stand' => $this->input->post('mobility_assist4_stand'),
-
 	            'mobility_total_assist5a' => "Contact  Guarding 5 A",
 	            'mobility_assist5a_evaldate' => $this->input->post('mobility_assist5a_evaldate'),
 	            'mobility_assist5a_rolling' => $this->input->post('mobility_assist5a_rolling'),
@@ -190,7 +189,6 @@ class Physio extends General{
 	            'mobility_assist5b_rolling' => $this->input->post('mobility_assist5b_rolling'),
 	            'mobility_assist5b_supine' => $this->input->post('mobility_assist5b_supine'),
 	            'mobility_assist5b_stand' => $this->input->post('mobility_assist5b_stand'),
-
 	            'mobility_total_assist6' => "Modified Independence 6",
 	            'mobility_assist6_evaldate' => $this->input->post('mobility_assist6_evaldate'),
 	            'mobility_assist6_rolling' => $this->input->post('mobility_assist6_rolling'),
@@ -201,7 +199,6 @@ class Physio extends General{
 	            'mobility_assist7_rolling' => $this->input->post('mobility_assist7_rolling'),
 	            'mobility_assist7_supine' => $this->input->post('mobility_assist7_supine'),
 	            'mobility_assist7_stand' => $this->input->post('mobility_assist7_stand'),
-
 	            'mobility_notappl_assist8' => "Not Applicable",
 	            'mobility_notappl_evaldate' => $this->input->post('mobility_notappl_evaldate'),
 	            'mobility_notappl_rolling' => $this->input->post('mobility_notappl_rolling'),
@@ -216,7 +213,6 @@ class Physio extends General{
 	            'transfer_assist2_evaldate' => $this->input->post('transfer_assist2_evaldate'),
 	            'transfer_assist2_wheelchair' => $this->input->post('transfer_assist2_wheelchair'),
 	            'transfer_assist2_car' => $this->input->post('transfer_assist2_car'),
-
 	            'transfer_moderate_assist3' => "Moderate Assistance 3",
 	            'transfer_assist3_evaldate' => $this->input->post('transfer_assist3_evaldate'),
 	            'transfer_assist3_wheelchair' => $this->input->post('transfer_assist3_wheelchair'),
@@ -225,7 +221,6 @@ class Physio extends General{
 	            'transfer_assist4_evaldate' => $this->input->post('transfer_assist4_evaldate'),
 	            'transfer_assist4_wheelchair' => $this->input->post('transfer_assist4_wheelchair'),
 	            'transfer_assist4_car' => $this->input->post('transfer_assist4_car'),
-
 	            'transfer_total_assist5b' => "Contact  Guarding 5 B",
 	            'transfer_assist5b_evaldate' => $this->input->post('transfer_assist5b_evaldate'),
 	            'transfer_assist5b_wheelchair' => $this->input->post('transfer_assist5b_wheelchair'),
@@ -234,7 +229,6 @@ class Physio extends General{
 	            'transfer_assist5a_evaldate' => $this->input->post('transfer_assist5a_evaldate'),
 	            'transfer_assist5a_wheelchair' => $this->input->post('transfer_assist5a_wheelchair'),
 	            'transfer_assist5a_car' => $this->input->post('transfer_assist5a_car'),
-
 	            'transfer_total_assist6' => "MModified Independence 6",
 	            'transfer_assist6_evaldate' => $this->input->post('transfer_assist6_evaldate'),
 	            'transfer_assist6_wheelchair' => $this->input->post('transfer_assist6_wheelchair'),
@@ -243,21 +237,20 @@ class Physio extends General{
 	            'transfer_assist7_evaldate' => $this->input->post('transfer_assist7_evaldate'),
 	            'transfer_assist7_wheelchair' => $this->input->post('transfer_assist7_wheelchair'),
 	            'transfer_assist7_car' => $this->input->post('transfer_assist7_car'),
-
 	            'transfer_notappl_assist8' => "Not Applicable",
 	            'transfer_notappl_evaldate' => $this->input->post('transfer_notappl_evaldate'),
 	            'transfer_notappl_wheelchair' => $this->input->post('transfer_notappl_wheelchair'),
 	            'transfer_notappl_car' => $this->input->post('transfer_notappl_car'),
-	            'treatment_goal' => $this->input->post('treatment_goal'),
-	            'exp_session' => $this->input->post('exp_session'),
+	            
 	            'physio_service' => $this->input->post('physio_service'),
 	            'next_eval_date' => $this->input->post('next_eval_date'),
-
-	            'entry_datetime'		=>	 date("Y-m-d h:i:s a"),
-	            'recommendation' => $this->input->post('recommendation'),
-	            'ptn_recommendation' => $this->input->post('ptn_rec'),
-	            'on_admission'=>"No",
+	            'treatment_goal'		=>	 $this->input->post('treatment_goal'),
+	            'exp_session'=>$this->input->post('exp_session'),
+	            'physio_service_from_date' => $this->input->post('physio_service_from_date'),
+	            'physio_service_to_date' => $this->input->post('physio_service_to_date'),
+	            'expert_recommendation' => $this->input->post('expert_rec'),
 	            'added_by' => $this->session->userdata('user_id'),
+	            'InActive'=>0,
 	        	'added_date'		=>	 date("Y-m-d h:i:s a"));
 
 				
@@ -266,9 +259,28 @@ class Physio extends General{
 			{
 				//update preassessmentID autonumber();
 				$this->physio_model->updateAutoNum();
-				/*redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);*/
+				redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 			}
 		}
+	}
+	public function edit_evaluation($eval_no)
+	{
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		
+		$this->session->set_userdata(array(
+				 'tab'			=>		'',
+				 'module'		=>		'',
+				 'subtab'		=>		'',
+				 'submodule'	=>		''));
+				 $this->data['message'] = $this->session->flashdata('message');
+
+				 //$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
+				 /*echo "<pre>";
+				 print_r($this->data['ptnEvalInfo']);*/
+		
+		$this->load->view('app/physio/edit_evaluation',$this->data);
 	}
 	public function treatment_protocol(){
 		$iop_no = $this->uri->segment("4");

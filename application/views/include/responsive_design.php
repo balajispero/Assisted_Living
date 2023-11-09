@@ -87,7 +87,7 @@
             }
 
         }
-        @media only screen and (min-width: 1326px)
+        @media only screen and (min-width: 1320px)
         {    
             input {
               width:50% !important;  
@@ -115,7 +115,7 @@
         }
         textarea[name="ptn_foodin"]
         {
-            width: 100% !important;
+            width: 59% !important;
         }
 
         textarea[name="ptn_chf_comp"]

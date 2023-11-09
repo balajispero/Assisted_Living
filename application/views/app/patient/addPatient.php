@@ -574,8 +574,10 @@
                                <tr>
                                    <td width="12%">SPO2<font color="#FF0000"></font></td>
                                    <td width="88%"><input class="form-control input-sm" name="ptn_spo2" style="width: 250px;" id="ptn_spo2" placeholder="%" type="number" style="width: 100px;" value=""></td>
-                                   <td width="12%">Local Examination<font color="#FF0000"></font></td>
-                                   <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_localex" id="ptn_localex"></textarea></td>
+                                    <!-- <td width="12%">Local Examination<font color="#FF0000"></font></td>
+                                   <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_localex" id="ptn_localex"></textarea></td>  -->
+                                    <td width="12%">Food Intake<font color="#FF0000"></font></td>
+                                                            <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_foodin" id="ptn_foodin"></textarea></td> 
                                </tr>
                                <tr>
                                    <td width="12%">Temp<font color="#FF0000"></font></td>
@@ -592,8 +594,8 @@
                                <tr>
                                                     	<!-- <td width="12%">Mobilization</td>
                                                             <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_mobi"  id="ptn_mobi"></textarea></td> -->
-                                                            <td width="12%">Food Intake<font color="#FF0000"></font></td>
-                                                            <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_foodin" id="ptn_foodin"></textarea></td>
+                                                            <!-- <td width="12%">Food Intake<font color="#FF0000"></font></td>
+                                                            <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_foodin" id="ptn_foodin"></textarea></td> -->
                                                         </tr>
                                                         
                                                         <tr>
