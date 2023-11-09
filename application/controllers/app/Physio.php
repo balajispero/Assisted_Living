@@ -293,6 +293,8 @@ class Physio extends General{
 	}
 	public function add_treatment_protocol()
 	{
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
 		$this->session->set_userdata(array(
 				 'tab'			=>		'',
 				 'module'		=>		'',
