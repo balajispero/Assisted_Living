@@ -307,6 +307,16 @@ class Physio extends General{
 		
 		$this->load->view('app/physio/add_treatment_protocol',$this->data);
 	}
+
+	public function view_treatment_protocol(){
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		
+		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+		
+		$this->load->view("app/physio/view_treatment_protocol",$this->data);	
+	}
 	
 
 

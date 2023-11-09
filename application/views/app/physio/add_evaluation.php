@@ -152,7 +152,7 @@
                             </div><!-- /.col-md-3 -->
 
                         </div><!-- / row -->
-                        <label>Assessments</label>
+                        <label><h3>Assessments</h3></label>
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
