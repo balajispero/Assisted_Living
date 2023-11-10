@@ -134,7 +134,7 @@ class Physio extends General{
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
 				 $this->data['message'] = $this->session->flashdata('message');
-
+				 $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 				 $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 				 $this->data['lastPreassesID'] = $this->physio_model->lastPreassesID();
 		
@@ -259,10 +259,56 @@ class Physio extends General{
 			{
 				//update preassessmentID autonumber();
 				$this->physio_model->updateAutoNum();
-				redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+
+				 $to_email = $this->input->post('mail_to');
+        $rel_email2 = $this->input->post('rel_email2');
+
+        $to_email = "balajimuttepwar892@gmail.com";
+         $rel_email2 = "balajimuttepawar7058@gmail.com";
+        
+		        if (filter_var($to_email, FILTER_VALIDATE_EMAIL)) {
+		        $subject = "Health updates of " /*. @$this->data['patientInfo']->middlename*/;
+
+		        $msg1 = $this->load->view('app/physio/physio_eval_mail_generate', $this->data, TRUE);
+
+		        $headers = "MIME-Version: 1.0" . "\r\n";
+		        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+		        $headers .= 'From: balajiM@sperohealthcare.in' . "\r\n";
+		        //$headers .= 'From: doctoraastha@sperohealthcare.in' . "\r\n";
+		        
+		        $headers .= "CC: balajim.speroinfosystems@gmail.com, $rel_email2\r\n";
+		        //$headers .= "CC: avinash@sperohealthcare.in, kaushikpanditrao@ahpl.in, $rel_email2\r\n";
+
+		        if (mail($to_email, $subject, $msg1, $headers)) {
+		            
+						redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+					}
+				}
 			}
 		}
 	}
+
+	public function view_evaluation($eval_no)
+	{
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		
+		$this->session->set_userdata(array(
+				 'tab'			=>		'',
+				 'module'		=>		'',
+				 'subtab'		=>		'',
+				 'submodule'	=>		''));
+				 $this->data['message'] = $this->session->flashdata('message');
+
+				 
+				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
+				 /*echo "<pre>";
+				 print_r($this->data['ptnEvalInfo']);*/
+		
+		$this->load->view('app/physio/view_evaluation',$this->data);
+	}
+
 	public function edit_evaluation($eval_no)
 	{
 		$iop_no = $this->uri->segment("4");
@@ -281,6 +327,126 @@ class Physio extends General{
 				 print_r($this->data['ptnEvalInfo']);*/
 		
 		$this->load->view('app/physio/edit_evaluation',$this->data);
+	}
+	public function evaluation_update()
+	{
+	   if(isset($_POST['btnSave']))
+	   {
+	    
+			$evaluation_details = array(
+	            'eval_no' => $this->input->post('eval_no'),
+	            /*'iop_no' => $this->input->post('opd_no'),
+	            'patient_no' => $this->input->post('patient_no'),*/
+	            'ptn_name' => $this->input->post('ptn_name'),
+	            'ptn_age' => $this->input->post('ptn_age'),
+	            'ptn_diagnosis' => $this->input->post('ptn_diagnosis'),
+	            'ptn_complain' => $this->input->post('ptn_complain'),
+	            'ptn_tightness' => $this->input->post('ptn_tightness'),
+	            'ptn_upper_body' => $this->input->post('ptn_upper_body'),
+	            'lower_body' => $this->input->post('lower_body'),
+	            'ptn_pain' => $this->input->post('ptn_pain'),
+
+	           	'mobility_total_assist1' => "Total Assistance 1",
+	            'mobility_assist1_evaldate' => $this->input->post('mobility_assist1_evaldate'),
+	            'mobility_assist1_rolling' => $this->input->post('mobility_assist1_rolling'),
+	            'mobility_assist1_supine' => $this->input->post('mobility_assist1_supine'),
+	            'mobility_assist1_stand' => $this->input->post('mobility_assist1_stand'),
+	            'mobility_maximal_assist2' => "Maximal Assistance 2",
+	            'mobility_assist2_evaldate' => $this->input->post('mobility_assist2_evaldate'),
+	            'mobility_assist2_rolling' => $this->input->post('mobility_assist2_rolling'),
+	            'mobility_assist2_supine' => $this->input->post('mobility_assist2_supine'),
+	            'mobility_assist2_stand' => $this->input->post('mobility_assist2_stand'),
+	            'mobility_moderate_assist3' => "Moderate Assistance 3",
+	            'mobility_assist3_evaldate' => $this->input->post('mobility_assist3_evaldate'),
+	            'mobility_assist3_rolling' => $this->input->post('mobility_assist3_rolling'),
+	            'mobility_assist3_supine' => $this->input->post('mobility_assist3_supine'),
+	            'mobility_assist3_stand' => $this->input->post('mobility_assist3_stand'),
+	            'mobility_minimal_assist4' => "Minimal Assistance 4",
+	            'mobility_assist4_evaldate' => $this->input->post('mobility_assist4_evaldate'),
+	            'mobility_assist4_rolling' => $this->input->post('mobility_assist4_rolling'),
+	            'mobility_assist4_supine' => $this->input->post('mobility_assist4_supine'),
+	            'mobility_assist4_stand' => $this->input->post('mobility_assist4_stand'),
+	            'mobility_total_assist5a' => "Contact  Guarding 5 A",
+	            'mobility_assist5a_evaldate' => $this->input->post('mobility_assist5a_evaldate'),
+	            'mobility_assist5a_rolling' => $this->input->post('mobility_assist5a_rolling'),
+	            'mobility_assist5a_supine' => $this->input->post('mobility_assist5a_supine'),
+	            'mobility_assist5a_stand' => $this->input->post('mobility_assist5a_stand'),
+	            'mobility_total_assist5b' => "Supervision or setup 5 B",
+	            'mobility_assist5b_evaldate' => $this->input->post('mobility_assist5b_evaldate'),
+	            'mobility_assist5b_rolling' => $this->input->post('mobility_assist5b_rolling'),
+	            'mobility_assist5b_supine' => $this->input->post('mobility_assist5b_supine'),
+	            'mobility_assist5b_stand' => $this->input->post('mobility_assist5b_stand'),
+	            'mobility_total_assist6' => "Modified Independence 6",
+	            'mobility_assist6_evaldate' => $this->input->post('mobility_assist6_evaldate'),
+	            'mobility_assist6_rolling' => $this->input->post('mobility_assist6_rolling'),
+	            'mobility_assist6_supine' => $this->input->post('mobility_assist6_supine'),
+	            'mobility_assist6_stand' => $this->input->post('mobility_assist6_stand'),
+	            'mobility_total_assist7' => "Complete Independence 7",
+	            'mobility_assist7_evaldate' => $this->input->post('mobility_assist7_evaldate'),
+	            'mobility_assist7_rolling' => $this->input->post('mobility_assist7_rolling'),
+	            'mobility_assist7_supine' => $this->input->post('mobility_assist7_supine'),
+	            'mobility_assist7_stand' => $this->input->post('mobility_assist7_stand'),
+	            'mobility_notappl_assist8' => "Not Applicable",
+	            'mobility_notappl_evaldate' => $this->input->post('mobility_notappl_evaldate'),
+	            'mobility_notappl_rolling' => $this->input->post('mobility_notappl_rolling'),
+	            'mobility_notappl_supine' => $this->input->post('mobility_notappl_supine'),
+	            'mobility_notappl_stand' => $this->input->post('mobility_notappl_stand'),
+
+	            'transfer_total_assist1' => "Total Assistance 1",
+	            'transfer_assist1_evaldate' => $this->input->post('transfer_assist1_evaldate'),
+	            'transfer_assist1_wheelchair' => $this->input->post('transfer_assist1_wheelchair'),
+	            'transfer_assist1_car' => $this->input->post('transfer_assist1_car'),
+	            'transfer_maximal_assist2' => "Maximal Assistance 2",
+	            'transfer_assist2_evaldate' => $this->input->post('transfer_assist2_evaldate'),
+	            'transfer_assist2_wheelchair' => $this->input->post('transfer_assist2_wheelchair'),
+	            'transfer_assist2_car' => $this->input->post('transfer_assist2_car'),
+	            'transfer_moderate_assist3' => "Moderate Assistance 3",
+	            'transfer_assist3_evaldate' => $this->input->post('transfer_assist3_evaldate'),
+	            'transfer_assist3_wheelchair' => $this->input->post('transfer_assist3_wheelchair'),
+	            'transfer_assist3_car' => $this->input->post('transfer_assist3_car'),
+	            'transfer_minimal_assist4' => "Minimal Assistance 4",
+	            'transfer_assist4_evaldate' => $this->input->post('transfer_assist4_evaldate'),
+	            'transfer_assist4_wheelchair' => $this->input->post('transfer_assist4_wheelchair'),
+	            'transfer_assist4_car' => $this->input->post('transfer_assist4_car'),
+	            'transfer_total_assist5b' => "Contact  Guarding 5 B",
+	            'transfer_assist5b_evaldate' => $this->input->post('transfer_assist5b_evaldate'),
+	            'transfer_assist5b_wheelchair' => $this->input->post('transfer_assist5b_wheelchair'),
+	            'transfer_assist5b_car' => $this->input->post('transfer_assist5b_car'),
+	            'transfer_total_assist5a' => "Supervision or setup 5 A",
+	            'transfer_assist5a_evaldate' => $this->input->post('transfer_assist5a_evaldate'),
+	            'transfer_assist5a_wheelchair' => $this->input->post('transfer_assist5a_wheelchair'),
+	            'transfer_assist5a_car' => $this->input->post('transfer_assist5a_car'),
+	            'transfer_total_assist6' => "MModified Independence 6",
+	            'transfer_assist6_evaldate' => $this->input->post('transfer_assist6_evaldate'),
+	            'transfer_assist6_wheelchair' => $this->input->post('transfer_assist6_wheelchair'),
+	            'transfer_assist6_car' => $this->input->post('transfer_assist6_car'),
+	            'transfer_total_assist7' => "Complete Independence 7",
+	            'transfer_assist7_evaldate' => $this->input->post('transfer_assist7_evaldate'),
+	            'transfer_assist7_wheelchair' => $this->input->post('transfer_assist7_wheelchair'),
+	            'transfer_assist7_car' => $this->input->post('transfer_assist7_car'),
+	            'transfer_notappl_assist8' => "Not Applicable",
+	            'transfer_notappl_evaldate' => $this->input->post('transfer_notappl_evaldate'),
+	            'transfer_notappl_wheelchair' => $this->input->post('transfer_notappl_wheelchair'),
+	            'transfer_notappl_car' => $this->input->post('transfer_notappl_car'),
+	            
+	            'physio_service' => $this->input->post('physio_service'),
+	            'next_eval_date' => $this->input->post('next_eval_date'),
+	            'treatment_goal'		=>	 $this->input->post('treatment_goal'),
+	            'exp_session'=>$this->input->post('exp_session'),
+	            /*'physio_service_from_date' => $this->input->post('physio_service_from_date'),
+	            'physio_service_to_date' => $this->input->post('physio_service_to_date'),
+	            'expert_recommendation' => $this->input->post('expert_rec'),
+	            'updated_by' => $this->session->userdata('user_id'),
+	            'InActive'=>0,
+	        	'updated_date'		=>	 date("Y-m-d h:i:s a")*/);
+
+				
+			$update_physio_eval = $this->physio_model->update_evaluation_details($evaluation_details);
+			if($update_physio_eval)
+			{
+				redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+			}
+		}
 	}
 	public function treatment_protocol(){
 		$iop_no = $this->uri->segment("4");

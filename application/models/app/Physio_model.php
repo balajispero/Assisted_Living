@@ -23,6 +23,11 @@ class Physio_model extends CI_Model{
 		$query = $this->db->get_where("physio_evaluation", array('eval_no' => $eval_no));	
 		return $query->row();
 	}
+	public function update_evaluation_details($data)
+		{   
+			$this->db->where(array('InActive'=>0,'id'=>$this->input->post('id'),'eval_no'=>$this->input->post('eval_no'))); 
+        	return  $this->db->update("physio_evaluation",$data);
+		}
 	
 
 	public function lastPreassesID(){

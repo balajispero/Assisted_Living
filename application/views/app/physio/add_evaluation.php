@@ -107,11 +107,14 @@
                          <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                         <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>"> 
                         
+                    <input type="hidden" name="mail_to" value="<?php echo @$patientInfo->rel_email1; ?>">
+                    <input type="hidden" name="rel_email2" value="<?php echo @$patientInfo->rel_email2; ?>">
+                    <input type="hidden" name="rel_name" value="<?php echo @$patientInfo->rel_name1; ?>">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Evaluation No.</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="eval_no" value="<?php echo $userID;?>"> 
+                                    <input type="text" class="form-control" name="eval_no" value="<?php echo $userID;?>" readonly> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -420,13 +423,13 @@
                 <div class="row">
                   <div class="col-sm-4">Recommendation for physiotherapy</div>
                   <div class="col-sm-4">
-                    <input type="radio" class="form-control" name="ptn_rec" value="Yes" checked>Yes &nbsp;
-                    <input type="radio" name="ptn_rec" class="form-control" value="No">No</div>
+                    <input type="radio" class="chkradio" name="ptn_rec" value="Yes">Yes &nbsp;
+                    <input type="radio" name="ptn_rec" class="chkradio" value="No">No</div>
                 </div><br>
 
-                <div class="row">
+                <div class="row" id="treatment_section" style="display:none;">
                             <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
+                                <div class="form-group wrapper-class">
                                     <label>Treatment Goals</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="treatment_goal"> 
 
@@ -487,9 +490,36 @@
 
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
+
 <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
-<script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
+<script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>   
 <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
+        <!-------------------------jquery cdn for work radio button------------------------>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+        <!-------------------------jquery cdn for work radio button------------------------>
+
+    <script>
+    
+        /*****************Start recommendation yes**********************/
+            $(".chkradio") // select the radio by its id
+                .change(function(){ // bind a function to the change event
+                    if( $(this).is(":checked") ){ // check if the radio is checked
+                        //var val = $(this).val(); // retrieve the value
+                        var val=$("input[name='ptn_rec']:checked").val();
+                        if(val != '')
+                          {
+                            if(val == 'Yes'){
+                                $('#treatment_section').show();
+                            }
+                            if(val == 'No'){
+                              $('#treatment_section').hide(); 
+                          } 
+                        }
+                            
+                    }
+                });
+        /*****************End recommendation yes**********************/  
+    </script>
 
 </body>
 </html>

@@ -199,7 +199,7 @@
                                            <tbody>
                                            <?php foreach($patientPhysioEval as $rows){?>
                                             <tr>
-                                                <td><?php echo $rows->eval_no?></td>
+                                                <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a></td>
                                                 <td><?php echo $rows->patient_no?></td>
                                                 <td><?php echo $rows->ptn_name?></td>
                                                 <td><?php echo $rows->ptn_complain?></td>

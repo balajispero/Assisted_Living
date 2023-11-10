@@ -86,7 +86,7 @@
 
                 <section class="content">
                     <?php echo $message;?>
-                    <form action="<?php echo base_url()?>app/physio/evaluation_update" method="post" enctype="multipart/form-data">
+                    <!-- <form action="<?php echo base_url()?>app/physio/evaluation_update" method="post" enctype="multipart/form-data"> -->
                      
                         <input type="hidden" name="id" value="<?php echo $ptnEvalInfo->id;?>">
         
@@ -537,8 +537,8 @@
 
                         </div><!-- / row -->
 
-                <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit">
-            </form>
+               
+           <!--  </form> -->
 
         </section>
 
