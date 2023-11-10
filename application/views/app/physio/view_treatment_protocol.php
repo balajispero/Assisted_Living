@@ -97,6 +97,7 @@
                         
                         <!-- <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                         <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>"> -->
+                        <h3>Treatment Protocol</h3><hr>
                         
                         <div class="row">
                             <div class="col-md-4">
@@ -143,7 +144,7 @@
                             </div><!-- /.col-md-3 -->
 
                         </div><!-- / row -->
-                        <label><h3>Plan</h3></label>
+                        <h3>Plan</h3><hr>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group wrapper-class" >
@@ -234,17 +235,17 @@
                                                                             <select name="applicant_marital" class="form-control input-sm">
                                                                                <option value="">- Therapist -</option>
                                                                          
-                                                                               <option value="Divorced">Divorced</option>
+                                                                               <option value="Divorced">T1</option>
                                                                           
-                                                                               <option value="Legal Seperated">Legal Seperated</option>
+                                                                               <option value="Legal Seperated">T2</option>
                                                                          
-                                                                               <option value="Married">Married</option>
+                                                                               <option value="Married">T3</option>
                                                                           
-                                                                               <option value="Single">Single</option>
+                                                                               <option value="Single">T4</option>
                                                                            
-                                                                               <option value="Widow">Widow</option>
+                                                                               <option value="Widow">T5</option>
                                                                           
-                                                                               <option value="Widower">Widower</option>
+                                                                               <option value="Widower">T6</option>
                                                                             </select>
 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
@@ -261,19 +262,6 @@
 
 
     </aside>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </div><!-- ./wrapper -->
 <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
