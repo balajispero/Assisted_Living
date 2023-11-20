@@ -54,6 +54,27 @@ class Physio_model extends CI_Model{
 		//return $query->result();	
 		return $query->row();
 	}
+	public function save_physio_eval_sent_mail(){
+		@$cc ="kaushikpanditrao@ahpl.in" .", ". @$this->input->post('rel_email2');
+		$this->data = array(
+			'iop_id'	=>		$this->input->post('opd_no'),
+			'patient_no'	=>		$this->input->post('patient_no'),
+			'eval_no'	=>		$this->input->post('eval_no'),
+			'mail_to'				=>		$this->input->post('mail_to'),
+			'rel_email2'				=>		$this->input->post('rel_email2'),
+			'patient_name'		=>		$this->input->post('patient_name'),
+			'mail_from'		=>		!empty($this->input->post('mail_to')) ? $this->input->post('mail_to') : '',
+			'mail_cc'			=>		@$cc,
+			'rel_name'			=>		@$this->input->post('rel_name'),
+			'eval_date'			=>		@$this->input->post('eval_date'),
+			'treatment_goal'		=>		$this->input->post('treatment_goal'),
+			'added_date'	=>		date("Y-m-d h:i:s a"),
+			'sent_by'	=>		$this->session->userdata('user_id'),
+			'InActive'		=>		0
+		);	
+		$query = $this->db->insert('physio_evaluation_sent_mail',$this->data);
+	
+	}
 	public function update_evaluation_details($data)
 		{   
 			$this->db->where(array('InActive'=>0,'id'=>$this->input->post('id'),'eval_no'=>$this->input->post('eval_no'))); 

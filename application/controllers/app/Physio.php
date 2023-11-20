@@ -154,11 +154,11 @@ class Physio extends General{
 		        //$headers .= 'From: avinash@sperohealthcare.in' . "\r\n";
 		        
 		        $headers .= "CC: balajim.speroinfosystems@gmail.com, $rel_email2\r\n";
-		        //$headers .= "CC: avinash@sperohealthcare.in, kaushikpanditrao@ahpl.in, $rel_email2\r\n";
+		        //$headers .= "CC: kaushikpanditrao@ahpl.in, $rel_email2\r\n";
 
 		        if (mail($to_email, $subject, $msg1, $headers)) {
 
-		        	//$res = $this->ipd_model->save_sent_mail();
+		        	$res = $this->physio_model->save_physio_eval_sent_mail();
             		if ($res) {
 		            	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully.</div>");
 

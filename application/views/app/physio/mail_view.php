@@ -132,6 +132,10 @@
                     <form action="<?php echo base_url()?>app/physio/mail_view/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>/<?php echo $ptnEvalInfo->eval_no; ?>" method="post">
                 <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                 <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
+                <input type="hidden" name="eval_no" value="<?php echo $ptnEvalInfo->eval_no; ?>">
+
+                <input type="hidden" name="eval_date" value="<?php echo date("Y-m-d", strtotime($ptnEvalInfo->added_date));?>">
+                <input type="hidden" name="treatment_goal" value="<?php echo $ptnEvalInfo->treatment_goal; ?>">
                  
                   <input type="hidden" name="mail_to" value="<?php echo @$patientInfo->rel_email1; ?>">
                   <input type="hidden" name="rel_email2" value="<?php echo @$patientInfo->rel_email2; ?>">
