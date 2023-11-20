@@ -160,6 +160,30 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Tightness</label><span class="text-danger"></span></br>
+                                    <select name="applicant_marital" class="form-control">
+                                      <option value="">- Therapist -</option>
+                                      
+                                      <option value="restricted ROM">restricted ROM</option>
+                                      
+                                      <option value="Hyperlaxed ROM">Hyperlaxed ROM</option>
+                                      
+                                      <option value="hip flexors">hip flexors</option>
+                                      
+                                      <option value="calf">calf</option>
+                                      
+                                      <!-- <option value="Widow">T5</option>
+                                      
+                                      <option value="Widower">T6</option> -->
+                                    </select>
+                                    
+                                    
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                  </div><!-- /.form-group wrapper-class -->
+                                </div><!-- /.col-md-3 -->
+                                
+                                <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label></label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_tightness"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -168,18 +192,61 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Upper body</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_upper_body"> 
+                                    <!-- <input type="text" class="form-control" name="ptn_upper_body">  -->
+                                    <select name="applicant_marital" class="form-control input-sm">
+                                      <option value="">- Upper body -</option>
+                                      
+                                      <option value="tightness">tightness</option>
+                                      
+                                      <option value="increased tone">increased tone</option>
+                                      
+                                      <option value="decreased tone">decreased tone</option>
+                                      
+                                      <option value="deformity">deformity</option>
+                                      
+                                      <!-- <option value="Widow">T5</option>
+                                      
+                                      <option value="Widower">T6</option> -->
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            
+                                <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label></label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="ptn_tightness"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
 
 
-                            <div class="col-md-3">
+                        </div><!-- / row -->
+
+                           <div class="row">
+                            
+                           <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Lower body</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
-                                    <textarea name="lower_body" class="form-control"></textarea>
+                                    <!-- <textarea name="lower_body" class="form-control"></textarea> -->
+                                    <select name="applicant_marital" class="form-control input-sm">
+                                      <option value="">-Lower body-</option>
+                                      
+                                      <option value="tightness">tightness</option>
+                                      
+                                      <option value="increased tone">increased tone</option>
+                                      
+                                      <option value="decreased tone">decreased tone</option>
+                                      
+                                      <option value="deformity">deformity</option>
+                                      
+                                      <!-- <option value="Widow">T5</option>
+                                      
+                                      <option value="Widower">T6</option> -->
+                                    </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -187,12 +254,40 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="ptn_pain" class="form-control"></textarea>
+                                    <!-- <textarea name="ptn_pain" class="form-control"></textarea> -->
+                                    <select name="applicant_marital" class="form-control">
+                                      <option value="">-Pain-</option>
+                                      
+                                      <option value="0">0</option>
+                                      
+                                      <option value="1">1</option>
+                                      
+                                      <option value="2">2</option>
+                                      
+                                      <option value="3">3</option>
+                                      
+                                      <option value="4">4</option>
+                                      
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>
+                                      <option value="8">8</option>
+                                      <option value="9">9</option>
+                                      <option value="10">10</option>
+
+
+                                    </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                           </div>
 
-                        </div><!-- / row -->
+
+
+
+
+
+
 
                         <div class="row">
                           <div class="col-sm-12">
@@ -420,7 +515,8 @@
                       </table>
                   </div>
 
-                <div class="row">
+
+                <div class="row mt-5">
                   <div class="col-sm-4">Recommendation for physiotherapy</div>
                   <div class="col-sm-4">
                     <input type="radio" class="chkradio" name="ptn_rec" value="Yes">Yes &nbsp;
@@ -428,14 +524,7 @@
                 </div><br>
 
                 <div class="row" id="treatment_section" style="display:none;">
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class">
-                                    <label>Treatment Goals</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="treatment_goal"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                          
                             <!-- <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Therapy Time</label><span class="text-danger"></span></br>
@@ -455,23 +544,104 @@
                                     <input type="text" class="form-control" name="physio_service_to_date"> 
                                     <span class="text-danger error-text type_category_err"></span>          </div>
                             </div> --><!-- /.col-md-3 -->
-
-
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Expected Sessions</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="exp_session"> -->
-                                    <select name="exp_session" class="form-control">
-                                                                    <option value=""> Select Expected Session</option>
-                                                                  <option value="Daily">Daily</option>
-                                                                  <option value="Daily Twice">Daily Twice</option>
-                                                                  <option value="Weekly Twice">Weekly Twice</option>
-                                                                  
-                                                                </select>
-                                    
+                                    <label>Gait speed</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="Gait speed" value=""> 
+
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>RECOMMENDATION</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="RECOMMENDATION" value=""> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Treatment goals </label><span class="text-danger"></span></br>
+                                    <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
+                                    <select name="applicant_marital" class="form-control input-sm">
+                                      <option value="">-Treatment goals -</option>
+                                      
+                                      <option value="Pain relief">Pain relief</option>
+                                      
+                                      <option value="Independent mobility">Independent mobility </option>
+                                      
+                                      <option value="Muscle strengthen">Muscle strengthen</option>
+                                      
+                                      <option value="Ambulation">Ambulation</option>
+                                      
+                                      <!-- <option value="Widow">T5</option>
+                                      
+                                      <option value="Widower">T6</option> -->
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Pain relief </label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="Pain relief " value=""> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Time of therapy 30 mins  </label><span class="text-danger"></span></br>
+                                    <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
+                                    <select name="applicant_marital" class="form-control input-sm">
+                                      <option value="">-Time of therapy 30 mins -</option>
+                                      
+                                      <option value="20 min">20 min</option>
+                                      
+                                      <option value="30">30 </option>
+                                      
+                                      <option value="45">45</option>
+                                      
+                                      <option value="60">60</option>
+                                      
+                                      <!-- <option value="Widow">T5</option>
+                                      
+                                      <option value="Widower">T6</option> -->
+                                    </select>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>EXPECTED sessions </label><span class="text-danger"></span></br>
+                                    <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
+                                    <select name="applicant_marital" class="form-control input-sm">
+                                      <option value="">- Select EXPECTED sessions-</option>
+                                      
+                                      <option value="daily once">daily once</option>
+                                      
+                                      <option value="daily twice">daily twice</option>
+                                      
+                                      <option value="thrice daily">thrice daily</option>
+                                      
+                                      <option value="twice a week">twice a week</option>
+                                      
+                                      <option value="thrice a week">thrice a week</option>
+                                      
+                                      <option value="Once a week">Once a week</option>
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+
+
+                        
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Next Evaluation Date</label><span class="text-danger"></span></br>
