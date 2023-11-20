@@ -12,15 +12,46 @@ class Physio_model extends CI_Model{
 
         return  $insert_id;
 	}
-	public function get_physio_evaluation($eval_no=""){
+	public function get_physio_evaluation($iop_no="",$rel_agree=""){
 		//$this->db->order_by("dDateTime","DESC");
-		$query = $this->db->get_where("physio_evaluation",array(
-			'InActive'	=>		0
-		));	
+		if(!empty($rel_agree))
+		{
+			$query = $this->db->get_where("physio_evaluation",array(
+				'InActive'	=>		0,
+				'iop_no'=>$iop_no,
+				'rel_agree'=>$rel_agree,
+				/*'expert_recommendation'=>'Yes'*/
+			));
+		}
+		else{
+				$query = $this->db->get_where("physio_evaluation",array(
+				'InActive'	=>		0,
+				'iop_no'=>$iop_no
+				));	
+			}	
+			//$query->result();
+			//echo $this->db->last_query(); die;
 		return $query->result();
 	}
-	public function get_evaluation_data($eval_no){
-		$query = $this->db->get_where("physio_evaluation", array('eval_no' => $eval_no));	
+	
+	public function get_evaluation_data($eval_no,$iop_no=""){
+		if(!empty($iop_no))
+		{
+			$query = $this->db->get_where("physio_evaluation",array(
+				'InActive'	=>		0,
+				'iop_no'=>$iop_no,
+				'eval_no'=>$eval_no
+			));
+		}
+		else{
+				$query = $this->db->get_where("physio_evaluation",array(
+				'InActive'	=>		0,
+				'eval_no'=>$eval_no
+				));	
+			}	
+			//$query->result();
+			//echo $this->db->last_query(); die;
+		//return $query->result();	
 		return $query->row();
 	}
 	public function update_evaluation_details($data)

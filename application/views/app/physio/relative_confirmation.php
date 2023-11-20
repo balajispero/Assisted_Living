@@ -23,7 +23,8 @@
         <h4>Relative Agree</h4>
       </div>
       <div class="card-body">
-        <form action="loginpost" method="post" enctype="multipart/form-data"> 
+        <form action="<?php echo base_url()?>app/relative_agree/conform" method="post" enctype="multipart/form-data">
+        <input type="hidden" class="form-control" name="eval_no" value="<?php echo $this->uri->segment("4");?>"> <?php echo @$message;?>
           <div class="form-group">
             <label for="agree">Do you agree or not?</label><br>
             <div class="form-check">
@@ -36,7 +37,7 @@
             </div>
           </div>
           <br>
-          <button type="submit" class="btn btn-primary btn-block" name="add">Submit</button><br>     
+          <button type="submit" class="btn btn-primary btn-block" name="btnSubmit">Submit</button><br>     
         </form>
       </div>
     </div>

@@ -136,7 +136,10 @@ class User_model extends CI_Model{
 			'username'			=>		$this->input->post('username'),
 			'password'			=>		$this->input->post('password'),
 			'InActive'			=>		0
-		);	
+		);
+		if($this->input->post('user_role')=="11"){
+		$this->data['physio_expert']=@$this->input->post('pt_expert');
+		}	
 		$this->db->insert("users",$this->data);
 		
 	}
@@ -213,7 +216,7 @@ class User_model extends CI_Model{
         }
 		
 		$this->data = array(
-			'department'		=>		$this->input->post('department'),
+			/*'department'		=>		$this->input->post('department'),*/
 			'designation'		=>		$this->input->post('designation'),
 			'user_role'			=>		$this->input->post('user_role'),
 			'cType'				=>		$this->input->post('cType'),
@@ -233,7 +236,10 @@ class User_model extends CI_Model{
 			'birthplace'		=>		$this->input->post('birthplace'),
 			'username'			=>		$this->input->post('username'),
 			'email_address'		=>		$this->input->post('email')
-		);	
+		);
+		if($this->input->post('user_role')=="11"){
+		$this->data['physio_expert']=@$this->input->post('pt_expert');
+		}	
 		$this->db->where('user_id', $this->input->post('userid'));
 		$this->db->update("users",$this->data);
 	}

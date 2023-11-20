@@ -116,12 +116,71 @@ class Physio extends General{
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
 		
+		$this->data['message'] = $this->session->flashdata('message');
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
-		$this->data['patientPhysioEval'] = $this->physio_model->get_physio_evaluation();
+		$this->data['patientPhysioEval'] = $this->physio_model->get_physio_evaluation($iop_no);
 		
 		$this->load->view("app/physio/view",$this->data);	
 	}
+	public function mail_view(){
+    $iop_no = $this->uri->segment("4");
+    $patient_no = $this->uri->segment("5");
+    $eval_no = $this->uri->segment("6");
+
+    $this->data['message'] = $this->session->flashdata('message');
+    $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+    $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+    $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no,$iop_no);
+
+    if (@$_POST['submit'] == 'sent_mail') {
+    	
+				
+		$to_email = $this->input->post('mail_to');
+        $rel_email2 = $this->input->post('rel_email2');
+
+        $to_email = "balajimuttepwar892@gmail.com";
+         $rel_email2 = "balajimuttepawar7058@gmail.com";
+        
+		        if (filter_var($to_email, FILTER_VALIDATE_EMAIL)) {
+		        $subject = "Health updates of " /*. @$this->data['patientInfo']->middlename*/;
+
+		        $msg1 = $this->load->view('app/physio/physio_eval_mail_generate', $this->data, TRUE);
+
+		        $headers = "MIME-Version: 1.0" . "\r\n";
+		        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+		        $headers .= 'From: balajiM@sperohealthcare.in' . "\r\n";
+		        //$headers .= 'From: avinash@sperohealthcare.in' . "\r\n";
+		        
+		        $headers .= "CC: balajim.speroinfosystems@gmail.com, $rel_email2\r\n";
+		        //$headers .= "CC: avinash@sperohealthcare.in, kaushikpanditrao@ahpl.in, $rel_email2\r\n";
+
+		        if (mail($to_email, $subject, $msg1, $headers)) {
+
+		        	//$res = $this->ipd_model->save_sent_mail();
+            		if ($res) {
+		            	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully.</div>");
+
+						redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+					} else {
+			                $this->session->set_flashdata('message', "<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sent successfully.</div>");
+			                redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+			            }
+				} else {
+			            $this->session->set_flashdata('message', "<div class='alert alert-danger alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Email sending failed...</div>");
+			            redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+			        }
+				} else {
+			            // Handle the case where the email address is not valid
+			            $this->session->set_flashdata('message', "<div class='alert alert-danger alert-dismissable'><i class='fa fa-exclamation-circle'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Invalid email address</div>");
+			            redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+			        }
+    }/*end post sent button if*/
+
+    $this->load->view("app/physio/mail_view", $this->data);
+
+}
 	
 	public function add_evaluation()
 	{
@@ -281,7 +340,9 @@ class Physio extends General{
 		        //$headers .= "CC: avinash@sperohealthcare.in, kaushikpanditrao@ahpl.in, $rel_email2\r\n";
 
 		        if (mail($to_email, $subject, $msg1, $headers)) {
-		            
+
+		            	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Evaluation details save successfully!</div>");
+
 						redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 					}
 				}
@@ -451,10 +512,13 @@ class Physio extends General{
 	public function treatment_protocol(){
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
+		$rel_agree="Yes";
 		
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
-		
+		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
+		/*echo "<pre>";
+		print_r($this->data['patientPhysioEval']);*/
 		$this->load->view("app/physio/treatment_protocol",$this->data);	
 	}
 	public function add_treatment_protocol()

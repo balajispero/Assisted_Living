@@ -187,42 +187,39 @@
                                            <table class="table table-hover table-striped">
                                            <thead>
                                            <tr>
+                                            <th>Evaluation No.</th>
                                             <th>Member No.</th>
                                             <th>Name</th>
                                             <th>Complain</th>
                                                     <th>Treatment Duration</th>
                                                     <th>Session</th>
-                                                    <th>Email Id</th>
+                                                    <th>Added by</th>
                                                     <th>Treatment Protocol</th>
                                                     <!-- <th>Prepared by</th> -->
-                                                    <th></th>
+                                                    <!-- <th></th> -->
                                            </tr>
                                            </thead>
                                            <tbody>
-                                           <?php /*foreach($getProgressNote as $rows){*/?>
-                                           <!-- <tr>
-                                                <td><?php /*echo date("d M, Y h:i:s A",strtotime($rows->dDateTime));*/?></td>
-                                                <td><?php /*echo date("d M, Y",strtotime($rows->to_date));*/?></td>
-                                                <td><?php /*echo $rows->comorbid_cond*/?></td>
-                                                <td><?php /*echo $rows->goal*/?></td>
-                                                <td><?php /*echo $rows->plan_action*/?></td>
-                                                <td><?php /*echo $rows->action_taken*/?></td>
-                                                <td><?php /*echo $rows->review*/?></td>
-                                                <td><?php 
-                                                /*$ci_obj = & get_instance();
-                                                $ci_obj->load->model('app/general_model');
-                                                $pages = $ci_obj->general_model->getPreparedBy($rows->cPreparedBy);*/
-                                                
-                                                /*echo $pages->cPreparedBy*/?></td>
+                                           <?php foreach($patientPhysioEvalAgree as $rows){?>
+                                            <tr>
+                                            <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a></td>
+                                                <td><?php echo $rows->patient_no?></td>
+                                                <td><?php echo $rows->ptn_name?></td>
+                                                <td><?php echo $rows->ptn_complain?></td>
+                                                <td><?php echo $rows->exp_session?></td>
+                                                <td><?php echo $rows->exp_session?></td>
                                                 <td>
-                                                <?php /*if($this->session->userdata('emr_viewing') == ""){*/?>  
-                                                <?php /*if($getOPDPatient->nStatus == "Pending"){*/?>
-                                                <?php /*if(strtotime($rows->to_date) <= strtotime(date("Y-m-d"))) /*{*/ ?>  <?php /*} else{ } */?>
-                                                
-                                                <?php /*}}*/?>
+                                                    <?php
+                                                        $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $pages = $ci_obj->general_model->getPreparedBy($rows->added_by);
+                                                         echo $pages->cPreparedBy;
+                                                     ?> 
                                                 </td>
-                                           </tr> -->
-                                           <?php /*}*/?> 
+                                                
+                                                <td><a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Add</a></td>
+                                           </tr> 
+                                           <?php }?> 
                                            </tbody>
                                            </table>
                                        </div>

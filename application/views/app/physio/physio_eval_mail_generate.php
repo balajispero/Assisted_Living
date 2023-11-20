@@ -35,19 +35,19 @@
   <tr>
     <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
 
-    <p>Respected <?php echo @$this->input->post('rel_name'); ?>,</p>
+    <p>Respected <?php echo @$patientInfo->rel_name1; ?>,</p>
 
     <p>Greetings from Team Spero at Aastha!</p>
 
-    <p>Thank you for choosing Aastha for the stay of <?php echo @$this->input->post('ptn_name')?>.  We ensure you the best care for him/her. We would like to update you that we conduct physiotherapy evaluation of our each member after admission. It aims at assessing their physical wellbeing and designing a tailored physiotherapy plan. Our expert physiotherapist has conducted the evaluation for <?php echo @$this->input->post('ptn_name')?> on …….date…….</p>
-    <p>As per evaluation, <?php echo @$this->input->post('ptn_name')?> has been recommended for regular physiotherapy with a treatment goal of <?php echo @$this->input->post('treatment_goal')?>.</p>
-    <p>We have a team of physiotherapists at Aastha and upon receiving approval from your end, the physiotherapy can be started for him/her.</p>
+    <p>Thank you for choosing Aastha for the stay of <?php echo @$patientInfo->middlename; ?>.  We ensure you the best care for <?php echo ($patientInfo->gender==1) ? 'him' : 'her'; ?>. We would like to update you that we conduct physiotherapy evaluation of our each member after admission. It aims at assessing their physical wellbeing and designing a tailored physiotherapy plan. Our expert physiotherapist has conducted the evaluation for <?php echo @$patientInfo->middlename; ?> on <?php echo date("Y-m-d", strtotime($ptnEvalInfo->added_date));?>.</p>
+    <p>As per evaluation, <?php echo @$patientInfo->middlename; ?> has been recommended for regular physiotherapy with a treatment goal of <?php echo @$ptnEvalInfo->treatment_goal;?>.</p>
+    <p>We have a team of physiotherapists at Aastha and upon receiving approval from your end, the physiotherapy can be started for <?php echo ($patientInfo->gender==1) ? 'him' : 'her'; ?>.</p>
 
     <p>The charges per physiotherapy session will be Rs. 450/-</p>
     <p>We will raise a bill for all sessions at the end of the month if approved from your end.</p>
     <p>Kindly provide us your directives for the same.</p><br>
 
-    <p>Please go on link for confirmation.<br><a href="<?php echo base_url(); ?>relative_agree/conform/<?php $this->input->post('eval_no');?>">click here</a></p>
+    <p>Please go on link for confirmation.<br><a href="<?php echo base_url(); ?>app/relative_agree/conform/<?php echo $ptnEvalInfo->eval_no; ?>">click here</a></p>
 
     </td>
 
@@ -57,14 +57,8 @@
     <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
        <p>Regards,</p>
 
-    <p>Dr. Avinash Mitkari<?php 
-                                                /*$ci_obj = & get_instance();
-                                                $ci_obj->load->model('app/general_model');
-                                                $pages = $ci_obj->general_model->getPreparedBy($this->session->userdata('user_id'));
-                                                
-                                                echo $pages->cPreparedBy*/?></p>
-    <p>Facility Coordinator <br>Aastha
-</p>
+    <p>Dr. Avinash Mitkari<br>Facility Coordinator <br>Aastha</p>
+  
     </td>
   </tr>
 

@@ -214,24 +214,24 @@
                                                             </select>
                                                         </td>
                                                     </tr>
-                                                    <tr>
+                                                    <!-- <tr>
                                                         <td width="12%">Department <font color="#FF0000">*</font></td>
                                                         <td width="88%">
                                                             <select name="department" id="department" class="form-control input-sm" style="width: 200px;" required>
                                                                 <option value="">- Department -</option>
                                                                 <?php 
-                                                                foreach($departmentList as $departmentList){
+                                                                /*foreach($departmentList as $departmentList){
                                                                 if($_POST['department'] == $departmentList->department_id || $user->department == $departmentList->department_id){
                                                                     $selected = "selected='selected'";
                                                                 }else{
                                                                     $selected = "";
-                                                                }
+                                                                }*/
                                                                 ?>
-                                                                <option value="<?php echo $departmentList->department_id;?>" <?php echo $selected;?>><?php echo $departmentList->dept_name;?></option>
-                                                                <?php }?>
+                                                                <option value="<?php /*echo $departmentList->department_id;*/?>" <?php echo $selected;?>><?php /*echo $departmentList->dept_name;*/?></option>
+                                                                <?php /*}*/?>
                                                             </select>
                                                         </td>
-                                                    </tr>
+                                                    </tr> -->
                                                     <tr>
                                                         <td width="12%">Designation <font color="#FF0000">*</font></td>
                                                         <td width="88%">
@@ -254,7 +254,7 @@
                                                     <tr>
                                                         <td width="12%">User Role <font color="#FF0000">*</font></td>
                                                         <td width="88%">
-                                                            <select name="user_role" id="user_role" class="form-control input-sm" style="width: 200px;" required>
+                                                            <select name="user_role" onChange="addPhysioExpert(this.value);" id="user_role" class="form-control input-sm" style="width: 200px;" required>
                                                                 <option value="">- User Role -</option>
                                                                 <?php 
                                                                 foreach($userRoleList as $userRoleList){
@@ -268,7 +268,15 @@
                                                                 <?php }?>
                                                             </select>
                                                         </td>
-                                                    </tr> <input type="hidden" name="cType">
+                                                    </tr>
+                                                    <tr class="physio_expert" style="display:none;">
+                                                        <td>Do You Expert<font color="#FF0000">*</font></td>
+                                                        <td>
+                                                            <input type="radio" name="pt_expert" value="Yes" <?php echo ($user->physio_expert=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;
+                                                            <input type="radio" name="pt_expert" value="No" <?php echo ($user->physio_expert=="No") ? 'checked' : '';  ?>>No
+                                                        </td>
+                                                    </tr>
+                                                     <input type="hidden" name="cType">
                                                     <tr>
                                                         <td colspan="2"><h3>Contact Information</h3></td>
                                                     </tr>
@@ -429,6 +437,20 @@
             });
         </script>
         <!-- END BDAY -->
-        
+        <script>
+            function addPhysioExpert(role_id)
+            {
+                if(role_id=="11")
+                {
+                    $(".physio_expert").show();
+                    
+                }
+                else {
+                    $("input[name='pt_expert']").prop('checked', false);
+                    $(".physio_expert").hide();
+                    
+                 }
+             }
+        </script>
     </body>
 </html>

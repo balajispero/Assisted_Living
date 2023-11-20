@@ -251,11 +251,11 @@
                                                     <tr>
                                                     	<td width="12%">User Role <font color="#FF0000">*</font></td>
                                                         <td width="88%">
-                                                        	<select name="user_role" id="user_role" class="form-control input-sm" style="width: 200px;" required>
+                                                        	<select name="user_role" onChange="addPhysioExpert(this.value);" id="user_role" class="form-control input-sm" style="width: 200px;" required>
                                                             	<option value="">- User Role -</option>
                                                                 <?php 
 																foreach($userRoleList as $userRoleList){
-																if($_POST['user_role'] == $userRoleList->role_id){
+																if(@$_POST['user_role'] == $userRoleList->role_id){
 																	$selected = "selected='selected'";
 																}else{
 																	$selected = "";
@@ -266,8 +266,16 @@
                                                             </select>
                                                         </td>
                                                     </tr>
+                                                    <tr class="physio_expert" style="display:none;">
+                                                        <td>Do You Expert<font color="#FF0000">*</font></td>
+                                                        <td>
+                                                            <input type="radio" name="pt_expert" value="Yes">Yes &nbsp;
+                                                            <input type="radio" name="pt_expert" value="No">No
+                                                        </td>
+                                                    </tr>
                                                     <input type="hidden" name="cType">
                                                     </table>
+                                                    
                                                 </div>
                                                 <div class="tab-pane" id="tab_2">
                                                 	<table cellpadding="3" cellspacing="3" width="100%">
@@ -372,6 +380,21 @@
             });
         </script>
         <!-- END BDAY -->
+        <script>
+            function addPhysioExpert(role_id)
+            {
+                if(role_id=="11")
+                {
+                    $(".physio_expert").show();
+                    
+                }
+                else {
+                    $("input[name='pt_expert']").prop('checked', false);
+                    $(".physio_expert").hide();
+                    
+                 }
+             }
+        </script>
         
     </body>
 </html>

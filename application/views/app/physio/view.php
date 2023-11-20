@@ -24,6 +24,11 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+            <style>
+            th#act_data {
+            width: 20%;
+        }
+    </style>
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -172,8 +177,11 @@
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab_1">
+                                            <?php echo $message;?>
+                                            <?php if($this->session->userdata('user_role') == 11) {?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
                                             <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a>
+                                            <?php } ?>
                                             <?php } ?>
                                             <div class="alt2" dir="ltr" style="
                                     margin: 0px;
@@ -186,13 +194,14 @@
                                            <table class="table table-hover table-striped">
                                            <thead>
                                            <tr>
-                                            <th>Evaluation Id</th>
+                                            <th>Evaluation No</th>
                                             <th>Member No</th>
                                             <th>Member Name</th>
                                                     <th>Complain</th>
                                                     <th>Session</th>
                                                     <th>Added by</th>
-                                                    <th>Action</th>
+                                                    <!-- <th></th> -->
+                                                    <th id="act_data">Action</th>
                                                     
                                            </tr>
                                            </thead>
@@ -212,7 +221,14 @@
                                                          echo $pages->cPreparedBy;
                                                      ?> 
                                                 </td>
+                                                <!-- <td><?php  if($getOPDPatient->nStatus == "Pending"){?>
+                                            <a href="<?php echo base_url();?>app/physio/mail_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Mail</a>
+                                            <?php } ?></td> -->
+                                                
                                                 <td><?php  if($getOPDPatient->nStatus == "Pending"){?>
+                                                    <?php if($this->session->userdata('user_role') == 3) {?>
+                                                    <a href="<?php echo base_url();?>app/physio/mail_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Mail</a> | 
+                                                <?php } ?>
                                             <a href="<?php echo base_url();?>app/physio/edit_evaluation/<?php echo $rows->eval_no;?>">Modify</a>
                                             <?php } ?></td>
                                                 

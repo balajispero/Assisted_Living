@@ -14,7 +14,7 @@
         <link href="<?php echo base_url();?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
-
+        
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -122,7 +122,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Name</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_name"> 
+                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo @$patientInfo->middlename; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -130,7 +130,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Age</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_age"> 
+                                    <input type="text" class="form-control" name="ptn_age" value="<?php echo @$patientInfo->age; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -220,13 +220,13 @@
                           <tr>
                               <td>Maximal Assistance 2</td><td><input type="date" name="mobility_assist2_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist2_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist2_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist2_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist2_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_supine" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist2_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_stand" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist2_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_stand" class="" value="No">No
                               </td>
                           </tr>
                           <tr>
@@ -256,10 +256,10 @@
                           <tr>
                               <td>Contact  Guarding 5 A</td><td><input type="date" name="mobility_assist5a_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5a_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5_rolling" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist5a_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_rolling" class="" value="No">No
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5a_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5_supine" class="" value="No">No
+                                <input type="radio" class="" name="mobility_assist5a_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_supine" class="" value="No">No
                               </td>
                               <td>
                                 <input type="radio" class="" name="mobility_assist5a_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_stand" class="" value="No">No
@@ -491,9 +491,9 @@
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
-<script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
+ <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
 <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>   
-<script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script> 
         <!-------------------------jquery cdn for work radio button------------------------>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
         <!-------------------------jquery cdn for work radio button------------------------>
@@ -518,6 +518,38 @@
                             
                     }
                 });
+
+                /*var radioButtons = document.querySelectorAll('.chkradio');
+
+                function handleRadioChange() {
+                  if (this.checked) {
+                    var val = this.value;
+
+                    if (val != '') {
+                      if (val == 'Yes') {
+                        document.getElementById('treatment_section').style.display = 'block';
+                      }
+                      if (val == 'No') {
+                        document.getElementById('treatment_section').style.display = 'none';
+                      }
+                    }
+                  }
+                }
+
+                // Attach the event listener to each radio button
+                radioButtons.forEach(function (radio) {
+                  radio.addEventListener('change', handleRadioChange);
+                });*/
+        /*document.querySelectorAll('.chkradio').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      var val = this.value;
+      var treatmentSection = document.getElementById('treatment_section');
+
+      if (val != '') {
+        treatmentSection.style.display = (val == 'Yes') ? 'block' : 'none';
+      }
+    });
+  });*/
         /*****************End recommendation yes**********************/  
     </script>
 
