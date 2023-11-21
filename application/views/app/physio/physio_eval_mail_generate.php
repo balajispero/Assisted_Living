@@ -47,7 +47,7 @@
     <p>We will raise a bill for all sessions at the end of the month if approved from your end.</p>
     <p>Kindly provide us your directives for the same.</p><br>
 
-    <p>Please go on link for confirmation.<br><a href="<?php echo base_url(); ?>app/relative_agree/conform/<?php echo $ptnEvalInfo->eval_no; ?>">click here</a></p>
+    <p>Please go on link for confirmation.<br><a href="<?php echo base_url(); ?>app/relative_agree/conform/<?php echo $ptnEvalInfo->eval_no; ?>/<?php echo md5($ptnEvalInfo->eval_no); ?>">click here</a></p>
 
     </td>
 

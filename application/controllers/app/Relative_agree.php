@@ -9,15 +9,7 @@ class Relative_agree extends General{
 
 	public function __construct(){
 		parent::__construct();
-		/*$this->load->model("app/ipd_model");
-		$this->load->model("app/patient_model");
-		$this->load->model("app/doctor_model");
-		$this->load->model("app/physio_model");
-		$this->load->model("General_model");
-		if(General::is_logged_in() == FALSE){
-            redirect(base_url().'login');    
-        }
-		General::variable();	*/
+		
 		
 	}
 	
@@ -25,9 +17,9 @@ class Relative_agree extends General{
 
 	public function conform(){
 		$eval_no = $this->uri->segment("4");
-		/*$patient_no = $this->uri->segment("5");
+		$md5eval_no = $this->uri->segment("5");
 		
-		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		/*$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['patientPhysioEval'] = $this->physio_model->get_physio_evaluation();*/
 		$this->data['message'] = $this->session->flashdata('message');
@@ -57,7 +49,7 @@ class Relative_agree extends General{
 				$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Thank you for your confirmation!</div>");
 			}	
 				$this->data['message'] = $this->session->flashdata('message');
-				redirect(base_url().'app/relative_agree/conform/'.$this->input->post('eval_no'),$this->data);
+				redirect(base_url().'app/relative_agree/conform/'.$this->input->post('eval_no').'/'.md5($this->input->post('eval_no')),$this->data);
 			
 		}
 		else{

@@ -156,6 +156,8 @@ class Physio extends General{
 		        $headers .= "CC: balajim.speroinfosystems@gmail.com, $rel_email2\r\n";
 		        //$headers .= "CC: kaushikpanditrao@ahpl.in, $rel_email2\r\n";
 
+		        
+
 		        if (mail($to_email, $subject, $msg1, $headers)) {
 
 		        	$res = $this->physio_model->save_physio_eval_sent_mail();

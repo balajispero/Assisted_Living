@@ -129,7 +129,7 @@
                 // $patientInfo = $this->patient_model->getPatientInfo($id);
                 //   echo $patientInfo; ?>
                  <!-- <form method="post" action="<?php echo base_url();?>app/opd/save_opd" onSubmit="return confirm('Are you sure you want to save?');"> -->
-                    <form action="<?php echo base_url()?>app/physio/mail_view/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>/<?php echo $ptnEvalInfo->eval_no; ?>" method="post">
+                    <form action="<?php echo base_url()?>app/physio/mail_view/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>/<?php echo $ptnEvalInfo->eval_no; ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                 <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
                 <input type="hidden" name="eval_no" value="<?php echo $ptnEvalInfo->eval_no; ?>">
@@ -248,8 +248,9 @@
     <p>The charges per physiotherapy session will be Rs. 450/-</p>
     <p>We will raise a bill for all sessions at the end of the month if approved from your end.</p>
     <p>Kindly provide us your directives for the same.</p><br>
+    <!-- Attach file: <input type="file" id="attachment" name="attachment"> -->
 
-    <p>Please go on link for confirmation.<br><a href="<?php echo base_url(); ?>app/relative_agree/conform/<?php echo $ptnEvalInfo->eval_no; ?>">click here</a></p>
+    <p>Please go on link for confirmation.<br><a href="<?php echo base_url(); ?>app/relative_agree/conform/<?php echo $ptnEvalInfo->eval_no; ?>/<?php echo md5($ptnEvalInfo->eval_no); ?>">click here</a></p>
 
     </td>
 

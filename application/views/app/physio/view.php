@@ -227,9 +227,13 @@
                                                 
                                                 <td><?php  if($getOPDPatient->nStatus == "Pending"){?>
                                                     <?php if($this->session->userdata('user_role') == 3) {?>
-                                                    <a href="<?php echo base_url();?>app/physio/mail_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Mail</a> | 
+                                                    <a href="<?php echo base_url();?>app/physio/mail_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Mail</a>  
                                                 <?php } ?>
+
+                                                
+                                                    <?php if($this->session->userdata('user_role') == 11) {?>
                                             <a href="<?php echo base_url();?>app/physio/edit_evaluation/<?php echo $rows->eval_no;?>">Modify</a>
+                                            <?php } ?>
                                             <?php } ?></td>
                                                 
                                             </tr>    
