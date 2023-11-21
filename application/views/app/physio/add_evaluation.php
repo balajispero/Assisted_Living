@@ -282,13 +282,6 @@
                             </div><!-- /.col-md-3 -->
                            </div>
 
-
-
-
-
-
-
-
                         <div class="row">
                           <div class="col-sm-12">
                             <label><h3>Bed Mobility</h3></label>
