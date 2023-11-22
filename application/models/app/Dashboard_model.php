@@ -86,7 +86,7 @@ class Dashboard_model extends CI_Model{
  			//$this->db->where('rbed.nStatus','Occupied');
  			$this->db->where(array('rbed.nStatus'=>'Occupied','pt.nStatus'=>'Pending'));
 			$this->db->order_by('rbed.room_bed_id', 'ASC');
-			//$this->db->limit('7');
+			$this->db->limit('7');
 			$query = $this->db->get();
 		// echo $this->db->last_query(); die;
 			if ( $query->num_rows() > 0 )
