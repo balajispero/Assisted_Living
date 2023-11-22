@@ -549,7 +549,18 @@ class Physio extends General{
 		
 		$this->load->view("app/physio/view_treatment_protocol",$this->data);	
 	}
-	
+	public function physio_discharge_summary(){
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		$rel_agree="Yes";
+		
+		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
+		/*echo "<pre>";
+		print_r($this->data['patientPhysioEval']);*/
+		$this->load->view("app/physio/physio_discharge_summary",$this->data);	
+	}
 
 
 }
