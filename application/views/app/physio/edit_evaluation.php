@@ -140,7 +140,7 @@
                         </div><!-- / row -->
                         <label>Assessments</label>
                         <div class="row">
-                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Tightness</label><span class="text-danger"></span></br>
                                     <select name="ptn_tightness" class="form-control">
@@ -621,33 +621,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <!-- <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Treatment Goals</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="treatment_goal" value="<?php echo $ptnEvalInfo->treatment_goal;?>"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>/.form-group wrapper-class -->
-                            <!-- </div>/.col-md-3 -->
-                            <!-- <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Therapy Time</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="therapy_time"> 
-                                    <span class="text-danger error-text type_category_err"></span>           </div>
-                            </div> --><!-- /.col-md-3 -->
-                            <!-- <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>From Date</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="physio_service_from_date"> 
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>To Date</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="physio_service_to_date"> 
-                                    <span class="text-danger error-text type_category_err"></span>          </div>
-                            </div> --><!-- /.col-md-3 -->
+                            
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Remark</label><span class="text-danger"></span></br>
