@@ -91,17 +91,17 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <?php if($this->session->userdata('emr_viewing') == "ipd_emr_viewing"){?>   
-                   <h1>IPD Member Information</h1>
+                   <h1>Physio Member Information</h1>
                    <ol class="breadcrumb">
                         <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">EMR sheet</a></li>
                         <li><a href="<?php echo base_url()?>app/emr/opd">In-Member</a></li>
                     </ol>
                     <?php }else{?>
-                    <h1>IPD Member Information</h1>
+                    <h1>Physio Member Information</h1>
                    <ol class="breadcrumb">
                         <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="#">Doctor Module</a></li>
+                        <li><a href="#">Physio Module</a></li>
                         <li><a href="<?php echo base_url()?>app/doctor/ipd">In-Member Master</a></li>
                         <li><a href="#">In-Member Information</a></li>
                     </ol>
@@ -160,7 +160,7 @@
                                     <li class="active"><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
                                  <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                 
-                                  <li><a href="<?php echo base_url()?>app/ipd/diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
+                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
                                     <li><a href="<?php echo base_url()?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li> 
                                     
                                  </ul>

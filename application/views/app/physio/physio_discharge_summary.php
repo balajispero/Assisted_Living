@@ -86,17 +86,17 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <?php if($this->session->userdata('emr_viewing') == "ipd_emr_viewing"){?>   
-                   <h1>IPD Member Information</h1>
+                   <h1>Physio Member Information</h1>
                    <ol class="breadcrumb">
                         <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">EMR sheet</a></li>
                         <li><a href="<?php echo base_url()?>app/emr/opd">In-Member</a></li>
                     </ol>
                     <?php }else{?>
-                    <h1>IPD Member Information</h1>
+                    <h1>Physio Member Information</h1>
                    <ol class="breadcrumb">
                         <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="#">Doctor Module</a></li>
+                        <li><a href="#">Physio Module</a></li>
                         <li><a href="<?php echo base_url()?>app/doctor/ipd">In-Member Master</a></li>
                         <li><a href="#">In-Member Information</a></li>
                     </ol>
@@ -152,11 +152,11 @@
                             <div class="box-footer clearfix">
                                 <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
-                                    <li class="active"><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
+                                    <li><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
                                  <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                 
-                                 <li><a href="<?php echo base_url()?>app/ipd/diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
-                                    <li><a href="<?php echo base_url()?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li> 
+                                 <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
+                                    <li class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li> 
                                     
                                  </ul>
                                 </div>
@@ -167,12 +167,12 @@
                      <div class="col-md-9"> 
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab_1" data-toggle="tab">Treatment Protocol</a></li>
+                                        <li class="active"><a href="#tab_1" data-toggle="tab">Discharge Summary</a></li>
                                         
                                     </ul>
                             
-                        <div class="row">
-                            <div class="col-md-4">
+                        <div class="row" style="margin-top:30px; margin-left:10px; ">
+                            <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Diagnosis</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="diagnosis" value=""> 
@@ -180,7 +180,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>FIM Score on 1st Date of Evaluation</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="evaluation_date"> 
@@ -188,7 +188,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Duaration</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="duaration"> 
@@ -198,7 +198,7 @@
                             </div><!-- /.col-md-3 -->
 
 
-                            <div class="col-md-5">
+                            <div class="col-sm-5">
                                 <div class="form-group wrapper-class" >
                                     <label>Goals Achived</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
@@ -206,7 +206,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-5">
+                            <div class="col-sm-5">
                                 <div class="form-group wrapper-class" >
                                     <label>Further Recommendations</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
@@ -217,7 +217,7 @@
 
                         </div>
                     
-                        <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit">
+                        <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit" style="margin-left:20px;">
 
             </form>
                                             <br><br><br><br><br><br><br>
