@@ -524,7 +524,7 @@
                 <div class="row mt-5">
                   <div class="col-sm-4">Recommendation for physiotherapy</div>
                   <div class="col-sm-4">
-                    <input type="radio" class="chkradio" name="ptn_rec" value="Yes">Yes &nbsp;
+                    <input type="radio" class="chkradio" name="expert_rec" value="Yes">Yes &nbsp;
                     <input type="radio" name="ptn_rec" class="chkradio" value="No">No</div>
                 </div><br>
                 
@@ -534,6 +534,7 @@
                         </div>
                     </div><br>
                 <div class="row" id="treatment_section" style="display:none;">
+                <div class="row">
                           
                             <!-- <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
@@ -597,7 +598,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Therapy Time</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
+                                   
                                     <select name="therapy_time" class="form-control input-sm">
                                       <option value="">-Select Therapy Time -</option>
                                       
@@ -613,7 +614,8 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-
+                        </div>
+                            <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>EXPECTED sessions </label><span class="text-danger"></span></br>

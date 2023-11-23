@@ -216,7 +216,9 @@ class Physio extends General{
 	            'ptn_diagnosis' => $this->input->post('ptn_diagnosis'),
 	            'ptn_complain' => $this->input->post('ptn_complain'),
 	            'ptn_tightness' => $this->input->post('ptn_tightness'),
+	            'ptn_tightness' => $this->input->post('ptn_tightness_remark'),
 	            'ptn_upper_body' => $this->input->post('ptn_upper_body'),
+	            'ptn_upper_body' => $this->input->post('ptn_upper_body_remark'),
 	            'lower_body' => $this->input->post('lower_body'),
 	            'ptn_pain' => $this->input->post('ptn_pain'),
 
