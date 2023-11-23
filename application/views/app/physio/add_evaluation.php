@@ -614,8 +614,8 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                        </div>
-                            <div class="row">
+                         </div>
+                            <div class="row"> 
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>EXPECTED sessions </label><span class="text-danger"></span></br>
@@ -651,6 +651,7 @@
                             </div><!-- /.col-md-3 -->
 
                         </div><!-- / row -->
+                    </div><!--/treatment section div-->
 
                 <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit">
             </form>
@@ -675,7 +676,7 @@
                 .change(function(){ // bind a function to the change event
                     if( $(this).is(":checked") ){ // check if the radio is checked
                         //var val = $(this).val(); // retrieve the value
-                        var val=$("input[name='ptn_rec']:checked").val();
+                        var val=$("input[name='expert_rec']:checked").val();
                         if(val != '')
                           {
                             if(val == 'Yes'){
