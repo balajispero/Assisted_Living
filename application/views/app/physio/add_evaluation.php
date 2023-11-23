@@ -160,7 +160,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Tightness</label><span class="text-danger"></span></br>
-                                    <select name="applicant_marital" class="form-control">
+                                    <select name="ptn_tightness" class="form-control">
                                       <option value="">- Therapist -</option>
                                       
                                       <option value="restricted ROM">restricted ROM</option>
@@ -184,13 +184,13 @@
                                 <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label></label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_tightness"> 
+                                    <input type="text" class="form-control" name="ptn_tightness_remark"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
+                                <div class="form-group wrapper-class">
                                     <label>Upper body</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="ptn_upper_body">  -->
                                     <select name="applicant_marital" class="form-control input-sm">

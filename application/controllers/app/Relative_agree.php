@@ -16,8 +16,9 @@ class Relative_agree extends General{
 	
 
 	public function conform(){
-		$eval_no = $this->uri->segment("4");
-		$md5eval_no = $this->uri->segment("5");
+		//$eval_no = $this->uri->segment("4");
+		$eval_no = base64_decode($this->uri->segment("4"));
+		//$md5eval_no = $this->uri->segment("5");
 		
 		/*$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
@@ -49,7 +50,7 @@ class Relative_agree extends General{
 				$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Thank you for your confirmation!</div>");
 			}	
 				$this->data['message'] = $this->session->flashdata('message');
-				redirect(base_url().'app/relative_agree/conform/'.$this->input->post('eval_no').'/'.md5($this->input->post('eval_no')),$this->data);
+				redirect(base_url().'app/relative_agree/conform/'.base64_encode($this->input->post('eval_no')),$this->data);
 			
 		}
 		else{

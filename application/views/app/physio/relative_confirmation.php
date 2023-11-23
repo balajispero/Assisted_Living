@@ -24,7 +24,7 @@
       </div>
       <div class="card-body">
         <form action="<?php echo base_url()?>app/relative_agree/conform" method="post" enctype="multipart/form-data">
-        <input type="hidden" class="form-control" name="eval_no" value="<?php echo $this->uri->segment("4");?>"> <?php echo @$message;?>
+        <input type="hidden" class="form-control" name="eval_no" value="<?php echo base64_decode($this->uri->segment("4"));?>"> <?php echo @$message;?>
           <div class="form-group">
             <label for="agree">Do you agree or not?</label><br>
             <div class="form-check">
