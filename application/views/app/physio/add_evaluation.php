@@ -161,15 +161,15 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Tightness</label><span class="text-danger"></span></br>
                                     <select name="ptn_tightness" class="form-control">
-                                      <option value="">- Tightness -</option>
+                                      <option value="">- Select Tightness -</option>
                                       
                                       <option value="Restricted ROM">Restricted ROM</option>
                                       
                                       <option value="Hyperlaxed ROM">Hyperlaxed ROM</option>
                                       
-                                      <option value="hip flexors">hip flexors</option>
+                                      <option value="Hip flexors">Hip Flexors</option>
                                       
-                                      <option value="calf">calf</option>
+                                      <option value="Calf">Calf</option>
                                       
                                     </select>
                                     
@@ -191,15 +191,15 @@
                                     <label>Upper body</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="ptn_upper_body">  -->
                                     <select name="ptn_upper_body" class="form-control input-sm">
-                                      <option value="">- Upper body -</option>
+                                      <option value="">- Select Upper Body -</option>
                                       
-                                      <option value="tightness">tightness</option>
+                                      <option value="Tightness">Tightness</option>
                                       
-                                      <option value="increased tone">increased tone</option>
+                                      <option value="Increased Tone">Increased Tone</option>
                                       
-                                      <option value="decreased tone">decreased tone</option>
+                                      <option value="Decreased Tone">Decreased Tone</option>
                                       
-                                      <option value="deformity">deformity</option>
+                                      <option value="Deformity">Deformity</option>
                                       
                                     </select>
 
@@ -227,15 +227,15 @@
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
                                     <!-- <textarea name="lower_body" class="form-control"></textarea> -->
                                     <select name="lower_body" class="form-control input-sm">
-                                      <option value="">-Lower body-</option>
+                                      <option value="">-Select Lower body-</option>
                                       
-                                      <option value="tightness">tightness</option>
+                                      <option value="Tightness">Tightness</option>
                                       
-                                      <option value="increased tone">increased tone</option>
+                                      <option value="Increased tone">Increased Tone</option>
                                       
-                                      <option value="decreased tone">decreased tone</option>
+                                      <option value="Decreased tone">Decreased Tone</option>
                                       
-                                      <option value="deformity">deformity</option>
+                                      <option value="Deformity">Deformity</option>
                                       
                                       <!-- <option value="Widow">T5</option>
                                       
@@ -250,7 +250,7 @@
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
                                     <!-- <textarea name="ptn_pain" class="form-control"></textarea> -->
                                     <select name="ptn_pain" class="form-control">
-                                      <option value="">-Pain-</option>
+                                      <option value="">-Select Pain-</option>
                                       
                                       <option value="0">0</option>
                                       
@@ -270,6 +270,24 @@
                                       <option value="10">10</option>
 
 
+                                    </select>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Nature</label><span class="text-danger"></span></br>
+                                    <!-- <input type="text" class="form-control" name="past_history"> -->
+                                    <!-- <textarea name="ptn_pain" class="form-control"></textarea> -->
+                                    <select name="ptn_pain" class="form-control">
+                                      <option value="">-Select Nature-</option>
+                                      
+                                      <option value="Throbbing">Throbbing</option>
+                                      
+                                      <option value="Dull Pain">Dull Pain</option>
+                                      
+                                      <option value="Pricking">Pricking</option>
+                                     
                                     </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -548,16 +566,16 @@
                            
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Treatment goals </label><span class="text-danger"></span></br>
+                                    <label>Treatment Goals </label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
                                     <select name="treatment_goal" class="form-control input-sm">
-                                      <option value="">-Treatment goals -</option>
+                                      <option value="">- Select Treatment Goals -</option>
                                       
-                                      <option value="Pain relief">Pain relief</option>
+                                      <option value="Pain Relief">Pain Relief</option>
                                       
-                                      <option value="Independent mobility">Independent mobility</option>
+                                      <option value="Independent Mobility">Independent Mobility</option>
                                       
-                                      <option value="Muscle strengthen">Muscle strengthen</option>
+                                      <option value="Muscle Strengthen">Muscle Strengthen</option>
                                       
                                       <option value="Ambulation">Ambulation</option>
                                       
@@ -601,19 +619,19 @@
                                     <label>EXPECTED sessions </label><span class="text-danger"></span></br>
                                    
                                     <select name="exp_session" class="form-control input-sm">
-                                      <option value="">- Select EXPECTED sessions-</option>
+                                      <option value="">-Select EXPECTED sessions-</option>
                                       
-                                      <option value="daily once">daily once</option>
+                                      <option value="Daily Once">Daily Once</option>
                                       
-                                      <option value="daily twice">daily twice</option>
+                                      <option value="Daily Twice">Daily Twice</option>
                                       
-                                      <option value="thrice daily">thrice daily</option>
+                                      <option value="Thrice Daily">Thrice Daily</option>
                                       
-                                      <option value="twice a week">twice a week</option>
+                                      <option value="Twice a Week">Twice a Week</option>
                                       
-                                      <option value="thrice a week">thrice a week</option>
+                                      <option value="Thrice a Week">Thrice a Week</option>
                                       
-                                      <option value="Once a week">Once a week</option>
+                                      <option value="Once a Week">Once a Week</option>
                                     </select>
 
                                     <span class="text-danger error-text type_category_err"></span>                           
