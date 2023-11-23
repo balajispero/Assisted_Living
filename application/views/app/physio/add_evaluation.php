@@ -167,7 +167,7 @@
                                       
                                       <option value="Hyperlaxed ROM">Hyperlaxed ROM</option>
                                       
-                                      <option value="Hip flexors">Hip Flexors</option>
+                                      <option value="Hip Flexors">Hip Flexors</option>
                                       
                                       <option value="Calf">Calf</option>
                                       
@@ -645,7 +645,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Next Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="next_eval_date">
+                                    <input type="date" class="form-control" name="next_eval_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->

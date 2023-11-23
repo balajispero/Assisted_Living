@@ -140,10 +140,30 @@
                         </div><!-- / row -->
                         <label>Assessments</label>
                         <div class="row">
+                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                                <div class="form-group wrapper-class" >
+                                    <label>Tightness</label><span class="text-danger"></span></br>
+                                    <select name="ptn_tightness" class="form-control">
+                                      <option value="">- Select Tightness -</option>
+                                      
+                                      <option value="Restricted ROM" <?php if($ptnEvalInfo->ptn_tightness=="Restricted ROM"){ echo "selected"; } ?>>Restricted ROM</option>
+                                      
+                                      <option value="Hyperlaxed ROM" <?php if($ptnEvalInfo->ptn_tightness=="Hyperlaxed ROM"){ echo "selected"; } ?>>Hyperlaxed ROM</option>
+                                      
+                                      <option value="Hip Flexors" <?php if($ptnEvalInfo->ptn_tightness=="Hip Flexors"){ echo "selected"; } ?>>Hip Flexors</option>
+                                      
+                                      <option value="Calf" <?php if($ptnEvalInfo->ptn_tightness=="Calf"){ echo "selected"; } ?>>Calf</option>
+                                      
+                                    </select>
+                                    
+                                    
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                  </div><!-- /.form-group wrapper-class -->
+                                </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Tightness</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_tightness" value="<?php echo $ptnEvalInfo->ptn_tightness; ?>"> 
+                                    <input type="text" class="form-control" name="ptn_tightness_remark" value="<?php echo $ptnEvalInfo->ptn_tightness_remark; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
