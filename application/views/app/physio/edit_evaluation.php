@@ -269,16 +269,15 @@
                             <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
                                 <div class="form-group wrapper-class" >
                                     <label>Nature</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <!-- <textarea name="ptn_pain" class="form-control"></textarea> -->
-                                    <select name="ptn_pain" class="form-control">
+                        
+                                    <select name="nature" class="form-control">
                                       <option value="">-Select Nature-</option>
                                       
-                                      <option value="Throbbing" <?php if($ptnEvalInfo->ptn_pain=="Throbbing"){ echo "selected"; } ?>>Throbbing</option>
+                                      <option value="Throbbing" <?php if($ptnEvalInfo->nature=="Throbbing"){ echo "selected"; } ?>>Throbbing</option>
                                       
-                                      <option value="Dull Pain" <?php if($ptnEvalInfo->ptn_pain=="Dull Pain"){ echo "selected"; } ?>>Dull Pain</option>
+                                      <option value="Dull Pain" <?php if($ptnEvalInfo->nature=="Dull Pain"){ echo "selected"; } ?>>Dull Pain</option>
                                       
-                                      <option value="Pricking" <?php if($ptnEvalInfo->ptn_pain=="Pricking"){ echo "selected"; } ?>>Pricking</option>
+                                      <option value="Pricking" <?php if($ptnEvalInfo->nature=="Pricking"){ echo "selected"; } ?>>Pricking</option>
                                      
                                     </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -588,10 +587,11 @@
                 <div class="row">
                   <div class="col-sm-4">Recommendation for physiotherapy</div>
                   <div class="col-sm-4">
-                    <input type="radio" class="form-control" name="ptn_rec" value="Yes" checked>Yes &nbsp;
-                    <input type="radio" name="ptn_rec" class="form-control" value="No">No</div>
+                    <input type="radio" class="chkradio" name="expert_rec" value="Yes" <?php if($ptnEvalInfo->expert_recommendation=="Yes"){ echo "checked"; } ?>>Yes &nbsp;
+                    <input type="radio" name="expert_rec" class="chkradio" value="No" <?php if($ptnEvalInfo->expert_recommendation=="No"){ echo "checked"; } ?>>No</div>
                 </div><br>
 
+                 <div class="row" id="treatment_section" style="display: <?php echo ($ptnEvalInfo->expert_recommendation=="No") ? "none" : "block";?>">
                 <div class="row">
                 <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
@@ -676,31 +676,43 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-
-                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Expected Sessions</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="exp_session"> -->
-                                    <select name="exp_session" class="form-control">
-                                                                    <option value=""> Select Expected Session</option>
-                                                                  <option value="Daily" <?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>>Daily</option>
-                                                                  <option value="Daily Twice" <?php if($ptnEvalInfo->exp_session=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option>
-                                                                  <option value="Weekly Twice" <?php if($ptnEvalInfo->exp_session=="Weekly Twice"){ echo "selected"; } ?>>Weekly Twice</option>
-                                                                  
-                                                                </select>
-                                    
+                                    <label>Expected sessions </label><span class="text-danger"></span></br>
+                                   
+                                    <select name="exp_session" class="form-control input-sm">
+                                      <option value="">-Select Expected sessions-</option>
+                                      
+                                      <option value="Daily Once" <?php if($ptnEvalInfo->exp_session=="Daily Once"){ echo "selected"; } ?>>Daily Once</option>
+                                      
+                                      <option value="Daily Twice" <?php if($ptnEvalInfo->exp_session=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option>
+                                      
+                                      <option value="Thrice Daily" <?php if($ptnEvalInfo->exp_session=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option>
+                                      
+                                      <option value="Twice a Week" <?php if($ptnEvalInfo->exp_session=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option>
+                                      
+                                      <option value="Thrice a Week" <?php if($ptnEvalInfo->exp_session=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option>
+                                      
+                                      <option value="Once a Week" <?php if($ptnEvalInfo->exp_session=="Once a Week"){ echo "selected"; } ?>>Once a Week</option>
+                                    </select>
+
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
+                            
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Next Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="next_eval_date" value="<?php echo $ptnEvalInfo->next_eval_date; ?>">
+                                    <input type="date" class="form-control" name="next_eval_date" value="<?php echo $ptnEvalInfo->next_eval_date; ?>">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
 
                         </div><!-- / row -->
+                        </div><!--/treatment section div-->
 
                 <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit">
             </form>
@@ -713,6 +725,33 @@
 <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
 <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
 <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
+
+ <!-------------------------jquery cdn for work radio button------------------------>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+        <!-------------------------jquery cdn for work radio button------------------------>
+
+    <script>
+    
+        /*****************Start recommendation yes**********************/
+            $(".chkradio") // select the radio by its id
+                .change(function(){ // bind a function to the change event
+                    if( $(this).is(":checked") ){ // check if the radio is checked
+                        //var val = $(this).val(); // retrieve the value
+                        var val=$("input[name='expert_rec']:checked").val();
+                        if(val != '')
+                          {
+                            if(val == 'Yes'){
+                                $('#treatment_section').show();
+                            }
+                            if(val == 'No'){
+                              $('#treatment_section').hide(); 
+                          } 
+                        }
+                            
+                    }
+                });
+                /*****************End recommendation yes**********************/  
+    </script>
 
 </body>
 </html>

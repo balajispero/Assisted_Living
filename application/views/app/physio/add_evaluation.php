@@ -279,7 +279,7 @@
                                     <label>Nature</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
                                     <!-- <textarea name="ptn_pain" class="form-control"></textarea> -->
-                                    <select name="ptn_pain" class="form-control">
+                                    <select name="nature" class="form-control">
                                       <option value="">-Select Nature-</option>
                                       
                                       <option value="Throbbing">Throbbing</option>
