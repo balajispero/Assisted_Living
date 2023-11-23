@@ -161,9 +161,9 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Tightness</label><span class="text-danger"></span></br>
                                     <select name="ptn_tightness" class="form-control">
-                                      <option value="">- Therapist -</option>
+                                      <option value="">- Tightness -</option>
                                       
-                                      <option value="restricted ROM">restricted ROM</option>
+                                      <option value="Restricted ROM">Restricted ROM</option>
                                       
                                       <option value="Hyperlaxed ROM">Hyperlaxed ROM</option>
                                       
@@ -171,9 +171,6 @@
                                       
                                       <option value="calf">calf</option>
                                       
-                                      <!-- <option value="Widow">T5</option>
-                                      
-                                      <option value="Widower">T6</option> -->
                                     </select>
                                     
                                     
@@ -193,7 +190,7 @@
                                 <div class="form-group wrapper-class">
                                     <label>Upper body</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="ptn_upper_body">  -->
-                                    <select name="applicant_marital" class="form-control input-sm">
+                                    <select name="ptn_upper_body" class="form-control input-sm">
                                       <option value="">- Upper body -</option>
                                       
                                       <option value="tightness">tightness</option>
@@ -204,9 +201,6 @@
                                       
                                       <option value="deformity">deformity</option>
                                       
-                                      <!-- <option value="Widow">T5</option>
-                                      
-                                      <option value="Widower">T6</option> -->
                                     </select>
 
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -216,7 +210,7 @@
                                 <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label></label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_tightness"> 
+                                    <input type="text" class="form-control" name="ptn_upper_body_remark"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -232,7 +226,7 @@
                                     <label>Lower body</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
                                     <!-- <textarea name="lower_body" class="form-control"></textarea> -->
-                                    <select name="applicant_marital" class="form-control input-sm">
+                                    <select name="lower_body" class="form-control input-sm">
                                       <option value="">-Lower body-</option>
                                       
                                       <option value="tightness">tightness</option>
@@ -255,7 +249,7 @@
                                     <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
                                     <!-- <textarea name="ptn_pain" class="form-control"></textarea> -->
-                                    <select name="applicant_marital" class="form-control">
+                                    <select name="ptn_pain" class="form-control">
                                       <option value="">-Pain-</option>
                                       
                                       <option value="0">0</option>
@@ -515,7 +509,12 @@
                     <input type="radio" class="chkradio" name="ptn_rec" value="Yes">Yes &nbsp;
                     <input type="radio" name="ptn_rec" class="chkradio" value="No">No</div>
                 </div><br>
-
+                
+                <div class="row">
+                          <div class="col-sm-12">
+                            <label><h3>Balance Assessment</h3></label>
+                        </div>
+                    </div><br>
                 <div class="row" id="treatment_section" style="display:none;">
                           
                             <!-- <div class="col-md-3">
@@ -537,40 +536,31 @@
                                     <input type="text" class="form-control" name="physio_service_to_date"> 
                                     <span class="text-danger error-text type_category_err"></span>          </div>
                             </div> --><!-- /.col-md-3 -->
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Gait speed</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="Gait speed" value=""> 
+                                    <input type="text" class="form-control" name="gait_speed" value=""> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>RECOMMENDATION</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="RECOMMENDATION" value=""> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                           
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Treatment goals </label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
-                                    <select name="applicant_marital" class="form-control input-sm">
+                                    <select name="treatment_goal" class="form-control input-sm">
                                       <option value="">-Treatment goals -</option>
                                       
                                       <option value="Pain relief">Pain relief</option>
                                       
-                                      <option value="Independent mobility">Independent mobility </option>
+                                      <option value="Independent mobility">Independent mobility</option>
                                       
                                       <option value="Muscle strengthen">Muscle strengthen</option>
                                       
                                       <option value="Ambulation">Ambulation</option>
                                       
-                                      <!-- <option value="Widow">T5</option>
-                                      
-                                      <option value="Widower">T6</option> -->
                                     </select>
 
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -579,8 +569,8 @@
 
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Pain relief </label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="Pain relief " value=""> 
+                                    <label>Remark</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="treatment_goal_remark" value=""> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -588,12 +578,12 @@
 
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Time of therapy 30 mins  </label><span class="text-danger"></span></br>
+                                    <label>Therapy Time</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
-                                    <select name="applicant_marital" class="form-control input-sm">
-                                      <option value="">-Time of therapy 30 mins -</option>
+                                    <select name="therapy_time" class="form-control input-sm">
+                                      <option value="">-Select Therapy Time -</option>
                                       
-                                      <option value="20 min">20 min</option>
+                                      <option value="20">20 min</option>
                                       
                                       <option value="30">30 </option>
                                       
@@ -601,9 +591,6 @@
                                       
                                       <option value="60">60</option>
                                       
-                                      <!-- <option value="Widow">T5</option>
-                                      
-                                      <option value="Widower">T6</option> -->
                                     </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -612,8 +599,8 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>EXPECTED sessions </label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
-                                    <select name="applicant_marital" class="form-control input-sm">
+                                   
+                                    <select name="exp_session" class="form-control input-sm">
                                       <option value="">- Select EXPECTED sessions-</option>
                                       
                                       <option value="daily once">daily once</option>
