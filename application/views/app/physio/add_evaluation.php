@@ -180,7 +180,7 @@
                                 
                                 <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label></label><span class="text-danger"></span></br>
+                                    <label>Remark</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_tightness_remark"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -209,7 +209,7 @@
                             
                                 <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label></label><span class="text-danger"></span></br>
+                                    <label>Remark</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_upper_body_remark"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -224,8 +224,6 @@
                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Lower body</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="present_complaints"> -->
-                                    <!-- <textarea name="lower_body" class="form-control"></textarea> -->
                                     <select name="lower_body" class="form-control input-sm">
                                       <option value="">-Select Lower body-</option>
                                       
@@ -236,10 +234,6 @@
                                       <option value="Decreased tone">Decreased Tone</option>
                                       
                                       <option value="Deformity">Deformity</option>
-                                      
-                                      <!-- <option value="Widow">T5</option>
-                                      
-                                      <option value="Widower">T6</option> -->
                                     </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -247,8 +241,6 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <!-- <textarea name="ptn_pain" class="form-control"></textarea> -->
                                     <select name="ptn_pain" class="form-control">
                                       <option value="">-Select Pain-</option>
                                       
@@ -277,8 +269,6 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Nature</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <!-- <textarea name="ptn_pain" class="form-control"></textarea> -->
                                     <select name="nature" class="form-control">
                                       <option value="">-Select Nature-</option>
                                       
@@ -525,7 +515,7 @@
                   <div class="col-sm-4">Recommendation for physiotherapy</div>
                   <div class="col-sm-4">
                     <input type="radio" class="chkradio" name="expert_rec" value="Yes">Yes &nbsp;
-                    <input type="radio" name="ptn_rec" class="chkradio" value="No">No</div>
+                    <input type="radio" name="expert_rec" class="chkradio" value="No">No</div>
                 </div><br>
                 
                 <div class="row">
@@ -536,12 +526,6 @@
                 <div class="row" id="treatment_section" style="display:none;">
                 <div class="row">
                           
-                            <!-- <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Therapy Time</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="therapy_time"> 
-                                    <span class="text-danger error-text type_category_err"></span>           </div>
-                            </div> --><!-- /.col-md-3 -->
                             <!-- <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>From Date</label><span class="text-danger"></span></br>
@@ -568,7 +552,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Treatment Goals </label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
+                                    
                                     <select name="treatment_goal" class="form-control input-sm">
                                       <option value="">- Select Treatment Goals -</option>
                                       
@@ -602,9 +586,9 @@
                                     <select name="therapy_time" class="form-control input-sm">
                                       <option value="">-Select Therapy Time -</option>
                                       
-                                      <option value="20">20 min</option>
+                                      <option value="20">20</option>
                                       
-                                      <option value="30">30 </option>
+                                      <option value="30">30</option>
                                       
                                       <option value="45">45</option>
                                       

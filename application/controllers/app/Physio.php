@@ -349,7 +349,7 @@ class Physio extends General{
 
 		        if (mail($to_email, $subject, $msg1, $headers)) {
 
-		            	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Evaluation details save successfully!</div>");
+		            	$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Evaluation details saved successfully!</div>");
 
 						redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 					}
@@ -414,6 +414,9 @@ class Physio extends General{
 	            'ptn_upper_body' => $this->input->post('ptn_upper_body'),
 	            'lower_body' => $this->input->post('lower_body'),
 	            'ptn_pain' => $this->input->post('ptn_pain'),
+	            'ptn_tightness_remark' => $this->input->post('ptn_tightness_remark'),
+				'ptn_upper_body_remark' => $this->input->post('ptn_upper_body_remark'),
+				'nature' => $this->input->post('nature'),
 
 	           	'mobility_total_assist1' => "Total Assistance 1",
 	            'mobility_assist1_evaldate' => $this->input->post('mobility_assist1_evaldate'),
@@ -501,18 +504,19 @@ class Physio extends General{
 	            'physio_service' => $this->input->post('physio_service'),
 	            'next_eval_date' => $this->input->post('next_eval_date'),
 	            'treatment_goal'		=>	 $this->input->post('treatment_goal'),
+	            'treatment_goal_remark'		=>	 $this->input->post('treatment_goal_remark'),
+				'therapy_time' => $this->input->post('therapy_time'),
+				'gait_speed' => $this->input->post('gait_speed'),
 	            'exp_session'=>$this->input->post('exp_session'),
-	            /*'physio_service_from_date' => $this->input->post('physio_service_from_date'),
-	            'physio_service_to_date' => $this->input->post('physio_service_to_date'),
-	            'expert_recommendation' => $this->input->post('expert_rec'),
+	            /*'expert_recommendation' => $this->input->post('expert_rec'),*/
 	            'updated_by' => $this->session->userdata('user_id'),
-	            'InActive'=>0,
-	        	'updated_date'		=>	 date("Y-m-d h:i:s a")*/);
+	        	'updated_date'		=>	 date("Y-m-d h:i:s a"));
 
 				
 			$update_physio_eval = $this->physio_model->update_evaluation_details($evaluation_details);
 			if($update_physio_eval)
 			{
+				$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Evaluation details updated successfully!</div>");
 				redirect(base_url().'app/physio/view/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 			}
 		}

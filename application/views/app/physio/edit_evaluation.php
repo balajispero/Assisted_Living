@@ -155,20 +155,18 @@
                                       <option value="Calf" <?php if($ptnEvalInfo->ptn_tightness=="Calf"){ echo "selected"; } ?>>Calf</option>
                                       
                                     </select>
-                                    
-                                    
                                     <span class="text-danger error-text type_category_err"></span>                           
                                   </div><!-- /.form-group wrapper-class -->
                                 </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Tightness</label><span class="text-danger"></span></br>
+                                    <label>Remark</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_tightness_remark" value="<?php echo $ptnEvalInfo->ptn_tightness_remark; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Upper body</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="ptn_upper_body">  -->
@@ -191,17 +189,15 @@
                             
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Upper body</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_upper_body" value="<?php echo $ptnEvalInfo->ptn_upper_body; ?>"> 
+                                    <label>Remark</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="ptn_upper_body_remark" value="<?php echo $ptnEvalInfo->ptn_upper_body; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Lower body</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="present_complaints"> -->
-                                    <!-- <textarea name="lower_body" class="form-control"></textarea> -->
                                     <select name="lower_body" class="form-control input-sm">
                                       <option value="">-Select Lower body-</option>
                                       
@@ -212,10 +208,6 @@
                                       <option value="Decreased tone" <?php if($ptnEvalInfo->lower_body=="Decreased tone"){ echo "selected"; } ?>>Decreased Tone</option>
                                       
                                       <option value="Deformity" <?php if($ptnEvalInfo->lower_body=="Deformity"){ echo "selected"; } ?>>Deformity</option>
-                                      
-                                      <!-- <option value="Widow">T5</option>
-                                      
-                                      <option value="Widower">T6</option> -->
                                     </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -223,8 +215,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <!-- <textarea name="ptn_pain" class="form-control"></textarea> -->
+                                    
                                     <select name="ptn_pain" class="form-control">
                                       <option value="">-Select Pain-</option>
                                       
@@ -250,23 +241,8 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <!-- <div class="col-md-3"> -->
-                                <!-- <div class="form-group wrapper-class" > -->
-                                    <!-- <label>Lower body</label><span class="text-danger"></span></br> -->
-                                    <!-- <input type="text" class="form-control" name="present_complaints"> -->
-                                    <!-- <textarea name="lower_body" class="form-control"><?php echo $ptnEvalInfo->lower_body; ?></textarea> -->
-                                    <!-- <span class="text-danger error-text type_category_err"></span>                            -->
-                                <!-- </div>/.form-group wrapper-class -->
-                            <!-- </div>/.col-md-3 -->
-                            <!-- <div class="col-md-3"> -->
-                                <!-- <div class="form-group wrapper-class" > -->
-                                    <!-- <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br> -->
-                                    <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <!-- <textarea name="ptn_pain" class="form-control"><?php echo $ptnEvalInfo->ptn_pain; ?></textarea> -->
-                                    <!-- <span class="text-danger error-text type_category_err"></span>                            -->
-                                <!-- </div>/.form-group wrapper-class -->
-                            <!-- </div>/.col-md-3 -->
-                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Nature</label><span class="text-danger"></span></br>
                         
@@ -590,7 +566,7 @@
                     <input type="radio" class="chkradio" name="expert_rec" value="Yes" <?php if($ptnEvalInfo->expert_recommendation=="Yes"){ echo "checked"; } ?>>Yes &nbsp;
                     <input type="radio" name="expert_rec" class="chkradio" value="No" <?php if($ptnEvalInfo->expert_recommendation=="No"){ echo "checked"; } ?>>No</div>
                 </div><br>
-
+                <!--------------------Start treatment section div--------------------------->
                  <div class="row" id="treatment_section" style="display: <?php echo ($ptnEvalInfo->expert_recommendation=="No") ? "none" : "block";?>">
                 <div class="row">
                 <div class="col-md-3">
@@ -601,7 +577,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-3"><?php if($ptnEvalInfo->therapy_time=="20"){ echo "selected"; } ?>
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Treatment Goals </label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
@@ -631,7 +607,7 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             
-                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Therapy Time</label><span class="text-danger"></span></br>
                                    
@@ -687,7 +663,7 @@
 
                         </div><!-- / row -->
                         </div><!--/treatment section div-->
-
+                    <!--------------------End treatment section div--------------------------->
                 <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit">
             </form>
 
