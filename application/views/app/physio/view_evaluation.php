@@ -168,7 +168,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Upper body</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="ptn_upper_body">  -->
@@ -197,7 +197,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Lower body</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
@@ -266,7 +266,7 @@
                                     <!-- <span class="text-danger error-text type_category_err"></span>                            -->
                                 <!-- </div>/.form-group wrapper-class -->
                             <!-- </div>/.col-md-3 -->
-                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Nature</label><span class="text-danger"></span></br>
                         
@@ -601,7 +601,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-3"><?php if($ptnEvalInfo->therapy_time=="20"){ echo "selected"; } ?>
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Treatment Goals </label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
@@ -631,7 +631,7 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             
-                            <div class="col-md-3"><?php if($ptnEvalInfo->exp_session=="Daily"){ echo "selected"; } ?>
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Therapy Time</label><span class="text-danger"></span></br>
                                    

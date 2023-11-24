@@ -72,8 +72,22 @@ class Physio_model extends CI_Model{
 			'sent_by'	=>		$this->session->userdata('user_id'),
 			'InActive'		=>		0
 		);	
-		$query = $this->db->insert('physio_evaluation_sent_mail',$this->data);
+		return $this->db->insert('physio_evaluation_sent_mail',$this->data);
 	
+	}
+	public function get_physio_eval_sent_mail($iop_no,$patient_no,$eval_no){
+		//$this->db->order_by("dDateTime","DESC");
+		
+				$query = $this->db->get_where("physio_evaluation_sent_mail",array(
+				'InActive'	=>		0,
+				'iop_id'=>$iop_no,
+				'patient_no'=>$patient_no,
+				'eval_no'=>$eval_no
+				));	
+				
+			//$query->result();
+			//echo $this->db->last_query(); die;
+		return $query->result();
 	}
 	public function update_evaluation_details($data)
 		{   
