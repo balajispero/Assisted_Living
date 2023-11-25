@@ -218,7 +218,6 @@ class Physio extends General{
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['patientPhysioEvalSentMail'] = $this->physio_model->get_physio_eval_sent_mail($iop_no,$patient_no,$eval_no);
 		
-		
 		$this->load->view("app/physio/physio_sent_mail_view",$this->data);	
 	}
 
@@ -411,8 +410,7 @@ class Physio extends General{
 
 				 
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
-				 /*echo "<pre>";
-				 print_r($this->data['ptnEvalInfo']);*/
+				 
 		
 		$this->load->view('app/physio/view_evaluation',$this->data);
 	}
