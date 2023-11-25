@@ -198,7 +198,7 @@
                             </div><!-- /.col-md-3 -->
 
 
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Goals Achived</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
@@ -206,7 +206,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Further Recommendations</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->

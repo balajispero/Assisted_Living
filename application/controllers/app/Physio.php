@@ -217,7 +217,13 @@ class Physio extends General{
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['patientPhysioEvalSentMail'] = $this->physio_model->get_physio_eval_sent_mail($iop_no,$patient_no,$eval_no);
+<<<<<<< Updated upstream
 		
+=======
+		$this->data['cnt']=count($this->data['patientPhysioEvalSentMail']);
+		// echo "<pre>";
+		// print_r($this->data['patientPhysioEvalSentMail']);die;
+>>>>>>> Stashed changes
 		$this->load->view("app/physio/physio_sent_mail_view",$this->data);	
 	}
 

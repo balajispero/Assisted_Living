@@ -144,18 +144,15 @@
                                 </table>
                             </div>
                             <div class="box-footer clearfix">
-                            	<div style="margin-top: 15px;">
+                              <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
-                                 	<li><a href="<?php echo base_url()?>app/ipd/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> General Information</a></li>
-                                    <li><a href="<?php echo base_url()?>app/ipd/sent_mail_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Sent Items</a></li>
-                                 	<!-- <li><a href="<?php echo base_url()?>app/ipd/individual_care_plan/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Individual Care Plan</a></li>
-                                    <li><a href="<?php echo base_url()?>app/ipd/complain/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Complaint</a></li>
-                                 	<li><a href="<?php echo base_url()?>app/ipd/diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Diagnosis</a></li>
-                                 	<li><a href="<?php echo base_url()?>app/ipd/medication/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Medication</a></li>
-                                    <li><a href="<?php echo base_url()?>app/ipd/intake_output/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Intake/Output Record</a></li>
-                                    <li><a href="<?php echo base_url()?>app/ipd/nurse_progress_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Progress Note</a></li>
-                                    <li><a href="<?php echo base_url()?>app/ipd/vitalSign/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Vital Sign</a></li>
-                                    <li><a href="<?php echo base_url()?>app/ipd/room_transfer/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> IP Room Transfer</a></li> -->
+                                  <li class="active"><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
+                                 <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
+                                 <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
+                                 <li><a href="<?php echo base_url()?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li> 
+                                 
+                                   
+                                    
                                  </ul>
                                 </div>
                             </div>
@@ -184,18 +181,19 @@
         <span style="margin: 8px">ALF</span>
       </div>
     </td> 
-  </tr> --> 
-<tr>
+  </tr>  -->
+
+  <tr>
     <td bgcolor="#ffffff" style="padding:5px 20px 1px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #FFFFFF;">
        <p>To &nbsp;<?php  
-       echo $getSentMail[0]->mail_to; ?> </p>
+       echo @$patientInfo->rel_email1; ?> </p>
 
     </td>
-  </tr>
+  </tr> 
   <tr>
     <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
        <p>Cc &nbsp;<?php  
-        echo "kaushikpanditrao@ahpl.in" .", ". "avinash@sperohealthcare.in" .", ". @$getSentMail[0]->rel_email2; 
+        echo "kaushikpanditrao@ahpl.in" .", ". @$patientInfo->rel_email2; 
         ?> 
     </p>
 
@@ -205,45 +203,20 @@
   <tr>
     <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
 
-    <p>Respected <?php echo $getSentMail[0]->rel_name; ?>,</p>
+    <p>Respected <?php echo @$patientInfo->rel_name1; ?>,</p>
 
     <p>Greetings from Team Spero at Aastha!</p>
 
-    <p>Hope you are doing well. This is the health update about <?php echo $ptn_title->cValue; ?> <?php echo $getSentMail[0]->patient_name; ?>.</p>
+    <p>Thank you for choosing Aastha for the stay of <?php echo @$patientInfo->middlename; ?>.  We ensure you the best care for <?php echo ($patientInfo->gender==1) ? 'him' : 'her'; ?>. We would like to update you that we conduct physiotherapy evaluation of our each member after admission. It aims at assessing their physical wellbeing and designing a tailored physiotherapy plan. Our expert physiotherapist has conducted the evaluation for <?php echo @$patientInfo->middlename; ?> on <?php echo @date("Y-m-d", strtotime($patientPhysioEvalSentMail[$cnt-1]->added_date));?>.</p>
+    <p>As per evaluation, <?php echo @$patientInfo->middlename; ?> has been recommended for regular physiotherapy with a treatment goal of <?php echo @$ptnEvalInfo->treatment_goal;?>.</p>
+    <p>We have a team of physiotherapists at Aastha and upon receiving approval from your end, the physiotherapy can be started for <?php echo ($patientInfo->gender==1) ? 'him' : 'her'; ?>.</p>
 
-    <p><?php echo $ptn_gen; ?> today’s vitals are as below…</p>
-      <table class="table" border="1">
-        <tr>
-            <th>Blood pressure</th>
-            <th>Spo2</th>
-            <th>Pulse</th>
-            <th>Temperature</th>
-            <!-- <th>Weight</th>
-            <th>BSL</th> -->
-        </tr>
-        <tr>
-            <td><?php echo !empty(@$getSentMail[0]->bp) ? @$getSentMail[0]->bp : 'NA'; ?></td>
-            <td><?php echo !empty(@$getSentMail[0]->spo2) ? @$getSentMail[0]->spo2 : 'NA'; ?></td>
-            <td><?php echo !empty(@$getSentMail[0]->pulse_rate) ? @$getSentMail[0]->pulse_rate : 'NA'; ?></td>
-            <td><?php echo !empty(@$getSentMail[0]->temperature) ? @$getSentMail[0]->temperature : 'NA'; ?></td>
-           <!--  <td><?php echo !empty(@$getSentMail[0]->weight) ? @$getSentMail[0]->weight : 'NA'; ?></td>
-            <td><?php echo !empty(@$getSentMail[0]->bsl) ? @$getSentMail[0]->bsl : 'NA'; ?></td> -->
-        </tr>
-        
-        
-    </table>
+    <p>The charges per physiotherapy session will be Rs. 450/-</p>
+    <p>We will raise a bill for all sessions at the end of the month if approved from your end.</p>
+    <p>Kindly provide us your directives for the same.</p><br>
+     <!-- Attach file: <input type="file" id="attachment" name="attachment">   -->
 
-    <p>Currently, <?php if($ptn_gender->cValue=="Male"){ echo "he"; }else{ echo "she"; } ?> is taking the following medications:</p>
-    <?php $medicines = explode(',',(@$getSentMail[0]->medicine_name)); ?>
-          <ul>
-            <?php foreach($medicines as $rows){?>
-                <li><?php echo $rows; ?></li>
-            <?php }?>
-          </ul>
-    <p>Doctors comments/observations:</p>
-    <p><?php echo $getSentMail[0]->doctor_comments; ?></p><br>
-
-    <p>For any further information, feel free to revert.</p>
+    <p>Please go on link for confirmation.<br><a href="<?php echo base_url(); ?>app/relative_agree/conform/<?php echo @base64_encode($patientPhysioEvalSentMail[$cnt-1]->eval_no); ?>">click here</a></p>
 
     </td>
 
@@ -251,17 +224,20 @@
   
   <tr>
     <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
-       <p>Warm regards,</p>
+       <p>Regards,</p>
 
-    <p>Dr. <?php 
-                                                $ci_obj = & get_instance();
-                                                $ci_obj->load->model('app/general_model');
-                                                $pages = $ci_obj->general_model->getPreparedBy($getSentMail[0]->sent_by);
-                                                
-                                                echo $pages->cPreparedBy?></p>
-    <p>Medical Consultant</p>
+    <p>Dr. Avinash Mitkari<br>Facility Coordinator <br>Aastha</p>
+  
     </td>
   </tr>
+  <tr>
+    <td align="center" bgcolor="#eee" style="padding: 15px 10px 15px 10px; color: #555555; font-family: Arial, sans-serif; font-size: 12px; line-height: 18px;">
+      <center><?php if($getOPDPatient->nStatus == "Pending"){?>
+                                                              <button class="disable_btn btn btn-primary bg_color" name="submit" type="submit" value="sent_mail">Send Mail</button>
+                                                         <?php } ?><br/></center>
+      </td>
+    </tr>
+
   </table>
                                             <br><br><br><br><br><br><br>
                                             <br><br><br><br><br><br><br>
