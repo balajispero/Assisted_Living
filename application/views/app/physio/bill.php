@@ -181,7 +181,7 @@
                                             <?php echo $message;?>
                                             <?php if($this->session->userdata('user_role') == 11) {?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                            <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a>
+                                            <a href="<?php echo base_url();?>app/physio/print_invoice/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>print invoice</a>
                                             <?php } ?>
                                             <?php } ?>
                                             <div class="alt2" dir="ltr" style="

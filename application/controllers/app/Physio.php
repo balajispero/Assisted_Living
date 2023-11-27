@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/*require FCPATH.'vendor/autoload.php';      
-use Dompdf\Dompdf;*/
+require FCPATH.'vendor/autoload.php';      
+use Dompdf\Dompdf;
 
 require APPPATH.'controllers/General.php'; 
 
@@ -621,6 +621,49 @@ class Physio extends General{
 		/*echo "<pre>";
 		print_r($this->data['patientPhysioEval']);*/
 		$this->load->view("app/physio/physio_daily_notes",$this->data);	
+	}
+	public function bill(){
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		
+		$this->data['message'] = $this->session->flashdata('message');
+		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+		$this->data['patientPhysioEval'] = $this->physio_model->get_physio_evaluation($iop_no);
+		
+		$this->load->view("app/physio/bill",$this->data);	
+	}
+
+	public function print_invoice()
+	{
+		//print_r($invoice_id);
+		/*if(!empty($invoice_id) && $invoice_id)
+		{*/
+			//$this->data['invoiceValues'] = $this->Invoicemodel->getInvoice($invoice_id);	
+				
+			$this->data['invoiceItems'] = $this->physio_model->generate_lab_bill();
+			/*echo "<pre>";
+			print_r($this->data['invoiceItems']);die;*/
+			$this->data['title'] ="hi";
+            
+			$dompdf = new Dompdf();
+            $dompdf->set_option('isRemoteEnabled',TRUE);
+            $canvas=$dompdf->get_canvas();
+            //$this->load->view('app/doctor/preassessment_report',$this->data);
+            $html = $this->load->view('app/physio/print_invoice',$this->data,true);
+
+            $dompdf->loadHtml($html);
+           
+            // Render the HTML as PDF
+            $dompdf->render();
+            // Output the generated PDF to Browser
+            /*$invoiceFileName = 'Invoice-'.$this->data['invoiceValues'][0]['order_id'].'.pdf';
+            $dompdf->stream($invoiceFileName,array("Attachment" => 0));*/
+
+            $dompdf->stream('bill.pdf',array("Attachment" => 0));
+		/*}*/
+		
+		    // $this->load->view('app/billing/print_invoice',$this->data);
 	}
 
 
