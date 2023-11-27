@@ -24,6 +24,11 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+        <style>
+        input.form-control {
+    width: 100% !important;
+}
+        </style>
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -216,11 +221,9 @@
                             </div><!-- /.col-md-3 -->
 
                         </div>
-                    
-                        <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit" style="margin-left:20px;">
-
-            </form>
-                                            <br><br><br><br><br><br><br>
+                      <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit" style="margin-left:25px;">
+                    </form>
+                    <br><br><br><br><br><br><br>
                                         </div>
                                     </div>
 
