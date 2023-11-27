@@ -636,12 +636,12 @@ class Physio extends General{
 
 	public function print_invoice()
 	{
-		//print_r($invoice_id);
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
 		/*if(!empty($invoice_id) && $invoice_id)
 		{*/
-			//$this->data['invoiceValues'] = $this->Invoicemodel->getInvoice($invoice_id);	
-				
-			$this->data['invoiceItems'] = $this->physio_model->generate_lab_bill();
+			
+			$this->data['invoiceItems'] = $this->physio_model->generate_lab_bill($iop_no,$patient_no);
 			/*echo "<pre>";
 			print_r($this->data['invoiceItems']);die;*/
 			$this->data['title'] ="hi";

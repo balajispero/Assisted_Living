@@ -97,19 +97,19 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <?php if($this->session->userdata('emr_viewing') == "ipd_emr_viewing"){?>   
-                   <h1>Physio Member Information</h1>
+                   <h1>Member Information</h1>
                    <ol class="breadcrumb">
                         <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">EMR sheet</a></li>
-                        <li><a href="<?php echo base_url()?>app/emr/opd">In-Member</a></li>
+                       <!--  <li><a href="<?php echo base_url()?>app/emr/opd">In-Member</a></li> -->
                     </ol>
                     <?php }else{?>
-                    <h1>Physio Member Information</h1>
+                    <h1>Member Information</h1>
                    <ol class="breadcrumb">
                         <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="#">Physio Module</a></li>
+                       <!--  <li><a href="#">Physio Module</a></li>
                         <li><a href="<?php echo base_url()?>app/doctor/ipd">In-Member Master</a></li>
-                        <li><a href="#">In-Member Information</a></li>
+                        <li><a href="#">In-Member Information</a></li> -->
                     </ol>
                     <?php }?>
                     
@@ -163,12 +163,7 @@
                             <div class="box-footer clearfix">
                                 <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
-                                    <li class="active"><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
-                                 <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
-                                
-                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
-                                    <li><a href="<?php echo base_url()?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
-                                    <li><a href="<?php echo base_url()?>app/physio/bill/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">bill</a></li> 
+                                    <li class="active"><a href="<?php echo base_url()?>app/invoice/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Lab Bill</a></li>
                                     
                                  </ul>
                                 </div>
@@ -179,7 +174,7 @@
                      <div class="col-md-9"> 
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab_1" data-toggle="tab">Evaluation</a></li>
+                                        <li class="active"><a href="#tab_1" data-toggle="tab">Bill</a></li>
                                         
                                     </ul>
                                     <div class="tab-content">
@@ -193,7 +188,7 @@
                                                             
                                                             <div class="box-tools">
                                                                 <div class="input-group">
-                                                                    <form method="post" action="<?php echo base_url()?>app/physio/print_invoice/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">
+                                                                    <form method="post" action="<?php echo base_url()?>app/invoice/lab_invoice/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">
                                                                     <table cellpadding="3" cellspacing="3" width="100%">
                                                                     <tr>
                                                                         <td>From Date</td>

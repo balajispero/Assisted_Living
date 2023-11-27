@@ -245,19 +245,20 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <!--START OF POS-->
                         
                         <?php if($hasAccesstoBilling){?>
-                        <!-- <li class="treeview <?php echo $billing;?>">
+                        <li class="treeview <?php echo $billing;?>">
                             <a href="#">
                                 <i class="fa fa-credit-card"></i> <span style="color:#2B48B0;">Billing</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <?php if($hasAccesstoPOS){?><li><a href="<?php echo base_url()?>app/pos/" target="_blank"><i class="fa fa-angle-double-right"></i>POS</a></li><?php }?>
+                                <!-- <?php if($hasAccesstoPOS){?><li><a href="<?php echo base_url()?>app/pos/" target="_blank"><i class="fa fa-angle-double-right"></i>POS</a></li><?php }?>
                                 <?php if($hasAccesstoBilling){?><li <?php echo $bill_history_mod;?>><a href="<?php echo base_url()?>app/billing_history"><i class="fa fa-angle-double-right"></i>Billing List</a></li>
                                 <li <?php echo $bill_history_mod;?>><a href="<?php echo base_url()?>app/invoice/invoice_list"><i class="fa fa-angle-double-right"></i>Invoice List</a></li>
                                  <?php }?>
-                                <?php if($hasAccesstoSurgical){?><li <?php echo $surgical_costing?>><a href="<?php echo base_url()?>app/surgical_costing"><i class="fa fa-angle-double-right"></i>Surgical Quotation Costing</a></li><?php }?>
+                                <?php if($hasAccesstoSurgical){?><li <?php echo $surgical_costing?>><a href="<?php echo base_url()?>app/surgical_costing"><i class="fa fa-angle-double-right"></i>Surgical Quotation Costing</a></li><?php }?> -->
+                                <li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/invoice/ipd"><i class="fa fa-angle-double-right"></i>Members</a></li>
                             </ul>
-                        </li> -->
+                        </li>
                         <?php }?>
                         
                         <!--START OF Appointment-->

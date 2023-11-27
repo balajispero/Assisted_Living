@@ -95,8 +95,8 @@ class Physio_model extends CI_Model{
         	return  $this->db->update("physio_evaluation",$data);
 		}
 
-	public function generate_lab_bill($limit = 10, $offset = 0){
-		/*if($this->input->post("cFrom") == ""){
+	public function generate_lab_bill($iop_no, $patient_no){
+		if($this->input->post("cFrom") == ""){
 			//$cFrom = date("Y-m-d");	
 			$cFrom="";
 		}else{
@@ -107,39 +107,26 @@ class Physio_model extends CI_Model{
 			$cTo = date("Y-m-d");	
 		}else{
 			$cTo = $this->input->post("cTo");
-		}*/
+		}
 		
 		$this->db->select("A.patient_no,A.iop_id,
 		A.laboratory_id,
 		B.charges");
-		/*$ptn_dis = $this->uri->segment(3);
-		if($ptn_dis == "patient_discharged"){
-			$where1 = "( 
-				A.nStatus='Discharged'
-				)
-				and A.date_visit between '".$cFrom."' and '".$cTo."'
-				and A.InActive = 0";	
-			$this->db->where($where1);
-		}elseif($ptn_dis == "index"){
-			$where2 = "( 
-				A.lab_test_name=B.test_name
-				)
-				and A.date_visit between '".$cFrom."' and '".$cTo."'
-				and A.InActive = 0";	
-			$this->db->where($where2);
-		}*/
+		
 		$where = "( 
 				A.lab_test_name=B.test_name
 				)
-				and A.iop_id='IP-SSAL000054'
-				and A.patient_no='SSAL000054'
+				and A.iop_id='".$iop_no."'
+				and A.patient_no='".$patient_no."'
+				and A.dDate between '".$cFrom."' and '".$cTo."'
 				and A.category_id = 7    
 				and A.InActive = 0";
 				$this->db->where($where);
 		//$this->db->order_by('A.patient_no','asc');
 		$this->db->join("lab_test_name_with_charges B","B.test_name = A.laboratory_id","left outer");
-		$query = $this->db->get("iop_laboratory A", $limit, $offset);
-		// print_r($query->result());die;
+		$query = $this->db->get("iop_laboratory A");
+		 //print_r($query->result());die;
+		//echo $this->db->last_query(); die;
 		return $query->result();
 	}
 
