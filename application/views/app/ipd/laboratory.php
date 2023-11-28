@@ -535,12 +535,12 @@ xmlhttp6.onreadystatechange=function()
         //var docid='000'+res[0].doctor;
         $('#lab_id').val(res[0].io_lab_id)
 
-        if(res[0].category_id=="7")
+        if(res[0].category_id=="790")
     {
          
-         $(".test_name").show();
-         $("input[name='test_name']").val(res[0].laboratory_id);
-         $(".particularitem").hide();
+         //$(".test_name").show();
+         //$("input[name='test_name']").val(res[0].laboratory_id);
+         //$(".particularitem").hide();
     }
     else {
 
@@ -624,10 +624,10 @@ xmlhttp5.send();
 
 function showDrugName(category_id,laboratory_id=0)
 {
-    if(category_id=="7")
+    if(category_id=="790")
     {
-        $(".test_name").show();
-        $(".particularitem").hide();
+        //$(".test_name").show();
+        //$(".particularitem").hide();
         
     }
     else {

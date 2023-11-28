@@ -70,9 +70,18 @@ class Billing_model extends CI_Model{
 		return $query->row();
 	}
 	public function getparticularname($id){
-		$this->db->select("particular_name,particular_id");
-		$query = $this->db->get_where("bill_particular",array('group_id' => $id));	
-		return $query->result();
+		if($id=="7")
+		{
+			$this->db->select("test_name as particular_name, id as particular_id");
+			$query = $this->db->get("lab_test_name_with_charges");
+			return $query->result();
+
+		}else{
+			$this->db->select("particular_name,particular_id");
+			$query = $this->db->get_where("bill_particular",array('group_id' => $id));	
+			return $query->result();
+		}
+		
 	}
 	public function insurance_company(){
 		$this->db->order_by("company_name","ASC");	

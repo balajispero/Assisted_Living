@@ -45,7 +45,7 @@ class Invoicemodel extends CI_Model {
 				)
 				and A.iop_id='".$iop_no."'
 				and A.patient_no='".$patient_no."'
-				and A.dDate between '".$cFrom."' and '".$cTo."'
+				and DATE(A.added_date_by_lab) between '".$cFrom."' and '".$cTo."'
 				and A.category_id = 7    
 				and A.InActive = 0";
 				$this->db->where($where);
