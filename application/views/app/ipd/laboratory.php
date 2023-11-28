@@ -202,7 +202,14 @@
                                            <?php foreach($patient_lab as $patient_lab){?>
                                            <tr>
                                            		<td><?php echo date("M d, Y h:i:s A",strtotime($patient_lab->dDateTime));?></td>
-                                                <td><?php if($patient_lab->group_name=="LAB"){ echo $patient_lab->laboratory_id; }else{ echo $patient_lab->particular_name; }?></td>
+                                                <td><?php if($patient_lab->group_name=="LAB"){ /*echo $patient_lab->laboratory_id;*/
+                                                    
+                                                $ci_obj = & get_instance();
+                                                $ci_obj->load->model('app/general_model');
+                                                $pages = $ci_obj->general_model->getLabSampleById($patient_lab->laboratory_id);
+                                                echo @$pages->test_name;
+
+                                                 }else{ echo $patient_lab->particular_name; }?></td>
                                                 <td><?php echo $patient_lab->doctor?></td>
                                                 <td><?php echo $patient_lab->findings?></td>
                                                 <!--<td><?php echo $patient_lab->result?></td>-->

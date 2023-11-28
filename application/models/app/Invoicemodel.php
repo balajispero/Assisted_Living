@@ -41,7 +41,7 @@ class Invoicemodel extends CI_Model {
 		B.charges");
 		
 		$where = "( 
-				A.lab_test_name=B.test_name
+				A.lab_test_name=B.id
 				)
 				and A.iop_id='".$iop_no."'
 				and A.patient_no='".$patient_no."'
@@ -50,10 +50,10 @@ class Invoicemodel extends CI_Model {
 				and A.InActive = 0";
 				$this->db->where($where);
 		//$this->db->order_by('A.patient_no','asc');
-		$this->db->join("lab_test_name_with_charges B","B.test_name = A.laboratory_id","left outer");
+		$this->db->join("lab_test_name_with_charges B","B.id = A.laboratory_id","left outer");
 		$query = $this->db->get("iop_laboratory A");
-		 //print_r($query->result());die;
-		//echo $this->db->last_query(); die;
+		/*print_r($query->result());
+		echo $this->db->last_query(); die;*/
 		return $query->result();
 	}
 	

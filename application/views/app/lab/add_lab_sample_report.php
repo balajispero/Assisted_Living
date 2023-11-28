@@ -109,7 +109,16 @@
                                     
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Test Name<font color="#FF0000">*</font></label>
-                                        <input class="form-control input-sm" name="sample_test_name" type="text" style="width: 350px;" value="<?php echo !empty($lab_test_info[0]->lab_test_name) ? $lab_test_info[0]->lab_test_name : $lab_test_info[0]->laboratory_id;?>" required readonly>
+                                        <?php
+                                                    $ci_obj = & get_instance();
+                                                $ci_obj->load->model('app/general_model');
+                                                $pages = $ci_obj->general_model->getLabSampleById($lab_test_info[0]->laboratory_id);
+                                        ?>
+                                        <!-- <input class="form-control input-sm" name="sample_test_name" type="text" style="width: 350px;" value="<?php echo !empty($lab_test_info[0]->lab_test_name) ? $lab_test_info[0]->lab_test_name : $lab_test_info[0]->laboratory_id;?>" required readonly> -->
+
+                                        <input class="form-control input-sm" name="sample_test_name" type="text" style="width: 350px;" value="<?php echo @$pages->test_name;?>" required readonly>
+                                        
+                                        <input class="form-control input-sm" name="sample_test_name" type="hidden" style="width: 350px;" value="<?php echo @$lab_test_info[0]->laboratory_id;?>">
                                     </div>
                                     
                                     <div class="form-group">
