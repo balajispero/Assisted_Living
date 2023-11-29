@@ -171,7 +171,7 @@
 								$total_amount=$total_amount+$invoiceItem->charges;
 								 ?>
 								
-	                   <tr>
+	                        <tr>
       
 			                  <td><?php echo $count; ?></td>
 							  <td><?php 
