@@ -38,6 +38,7 @@ class Invoicemodel extends CI_Model {
 		
 		$this->db->select("A.patient_no,A.iop_id,
 		A.laboratory_id,
+		A.added_date_by_lab,
 		B.charges");
 		
 		$where = "( 

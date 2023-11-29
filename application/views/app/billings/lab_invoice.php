@@ -134,13 +134,13 @@
                             <label style="font-size:18px;font-weight: bold;">Spero Healthcare Innovations Pvt. Ltd.</label>
                         </div>
                         <div class="col-md-12 mt-2">
-                            <label style="font-size:15px">Patient Name -</label>
+                            <label style="font-size:15px">Patient Name - <?php echo @$patientInfo->middlename?></label>
                                 </div>
                         <div class="col-md-12">
-                            <label style="font-size:15px">Mobile No -</label>
+                            <label style="font-size:15px">Mobile No - <?php echo @$patientInfo->mobile_no?></label>
                               </div>
                         <div class="col-md-12">
-                            <label style="font-size:15px">Email ID -</label>
+                            <label style="font-size:15px">Email ID - <?php echo @$patientInfo->email_address?></label>
                              </div>
 						</div>
 					</div>
@@ -158,7 +158,7 @@
                                     <th>Sr No</th>
                                     <th>Service</th>
                                     <th >Discription</th>
-                                    <th >Date (From/To)</th>
+                                    <th >Date</th>
                                     <th  colspan="5" width="10%">Amount</th>
 								</tr>
 							 </thead>
@@ -166,14 +166,22 @@
 							<?php
 							$count=0;
 							$total_amount=0;  
-							foreach($invoiceItems as $invoiceItem){ $count++; ?>
+							foreach($invoiceItems as $invoiceItem){ 
+								$count++;
+								$total_amount=$total_amount+$invoiceItem->charges;
+								 ?>
 								
 	                   <tr>
       
 			                  <td><?php echo $count; ?></td>
-							  <td><?php echo $invoiceItem->laboratory_id; ?><</td>
-							  <td>'.$count.'</td>
-							  <td>'.$count.'</td>
+							  <td><?php 
+							   $ci_obj = & get_instance();
+                                                $ci_obj->load->model('app/general_model');
+                                                $pages = $ci_obj->general_model->getLabSampleById($invoiceItem->laboratory_id);
+                                                echo @$pages->test_name;
+							  /*echo $invoiceItem->laboratory_id;*/ ?><</td>
+							  <td><?php echo @$pages->test_name;?></td>
+							  <td><?php echo date("Y-m-d",strtotime($invoiceItem->added_date_by_lab)); ?></td>
 							  <td><?php echo $invoiceItem->charges; ?></td>
 							  </tr>
 							<?php }?>
@@ -190,9 +198,9 @@
 
 				<div class="row mt-2">
 					<div class="col-md-12" style="text-align:left;background:#b3fffe;">
-					PAYMENT DETAILS :
-					Account No. : <br />
-                    Name : Spero healthcare Innovations Pvt. Ltd<br /> 
+					PAYMENT DETAILS :<br />
+                    Name : Spero healthcare Innovations Pvt. Ltd<br />
+                    Account No. : <br /> 
                     Bank Name : <br />
                     IFSC Code : <br />
                     Branch : <br />

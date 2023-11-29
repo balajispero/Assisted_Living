@@ -62,8 +62,8 @@ class Invoice extends General{
 	public function ipd($offset = 0){
 				 
 		$this->session->set_userdata(array(
-				 'tab'			=>		'doctor',
-				 'module'		=>		'ipd_doctor',
+				 'tab'			=>		'billing',
+				 'module'		=>		'bill_history',
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
 				 
@@ -163,7 +163,7 @@ class Invoice extends General{
 	{
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
-			
+			$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 			$this->data['invoiceItems'] = $this->Invoicemodel->generate_lab_bill($iop_no,$patient_no);
 			/*echo "<pre>";
 			print_r($this->data['invoiceItems']);die;*/
