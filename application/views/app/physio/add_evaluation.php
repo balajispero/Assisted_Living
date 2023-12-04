@@ -323,7 +323,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Mobility</label><span class="text-danger"></span></br>
-                                    <select name="ptn_tightness" class="form-control">
+                                    <select name="mobility" class="form-control">
                                       <option value="">- Select Mobility -</option>
                                       
                                       <option value="Restricted ROM">Restricted ROM</option>
@@ -339,7 +339,7 @@
                                 <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Remark</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_tightness_remark"> 
+                                    <input type="text" class="form-control" name="mobility_remark"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -378,7 +378,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Muscle Strength</label><span class="text-danger"></span></br>
-                                    <select name="ptn_upper_body" class="form-control input-sm">
+                                    <select name="muscle_strength" class="form-control input-sm">
                                       <option value="">- Select Muscle Strength -</option>
                                       
                                       <option value="Grade 1">Grade 1</option>
@@ -396,7 +396,7 @@
                                 <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Remark</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_upper_body_remark"> 
+                                    <input type="text" class="form-control" name="muscle_strength_remark"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -410,7 +410,7 @@
                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Muscle Tone</label><span class="text-danger"></span></br>
-                                    <select name="lower_body" class="form-control input-sm">
+                                    <select name="muscle_tone" class="form-control input-sm">
                                       <option value="">-Select Muscle Tone-</option>
                                       
                                       <option value="Tightness">Tightness</option>
@@ -425,7 +425,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Breathlessness</label><span class="text-danger"></span></br>
-                                    <select name="ptn_breathlessness" class="form-control input-sm">
+                                    <select name="breathlessness" class="form-control input-sm">
                                       <option value="">- Select Breathlessness -</option>
                                       
                                       <option value="Grade 1">Grade 1</option>
@@ -441,7 +441,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>fatigue</label><span class="text-danger"></span></br>
-                                    <select name="ptn_fatigue" class="form-control input-sm">
+                                    <select name="fatigue" class="form-control input-sm">
                                       <option value="">- Select fatigue -</option>
                                       <option value="Yes">Yes</option>
                                       <option value="No">No</option>
@@ -908,8 +908,7 @@
                     
                           <tr>
                               <td><h5>Sitting unsupported</h5></td><td align="center">
-                              <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                              <select name="berg_bal_sit_unsupport" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -921,8 +920,8 @@
                          </tr>
                          <tr>
                               <td><h5>sitting to standing</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                               
+                              <select name="berg_bal_sit_tostand" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -934,8 +933,8 @@
                          </tr>
                          <tr>
                               <td><h5>standing to sitting</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                               
+                              <select name="berg_bal_stand_tosit" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -947,8 +946,8 @@
                          </tr>
                          <tr>
                               <td><h5>Transfers</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                
+                              <select name="berg_bal_transfer" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -960,8 +959,8 @@
                          </tr>
                          <tr>
                               <td><h5>Standing unsupported</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                               
+                              <select name="berg_bal_stand_unsupport" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -973,8 +972,8 @@
                          </tr>
                          <tr>
                               <td><h5>Standing with eyes closed</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                               
+                              <select name="berg_bal_stand_witheye" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -986,8 +985,8 @@
                          </tr>
                          <tr>
                               <td><h5>Standing with feet together</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                
+                              <select name="berg_bal_stand_withfeet" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -999,8 +998,8 @@
                          </tr>
                          <tr>
                               <td><h5>Tandem standing</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                               
+                              <select name="berg_bal_tendem_stand" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1012,8 +1011,8 @@
                          </tr>
                          <tr>
                               <td><h5>Standing on one leg</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                
+                              <select name="berg_bal_stand_oneleg" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1025,8 +1024,8 @@
                          </tr>
                          <tr>
                               <td><h5>Turning trunk (feet fixed)</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                
+                              <select name="berg_bal_" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1038,8 +1037,8 @@
                          </tr>
                          <tr>
                               <td><h5>Retrieving objects from floor</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                               
+                              <select name="berg_bal_" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1051,8 +1050,8 @@
                          </tr>
                          <tr>
                               <td><h5>Turning 360 degrees</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                
+                              <select name="berg_bal_" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1065,8 +1064,8 @@
 
                          <tr>
                               <td><h5>Stool stepping</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                               
+                              <select name="berg_bal_" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1079,8 +1078,8 @@
 
                          <tr>
                               <td><h5>Reaching forward while standing</h5></td><td align="center">
-                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
-                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                               
+                              <select name="berg_bal_" class="form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1093,21 +1092,9 @@
 
                          <tr>
                               <td><h5>Total Score</h5></td><td align="center">
-                                <input type="text" name="transfer_assist7_evaldate" class="form-control" style="width:180px;">
+                                <input type="text" name="berg_bal_total_score" class="form-control" style="width:180px;">
                             </td>
                          </tr>
-
-
-                          <!-- <tr>
-                              <td>Not Applicable</td><td><input type="date" name="transfer_notappl_evaldate" class="form-control"></td>
-                              <td>
-                                <input type="radio" class="" name="transfer_notappl_wheelchair" value="Yes" <?php $a=5; echo ($a == 5) ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_notappl_wheelchair" class="" value="No">No
-                              </td>
-                              <td>
-                                <input type="radio" class="" name="transfer_notappl_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_notappl_car" class="" value="No">No
-                              </td>
-                              
-                          </tr> -->    
                       </table>
                       <p style="font-family:Times New Roman;"><b><u>Interpretation</u></b></p>
                    <!-- <hr> -->
@@ -1210,13 +1197,13 @@
                                     <select name="therapy_time" class="form-control input-sm">
                                       <option value="">-Select Therapy Time -</option>
                                       
-                                      <option value="20">20</option>
+                                      <option value="20 Min">20 Min</option>
                                       
-                                      <option value="30">30</option>
+                                      <option value="30 Min">30</option>
                                       
-                                      <option value="45">45</option>
+                                      <option value="45 Min">45 Min</option>
                                       
-                                      <option value="60">60</option>
+                                      <option value="60 Min">60 Min</option>
                                       
                                     </select>
                                     <span class="text-danger error-text type_category_err"></span>                           

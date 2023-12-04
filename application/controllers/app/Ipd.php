@@ -249,10 +249,10 @@ class Ipd extends General{
 		$patient_no = $this->uri->segment("5");
 		//echo "$iop_no $patient_no";die;
 			
-		$this->form_validation->set_rules("email","Email Address","trim|xss_clean|valid_email|callback_validate_email_edit");	
+		/*$this->form_validation->set_rules("email","Email Address","trim|xss_clean|valid_email|callback_validate_email_edit");*/	
 		$this->form_validation->set_error_delimiters("<div class='alert alert-warning alert-dismissable'><i class='fa fa-warning'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>","</div>");
 	
-		if($this->form_validation->run()){
+		/*if($this->form_validation->run()){*/
 			
 			//save the data
 			$ptn_discharge=$this->patient_model->discharge_save();
@@ -279,19 +279,17 @@ class Ipd extends General{
 				
 			}		
 			
-		}else{
+		/*}else{
 			// user restriction function
 				$this->session->set_userdata('page_name','modiffy_patient');
 				$page_id = $this->General_model->getPageID();
 				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
-				/*if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
-					redirect(base_url().'access_denied');
-				}*/
+				
 				// end of user restriction function
 				
 			$this->data['patientInfo'] = $this->patient_model->getPatient($this->input->post('id')); 
 			$this->load->view('app/ipd/dischargePatient',$this->data);	
-		}	
+		}*/	
 	}
 	
 	public function discharge1(){
