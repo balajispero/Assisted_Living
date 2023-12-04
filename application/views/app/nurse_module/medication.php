@@ -31,6 +31,7 @@
             .onlynurse_module{
                 display:block !important;
             }
+        
         </style>
        
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -250,7 +251,7 @@
                                                     $daily_dose=explode(',',$rows3->dose);
                                                     /*print_r($daily_dose);*/
                                                     for($i=0;$i<count($daily_dose);$i++) {
-                                                ?><input class=checkbox_margin type = checkbox name ="dose[<?=$key?>][]" value ="<?php echo $daily_dose[$i]; ?>"><?php echo $daily_dose[$i]; ?>
+                                                ?><input class="checkbox_margin" type ="checkbox" name ="dose[<?=$key?>][]" value ="<?php echo $daily_dose[$i]; ?>"><?php echo $daily_dose[$i]; ?>
                                                     <?php } ?></td>
                                                 
                                            </tr>

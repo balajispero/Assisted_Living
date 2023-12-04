@@ -19,6 +19,71 @@
             height: 34px !important;
 
          }
+    /*Start toggle button css*/
+                .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+     
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    /*End toggle button css*/
+
+
+
+
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -115,6 +180,40 @@
                     <input type="hidden" name="mail_to" value="<?php echo @$patientInfo->rel_email1; ?>">
                     <input type="hidden" name="rel_email2" value="<?php echo @$patientInfo->rel_email2; ?>">
                     <input type="hidden" name="rel_name" value="<?php echo @$patientInfo->rel_name1; ?>">
+
+                        <!-- <div class="row text-center">
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-primary btn-block">General Evaluation</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-primary btn-block">Artho</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-primary btn-block">Neuro</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-primary btn-block">Respi</button>
+                            </div>
+                        </div> -->
+                         <br>   
+                        <!-- <div class="container"> -->
+                        <div class="row text-center">
+                          <div class="col-xs-12 col-sm-6 col-md-3">
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/general" class="btn <?php if($this->uri->segment("6")=="general" or $this->uri->segment("6")=="") { echo "btn-success"; }else{ echo "btn-primary"; } ?> btn-block" style="margin-top: 5px;">General Evaluation</a>
+                          </div>
+                          <div class="col-xs-12 col-sm-6 col-md-3">
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/artho" class="btn <?php echo ($this->uri->segment("6")=="artho") ? 'btn-success' : 'btn-primary';?> btn-block" style="margin-top: 5px;">Artho</a>
+                          </div>
+                          <div class="col-xs-12 col-sm-6 col-md-3">
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/neuro" class="btn <?php echo ($this->uri->segment("6")=="neuro") ? 'btn-success' : 'btn-primary';?> btn-block" style="margin-top: 5px;">Neuro</a>
+                          </div>
+                          <div class="col-xs-12 col-sm-6 col-md-3">
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/respi" class="btn <?php echo ($this->uri->segment("6")=="respi") ? 'btn-success' : 'btn-primary';?> btn-block" style="margin-top: 5px;">Respi</a>
+                          </div>
+                        </div>
+                    <!-- </div> -->
+                         <br><br>   
+
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
@@ -133,7 +232,7 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
+                                <div class="form-group wrapper-class">
                                     <label>Age</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_age" value="<?php echo @$patientInfo->age; ?>"> 
 
@@ -162,92 +261,12 @@
                         </div><!-- / row -->
                         <label><h3>Assessments</h3></label>
                         <div class="row">
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Tightness</label><span class="text-danger"></span></br>
-                                    <select name="ptn_tightness" class="form-control">
-                                      <option value="">- Select Tightness -</option>
-                                      
-                                      <option value="Restricted ROM">Restricted ROM</option>
-                                      
-                                      <option value="Hyperlaxed ROM">Hyperlaxed ROM</option>
-                                      
-                                      <option value="Hip Flexors">Hip Flexors</option>
-                                      
-                                      <option value="Calf">Calf</option>
-                                      
-                                    </select>
-                                    
-                                    
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                  </div><!-- /.form-group wrapper-class -->
-                                </div><!-- /.col-md-3 -->
-                                
-                                <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Remark</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_tightness_remark"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class">
-                                    <label>Upper body</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="ptn_upper_body">  -->
-                                    <select name="ptn_upper_body" class="form-control input-sm">
-                                      <option value="">- Select Upper Body -</option>
-                                      
-                                      <option value="Tightness">Tightness</option>
-                                      
-                                      <option value="Increased Tone">Increased Tone</option>
-                                      
-                                      <option value="Decreased Tone">Decreased Tone</option>
-                                      
-                                      <option value="Deformity">Deformity</option>
-                                      
-                                    </select>
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            
-                                <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Remark</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_upper_body_remark"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-
-
-                        </div><!-- / row -->
-
-                           <div class="row">
-                            
-                           <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Lower body</label><span class="text-danger"></span></br>
-                                    <select name="lower_body" class="form-control input-sm">
-                                      <option value="">-Select Lower body-</option>
-                                      
-                                      <option value="Tightness">Tightness</option>
-                                      
-                                      <option value="Increased tone">Increased Tone</option>
-                                      
-                                      <option value="Decreased tone">Decreased Tone</option>
-                                      
-                                      <option value="Deformity">Deformity</option>
-                                    </select>
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br>
+                                    <label>Intensity</label><span class="text-danger"></span></br>
                                     <select name="ptn_pain" class="form-control">
-                                      <option value="">-Select Pain-</option>
+                                      <option value="">-Select Intensity-</option>
                                       
                                       <option value="0">0</option>
                                       
@@ -287,6 +306,183 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Mobility</label><span class="text-danger"></span></br>
+                                    <select name="ptn_tightness" class="form-control">
+                                      <option value="">- Select Mobility -</option>
+                                      
+                                      <option value="Restricted ROM">Restricted ROM</option>
+                                      
+                                      <option value="Hyperlaxed ROM">Hyperlaxed ROM</option>
+                                                                            
+                                    </select>
+                                         
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                  </div><!-- /.form-group wrapper-class -->
+                                </div><!-- /.col-md-3 -->
+
+                                <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Remark</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="ptn_tightness_remark"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Tightness</label><span class="text-danger"></span></br>
+                                    <select name="ptn_tightness" class="form-control">
+                                      <option value="">- Select Tightness -</option>
+                                      
+                                      <option value="Shoulder">Shoulder</option>
+                                      <option value="Elbow">Elbow</option>
+                                      <option value="Wrist">Wrist</option>
+                                      <option value="Cervical Spine">Cervical Spine</option>
+                                      <option value="Thoracic Spine">Thoracic Spine</option>
+                                      <option value="Lumbar Spine">Lumbar Spine</option>
+                                      <option value="Pelvis">Pelvis</option>
+                                      <option value="Hip">Hip</option>
+                                      <option value="Knee">Knee</option>
+                                      <option value="Ankle">Ankle</option>
+                                    </select>
+                                         
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                  </div><!-- /.form-group wrapper-class -->
+                                </div><!-- /.col-md-3 -->
+                                
+                                <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Remark</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="ptn_tightness_remark"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Muscle Strength</label><span class="text-danger"></span></br>
+                                    <select name="ptn_upper_body" class="form-control input-sm">
+                                      <option value="">- Select Muscle Strength -</option>
+                                      
+                                      <option value="Grade 1">Grade 1</option>
+                                      <option value="Grade 2">Grade 2</option>
+                                      <option value="Grade 3">Grade 3</option>
+                                      <option value="Grade 4">Grade 4</option>
+                                      <option value="Grade 5">Grade 5</option>
+                                      
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            
+                                <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Remark</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="ptn_upper_body_remark"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+
+
+                        </div><!-- / row -->
+
+                           <div class="row">
+                            
+                           <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Muscle Tone</label><span class="text-danger"></span></br>
+                                    <select name="lower_body" class="form-control input-sm">
+                                      <option value="">-Select Muscle Tone-</option>
+                                      
+                                      <option value="Tightness">Tightness</option>
+                                      
+                                      <option value="Increased tone">Increased Tone</option>
+                                      
+                                      <option value="Decreased tone">Decreased Tone</option>
+                                    </select>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Breathlessness</label><span class="text-danger"></span></br>
+                                    <select name="ptn_breathlessness" class="form-control input-sm">
+                                      <option value="">- Select Breathlessness -</option>
+                                      
+                                      <option value="Grade 1">Grade 1</option>
+                                      <option value="Grade 2">Grade 2</option>
+                                      <option value="Grade 3">Grade 3</option>
+                                      <option value="Grade 4">Grade 4</option>
+                                      
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>fatigue</label><span class="text-danger"></span></br>
+                                    <select name="ptn_fatigue" class="form-control input-sm">
+                                      <option value="">- Select fatigue -</option>
+                                      <option value="Yes">Yes</option>
+                                      <option value="No">No</option>
+                                      
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+<!-- 
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br>
+                                    <select name="ptn_pain" class="form-control">
+                                      <option value="">-Select Pain-</option>
+                                      
+                                      <option value="0">0</option>
+                                      
+                                      <option value="1">1</option>
+                                      
+                                      <option value="2">2</option>
+                                      
+                                      <option value="3">3</option>
+                                      
+                                      <option value="4">4</option>
+                                      
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>
+                                      <option value="8">8</option>
+                                      <option value="9">9</option>
+                                      <option value="10">10</option>
+
+
+                                    </select>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>
+                            </div> --><!-- /.col-md-3 -->
+                            <!-- <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Nature</label><span class="text-danger"></span></br>
+                                    <select name="nature" class="form-control">
+                                      <option value="">-Select Nature-</option>
+                                      
+                                      <option value="Throbbing">Throbbing</option>
+                                      
+                                      <option value="Dull Pain">Dull Pain</option>
+                                      
+                                      <option value="Pricking">Pricking</option>
+                                     
+                                    </select>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>
+                            </div> --><!-- /.col-md-3 -->
                            </div>
 
                         <div class="row">
@@ -303,100 +499,196 @@
                           <tr>
                               <td>Total Assistance 1</td><td><input type="date" name="mobility_assist1_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist1_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="" value="No">No
+                                  <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist1_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="mobility_assist_rolling" value="No">No  --> 
+                                 <label class="switch">
+                                  <input type="checkbox" name="mobility_assist1_rolling" class="mobility_assist_rolling">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist1_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_supine" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_supine" name="mobility_assist1_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_supine" class="mobility_assist_supine" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist1_supine" class="mobility_assist_supine">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist1_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_stand" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_stand" name="mobility_assist1_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_stand" class="mobility_assist_stand" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist1_stand" class="mobility_assist_stand">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Maximal Assistance 2</td><td><input type="date" name="mobility_assist2_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist2_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_rolling" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist2_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_rolling" class="mobility_assist_rolling" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist2_rolling" class="mobility_assist_rolling">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist2_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_supine" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_supine" name="mobility_assist2_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_supine" class="mobility_assist_supine" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist2_supine" class="mobility_assist_supine">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist2_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_stand" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_stand" name="mobility_assist2_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_stand" class="mobility_assist_stand" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist2_stand" class="mobility_assist_stand">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Moderate Assistance 3</td><td><input type="date" name="mobility_assist3_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist3_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_rolling" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist3_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_rolling" class="mobility_assist_rolling" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist3_rolling" class="mobility_assist_rolling">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist3_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_supine" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_supine" name="mobility_assist3_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_supine" class="mobility_assist_supine" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist3_supine" class="mobility_assist_supine">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist3_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_stand" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_stand" name="mobility_assist3_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_stand" class="mobility_assist_stand" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist3_stand" class="mobility_assist_stand">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Minimal Assistance 4</td><td><input type="date" name="mobility_assist4_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist4_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_rolling" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist4_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_rolling" class="mobility_assist_rolling" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist4_rolling" class="mobility_assist_rolling">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist4_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_supine" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_supine" name="mobility_assist4_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_supine" class="mobility_assist_supine" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist4_supine" class="mobility_assist_supine">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist4_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_stand" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_stand" name="mobility_assist4_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_stand" class="mobility_assist_stand" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist4_stand" class="mobility_assist_stand">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Contact  Guarding 5 A</td><td><input type="date" name="mobility_assist5a_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5a_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_rolling" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist5a_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_rolling" class="mobility_assist_rolling" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5a_rolling" class="mobility_assist_rolling">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5a_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_supine" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_supine" name="mobility_assist5a_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_supine" class="mobility_assist_supine" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5a_supine" class="mobility_assist_supine">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5a_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_stand" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_stand" name="mobility_assist5a_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_stand" class="mobility_assist_stand" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5a_stand" class="mobility_assist_stand">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Supervision or setup 5 B</td><td><input type="date" name="mobility_assist5b_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5b_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_rolling" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist5b_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_rolling" class="mobility_assist_rolling" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5b_rolling" class="mobility_assist_rolling">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5b_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_supine" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_supine" name="mobility_assist5b_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_supine" class="mobility_assist_supine" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5b_supine" class="mobility_assist_supine">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5b_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_stand" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_stand" name="mobility_assist5b_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_stand" class="mobility_assist_stand" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5b_stand" class="mobility_assist_stand">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Modified Independence 6</td><td><input type="date" name="mobility_assist6_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist6_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_rolling" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist6_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_rolling" class="mobility_assist_rolling" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist6_rolling" class="mobility_assist_rolling">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist6_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_supine" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_supine" name="mobility_assist6_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_supine" class="mobility_assist_supine" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist6_supine" class="mobility_assist_supine">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist6_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_stand" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_stand" name="mobility_assist6_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_stand" class="mobility_assist_stand" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist6_stand" class="mobility_assist_stand">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Complete Independence 7</td><td><input type="date" name="mobility_assist7_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist7_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_rolling" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist7_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_rolling" class="mobility_assist_rolling" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist7_rolling" class="mobility_assist_rolling">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist7_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_supine" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_supine" name="mobility_assist7_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_supine" class="mobility_assist_supine" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist7_supine" class="mobility_assist_supine">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist7_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_stand" class="" value="No">No
+                                <!-- <input type="radio" class="mobility_assist_stand" name="mobility_assist7_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_stand" class="mobility_assist_stand" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist7_stand" class="mobility_assist_stand">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
-                          <tr>
+                          <!-- <tr>
                               <td>Not Applicable</td><td><input type="date" name="mobility_notappl_evaldate" class="form-control"></td>
                               <td>
                                 <input type="radio" class="" name="mobility_notappl_rolling" value="Yes" <?php $a=5; echo ($a == 5) ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_notappl_rolling" class="" value="No">No
@@ -407,7 +699,7 @@
                               <td>
                                 <input type="radio" class="" name="mobility_notappl_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_notappl_stand" class="" value="No">No
                               </td>
-                          </tr>    
+                          </tr> -->    
                       </table>
                   </div>
 
@@ -425,84 +717,148 @@
                           <tr>
                               <td>Total Assistance 1</td><td><input type="date" name="transfer_assist1_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist1_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist1_wheelchair" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist1_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist1_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist1_wheelchair" class="transfer_assist_wheelchair">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist1_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist1_car" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_car" name="transfer_assist1_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist1_car" class="transfer_assist_car" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist1_car" class="transfer_assist_car">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Maximal Assistance 2</td><td><input type="date" name="transfer_assist2_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist2_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist2_wheelchair" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist2_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist2_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist2_wheelchair" class="transfer_assist_wheelchair">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist2_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist2_car" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_car" name="transfer_assist2_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist2_car" class="transfer_assist_car" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist2_car" class="transfer_assist_car">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Moderate Assistance 3</td><td><input type="date" name="transfer_assist3_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist3_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist3_wheelchair" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist3_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist3_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist3_wheelchair" class="transfer_assist_wheelchair">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist3_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist3_car" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_car" name="transfer_assist3_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist3_car" class="transfer_assist_car" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist3_car" class="transfer_assist_car">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Minimal Assistance 4</td><td><input type="date" name="transfer_assist4_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist4_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist4_wheelchair" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist4_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist4_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist4_wheelchair" class="transfer_assist_wheelchair">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist4_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist4_car" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_car" name="transfer_assist4_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist4_car" class="transfer_assist_car" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist4_car" class="transfer_assist_car">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Contact  Guarding 5 B</td><td><input type="date" name="transfer_assist5b_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist5b_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5b_wheelchair" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist5b_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5b_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist5b_wheelchair" class="transfer_assist_wheelchair">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist5b_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5b_car" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_car" name="transfer_assist5b_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5b_car" class="transfer_assist_car" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist5b_car" class="transfer_assist_car">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Supervision or setup 5 A</td><td><input type="date" name="transfer_assist5a_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist5a_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5a_wheelchair" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist5a_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5a_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox"name="transfer_assist5a_wheelchair" class="transfer_assist_wheelchair">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist5a_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5a_car" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_car" name="transfer_assist5a_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5a_car" class="transfer_assist_car" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist5a_car" class="transfer_assist_car">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Modified Independence 6</td><td><input type="date" name="transfer_assist6_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist6_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist6_wheelchair" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist6_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist6_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist6_wheelchair" class="transfer_assist_wheelchair">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist6_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist6_car" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_car" name="transfer_assist6_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist6_car" class="transfer_assist_car" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist6_car" class="transfer_assist_car">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Complete Independence 7</td><td><input type="date" name="transfer_assist7_evaldate" class="form-control"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist7_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist7_wheelchair" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist7_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist7_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox"name="transfer_assist7_wheelchair" class="transfer_assist_wheelchair">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist7_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist7_car" class="" value="No">No
+                                <!-- <input type="radio" class="transfer_assist_car" name="transfer_assist7_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist7_car" class="transfer_assist_car" value="No">No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist7_car" class="transfer_assist_car">
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
-                          <tr>
+                          <!-- <tr>
                               <td>Not Applicable</td><td><input type="date" name="transfer_notappl_evaldate" class="form-control"></td>
                               <td>
                                 <input type="radio" class="" name="transfer_notappl_wheelchair" value="Yes" <?php $a=5; echo ($a == 5) ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_notappl_wheelchair" class="" value="No">No
@@ -511,23 +867,48 @@
                                 <input type="radio" class="" name="transfer_notappl_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_notappl_car" class="" value="No">No
                               </td>
                               
-                          </tr>    
+                          </tr> -->    
                       </table>
                   </div>
 
-
-                <div class="row mt-5">
-                  <div class="col-sm-4">Recommendation for physiotherapy</div>
-                  <div class="col-sm-4">
-                    <input type="radio" class="chkradio" name="expert_rec" value="Yes">Yes &nbsp;
-                    <input type="radio" name="expert_rec" class="chkradio" value="No">No</div>
-                </div><br>
                 
                 <div class="row">
                           <div class="col-sm-12">
                             <label><h3>Balance Assessment</h3></label>
                         </div>
                     </div><br>
+
+                    <div class="row">
+                          <div class="col-sm-12">
+                            <label><h3>Gait Assessment</h3></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Upload Video</label><span class="text-danger"></span></br>
+                                    <input type="file" name="videofile" class="form-control input-sm" style="width: 250px;"/> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Gait Remark</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="gait_speed" value=""> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            </div><!-- / row -->
+
+                            <div class="row mt-5">
+                  <div class="col-sm-4">Recommendation for physiotherapy</div>
+                  <div class="col-sm-4">
+                    <input type="radio" class="chkradio" name="expert_rec" value="Yes">Yes &nbsp;
+                    <input type="radio" name="expert_rec" class="chkradio" value="No">No</div>
+                </div><br>
+
                 <div class="row" id="treatment_section" style="display:none;">
                 <div class="row">
                           
@@ -545,14 +926,14 @@
                                     <span class="text-danger error-text type_category_err"></span>          </div>
                             </div> --><!-- /.col-md-3 -->
 
-                            <div class="col-md-3">
+                            <!-- <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Gait speed</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="gait_speed" value=""> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                                </div>
+                            </div> --><!-- /.col-md-3 -->
                            
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
@@ -603,8 +984,6 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                         </div>
-                            <div class="row"> 
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>EXPECTED sessions </label><span class="text-danger"></span></br>
@@ -629,7 +1008,8 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
 
-
+                         </div><!-- / row -->
+                            <div class="row"> 
                         
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
@@ -679,38 +1059,19 @@
                     }
                 });
 
-                /*var radioButtons = document.querySelectorAll('.chkradio');
+        /*****************End recommendation yes**********************/
 
-                function handleRadioChange() {
-                  if (this.checked) {
-                    var val = this.value;
+        /********************Start check one radio button allowed column wise************************/
+  
+        $(document).ready(function () {
+          $('input.mobility_assist_rolling, input.mobility_assist_supine, input.mobility_assist_stand, input.transfer_assist_wheelchair, input.transfer_assist_car').click(function () {
+            // Find all radio buttons in the clicked column and reset them
+            var columnClass = $(this).attr('class');
+            $('.' + columnClass).not(this).prop('checked', false);
+          });
+        });
 
-                    if (val != '') {
-                      if (val == 'Yes') {
-                        document.getElementById('treatment_section').style.display = 'block';
-                      }
-                      if (val == 'No') {
-                        document.getElementById('treatment_section').style.display = 'none';
-                      }
-                    }
-                  }
-                }
-
-                // Attach the event listener to each radio button
-                radioButtons.forEach(function (radio) {
-                  radio.addEventListener('change', handleRadioChange);
-                });*/
-        /*document.querySelectorAll('.chkradio').forEach(function(radio) {
-    radio.addEventListener('change', function() {
-      var val = this.value;
-      var treatmentSection = document.getElementById('treatment_section');
-
-      if (val != '') {
-        treatmentSection.style.display = (val == 'Yes') ? 'block' : 'none';
-      }
-    });
-  });*/
-        /*****************End recommendation yes**********************/  
+       /***********************End check one radio button allowed column wise*************************/   
     </script>
 
 </body>

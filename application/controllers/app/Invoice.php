@@ -185,7 +185,7 @@ class Invoice extends General{
             $dompdf->stream('bill.pdf',array("Attachment" => 0));
 		
 		
-		    // $this->load->view('app/billing/print_invoice',$this->data);
+		    // $this->load->view('app/billings/lab_invoice',$this->data);
 	}
 	
 	

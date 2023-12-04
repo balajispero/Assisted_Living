@@ -228,7 +228,7 @@
   <tr>
     <td bgcolor="#ffffff" style="padding:5px 20px 20px 20px; color: #555555; font-family: Arial, sans-serif; font-size: 15px; line-height: 24px; border-bottom: 1px solid #f6f6f6;">
        <p>Cc &nbsp;<?php  
-        echo "kaushikpanditrao@ahpl.in" .", ". "avinash@sperohealthcare.in" .", ". @$patientInfo->rel_email2; 
+        echo "kaushikpanditrao@ahpl.in" .", ". "avinash@sperohealthcare.in, Shivrudra@sperohealthcare.in, vijayrhayakar@ahpl.in" .", ". @$patientInfo->rel_email2; 
         ?> 
     </p>
 

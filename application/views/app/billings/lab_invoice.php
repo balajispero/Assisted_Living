@@ -146,8 +146,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-    </div>
 
 	<div class="row mt-4">
 		<div class="col-12">
@@ -209,7 +207,7 @@
 
 
 		    <div style="position: fixed;bottom: 0;">
-            <img src="<?=base_url()?>/public/invoice/invoice_footer.png" width="100%"   alt="Spero Healthcare Innovations Pvt. Ltd." >
+            <img src="<?=base_url()?>/public/invoice/Invoice_footer.png" width="100%"   alt="Spero Healthcare Innovations Pvt. Ltd." >
                 <span>
                       <!-- <p onclick="sp()">Date : </p> -->
                 </span>   
