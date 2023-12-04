@@ -19,6 +19,11 @@
             height: 34px !important;
 
          }
+         
+         th.berg_bal {
+    text-align: center;
+}
+
     /*Start toggle button css*/
                 .switch {
       position: relative;
@@ -199,16 +204,16 @@
                         <!-- <div class="container"> -->
                         <div class="row text-center">
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/general" class="btn <?php if($this->uri->segment("6")=="general" or $this->uri->segment("6")=="") { echo "btn-success"; }else{ echo "btn-primary"; } ?> btn-block" style="margin-top: 5px;">General Evaluation</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/general" class="btn <?php if($this->uri->segment("6")=="general" or $this->uri->segment("6")=="") { echo "bg_color"; }else{ echo "btn-primary"; } ?> btn-block" style="margin-top: 5px; color:white;">General Evaluation</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/artho" class="btn <?php echo ($this->uri->segment("6")=="artho") ? 'btn-success' : 'btn-primary';?> btn-block" style="margin-top: 5px;">Artho</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/artho" class="btn <?php echo ($this->uri->segment("6")=="artho") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Artho</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/neuro" class="btn <?php echo ($this->uri->segment("6")=="neuro") ? 'btn-success' : 'btn-primary';?> btn-block" style="margin-top: 5px;">Neuro</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/neuro" class="btn <?php echo ($this->uri->segment("6")=="neuro") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Neuro</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/respi" class="btn <?php echo ($this->uri->segment("6")=="respi") ? 'btn-success' : 'btn-primary';?> btn-block" style="margin-top: 5px;">Respi</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/respi" class="btn <?php echo ($this->uri->segment("6")=="respi") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Respi</a>
                           </div>
                         </div>
                     <!-- </div> -->
@@ -259,7 +264,7 @@
                             </div><!-- /.col-md-3 -->
 
                         </div><!-- / row -->
-                        <label><h3>Assessments</h3></label>
+                        <label><h3><b>Assessments</b></h3></label>
                         <div class="row">
 
                             <div class="col-md-3">
@@ -487,8 +492,8 @@
 
                         <div class="row">
                           <div class="col-sm-12">
-                            <label><h3>Bed Mobility</h3></label>
-                            <p>Rolling</p>
+                            <label><h3><b>Bed Mobility</b></h3></label>
+                            <h4><u>Rolling</u></h4>
                         </div>
                     </div><br>
                     <div class="table-responsive">      
@@ -705,8 +710,8 @@
 
                   <div class="row">
                           <div class="col-sm-12">
-                            <label><h3>B. Transfers</h3></label>
-                            <p>Transfer to wheelchair</p>
+                            <label><h3><b>B. Transfers</b></h3></label>
+                            <h4><u>Transfer to wheelchair</u></h4>
                         </div>
                     </div><br>
                     <div class="table-responsive">      
@@ -874,13 +879,228 @@
                 
                 <div class="row">
                           <div class="col-sm-12">
-                            <label><h3>Balance Assessment</h3></label>
+                            <label><h3><b>Balance Assessment</b></h3></label>
+                            <h4><u>BERG BALANCE SCALE</u></h4>
                         </div>
-                    </div><br>
+                      
+                   <table class="table table-striped">
+                            <tr>
+                              <th>Balance Item</th><th class="berg_bal">Score (0-4)</th>
+                          </tr>
+                    
+                          <tr>
+                              <td><h5>Sitting unsupported</h5></td><td align="center">
+                              <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>sitting to standing</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>standing to sitting</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Transfers</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Standing unsupported</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Standing with eyes closed</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Standing with feet together</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Tandem standing</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Standing on one leg</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Turning trunk (feet fixed)</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Retrieving objects from floor</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Turning 360 degrees</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+
+                         <tr>
+                              <td><h5>Stool stepping</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+
+                         <tr>
+                              <td><h5>Reaching forward while standing</h5></td><td align="center">
+                                <!-- <input type="date" name="transfer_assist7_evaldate" class="form-control" style="width:180px;"> -->
+                              <select name="ptn_pain" class="form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0">0</option>
+                                 <option value="1">1</option>
+                                  <option value="2">2</option>
+                                 <option value="3">3</option>
+                                  <option value="4">4</option>
+                                 </select>
+                            </td>
+                         </tr>
+
+                         <tr>
+                              <td><h5>Total Score</h5></td><td align="center">
+                                <input type="text" name="transfer_assist7_evaldate" class="form-control" style="width:180px;">
+                            </td>
+                         </tr>
+
+
+                          <!-- <tr>
+                              <td>Not Applicable</td><td><input type="date" name="transfer_notappl_evaldate" class="form-control"></td>
+                              <td>
+                                <input type="radio" class="" name="transfer_notappl_wheelchair" value="Yes" <?php $a=5; echo ($a == 5) ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_notappl_wheelchair" class="" value="No">No
+                              </td>
+                              <td>
+                                <input type="radio" class="" name="transfer_notappl_car" value="Yes">Yes &nbsp;<input type="radio" name="transfer_notappl_car" class="" value="No">No
+                              </td>
+                              
+                          </tr> -->    
+                      </table>
+                      <p><b><u>Interpretation</u></b></p>
+                   <hr>
+                   <p>0–20, wheelchair bound</p>
+                   <p>21–40, walking with assistance</p>
+                   <p>41–56, independent</p>
+
 
                     <div class="row">
                           <div class="col-sm-12">
-                            <label><h3>Gait Assessment</h3></label>
+                            <label><h3><b>Gait Assessment</b></h3></label>
                         </div>
                     </div>
                     <div class="row">
