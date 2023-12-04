@@ -15,14 +15,14 @@
         
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <style>
-         textarea{
+         textarea.form-control{
             height: 34px !important;
-
-         }
+            border-radius: 25px !important;
+           }
          
-         th.berg_bal {
-    text-align: center;
-}
+          th.berg_bal {
+          text-align: center;
+           }
 
     /*Start toggle button css*/
                 .switch {
@@ -86,7 +86,15 @@
     }
     /*End toggle button css*/
 
+     input.form-control{
+      border-radius: 25px !important;
+     }
+     select.form-control{
+      border-radius: 25px !important;
+      color: #CCC;
 
+     }
+     
 
 
         </style>
@@ -493,7 +501,7 @@
                         <div class="row">
                           <div class="col-sm-12">
                             <label><h3><b>Bed Mobility</b></h3></label>
-                            <h4><u>Rolling</u></h4>
+                            <h4 style="font-family:Times New Roman;"><u>Rolling</u></h4>
                         </div>
                     </div><br>
                     <div class="table-responsive">      
@@ -502,7 +510,7 @@
                               <th>FIM score / Activity</th><th>Date of eval</th><th>Rolling</th><th>Supine to sit</th><th>Sit to stand</th>
                           </tr>
                           <tr>
-                              <td>Total Assistance 1</td><td><input type="date" name="mobility_assist1_evaldate" class="form-control"></td>
+                              <td>Total Assistance 1</td><td><input type="date" name="mobility_assist1_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                   <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist1_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="mobility_assist_rolling" value="No">No  --> 
                                  <label class="switch">
@@ -526,7 +534,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Maximal Assistance 2</td><td><input type="date" name="mobility_assist2_evaldate" class="form-control"></td>
+                              <td>Maximal Assistance 2</td><td><input type="date" name="mobility_assist2_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist2_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -550,7 +558,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Moderate Assistance 3</td><td><input type="date" name="mobility_assist3_evaldate" class="form-control"></td>
+                              <td>Moderate Assistance 3</td><td><input type="date" name="mobility_assist3_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist3_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -574,7 +582,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Minimal Assistance 4</td><td><input type="date" name="mobility_assist4_evaldate" class="form-control"></td>
+                              <td>Minimal Assistance 4</td><td><input type="date" name="mobility_assist4_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist4_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -598,7 +606,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Contact  Guarding 5 A</td><td><input type="date" name="mobility_assist5a_evaldate" class="form-control"></td>
+                              <td>Contact  Guarding 5 A</td><td><input type="date" name="mobility_assist5a_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist5a_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -622,7 +630,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Supervision or setup 5 B</td><td><input type="date" name="mobility_assist5b_evaldate" class="form-control"></td>
+                              <td>Supervision or setup 5 B</td><td><input type="date" name="mobility_assist5b_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist5b_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -646,7 +654,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Modified Independence 6</td><td><input type="date" name="mobility_assist6_evaldate" class="form-control"></td>
+                              <td>Modified Independence 6</td><td><input type="date" name="mobility_assist6_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist6_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -670,7 +678,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Complete Independence 7</td><td><input type="date" name="mobility_assist7_evaldate" class="form-control"></td>
+                              <td>Complete Independence 7</td><td><input type="date" name="mobility_assist7_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist7_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -711,7 +719,7 @@
                   <div class="row">
                           <div class="col-sm-12">
                             <label><h3><b>B. Transfers</b></h3></label>
-                            <h4><u>Transfer to wheelchair</u></h4>
+                            <h4 style="font-family:Times New Roman;"><u>Transfer to wheelchair</u></h4>
                         </div>
                     </div><br>
                     <div class="table-responsive">      
@@ -720,7 +728,7 @@
                               <th>FIM Levels</th><th>Date of eval</th><th>wheelchair/comode Chair</th><th>Car transfer</th>
                           </tr>
                           <tr>
-                              <td>Total Assistance 1</td><td><input type="date" name="transfer_assist1_evaldate" class="form-control"></td>
+                              <td>Total Assistance 1</td><td><input type="date" name="transfer_assist1_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist1_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist1_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -738,7 +746,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Maximal Assistance 2</td><td><input type="date" name="transfer_assist2_evaldate" class="form-control"></td>
+                              <td>Maximal Assistance 2</td><td><input type="date" name="transfer_assist2_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist2_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist2_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -756,7 +764,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Moderate Assistance 3</td><td><input type="date" name="transfer_assist3_evaldate" class="form-control"></td>
+                              <td>Moderate Assistance 3</td><td><input type="date" name="transfer_assist3_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist3_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist3_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -774,7 +782,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Minimal Assistance 4</td><td><input type="date" name="transfer_assist4_evaldate" class="form-control"></td>
+                              <td>Minimal Assistance 4</td><td><input type="date" name="transfer_assist4_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist4_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist4_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -792,7 +800,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Contact  Guarding 5 B</td><td><input type="date" name="transfer_assist5b_evaldate" class="form-control"></td>
+                              <td>Contact  Guarding 5 B</td><td><input type="date" name="transfer_assist5b_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist5b_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5b_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -810,7 +818,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Supervision or setup 5 A</td><td><input type="date" name="transfer_assist5a_evaldate" class="form-control"></td>
+                              <td>Supervision or setup 5 A</td><td><input type="date" name="transfer_assist5a_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist5a_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5a_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -828,7 +836,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Modified Independence 6</td><td><input type="date" name="transfer_assist6_evaldate" class="form-control"></td>
+                              <td>Modified Independence 6</td><td><input type="date" name="transfer_assist6_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist6_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist6_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -846,7 +854,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Complete Independence 7</td><td><input type="date" name="transfer_assist7_evaldate" class="form-control"></td>
+                              <td>Complete Independence 7</td><td><input type="date" name="transfer_assist7_evaldate" class="form-control" style="color: #CCC;"></td>
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist7_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist7_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -875,12 +883,22 @@
                           </tr> -->    
                       </table>
                   </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Interpretation</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="ptn_upper_body_remark"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                      </div>
 
                 
                 <div class="row">
                           <div class="col-sm-12">
                             <label><h3><b>Balance Assessment</b></h3></label>
-                            <h4><u>BERG BALANCE SCALE</u></h4>
+                            <h4 style="font-family:Times New Roman;"><u>Berg Balance Scale</u></h4>
                         </div>
                       
                    <table class="table table-striped">
@@ -1091,8 +1109,8 @@
                               
                           </tr> -->    
                       </table>
-                      <p><b><u>Interpretation</u></b></p>
-                   <hr>
+                      <p style="font-family:Times New Roman;"><b><u>Interpretation</u></b></p>
+                   <!-- <hr> -->
                    <p>0–20, wheelchair bound</p>
                    <p>21–40, walking with assistance</p>
                    <p>41–56, independent</p>

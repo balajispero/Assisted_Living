@@ -19,6 +19,68 @@
             height: 34px !important;
 
          }
+
+           /*Start toggle button css*/
+           .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+     
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    /*End toggle button css*/
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -305,172 +367,270 @@
                           <tr>
                               <td>Total Assistance 1</td><td><input type="date" name="mobility_assist1_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist1_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist1_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist1_rolling=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist1_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist1_rolling=="Yes" ){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist1_rolling=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist1_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist1_rolling == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist1_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist1_supine=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist1_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist1_supine=="Yes" ){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist1_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist1_supine=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                         <label class="switch">
+                                  <input type="checkbox" name="mobility_assist1_supine" class="mobility_assist_supine" <?php echo ($ptnEvalInfo->mobility_assist1_supine == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist1_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist1_stand=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist1_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist1_stand=="Yes" ){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist1_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist1_stand=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist1_stand" class="mobility_assist_stand" <?php echo ($ptnEvalInfo->mobility_assist1_stand == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Maximal Assistance 2</td><td><input type="date" name="mobility_assist2_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist2_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist2_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist2_rolling=="Yes"){
+                                <!-- <input type="radio" class="" name="mobility_assist2_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist2_rolling=="Yes"){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist2_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist2_rolling=="No"){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist2_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist2_rolling == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist2_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist2_supine=="Yes"){
+                                <!-- <input type="radio" class="" name="mobility_assist2_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist2_supine=="Yes"){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist2_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist2_supine=="No"){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist2_supine" class="mobility_assist_supine" <?php echo ($ptnEvalInfo->mobility_assist2_supine == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist2_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist2_stand=="Yes"){
+                                <!-- <input type="radio" class="" name="mobility_assist2_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist2_stand=="Yes"){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist2_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist2_stand=="No"){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist2_stand" class="mobility_assist_stand" <?php echo ($ptnEvalInfo->mobility_assist2_stand == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Moderate Assistance 3</td><td><input type="date" name="mobility_assist3_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist3_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist3_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist3_rolling=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist3_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist3_rolling=="Yes" ){
                             echo "checked=checked";
-                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist3_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist1_rolling=="No" ){
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist3_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist3_rolling=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist3_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist3_rolling == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist3_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist3_supine=="Yes"){
+                                <!-- <input type="radio" class="" name="mobility_assist3_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist3_supine=="Yes"){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist3_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist3_supine=="No"){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist3_supine" class="mobility_assist_supine" <?php echo ($ptnEvalInfo->mobility_assist3_supine == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist3_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist3_stand=="Yes"){
+                                <!-- <input type="radio" class="" name="mobility_assist3_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist3_stand=="Yes"){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist3_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist3_stand=="No"){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist3_stand" class="mobility_assist_stand" <?php echo ($ptnEvalInfo->mobility_assist3_stand == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Minimal Assistance 4</td><td><input type="date" name="mobility_assist4_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist4_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist4_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist4_rolling=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist4_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist4_rolling=="Yes" ){
                             echo "checked=checked";
-                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist4_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist1_rolling=="No" ){
+                        } ?>>Yes &nbsp;<input type="radio" name="mobility_assist4_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist4_rolling=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist4_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist4_rolling == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist4_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist4_supine=="Yes"){
+                                <!-- <input type="radio" class="" name="mobility_assist4_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist4_supine=="Yes"){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist4_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist4_supine=="No"){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist4_supine" class="mobility_assist_supine" <?php echo ($ptnEvalInfo->mobility_assist4_supine == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist4_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist4_stand=="Yes"){
+                                <!-- <input type="radio" class="" name="mobility_assist4_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist4_stand=="Yes"){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist4_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist4_stand=="No"){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist4_stand" class="mobility_assist_stand" <?php echo ($ptnEvalInfo->mobility_assist4_stand == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Contact  Guarding 5 A</td><td><input type="date" name="mobility_assist5a_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist5a_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5a_rolling" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5a_rolling=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5_rolling" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5a_rolling=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="mobility_assist5a_rolling" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5a_rolling=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5_rolling" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5a_rolling=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5a_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist5a_rolling == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5a_supine" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5a_supine=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5_supine" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5a_supine=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="mobility_assist5a_supine" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5a_supine=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5_supine" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5a_supine=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5a_supine" class="mobility_assist_supine" <?php echo ($ptnEvalInfo->mobility_assist5a_supine == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5a_stand" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5a_stand=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5a_stand" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5a_stand=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="mobility_assist5a_stand" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5a_stand=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5a_stand" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5a_stand=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5a_stand" class="mobility_assist_stand" <?php echo ($ptnEvalInfo->mobility_assist5a_stand == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Supervision or setup 5 B</td><td><input type="date" name="mobility_assist5b_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist5a_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5b_rolling" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5b_rolling=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5b_rolling" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5b_rolling=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="mobility_assist5b_rolling" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5b_rolling=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5b_rolling" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5b_rolling=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5b_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist5b_rolling == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5b_supine" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5b_supine=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5b_supine" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5b_supine=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="mobility_assist5b_supine" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5b_supine=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5b_supine" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5b_supine=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5b_supine" class="mobility_assist_supine" <?php echo ($ptnEvalInfo->mobility_assist5b_supine == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist5b_stand" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5b_stand=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5b_stand" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5b_stand=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="mobility_assist5b_stand" value="Yes" <?php echo ($ptnEvalInfo->mobility_assist5b_stand=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_assist5b_stand" class="" value="No" <?php echo ($ptnEvalInfo->mobility_assist5b_stand=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="mobility_assist5b_stand" class="mobility_assist_stand" <?php echo ($ptnEvalInfo->mobility_assist5b_stand == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Modified Independence 6</td><td><input type="date" name="mobility_assist6_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist6_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist6_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist6_rolling=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist6_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist6_rolling=="Yes" ){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist6_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist6_rolling=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist6_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist6_rolling == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist6_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist6_supine=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist6_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist6_supine=="Yes" ){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist6_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist6_supine=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist6_supine" class="mobility_assist_supine" <?php echo ($ptnEvalInfo->mobility_assist6_supine == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist6_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist6_stand=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist6_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist6_stand=="Yes" ){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist6_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist6_stand=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist6_stand" class="mobility_assist_stand" <?php echo ($ptnEvalInfo->mobility_assist6_stand == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
                           <tr>
                               <td>Complete Independence 7</td><td><input type="date" name="mobility_assist7_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_assist7_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist7_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist7_rolling=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist7_rolling" value="Yes" <?php if($ptnEvalInfo->mobility_assist7_rolling=="Yes" ){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist7_rolling" class="" value="No" <?php if($ptnEvalInfo->mobility_assist7_rolling=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist7_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist7_rolling == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist7_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist7_supine=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist7_supine" value="Yes" <?php if($ptnEvalInfo->mobility_assist7_supine=="Yes" ){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist7_supine" class="" value="No" <?php if($ptnEvalInfo->mobility_assist7_supine=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist7_supine" class="mobility_assist_supine" <?php echo ($ptnEvalInfo->mobility_assist7_supine == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="mobility_assist7_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist7_stand=="Yes" ){
+                                <!-- <input type="radio" class="" name="mobility_assist7_stand" value="Yes" <?php if($ptnEvalInfo->mobility_assist7_stand=="Yes" ){
                             echo "checked=checked";
                         } ?>>Yes &nbsp;<input type="radio" name="mobility_assist7_stand" class="" value="No" <?php if($ptnEvalInfo->mobility_assist7_stand=="No" ){
                             echo "checked=checked";
-                        } ?>>No
+                        } ?>>No -->
+                        <label class="switch">
+                                  <input type="checkbox" name="mobility_assist7_stand" class="mobility_assist_stand" <?php echo ($ptnEvalInfo->mobility_assist7_stand == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                           </tr>
-                          <tr>
+                          <!-- <tr>
                               <td>Not Applicable</td><td><input type="date" name="mobility_notappl_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->mobility_notappl_evaldate; ?>"></td>
                               <td>
                                 <input type="radio" class="" name="mobility_notappl_rolling" value="Yes" <?php echo ($ptnEvalInfo->mobility_notappl_rolling=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_notappl_rolling" class="" value="No" <?php echo ($ptnEvalInfo->mobility_notappl_rolling=="No") ? 'checked' : '';  ?>>No
@@ -481,7 +641,7 @@
                               <td>
                                 <input type="radio" class="" name="mobility_notappl_stand" value="Yes" <?php echo ($ptnEvalInfo->mobility_notappl_stand=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_notappl_stand" class="" value="No" <?php echo ($ptnEvalInfo->mobility_notappl_stand=="No") ? 'checked' : '';  ?>>No
                               </td>
-                          </tr>    
+                          </tr> -->    
                       </table>
                   </div>
 
@@ -499,101 +659,165 @@
                           <tr>
                               <td>Total Assistance 1</td><td><input type="date" name="transfer_assist1_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->transfer_assist1_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist1_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist1_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist1_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist1_wheelchair=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist1_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist1_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist1_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist1_wheelchair=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist1_wheelchair" class="transfer_assist_wheelchair" <?php echo ($ptnEvalInfo->transfer_assist1_wheelchair == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist1_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist1_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist1_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist1_car=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist1_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist1_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist1_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist1_car=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist1_car" class="transfer_assist_car" <?php echo ($ptnEvalInfo->transfer_assist1_car == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Maximal Assistance 2</td><td><input type="date" name="transfer_assist2_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->transfer_assist2_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist2_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist2_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist2_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist2_wheelchair=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist2_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist2_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist2_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist2_wheelchair=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist2_wheelchair" class="transfer_assist_wheelchair" <?php echo ($ptnEvalInfo->transfer_assist2_wheelchair == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist2_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist2_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist2_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist2_car=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist2_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist2_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist2_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist2_car=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist2_car" class="transfer_assist_car" <?php echo ($ptnEvalInfo->transfer_assist2_car == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Moderate Assistance 3</td><td><input type="date" name="transfer_assist3_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->transfer_assist3_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist3_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist3_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist3_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist3_wheelchair=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist3_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist3_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist3_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist3_wheelchair=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist3_wheelchair" class="transfer_assist_wheelchair" <?php echo ($ptnEvalInfo->transfer_assist3_wheelchair == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist3_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist3_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist3_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist3_car=="No") ? 'checked' : '';  ?>>No
+                               <!--  <input type="radio" class="" name="transfer_assist3_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist3_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist3_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist3_car=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist3_car" class="transfer_assist_car" <?php echo ($ptnEvalInfo->transfer_assist3_car == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Minimal Assistance 4</td><td><input type="date" name="transfer_assist4_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->transfer_assist4_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist4_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist4_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist4_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist4_wheelchair=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist4_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist4_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist4_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist4_wheelchair=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist4_wheelchair" class="transfer_assist_wheelchair" <?php echo ($ptnEvalInfo->transfer_assist4_wheelchair == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist4_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist4_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist4_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist4_car=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist4_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist4_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist4_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist4_car=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist4_car" class="transfer_assist_car" <?php echo ($ptnEvalInfo->transfer_assist4_car == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Contact  Guarding 5 B</td><td><input type="date" name="transfer_assist5b_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->transfer_assist5b_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist5b_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5b_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5b_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5b_wheelchair=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist5b_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5b_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5b_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5b_wheelchair=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist5b_wheelchair" class="transfer_assist_wheelchair" <?php echo ($ptnEvalInfo->transfer_assist5b_wheelchair == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist5b_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5b_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5b_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5b_car=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist5b_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5b_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5b_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5b_car=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist5b_car" class="transfer_assist_car" <?php echo ($ptnEvalInfo->transfer_assist5b_car == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Supervision or setup 5 A</td><td><input type="date" name="transfer_assist5a_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->transfer_assist5a_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist5a_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5a_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5a_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5a_wheelchair=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist5a_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5a_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5a_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5a_wheelchair=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox"name="transfer_assist5a_wheelchair" class="transfer_assist_wheelchair" <?php echo ($ptnEvalInfo->transfer_assist5a_wheelchair == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist5a_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5a_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5a_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5a_car=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist5a_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5a_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5a_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5a_car=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist5a_car" class="transfer_assist_car" <?php echo ($ptnEvalInfo->transfer_assist5a_car == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Modified Independence 6</td><td><input type="date" name="transfer_assist6_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->transfer_assist6_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist6_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist6_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist6_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist6_wheelchair=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist6_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist6_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist6_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist6_wheelchair=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist6_wheelchair" class="transfer_assist_wheelchair" <?php echo ($ptnEvalInfo->transfer_assist6_wheelchair == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist6_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist6_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist6_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist6_car=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist6_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist6_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist6_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist6_car=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist6_car" class="transfer_assist_car" <?php echo ($ptnEvalInfo->transfer_assist6_car == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
                           <tr>
                               <td>Complete Independence 7</td><td><input type="date" name="transfer_assist7_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->transfer_assist7_evaldate; ?>"></td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist7_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist7_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist7_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist7_wheelchair=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist7_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist7_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist7_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist7_wheelchair=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox"name="transfer_assist7_wheelchair" class="transfer_assist_wheelchair" <?php echo ($ptnEvalInfo->transfer_assist7_wheelchair == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               <td>
-                                <input type="radio" class="" name="transfer_assist7_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist7_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist7_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist7_car=="No") ? 'checked' : '';  ?>>No
+                                <!-- <input type="radio" class="" name="transfer_assist7_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist7_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist7_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist7_car=="No") ? 'checked' : '';  ?>>No -->
+                                <label class="switch">
+                                  <input type="checkbox" name="transfer_assist7_car" class="transfer_assist_car" <?php echo ($ptnEvalInfo->transfer_assist7_car == 'Yes') ? 'checked' : '';  ?>>
+                                  <span class="slider round"></span>
+                                </label>
                               </td>
                               
                           </tr>
-                          <tr>
+                          <!-- <tr>
                               <td>Not Applicable</td><td><input type="date" name="transfer_notappl_evaldate" class="form-control" value="<?php echo $ptnEvalInfo->transfer_notappl_evaldate; ?>"></td>
                               <td>
                                 <input type="radio" class="" name="transfer_notappl_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_notappl_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_notappl_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_notappl_wheelchair=="No") ? 'checked' : '';  ?>>No
                               </td>
                               <td>
                                 <input type="radio" class="" name="transfer_notappl_car" value="Yes" <?php echo ($ptnEvalInfo->transfer_notappl_car=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_notappl_car" class="" value="No" <?php echo ($ptnEvalInfo->transfer_notappl_car=="No") ? 'checked' : '';  ?>>No
-                              </td>
-                              
-                          </tr>    
+                              </td> 
+                          </tr>     -->
                       </table>
                   </div>
+
 
                 <div class="row">
                   <div class="col-sm-4">Recommendation for physiotherapy</div>
                   <div class="col-sm-4">
-                    <input type="radio" class="form-control" name="ptn_rec" value="Yes" checked>Yes &nbsp;
-                    <input type="radio" name="ptn_rec" class="form-control" value="No">No</div>
+                    <input type="radio" class="" name="ptn_rec" value="Yes" checked>Yes &nbsp;
+                    <input type="radio" name="ptn_rec" class="" value="No">No</div>
                 </div><br>
 
                 <div class="row" id="treatment_section" style="display: <?php echo ($ptnEvalInfo->expert_recommendation=="No") ? "none" : "block";?>">
@@ -704,6 +928,23 @@
 <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
 <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
 <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
+<!-------------------------jquery cdn for work radio button------------------------>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+        <!-------------------------jquery cdn for work radio button------------------------>
+
+<script>
+     /********************Start check one radio button allowed column wise************************/
+  
+     $(document).ready(function () {
+          $('input.mobility_assist_rolling, input.mobility_assist_supine, input.mobility_assist_stand, input.transfer_assist_wheelchair, input.transfer_assist_car').click(function () {
+            // Find all radio buttons in the clicked column and reset them
+            var columnClass = $(this).attr('class');
+            $('.' + columnClass).not(this).prop('checked', false);
+          });
+        });
+
+       /***********************End check one radio button allowed column wise*************************/  
+</script>
 
 </body>
 </html>
