@@ -194,6 +194,8 @@
                     <input type="hidden" name="rel_email2" value="<?php echo @$patientInfo->rel_email2; ?>">
                     <input type="hidden" name="rel_name" value="<?php echo @$patientInfo->rel_name1; ?>">
 
+                     <input type="text" name="therapy_type" value="<?php echo ($therapy_type) ? $therapy_type : 'general'; ?>">
+
                         <!-- <div class="row text-center">
                             <div class="col-md-3">
                                 <button type="button" class="btn btn-primary btn-block">General Evaluation</button>
@@ -274,7 +276,7 @@
                         </div><!-- / row -->
                         <label><h3><b>Assessments</b></h3></label>
                         <div class="row">
-
+                            <?php if($this->uri->segment("6")=="general" || $this->uri->segment("6")=="artho" || $this->uri->segment("6")=="neuro" || $this->uri->segment("6")=="respi"  || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Intensity</label><span class="text-danger"></span></br>
@@ -402,7 +404,8 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             
-
+                        <?php } ?>
+                         <?php if($this->uri->segment("6")=="neuro" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Muscle Tone</label><span class="text-danger"></span></br>
@@ -418,13 +421,24 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                        <?php } ?>
 
+                        <?php if($this->uri->segment("6")=="artho"){ ?>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Special Tests</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="special_tests"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>
+                            </div> <!-- /.col-md-3 -->
+                        <?php } ?>
 
                         </div><!-- / row -->
 
                            <div class="row">
                             
-                           
+                            <?php if($this->uri->segment("6")=="respi" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Breathlessness</label><span class="text-danger"></span></br>
@@ -441,16 +455,8 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <?php if($this->uri->segment("6")=="artho"){ ?>
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Special Tests</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="special_tests"> 
+                       
 
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div> <!-- /.col-md-3 -->
-                        <?php } ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Fatigue</label><span class="text-danger"></span></br>
@@ -464,6 +470,9 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
+                             <?php } ?>
+                            
 
                            </div><!--/.row-->
 

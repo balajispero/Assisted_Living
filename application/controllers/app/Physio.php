@@ -689,6 +689,27 @@ class Physio extends General{
 
 	        	'updated_date'		=>	 date("Y-m-d h:i:s a"));
 
+				/*********************Start upload video code*********************/
+				$this->load->library('upload');
+		if (!empty($_FILES["videofile"]["name"])) {
+			$config = array(
+				'allowed_types'		=>		'*',
+				'upload_path'		=>realpath('public/physio_eval_video'),
+				'max_size'			=>		0
+			);
+			// $this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+			if($this->upload->do_upload('videofile')){
+				$video_data = $this->upload->data();
+				//print_r($video_data);
+				$evaluation_details['gait_video']=$video_data['file_name'];
+			}
+			//$error = $this->upload->display_errors();
+			//print_r($error);die;	
+		}
+		/*********************End upload video code*********************/
+
 				
 			$update_physio_eval = $this->physio_model->update_evaluation_details($evaluation_details);
 			if($update_physio_eval)
