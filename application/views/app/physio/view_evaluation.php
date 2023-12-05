@@ -169,6 +169,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Name</label><span class="text-danger"></span></br>
@@ -195,6 +196,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Present Complaints</label><span class="text-danger"></span></br>
@@ -205,6 +207,7 @@
                             </div><!-- /.col-md-3 -->
 
                         </div><!-- / row -->
+                        
                         <label>Assessments</label>
                         <div class="row">
                             <div class="col-md-3">
@@ -223,10 +226,10 @@
                                       
                                     </select>
                                     
-                                    
                                     <span class="text-danger error-text type_category_err"></span>                           
                                   </div><!-- /.form-group wrapper-class -->
                                 </div><!-- /.col-md-3 -->
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Tightness</label><span class="text-danger"></span></br>
@@ -235,6 +238,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Upper body</label><span class="text-danger"></span></br>
@@ -264,6 +268,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Lower body</label><span class="text-danger"></span></br>
@@ -287,6 +292,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br>
