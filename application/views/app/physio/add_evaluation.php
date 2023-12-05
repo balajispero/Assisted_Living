@@ -278,7 +278,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Intensity</label><span class="text-danger"></span></br>
-                                    <select name="ptn_pain" class="form-control">
+                                    <select name="ptn_pain_intensity" class="form-control">
                                       <option value="">-Select Intensity-</option>
                                       
                                       <option value="0">0</option>
@@ -367,14 +367,14 @@
                                   </div><!-- /.form-group wrapper-class -->
                                 </div><!-- /.col-md-3 -->
                                 
-                                <div class="col-md-3">
+                                <!-- <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Remark</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_tightness_remark"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                                </div>
+                            </div> --><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Muscle Strength</label><span class="text-danger"></span></br>
@@ -401,13 +401,9 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-
-
-                        </div><!-- / row -->
-
-                           <div class="row">
                             
-                           <div class="col-md-3">
+
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Muscle Tone</label><span class="text-danger"></span></br>
                                     <select name="muscle_tone" class="form-control input-sm">
@@ -422,6 +418,13 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
+
+                        </div><!-- / row -->
+
+                           <div class="row">
+                            
+                           
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Breathlessness</label><span class="text-danger"></span></br>
@@ -438,9 +441,19 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                            <?php if($this->uri->segment("6")=="artho"){ ?>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Special Tests</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="special_tests"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>
+                            </div> <!-- /.col-md-3 -->
+                        <?php } ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
-                                    <label>fatigue</label><span class="text-danger"></span></br>
+                                    <label>Fatigue</label><span class="text-danger"></span></br>
                                     <select name="fatigue" class="form-control input-sm">
                                       <option value="">- Select fatigue -</option>
                                       <option value="Yes">Yes</option>
@@ -451,52 +464,8 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-<!-- 
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Pain (Site, VAS, Nature)</label><span class="text-danger"></span></br>
-                                    <select name="ptn_pain" class="form-control">
-                                      <option value="">-Select Pain-</option>
-                                      
-                                      <option value="0">0</option>
-                                      
-                                      <option value="1">1</option>
-                                      
-                                      <option value="2">2</option>
-                                      
-                                      <option value="3">3</option>
-                                      
-                                      <option value="4">4</option>
-                                      
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                      <option value="7">7</option>
-                                      <option value="8">8</option>
-                                      <option value="9">9</option>
-                                      <option value="10">10</option>
 
-
-                                    </select>
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div> --><!-- /.col-md-3 -->
-                            <!-- <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Nature</label><span class="text-danger"></span></br>
-                                    <select name="nature" class="form-control">
-                                      <option value="">-Select Nature-</option>
-                                      
-                                      <option value="Throbbing">Throbbing</option>
-                                      
-                                      <option value="Dull Pain">Dull Pain</option>
-                                      
-                                      <option value="Pricking">Pricking</option>
-                                     
-                                    </select>
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div> --><!-- /.col-md-3 -->
-                           </div>
+                           </div><!--/.row-->
 
                         <div class="row">
                           <div class="col-sm-12">
@@ -887,7 +856,7 @@
                       <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Interpretation</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_upper_body_remark"> 
+                                    <input type="text" class="form-control" name="fim_interpreter"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -899,7 +868,7 @@
                           <div class="col-sm-12">
                             <label><h3><b>Balance Assessment</b></h3></label>
                             <h4 style="font-family:Times New Roman;"><u>Berg Balance Scale</u></h4>
-                        </div>
+                        </div></div>
                       
                    <table class="table table-striped">
                             <tr>
@@ -908,7 +877,7 @@
                     
                           <tr>
                               <td><h5>Sitting unsupported</h5></td><td align="center">
-                              <select name="berg_bal_sit_unsupport" class="form-control" style="width:180px;">
+                              <select name="berg_bal_sit_unsupport" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -921,7 +890,7 @@
                          <tr>
                               <td><h5>sitting to standing</h5></td><td align="center">
                                
-                              <select name="berg_bal_sit_tostand" class="form-control" style="width:180px;">
+                              <select name="berg_bal_sit_tostand" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -934,7 +903,7 @@
                          <tr>
                               <td><h5>standing to sitting</h5></td><td align="center">
                                
-                              <select name="berg_bal_stand_tosit" class="form-control" style="width:180px;">
+                              <select name="berg_bal_stand_tosit" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -947,7 +916,7 @@
                          <tr>
                               <td><h5>Transfers</h5></td><td align="center">
                                 
-                              <select name="berg_bal_transfer" class="form-control" style="width:180px;">
+                              <select name="berg_bal_transfer" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -960,7 +929,7 @@
                          <tr>
                               <td><h5>Standing unsupported</h5></td><td align="center">
                                
-                              <select name="berg_bal_stand_unsupport" class="form-control" style="width:180px;">
+                              <select name="berg_bal_stand_unsupport" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -973,7 +942,7 @@
                          <tr>
                               <td><h5>Standing with eyes closed</h5></td><td align="center">
                                
-                              <select name="berg_bal_stand_witheye" class="form-control" style="width:180px;">
+                              <select name="berg_bal_stand_witheye" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -986,7 +955,7 @@
                          <tr>
                               <td><h5>Standing with feet together</h5></td><td align="center">
                                 
-                              <select name="berg_bal_stand_withfeet" class="form-control" style="width:180px;">
+                              <select name="berg_bal_stand_withfeet" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -999,7 +968,7 @@
                          <tr>
                               <td><h5>Tandem standing</h5></td><td align="center">
                                
-                              <select name="berg_bal_tendem_stand" class="form-control" style="width:180px;">
+                              <select name="berg_bal_tendem_stand" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1012,7 +981,7 @@
                          <tr>
                               <td><h5>Standing on one leg</h5></td><td align="center">
                                 
-                              <select name="berg_bal_stand_oneleg" class="form-control" style="width:180px;">
+                              <select name="berg_bal_stand_oneleg" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1025,7 +994,7 @@
                          <tr>
                               <td><h5>Turning trunk (feet fixed)</h5></td><td align="center">
                                 
-                              <select name="berg_bal_" class="form-control" style="width:180px;">
+                              <select name="berg_bal_turning_trunk" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1038,7 +1007,7 @@
                          <tr>
                               <td><h5>Retrieving objects from floor</h5></td><td align="center">
                                
-                              <select name="berg_bal_" class="form-control" style="width:180px;">
+                              <select name="berg_bal_object_fromfloor" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1051,7 +1020,7 @@
                          <tr>
                               <td><h5>Turning 360 degrees</h5></td><td align="center">
                                 
-                              <select name="berg_bal_" class="form-control" style="width:180px;">
+                              <select name="berg_bal_turning_360_deg" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1065,7 +1034,7 @@
                          <tr>
                               <td><h5>Stool stepping</h5></td><td align="center">
                                
-                              <select name="berg_bal_" class="form-control" style="width:180px;">
+                              <select name="berg_bal_stool" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1079,7 +1048,7 @@
                          <tr>
                               <td><h5>Reaching forward while standing</h5></td><td align="center">
                                
-                              <select name="berg_bal_" class="form-control" style="width:180px;">
+                              <select name="berg_bal_reaching_forward" class="sel_berg_bal_score form-control" style="width:180px;">
                                  <option value="">-Select Score-</option>
                                  <option value="0">0</option>
                                  <option value="1">1</option>
@@ -1092,7 +1061,7 @@
 
                          <tr>
                               <td><h5>Total Score</h5></td><td align="center">
-                                <input type="text" name="berg_bal_total_score" class="form-control" style="width:180px;">
+                                <input type="text" name="berg_bal_total_score" id="berg_bal_total_score" class="form-control" style="width:180px;">
                             </td>
                          </tr>
                       </table>
@@ -1102,6 +1071,16 @@
                    <p>21–40, walking with assistance</p>
                    <p>41–56, independent</p>
 
+                   <div class="row">
+                      <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Interpretation Remark</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="berg_bal_interpreter_remark"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                      </div>
 
                     <div class="row">
                           <div class="col-sm-12">
@@ -1296,7 +1275,14 @@
           });
         });
 
-       /***********************End check one radio button allowed column wise*************************/   
+       /***********************End check one radio button allowed column wise*************************/
+
+       /*****************Start berg balance question calculate**********************/
+      $(".sel_berg_bal_score").change(function () {
+        var val = Number($("select[name='berg_bal_sit_unsupport']").val()) + Number($("select[name='berg_bal_sit_tostand']").val()) + Number($("select[name='berg_bal_stand_tosit']").val()) + Number($("select[name='berg_bal_transfer']").val()) + Number($("select[name='berg_bal_stand_unsupport']").val()) + Number($("select[name='berg_bal_stand_witheye']").val()) + Number($("select[name='berg_bal_stand_withfeet']").val()) + Number($("select[name='berg_bal_tendem_stand']").val()) + Number($("select[name='berg_bal_stand_oneleg']").val()) + Number($("select[name='berg_bal_turning_trunk']").val()) + Number($("select[name='berg_bal_object_fromfloor']").val()) + Number($("select[name='berg_bal_turning_360_deg']").val()) + Number($("select[name='berg_bal_stool']").val()) + Number($("select[name='berg_bal_reaching_forward']").val());
+        $("#berg_bal_total_score").val(val);
+      });
+      /*****************End berg balance question calculate**********************/   
     </script>
 
 </body>

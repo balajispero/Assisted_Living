@@ -228,6 +228,7 @@ class Physio extends General{
 	{
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
+		$this->data['therapy_type'] = $this->uri->segment("6");
 		
 		$this->session->set_userdata(array(
 				 'tab'			=>		'',
@@ -260,7 +261,7 @@ class Physio extends General{
 	            'ptn_upper_body' => $this->input->post('ptn_upper_body'),
 	            'ptn_upper_body_remark' => $this->input->post('ptn_upper_body_remark'),
 	            'lower_body' => $this->input->post('lower_body'),
-	            'ptn_pain' => $this->input->post('ptn_pain'),
+	            'ptn_pain_intensity' => $this->input->post('ptn_pain_intensity'),
 	            'nature' => $this->input->post('nature'),
 
 	           	'mobility_total_assist1' => "Total Assistance 1",
@@ -357,6 +358,35 @@ class Physio extends General{
 	            'expert_recommendation' => $this->input->post('expert_rec'),
 	            'gait_speed' => $this->input->post('gait_speed'),
 	            'added_by' => $this->session->userdata('user_id'),
+
+	            'mobility' => $this->input->post('mobility'),
+	            'mobility_remark' => $this->input->post('mobility_remark'),
+	            'muscle_strength'		=>	 $this->input->post('muscle_strength'),
+	            'muscle_strength_remark'		=>	 $this->input->post('muscle_strength_remark'),
+	            'muscle_tone' => $this->input->post('muscle_tone'),
+	            'breathlessness'=>$this->input->post('breathlessness'),
+	            'fatigue' => $this->input->post('fatigue'),
+	            'fim_interpreter'=>$this->input->post('fim_interpreter'),
+
+	            'berg_bal_sit_unsupport' => $this->input->post('berg_bal_sit_unsupport'),
+	            'berg_bal_sit_tostand' => $this->input->post('berg_bal_sit_tostand'),
+	            'berg_bal_stand_tosit'		=>	 $this->input->post('berg_bal_stand_tosit'),
+	            'berg_bal_transfer'		=>	 $this->input->post('berg_bal_transfer'),
+	            'berg_bal_stand_unsupport' => $this->input->post('berg_bal_stand_unsupport'),
+	            'berg_bal_stand_witheye'=>$this->input->post('berg_bal_stand_witheye'),
+	            'berg_bal_stand_withfeet' => $this->input->post('berg_bal_stand_withfeet'),
+	            'berg_bal_tendem_stand'=>$this->input->post('berg_bal_tendem_stand'),
+	            'berg_bal_stand_oneleg' => $this->input->post('berg_bal_stand_oneleg'),
+	            'berg_bal_turning_trunk' => $this->input->post('berg_bal_turning_trunk'),
+	            'berg_bal_object_fromfloor'		=>	 $this->input->post('berg_bal_object_fromfloor'),
+	            'berg_bal_turning_360_deg'		=>	 $this->input->post('berg_bal_turning_360_deg'),
+	            'berg_bal_stool' => $this->input->post('berg_bal_stool'),
+	            'berg_bal_reaching_forward'=>$this->input->post('berg_bal_reaching_forward'),
+	            'berg_bal_total_score' => $this->input->post('berg_bal_total_score'),
+	            'berg_bal_interpreter'=>$this->input->post('berg_bal_interpreter'),
+	            'berg_bal_interpreter_remark'=>$this->input->post('berg_bal_interpreter_remark'),
+	            'therapy_type'=>$this->input->post('therapy_type'),
+
 	            'InActive'=>0,
 	        	'added_date'		=>	 date("Y-m-d h:i:s a"));
 				
@@ -373,14 +403,15 @@ class Physio extends General{
 
 			if($this->upload->do_upload('videofile')){
 				$video_data = $this->upload->data();
-				//$evaluation_details['evaluation_video']=$video_data['file_name'];
+				//print_r($video_data);
+				$evaluation_details['gait_video']=$video_data['file_name'];
 			}
 			//$error = $this->upload->display_errors();
 			//print_r($error);die;	
 		}
 		/*********************End upload video code*********************/
-
-				
+			/*echo "<pre>";
+			print_r($evaluation_details);die;*/	
 			$last_ptn_id = $this->physio_model->save_evaluation_details($evaluation_details);
 			if($last_ptn_id)
 			{
@@ -530,7 +561,7 @@ class Physio extends General{
 	            'ptn_tightness' => $this->input->post('ptn_tightness'),
 	            'ptn_upper_body' => $this->input->post('ptn_upper_body'),
 	            'lower_body' => $this->input->post('lower_body'),
-	            'ptn_pain' => $this->input->post('ptn_pain'),
+	            'ptn_pain_intensity' => $this->input->post('ptn_pain_intensity'),
 	            'ptn_tightness_remark' => $this->input->post('ptn_tightness_remark'),
 				'ptn_upper_body_remark' => $this->input->post('ptn_upper_body_remark'),
 				'nature' => $this->input->post('nature'),
@@ -627,6 +658,35 @@ class Physio extends General{
 	            'exp_session'=>$this->input->post('exp_session'),
 	            /*'expert_recommendation' => $this->input->post('expert_rec'),*/
 	            'updated_by' => $this->session->userdata('user_id'),
+
+	            'mobility' => $this->input->post('mobility'),
+	            'mobility_remark' => $this->input->post('mobility_remark'),
+	            'muscle_strength'		=>	 $this->input->post('muscle_strength'),
+	            'muscle_strength_remark'		=>	 $this->input->post('muscle_strength_remark'),
+	            'muscle_tone' => $this->input->post('muscle_tone'),
+	            'breathlessness'=>$this->input->post('breathlessness'),
+	            'fatigue' => $this->input->post('fatigue'),
+	            'fim_interpreter'=>$this->input->post('fim_interpreter'),
+
+	            'berg_bal_sit_unsupport' => $this->input->post('berg_bal_sit_unsupport'),
+	            'berg_bal_sit_tostand' => $this->input->post('berg_bal_sit_tostand'),
+	            'berg_bal_stand_tosit'		=>	 $this->input->post('berg_bal_stand_tosit'),
+	            'berg_bal_transfer'		=>	 $this->input->post('berg_bal_transfer'),
+	            'berg_bal_stand_unsupport' => $this->input->post('berg_bal_stand_unsupport'),
+	            'berg_bal_stand_witheye'=>$this->input->post('berg_bal_stand_witheye'),
+	            'berg_bal_stand_withfeet' => $this->input->post('berg_bal_stand_withfeet'),
+	            'berg_bal_tendem_stand'=>$this->input->post('berg_bal_tendem_stand'),
+	            'berg_bal_stand_oneleg' => $this->input->post('berg_bal_stand_oneleg'),
+	            'berg_bal_turning_trunk' => $this->input->post('berg_bal_turning_trunk'),
+	            'berg_bal_object_fromfloor'		=>	 $this->input->post('berg_bal_object_fromfloor'),
+	            'berg_bal_turning_360_deg'		=>	 $this->input->post('berg_bal_turning_360_deg'),
+	            'berg_bal_stool' => $this->input->post('berg_bal_stool'),
+	            'berg_bal_reaching_forward'=>$this->input->post('berg_bal_reaching_forward'),
+	            'berg_bal_total_score' => $this->input->post('berg_bal_total_score'),
+	            'berg_bal_interpreter'=>$this->input->post('berg_bal_interpreter'),
+	            'berg_bal_interpreter_remark'=>$this->input->post('berg_bal_interpreter_remark'),
+	            'therapy_type'=>$this->input->post('therapy_type'),
+
 	        	'updated_date'		=>	 date("Y-m-d h:i:s a"));
 
 				
