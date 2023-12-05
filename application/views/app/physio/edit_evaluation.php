@@ -836,6 +836,261 @@
                           </tr>     -->
                       </table>
                   </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Interpretation</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="fim_interpreter" value="<?php echo $ptnEvalInfo->fim_interpreter;?>"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <label><h3><b>Balance Assessment</b></h3></label>
+                            <h4 style="font-family:Times New Roman;"><u>Berg Balance Scale</u></h4>
+                        </div></div>
+                      
+                   <table class="table table-striped">
+                            <tr>
+                              <th>Balance Item</th><th class="berg_bal">Score (0-4)</th>
+                          </tr>
+                    
+                          <tr>
+                              <td><h5>Sitting unsupported</h5></td><td align="center">
+                              <select name="berg_bal_sit_unsupport" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0" <?php if($ptnEvalInfo->berg_bal_sit_unsupport=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1"  <?php if($ptnEvalInfo->berg_bal_sit_unsupport=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2"  <?php if($ptnEvalInfo->berg_bal_sit_unsupport=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3"  <?php if($ptnEvalInfo->berg_bal_sit_unsupport=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4"  <?php if($ptnEvalInfo->berg_bal_sit_unsupport=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>sitting to standing</h5></td><td align="center">
+                               
+                              <select name="berg_bal_sit_tostand" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0" <?php if($ptnEvalInfo->berg_bal_sit_tostand=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1" <?php if($ptnEvalInfo->berg_bal_sit_tostand=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2" <?php if($ptnEvalInfo->berg_bal_sit_tostand=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3" <?php if($ptnEvalInfo->berg_bal_sit_tostand=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4" <?php if($ptnEvalInfo->berg_bal_sit_tostand=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>standing to sitting</h5></td><td align="center">
+                               
+                              <select name="berg_bal_stand_tosit" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0"  <?php if($ptnEvalInfo->berg_bal_stand_tosit=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1"  <?php if($ptnEvalInfo->berg_bal_stand_tosit=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2"  <?php if($ptnEvalInfo->berg_bal_stand_tosit=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3"  <?php if($ptnEvalInfo->berg_bal_stand_tosit=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4"  <?php if($ptnEvalInfo->berg_bal_stand_tosit=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Transfers</h5></td><td align="center">
+                                
+                              <select name="berg_bal_transfer" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0"  <?php if($ptnEvalInfo->berg_bal_transfer=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1"  <?php if($ptnEvalInfo->berg_bal_transfer=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2"  <?php if($ptnEvalInfo->berg_bal_transfer=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3"  <?php if($ptnEvalInfo->berg_bal_transfer=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4"  <?php if($ptnEvalInfo->berg_bal_transfer=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Standing unsupported</h5></td><td align="center">
+                               
+                              <select name="berg_bal_stand_unsupport" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0" <?php if($ptnEvalInfo->berg_bal_stand_unsupport=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1" <?php if($ptnEvalInfo->berg_bal_stand_unsupport=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2" <?php if($ptnEvalInfo->berg_bal_stand_unsupport=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3" <?php if($ptnEvalInfo->berg_bal_stand_unsupport=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4" <?php if($ptnEvalInfo->berg_bal_stand_unsupport=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Standing with eyes closed</h5></td><td align="center">
+                               
+                              <select name="berg_bal_stand_witheye" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0" <?php if($ptnEvalInfo->berg_bal_stand_witheye=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1" <?php if($ptnEvalInfo->berg_bal_stand_witheye=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2" <?php if($ptnEvalInfo->berg_bal_stand_witheye=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3" <?php if($ptnEvalInfo->berg_bal_stand_witheye=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4" <?php if($ptnEvalInfo->berg_bal_stand_witheye=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Standing with feet together</h5></td><td align="center">
+                                
+                              <select name="berg_bal_stand_withfeet" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0" <?php if($ptnEvalInfo->berg_bal_stand_withfeet=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1" <?php if($ptnEvalInfo->berg_bal_stand_withfeet=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2" <?php if($ptnEvalInfo->berg_bal_stand_withfeet=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3" <?php if($ptnEvalInfo->berg_bal_stand_withfeet=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4" <?php if($ptnEvalInfo->berg_bal_stand_withfeet=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Tandem standing</h5></td><td align="center">
+                               
+                              <select name="berg_bal_tendem_stand" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0" <?php if($ptnEvalInfo->berg_bal_tendem_stand=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1" <?php if($ptnEvalInfo->berg_bal_tendem_stand=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2" <?php if($ptnEvalInfo->berg_bal_tendem_stand=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3" <?php if($ptnEvalInfo->berg_bal_tendem_stand=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4" <?php if($ptnEvalInfo->berg_bal_tendem_stand=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Standing on one leg</h5></td><td align="center">
+                                
+                              <select name="berg_bal_stand_oneleg" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0" <?php if($ptnEvalInfo->berg_bal_stand_oneleg=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1" <?php if($ptnEvalInfo->berg_bal_stand_oneleg=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2" <?php if($ptnEvalInfo->berg_bal_stand_oneleg=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3" <?php if($ptnEvalInfo->berg_bal_stand_oneleg=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4" <?php if($ptnEvalInfo->berg_bal_stand_oneleg=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Turning trunk (feet fixed)</h5></td><td align="center">
+                                
+                              <select name="berg_bal_turning_trunk" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0" <?php if($ptnEvalInfo->berg_bal_turning_trunk=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1" <?php if($ptnEvalInfo->berg_bal_turning_trunk=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2" <?php if($ptnEvalInfo->berg_bal_turning_trunk=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3" <?php if($ptnEvalInfo->berg_bal_turning_trunk=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4" <?php if($ptnEvalInfo->berg_bal_turning_trunk=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Retrieving objects from floor</h5></td><td align="center">
+                               
+                              <select name="berg_bal_object_fromfloor" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0"  <?php if($ptnEvalInfo->berg_bal_object_fromfloor=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1"  <?php if($ptnEvalInfo->berg_bal_object_fromfloor=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2"  <?php if($ptnEvalInfo->berg_bal_object_fromfloor=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3"  <?php if($ptnEvalInfo->berg_bal_object_fromfloor=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4"  <?php if($ptnEvalInfo->berg_bal_object_fromfloor=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+                         <tr>
+                              <td><h5>Turning 360 degrees</h5></td><td align="center">
+                                
+                              <select name="berg_bal_turning_360_deg" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0"  <?php if($ptnEvalInfo->berg_bal_turning_360_deg=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1"  <?php if($ptnEvalInfo->berg_bal_turning_360_deg=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2"  <?php if($ptnEvalInfo->berg_bal_turning_360_deg=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3"  <?php if($ptnEvalInfo->berg_bal_turning_360_deg=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4"  <?php if($ptnEvalInfo->berg_bal_turning_360_deg=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+
+                         <tr>
+                              <td><h5>Stool stepping</h5></td><td align="center">
+                               
+                              <select name="berg_bal_stool" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0"  <?php if($ptnEvalInfo->berg_bal_stool=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1"  <?php if($ptnEvalInfo->berg_bal_stool=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2"  <?php if($ptnEvalInfo->berg_bal_stool=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3"  <?php if($ptnEvalInfo->berg_bal_stool=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4"  <?php if($ptnEvalInfo->berg_bal_stool=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+
+                         <tr>
+                              <td><h5>Reaching forward while standing</h5></td><td align="center">
+                               
+                              <select name="berg_bal_reaching_forward" class="sel_berg_bal_score form-control" style="width:180px;">
+                                 <option value="">-Select Score-</option>
+                                 <option value="0"  <?php if($ptnEvalInfo->berg_bal_reaching_forward=="0"){ echo "selected"; } ?>>0</option>
+                                 <option value="1"  <?php if($ptnEvalInfo->berg_bal_reaching_forward=="1"){ echo "selected"; } ?>>1</option>
+                                  <option value="2"  <?php if($ptnEvalInfo->berg_bal_reaching_forward=="2"){ echo "selected"; } ?>>2</option>
+                                 <option value="3"  <?php if($ptnEvalInfo->berg_bal_reaching_forward=="3"){ echo "selected"; } ?>>3</option>
+                                  <option value="4"  <?php if($ptnEvalInfo->berg_bal_reaching_forward=="4"){ echo "selected"; } ?>>4</option>
+                                 </select>
+                            </td>
+                         </tr>
+
+                         <tr>
+                              <td><h5>Total Score</h5></td><td align="center">
+                                <input type="text" name="berg_bal_total_score" id="berg_bal_total_score" class="form-control" style="width:180px;" value="<?php echo $ptnEvalInfo->berg_bal_total_score;?>">
+                            </td>
+                         </tr>
+                      </table>
+                      <div class="row">
+                        <div class="col-md-3">
+                      <p style="font-family:Times New Roman;"><b><u>Interpretation</u></b></p>
+                   <!-- <hr> -->
+                   <p>0–20, wheelchair bound</p>
+                   <p>21–40, walking with assistance</p>
+                   <p>41–56, independent</p>
+                      </div>
+                      </div>
+                   <div class="row">
+                      <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Interpretation Remark</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="berg_bal_interpreter_remark"  value="<?php echo $ptnEvalInfo->berg_bal_interpreter_remark; ?>"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                      </div>
+                  
+
+                    <div class="row">
+                          <div class="col-sm-12">
+                            <label><h3><b>Gait Assessment</b></h3></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Upload Video</label><span class="text-danger"></span></br>
+                                    <input type="file" name="videofile" class="form-control input-sm" style="width: 250px;"  /> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Gait Remark</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="gait_speed"  value="<?php echo $ptnEvalInfo->gait_speed; ?>" > 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            </div><!-- / row -->
 
                 <div class="row">
                   <div class="col-sm-4">Recommendation for physiotherapy</div>

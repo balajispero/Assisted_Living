@@ -1065,11 +1065,15 @@
                             </td>
                          </tr>
                       </table>
+                      <div class="row">
+                      <div class="col-md-3">
                       <p style="font-family:Times New Roman;"><b><u>Interpretation</u></b></p>
                    <!-- <hr> -->
                    <p>0–20, wheelchair bound</p>
                    <p>21–40, walking with assistance</p>
                    <p>41–56, independent</p>
+                            </div>
+                            </div>
 
                    <div class="row">
                       <div class="col-md-3">
