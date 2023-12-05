@@ -159,6 +159,29 @@
                         <input type="hidden" name="opd_no" value="<?php echo $ptnEvalInfo->iop_no?>">
                         <input type="hidden" name="patient_no" value="<?php echo $ptnEvalInfo->patient_no?>"> 
                         
+                        <div class="row text-center">
+                          <div class="col-xs-12 col-sm-6 col-md-3">
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/general" class="btn <?php if($this->uri->segment("6")=="general" or $this->uri->segment("6")=="") { echo "bg_color"; }else{ echo "btn-primary"; } ?> btn-block" style="margin-top: 5px; color:white;">General Evaluation</a>
+                          </div>
+                          <div class="col-xs-12 col-sm-6 col-md-3">
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/artho" class="btn <?php echo ($this->uri->segment("6")=="artho") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Artho</a>
+                          </div>
+                          <div class="col-xs-12 col-sm-6 col-md-3">
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/neuro" class="btn <?php echo ($this->uri->segment("6")=="neuro") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Neuro</a>
+                          </div>
+                          <div class="col-xs-12 col-sm-6 col-md-3">
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/respi" class="btn <?php echo ($this->uri->segment("6")=="respi") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Respi</a>
+                          </div>
+                        </div>
+                        <br><br>
+
+
+
+
+
+
+
+
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
@@ -854,7 +877,7 @@
                       
                    <table class="table table-striped">
                             <tr>
-                              <th>Balance Item</th><th class="berg_bal">Score (0-4)</th>
+                              <th>Balance Item</th><th class="berg_bal text-center">Score (0-4)</th>
                           </tr>
                     
                           <tr>
