@@ -157,29 +157,25 @@
                         <input type="hidden" name="id" value="<?php echo $ptnEvalInfo->id;?>">
         
                         <input type="hidden" name="opd_no" value="<?php echo $ptnEvalInfo->iop_no?>">
-                        <input type="hidden" name="patient_no" value="<?php echo $ptnEvalInfo->patient_no?>"> 
+                        <input type="hidden" name="patient_no" value="<?php echo $ptnEvalInfo->patient_no?>">
+
+                        <input type="hidden" name="therapy_type" value="<?php echo $this->uri->segment("5");?>"> 
                         
                         <div class="row text-center">
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/general" class="btn <?php if($this->uri->segment("6")=="general" or $this->uri->segment("6")=="") { echo "bg_color"; }else{ echo "btn-primary"; } ?> btn-block" style="margin-top: 5px; color:white;">General Evaluation</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $ptnEvalInfo->eval_no; ?>/general" class="btn <?php if($this->uri->segment("5")=="general" or $this->uri->segment("5")=="") { echo "bg_color"; }else{ echo "btn-primary"; } ?> btn-block" style="margin-top: 5px; color:white;">General Evaluation</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/artho" class="btn <?php echo ($this->uri->segment("6")=="artho") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Artho</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/ortho" class="btn <?php echo ($this->uri->segment("5")=="ortho") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Ortho</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/neuro" class="btn <?php echo ($this->uri->segment("6")=="neuro") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Neuro</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/neuro" class="btn <?php echo ($this->uri->segment("5")=="neuro") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Neuro</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/respi" class="btn <?php echo ($this->uri->segment("6")=="respi") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Respi</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/respi" class="btn <?php echo ($this->uri->segment("5")=="respi") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Respi</a>
                           </div>
                         </div>
                         <br><br>
-
-
-
-
-
-
 
 
                         <div class="row">
@@ -348,7 +344,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-
+                            <?php if($this->uri->segment("5")=="neuro" || $this->uri->segment("5")=="general"){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Muscle Tone</label><span class="text-danger"></span></br>
@@ -362,13 +358,24 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                        <?php } ?>
 
+                        <?php if($this->uri->segment("5")=="ortho"){ ?>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Special Tests</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="ortho_special_test" value="<?php echo $ptnEvalInfo->ortho_special_test; ?>"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>
+                            </div> <!-- /.col-md-3 -->
+                        <?php } ?>
 
                         </div><!-- / row -->
 
                            <div class="row">
                             
-                           
+                           <?php if($this->uri->segment("5")=="respi" || $this->uri->segment("5")=="general"){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Breathlessness</label><span class="text-danger"></span></br>
@@ -385,11 +392,12 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                        
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Fatigue</label><span class="text-danger"></span></br>
                                     <select name="fatigue" class="form-control input-sm">
-                                      <option value="">- Select fatigue -</option>
+                                      <option value="">- Select Fatigue -</option>
                                       <option value="Yes" <?php if($ptnEvalInfo->fatigue=="Yes"){ echo "selected"; } ?>>Yes</option>
                                       <option value="No" <?php if($ptnEvalInfo->fatigue=="No"){ echo "selected"; } ?>>No</option>
                                       
@@ -398,7 +406,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-
+                            <?php } ?>
                            </div><!--/.row-->
 
                         <div class="row">
@@ -1096,6 +1104,7 @@
                             <label><h3><b>Gait Assessment</b></h3></label>
                         </div>
                     </div>
+
                     <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
@@ -1113,6 +1122,22 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                            <?php if($this->uri->segment("5")=="respi"){ ?>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>6 Min Walk Test</label><span class="text-danger"></span></br>
+                                    <select name="walktest" class="form-control input-sm">
+                                      <option value="">- Select Walk Test -</option>
+                                      <option value="O2 Saturation Post 1 Min" <?php if($ptnEvalInfo->walktest=="O2 Saturation Post 1 Min"){ echo "selected"; } ?>>O2 Saturation Post 1 Min</option>
+                                      <option value="3 Min" <?php if($ptnEvalInfo->walktest=="3 Min"){ echo "selected"; } ?>>3 Min</option>
+                                      <option value="5 Min" <?php if($ptnEvalInfo->walktest=="5 Min"){ echo "selected"; } ?>>5 Min</option>
+                                      
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                        <?php } ?>
                             </div><!-- / row -->
 
                 <div class="row">

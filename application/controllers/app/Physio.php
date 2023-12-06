@@ -363,9 +363,9 @@ class Physio extends General{
 	            'mobility_remark' => $this->input->post('mobility_remark'),
 	            'muscle_strength'		=>	 $this->input->post('muscle_strength'),
 	            'muscle_strength_remark'		=>	 $this->input->post('muscle_strength_remark'),
-	            'muscle_tone' => $this->input->post('muscle_tone'),
+	            /*'muscle_tone' => $this->input->post('muscle_tone'),
 	            'breathlessness'=>$this->input->post('breathlessness'),
-	            'fatigue' => $this->input->post('fatigue'),
+	            'fatigue' => $this->input->post('fatigue'),*/
 	            'fim_interpreter'=>$this->input->post('fim_interpreter'),
 
 	            'berg_bal_sit_unsupport' => $this->input->post('berg_bal_sit_unsupport'),
@@ -389,6 +389,26 @@ class Physio extends General{
 
 	            'InActive'=>0,
 	        	'added_date'		=>	 date("Y-m-d h:i:s a"));
+
+				if($this->input->post('therapy_type')=="ortho") {
+	            $evaluation_details['ortho_special_test']=$this->input->post('ortho_special_test');
+	        	}
+	        	if($this->input->post('therapy_type')=="neuro" || $this->input->post('therapy_type')=="general") {
+	            $evaluation_details['muscle_tone']=$this->input->post('muscle_tone');
+	        	}
+				
+				if($this->input->post('therapy_type')=="respi" || $this->input->post('therapy_type')=="general")
+				{
+					
+		            $evaluation_details['breathlessness']=$this->input->post('breathlessness');
+		            $evaluation_details['fatigue']=$this->input->post('fatigue');
+		            if($this->input->post('therapy_type')=="respi")
+		            {
+		            	$evaluation_details['walktest']=$this->input->post('walktest');
+		        	}
+				}
+
+				
 				
 				/*********************Start upload video code*********************/
 				$this->load->library('upload');
@@ -529,7 +549,7 @@ class Physio extends General{
 	public function edit_evaluation($eval_no)
 	{
 		$iop_no = $this->uri->segment("4");
-		$patient_no = $this->uri->segment("5");
+		//$patient_no = $this->uri->segment("5");
 		
 		$this->session->set_userdata(array(
 				 'tab'			=>		'',
@@ -663,9 +683,9 @@ class Physio extends General{
 	            'mobility_remark' => $this->input->post('mobility_remark'),
 	            'muscle_strength'		=>	 $this->input->post('muscle_strength'),
 	            'muscle_strength_remark'		=>	 $this->input->post('muscle_strength_remark'),
-	            'muscle_tone' => $this->input->post('muscle_tone'),
+	            /*'muscle_tone' => $this->input->post('muscle_tone'),
 	            'breathlessness'=>$this->input->post('breathlessness'),
-	            'fatigue' => $this->input->post('fatigue'),
+	            'fatigue' => $this->input->post('fatigue'),*/
 	            'fim_interpreter'=>$this->input->post('fim_interpreter'),
 
 	            'berg_bal_sit_unsupport' => $this->input->post('berg_bal_sit_unsupport'),
@@ -688,6 +708,24 @@ class Physio extends General{
 	            'therapy_type'=>$this->input->post('therapy_type'),
 
 	        	'updated_date'		=>	 date("Y-m-d h:i:s a"));
+
+				if($this->input->post('therapy_type')=="ortho") {
+	            $evaluation_details['ortho_special_test']=$this->input->post('ortho_special_test');
+	        	}
+	        	if($this->input->post('therapy_type')=="neuro" || $this->input->post('therapy_type')=="general") {
+	            $evaluation_details['muscle_tone']=$this->input->post('muscle_tone');
+	        	}
+				
+				if($this->input->post('therapy_type')=="respi" || $this->input->post('therapy_type')=="general")
+				{
+					
+		            $evaluation_details['breathlessness']=$this->input->post('breathlessness');
+		            $evaluation_details['fatigue']=$this->input->post('fatigue');
+		            if($this->input->post('therapy_type')=="respi")
+		            {
+		            	$evaluation_details['walktest']=$this->input->post('walktest');
+		        	}
+				}
 
 				/*********************Start upload video code*********************/
 				$this->load->library('upload');

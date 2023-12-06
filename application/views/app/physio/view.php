@@ -238,7 +238,7 @@
 
                                                 
                                                     <?php if($this->session->userdata('user_role') == 11) {?>
-                                            <a href="<?php echo base_url();?>app/physio/edit_evaluation/<?php echo $rows->eval_no;?>">Modify</a>
+                                            <a href="<?php echo base_url();?>app/physio/edit_evaluation/<?php echo $rows->eval_no;?>/<?php echo $rows->therapy_type;?>">Modify</a>
                                             <?php } ?>
                                             <?php } ?></td>
                                                 

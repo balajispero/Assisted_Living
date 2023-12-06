@@ -79,6 +79,7 @@
     
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
+
                 
         <div class="wrapper row-offcanvas row-offcanvas-left">
 

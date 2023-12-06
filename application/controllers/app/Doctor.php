@@ -1346,7 +1346,7 @@ class Doctor extends General{
             // Render the HTML as PDF
             $dompdf->render();
             // Output the generated PDF to Browser
-            $dompdf->stream('preassessment_report.pdf',array("Attachment" => 1));
+            $dompdf->stream('preassessment_report.pdf',array("Attachment" => 0));
 	}
 
 	public function preassessment_report_new($id=0)

@@ -95,8 +95,33 @@
 
      }
      
-
-
+        /*Start multiple select dropdown css*/
+        .btn-group, .btn-group-vertical {
+        position: relative;
+        width: 245%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .btn.btn-default {
+        background-color: #fafafa;
+        color: #666;
+        border-color: #ddd;
+        border-bottom-color: #ddd;
+        width: 40%;
+        text-align: left;
+    }
+    .btn .caret {
+        margin-left: 150px;
+        display: none;
+    }
+    .multiselect-container {
+        position: absolute;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 40%;
+    }
+    /*End multiple select dropdown css*/
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -194,14 +219,14 @@
                     <input type="hidden" name="rel_email2" value="<?php echo @$patientInfo->rel_email2; ?>">
                     <input type="hidden" name="rel_name" value="<?php echo @$patientInfo->rel_name1; ?>">
 
-                     <input type="text" name="therapy_type" value="<?php echo ($therapy_type) ? $therapy_type : 'general'; ?>">
+                     <input type="hidden" name="therapy_type" value="<?php echo ($therapy_type) ? $therapy_type : 'general'; ?>">
 
                         <!-- <div class="row text-center">
                             <div class="col-md-3">
                                 <button type="button" class="btn btn-primary btn-block">General Evaluation</button>
                             </div>
                             <div class="col-md-3">
-                                <button type="button" class="btn btn-primary btn-block">Artho</button>
+                                <button type="button" class="btn btn-primary btn-block">ortho</button>
                             </div>
                             <div class="col-md-3">
                                 <button type="button" class="btn btn-primary btn-block">Neuro</button>
@@ -217,7 +242,7 @@
                             <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/general" class="btn <?php if($this->uri->segment("6")=="general" or $this->uri->segment("6")=="") { echo "bg_color"; }else{ echo "btn-primary"; } ?> btn-block" style="margin-top: 5px; color:white;">General Evaluation</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/artho" class="btn <?php echo ($this->uri->segment("6")=="artho") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Artho</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/ortho" class="btn <?php echo ($this->uri->segment("6")=="ortho") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">ortho</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
                             <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/neuro" class="btn <?php echo ($this->uri->segment("6")=="neuro") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Neuro</a>
@@ -276,7 +301,7 @@
                         </div><!-- / row -->
                         <label><h3><b>Assessments</b></h3></label>
                         <div class="row">
-                            <?php if($this->uri->segment("6")=="general" || $this->uri->segment("6")=="artho" || $this->uri->segment("6")=="neuro" || $this->uri->segment("6")=="respi"  || $this->uri->segment("6")==""){ ?>
+                            <?php if($this->uri->segment("6")=="general" || $this->uri->segment("6")=="ortho" || $this->uri->segment("6")=="neuro" || $this->uri->segment("6")=="respi"  || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Intensity</label><span class="text-danger"></span></br>
@@ -350,7 +375,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Tightness</label><span class="text-danger"></span></br>
-                                    <select name="ptn_tightness" class="form-control">
+                                     <select name="ptn_tightness" class="form-control" id="multiple-checkboxes" multiple="multiple">
                                       <option value="">- Select Tightness -</option>
                                       
                                       <option value="Shoulder">Shoulder</option>
@@ -364,6 +389,15 @@
                                       <option value="Knee">Knee</option>
                                       <option value="Ankle">Ankle</option>
                                     </select>
+
+                                    <!-- <select id="multiple-checkboxes" name="subject" multiple="multiple">  
+        <option value="php">PHP</option>  
+        <option value="javascript">JavaScript</option>  
+        <option value="java">Java</option>  
+        <option value="sql">SQL</option>  
+        <option value="jquery">Jquery</option>  
+        <option value=".net">.Net</option>  
+    </select>   -->
                                          
                                     <span class="text-danger error-text type_category_err"></span>                           
                                   </div><!-- /.form-group wrapper-class -->
@@ -423,11 +457,11 @@
                             </div><!-- /.col-md-3 -->
                         <?php } ?>
 
-                        <?php if($this->uri->segment("6")=="artho"){ ?>
+                        <?php if($this->uri->segment("6")=="ortho"){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Special Tests</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="special_tests"> 
+                                    <input type="text" class="form-control" name="ortho_special_test"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div>
@@ -461,7 +495,7 @@
                                 <div class="form-group wrapper-class">
                                     <label>Fatigue</label><span class="text-danger"></span></br>
                                     <select name="fatigue" class="form-control input-sm">
-                                      <option value="">- Select fatigue -</option>
+                                      <option value="">- Select Fatigue -</option>
                                       <option value="Yes">Yes</option>
                                       <option value="No">No</option>
                                       
@@ -1117,6 +1151,24 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
+                            <?php if($this->uri->segment("6")=="respi"){ ?>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>6 Min Walk Test</label><span class="text-danger"></span></br>
+                                    <select name="walktest" class="form-control input-sm">
+                                      <option value="">- Select Walk Test -</option>
+                                      <option value="O2 Saturation Post 1 Min">O2 Saturation Post 1 Min</option>
+                                      <option value="3 Min">3 Min</option>
+                                      <option value="5 Min">5 Min</option>
+                                      
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                        <?php } ?>
+
                             </div><!-- / row -->
 
                             <div class="row mt-5">
@@ -1191,7 +1243,7 @@
                                       
                                       <option value="20 Min">20 Min</option>
                                       
-                                      <option value="30 Min">30</option>
+                                      <option value="30 Min">30 Min</option>
                                       
                                       <option value="45 Min">45 Min</option>
                                       
@@ -1255,7 +1307,15 @@
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
         <!-------------------------jquery cdn for work radio button------------------------>
 
+        <!-------------------------jquery cdn for work multiple select dropdown------------------------>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+        <!-------------------------jquery cdn for work multiple select dropdown------------------------>
+
     <script>
+        $(document).ready(function() {  
+        $('#multiple-checkboxes').multiselect();  
+    });  
     
         /*****************Start recommendation yes**********************/
             $(".chkradio") // select the radio by its id
