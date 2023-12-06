@@ -251,7 +251,7 @@
     <p>The charges per physiotherapy session will be Rs. 450/-</p>
     <p>We will raise a bill for all sessions at the end of the month if approved from your end.</p>
     <p>Kindly provide us your directives for the same.</p><br>
-     <!-- Attach file: <input type="file" id="attachment" name="attachment">   -->
+      Attach file: <input type="file" id="attachment" name="attachment">   
 
     <p>Please go on link for confirmation.<br><a href="<?php echo base_url(); ?>app/relative_agree/conform/<?php echo base64_encode($ptnEvalInfo->eval_no); ?>">click here</a></p>
 

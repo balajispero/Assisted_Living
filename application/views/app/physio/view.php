@@ -209,7 +209,7 @@
                                            <tbody>
                                            <?php foreach($patientPhysioEval as $rows){?>
                                             <tr>
-                                                <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a></td>
+                                                <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>//<?php echo $rows->therapy_type;?>"><?php echo $rows->eval_no?></a></td>
                                                 <td>
                                                     <?php if($this->session->userdata('user_role') == 3) { ?>
                                                     <a href="<?php echo base_url();?>app/physio/sent_mail_view/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/<?php echo $rows->eval_no;?>"><?php echo $rows->patient_no?></a>

@@ -15,6 +15,7 @@
         
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 
+
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -146,7 +147,7 @@
                         </div><!-- / row -->
                         <h3>Plan</h3><hr>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Goals</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_name"> 
@@ -154,7 +155,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Freqvency</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_age"> 
@@ -164,19 +165,52 @@
                             </div><!-- /.col-md-3 -->
 
 
-                            <div class="col-md-4">
+                            <!-- <div class="col-md-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Duaration</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="present_complaints"> -->
-                                    <!-- <textarea name="present_complaints" class="form-control"></textarea> -->
                                     <input type="text" class="form-control" name="ptn_age"> 
 
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>
+                            </div> --><!-- /.col-md-3 -->
+
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Start Date</label><span class="text-danger"></span></br>
+                                    <input type="date" class="form-control" name="next_eval_date">
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>End Date</label><span class="text-danger"></span></br>
+                                    <input type="date" class="form-control" name="next_eval_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
 
 
                         </div><!-- / row -->
+
+                        <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group wrapper-class" >
+                                                        <label>DETAILS OF CURRENT MEDICATIONS</label><span class="text-danger"></span></br>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary bg_color">Add Week Plan</button>
+                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                    </div><!-- /.form-group wrapper-class -->
+                                                </div><!-- /.col-md-3 -->
+                                             </div><!-- / row -->
+                                            <div class="table-responsive">
+                                             <table class="table table-striped">
+                                                <tr>
+                                                  <th>Week</th><th>Date</th><th>Line of Treatment</th><th>Remark</th><th>Frequency</th><th>Action</th>
+                                                </tr>
+                                                 <tbody id="dynamic_field">
+                                                    </tbody>
+                                             </table>
+                                            </div>
 
                     
                 
@@ -264,9 +298,32 @@
     </aside>
 
 </div><!-- ./wrapper -->
+
 <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
 <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
 <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
+
+
+  
+
+<script type="text/javascript">
+$(document).ready(function() {
+                var i=0; 
+                $('#add').click(function() {
+                    i++;
+                    
+      $('#dynamic_field').append('<tr id="row'+i+'"><td>Week '+ i +'</td><td><input type="text" name="mult_date" id="datePick" class="form-control" /></td><td><input type="text" class="form-control" name="medicine_name[]"></td><td><input type="text" class="form-control" name="dose[]"></td><td><input type="text" class="form-control" name="frequency[]"></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
+
+                });
+                $(document).on('click', '.btn_remove', function() {
+                    var button_id = $(this).attr("id");
+                    $('#row' + button_id + '').remove();
+                });
+            });
+            </script>
+
+            
+
 
 </body>
 </html>

@@ -390,14 +390,6 @@
                                       <option value="Ankle">Ankle</option>
                                     </select>
 
-                                    <!-- <select id="multiple-checkboxes" name="subject" multiple="multiple">  
-        <option value="php">PHP</option>  
-        <option value="javascript">JavaScript</option>  
-        <option value="java">Java</option>  
-        <option value="sql">SQL</option>  
-        <option value="jquery">Jquery</option>  
-        <option value=".net">.Net</option>  
-    </select>   -->
                                          
                                     <span class="text-danger error-text type_category_err"></span>                           
                                   </div><!-- /.form-group wrapper-class -->
