@@ -12,12 +12,15 @@
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     
         <style>
+           body{
+            border: 2px solid #2196F3;
+        }
             /*Start toggle button css*/
                 .switch {
       position: relative;
       display: inline-block;
-      width: 60px;
-      height: 34px;
+      width: 40px;
+      height: 16px;
     }
 
     .switch input { 
@@ -31,8 +34,8 @@
       cursor: pointer;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
+      right: -4;
+      bottom: -1;
       background-color: #ccc;
       -webkit-transition: .4s;
       transition: .4s;
@@ -41,9 +44,10 @@
     .slider:before {
       position: absolute;
       content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
+      height: 13px;
+      width: 16px;
+      left: 3px;
+
       bottom: 4px;
       background-color: white;
       -webkit-transition: .4s;
@@ -52,6 +56,7 @@
 
     input:checked + .slider {
       background-color: #2196F3;
+      
     }
 
     input:focus + .slider {
@@ -97,7 +102,7 @@
 
                         <div class="row text-center">
                           <div class="col-md-12 ">
-                            <h2>Evaluation</h2>
+                            <h2>Evaluation Data</h2>
                            </div>
                         </div>
                         
@@ -131,10 +136,11 @@
           </div>
         </div>
 
-
+        <hr style="border-top:2px solid #D3D3D3; margin-top:20px; width:650px;">
+  
 
         <div class="row">
-         <h4 style="margin-left: 62px; margin-top:30px;"><u>Assessments</u></h4><br>
+         <h3 style="margin-left: 62px; margin-top:10px;"><u>Assessments</u></h3><br>
          <table width="100%" cellpadding="5">
          <tr>
                 <td width="50%">         
@@ -183,13 +189,16 @@
              </tr>
          </table>
         </div>
+ 
+        <hr style="border-top:2px solid #D3D3D3; margin-top:20px; width:650px;">
+
 
         
         <div class="row">
-          <h4 style="margin-left: 61px; margin-top:30px;"><u>Bed Mobility</u></h4><br>
+          <h3 style="margin-left: 61px; margin-top:10px;"><u>Bed Mobility</u></h3><br>
           
           <div class="container">
-                     <table class="table table-striped">
+                     <table class="table table-striped" style="margin-left:50px; width:85%;">
                             <tr>
                               <th>FIM score / Activity</th><th>Date of eval</th><th>Rolling</th><th>Supine to sit</th><th>Sit to stand</th>
                           </tr>
@@ -374,16 +383,17 @@
                           </table>
                         </div>
                       </div>
-                         <br>
+
+                      
 
 
 
                          <div class="container">
                           <div class="row">
-                          <h4 style="margin-left: 62px; margin-top:30px;"><u>B. Transfers</u></h4>
-                          <h5 style="margin-left: 62px;">Transfer to wheelchair</h5><br>
+                          <h3 style="margin-left: 58px; margin-top:15px;"><u>B. Transfers</u></h3>
+                          <p style="margin-left: 62px; font-size:15px">Transfer to wheelchair</p><br>
                        
-                          <table class="table table-striped">
+                          <table class="table table-striped" style="margin-left: 60px; width:84%;">
                             <tr>
                             <th>FIM Levels</th><th>Date of eval</th><th>wheelchair/comode Chair</th><th>Car transfer</th>
                               
@@ -479,8 +489,11 @@
                               </td>
                               
                           </tr>
+                        
                           <tr>
-                              <td>Supervision or setup 5 A</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                          
+                              <td style="margin-top: 30px;">
+                              Supervision or setup 5 A</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
                               <td>
                                 <!-- <input type="radio" class="" name="transfer_assist5a_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5a_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5a_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5a_wheelchair=="No") ? 'checked' : '';  ?>>No -->
                                 <label class="switch">
@@ -536,11 +549,21 @@
                         </div>
                        </div>
 
+                       <div class="row">
+                            <table width="100%" cellpadding="5">
+                            <tr>
+                             <td width="50%">         
+                             <b style="margin-left: 75px;">Interpretation: </b><?php echo $ptnEvalInfo->fim_interpreter; ?>
+                             </td>
+                             </tr>
+                            </table>
+                          </div>
+
 
                        <div class="row">
-                       <h4 style="margin-left: 62px; margin-top:30px;"><u>Balance Assessment</u></h4>
-                       <h5 style="margin-left: 62px;">Berg Balance Scale</h5><br>
-                       <table class="table table-striped">
+                       <h3 style="margin-left: 75px; margin-top:40px;"><u>Balance Assessment</u></h3>
+                       <p style="margin-left: 75px; font-size:15px; margin-top:10px;">Berg Balance Scale</p><br>
+                       <table class="table table-striped" style="margin-left: 60px; width:85%;">
                             <tr>
                               <th>Balance Item</th><th>Score (0-4)</th>
                           </tr>
@@ -602,121 +625,79 @@
                            </tr>
                           
                           </table>
+                           </div>
 
 
-                       </div>
+                          <div class="row">
+                            <table width="100%" cellpadding="5">
+                            <tr>
+                             <td width="50%">         
+                             <b style="margin-left: 70px;">Interpretation Remark: </b><?php echo $ptnEvalInfo->berg_bal_interpreter_remark; ?>
+                             </td>
+                             </tr>
+                            </table>
+                          </div>
+
+        <hr style="border-top:2px solid #D3D3D3; margin-top:20px; width:650px;">
 
 
-                         
+                          <div class="row">
+                          <h3 style="margin-left: 70px; margin-top:10px;"><u>Gait Assessment</u></h3><br>
+                          <table width="100%" cellpadding="5">
+                            <tr>
+                             <td width="50%">         
+                             <b style="margin-left: 68px;">Upload Video: </b><?php echo $ptnEvalInfo->berg_bal_interpreter_remark; ?>
+                             </td>
+                             <td width="50%">         
+                             <b style="margin-left: 68px;">Gait Remark: </b><?php echo $ptnEvalInfo->berg_bal_interpreter_remark; ?>
+                             </td>
+                             </tr>
+                            </table>
 
+                          </div>
+                           
+                      <hr style="border-top:2px solid #D3D3D3; margin-top:20px; width:650px;">
+             
 
-                  
-               
-
-                <div class="row">
-                  <div class="col-sm-4">Recommendation for physiotherapy</div>
-                  <div class="col-sm-4">
-                    <input type="radio" class="form-control" name="ptn_rec" value="Yes" checked>Yes &nbsp;
-                    <input type="radio" name="ptn_rec" class="form-control" value="No">No</div>
-                </div><br>
-
-                <div class="row" id="treatment_section" style="display: <?php echo ($ptnEvalInfo->expert_recommendation=="No") ? "none" : "block";?>">
-                <div class="row">
-                <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Gait speed</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="gait_speed" value="<?php echo $ptnEvalInfo->gait_speed;?>"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Treatment Goals </label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="RECOMMENDATION" value="">  -->
-                                    <select name="treatment_goal" class="form-control input-sm">
-                                      <option value="">- Select Treatment Goals -</option>
-                                      
-                                      <option value="Pain Relief" <?php if($ptnEvalInfo->treatment_goal=="Pain Relief"){ echo "selected"; } ?>>Pain Relief</option>
-                                      
-                                      <option value="Independent Mobility" <?php if($ptnEvalInfo->treatment_goal=="Independent Mobility"){ echo "selected"; } ?>>Independent Mobility</option>
-                                      
-                                      <option value="Muscle Strengthen" <?php if($ptnEvalInfo->treatment_goal=="Muscle Strengthen"){ echo "selected"; } ?>>Muscle Strengthen</option>
-                                      
-                                      <option value="Ambulation" <?php if($ptnEvalInfo->treatment_goal=="Ambulation"){ echo "selected"; } ?>>Ambulation</option>
-                                      
-                                    </select>
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                           <div class="row">
+                            <table width="100%" cellpadding="5">
                             
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Remark</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="treatment_goal_remark" value="<?php echo $ptnEvalInfo->treatment_goal_remark;?>"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Therapy Time</label><span class="text-danger"></span></br>
+                            <td width="50%"> 
                                    
-                                    <select name="therapy_time" class="form-control input-sm">
-                                      <option value="">-Select Therapy Time -</option>
-                                      
-                                      <option value="20" <?php if($ptnEvalInfo->therapy_time=="20"){ echo "selected"; } ?>>20 min</option>
-                                      
-                                      <option value="30" <?php if($ptnEvalInfo->therapy_time=="30"){ echo "selected"; } ?>>30 </option>
-                                      
-                                      <option value="45" <?php if($ptnEvalInfo->therapy_time=="45"){ echo "selected"; } ?>>45</option>
-                                      
-                                      <option value="60" <?php if($ptnEvalInfo->therapy_time=="60"){ echo "selected"; } ?>>60</option>
-                                      
-                                    </select>
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            </div>
-                            <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Expected sessions </label><span class="text-danger"></span></br>
-                                   
-                                    <select name="exp_session" class="form-control input-sm">
-                                      <option value="">-Select Expected sessions-</option>
-                                      
-                                      <option value="Daily Once" <?php if($ptnEvalInfo->exp_session=="Daily Once"){ echo "selected"; } ?>>Daily Once</option>
-                                      
-                                      <option value="Daily Twice" <?php if($ptnEvalInfo->exp_session=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option>
-                                      
-                                      <option value="Thrice Daily" <?php if($ptnEvalInfo->exp_session=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option>
-                                      
-                                      <option value="Twice a Week" <?php if($ptnEvalInfo->exp_session=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option>
-                                      
-                                      <option value="Thrice a Week" <?php if($ptnEvalInfo->exp_session=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option>
-                                      
-                                      <option value="Once a Week" <?php if($ptnEvalInfo->exp_session=="Once a Week"){ echo "selected"; } ?>>Once a Week</option>
-                                    </select>
+                             <b style="margin-left: 68px; margin-top:50px;">Recommendation for physiotherapy: </b><?php echo $ptnEvalInfo->expert_recommendation; ?>
+                             </td>
+                            </table>
+                          </div><br><br>
+ 
+                          <div class="row">
+                          <table width="100%" cellpadding="5">
+                            <tr>
+                             <td width="50%">         
+                             <b style="margin-left: 68px;">Gait speed: </b><?php echo  $ptnEvalInfo->gait_speed; ?>
+                             </td>
+                             <td width="50%">         
+                             <b style="margin-left: 68px;">Treatment Goals: </b><?php echo $ptnEvalInfo->treatment_goal; ?>
+                             </td>
+                             </tr><br>
+                             <tr>
+                            <td width="50%">         
+                             <b style="margin-left: 68px;">Remark: </b><?php echo  $ptnEvalInfo->treatment_goal_remark; ?>
+                             </td>
+                             <td width="50%">         
+                             <b style="margin-left: 68px;">Therapy Time: </b><?php echo $ptnEvalInfo->therapy_time; ?>
+                             </td>
+                             </tr><br>
+                             <tr>
+                             <td width="50%">         
+                             <b style="margin-left: 68px;">Expected sessions: </b><?php echo  $ptnEvalInfo->exp_session; ?>
+                             </td>
+                             <td width="50%">         
+                             <b style="margin-left: 68px;">Next Evaluation Date: </b><?php echo $ptnEvalInfo->next_eval_date; ?>
+                             </td>
+                             </tr>
+                            </table>
 
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-
-                            
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class">
-                                    <label>Next Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="next_eval_date" value="<?php echo $ptnEvalInfo->next_eval_date; ?>">
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-
-                        </div><!-- / row -->
-                        </div><!--/treatment section div-->
-
+                          </div>
                
            <!--  </form> -->
 
