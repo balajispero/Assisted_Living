@@ -420,6 +420,21 @@ class General_model extends CI_Model{
                 {
                     return $this->db->where('InActive','0')->where('nStatus','Vacant')->get('room_beds')->result_array();
                 }
+
+				public function normalPhysioList(){
+					$this->db->select("A.user_id,
+								concat(B.cValue,' ',A.firstname,' ',A.lastname) as 'name'",false);
+					$this->db->where(array(
+						'C.role_name'		=>	'Physiotherapist',
+						'A.physio_expert'		=>	'No',
+						'A.InActive'	=>	0	
+					));
+					$this->db->order_by('A.lastname','asc');
+					$this->db->join("system_parameters B","B.param_id = A.title","left outer");
+					$this->db->join("user_roles C","C.role_id = A.user_role","left outer");
+					$query = $this->db->get("users A");
+					return $query->result();
+				}
 	
 	
 	

@@ -109,7 +109,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Date of Evaluation</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $userID;?>"> 
+                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $ptnEvalInfo->eval_no; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -117,7 +117,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Evaluated by</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_name"> 
+                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo @$patientInfo->middlename; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -155,15 +155,29 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Goals</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_name"> 
+                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $ptnEvalInfo->eval_no; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Freqvency</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_age"> 
+                                    <label>No of Session(for each day)</label><span class="text-danger"></span></br>
+                                    <select name="exp_session" class="form-control input-sm">
+                                      <option value="">-Select Expected sessions-</option>
+                                      
+                                      <option value="Daily Once" <?php if($ptnEvalInfo->exp_session=="Daily Once"){ echo "selected"; } ?>>Daily Once</option>
+                                      
+                                      <option value="Daily Twice" <?php if($ptnEvalInfo->exp_session=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option>
+                                      
+                                      <option value="Thrice Daily" <?php if($ptnEvalInfo->exp_session=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option>
+                                      
+                                      <option value="Twice a Week" <?php if($ptnEvalInfo->exp_session=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option>
+                                      
+                                      <option value="Thrice a Week" <?php if($ptnEvalInfo->exp_session=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option>
+                                      
+                                      <option value="Once a Week" <?php if($ptnEvalInfo->exp_session=="Once a Week"){ echo "selected"; } ?>>Once a Week</option>
+                                    </select>
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -201,7 +215,7 @@
 
                                                 <div class="col-md-4">
                                                     <div class="form-group wrapper-class" >
-                                                        <label>DETAILS OF CURRENT MEDICATIONS</label><span class="text-danger"></span></br>
+                                                        <label></label><span class="text-danger"></span></br>
                                                             <button type="button" name="add" id="add" class="btn btn-primary bg_color">Add Week Plan</button>
                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                     </div><!-- /.form-group wrapper-class -->
@@ -222,21 +236,21 @@
                 
 
                 <div class="row">
-                            <div class="col-md-4">
+                            <!-- <div class="col-md-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Week 1</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="treatment_goal"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                                </div>
+                            </div>
                             <div class="col-md-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Line of Treatment</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="therapy_time"> 
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                                </div>
+                            </div>
 
 
                             <div class="col-md-4">
@@ -245,46 +259,39 @@
                                     <input type="text" class="form-control" name="exp_session">
                                     
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                                </div>
+                            </div>
                             <div class="col-md-4">
                                 <div class="form-group wrapper-class">
                                     <label>Remarks</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="next_eval_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            <div class="col-md-4">
+                                </div>
+                            </div> --><!-- /.col-md-3 -->
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class">
-                                    <label>Follow up Evauation Date</label><span class="text-danger"></span></br>
+                                    <label>Follow up Evaluation Date</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="next_eval_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class">
-                                    <label>Cumments</label><span class="text-danger"></span></br>
+                                    <label>Comments</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="next_eval_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Therapist</label><span class="text-danger"></span></br>
                                                                             <select name="applicant_marital" class="form-control input-sm">
-                                                                               <option value="">- Therapist -</option>
-                                                                         
-                                                                               <option value="Divorced">T1</option>
-                                                                          
-                                                                               <option value="Legal Seperated">T2</option>
-                                                                         
-                                                                               <option value="Married">T3</option>
-                                                                          
-                                                                               <option value="Single">T4</option>
-                                                                           
-                                                                               <option value="Widow">T5</option>
-                                                                          
-                                                                               <option value="Widower">T6</option>
+                                                                               <option value="">- Consultant Therapist -</option>
+                                                                <?php 
+                                                                foreach($normalPhysioList as $normalPhysioList){
+                                                                ?>
+                                                                <option value="<?php echo $normalPhysioList->user_id;?>"><?php echo $normalPhysioList->name;?></option>
+                                                                <?php }?>
                                                                             </select>
 
                                                                             <span class="text-danger error-text type_category_err"></span>                           

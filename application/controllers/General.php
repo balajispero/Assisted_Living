@@ -29,6 +29,7 @@ class general extends CI_Controller{
 		$this->data['doctorList2'] = $this->general_model->doctorList();
 		$this->data['insuranceCompList'] = $this->general_model->insuranceCompList();
 		$this->data['patientListRows'] = $this->general_model->patientList();
+		$this->data['normalPhysioList'] = $this->general_model->normalPhysioList();
 
 		
 		if( isset($_SESSION['username']) ) {

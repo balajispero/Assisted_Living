@@ -780,8 +780,11 @@ class Physio extends General{
 				 'submodule'	=>		''));
 				 $this->data['message'] = $this->session->flashdata('message');
 
+				 $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 				 $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 				 $this->data['lastPreassesID'] = $this->physio_model->lastPreassesID();
+				 $eval_no="EVAL00017";
+				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
 		
 		$this->load->view('app/physio/add_treatment_protocol',$this->data);
 	}
