@@ -398,6 +398,7 @@ xmlhttp.send();
                 
                 $('#dDate').datepicker({
                     //format: "dd/mm/yyyy"
+                    multidate: true,
 					format: "yyyy-mm-dd"
                 });  
             

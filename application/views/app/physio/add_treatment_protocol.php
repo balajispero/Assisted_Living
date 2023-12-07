@@ -14,7 +14,12 @@
         <link href="<?php echo base_url();?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
-
+        <style>
+            .ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a {
+    background: red !important;
+    color: #363636;
+}
+        </style>
 
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -288,6 +293,17 @@
                                                                 
 
                         </div><!-- / row -->
+                        <!-- <div class="row">
+                                                                    
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group wrapper-class" >
+                                                                            <label>DIAGNOSIS</label><span class="text-danger"></span></br>
+                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary bg_color">Add Diagnosis</button><br><br><div id="dynamic_field1"></div>
+                                                                            
+                                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                                        </div>// /.form-group wrapper-class -
+                                                                    </div>
+                                                                </div> --><!-- / row -->
 
                 <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit">
             </form>
@@ -304,15 +320,37 @@
 <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
 
 
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/dubrox/Multiple-Dates-Picker-for-jQuery-UI@master/jquery-ui.multidatespicker.js"></script>
+ 
+  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"> 
+  
   
 
 <script type="text/javascript">
+    $(document).ready(function() {
+        var i1=0; 
+        $('#add1').click(function() {
+            i1++;
+            $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'">  '+ i1 +' </label> <input type="text" class="form-control dis_inline" name="mult" id="datePickssd' + i1 + '"><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
+            $('#datePickssd' + i1).multiDatesPicker();
+
+        });
+        $(document).on('click', '.btn_remove1', function() {
+            var button_id = $(this).attr("id");
+            $('#row1' + button_id + '').remove();
+        });
+    });
+
 $(document).ready(function() {
                 var i=0; 
                 $('#add').click(function() {
                     i++;
                     
-      $('#dynamic_field').append('<tr id="row'+i+'"><td>Week '+ i +'</td><td><input type="text" name="mult_date" id="datePick" class="form-control" /></td><td><input type="text" class="form-control" name="medicine_name[]"></td><td><input type="text" class="form-control" name="dose[]"></td><td><input type="text" class="form-control" name="frequency[]"></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
+      $('#dynamic_field').append('<tr id="row'+i+'"><td>Week '+ i +'</td><td><input type="text" name="mult_date" id="datePick' + i + '" autocomplete="off" class="form-control" /></td><td><input type="text" class="form-control" name="medicine_name[]"></td><td><input type="text" class="form-control" name="dose[]"></td><td><input type="text" class="form-control" name="frequency[]"></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
+      $('#datePick' + i).multiDatesPicker();
 
                 });
                 $(document).on('click', '.btn_remove', function() {
@@ -322,7 +360,11 @@ $(document).ready(function() {
             });
             </script>
 
-            
+  <script>
+    /*$(document).ready(function () {
+      $('#datePickss').multiDatesPicker();
+    });*/
+  </script>          
 
 
 </body>

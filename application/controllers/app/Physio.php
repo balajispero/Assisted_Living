@@ -516,7 +516,7 @@ class Physio extends General{
 	            // $invoiceFileName = 'Invoice-'.$this->data['invoiceValues'][0]['order_id'].'.pdf';
 	            // $dompdf->stream($invoiceFileName,array("Attachment" => 0));
 
-	            $dompdf->stream('bill.pdf',array("Attachment" => 1));
+	            $dompdf->stream('bill.pdf',array("Attachment" => 0));
 				 
 		
 		//$this->load->view('app/physio/evaluation_pdf',$this->data);
