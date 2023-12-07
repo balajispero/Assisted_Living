@@ -106,7 +106,7 @@
                         <h3>Treatment Protocol</h3><hr>
                         
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Date of Evaluation</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_name" value="<?php echo $userID;?>"> 
@@ -114,7 +114,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Evaluated by</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_name"> 
@@ -122,7 +122,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Subjective</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="ptn_age"> 
@@ -132,7 +132,7 @@
                             </div><!-- /.col-md-3 -->
 
 
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Objective</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="present_complaints"> -->
@@ -140,7 +140,7 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Assessments</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
@@ -319,15 +319,14 @@
 <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
 <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
 
-
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+ <!-------------------------jquery cdn for work multiple date selection------------------------>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script
     src="https://cdn.jsdelivr.net/gh/dubrox/Multiple-Dates-Picker-for-jQuery-UI@master/jquery-ui.multidatespicker.js"></script>
  
   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"> 
   
-  
+   <!-------------------------jquery cdn for work multiple date selection------------------------>
 
 <script type="text/javascript">
     $(document).ready(function() {

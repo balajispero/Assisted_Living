@@ -513,10 +513,10 @@ class Physio extends General{
 	            // Render the HTML as PDF
 	            $dompdf->render();
 	            // Output the generated PDF to Browser
-	            // $invoiceFileName = 'Invoice-'.$this->data['invoiceValues'][0]['order_id'].'.pdf';
+	             $evalFileName = 'Evaluation-'.$this->data['ptnEvalInfo']->eval_no.'.pdf';
 	            // $dompdf->stream($invoiceFileName,array("Attachment" => 0));
 
-	            $dompdf->stream('bill.pdf',array("Attachment" => 0));
+	            $dompdf->stream($evalFileName,array("Attachment" => 0));
 				 
 		
 		//$this->load->view('app/physio/evaluation_pdf',$this->data);
