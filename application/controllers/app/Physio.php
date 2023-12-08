@@ -773,6 +773,7 @@ class Physio extends General{
 	{
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
+		$eval_no = $this->uri->segment("6");
 		$this->session->set_userdata(array(
 				 'tab'			=>		'',
 				 'module'		=>		'',
@@ -783,7 +784,7 @@ class Physio extends General{
 				 $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 				 $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 				 $this->data['lastPreassesID'] = $this->physio_model->lastPreassesID();
-				 $eval_no="EVAL00017";
+				 
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
 		
 		$this->load->view('app/physio/add_treatment_protocol',$this->data);

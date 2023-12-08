@@ -221,20 +221,6 @@
 
                      <input type="hidden" name="therapy_type" value="<?php echo ($therapy_type) ? $therapy_type : 'general'; ?>">
 
-                        <!-- <div class="row text-center">
-                            <div class="col-md-3">
-                                <button type="button" class="btn btn-primary btn-block">General Evaluation</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="button" class="btn btn-primary btn-block">ortho</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="button" class="btn btn-primary btn-block">Neuro</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="button" class="btn btn-primary btn-block">Respi</button>
-                            </div>
-                        </div> -->
                          <br>   
                         <!-- <div class="container"> -->
                         <div class="row text-center">
@@ -242,13 +228,13 @@
                             <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/general" class="btn <?php if($this->uri->segment("6")=="general" or $this->uri->segment("6")=="") { echo "bg_color"; }else{ echo "btn-primary"; } ?> btn-block" style="margin-top: 5px; color:white;">General Evaluation</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/ortho" class="btn <?php echo ($this->uri->segment("6")=="ortho") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">ortho</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/ortho" class="btn <?php echo ($this->uri->segment("6")=="ortho") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Ortho</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
                             <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/neuro" class="btn <?php echo ($this->uri->segment("6")=="neuro") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Neuro</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/respi" class="btn <?php echo ($this->uri->segment("6")=="respi") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Respi</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/respi" class="btn <?php echo ($this->uri->segment("6")=="respi") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Respiratory</a>
                           </div>
                         </div>
                     <!-- </div> -->

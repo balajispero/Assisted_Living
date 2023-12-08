@@ -172,7 +172,7 @@
                             <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/neuro" class="btn <?php echo ($this->uri->segment("5")=="neuro") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Neuro</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/respi" class="btn <?php echo ($this->uri->segment("5")=="respi") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Respi</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/respi" class="btn <?php echo ($this->uri->segment("5")=="respi") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Respiratory</a>
                           </div>
                         </div>
                         <br><br>
@@ -1148,14 +1148,14 @@
                 <!--------------------Start treatment section div--------------------------->
                  <div class="row" id="treatment_section" style="display: <?php echo ($ptnEvalInfo->expert_recommendation=="No") ? "none" : "block";?>">
                 <div class="row">
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Gait speed</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="gait_speed" value="<?php echo $ptnEvalInfo->gait_speed;?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                                </div>
+                            </div> --><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Treatment Goals </label><span class="text-danger"></span></br>
@@ -1193,20 +1193,18 @@
                                     <select name="therapy_time" class="form-control input-sm">
                                       <option value="">-Select Therapy Time -</option>
                                       
-                                      <option value="20" <?php if($ptnEvalInfo->therapy_time=="20"){ echo "selected"; } ?>>20 min</option>
+                                      <option value="20 Min" <?php if($ptnEvalInfo->therapy_time=="20 Min"){ echo "selected"; } ?>>20 Min</option>
                                       
-                                      <option value="30" <?php if($ptnEvalInfo->therapy_time=="30"){ echo "selected"; } ?>>30 </option>
+                                      <option value="30 Min" <?php if($ptnEvalInfo->therapy_time=="30 Min"){ echo "selected"; } ?>>30 Min</option>
                                       
-                                      <option value="45" <?php if($ptnEvalInfo->therapy_time=="45"){ echo "selected"; } ?>>45</option>
+                                      <option value="45 Min" <?php if($ptnEvalInfo->therapy_time=="45 Min"){ echo "selected"; } ?>>45 Min</option>
                                       
-                                      <option value="60" <?php if($ptnEvalInfo->therapy_time=="60"){ echo "selected"; } ?>>60</option>
+                                      <option value="60 Min" <?php if($ptnEvalInfo->therapy_time=="60 Min"){ echo "selected"; } ?>>60 Min</option>
                                       
                                     </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            </div>
-                            <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Expected sessions </label><span class="text-danger"></span></br>
@@ -1230,8 +1228,8 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-
-                            
+                            </div>
+                            <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Next Evaluation Date</label><span class="text-danger"></span></br>

@@ -16,67 +16,58 @@
             border: 2px solid #2196F3;
         }
             /*Start toggle button css*/
-                .switch {
-      position: relative;
-      display: inline-block;
-      width: 40px;
-      height: 16px;
-    }
+               .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px; /* Adjust the width */
+            height: 20px; /* Adjust the height */
+        }
 
-    .switch input { 
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
 
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: -4;
-      bottom: -1;
-      background-color: #ccc;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 10px; /* Adjust the border-radius */
+        }
 
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 13px;
-      width: 16px;
-      left: 3px;
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px; /* Adjust the height */
+            width: 16px; /* Adjust the width */
+            left: 2px; /* Adjust the left position */
+            bottom: 2px; /* Adjust the bottom position */
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
 
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
 
-    input:checked + .slider {
-      background-color: #2196F3;
-      
-    }
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
 
-    input:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
-    }
-
-    input:checked + .slider:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
-    }
-
-     
-    .slider.round {
-      border-radius: 34px;
-    }
-
-    .slider.round:before {
-      border-radius: 50%;
-    }
+        input:checked + .slider:before {
+            -webkit-transform: translateX(16px);
+            -ms-transform: translateX(16px);
+            transform: translateX(16px);
+        }
     /*End toggle button css*/
          
         </style>
@@ -203,7 +194,7 @@
                               <th>FIM score / Activity</th><th>Date of eval</th><th>Rolling</th><th>Supine to sit</th><th>Sit to stand</th>
                           </tr>
                           <tr>
-                              <td>Total Assistance 1</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                              <td>Total Assistance 1</td><td><?php echo $ptnEvalInfo->mobility_assist1_evaldate; ?></td>
                               <td>
                                 
 
@@ -228,7 +219,7 @@
                               </td>
                           </tr>
                           <tr>
-                          <td>Maximal Assistance 2</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                          <td>Maximal Assistance 2</td><td><?php echo $ptnEvalInfo->mobility_assist2_evaldate; ?></td>
                               <td>
                               <label class="switch">
                                   <input type="checkbox" name="mobility_assist2_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist2_rolling == 'Yes') ? 'checked' : '';  ?>>
@@ -250,7 +241,7 @@
                               </td>
                           </tr>
                           <tr>
-                          <td>Moderate Assistance 3</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                          <td>Moderate Assistance 3</td><td><?php echo $ptnEvalInfo->mobility_assist3_evaldate; ?></td>
                               <td>
                               <label class="switch">
                                   <input type="checkbox" name="mobility_assist3_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist3_rolling == 'Yes') ? 'checked' : '';  ?>>
@@ -272,7 +263,7 @@
                               </td>
                           </tr>
                           <tr>
-                          <td>Minimal Assistance 4</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                          <td>Minimal Assistance 4</td><td><?php echo $ptnEvalInfo->mobility_assist4_evaldate; ?></td>
                               <td>
                               <label class="switch">
                                   <input type="checkbox" name="mobility_assist4_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist4_rolling == 'Yes') ? 'checked' : '';  ?>>
@@ -294,7 +285,7 @@
                               </td>
                           </tr>
                           <tr>
-                          <td>Contact  Guarding 5 A</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                          <td>Contact  Guarding 5 A</td><td><?php echo $ptnEvalInfo->mobility_assist5a_evaldate; ?></td>
                               <td>
                               <label class="switch">
                                   <input type="checkbox" name="mobility_assist5a_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist5a_rolling == 'Yes') ? 'checked' : '';  ?>>
@@ -317,7 +308,7 @@
                               </td>
                           </tr>
                           <tr>
-                          <td>Supervision or setup 5 B</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                          <td>Supervision or setup 5 B</td><td><?php echo $ptnEvalInfo->mobility_assist5b_evaldate; ?></td>
                               <td>
                               <label class="switch">
                                   <input type="checkbox" name="mobility_assist5b_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist5b_rolling == 'Yes') ? 'checked' : '';  ?>>
@@ -338,7 +329,7 @@
                               </td>
                           </tr>
                           <tr>
-                          <td>Modified Independence 6</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                          <td>Modified Independence 6</td><td><?php echo $ptnEvalInfo->mobility_assist6_evaldate; ?></td>
                               <td>
                               <label class="switch">
                                   <input type="checkbox" name="mobility_assist6_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist6_rolling == 'Yes') ? 'checked' : '';  ?>>
@@ -359,7 +350,7 @@
                               </td>
                           </tr>
                           <tr>
-                          <td>Complete Independence 7</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                          <td>Complete Independence 7</td><td><?php echo $ptnEvalInfo->mobility_assist7_evaldate; ?></td>
                               <td>
                               <label class="switch">
                                   <input type="checkbox" name="mobility_assist7_rolling" class="mobility_assist_rolling" <?php echo ($ptnEvalInfo->mobility_assist7_rolling == 'Yes') ? 'checked' : '';  ?>>
@@ -399,7 +390,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Total Assistance 1</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                              <td>Total Assistance 1</td><td><?php echo $ptnEvalInfo->transfer_assist1_evaldate; ?></td>
                               <td>
                                 
 
@@ -418,7 +409,7 @@
                                 
                           </tr>
                           <tr>
-                              <td>Maximal Assistance 2</td><td><?php /*echo $ptnEvalInfo->mobility_assist2_evaldate;*/ ?>date</td>
+                              <td>Maximal Assistance 2</td><td><?php echo $ptnEvalInfo->transfer_assist2_evaldate; ?></td>
                               <td>
                                 <!-- <input type="radio" class="" name="transfer_assist2_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist2_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist2_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist2_wheelchair=="No") ? 'checked' : '';  ?>>No -->
                                 <label class="switch">
@@ -436,7 +427,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Moderate Assistance 3</td><td><?php /*echo $ptnEvalInfo->mobility_assist3_evaldate;*/ ?>date</td>
+                              <td>Moderate Assistance 3</td><td><?php echo $ptnEvalInfo->transfer_assist3_evaldate; ?></td>
                               <td>
                                 <!-- <input type="radio" class="" name="transfer_assist3_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist3_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist3_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist3_wheelchair=="No") ? 'checked' : '';  ?>>No -->
                                 <label class="switch">
@@ -454,7 +445,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Minimal Assistance 4</td><td><?php /*echo $ptnEvalInfo->mobility_assist4_evaldate;*/ ?>date</td>
+                              <td>Minimal Assistance 4</td><td><?php echo $ptnEvalInfo->transfer_assist4_evaldate; ?></td>
                               <td>
                                 <!-- <input type="radio" class="" name="transfer_assist4_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist4_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist4_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist4_wheelchair=="No") ? 'checked' : '';  ?>>No -->
                                 <label class="switch">
@@ -472,7 +463,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Contact  Guarding 5 B</td><td><?php /*echo $ptnEvalInfo->mobility_assist5_evaldate;*/ ?>date</td>
+                              <td>Contact  Guarding 5 B</td><td><?php echo $ptnEvalInfo->transfer_assist5b_evaldate; ?></td>
                               <td>
                                 <!-- <input type="radio" class="" name="transfer_assist5b_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5b_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5b_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5b_wheelchair=="No") ? 'checked' : '';  ?>>No -->
                                 <label class="switch">
@@ -493,7 +484,7 @@
                           <tr>
                           
                               <td style="margin-top: 30px;">
-                              Supervision or setup 5 A</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                              Supervision or setup 5 A</td><td><?php echo $ptnEvalInfo->transfer_assist5a_evaldate; ?></td>
                               <td>
                                 <!-- <input type="radio" class="" name="transfer_assist5a_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist5a_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist5a_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist5a_wheelchair=="No") ? 'checked' : '';  ?>>No -->
                                 <label class="switch">
@@ -511,7 +502,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Modified Independence 6</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                              <td>Modified Independence 6</td><td><?php echo $ptnEvalInfo->transfer_assist6_evaldate; ?></td>
                               <td>
                                 <!-- <input type="radio" class="" name="transfer_assist6_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist6_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist6_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist6_wheelchair=="No") ? 'checked' : '';  ?>>No -->
                                 <label class="switch">
@@ -529,7 +520,7 @@
                               
                           </tr>
                             <tr>
-                              <td>Complete Independence 7</td><td><?php /*echo $ptnEvalInfo->mobility_assist1_evaldate;*/ ?>date</td>
+                              <td>Complete Independence 7</td><td><?php echo $ptnEvalInfo->transfer_assist7_evaldate; ?></td>
                               <td>
                                 <!-- <input type="radio" class="" name="transfer_assist7_wheelchair" value="Yes" <?php echo ($ptnEvalInfo->transfer_assist7_wheelchair=="Yes") ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="transfer_assist7_wheelchair" class="" value="No" <?php echo ($ptnEvalInfo->transfer_assist7_wheelchair=="No") ? 'checked' : '';  ?>>No -->
                                 <label class="switch">
@@ -645,9 +636,9 @@
                           <h3 style="margin-left: 70px; margin-top:10px;"><u>Gait Assessment</u></h3><br>
                           <table width="100%" cellpadding="5">
                             <tr>
-                             <td width="50%">         
+                             <!-- <td width="50%">         
                              <b style="margin-left: 68px;">Upload Video: </b><?php echo $ptnEvalInfo->berg_bal_interpreter_remark; ?>
-                             </td>
+                             </td> -->
                              <td width="50%">         
                              <b style="margin-left: 68px;">Gait Remark: </b><?php echo $ptnEvalInfo->berg_bal_interpreter_remark; ?>
                              </td>

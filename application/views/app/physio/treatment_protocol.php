@@ -217,7 +217,7 @@
                                                      ?> 
                                                 </td>
                                                 
-                                                <td><a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Add</a></td>
+                                                <td><a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a></td>
                                            </tr> 
                                            <?php }?> 
                                            </tbody>
