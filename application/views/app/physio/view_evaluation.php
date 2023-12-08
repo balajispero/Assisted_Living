@@ -428,8 +428,8 @@
 
                         <div class="row">
                           <div class="col-sm-12">
-                            <label><h3>Bed Mobility</h3></label>
-                            <p>Rolling</p>
+                          <label><h3><b>Bed Mobility</b></h3></label>
+                            <p style="font-size: 20px;">Rolling</p>
                         </div>
                     </div><br>
                     <div class="table-responsive">      
@@ -720,8 +720,8 @@
 
                   <div class="row">
                           <div class="col-sm-12">
-                            <label><h3>B. Transfers</h3></label>
-                            <p>Transfer to wheelchair</p>
+                          <label><h3><b>B. Transfers</b></h3></label>
+                            <p style="font-size: 20px;">Transfer to wheelchair</p>
                         </div>
                     </div><br>
                     <div class="table-responsive">      
@@ -895,8 +895,8 @@
                       </div>
                       <div class="row">
                           <div class="col-sm-12">
-                            <label><h3><b>Balance Assessment</b></h3></label>
-                            <h4 style="font-family:Times New Roman;"><u>Berg Balance Scale</u></h4>
+                          <label><h3><b>Balance Assessment</b></h3></label>
+                            <p style="font-size: 20px;">Berg Balance Scale</p>
                         </div></div>
                       
                    <table class="table table-striped">
@@ -1117,7 +1117,8 @@
 
                     <div class="row">
                           <div class="col-sm-12">
-                            <label><h3><b>Gait Assessment</b></h3></label>
+                          <label><h3><b>Gait Assessment</b></h3></label>
+
                         </div>
                     </div>
                     <div class="row">

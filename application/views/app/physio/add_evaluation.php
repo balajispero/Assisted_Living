@@ -1295,7 +1295,7 @@
                         </div><!-- / row -->
                     </div><!--/treatment section div-->
 
-                <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit">
+                <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="Submit">
             </form>
 
         </section>
