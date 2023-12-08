@@ -357,62 +357,10 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class">
-                                    <label>Tightness</label><span class="text-danger"></span></br>
-                                     <select name="ptn_tightness" class="form-control" id="multiple-checkboxes" multiple="multiple">
-                                      <option value="">- Select Tightness -</option>
-                                      
-                                      <option value="Shoulder">Shoulder</option>
-                                      <option value="Elbow">Elbow</option>
-                                      <option value="Wrist">Wrist</option>
-                                      <option value="Cervical Spine">Cervical Spine</option>
-                                      <option value="Thoracic Spine">Thoracic Spine</option>
-                                      <option value="Lumbar Spine">Lumbar Spine</option>
-                                      <option value="Pelvis">Pelvis</option>
-                                      <option value="Hip">Hip</option>
-                                      <option value="Knee">Knee</option>
-                                      <option value="Ankle">Ankle</option>
-                                    </select>
-
-                                         
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                  </div><!-- /.form-group wrapper-class -->
-                                </div><!-- /.col-md-3 -->
-                                
-                                <!-- <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Remark</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_tightness_remark"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div> --><!-- /.col-md-3 -->
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class">
-                                    <label>Tightness Side</label><span class="text-danger"></span></br>
-                                    <select name="muscle_strength" class="form-control input-sm">
-                                      <option value="">- Tightness Side -</option>
-                                      
-                                      <option value="Left">Left</option>
-                                      <option value="Right">Right</option>
-                                    
-                                      
-                                    </select>
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                        </div>
+                            <div class="row">
                             
-                                <div class="col-md-3">
-                                <div class="form-group wrapper-class" >
-                                    <label>Remark</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="muscle_strength_remark"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                            
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Muscle Strength</label><span class="text-danger"></span></br>
@@ -430,7 +378,8 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            
+
+
                                 <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Remark</label><span class="text-danger"></span></br>
@@ -441,7 +390,7 @@
                             </div><!-- /.col-md-3 -->
                             
                         <?php } ?>
-                         <?php if($this->uri->segment("6")=="neuro" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
+                        <?php if($this->uri->segment("6")=="neuro" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Muscle Tone</label><span class="text-danger"></span></br>
@@ -479,10 +428,53 @@
                                 </div>
                             </div> <!-- /.col-md-3 -->
                         <?php } ?>
+                                                <?php if($this->uri->segment("6")=="ortho" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Tightness</label><span class="text-danger"></span></br>
+                                     <select name="ptn_tightness" class="form-control" id="multiple-checkboxes" multiple="multiple">
+                                      <option value="">- Select Tightness -</option>
+                                      
+                                      <option value="Shoulder">Shoulder</option>
+                                      <option value="Elbow">Elbow</option>
+                                      <option value="Wrist">Wrist</option>
+                                      <option value="Cervical Spine">Cervical Spine</option>
+                                      <option value="Thoracic Spine">Thoracic Spine</option>
+                                      <option value="Lumbar Spine">Lumbar Spine</option>
+                                      <option value="Pelvis">Pelvis</option>
+                                      <option value="Hip">Hip</option>
+                                      <option value="Knee">Knee</option>
+                                      <option value="Ankle">Ankle</option>
+                                    </select>
 
-                        </div><!-- / row -->
+                                         
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                  </div><!-- /.form-group wrapper-class -->
+                                </div><!-- /.col-md-3 -->
+                            <?php } ?>
+                            <?php if($this->uri->segment("6")!="respi"){ ?>
+                    </div>
+                         <div class="row">
+                         <?php } ?>
 
-                           <div class="row">
+
+                             <?php if($this->uri->segment("6")=="ortho" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Tightness Side</label><span class="text-danger"></span></br>
+                                    <select name="tightness_side" class="form-control input-sm">
+                                      <option value="">- Tightness Side -</option>
+                                      
+                                      <option value="Left">Left</option>
+                                      <option value="Right">Right</option>
+                                    
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <?php } ?>
+                         
                             
                             <?php if($this->uri->segment("6")=="respi" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">

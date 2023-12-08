@@ -109,7 +109,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Date of Evaluation</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $ptnEvalInfo->eval_no; ?>"> 
+                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo date("Y-m-d",strtotime($ptnEvalInfo->added_date)); ?>" readonly> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -155,7 +155,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Goals</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $ptnEvalInfo->eval_no; ?>"> 
+                                    <input type="text" class="form-control" name="treatment_goal" value="<?php echo $ptnEvalInfo->treatment_goal; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -271,21 +271,21 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Follow up Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="next_eval_date">
+                                    <input type="date" class="form-control" name="first_follow_up_eval_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Comments</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="next_eval_date">
+                                    <input type="text" class="form-control" name="first_follow_up_eval_date_remark">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Therapist</label><span class="text-danger"></span></br>
-                                                                            <select name="applicant_marital" class="form-control input-sm">
+                                                                            <select name="consultant_therapist" class="form-control input-sm">
                                                                                <option value="">- Consultant Therapist -</option>
                                                                 <?php 
                                                                 foreach($normalPhysioList as $normalPhysioList){
