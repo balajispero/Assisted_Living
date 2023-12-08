@@ -281,27 +281,8 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
 
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class">
-                                    <label>Tightness</label><span class="text-danger"></span></br>
-                                    <select name="ptn_tightness" class="form-control">
-                                      <option value="">- Select Tightness -</option>
-                                      
-                                      <option value="Shoulder" <?php if($ptnEvalInfo->ptn_tightness=="Shoulder"){ echo "selected"; } ?>>Shoulder</option>
-                                      <option value="Elbow" <?php if($ptnEvalInfo->ptn_tightness=="Elbow"){ echo "selected"; } ?>>Elbow</option>
-                                      <option value="Wrist" <?php if($ptnEvalInfo->ptn_tightness=="Wrist"){ echo "selected"; } ?>>Wrist</option>
-                                      <option value="Cervical Spine" <?php if($ptnEvalInfo->ptn_tightness=="Cervical Spine"){ echo "selected"; } ?>>Cervical Spine</option>
-                                      <option value="Thoracic Spine" <?php if($ptnEvalInfo->ptn_tightness=="Thoracic Spine"){ echo "selected"; } ?>>Thoracic Spine</option>
-                                      <option value="Lumbar Spine" <?php if($ptnEvalInfo->ptn_tightness=="Lumbar"){ echo "selected"; } ?>>Lumbar Spine</option>
-                                      <option value="Pelvis" <?php if($ptnEvalInfo->ptn_tightness=="Pelvis"){ echo "selected"; } ?>>Pelvis</option>
-                                      <option value="Hip" <?php if($ptnEvalInfo->ptn_tightness=="Hip"){ echo "selected"; } ?>>Hip</option>
-                                      <option value="Knee" <?php if($ptnEvalInfo->ptn_tightness=="Knee"){ echo "selected"; } ?>>Knee</option>
-                                      <option value="Ankle" <?php if($ptnEvalInfo->ptn_tightness=="Ankle"){ echo "selected"; } ?>>Ankle</option>
-                                    </select>
-                                         
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                  </div><!-- /.form-group wrapper-class -->
-                                </div><!-- /.col-md-3 -->
+                            </div>
+                            <div class="row">
                                 
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
@@ -365,10 +346,51 @@
                                 </div>
                             </div> <!-- /.col-md-3 -->
                         <?php } ?>
-
+                        <?php if($this->uri->segment("5")=="ortho" || $this->uri->segment("5")=="general" || $this->uri->segment("5")==""){ ?>
+                        <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Tightness</label><span class="text-danger"></span></br>
+                                    <select name="ptn_tightness" class="form-control">
+                                      <option value="">- Select Tightness -</option>
+                                      
+                                      <option value="Shoulder" <?php if($ptnEvalInfo->ptn_tightness=="Shoulder"){ echo "selected"; } ?>>Shoulder</option>
+                                      <option value="Elbow" <?php if($ptnEvalInfo->ptn_tightness=="Elbow"){ echo "selected"; } ?>>Elbow</option>
+                                      <option value="Wrist" <?php if($ptnEvalInfo->ptn_tightness=="Wrist"){ echo "selected"; } ?>>Wrist</option>
+                                      <option value="Cervical Spine" <?php if($ptnEvalInfo->ptn_tightness=="Cervical Spine"){ echo "selected"; } ?>>Cervical Spine</option>
+                                      <option value="Thoracic Spine" <?php if($ptnEvalInfo->ptn_tightness=="Thoracic Spine"){ echo "selected"; } ?>>Thoracic Spine</option>
+                                      <option value="Lumbar Spine" <?php if($ptnEvalInfo->ptn_tightness=="Lumbar"){ echo "selected"; } ?>>Lumbar Spine</option>
+                                      <option value="Pelvis" <?php if($ptnEvalInfo->ptn_tightness=="Pelvis"){ echo "selected"; } ?>>Pelvis</option>
+                                      <option value="Hip" <?php if($ptnEvalInfo->ptn_tightness=="Hip"){ echo "selected"; } ?>>Hip</option>
+                                      <option value="Knee" <?php if($ptnEvalInfo->ptn_tightness=="Knee"){ echo "selected"; } ?>>Knee</option>
+                                      <option value="Ankle" <?php if($ptnEvalInfo->ptn_tightness=="Ankle"){ echo "selected"; } ?>>Ankle</option>
+                                    </select>
+                                         
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                  </div><!-- /.form-group wrapper-class -->
+                                </div><!-- /.col-md-3 -->
+                            <?php } ?>
+                                <?php if($this->uri->segment("5")!="respi"){ ?>
                         </div><!-- / row -->
 
                            <div class="row">
+                           <?php } ?>
+                            <?php if($this->uri->segment("5")=="ortho" || $this->uri->segment("5")=="general" || $this->uri->segment("5")==""){ ?>
+
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Tightness Side</label><span class="text-danger"></span></br>
+                                    <select name="tightness_side" class="form-control input-sm">
+                                      <option value="">- Tightness Side -</option>
+                                      
+                                      <option value="Left">Left</option>
+                                      <option value="Right">Right</option>
+                                    
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <?php } ?>
                             
                            <?php if($this->uri->segment("5")=="respi" || $this->uri->segment("5")=="general"){ ?>
                             <div class="col-md-3">
