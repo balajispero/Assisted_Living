@@ -335,11 +335,21 @@
                                     <label>Muscle Tone</label><span class="text-danger"></span></br>
                                     <select name="muscle_tone" class="form-control input-sm">
                                       <option value="">-Select Muscle Tone-</option>
-                                                                            
-                                      <option value="Increased tone" <?php if($ptnEvalInfo->muscle_tone=="Increased tone"){ echo "selected"; } ?>>Increased Tone</option>
+                                      <option value="Increased Tone Upper Body Left">Increased Tone Upper Body Left</option>
                                       
-                                      <option value="Decreased tone" <?php if($ptnEvalInfo->muscle_tone=="Decreased ton"){ echo "selected"; } ?>>Decreased Tone</option>
-                                    </select>
+                                      <option value="Increased Tone Lower Body Left">Increased Tone Lower Body Left</option>
+                                      
+                                      <option value="Increased Tone Upper Body Right">Increased Tone Upper Body Right</option>
+                                      <option value="Increased Tone Lower Body Right">Increased Tone Lower Body Right</option>
+
+                                      <option value="Decreased Tone Upper Body Left">Decreased Tone Upper Body Left</option>
+
+                                      <option value="Decreased Tone Lower Body Left">Decreased Tone Lower Body Left</option>
+
+                                      <option value="Decreased Tone Upper Body Right">Decreased Tone Upper Body Right</option>
+
+                                      <option value="Decreased Tone Lower Body Right">Decreased Tone Lower Body Right</option>
+</select>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->

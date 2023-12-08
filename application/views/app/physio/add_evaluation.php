@@ -391,6 +391,30 @@
                             </div> --><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
+                                    <label>Tightness Side</label><span class="text-danger"></span></br>
+                                    <select name="muscle_strength" class="form-control input-sm">
+                                      <option value="">- Tightness Side -</option>
+                                      
+                                      <option value="Left">Left</option>
+                                      <option value="Right">Right</option>
+                                    
+                                      
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            
+                                <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Remark</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="muscle_strength_remark"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
                                     <label>Muscle Strength</label><span class="text-danger"></span></br>
                                     <select name="muscle_strength" class="form-control input-sm">
                                       <option value="">- Select Muscle Strength -</option>
@@ -424,11 +448,21 @@
                                     <select name="muscle_tone" class="form-control input-sm">
                                       <option value="">-Select Muscle Tone-</option>
                                       
-                                      <option value="Tightness">Tightness</option>
+                                      <option value="Increased Tone Upper Body Left">Increased Tone Upper Body Left</option>
                                       
-                                      <option value="Increased tone">Increased Tone</option>
+                                      <option value="Increased Tone Lower Body Left">Increased Tone Lower Body Left</option>
                                       
-                                      <option value="Decreased tone">Decreased Tone</option>
+                                      <option value="Increased Tone Upper Body Right">Increased Tone Upper Body Right</option>
+                                      <option value="Increased Tone Lower Body Right">Increased Tone Lower Body Right</option>
+
+                                      <option value="Decreased Tone Upper Body Left">Decreased Tone Upper Body Left</option>
+
+                                      <option value="Decreased Tone Lower Body Left">Decreased Tone Lower Body Left</option>
+
+                                      <option value="Decreased Tone Upper Body Right">Decreased Tone Upper Body Right</option>
+
+                                      <option value="Decreased Tone Lower Body Right">Decreased Tone Lower Body Right</option>
+
                                     </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
