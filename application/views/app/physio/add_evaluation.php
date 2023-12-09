@@ -23,6 +23,9 @@
           th.berg_bal {
           text-align: center;
            }
+           .onlyphysio_eval{
+                display:block !important;
+            }
 
     /*Start toggle button css*/
                 .switch {

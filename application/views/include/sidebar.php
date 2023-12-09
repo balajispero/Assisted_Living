@@ -510,7 +510,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <i class="fa fa-user-md"></i> <span>Physio Module</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                            <ul class="treeview-menu onlypreasses">
+                            <ul class="treeview-menu onlyphysio_eval">
                                 <?php if($hasAccesstoPhysioIpdList){?><li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/physio/ipd"><i class="fa fa-angle-double-right"></i>In-Member</a></li><?php }?>
                             </ul>
                         </li>

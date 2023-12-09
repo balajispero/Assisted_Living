@@ -19,6 +19,9 @@
             height: 34px !important;
 
          }
+         .onlyphysio_eval{
+                display:block !important;
+            }
 
            /*Start toggle button css*/
            .switch {
@@ -382,8 +385,8 @@
                                     <select name="tightness_side" class="form-control input-sm">
                                       <option value="">- Tightness Side -</option>
                                       
-                                      <option value="Left">Left</option>
-                                      <option value="Right">Right</option>
+                                      <option value="Left" <?php if($ptnEvalInfo->tightness_side=="Left"){ echo "selected"; } ?>>Left</option>
+                                      <option value="Right" <?php if($ptnEvalInfo->tightness_side=="Right"){ echo "selected"; } ?>>Right</option>
                                     
                                     </select>
 
