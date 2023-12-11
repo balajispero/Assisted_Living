@@ -18,7 +18,11 @@
             .ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a {
     background: red !important;
     color: #363636;
-}
+    }
+
+textarea.form-control{
+         height: 34px !important;
+           }
         </style>
 
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -206,10 +210,6 @@
                                                     </tbody>
                                              </table>
                                             </div>
-
-                    
-                
-                
 
                 <div class="row">
                             
