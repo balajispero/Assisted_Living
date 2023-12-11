@@ -206,6 +206,15 @@ textarea.form-control{
                                                   <th>Week</th><th>Date</th><th>Line of Treatment</th><th>Remark</th><th>Frequency</th><th>Action</th>
                                                 </tr>
                                                  <tbody id="dynamic_field">
+                                                     <?php
+      if(!empty($physio_treatment_weekly_plan)){
+
+      foreach($physio_treatment_weekly_plan as $key => $weekly_plan){ $key1 = $key+1; ?>
+        <tr id="row<?=$key1?>">
+           <td>week <?=$key1?></td><td><input type="text" class="form-control" id="datePick<?=$key1?>" name="week_date[]" value="<?php $date_list = "2023-12-18,2023-12-19"; $selected_dates = implode(', ', explode(',', $weekly_plan->week_date)); echo $selected_dates; ?>"></td><td><input type="text" class="form-control" name="week_treatment_line[]" value="<?=$weekly_plan->week_treatment_line?>"></td><td><input type="text" class="form-control" name="week_remark[]" value="<?=$weekly_plan->week_remark?>"></td><td><input type="text" class="form-control" name="week_frequency[]" value="<?=$weekly_plan->week_frequency?>"></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key1?>"><span class="glyphicon glyphicon-minus"></span></button></td>
+        </tr>
+        <?php } }?> 
+         <input type="hidden" value="<?php if(!empty($key1)){ print($key1);}else{ echo '0';}?>" id="weekplancuont"></input> 
                                                     </tbody>
                                              </table>
                                             </div>
@@ -298,14 +307,19 @@ textarea.form-control{
         });
     });
 
+
 $(document).ready(function() {
                 var i=0; 
+                 var j = 1;
                 $('#add').click(function() {
-                    i++;
+                    var weekplancuont = $('#weekplancuont').val();
+                    //console.log(diagcount);
+                var i = j+ + +weekplancuont;
+                    
                     
       $('#dynamic_field').append('<tr id="row'+i+'"><td>Week '+ i +'</td><td><input type="text" name="week_date[]" id="datePick' + i + '" autocomplete="off" class="form-control" /></td><td><input type="text" class="form-control" name="week_treatment_line[]"></td><td><input type="text" class="form-control" name="week_remark[]"></td><td><select name="week_frequency[]" class="form-control"><option value="">-Select Frequency-</option><option value="Daily Once" <?php if($ptnEvalInfo->exp_session=="Daily Once"){ echo "selected"; } ?>>Daily Once</option><option value="Daily Twice" <?php if($ptnEvalInfo->exp_session=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option><option value="Thrice Daily" <?php if($ptnEvalInfo->exp_session=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option><option value="Twice a Week" <?php if($ptnEvalInfo->exp_session=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option><option value="Thrice a Week" <?php if($ptnEvalInfo->exp_session=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option><option value="Once a Week" <?php if($ptnEvalInfo->exp_session=="Once a Week"){ echo "selected"; } ?>>Once a Week</option></select></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
       $('#datePick' + i).multiDatesPicker();
-
+             j++;
                 });
                 $(document).on('click', '.btn_remove', function() {
                     var button_id = $(this).attr("id");
@@ -315,10 +329,26 @@ $(document).ready(function() {
             </script>
 
   <script>
-    /*$(document).ready(function () {
-      $('#datePickss').multiDatesPicker();
-    });*/
-  </script>          
+    $(document).ready(function () {
+        <?php
+        if(!empty($physio_treatment_weekly_plan)){
+         for($wp_cnt=1; $wp_cnt<=count($physio_treatment_weekly_plan); $wp_cnt++) { ?>
+
+            $("#datePick<?= $wp_cnt?>").multiDatesPicker({
+          dateFormat: 'yy-mm-dd',
+        defaultDates: <?php echo json_encode($selected_dates); ?>
+      });
+
+        <?php } ?>
+           
+         <?php } ?>
+      /*$('#datePick1').multiDatesPicker({
+          dateFormat: 'yy-mm-dd',
+        defaultDates: <?php echo json_encode($selected_dates); ?>
+      });*/
+    });
+  </script> 
+
 
 
 </body>

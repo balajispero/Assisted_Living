@@ -159,6 +159,14 @@ class Physio_model extends CI_Model{
 				return $row;
 			}
 		}
+		public function physio_treatment_weekly_plan($eval_no){
+		$this->db->where(array(
+			'eval_no'		=>		$eval_no,
+			/*'InActive'	=>		0*/
+		));	
+		$query = $this->db->get("physio_treatment_protocol_week_plan");
+		return $query->result();
+	}
 	public function get_tightness_list(){
 		$this->db->select("multi_sel_id, pvalue");	
 		$this->db->where(array(

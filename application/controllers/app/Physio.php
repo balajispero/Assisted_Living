@@ -876,6 +876,7 @@ class Physio extends General{
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
 
 				 $this->data['treatment_protocol_info'] = $this->physio_model->get_treatment_protocol($eval_no);
+				 $this->data['physio_treatment_weekly_plan'] = $this->physio_model->physio_treatment_weekly_plan($eval_no);
 				/* echo "<pre>";
 				print_r($this->data['treatment_protocol_info']);die;*/
 		$this->load->view('app/physio/edit_treatment_protocol',$this->data);
