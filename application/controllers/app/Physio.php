@@ -239,6 +239,8 @@ class Physio extends General{
 				 $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 				 $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 				 $this->data['lastPreassesID'] = $this->physio_model->lastPreassesID();
+
+				 $this->data['tightness_list'] = $this->physio_model->get_tightness_list();
 		
 		$this->load->view('app/physio/add_evaluation',$this->data);
 	}
@@ -484,6 +486,7 @@ class Physio extends General{
 
 				 
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
+				 $this->data['tightness_list'] = $this->physio_model->get_tightness_list();
 				 
 		
 		$this->load->view('app/physio/view_evaluation',$this->data);
@@ -517,7 +520,7 @@ class Physio extends General{
 	             $evalFileName = 'Evaluation-'.$this->data['ptnEvalInfo']->eval_no.'.pdf';
 	            // $dompdf->stream($invoiceFileName,array("Attachment" => 0));
 
-	            $dompdf->stream($evalFileName,array("Attachment" => 0));
+	            $dompdf->stream($evalFileName,array("Attachment" => 1));
 				 
 		
 		//$this->load->view('app/physio/evaluation_pdf',$this->data);
@@ -551,6 +554,7 @@ class Physio extends General{
 	{
 		$iop_no = $this->uri->segment("4");
 		//$patient_no = $this->uri->segment("5");
+
 		
 		$this->session->set_userdata(array(
 				 'tab'			=>		'',
@@ -560,6 +564,7 @@ class Physio extends General{
 				 $this->data['message'] = $this->session->flashdata('message');
 
 				 //$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+				 $this->data['tightness_list'] = $this->physio_model->get_tightness_list();
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
 				 /*echo "<pre>";
 				 print_r($this->data['ptnEvalInfo']);*/
@@ -764,11 +769,15 @@ class Physio extends General{
 		$patient_no = $this->uri->segment("5");
 		$rel_agree="Yes";
 		
+		$this->data['message'] = $this->session->flashdata('message');
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
+
+		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
 		/*echo "<pre>";
-		print_r($this->data['patientPhysioEval']);*/
+		print_r($this->data['eval_no_list']);
+		print_r($this->data['patientPhysioEvalAgree']);die;*/
 		$this->load->view("app/physio/treatment_protocol",$this->data);	
 	}
 	public function add_treatment_protocol()
@@ -790,6 +799,143 @@ class Physio extends General{
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
 		
 		$this->load->view('app/physio/add_treatment_protocol',$this->data);
+	}
+	public function treatment_protocol_save()
+	{
+	   
+	    $week_date = $this->input->post('week_date', true);
+	    $week_treatment_line = $this->input->post('week_treatment_line', true);
+	    $week_remark = $this->input->post('week_remark', true);
+	    $week_frequency = $this->input->post('week_frequency', true);
+	    
+	    
+	    
+		$treatment_protocol_details = array(
+            'eval_no' => $this->input->post('eval_no'),
+            'patient_no' => $this->input->post('patient_no'),
+            'iop_no' => $this->input->post('opd_no'),
+            'evaluation_date' => $this->input->post('eval_date'),
+            'evaluation_by' => $this->input->post('eval_by'),
+            'subjective' => $this->input->post('subjective'),
+            'objective' => $this->input->post('objective'),
+            'assessment' => $this->input->post('assessment'),
+            'treatment_goal' => $this->input->post('treatment_goal'),
+            'exp_session' => $this->input->post('exp_session'),
+            'start_date' => $this->input->post('start_date'),
+            'end_date' => $this->input->post('end_date'),
+            'first_followup_eval_date' => $this->input->post('first_followup_eval_date'),
+            'first_followup_eval_date_remark' => $this->input->post('first_followup_eval_date_remark'),
+            'assign_therapist' => $this->input->post('consultant_therapist'),
+            'added_by' => $this->session->userdata('user_id'),
+        	'added_date'		=>	 date("Y-m-d h:i:s a"));
+
+			
+		$last_treatment_protocol_id = $this->physio_model->save_treatment_protocol_details($treatment_protocol_details);
+		if($last_treatment_protocol_id)
+		{
+			
+
+		if(!empty($week_date))
+		{
+		foreach ($week_date as $i => $a) { // need index to match other properties
+				$week_plan = array(
+					'week_date' => $a,
+					'week_treatment_line' => isset($week_treatment_line[$i]) ? $week_treatment_line[$i] : '',
+					'week_remark' => isset($week_remark[$i]) ? $week_remark[$i] : '',
+					'week_frequency' => isset($week_frequency[$i]) ? $week_frequency[$i] : '',
+					'eval_no' => $this->input->post('eval_no'),
+					'treat_protocol_id' => $last_treatment_protocol_id
+				);
+				
+				$this->physio_model->save_week_plan_details($week_plan); 
+			}
+		}
+
+	
+	 $this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Treatment Protocol details save successfully!</div>");
+	 redirect(base_url().'app/physio/treatment_protocol/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+	
+	}
+	}
+	public function edit_treatment_protocol()
+	{
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		$eval_no = $this->uri->segment("6");
+		$this->session->set_userdata(array(
+				 'tab'			=>		'',
+				 'module'		=>		'',
+				 'subtab'		=>		'',
+				 'submodule'	=>		''));
+				 $this->data['message'] = $this->session->flashdata('message');
+
+				 $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+				 $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+				 $this->data['lastPreassesID'] = $this->physio_model->lastPreassesID();
+				 
+				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
+
+				 $this->data['treatment_protocol_info'] = $this->physio_model->get_treatment_protocol($eval_no);
+				/* echo "<pre>";
+				print_r($this->data['treatment_protocol_info']);die;*/
+		$this->load->view('app/physio/edit_treatment_protocol',$this->data);
+	}
+	public function treatment_protocol_update()
+	{
+	   
+	    $week_date = $this->input->post('week_date', true);
+	    $week_treatment_line = $this->input->post('week_treatment_line', true);
+	    $week_remark = $this->input->post('week_remark', true);
+	    $week_frequency = $this->input->post('week_frequency', true);
+	    
+	    
+	    
+		$treatment_protocol_details = array(
+            'eval_no' => $this->input->post('eval_no'),
+            'patient_no' => $this->input->post('patient_no'),
+            'iop_no' => $this->input->post('opd_no'),
+            'evaluation_date' => $this->input->post('eval_date'),
+            'evaluation_by' => $this->input->post('eval_by'),
+            'subjective' => $this->input->post('subjective'),
+            'objective' => $this->input->post('objective'),
+            'assessment' => $this->input->post('assessment'),
+            'treatment_goal' => $this->input->post('treatment_goal'),
+            'exp_session' => $this->input->post('exp_session'),
+            'start_date' => $this->input->post('start_date'),
+            'end_date' => $this->input->post('end_date'),
+            'first_followup_eval_date' => $this->input->post('first_followup_eval_date'),
+            'first_followup_eval_date_remark' => $this->input->post('first_followup_eval_date_remark'),
+            'assign_therapist' => $this->input->post('consultant_therapist'),
+            'added_by' => $this->session->userdata('user_id'),
+        	'added_date'		=>	 date("Y-m-d h:i:s a"));
+
+			
+		$last_treatment_protocol_id = $this->physio_model->save_treatment_protocol_details($treatment_protocol_details);
+		if($last_treatment_protocol_id)
+		{
+			
+
+		if(!empty($week_date))
+		{
+		foreach ($week_date as $i => $a) { // need index to match other properties
+				$week_plan = array(
+					'week_date' => $a,
+					'week_treatment_line' => isset($week_treatment_line[$i]) ? $week_treatment_line[$i] : '',
+					'week_remark' => isset($week_remark[$i]) ? $week_remark[$i] : '',
+					'week_frequency' => isset($week_frequency[$i]) ? $week_frequency[$i] : '',
+					'eval_no' => $this->input->post('eval_no'),
+					'treat_protocol_id' => $last_treatment_protocol_id
+				);
+				
+				$this->physio_model->save_week_plan_details($week_plan); 
+			}
+		}
+
+	
+	 $this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Treatment Protocol details save successfully!</div>");
+	 redirect(base_url().'app/physio/treatment_protocol/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+	
+	}
 	}
 
 	public function view_treatment_protocol(){

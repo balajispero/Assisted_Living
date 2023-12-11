@@ -353,6 +353,26 @@
                         <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Tightness</label><span class="text-danger"></span></br>
+                                    <!-- <select class="form-control" name="ptn_tightness" id="multiple-checkboxes" multiple="multiple">
+                                
+                                        <?php
+                                          if (!empty($tightness_list))
+                                          {
+                                            $tightness_list_arr=explode(',',$ptnEvalInfo->ptn_tightness);
+                                            foreach ($tightness_list as $key => $val)
+                                            { 
+                                                  $selected='';
+                                                  if(!empty($ptnEvalInfo->ptn_tightness) && in_array($val['pvalue'],$tightness_list_arr))
+                                                  {
+                                                    $selected='selected';
+                                                  }
+                                                ?>
+                                                    <option <?= $selected; ?>
+                                                    value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
+                                                    <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
+                                        <?php }
+                                          } ?>
+                                    </select> -->
                                     <select name="ptn_tightness" class="form-control">
                                       <option value="">- Select Tightness -</option>
                                       

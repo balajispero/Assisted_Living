@@ -172,6 +172,7 @@
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab_1">
+                                            <?php echo $message;?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
                                             <!-- <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Evaluation</a> -->
                                             <!-- <a href="<?php echo base_url();?>app/physio/add_evaluation" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a> -->
@@ -191,22 +192,23 @@
                                             <th>Member No.</th>
                                             <th>Name</th>
                                             <th>Complain</th>
-                                                    <th>Treatment Duration</th>
+                                                    <!-- <th>Treatment Duration</th> -->
                                                     <th>Session</th>
                                                     <th>Added by</th>
                                                     <th>Treatment Protocol</th>
-                                                    <!-- <th>Prepared by</th> -->
-                                                    <!-- <th></th> -->
+                                                    
                                            </tr>
                                            </thead>
                                            <tbody>
-                                           <?php foreach($patientPhysioEvalAgree as $rows){?>
+                                           <?php
+                                           $eval_list_arr=$eval_no_list; 
+                                           foreach($patientPhysioEvalAgree as $key => $rows){?>
                                             <tr>
                                             <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a></td>
                                                 <td><?php echo $rows->patient_no?></td>
                                                 <td><?php echo $rows->ptn_name?></td>
                                                 <td><?php echo $rows->ptn_complain?></td>
-                                                <td><?php echo $rows->exp_session?></td>
+                                                <!-- <td><?php echo $rows->exp_session?></td> -->
                                                 <td><?php echo $rows->exp_session?></td>
                                                 <td>
                                                     <?php
@@ -216,8 +218,17 @@
                                                          echo $pages->cPreparedBy;
                                                      ?> 
                                                 </td>
-                                                
+                                                <td><a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a> | <a href="<?php echo base_url();?>app/physio/edit_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo "2";?>">Edit</a></td>
+                                               <!--  <?php
+                                                if(in_array($rows->eval_no,$eval_list_arr))
+                                                  {
+                                                   
+                                                    ?>
+                                                <td><a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Edit</a></td>
+                                            <?php }else{ ?>
                                                 <td><a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a></td>
+                                            <?php } ?> -->
+
                                            </tr> 
                                            <?php }?> 
                                            </tbody>

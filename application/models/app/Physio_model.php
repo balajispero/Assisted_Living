@@ -129,6 +129,55 @@ class Physio_model extends CI_Model{
 		//echo $this->db->last_query(); die;
 		return $query->result();
 	}
+	public function save_treatment_protocol_details($data)
+	{     
+        $this->db->insert('physio_treatment_protocol', $data);
+        $insert_id = $this->db->insert_id();
+
+        return  $insert_id;
+	}
+		public function save_week_plan_details($data)
+	{     
+        return $this->db->insert('physio_treatment_protocol_week_plan', $data);    
+	}
+	public function get_treatment_protocol($eval_no){
+			$this->db->select('treatment_protocol.*');
+			$this->db->from('physio_treatment_protocol treatment_protocol');
+		
+			/*$this->db->join('preassessment_medicines ptn_med', 'ptn_med.preasses_id = ptn_preasses.preasses_id','left');*/
+			/*$this->db->join('patient_psychological_cond psycho_cond', 'psycho_cond.preasses_no = ptn_preasses.preasses_no','left');*/
+ 		
+ 	
+			/*$this->db->order_by('rbed.room_bed_id', 'ASC');*/
+			//$this->db->limit('7');
+			$query = $this->db->get();
+		 //echo $this->db->last_query(); die;
+			if ( $query->num_rows() > 0 )
+			{
+				$row = $query->result();
+				// print_r();
+				return $row;
+			}
+		}
+	public function get_tightness_list(){
+		$this->db->select("multi_sel_id, pvalue");	
+		$this->db->where(array(
+			'pcode'		=>	'tightness',
+			'InActive'	=>	0	
+		));
+		//$this->db->order_by('cValue','asc');
+		$query = $this->db->get("physio_multi_sel_parameters");
+		return $query->result_array();
+	}
+	public function get_eval_no_list(){
+		$this->db->select("eval_no");	
+		$this->db->where(array(
+			'InActive'	=>	0	
+		));
+		
+		$query = $this->db->get("physio_treatment_protocol");
+		return $query->result_array();
+	}
 
 	public function lastPreassesID(){
 		$this->db->select("(cValue + 1) as cValue");

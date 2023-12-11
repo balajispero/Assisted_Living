@@ -83,33 +83,19 @@
 
                 <section class="content">
                     <!-- <?php echo $message;?> -->
-                    <!-- <form action="<?php echo base_url()?>app/physio/preassessment_save1" method="post" enctype="multipart/form-data"> -->
-                      <!-- <?php
-                          $userID = $lastPreassesID->cValue;
-                          $userID2 = $lastPreassesID->cValue;
-                          if(strlen($userID) == 1){
-                            $userID = "EVAL0000".$userID;
-                          }else if(strlen($userID) == 2){
-                            $userID = "EVAL000".$userID;
-                          }else if(strlen($userID) == 3){
-                            $userID = "EVAL00".$userID;
-                          }else if(strlen($userID) == 4){
-                            $userID = "EVAL0".$userID;
-                          }else if(strlen($userID) == 5){
-                            $userID = $userID;
-                        }
-                        ?> -->
-                        <input type="hidden" name="userID2" value="<?php echo $userID2;?>">
+                     <form action="<?php echo base_url()?>app/physio/treatment_protocol_save" method="post" enctype="multipart/form-data"> 
+                     
+                        <input type="hidden" name="eval_no" value="<?php echo $this->uri->segment("6");?>">
                         
-                        <!-- <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
-                        <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>"> -->
+                         <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
+                        <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>"> 
                         <h3>Treatment Protocol</h3><hr>
                         
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Date of Evaluation</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo date("Y-m-d",strtotime($ptnEvalInfo->added_date)); ?>" readonly> 
+                                    <input type="text" class="form-control" name="eval_date" value="<?php echo date("Y-m-d",strtotime($ptnEvalInfo->added_date)); ?>" readonly> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -117,7 +103,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Evaluated by</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo @$patientInfo->middlename; ?>"> 
+                                    <input type="text" class="form-control" name="eval_by" value="<?php echo @$patientInfo->middlename; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -125,7 +111,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Subjective</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_age"> 
+                                    <input type="text" class="form-control" name="subjective"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -135,16 +121,16 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Objective</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="present_complaints"> -->
-                                    <textarea name="present_complaints" class="form-control"></textarea>
+                                    
+                                    <textarea name="objective" class="form-control"></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Assessments</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="past_history" class="form-control"></textarea>
+                                    
+                                    <textarea name="assessment" class="form-control"></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -183,27 +169,17 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
 
-
-                            <!-- <div class="col-md-4">
-                                <div class="form-group wrapper-class" >
-                                    <label>Duaration</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_age"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div> --><!-- /.col-md-3 -->
-
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Start Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="next_eval_date">
+                                    <input type="date" class="form-control" name="start_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>End Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="next_eval_date">
+                                    <input type="date" class="form-control" name="end_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -236,49 +212,18 @@
                 
 
                 <div class="row">
-                            <!-- <div class="col-md-4">
-                                <div class="form-group wrapper-class" >
-                                    <label>Week 1</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="treatment_goal"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group wrapper-class" >
-                                    <label>Line of Treatment</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="therapy_time"> 
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-4">
-                                <div class="form-group wrapper-class" >
-                                    <label>Expected Sessions</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="exp_session">
-                                    
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group wrapper-class">
-                                    <label>Remarks</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="next_eval_date">
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div> --><!-- /.col-md-3 -->
+                            
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Follow up Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="first_follow_up_eval_date">
+                                    <input type="date" class="form-control" name="first_followup_eval_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Comments</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="first_follow_up_eval_date_remark">
+                                    <input type="text" class="form-control" name="first_followup_eval_date_remark">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
