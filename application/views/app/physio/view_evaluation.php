@@ -23,66 +23,59 @@
                 display:block !important;
             }
 
-           /*Start toggle button css*/
-           .switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 34px;
-    }
+         /*Start toggle button css*/
+         .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px; /* Adjust the width */
+            height: 20px; /* Adjust the height */
+        }
 
-    .switch input { 
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
 
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 10px; /* Adjust the border-radius */
+        }
 
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px; /* Adjust the height */
+            width: 16px; /* Adjust the width */
+            left: 2px; /* Adjust the left position */
+            bottom: 2px; /* Adjust the bottom position */
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
 
-    input:checked + .slider {
-      background-color: #2196F3;
-    }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
 
-    input:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
-    }
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
 
-    input:checked + .slider:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
-    }
-
-     
-    .slider.round {
-      border-radius: 34px;
-    }
-
-    .slider.round:before {
-      border-radius: 50%;
-    }
+        input:checked + .slider:before {
+            -webkit-transform: translateX(16px);
+            -ms-transform: translateX(16px);
+            transform: translateX(16px);
+        }
     /*End toggle button css*/
     /*Start multiple select dropdown css*/
         .btn-group, .btn-group-vertical {
@@ -237,8 +230,9 @@
                             </div><!-- /.col-md-3 -->
 
                         </div><!-- / row -->
+                        <hr style="border-top: 2px solid #2B48B0;"/>
                         
-                        <label>Assessments</label>
+                        <label><h3><b><u>Assessment</b></u></h3></label>
                         <div class="row">
 
                             <div class="col-md-3">
@@ -475,10 +469,11 @@
                             </div><!-- /.col-md-3 -->
                             <?php } ?>
                            </div><!--/.row-->
+                           <hr style="border-top: 2px solid #2B48B0;"/>
 
                         <div class="row">
                           <div class="col-sm-12">
-                          <label><h3><b>Bed Mobility</b></h3></label>
+                          <label><h3><b><u>Bed Mobility</u></b></h3></label>
                             <p style="font-size: 20px;">Rolling</p>
                         </div>
                     </div><br>
@@ -770,7 +765,7 @@
 
                   <div class="row">
                           <div class="col-sm-12">
-                          <label><h3><b>B. Transfers</b></h3></label>
+                          <label><h3><b><u>B. Transfers</u></b></h3></label>
                             <p style="font-size: 20px;">Transfer to wheelchair</p>
                         </div>
                     </div><br>
@@ -945,7 +940,7 @@
                       </div>
                       <div class="row">
                           <div class="col-sm-12">
-                          <label><h3><b>Balance Assessment</b></h3></label>
+                          <label><h3><b><u>Balance Assessment</u></b></h3></label>
                             <p style="font-size: 20px;">Berg Balance Scale</p>
                         </div></div>
                       
@@ -1164,10 +1159,11 @@
                             </div><!-- /.col-md-3 -->
                       </div>
                   
+                      <hr style="border-top: 2px solid #2B48B0;"/>
 
                     <div class="row">
                           <div class="col-sm-12">
-                          <label><h3><b>Gait Assessment</b></h3></label>
+                          <label><h3><b><u>Gait Assessment</u></b></h3></label>
 
                         </div>
                     </div>
@@ -1216,6 +1212,7 @@
                         <?php } ?>
                             </div><!-- / row -->
 
+                            <hr style="border-top: 2px solid #2B48B0;"/>
 
 
                 <div class="row">
@@ -1224,7 +1221,8 @@
                     <input type="radio" class="" name="ptn_rec" value="Yes" checked>Yes &nbsp;
                     <input type="radio" name="ptn_rec" class="" value="No">No</div>
                 </div><br>
-
+               
+                <div class="container">
                 <div class="row" id="treatment_section" style="display: <?php echo ($ptnEvalInfo->expert_recommendation=="No") ? "none" : "block";?>">
                 <div class="row">
                             <div class="col-md-3">
@@ -1276,6 +1274,31 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                            <!-- <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Expected sessions </label><span class="text-danger"></span></br>
+                                   
+                                    <select name="exp_session" class="form-control input-sm">
+                                      <option value="">-Select Expected sessions-</option>
+                                      
+                                      <option value="Daily Once" <?php if($ptnEvalInfo->exp_session=="Daily Once"){ echo "selected"; } ?>>Daily Once</option>
+                                      
+                                      <option value="Daily Twice" <?php if($ptnEvalInfo->exp_session=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option>
+                                      
+                                      <option value="Thrice Daily" <?php if($ptnEvalInfo->exp_session=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option>
+                                      
+                                      <option value="Twice a Week" <?php if($ptnEvalInfo->exp_session=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option>
+                                      
+                                      <option value="Thrice a Week" <?php if($ptnEvalInfo->exp_session=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option>
+                                      
+                                      <option value="Once a Week" <?php if($ptnEvalInfo->exp_session=="Once a Week"){ echo "selected"; } ?>>Once a Week</option>
+                                    </select>
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>/.form-group wrapper-class
+                            </div>/.col-md-3 -->
+                            </div>
+                            <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Expected sessions </label><span class="text-danger"></span></br>
@@ -1299,8 +1322,6 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            </div>
-                            <div class="row">
                             
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
@@ -1312,6 +1333,7 @@
 
                         </div><!-- / row -->
                         </div><!--/treatment section div-->
+                             </div>
 
                
            <!--  </form> -->

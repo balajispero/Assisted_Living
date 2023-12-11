@@ -186,7 +186,9 @@
 
         
         <div class="row">
-          <h3 style="margin-left: 61px; margin-top:10px;"><u>Bed Mobility</u></h3><br>
+          <h3 style="margin-left: 61px; margin-top:10px;"><u>Bed Mobility</u></h3>
+          <p style="margin-left: 62px; font-size:15px">Rolling</p><br>
+
           
           <div class="container">
                      <table class="table table-striped" style="margin-left:50px; width:85%;">
