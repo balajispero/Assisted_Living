@@ -84,6 +84,33 @@
       border-radius: 50%;
     }
     /*End toggle button css*/
+    /*Start multiple select dropdown css*/
+        .btn-group, .btn-group-vertical {
+        position: relative;
+        width: 245%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .btn.btn-default {
+        background-color: #fafafa;
+        color: #666;
+        border-color: #ddd;
+        border-bottom-color: #ddd;
+        width: 40%;
+        text-align: left;
+    }
+    .btn .caret {
+        margin-left: 150px;
+        display: none;
+    }
+    .multiselect-container {
+        position: absolute;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 40%;
+    }
+    /*End multiple select dropdown css*/
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -353,7 +380,7 @@
                         <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Tightness</label><span class="text-danger"></span></br>
-                                    <!-- <select class="form-control" name="ptn_tightness" id="multiple-checkboxes" multiple="multiple">
+                                     <select class="form-control" name="ptn_tightness" id="multiple-checkboxes" multiple="multiple">
                                 
                                         <?php
                                           if (!empty($tightness_list))
@@ -372,8 +399,8 @@
                                                     <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
                                         <?php }
                                           } ?>
-                                    </select> -->
-                                    <select name="ptn_tightness" class="form-control">
+                                    </select> 
+                                    <!-- <select name="ptn_tightness" class="form-control">
                                       <option value="">- Select Tightness -</option>
                                       
                                       <option value="Shoulder" <?php if($ptnEvalInfo->ptn_tightness=="Shoulder"){ echo "selected"; } ?>>Shoulder</option>
@@ -386,7 +413,7 @@
                                       <option value="Hip" <?php if($ptnEvalInfo->ptn_tightness=="Hip"){ echo "selected"; } ?>>Hip</option>
                                       <option value="Knee" <?php if($ptnEvalInfo->ptn_tightness=="Knee"){ echo "selected"; } ?>>Knee</option>
                                       <option value="Ankle" <?php if($ptnEvalInfo->ptn_tightness=="Ankle"){ echo "selected"; } ?>>Ankle</option>
-                                    </select>
+                                    </select> -->
                                          
                                     <span class="text-danger error-text type_category_err"></span>                           
                                   </div><!-- /.form-group wrapper-class -->
@@ -1301,7 +1328,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
         <!-------------------------jquery cdn for work radio button------------------------>
 
+        <!-------------------------jquery cdn for work multiple select dropdown------------------------>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+        <!-------------------------jquery cdn for work multiple select dropdown------------------------>
+
 <script>
+    $(document).ready(function() {  
+        $('#multiple-checkboxes').multiselect();  
+    }); 
      /********************Start check one radio button allowed column wise************************/
   
      $(document).ready(function () {
