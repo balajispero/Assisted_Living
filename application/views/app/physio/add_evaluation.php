@@ -436,7 +436,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Tightness</label><span class="text-danger"></span></br>
-                                      <select name="ptn_tightness" class="form-control" id="multiple-checkboxes" multiple="multiple">
+                                      <!-- <select name="ptn_tightness" class="form-control" id="multiple-checkboxes" multiple="multiple">
                                       <option value="">- Select Tightness -</option>
                                       
                                       <option value="Shoulder">Shoulder</option>
@@ -449,8 +449,8 @@
                                       <option value="Hip">Hip</option>
                                       <option value="Knee">Knee</option>
                                       <option value="Ankle">Ankle</option>
-                                    </select> 
-                                   <!--  <select class="form-control" name="ptn_tightness" id="multiple-checkboxes" multiple="multiple">
+                                    </select>  -->
+                                     <select class="form-control" name="ptn_tightness" id="multiple-checkboxes" multiple="multiple">
                                 
                                         <?php
                                           if (!empty($tightness_list))
@@ -464,7 +464,7 @@
                                                     <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
                                         <?php }
                                           } ?>
-                                    </select>  -->
+                                    </select>  
 
                                          
                                     <span class="text-danger error-text type_category_err"></span>                           

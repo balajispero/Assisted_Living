@@ -396,7 +396,7 @@
                         <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Tightness</label><span class="text-danger"></span></br>
-                                     <!-- <select class="form-control" name="ptn_tightness" id="multiple-checkboxes" multiple="multiple">
+                                      <select class="form-control" name="ptn_tightness" id="multiple-checkboxes" multiple="multiple">
                                 
                                         <?php
                                           if (!empty($tightness_list))
@@ -415,8 +415,8 @@
                                                     <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
                                         <?php }
                                           } ?>
-                                    </select> -->
-                                    <select name="ptn_tightness" class="form-control" id="multiple-checkboxes" multiple="multiple">
+                                    </select> 
+                                    <!-- <select name="ptn_tightness" class="form-control" id="multiple-checkboxes" multiple="multiple">
                                       <option value="">- Select Tightness -</option>
                                       
                                       <option value="Shoulder" <?php if($ptnEvalInfo->ptn_tightness=="Shoulder"){ echo "selected"; } ?>>Shoulder</option>
@@ -429,7 +429,7 @@
                                       <option value="Hip" <?php if($ptnEvalInfo->ptn_tightness=="Hip"){ echo "selected"; } ?>>Hip</option>
                                       <option value="Knee" <?php if($ptnEvalInfo->ptn_tightness=="Knee"){ echo "selected"; } ?>>Knee</option>
                                       <option value="Ankle" <?php if($ptnEvalInfo->ptn_tightness=="Ankle"){ echo "selected"; } ?>>Ankle</option>
-                                    </select> 
+                                    </select>  -->
                                     
                                          
                                     <span class="text-danger error-text type_category_err"></span>                           
