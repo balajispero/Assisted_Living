@@ -140,6 +140,7 @@ textarea.form-control{
                             </div><!-- /.col-md-3 -->
 
                         </div><!-- / row -->
+                        <hr style="border-top: 2px solid #2B48B0;"/>
                         <h3>Plan</h3><hr>
                         <div class="row">
                             <div class="col-md-3">
