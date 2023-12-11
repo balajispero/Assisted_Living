@@ -19,6 +19,9 @@
     background: red !important;
     color: #363636;
 }
+textarea.form-control{
+         height: 34px !important;
+           }
         </style>
 
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -122,7 +125,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Objective</label><span class="text-danger"></span></br>
                                     
-                                    <textarea name="objective" class="form-control"></textarea>
+                                    <textarea name="objective" class="form-control"><?php echo $treatment_protocol_info[0]->objective?></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -130,7 +133,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Assessments</label><span class="text-danger"></span></br>
                                     
-                                    <textarea name="assessment" class="form-control"></textarea>
+                                    <textarea name="assessment" class="form-control"><?php echo $treatment_protocol_info[0]->assessment?></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -172,14 +175,14 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Start Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="start_date">
+                                    <input type="date" class="form-control" name="start_date" value="<?php echo $treatment_protocol_info[0]->start_date?>">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>End Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="end_date">
+                                    <input type="date" class="form-control" name="end_date" value="<?php echo $treatment_protocol_info[0]->end_date?>">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -216,14 +219,14 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Follow up Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="first_followup_eval_date">
+                                    <input type="date" class="form-control" name="first_followup_eval_date" value="<?php echo $treatment_protocol_info[0]->first_followup_eval_date?>">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Comments</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="first_followup_eval_date_remark">
+                                    <input type="text" class="form-control" name="first_followup_eval_date_remark" value="<?php echo $treatment_protocol_info[0]->first_followup_eval_date_remark?>">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
