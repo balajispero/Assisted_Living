@@ -86,10 +86,11 @@ textarea.form-control{
 
                 <section class="content">
                     <!-- <?php echo $message;?> -->
-                     <form action="<?php echo base_url()?>app/physio/treatment_protocol_save" method="post" enctype="multipart/form-data"> 
+                     <form action="<?php echo base_url()?>app/physio/treatment_protocol_update" method="post" enctype="multipart/form-data"> 
                      
                         <input type="hidden" name="eval_no" value="<?php echo $this->uri->segment("6");?>">
-                        
+                        <input type="hidden" name="treat_protocol_id" value="<?php echo $this->uri->segment("7");?>">
+
                          <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                         <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>"> 
                         <h3>Treatment Protocol</h3><hr>
@@ -213,7 +214,7 @@ textarea.form-control{
 
       foreach($physio_treatment_weekly_plan as $key => $weekly_plan){ $key1 = $key+1; ?>
         <tr id="row<?=$key1?>">
-           <td>week <?=$key1?></td><td><input type="text" class="form-control" id="datePick<?=$key1?>" name="week_date[]" value="<?php $date_list = "2023-12-18,2023-12-19"; $selected_dates = implode(', ', explode(',', $weekly_plan->week_date)); echo $selected_dates; ?>"></td><td><input type="text" class="form-control" name="week_treatment_line[]" value="<?=$weekly_plan->week_treatment_line?>"></td><td><input type="text" class="form-control" name="week_remark[]" value="<?=$weekly_plan->week_remark?>"></td><td><input type="text" class="form-control" name="week_frequency[]" value="<?=$weekly_plan->week_frequency?>"></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key1?>"><span class="glyphicon glyphicon-minus"></span></button></td>
+           <td>week <?=$key1?></td><td><input type="text" class="form-control" id="datePick<?=$key1?>" name="week_date[]" value="<?php  $selected_dates = implode(',', explode(',', $weekly_plan->week_date)); echo $selected_dates; ?>"></td><td><input type="text" class="form-control" name="week_treatment_line[]" value="<?=$weekly_plan->week_treatment_line?>"></td><td><input type="text" class="form-control" name="week_remark[]" value="<?=$weekly_plan->week_remark?>"></td><td><select name="week_frequency[]" class="form-control"><option value="">-Select Frequency-</option><option value="Daily Once" <?php if($weekly_plan->week_frequency=="Daily Once"){ echo "selected"; } ?>>Daily Once</option><option value="Daily Twice" <?php if($weekly_plan->week_frequency=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option><option value="Thrice Daily" <?php if($weekly_plan->week_frequency=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option><option value="Twice a Week" <?php if($weekly_plan->week_frequency=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option><option value="Thrice a Week" <?php if($weekly_plan->week_frequency=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option><option value="Once a Week" <?php if($weekly_plan->week_frequency=="Once a Week"){ echo "selected"; } ?>>Once a Week</option></select></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key1?>"><span class="glyphicon glyphicon-minus"></span></button></td>
         </tr>
         <?php } }?> 
          <input type="hidden" value="<?php if(!empty($key1)){ print($key1);}else{ echo '0';}?>" id="weekplancuont"></input> 
@@ -320,7 +321,7 @@ $(document).ready(function() {
                     
                     
       $('#dynamic_field').append('<tr id="row'+i+'"><td>Week '+ i +'</td><td><input type="text" name="week_date[]" id="datePick' + i + '" autocomplete="off" class="form-control" /></td><td><input type="text" class="form-control" name="week_treatment_line[]"></td><td><input type="text" class="form-control" name="week_remark[]"></td><td><select name="week_frequency[]" class="form-control"><option value="">-Select Frequency-</option><option value="Daily Once" <?php if($ptnEvalInfo->exp_session=="Daily Once"){ echo "selected"; } ?>>Daily Once</option><option value="Daily Twice" <?php if($ptnEvalInfo->exp_session=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option><option value="Thrice Daily" <?php if($ptnEvalInfo->exp_session=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option><option value="Twice a Week" <?php if($ptnEvalInfo->exp_session=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option><option value="Thrice a Week" <?php if($ptnEvalInfo->exp_session=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option><option value="Once a Week" <?php if($ptnEvalInfo->exp_session=="Once a Week"){ echo "selected"; } ?>>Once a Week</option></select></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
-      $('#datePick' + i).multiDatesPicker();
+      $('#datePick' + i).multiDatesPicker({ dateFormat: 'yy-mm-dd' });
              j++;
                 });
                 $(document).on('click', '.btn_remove', function() {
@@ -341,13 +342,8 @@ $(document).ready(function() {
         defaultDates: <?php echo json_encode($selected_dates); ?>
       });
 
-        <?php } ?>
+        <?php } } ?>
            
-         <?php } ?>
-      /*$('#datePick1').multiDatesPicker({
-          dateFormat: 'yy-mm-dd',
-        defaultDates: <?php echo json_encode($selected_dates); ?>
-      });*/
     });
   </script> 
 

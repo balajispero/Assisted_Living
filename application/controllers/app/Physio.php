@@ -152,7 +152,7 @@ class Physio extends General{
         // attachment
         $file = $_FILES["attachment"]["tmp_name"];
         $filename = $_FILES["attachment"]["name"];
-        $attachment = chunk_split(base64_encode(file_get_contents($file)));
+        $attachment = @chunk_split(base64_encode(file_get_contents($file)));
 
         // Message with attachment
         $msg1 = "--$boundary\r\n";
@@ -808,7 +808,7 @@ class Physio extends General{
 	    $week_remark = $this->input->post('week_remark', true);
 	    $week_frequency = $this->input->post('week_frequency', true);
 	    
-	    
+	    //print_r($week_date);die;
 	    
 		$treatment_protocol_details = array(
             'eval_no' => $this->input->post('eval_no'),
@@ -833,7 +833,7 @@ class Physio extends General{
 		$last_treatment_protocol_id = $this->physio_model->save_treatment_protocol_details($treatment_protocol_details);
 		if($last_treatment_protocol_id)
 		{
-			
+		$this->db->query("update physio_evaluation set treatment_protocol = 'Added',treat_protocol_id = '".$last_treatment_protocol_id."' where eval_no = '".$this->input->post('eval_no')."'");	
 
 		if(!empty($week_date))
 		{
@@ -891,7 +891,7 @@ class Physio extends General{
 	    
 	    
 	    
-		$treatment_protocol_details = array(
+		$update_treatment_protocol_details = array(
             'eval_no' => $this->input->post('eval_no'),
             'patient_no' => $this->input->post('patient_no'),
             'iop_no' => $this->input->post('opd_no'),
@@ -907,17 +907,17 @@ class Physio extends General{
             'first_followup_eval_date' => $this->input->post('first_followup_eval_date'),
             'first_followup_eval_date_remark' => $this->input->post('first_followup_eval_date_remark'),
             'assign_therapist' => $this->input->post('consultant_therapist'),
-            'added_by' => $this->session->userdata('user_id'),
-        	'added_date'		=>	 date("Y-m-d h:i:s a"));
+            'updated_by' => $this->session->userdata('user_id'),
+        	'updated_date'		=>	 date("Y-m-d h:i:s a"));
 
 			
-		$last_treatment_protocol_id = $this->physio_model->save_treatment_protocol_details($treatment_protocol_details);
-		if($last_treatment_protocol_id)
+		$update_treatment_protocol_id = $this->physio_model->update_treatment_protocol_details($update_treatment_protocol_details);
+		if($update_treatment_protocol_id)
 		{
 			
-
 		if(!empty($week_date))
 		{
+			$this->db->delete('physio_treatment_protocol_week_plan',array('eval_no'=>$this->input->post('eval_no')));
 		foreach ($week_date as $i => $a) { // need index to match other properties
 				$week_plan = array(
 					'week_date' => $a,
@@ -925,7 +925,7 @@ class Physio extends General{
 					'week_remark' => isset($week_remark[$i]) ? $week_remark[$i] : '',
 					'week_frequency' => isset($week_frequency[$i]) ? $week_frequency[$i] : '',
 					'eval_no' => $this->input->post('eval_no'),
-					'treat_protocol_id' => $last_treatment_protocol_id
+					'treat_protocol_id' => $this->input->post('treat_protocol_id')
 				);
 				
 				$this->physio_model->save_week_plan_details($week_plan); 
@@ -933,7 +933,7 @@ class Physio extends General{
 		}
 
 	
-	 $this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Treatment Protocol details save successfully!</div>");
+	 $this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Treatment Protocol details updated successfully!</div>");
 	 redirect(base_url().'app/physio/treatment_protocol/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 	
 	}

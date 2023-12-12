@@ -146,7 +146,7 @@ textarea.form-control{
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Goals</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="treatment_goal" value="<?php echo $ptnEvalInfo->treatment_goal; ?>"> 
+                                    <input type="text" class="form-control" name="treatment_goal" value="<?php echo @$ptnEvalInfo->treatment_goal; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -302,7 +302,7 @@ $(document).ready(function() {
                     i++;
                     
       $('#dynamic_field').append('<tr id="row'+i+'"><td>Week '+ i +'</td><td><input type="text" name="week_date[]" id="datePick' + i + '" autocomplete="off" class="form-control" /></td><td><input type="text" class="form-control" name="week_treatment_line[]"></td><td><input type="text" class="form-control" name="week_remark[]"></td><td><select name="week_frequency[]" class="form-control"><option value="">-Select Frequency-</option><option value="Daily Once" <?php if($ptnEvalInfo->exp_session=="Daily Once"){ echo "selected"; } ?>>Daily Once</option><option value="Daily Twice" <?php if($ptnEvalInfo->exp_session=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option><option value="Thrice Daily" <?php if($ptnEvalInfo->exp_session=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option><option value="Twice a Week" <?php if($ptnEvalInfo->exp_session=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option><option value="Thrice a Week" <?php if($ptnEvalInfo->exp_session=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option><option value="Once a Week" <?php if($ptnEvalInfo->exp_session=="Once a Week"){ echo "selected"; } ?>>Once a Week</option></select></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
-      $('#datePick' + i).multiDatesPicker();
+      $('#datePick' + i).multiDatesPicker({ dateFormat: 'yy-mm-dd' });
 
                 });
                 $(document).on('click', '.btn_remove', function() {

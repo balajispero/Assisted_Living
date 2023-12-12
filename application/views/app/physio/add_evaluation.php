@@ -17,7 +17,7 @@
         <style>
          textarea.form-control{
             height: 34px !important;
-            border-radius: 25px !important;
+            /*border-radius: 25px !important;*/
            }
          
           th.berg_bal {
@@ -82,14 +82,14 @@
         }
     /*End toggle button css*/
 
-     input.form-control{
+     /*input.form-control{
       border-radius: 25px !important;
      }
      select.form-control{
       border-radius: 25px !important;
       color: black;
 
-     }
+     }*/
      
         /*Start multiple select dropdown css*/
         .btn-group, .btn-group-vertical {

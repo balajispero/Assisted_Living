@@ -140,6 +140,14 @@ class Physio_model extends CI_Model{
 	{     
         return $this->db->insert('physio_treatment_protocol_week_plan', $data);    
 	}
+	public function update_treatment_protocol_details($data)
+		{   
+
+			//$this->db->where("preasses_id",$this->input->post('id'));
+			$this->db->where(array('InActive'=>0,'eval_no'=>$this->input->post('eval_no'))); 
+        	
+        	return  $this->db->update("physio_treatment_protocol",$data);
+		}
 	public function get_treatment_protocol($eval_no){
 			$this->db->select('treatment_protocol.*');
 			$this->db->from('physio_treatment_protocol treatment_protocol');
