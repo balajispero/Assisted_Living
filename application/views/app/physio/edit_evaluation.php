@@ -205,7 +205,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Evaluation No.</label><span class="text-danger">*</span></br>
-                                    <input type="text" class="form-control" name="eval_no" value="<?php echo $ptnEvalInfo->eval_no; ?>" readonly> 
+                                    <input type="text" class="form-control" name="eval_no" value="<?php echo $ptnEvalInfo->eval_no; ?>" readonly required> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -213,7 +213,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Name</label><span class="text-danger">*</span></br>
-                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $ptnEvalInfo->ptn_name; ?>"> 
+                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $ptnEvalInfo->ptn_name; ?>" required> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->

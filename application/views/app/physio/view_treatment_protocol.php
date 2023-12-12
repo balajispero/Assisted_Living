@@ -103,7 +103,7 @@
                             <div class="col-md-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Date of Evaluation</label><span class="text-danger">*</span></br>
-                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $userID;?>"> 
+                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo $userID;?>" required> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -111,7 +111,7 @@
                             <div class="col-md-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Evaluated by</label><span class="text-danger">*</span></br>
-                                    <input type="text" class="form-control" name="ptn_name"> 
+                                    <input type="text" class="form-control" name="ptn_name" required> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->

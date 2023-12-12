@@ -240,7 +240,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Evaluation No.</label><span class="text-danger">*</span></br>
-                                    <input type="text" class="form-control" name="eval_no" value="<?php echo $userID;?>" readonly> 
+                                    <input type="text" class="form-control" name="eval_no" value="<?php echo $userID;?>" readonly required>  
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -248,7 +248,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Name</label><span class="text-danger">*</span></br>
-                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo @$patientInfo->middlename; ?>"> 
+                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo @$patientInfo->middlename; ?>" required> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
