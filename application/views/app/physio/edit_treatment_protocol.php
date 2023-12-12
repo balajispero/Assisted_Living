@@ -98,7 +98,7 @@ textarea.form-control{
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Date of Evaluation</label><span class="text-danger"></span></br>
+                                    <label>Date of Evaluation</label><span class="text-danger">*</span></br>
                                     <input type="text" class="form-control" name="eval_date" value="<?php echo date("Y-m-d",strtotime($ptnEvalInfo->added_date)); ?>" readonly> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -106,7 +106,7 @@ textarea.form-control{
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Evaluated by</label><span class="text-danger"></span></br>
+                                    <label>Evaluated by</label><span class="text-danger">*</span></br>
                                     <input type="text" class="form-control" name="eval_by" value="<?php echo @$patientInfo->middlename; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -177,14 +177,14 @@ textarea.form-control{
 
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
-                                    <label>Start Date</label><span class="text-danger"></span></br>
+                                    <label>Start Date</label><span class="text-danger">*</span></br>
                                     <input type="date" class="form-control" name="start_date" value="<?php echo $treatment_protocol_info[0]->start_date?>">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
-                                    <label>End Date</label><span class="text-danger"></span></br>
+                                    <label>End Date</label><span class="text-danger">*</span></br>
                                     <input type="date" class="form-control" name="end_date" value="<?php echo $treatment_protocol_info[0]->end_date?>">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->

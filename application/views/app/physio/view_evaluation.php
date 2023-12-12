@@ -186,7 +186,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
-                                    <label>Evaluation No.</label><span class="text-danger"></span></br>
+                                    <label>Evaluation No.</label><span class="text-danger">*</span></br>
                                     <input type="text" class="form-control" name="eval_no" value="<?php echo $ptnEvalInfo->eval_no; ?>" readonly> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -195,7 +195,7 @@
 
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Name</label><span class="text-danger"></span></br>
+                                    <label>Name</label><span class="text-danger">*</span></br>
                                     <input type="text" class="form-control" name="ptn_name" value="<?php echo $ptnEvalInfo->ptn_name; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
