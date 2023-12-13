@@ -199,27 +199,19 @@
                                            <tbody>
                                            <?php
                                            
-                                           foreach($patientPhysioEvalAgree as $key => $rows){?>
+                                           foreach($physioNotes as $key => $rows){?>
                                             <tr>
-                                            <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a></td>
-                                                <td><?php echo $rows->patient_no?></td>
-                                                <td><?php echo $rows->ptn_name?></td>
+                                            <td><?php echo $rows->session_date?></a></td>
+                                                <td><?php echo $rows->eval_no?></td>
+                                                <td><?php echo $rows->notes?></td>
                                                
+                                                <td><?php echo $rows->added_by?></td>
                                                
-                                                
                                                 <td>
-                                                    <?php
-                                                        $ci_obj = & get_instance();
-                                                        $ci_obj->load->model('app/general_model');
-                                                        $pages = $ci_obj->general_model->getPreparedBy($rows->added_by);
-                                                         echo $pages->cPreparedBy;
-                                                     ?> 
-                                                </td>
-                                                <td>
-                                                    <?php if($rows->treatment_protocol=="Added"){ ?>
-                                                        <a href="<?php echo base_url();?>app/physio/edit_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>
+                                                    <!-- <?php if($rows->treatment_protocol=="Added"){ ?> -->
+                                                        <a href="<?php echo base_url();?>app/physio/edit_physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>
                                                     <?php }else{ ?>
-                                                        <a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
+                                                        <a href="<?php echo base_url();?>app/physio/add_physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
                                                         <?php } ?>
                                                 </td>
 

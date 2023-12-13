@@ -209,6 +209,18 @@ class Physio_model extends CI_Model{
 		$this->data = array('cValue'	=>		$this->input->post('userID2'));
 		$this->db->update("system_option",$this->data);
 	}
+	public function get_physio_notes(){
+		//$this->db->order_by("dDateTime","DESC");
+	
+				$query = $this->db->get_where("physio_notes",array(
+				'InActive'	=>		0,
+				//'iop_no'=>$iop_no
+				));	
+			
+			//$query->result();
+			//echo $this->db->last_query(); die;
+		return $query->result();
+	}
 
 	
 	

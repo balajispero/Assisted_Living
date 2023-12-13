@@ -254,7 +254,6 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Intensity</label><span class="text-danger"></span></br>
-                                     <div class="range-wrap">
                                     <select name="ptn_pain_intensity" class="form-control">
                                       <option value="">-Select Intensity-</option>
                                       

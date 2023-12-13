@@ -1005,8 +1005,10 @@ class Physio extends General{
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
-		/*echo "<pre>";
-		print_r($this->data['patientPhysioEval']);*/
+		$this->data['physioNotes'] = $this->physio_model->get_physio_notes();
+		
+		// echo "<pre>";
+		// print_r($this->data['physioNotes']);die;
 		$this->load->view("app/physio/physio_daily_notes",$this->data);
 		}
 

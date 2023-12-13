@@ -14,7 +14,7 @@
         <link href="<?php echo base_url();?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
        <style>
          textarea.form-control{
             height: 34px !important;
