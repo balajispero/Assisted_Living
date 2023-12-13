@@ -24,12 +24,12 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-            <style>
-            th#act_data {
-            width: 20%;
-        }
-    </style>
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
+        <style>
+         textarea.form-control{
+         height: 34px !important;
+           }
+        </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -157,14 +157,11 @@
                             <div class="box-footer clearfix">
                                 <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
-                                    <li class="active"><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
-                                    <?php if($this->session->userdata('user_role') == 11){ ?>
+                                    <li><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
                                  <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                 
-                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
-                                    <li><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
-                                <?php } ?>
-                                    <!-- <li><a href="<?php echo base_url()?>app/physio/bill/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">bill</a></li>  -->
+                                 <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
+                                    <li  class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
                                     
                                  </ul>
                                 </div>
@@ -175,7 +172,7 @@
                      <div class="col-md-9"> 
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab_1" data-toggle="tab">Evaluation</a></li>
+                                        <li class="active"><a href="#tab_1" data-toggle="tab">Treatment Protocol</a></li>
                                         
                                     </ul>
                                     <div class="tab-content">
@@ -183,7 +180,7 @@
                                             <?php echo $message;?>
                                             <?php if($this->session->userdata('user_role') == 11) {?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                            <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a>
+                                            <a href="<?php echo base_url();?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Discharge Summary</a>
                                             <?php } ?>
                                             <?php } ?>
                                             <div class="alt2" dir="ltr" style="
@@ -197,28 +194,27 @@
                                            <table class="table table-hover table-striped">
                                            <thead>
                                            <tr>
-                                            <th>Evaluation No</th>
-                                            <th>Member No</th>
-                                            <th>Member Name</th>
-                                                    <th>Complain</th>
+                                            <th>Evaluation No.</th>
+                                            <th>Member No.</th>
+                                            <th>Name</th>
+                                            <th>Complain</th>
+                                                    <!-- <th>Treatment Duration</th> -->
                                                     <th>Session</th>
                                                     <th>Added by</th>
-                                                    <!-- <th></th> -->
-                                                    <th id="act_data">Action</th>
+                                                    <th>Treatment Protocol</th>
                                                     
                                            </tr>
                                            </thead>
                                            <tbody>
-                                           <?php foreach($patientPhysioEval as $rows){?>
+                                           <?php
+                                           //$eval_list_arr=$eval_no_list; 
+                                           foreach($patientPhysioEvalAgree as $key => $rows){?>
                                             <tr>
-                                                <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>//<?php echo $rows->therapy_type;?>"><?php echo $rows->eval_no?></a></td>
-                                                <td>
-                                                    <?php if($this->session->userdata('user_role') == 3) { ?>
-                                                    <a href="<?php echo base_url();?>app/physio/sent_mail_view/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/<?php echo $rows->eval_no;?>"><?php echo $rows->patient_no?></a>
-                                                    <?php }else{   
-                                                     echo $rows->patient_no; } ?></td>
+                                            <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a></td>
+                                                <td><?php echo $rows->patient_no?></td>
                                                 <td><?php echo $rows->ptn_name?></td>
                                                 <td><?php echo $rows->ptn_complain?></td>
+                                                <!-- <td><?php echo $rows->exp_session?></td> -->
                                                 <td><?php echo $rows->exp_session?></td>
                                                 <td>
                                                     <?php
@@ -228,24 +224,15 @@
                                                          echo $pages->cPreparedBy;
                                                      ?> 
                                                 </td>
-                                                <!-- <td><?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                            <a href="<?php echo base_url();?>app/physio/mail_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Mail</a>
-                                            <?php } ?></td> -->
-                                                
-                                                <td><?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                                    <a href="<?php echo base_url();?>app/physio/evaluation_pdf/<?php echo $rows->eval_no;?>">PDF | </a>
-                                                    <?php if($this->session->userdata('user_role') == 3) {?>
-                                                    <a href="<?php echo base_url();?>app/physio/mail_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Mail</a>  
-                                                <?php } ?>
+                                                <td>
+                                                    <?php if($rows->treatment_protocol=="Added"){ ?>
+                                                        <a href="<?php echo base_url();?>app/physio/edit_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>
+                                                    <?php }else{ ?>
+                                                        <a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
+                                                        <?php } ?>
+                                                </td>
 
-                                                
-                                                    <?php if($this->session->userdata('user_role') == 11) {?>
-                                            <a href="<?php echo base_url();?>app/physio/edit_evaluation/<?php echo $rows->eval_no;?>/<?php echo $rows->therapy_type;?>">Modify</a>
-                                            <?php } ?>
-                                            <?php } ?></td>
-                                                
-                                            </tr>    
-
+                                           </tr> 
                                            <?php }?> 
                                            </tbody>
                                            </table>
