@@ -1401,64 +1401,44 @@
       /*****************End berg balance question calculate**********************/   
     </script>
 
-  <!-- <script>
-    $(document).ready(function() {
-      // Handle the change event of the input range
-      $('#berg_bal_total_score').on('change', function() {
-        // Get the current value of the input range
-        var inputValue = $(this).val();
+    <script>
+    /*****************Start berg balance question calculate**********************/
+      $(".sel_berg_bal_score").change(function () {
+      // Calculate the total score based on the selected values
+      var val = Number($("select[name='berg_bal_sit_unsupport']").val()) +
+                Number($("select[name='berg_bal_sit_tostand']").val()) +
+                Number($("select[name='berg_bal_stand_tosit']").val()) +
+                Number($("select[name='berg_bal_transfer']").val()) +
+                Number($("select[name='berg_bal_stand_unsupport']").val()) +
+                Number($("select[name='berg_bal_stand_witheye']").val()) +
+                Number($("select[name='berg_bal_stand_withfeet']").val()) +
+                Number($("select[name='berg_bal_tendem_stand']").val()) +
+                Number($("select[name='berg_bal_stand_oneleg']").val()) +
+                Number($("select[name='berg_bal_turning_trunk']").val()) +
+                Number($("select[name='berg_bal_object_fromfloor']").val()) +
+                Number($("select[name='berg_bal_turning_360_deg']").val()) +
+                Number($("select[name='berg_bal_stool']").val()) +
+                Number($("select[name='berg_bal_reaching_forward']").val());
 
-        // Reset the color for all divs
-        $('#colorDiv1, #colorDiv2, #colorDiv3').css('color', '');
+      // Set the total score value
+      $("#berg_bal_total_score").val(val);
 
-        // Check the range and set the color of the div accordingly
-        if (inputValue >= 0 && inputValue <= 20) {
-          $('#colorDiv1').css('color', 'red');
-        } else if (inputValue >= 21 && inputValue <= 40) {
-          $('#colorDiv2').css('color', 'yellow');
-        } else if (inputValue >= 41 && inputValue <= 56) {
-          $('#colorDiv3').css('color', 'green');
-        }
-      });
+      // Reset the color for all divs
+      $('#colorDiv1, #colorDiv2, #colorDiv3').css('color', '');
+
+      // Get the current value of the total score
+      var inputValue = $("#berg_bal_total_score").val();
+
+      // Check the range and set the color of the div accordingly
+      if (inputValue >= 0 && inputValue <= 20) {
+        $('#colorDiv1').css('color', 'red');
+      } else if (inputValue >= 21 && inputValue <= 40) {
+        $('#colorDiv2').css('color', '#FFBF00');
+      } else if (inputValue >= 41 && inputValue <= 56) {
+        $('#colorDiv3').css('color', '#03C03C');
+      }
     });
-</script> -->
-<script>
-  $(".sel_berg_bal_score").change(function () {
-  // Calculate the total score based on the selected values
-  var val = Number($("select[name='berg_bal_sit_unsupport']").val()) +
-            Number($("select[name='berg_bal_sit_tostand']").val()) +
-            Number($("select[name='berg_bal_stand_tosit']").val()) +
-            Number($("select[name='berg_bal_transfer']").val()) +
-            Number($("select[name='berg_bal_stand_unsupport']").val()) +
-            Number($("select[name='berg_bal_stand_witheye']").val()) +
-            Number($("select[name='berg_bal_stand_withfeet']").val()) +
-            Number($("select[name='berg_bal_tendem_stand']").val()) +
-            Number($("select[name='berg_bal_stand_oneleg']").val()) +
-            Number($("select[name='berg_bal_turning_trunk']").val()) +
-            Number($("select[name='berg_bal_object_fromfloor']").val()) +
-            Number($("select[name='berg_bal_turning_360_deg']").val()) +
-            Number($("select[name='berg_bal_stool']").val()) +
-            Number($("select[name='berg_bal_reaching_forward']").val());
-
-  // Set the total score value
-  $("#berg_bal_total_score").val(val);
-
-  // Reset the color for all divs
-  $('#colorDiv1, #colorDiv2, #colorDiv3').css('color', '');
-
-  // Get the current value of the total score
-  var inputValue = $("#berg_bal_total_score").val();
-
-  // Check the range and set the color of the div accordingly
-  if (inputValue >= 0 && inputValue <= 20) {
-    $('#colorDiv1').css('color', 'red');
-  } else if (inputValue >= 21 && inputValue <= 40) {
-    $('#colorDiv2').css('color', '#FFBF00');
-  } else if (inputValue >= 41 && inputValue <= 56) {
-    $('#colorDiv3').css('color', '#03C03C');
-  }
-});
-
+/*****************End berg balance question calculate**********************/
 </script>
 
 </body>

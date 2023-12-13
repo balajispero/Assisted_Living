@@ -104,6 +104,7 @@
         width: 40%;
     }
     /*End multiple select dropdown css*/
+
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -253,6 +254,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Intensity</label><span class="text-danger"></span></br>
+                                     <div class="range-wrap">
                                     <select name="ptn_pain_intensity" class="form-control">
                                       <option value="">-Select Intensity-</option>
                                       
@@ -274,7 +276,7 @@
                                       <option value="10" <?php if($ptnEvalInfo->ptn_pain_intensity=="10"){ echo "selected"; } ?>>10</option>
 
 
-                                    </select>
+                                    </select> 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->

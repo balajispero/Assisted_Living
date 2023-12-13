@@ -176,11 +176,59 @@
                                            <?php if($getOPDPatient->nStatus == "Pending"){?>
                                            <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Daily Notes</a>
                                            <?php }}?>
-                                           <!-- <a href="<?php echo base_url()?>app/ipd_print/print_room_transfer/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a> -->
-                                           <!-- <a href="<?php echo base_url()?>app/ipd_print/pdf_room_transfer/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-success" target="_blank"><i class="fa fa-print"></i> PDF</a> -->
-                                    
+                                          <div class="alt2" dir="ltr" style="
+                                    margin: 0px;
+                                    padding: 0px;
+                                    border: 0px solid #919b9c;
+                                    width: 100%;
+                                    height: 300px;
+                                    text-align: left;
+                                    overflow: auto"> 
+                                           <table class="table table-hover table-striped">
+                                           <thead>
+                                           <tr>
+                                            <th>Date</th>
+                                            <th>Evaluation No.</th>
+                                            <th>Note</th>
                                             
-                                            <br><br><br><br><br><br><br>
+                                                    <th>Added by</th>
+                                                    <th>Action</th>
+                                                    
+                                           </tr>
+                                           </thead>
+                                           <tbody>
+                                           <?php
+                                           
+                                           foreach($patientPhysioEvalAgree as $key => $rows){?>
+                                            <tr>
+                                            <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a></td>
+                                                <td><?php echo $rows->patient_no?></td>
+                                                <td><?php echo $rows->ptn_name?></td>
+                                               
+                                               
+                                                
+                                                <td>
+                                                    <?php
+                                                        $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $pages = $ci_obj->general_model->getPreparedBy($rows->added_by);
+                                                         echo $pages->cPreparedBy;
+                                                     ?> 
+                                                </td>
+                                                <td>
+                                                    <?php if($rows->treatment_protocol=="Added"){ ?>
+                                                        <a href="<?php echo base_url();?>app/physio/edit_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>
+                                                    <?php }else{ ?>
+                                                        <a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
+                                                        <?php } ?>
+                                                </td>
+
+                                           </tr> 
+                                           <?php }?> 
+                                           </tbody>
+                                           </table>
+                                       </div>
+
                                             <br><br><br><br><br><br><br>
                                             <br><br><br><br><br><br><br>
                                         </div>
@@ -223,7 +271,7 @@
         <!-- END BDAY -->
         
 							<!-- Modal -->
-                            <form method="post" action="<?php echo base_url()?>app/ipd/room_transfer" onSubmit="return confirm('Are you sure you want to save?');">
+                             <form method="post" action="<?php echo base_url()?>app/physio/physio_daily_notes" onSubmit="return confirm('Are you sure you want to save?');"> 
                             <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                             <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

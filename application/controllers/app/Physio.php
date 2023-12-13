@@ -180,7 +180,7 @@ class Physio extends General{
         $msg1 .= "--$boundary--";
     }
 
-            $subject = "Health updates of " /*. @$this->data['patientInfo']->middlename*/;
+            $subject = "Health updates " /*. @$this->data['patientInfo']->middlename*/;
 
             $headers .= "From: balajiM@sperohealthcare.in" . "\r\n";
             $headers .= "CC: balajim.speroinfosystems@gmail.com, $rel_email2\r\n";
@@ -961,6 +961,27 @@ class Physio extends General{
 		$this->load->view("app/physio/physio_discharge_summary",$this->data);	
 	}
 	public function physio_daily_notes(){
+		if(isset($_POST['btnSave'])){
+			$this->data = array(
+				'iop_id'		=>		$this->input->post('opd_no'),
+				'patient_no'		=>	$this->input->post('patient_no'),
+				'eval_no'		=>		$this->input->post('eval_no'),
+				'session_date'			=>		$this->input->post('session_date'),
+				'session_time'			=>		$this->input->post('session_time'),
+				'notes'			=>		!empty($this->input->post('notes')) ? $this->input->post('notes') : '',
+				'added_date'		=>		date("Y-m-d h:i:s A"),
+				'added_by'	=>		$this->session->userdata('user_id'),
+				/*'updated_date'			=>		$this->input->post('updated_date'),
+				'updated_by'	=>		$this->session->userdata('user_id'),*/
+				'InActive'		=>		0
+			);
+			$this->db->insert('physio_notes',$this->data);
+			
+			$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Notes successfully Added!</div>");
+		
+			redirect(base_url().'app/physio/physio_daily_notes/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+		}else{
+
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
 		$rel_agree="Yes";
@@ -970,7 +991,10 @@ class Physio extends General{
 		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
 		/*echo "<pre>";
 		print_r($this->data['patientPhysioEval']);*/
-		$this->load->view("app/physio/physio_daily_notes",$this->data);	
+		$this->load->view("app/physio/physio_daily_notes",$this->data);
+		}
+
+			
 	}
 	public function bill(){
 		$iop_no = $this->uri->segment("4");
