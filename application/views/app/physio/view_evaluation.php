@@ -1141,11 +1141,11 @@
                       </table>
                       <div class="row">
                         <div class="col-md-3">
-                      <p style="font-family:Times New Roman;"><b><u>Interpretation</u></b></p>
+                        <h3><b>Interpretation</b></h3>
                    <!-- <hr> -->
-                   <p>0–20, wheelchair bound</p>
-                   <p>21–40, walking with assistance</p>
-                   <p>41–56, independent</p>
+                   <h4 id="colorDiv1">0–20, wheelchair bound</h4>
+                   <h4 id="colorDiv2">21–40, walking with assistance</h4>
+                   <h4 id="colorDiv3">41–56, independent</h4>
                       </div>
                       </div>
                    <div class="row">
@@ -1370,6 +1370,52 @@
         });
 
        /***********************End check one radio button allowed column wise*************************/  
+</script>
+<script>
+  // Define a function to handle the color change based on the score
+  function updateColor() {
+    // Get the current value of the total score
+    var inputValue = $("#berg_bal_total_score").val();
+
+    // Reset the color for all divs
+    $('#colorDiv1, #colorDiv2, #colorDiv3').css('color', '');
+
+    // Check the range and set the color of the div accordingly
+    if (inputValue >= 0 && inputValue <= 20) {
+      $('#colorDiv1').css('color', 'red');
+    } else if (inputValue >= 21 && inputValue <= 40) {
+      $('#colorDiv2').css('color', '#FFBF00');
+    } else if (inputValue >= 41 && inputValue <= 56) {
+      $('#colorDiv3').css('color', '#03C03C');
+    }
+  }
+  updateColor();
+  
+
+  // Handle the change event of the select elements
+  $(".sel_berg_bal_score").change(function () {
+    // Calculate the total score based on the selected values
+    var val = Number($("select[name='berg_bal_sit_unsupport']").val()) +
+              Number($("select[name='berg_bal_sit_tostand']").val()) +
+              Number($("select[name='berg_bal_stand_tosit']").val()) +
+              Number($("select[name='berg_bal_transfer']").val()) +
+              Number($("select[name='berg_bal_stand_unsupport']").val()) +
+              Number($("select[name='berg_bal_stand_witheye']").val()) +
+              Number($("select[name='berg_bal_stand_withfeet']").val()) +
+              Number($("select[name='berg_bal_tendem_stand']").val()) +
+              Number($("select[name='berg_bal_stand_oneleg']").val()) +
+              Number($("select[name='berg_bal_turning_trunk']").val()) +
+              Number($("select[name='berg_bal_object_fromfloor']").val()) +
+              Number($("select[name='berg_bal_turning_360_deg']").val()) +
+              Number($("select[name='berg_bal_stool']").val()) +
+              Number($("select[name='berg_bal_reaching_forward']").val());
+
+    // Set the total score value
+    $("#berg_bal_total_score").val(val);
+
+    // Call the color update function
+    updateColor();
+  });
 </script>
 
 </body>
