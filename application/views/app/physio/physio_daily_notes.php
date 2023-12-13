@@ -274,6 +274,7 @@
                              <form method="post" action="<?php echo base_url()?>app/physio/physio_daily_notes" onSubmit="return confirm('Are you sure you want to save?');"> 
                             <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                             <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
+                            <input type="hidden" name="eval_no" value="EVAL00001">
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -382,7 +383,7 @@ xmlhttp3.send();
                                       
                                         <tr>
                                         	<td>Note</td>
-                                            <td><textarea name="reason" placeholder="Note" class="form-control input-sm" style="width: 100%;" rows="3"></textarea></td>
+                                            <td><textarea name="notes" placeholder="Note" class="form-control input-sm" style="width: 100%;" rows="3"></textarea></td>
                                         </tr>
                                         </tbody>
                                         </table>
