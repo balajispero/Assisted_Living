@@ -188,7 +188,8 @@ class Physio_model extends CI_Model{
 	public function get_eval_no_list(){
 		$this->db->select("eval_no");	
 		$this->db->where(array(
-			'InActive'	=>	0	
+			'InActive'	=>	0
+			/*'assign_therapist' => $this->session->userdata('user_id')*/	
 		));
 		
 		$query = $this->db->get("physio_treatment_protocol");

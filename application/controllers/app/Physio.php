@@ -958,7 +958,7 @@ class Physio extends General{
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
 
-		//$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
+		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
 		/*echo "<pre>";
 		print_r($this->data['eval_no_list']);
 		print_r($this->data['patientPhysioEvalAgree']);die;*/

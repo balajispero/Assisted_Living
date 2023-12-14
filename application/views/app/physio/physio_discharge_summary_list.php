@@ -161,7 +161,7 @@
                                  <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                 
                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
-                                    <li  class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
+                                    <li  class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
                                     
                                  </ul>
                                 </div>
@@ -172,7 +172,7 @@
                      <div class="col-md-9"> 
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab_1" data-toggle="tab">Treatment Protocol</a></li>
+                                        <li class="active"><a href="#tab_1" data-toggle="tab">Discharge Summary</a></li>
                                         
                                     </ul>
                                     <div class="tab-content">
