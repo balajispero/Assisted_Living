@@ -149,35 +149,50 @@
                 <b style="margin-left: 53px;">Remark : </b><?php echo $ptnEvalInfo->mobility_remark; ?>
                 </td>
             </tr><br>
+            
             <tr>
+                <td width="50%">         
+                <b style="margin-left: 53px;">Muscle Strength : </b><?php echo $ptnEvalInfo->muscle_strength; ?>
+                </td>
+                <td width="50%">         
+                <b style="margin-left:63px;">Remark : </b><?php echo $ptnEvalInfo->muscle_strength_remark;?>
+                </td>
+                
+             </tr><br>
+             <?php 
+             if($ptnEvalInfo->therapy_type=="general" || $ptnEvalInfo->therapy_type=="ortho")
+                { ?>
+             <tr>
                 <td width="50%">         
                 <b style="margin-left:63px;">Tightness : </b><?php echo $ptnEvalInfo->ptn_tightness;?>
                 </td>
                 <td width="50%">         
-                <b style="margin-left: 53px;">Muscle Strength : </b><?php echo $ptnEvalInfo->muscle_strength; ?>
+                <b style="margin-left: 53px;">Tightness Side : </b><?php echo $ptnEvalInfo->tightness_side; ?>
                 </td>
+                
              </tr><br>
-            <tr>
-                <td width="50%">         
-                <b style="margin-left:63px;">Remark : </b><?php echo $ptnEvalInfo->muscle_strength_remark;?>
-                </td>
-                <td width="50%">         
-                <b style="margin-left: 53px;">Muscle Tone</b><?php echo $ptnEvalInfo->muscle_tone; ?>
-                </td>
-             </tr><br>
+         <?php } ?>
              <tr>
                 <td width="50%">         
                 <b style="margin-left:63px;">Special Tests : </b><?php echo $ptnEvalInfo->ortho_special_test;?>
                 </td>
-                <td width="50%">         
-                <b style="margin-left: 53px;">Breathlessness</b><?php echo $ptnEvalInfo->breathlessness; ?>
+                 <td width="50%">         
+                <b style="margin-left: 53px;">Muscle Tone : </b><?php echo $ptnEvalInfo->muscle_tone; ?>
                 </td>
+                
              </tr><br>
+              <?php 
+             if($ptnEvalInfo->therapy_type=="general" || $ptnEvalInfo->therapy_type=="respi")
+                { ?>
              <tr>
+               <td width="50%">         
+                <b style="margin-left: 53px;">Breathlessness : </b><?php echo $ptnEvalInfo->breathlessness; ?>
+                </td>
                 <td width="50%">         
                 <b style="margin-left:63px;">Fatigue : </b><?php echo $ptnEvalInfo->fatigue;?>
                 </td>
              </tr>
+         <?php } ?>
          </table>
         </div>
  

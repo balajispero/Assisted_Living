@@ -520,7 +520,7 @@ class Physio extends General{
 	             $evalFileName = 'Evaluation-'.$this->data['ptnEvalInfo']->eval_no.'.pdf';
 	            // $dompdf->stream($invoiceFileName,array("Attachment" => 0));
 
-	            $dompdf->stream($evalFileName,array("Attachment" => 1));
+	            $dompdf->stream($evalFileName,array("Attachment" => 0));
 				 
 		
 		//$this->load->view('app/physio/evaluation_pdf',$this->data);
