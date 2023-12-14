@@ -187,6 +187,7 @@
                                            <table class="table table-hover table-striped">
                                            <thead>
                                            <tr>
+                                          
                                             <th>Date</th>
                                             <th>Evaluation No.</th>
                                             <th>Note</th>
@@ -208,11 +209,13 @@
                                                 <td><?php echo $rows->added_by?></td>
                                                
                                                 <td>
-                                                    <!-- <?php if($rows->treatment_protocol=="Added"){ ?> -->
+                                                    <!-- <?php if($rows->treatment_protocol=="Added"){ ?> 
                                                         <a href="<?php echo base_url();?>app/physio/edit_physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>
                                                     <?php }else{ ?>
                                                         <a href="<?php echo base_url();?>app/physio/add_physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
-                                                        <?php } ?>
+                                                        <?php } ?>-->
+                                                        <a href="" data-toggle="modal" data-target="#myModal">Edit</a>
+                                                   
                                                 </td>
 
                                            </tr> 
@@ -353,6 +356,17 @@ xmlhttp3.send();
                                         <table class="table table-hover">
                                         <tbody>
                                         <tr>
+                                            <td width="100">Evaluation No.</td>
+                                           <td width="250">   <select name="eval_no" class="form-control input-sm">
+                                                            
+                                                                <?php 
+                                                                foreach($physioNotes as $physioNotes){
+                                                                ?>
+                                                                <option value="<?php echo $physioNotes->eval_no;?>"><?php echo $physioNotes->eval_no;?></option>
+                                                                <?php }?>
+                                                                            </select></td>
+                                        </tr>
+                                           <tr>
                                         	<td width="98">Date</td>
                                             <td width="250"><input type="text" value="<?php echo date("Y-m-d");?>" name="dDate" id="dDate" placeholder="Date" class="form-control input-sm" style="width: 100%;" required></td>
                                         </tr>
