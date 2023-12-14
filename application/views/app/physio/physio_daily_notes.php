@@ -204,7 +204,7 @@
                                             <tr>
                                             <td><?php echo $rows->session_date?></a></td>
                                                 <td><?php echo $rows->eval_no?></td>
-                                                <td><?php echo $rows->notes?></td>
+                                                <td><?php echo $rows->notes; ?></td>
                                                
                                                 <td><?php echo $rows->added_by?></td>
                                                
@@ -214,8 +214,8 @@
                                                     <?php }else{ ?>
                                                         <a href="<?php echo base_url();?>app/physio/add_physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
                                                         <?php } ?>-->
-                                                        <a href="" data-toggle="modal" data-target="#myModal">Edit</a>
-                                                   
+                                                        <!-- <a href="" data-toggle="modal" data-target="#editModal">Edit</a> -->
+                                                        <a href="#" class="edit_physio_notes" data-physio_notes_id="<?php echo $rows->physio_notes_id; ?>" data-toggle="modal" data-target="#editModal" type="button">Edit</a>
                                                 </td>
 
                                            </tr> 
@@ -360,9 +360,9 @@ xmlhttp3.send();
                                            <td width="250">   <select name="eval_no" class="form-control input-sm">
                                                             
                                                                 <?php 
-                                                                foreach($physioNotes as $physioNotes){
+                                                                foreach($eval_no_list as $eval_no_list){
                                                                 ?>
-                                                                <option value="<?php echo $physioNotes->eval_no;?>"><?php echo $physioNotes->eval_no;?></option>
+                                                                <option value="<?php echo $eval_no_list->eval_no;?>"><?php echo $eval_no_list->eval_no;?></option>
                                                                 <?php }?>
                                                                             </select></td>
                                         </tr>
@@ -405,7 +405,150 @@ xmlhttp3.send();
                                 <!-- /.modal-dialog -->
                             </div>
                             </form>
-                            <!-- /.modal -->        
+                            <!-- /.modal -->  
+                            
+                            
+                            							<!-- Modal -->
+                                                        <form method="post" action="<?php echo base_url()?>app/physio/physio_daily_notes" onSubmit="return confirm('Are you sure you want to save?');"> 
+                            <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
+                            <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
+                            <input type="hidden" name="eval_no" value="EVAL00001">
+                            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Daily Notes</h4>
+                                        </div>
+
+<script language="javascript">
+function showDrugName(category_id)
+{
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	
+    document.getElementById("showCategories").innerHTML=xmlhttp.responseText;
+    }
+  }
+  var supp;
+
+xmlhttp.open("GET","<?php echo base_url();?>app/billing/getItem/"+category_id,true);
+xmlhttp.send();
+
+}
+
+function getData(category_id)
+{
+if (window.XMLHttpRequest)
+  {
+  xmlhttp2=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp2=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp2.onreadystatechange=function()
+  {
+  if (xmlhttp2.readyState==4 && xmlhttp2.status==200)
+    {
+	
+    document.getElementById("showroom_name").innerHTML=xmlhttp2.responseText;
+    }
+  }
+  var supp;
+
+xmlhttp2.open("GET","<?php echo base_url();?>general/getRoomName/"+category_id,true);
+xmlhttp2.send();
+
+}
+
+function showBedLists(category_id){
+	if (window.XMLHttpRequest)
+  {
+  xmlhttp3=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp3=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp3.onreadystatechange=function()
+  {
+  if (xmlhttp3.readyState==4 && xmlhttp2.status==200)
+    {
+	
+    document.getElementById("bedname").innerHTML=xmlhttp3.responseText;
+    }
+  }
+  var supp;
+
+xmlhttp3.open("GET","<?php echo base_url();?>general/getBedList/"+category_id,true);
+xmlhttp3.send();
+}
+</script>
+                                        <div class="modal-body">
+                                        <table class="table table-hover">
+                                        <tbody>
+                                        <tr>
+                                            <td width="100">Evaluation No.</td>
+                                           <td width="250">   <select name="eval_no" class="form-control input-sm">
+                                                            
+                                                                <?php 
+                                                                foreach($eval_no_list1 as $eval_no_list1){
+                                                                ?>
+                                                                <option value="<?php echo $eval_no_list1->eval_no;?>"><?php echo $eval_no_list1->eval_no;?></option>
+                                                                <?php }?>
+                                                                            </select></td>
+                                        </tr>
+                                           <tr>
+                                        	<td width="98">Date</td>
+                                            <td width="250"><input type="text" value="<?php echo date("Y-m-d");?>" name="dDate" id="dDate1" placeholder="Date" class="form-control input-sm" style="width: 100%;" required></td>
+                                        </tr>
+                                        <tr>
+                                        	<td>Time</td>
+                                            <td>
+                                            <div class="bootstrap-timepicker">
+                                        	<div class="form-group">
+                                            <div class="input-group">                                            
+                                                <input type="text" class="form-control timepicker" value="<?php echo date("h:i:s A");?>"  name="dTime" id="dTime"/>
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </div>
+                                            </div><!-- /.input group -->
+                                        	</div><!-- /.form group -->
+                                    		</div>
+                                            </td>
+                                        </tr>
+                                      
+                                      
+                                        <tr>
+                                        	<td>Note</td>
+                                            <td><textarea name="notes" placeholder="Note" class="form-control input-sm" style="width: 100%;" rows="3"></textarea></td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave" id="btnSave">Save</button>
+                                        </div>
+                                       
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            </form>
+                            <!-- /.modal -->  
         
         
         
@@ -456,10 +599,52 @@ xmlhttp3.send();
             });
         </script>
         <!-- END DATE -->
+        <script>
+            $(document).ready(function() {
+            //edit functionality start//
+$(document).on('click', '.edit_physio_notes', function (event) {
+    //event.preventDefault();
+//alert("kadarlo");
+const physio_notes_id = $(this).data("physio_notes_id"); 
+ //alert(physio_notes_id);
+
+if (window.XMLHttpRequest)
+  {
+  xmlhttp6=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp6=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp6.onreadystatechange=function()
+  {
+  if (xmlhttp6.readyState==4 && xmlhttp6.status==200)
+    {
+        var res = JSON.parse(xmlhttp6.responseText);
+        console.log(res);
+        //alert(res[0].laboratory_id);
+        //var docid=res[0].doctor;
+        //var docid='000'+res[0].doctor;
+        //$('#lab_id').val(res[0].io_lab_id)
+
+        //showDrugName(res[0].category_id);
+        //$(".editcat option[value=" + res[0].category_id + "]").attr('selected', 'selected');
+        //$("textarea[name='findings']").val(res[0].findings);
         
+        $("input[name='dDate']").val(res[0].session_date);
+        //$("input[name='editio_lab_id']").val(res[0].io_lab_id);
+
+         //$("#editdoctor option[value='" + docid + "']").attr('selected', 'selected');
+         //$(".particularitem option[value=" + res[0].laboratory_id + "]").attr('selected', 'selected');
         
-        
-        
+    }
+  }
+
+xmlhttp6.open("GET","<?php echo base_url();?>app/physio/view_physio_notes/"+physio_notes_id,true);
+xmlhttp6.send();
+});
+            });
+        </script>
         
         
         

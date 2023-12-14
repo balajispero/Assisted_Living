@@ -193,7 +193,7 @@ class Physio_model extends CI_Model{
 		));
 		
 		$query = $this->db->get("physio_treatment_protocol");
-		return $query->result_array();
+		return $query->result();
 	}
 
 	public function lastPreassesID(){
@@ -222,6 +222,18 @@ class Physio_model extends CI_Model{
 			//echo $this->db->last_query(); die;
 		return $query->result();
 	}
+	public function view_physio_notes($physio_notes_id)
+    {
+    $this->db->select("*");
+    $this->db->from('physio_notes');
+    $this->db->where('InActive', '0');
+    $this->db->where('physio_notes_id', $physio_notes_id);
+    $query = $this->db->get();
+  
+    $res = $query->result_array();
+    //echo $this->db->last_query();die;
+    return $res;
+    }
 
 	
 	

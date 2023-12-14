@@ -1006,6 +1006,8 @@ class Physio extends General{
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
 		$this->data['physioNotes'] = $this->physio_model->get_physio_notes();
+		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
+		$this->data['eval_no_list1'] = $this->physio_model->get_eval_no_list();
 		
 		// echo "<pre>";
 		// print_r($this->data['physioNotes']);die;
@@ -1057,6 +1059,13 @@ class Physio extends General{
 		
 		    // $this->load->view('app/billing/print_invoice',$this->data);
 	}
+
+	function view_physio_notes($physio_notes_id){
+        $data = $this->physio_model->view_physio_notes($physio_notes_id);
+        //print_r($data);die;
+        // header('Content-Type: application/json');
+        echo json_encode($data);
+     }
 
 
 }
