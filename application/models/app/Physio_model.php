@@ -234,6 +234,15 @@ class Physio_model extends CI_Model{
     //echo $this->db->last_query();die;
     return $res;
     }
+	// Example model function
+public function update_physio_daily_notes($data)
+{
+    
+	$id=array('physio_notes_id'=>$this->input->post('physio_notes_id')); 
+    
+    return $this->db->update('physio_notes', $data,$id);
+}
+
 
 	
 	

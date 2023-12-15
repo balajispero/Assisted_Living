@@ -410,10 +410,10 @@ xmlhttp3.send();
                             
                             
                             							<!-- Modal -->
-                                                        <form method="post" action="<?php echo base_url()?>app/physio/physio_daily_notes" onSubmit="return confirm('Are you sure you want to save?');"> 
+                                                        <form method="post" action="<?php echo base_url()?>app/physio/update_physio_daily_notes" onSubmit="return confirm('Are you sure you want to save?');"> 
                             <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                             <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
-                            <input type="hidden" name="eval_no" value="EVAL00001">
+                            <input type="hidden" name="physio_notes_id" value="">
                             <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -501,6 +501,7 @@ xmlhttp3.send();
                                         <tbody>
                                         <tr>
                                             <td width="100">Evaluation No.</td>
+
                                            <td width="250">   <select name="eval_no" class="eval_no form-control input-sm">
                                                             
                                                                 <?php 
@@ -638,6 +639,7 @@ xmlhttp6.onreadystatechange=function()
         //$(".editcat option[value=" + res[0].category_id + "]").attr('selected', 'selected');
         //$("textarea[name='findings']").val(res[0].findings);
         $(".eval_no option[value=" + res[0].eval_no + "]").attr('selected', 'selected');
+        $("input[name='physio_notes_id']").val(physio_notes_id);
         $("input[name='dDate']").val(res[0].session_date);
         $("input[name='dTime']").val(res[0].session_time);
         $("textarea[name='notes']").val(res[0].notes);
@@ -657,8 +659,6 @@ xmlhttp6.send();
             });
         </script>
         
-        
-        
-        
+    
     </body>
 </html>
