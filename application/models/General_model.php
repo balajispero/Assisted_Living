@@ -18,7 +18,7 @@ class General_model extends CI_Model{
 	}
 	
 	public function getUserLoggedIn($username){
-		$this->db->select("A.user_id, A.lastname, A.firstname, A.middlename, A.picture, B.designation,A.user_role,C.module");
+		$this->db->select("A.user_id, A.lastname, A.firstname, A.middlename, A.picture, B.designation,A.user_role,A.physio_expert,C.module");
 		$this->db->where('A.username', $username);
 		$this->db->join("designation B","B.designation_id = A.designation","left outer");
 		$this->db->join("user_roles C","C.role_id = A.user_role","left outer");

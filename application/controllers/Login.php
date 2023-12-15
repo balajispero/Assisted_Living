@@ -57,12 +57,14 @@ class Login extends General{
 			$this->data = $this->session->set_userdata(array(
                     'username'          =>          $this->input->post('username'),
                     'user_role'         =>          $user_info->user_role,
+                    'physio_expert'         =>          @$user_info->physio_expert,
                     'is_logged_in'      =>          true,
 					'user_id'			=>			$user_info->user_id,
 				// 	'department'		=>			$user_info->department_id     
              )); 
 			 
 			 $userModule = $this->login_model->getMyModule($this->session->userdata('user_id'));
+			 //print_r($this->session->userdata());die;
 			 if ($this->session->userdata('user_role')=='12'){
 			 	redirect(base_url().'app/doctor/preassessment_list',$this->data);
 			 }

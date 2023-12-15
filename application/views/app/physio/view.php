@@ -182,9 +182,10 @@
                                         <div class="tab-pane active" id="tab_1">
                                             <?php echo $message;?>
                                             <?php if($this->session->userdata('user_role') == 11) {?>
-                                            <?php  if($getOPDPatient->nStatus == "Pending"){?>
+                                            <?php  if($getOPDPatient->nStatus == "Pending"){
+                                                 if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes"){ ?>
                                             <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a>
-                                            <?php } ?>
+                                            <?php } } ?>
                                             <?php } ?>
                                             <div class="alt2" dir="ltr" style="
                                     margin: 0px;
@@ -239,7 +240,7 @@
                                                 <?php } ?>
 
                                                 
-                                                    <?php if($this->session->userdata('user_role') == 11) {?>
+                                                    <?php if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") {?>
                                             <a href="<?php echo base_url();?>app/physio/edit_evaluation/<?php echo $rows->eval_no;?>/<?php echo $rows->therapy_type;?>">Modify</a>
                                             <?php } ?>
                                             <?php } ?></td>

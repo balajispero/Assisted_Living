@@ -200,7 +200,9 @@
                                                     <!-- <th>Treatment Duration</th> -->
                                                     <th>Session</th>
                                                     <th>Added by</th>
-                                                    <th>Treatment Protocol</th>
+                                                    <th><?php if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") { ?>Treatment Protocol
+                                                    <?php } ?>
+                                                    </th>
                                                     
                                            </tr>
                                            </thead>
@@ -224,11 +226,12 @@
                                                      ?> 
                                                 </td>
                                                 <td>
-                                                    <?php if($rows->treatment_protocol=="Added"){ ?>
+                                                    <?php if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") {
+                                                     if($rows->treatment_protocol=="Added"){ ?>
                                                         <a href="<?php echo base_url();?>app/physio/edit_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>
                                                     <?php }else{ ?>
                                                         <a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
-                                                        <?php } ?>
+                                                        <?php } } ?>
                                                 </td>
 
                                            </tr> 

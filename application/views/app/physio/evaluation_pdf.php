@@ -172,15 +172,7 @@
                 
              </tr><br>
          <?php } ?>
-             <tr>
-                <td width="50%">         
-                <b style="margin-left:63px;">Special Tests : </b><?php echo $ptnEvalInfo->ortho_special_test;?>
-                </td>
-                 <td width="50%">         
-                <b style="margin-left: 53px;">Muscle Tone : </b><?php echo $ptnEvalInfo->muscle_tone; ?>
-                </td>
-                
-             </tr><br>
+
               <?php 
              if($ptnEvalInfo->therapy_type=="general" || $ptnEvalInfo->therapy_type=="respi")
                 { ?>
@@ -193,6 +185,19 @@
                 </td>
              </tr>
          <?php } ?>
+          <tr>
+                <?php 
+             if($ptnEvalInfo->therapy_type=="ortho")
+                { ?>
+                <td width="50%">         
+                <b style="margin-left:63px;">Special Tests : </b><?php echo $ptnEvalInfo->ortho_special_test;?>
+                </td>
+            <?php } ?>
+                 <td width="50%">         
+                <b style="margin-left: 53px;">Muscle Tone : </b><?php echo $ptnEvalInfo->muscle_tone; ?>
+                </td>
+                
+             </tr><br>
          </table>
         </div>
  
