@@ -174,7 +174,7 @@
                                             <!-- <?php echo $message;?> -->
                                             <?php if($this->session->userdata('emr_viewing') == ""){?>	
                                            <?php if($getOPDPatient->nStatus == "Pending"){?>
-                                           <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Daily Notes</a>
+                                           <a href="#" class="add_physio_notes btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Daily Notes</a>
                                            <?php }}?>
                                           <div class="alt2" dir="ltr" style="
                                     margin: 0px;
@@ -262,11 +262,12 @@
                 });  
             
             });
+            
         </script>
         <!-- END BDAY -->
         
 							<!-- Modal -->
-                             <form method="post" action="<?php echo base_url()?>app/physio/physio_daily_notes" onSubmit="return confirm('Are you sure you want to save?');"> 
+                             <form method="post" id="addForm" action="<?php echo base_url()?>app/physio/physio_daily_notes" onSubmit="return confirm('Are you sure you want to save?');"> 
                             <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                             <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
                             <input type="hidden" name="eval_no" value="EVAL00001">
@@ -500,7 +501,7 @@ xmlhttp3.send();
                                         <tbody>
                                         <tr>
                                             <td width="100">Evaluation No.</td>
-                                           <td width="250">   <select name="eval_no" class="form-control input-sm">
+                                           <td width="250">   <select name="eval_no" class="eval_no form-control input-sm">
                                                             
                                                                 <?php 
                                                                 foreach($eval_no_list1 as $eval_no_list1){
@@ -601,6 +602,12 @@ xmlhttp3.send();
         <!-- END DATE -->
         <script>
             $(document).ready(function() {
+                $(document).on('click', '.add_physio_notes', function (event) {
+                    $('#addForm').each(function() {
+                        this.reset();
+                    });
+				});
+
             //edit functionality start//
 $(document).on('click', '.edit_physio_notes', function (event) {
     //event.preventDefault();
@@ -630,8 +637,12 @@ xmlhttp6.onreadystatechange=function()
         //showDrugName(res[0].category_id);
         //$(".editcat option[value=" + res[0].category_id + "]").attr('selected', 'selected');
         //$("textarea[name='findings']").val(res[0].findings);
-        
+        $(".eval_no option[value=" + res[0].eval_no + "]").attr('selected', 'selected');
         $("input[name='dDate']").val(res[0].session_date);
+        $("input[name='dTime']").val(res[0].session_time);
+        $("textarea[name='notes']").val(res[0].notes);
+
+
         //$("input[name='editio_lab_id']").val(res[0].io_lab_id);
 
          //$("#editdoctor option[value='" + docid + "']").attr('selected', 'selected');
@@ -645,6 +656,7 @@ xmlhttp6.send();
 });
             });
         </script>
+        
         
         
         
