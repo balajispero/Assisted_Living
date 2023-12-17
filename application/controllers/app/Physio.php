@@ -1016,6 +1016,26 @@ class Physio extends General{
 
 			
 	}
+	public function update_physio_daily_notes()
+	{
+	   
+		$update_physio_daily_notes = array(
+			'eval_no' => $this->input->post('eval_no'),
+			'session_date'		=>	 $this->input->post('session_date'),
+			'session_time' =>  $this->input->post('dTime'),
+			'notes' =>  $this->input->post('notes'),
+			'updated_date'			=>		date("Y-m-d h:i:s a"),
+			'updated_by'	=>		$this->session->userdata('user_id'),
+			'InActive'		=>		0
+		);
+	      
+			$update_physio_daily_notes1 = $this->physio_model->update_physio_daily_notes($update_physio_daily_notes);
+
+			$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Notes successfully Updated!</div>");
+			
+			redirect(base_url().'app/physio/physio_daily_notes/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+		
+	}
 	public function bill(){
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
@@ -1067,23 +1087,7 @@ class Physio extends General{
         echo json_encode($data);
      }
 	// Example controller function
-public function update_physio_daily_notes()
-{
-   
-	$update_physio_daily_notes = array(
-		'eval_no' => $this->input->post('eval_no'),
-		'session_date'		=>	 date("Y-m-d h:i:s a"),
-		'session_time' =>  $this->input->post('dTime'),
-		'notes' =>  $this->input->post('notes')
-	);
-      
-		$update_physio_daily_notes1 = $this->physio_model->update_physio_daily_notes($update_physio_daily_notes);
 
-		$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Notes successfully Updated!</div>");
-		
-		redirect(base_url().'app/physio/physio_daily_notes/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
-	
-}
 
 	}
 

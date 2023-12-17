@@ -186,11 +186,18 @@ class Physio_model extends CI_Model{
 		return $query->result_array();
 	}
 	public function get_eval_no_list(){
-		$this->db->select("eval_no");	
-		$this->db->where(array(
+		$this->db->select("eval_no");
+		if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes"){
+			$this->db->where(array(
 			'InActive'	=>	0
-			/*'assign_therapist' => $this->session->userdata('user_id')*/	
 		));
+		}
+		elseif($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "No"){
+			$this->db->where(array(
+			'assign_therapist' => $this->session->userdata('user_id'),
+			'InActive'	=>	0
+		));
+		} 	
 		
 		$query = $this->db->get("physio_treatment_protocol");
 		return $query->result();
@@ -210,17 +217,54 @@ class Physio_model extends CI_Model{
 		$this->data = array('cValue'	=>		$this->input->post('userID2'));
 		$this->db->update("system_option",$this->data);
 	}
-	public function get_physio_notes(){
+	/*public function get_physio_notes(){
 		//$this->db->order_by("dDateTime","DESC");
-	
-				$query = $this->db->get_where("physio_notes",array(
-				'InActive'	=>		0,
-				//'iop_no'=>$iop_no
-				));	
+		if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes"){
+			$query = $this->db->get_where("physio_notes",array(
+				'InActive'	=>		0
+				));
+		}
+		elseif($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "No"){
+			$query = $this->db->get_where("physio_notes",array(
+				// 'assign_therapist' => $this->session->userdata('user_id'),
+				'InActive'	=>		0
+				));
+			
+		}	
 			
 			//$query->result();
 			//echo $this->db->last_query(); die;
 		return $query->result();
+	}*/
+	public function get_physio_notes(){
+		if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes"){
+		$this->db->select("A.*,
+		B.*");
+		
+		$where = "( 
+				A.InActive = 0
+				)    
+				";
+				$this->db->where($where);
+		//$this->db->order_by('A.patient_no','asc');
+		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");
+		$query = $this->db->get("physio_notes A");
+		return $query->result();
+		}
+		elseif($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "No"){
+			$this->db->select("A.*,
+		B.*");
+		
+		$where = "( 
+				B.assign_therapist='".$this->session->userdata('user_id')."'
+				)    
+				and A.InActive = 0";
+				$this->db->where($where);
+		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");
+		$query = $this->db->get("physio_notes A");
+		 
+		return $query->result();
+		}
 	}
 	public function view_physio_notes($physio_notes_id)
     {

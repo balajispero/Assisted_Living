@@ -193,7 +193,9 @@
                                             <th>Note</th>
                                             
                                                     <th>Added by</th>
-                                                    <th>Action</th>
+                                                    <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes" || $this->session->userdata('physio_expert') == "No"){ ?>
+                                                        <th>Action</th>
+                                                    <?php } ?>
                                                     
                                            </tr>
                                            </thead>
@@ -207,16 +209,11 @@
                                                 <td><?php echo $rows->notes; ?></td>
                                                
                                                 <td><?php echo $rows->added_by?></td>
-                                               
+                                               <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes" || $this->session->userdata('physio_expert') == "No"){ ?>
                                                 <td>
-                                                    <!-- <?php if($rows->treatment_protocol=="Added"){ ?> 
-                                                        <a href="<?php echo base_url();?>app/physio/edit_physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>
-                                                    <?php }else{ ?>
-                                                        <a href="<?php echo base_url();?>app/physio/add_physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
-                                                        <?php } ?>-->
-                                                        <!-- <a href="" data-toggle="modal" data-target="#editModal">Edit</a> -->
                                                         <a href="#" class="edit_physio_notes" data-physio_notes_id="<?php echo $rows->physio_notes_id; ?>" data-toggle="modal" data-target="#editModal" type="button">Edit</a>
                                                 </td>
+                                            <?php } ?>
 
                                            </tr> 
                                            <?php }?> 
@@ -358,8 +355,8 @@ xmlhttp3.send();
                                         <tbody>
                                         <tr>
                                             <td width="100">Evaluation No.</td>
-                                           <td width="250">   <select name="eval_no" class="form-control input-sm">
-                                                            
+                                           <td width="250">   <select name="eval_no" class="form-control input-sm" required>
+                                                                <option value="">-Select Evaluation No-</option>
                                                                 <?php 
                                                                 foreach($eval_no_list as $eval_no_list){
                                                                 ?>
@@ -410,7 +407,7 @@ xmlhttp3.send();
                             
                             
                             							<!-- Modal -->
-                                                        <form method="post" action="<?php echo base_url()?>app/physio/update_physio_daily_notes" onSubmit="return confirm('Are you sure you want to save?');"> 
+                                                        <form method="post" action="<?php echo base_url()?>app/physio/update_physio_daily_notes" onSubmit="return confirm('Are you sure you want to update?');"> 
                             <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
                             <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
                             <input type="hidden" name="physio_notes_id" value="">
@@ -502,8 +499,8 @@ xmlhttp3.send();
                                         <tr>
                                             <td width="100">Evaluation No.</td>
 
-                                           <td width="250">   <select name="eval_no" class="eval_no form-control input-sm">
-                                                            
+                                           <td width="250">   <select name="eval_no" class="eval_no form-control input-sm" required>
+                                                                <option value="">-Select Evaluation No-</option>
                                                                 <?php 
                                                                 foreach($eval_no_list1 as $eval_no_list1){
                                                                 ?>
