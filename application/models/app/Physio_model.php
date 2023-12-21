@@ -214,7 +214,7 @@ class Physio_model extends CI_Model{
 			'cCode'			=>		'eval_no',
 			'InActive'		=>		0
 		));	
-		$this->data = array('cValue'	=>		$this->input->post('userID2'));
+		$this->data = array('cValue'	=>	$this->input->post('userID2'));
 		$this->db->update("system_option",$this->data);
 	}
 	/*public function get_physio_notes(){
@@ -279,13 +279,18 @@ class Physio_model extends CI_Model{
     return $res;
     }
 	// Example model function
-public function update_physio_daily_notes($data)
-{
+    public function update_physio_daily_notes($data)
+    {
     
 	$id=array('physio_notes_id'=>$this->input->post('physio_notes_id')); 
     
     return $this->db->update('physio_notes', $data,$id);
-}
+    }
+
+	public function save_physio_discharge_summary($data)
+	{     
+        return $this->db->insert('physio_discharge_summary', $data);   
+    }
 
 
 	

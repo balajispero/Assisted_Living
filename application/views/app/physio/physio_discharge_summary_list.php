@@ -162,6 +162,8 @@
                                 
                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
                                     <li  class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
+                                    <li  class=""><a href="<?php echo base_url()?>app/physio/physio_deceased_patient_information/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Deceased Patient Information</a></li>
+
                                     
                                  </ul>
                                 </div>
@@ -173,9 +175,12 @@
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs">
                                         <li class="active"><a href="#tab_1" data-toggle="tab">Discharge Summary</a></li>
+                                        <!-- <li class="active"><a href="#tab_2" data-toggle="tab">Deceased Patient Information</a></li> -->
+
                                         
                                     </ul>
-                                    <div class="tab-content">
+                                    
+                        <div class="tab-content">
                                         <div class="tab-pane active" id="tab_1">
                                             <?php echo $message;?>
                                             <?php if($this->session->userdata('user_role') == 11) {?>

@@ -965,16 +965,44 @@ class Physio extends General{
 		$this->load->view("app/physio/physio_discharge_summary_list",$this->data);	
 	}
 	public function physio_discharge_summary(){
-		$iop_no = $this->uri->segment("4");
-		$patient_no = $this->uri->segment("5");
+		//$iop_no = $this->uri->segment("4");
+		$iop_no =$this->input->post('iop_id');
+		//$patient_no = $this->uri->segment("5");
+		$patient_no =  $this->input->post('patient_no');
 		$rel_agree="Yes";
-		
-		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		var_dump($iop_no);
+		var_dump($patient_no);
+		die();
+		$abc = $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
+		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
 		/*echo "<pre>";
 		print_r($this->data['patientPhysioEval']);*/
+		//getOPDPatient
+		
+			
+		// $this->physio_model->save_physio_discharge_summary($physio_discharge_summary_details);
 		$this->load->view("app/physio/physio_discharge_summary",$this->data);	
+	}
+	public function physio_dis_summ_add(){
+		// echo 'hh';die;
+		$physio_discharge_summary_details = array(
+            'eval_no' => $this->input->post('eval_no'),
+            'patient_no' => $this->input->post('patient_no'),
+            'iop_id' => $this->input->post('iop_id'),
+            'Diagnosis' => $this->input->post('Diagnosis'),
+            'fim_score_eval_date' => $this->input->post('fim_score_eval_date'),
+            'start_date' => $this->input->post('start_date'),
+            'end_date' => $this->input->post('end_date'),
+            'goal_achieved' => $this->input->post('goal_achieved'),
+            'further_recommendation' => $this->input->post('further_recommendation'),
+            'added_date' => date('Y-m-d H:i:s'),
+            'added_by' => $this->session->userdata('user_id'),
+            'updated_date' =>date('Y-m-d H:i:s'),
+            'updated_by' => $this->session->userdata('user_id'),);
+		$this->physio_model->save_physio_discharge_summary($physio_discharge_summary_details);
+		redirect(base_url().'app/Physio/physio_discharge_summary');
 	}
 	public function physio_daily_notes(){
 		if(isset($_POST['btnSave'])){
@@ -1087,6 +1115,23 @@ class Physio extends General{
         echo json_encode($data);
      }
 	// Example controller function
+
+	public function physio_deceased_patient_information(){
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		$rel_agree="Yes";
+		
+		$this->data['message'] = $this->session->flashdata('message');
+		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
+
+		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
+		/*echo "<pre>";
+		print_r($this->data['eval_no_list']);
+		print_r($this->data['patientPhysioEvalAgree']);die;*/
+		$this->load->view("app/physio/physio_deceased_patient_information",$this->data);	
+	}
 
 
 	}

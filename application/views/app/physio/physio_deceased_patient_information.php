@@ -24,15 +24,15 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        <style>
-        input.form-control {
-        width: 100% !important;
-        }
-        select.form-control {
-            width: 100% !important;
-        }
-        </style>
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
+        <style>
+            input.form-control{
+                width: 100% !important;
+            }
+         textarea.form-control{
+         height: 34px !important;
+           }
+        </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -118,7 +118,7 @@
                 <?php   
                  ?>
                 
-                    <form action="<?php echo base_url()?>app/physio/physio_dis_summ_add/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post">
+                    <!-- <form action="<?php echo base_url()?>app/physio/update_patient_type/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post"> -->
                 <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
 
                 <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
@@ -164,7 +164,9 @@
                                  <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                 
                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
-                                    <li class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li> 
+                                    <li  class=""><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
+                                    <li  class="active"><a href="<?php echo base_url()?>app/physio/physio_deceased_patient_information/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Deceased Patient Information</a></li>
+
                                     
                                  </ul>
                                 </div>
@@ -175,38 +177,34 @@
                      <div class="col-md-9"> 
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab_1" data-toggle="tab">Discharge Summary</a></li>
-                                         </ul>
+                                        <!-- <li class="active"><a href="#tab_1" data-toggle="tab">Discharge Summary</a></li> -->
+                                        <li class="active"><a href="#tab_2" data-toggle="tab">Deceased Patient Information</a></li>
+                                    </ul>
+                              
+                            
                          <div class="row" style="margin-top:30px; margin-left:5px; margin-right:5px;">
+                         <div class="col-md-12">
+                         <p class="text-danger"> Note :*This Form for patients who have passed away.Please fill out the following information for record-keeping and administrative purposes.</p>
+                                </div><br><br><br>
+                         <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Patient Name:</label><span class="text-danger"></span>
+                                    <input type="text" class="form-control" name="eval_no" value=""> 
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
-                                    <label>Evaluation No.</label><span class="text-danger"></span>
-                                    <!-- <input type="text" class="form-control" name="eval_no" value="">  -->
-                                    
-                                    <select name="eval_no" class="form-control input-sm" required>
-                                                                <option value="">-Select Evaluation No-</option>
-                                                                <?php 
-                                                                foreach($eval_no_list as $eval_no_list){
-                                                                ?>
-                                                                <option value="<?php echo $eval_no_list->eval_no;?>"><?php echo $eval_no_list->eval_no;?></option>
-                                                                <?php }?>
-                                                                            </select>
+                                    <label>Patient ID:</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="ipd_id"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
-                                    <label>Iop_id</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="iop_id"> 
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            <div class="col-sm-4">
-                                <div class="form-group wrapper-class" >
-                                    <label>Patient No.</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="patient_no"> 
+                                    <label>Date of Admission:</label><span class="text-danger"></span></br>
+                                    <input type="date" class="form-control" name="patient_no"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -214,8 +212,8 @@
 
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
-                                    <label>Diagnosis</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="Diagnosis">
+                                    <label>Date of Death:</label><span class="text-danger"></span></br>
+                                    <input type="date" class="form-control" name="Diagnosis">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -223,56 +221,42 @@
                             <!-- <div class="col-sm-4"> -->
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
-                                    <label>FIM Score Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="fim_score_eval_date">
+                                    <label>Time of Death:</label><span class="text-danger"></span></br>
+                                    <input type="time" class="form-control" name="fim_score_eval_date">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
-                                    <label>Start Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="start_date">
+                                    <label>Cause of Death:</label><span class="text-danger"></span></br>
+                                    <!-- <input type="text" class="form-control" name="start_date"> -->
+                                    <textarea name="goals_achived" class="form-control"></textarea>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Contact Information:</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="end_date">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-sm-4">
-                                <div class="form-group wrapper-class" >
-                                    <label>End Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="end_date">
-                                    <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            <div class="col-sm-4">
-                                <div class="form-group wrapper-class" >
-                                    <label>Goal Achieved</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="goal_achieved" class="form-control"></textarea>
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            <div class="col-sm-4">
-                                <div class="form-group wrapper-class" >
-                                    <label>Further Recommendations</label><span class="text-danger"></span></br>
-                                    <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="further_recommendation" class="form-control"></textarea>
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                          
                         </div>
                         <div class="col-sm-4">
-                        <button type="submit" class="btn btn-primary bg_color btn-sm" name="btnSave" value="Submit" style="margin-left:5px;">Submit</button>
+                        <input type="submit" class="btn btn-primary bg_color btn-sm" name="btnSave" value="Submit" style="margin-left:5px;">
                         </div>
                     </form>
-                    <br><br><br><br><br><br><br>
+
+
+                <br><br><br><br><br><br><br>
                                         </div>
                                     </div>
-                                     <div class="box-footer clearfix">
-
-                                     </div>
+                            <div class="box-footer clearfix">
+                                    
+                            </div>
+                            
                         </div>
                     </div>
                  </div>

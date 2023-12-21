@@ -219,6 +219,7 @@ class Ipd_model extends CI_Model{
 	}
 	
 	public function getIPDPatient($iop_no){
+		
 		$this->db->select("
 				A.IO_ID,
 				A.patient_no,
@@ -254,6 +255,7 @@ class Ipd_model extends CI_Model{
 		$this->db->join("room_master H","H.room_master_id = G.room_master_id","left outer");
 		$query = $this->db->get("patient_details_iop A");
 		// echo $this->db->query();die;
+		//echo $this->db->last_query();die;
 		return $query->row();
 	}
 	public function getvitalsign_for_mail($iop_no){
