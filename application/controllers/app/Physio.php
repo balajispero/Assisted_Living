@@ -965,21 +965,14 @@ class Physio extends General{
 		$this->load->view("app/physio/physio_discharge_summary_list",$this->data);	
 	}
 	public function physio_discharge_summary(){
-		//$iop_no = $this->uri->segment("4");
-		$iop_no =$this->input->post('iop_id');
-		//$patient_no = $this->uri->segment("5");
-		$patient_no =  $this->input->post('patient_no');
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
 		$rel_agree="Yes";
-		var_dump($iop_no);
-		var_dump($patient_no);
-		die();
+		
 		$abc = $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
-		/*echo "<pre>";
-		print_r($this->data['patientPhysioEval']);*/
-		//getOPDPatient
 		
 			
 		// $this->physio_model->save_physio_discharge_summary($physio_discharge_summary_details);
@@ -990,7 +983,7 @@ class Physio extends General{
 		$physio_discharge_summary_details = array(
             'eval_no' => $this->input->post('eval_no'),
             'patient_no' => $this->input->post('patient_no'),
-            'iop_id' => $this->input->post('iop_id'),
+            'iop_id' => $this->input->post('opd_no'),
             'Diagnosis' => $this->input->post('Diagnosis'),
             'fim_score_eval_date' => $this->input->post('fim_score_eval_date'),
             'start_date' => $this->input->post('start_date'),
@@ -1002,7 +995,8 @@ class Physio extends General{
             'updated_date' =>date('Y-m-d H:i:s'),
             'updated_by' => $this->session->userdata('user_id'),);
 		$this->physio_model->save_physio_discharge_summary($physio_discharge_summary_details);
-		redirect(base_url().'app/Physio/physio_discharge_summary');
+		
+		redirect(base_url().'app/Physio/physio_discharge_summary/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 	}
 	public function physio_daily_notes(){
 		if(isset($_POST['btnSave'])){
