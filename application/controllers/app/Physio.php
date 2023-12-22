@@ -1003,6 +1003,8 @@ class Physio extends General{
 	}
 	public function physio_dis_summ_add(){
 		// echo 'hh';die;
+		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
+
 		$physio_discharge_summary_details = array(
             'eval_no' => $this->input->post('eval_no'),
             'patient_no' => $this->input->post('patient_no'),
