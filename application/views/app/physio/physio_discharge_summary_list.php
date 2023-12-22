@@ -202,11 +202,12 @@
                                             <th>Evaluation No.</th>
                                             <th>Member No.</th>
                                             <th>Name</th>
-                                            <th>Complain</th>
+                                            <!-- <th>Date</th> -->
                                                     <!-- <th>Treatment Duration</th> -->
-                                                    <th>Session</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
                                                     <th>Added by</th>
-                                                    <th>Treatment Protocol</th>
+                                                    <th>Action</th>
                                                     
                                            </tr>
                                            </thead>
@@ -215,9 +216,11 @@
                                            //$eval_list_arr=$eval_no_list; 
                                            foreach($patientPhysioEvalAgree as $key => $rows){?>
                                             <tr>
-                                            <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a></td>
+                                            <td>
+                                                <a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a>
+                                        </td>
                                                 <td><?php echo $rows->patient_no?></td>
-                                                <td><?php echo $rows->ptn_name?></td>
+                                                <td><?php echo $rows->start_date?></td>
                                                 <td><?php echo $rows->ptn_complain?></td>
                                                 <!-- <td><?php echo $rows->exp_session?></td> -->
                                                 <td><?php echo $rows->exp_session?></td>
@@ -229,6 +232,7 @@
                                                          echo $pages->cPreparedBy;
                                                      ?> 
                                                 </td>
+                                                
                                                 <td>
                                                     <?php if($rows->treatment_protocol=="Added"){ ?>
                                                         <a href="<?php echo base_url();?>app/physio/edit_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>

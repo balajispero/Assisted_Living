@@ -985,7 +985,7 @@ class Physio extends General{
             'patient_no' => $this->input->post('patient_no'),
             'iop_id' => $this->input->post('opd_no'),
             'Diagnosis' => $this->input->post('Diagnosis'),
-            'fim_score1_eval_date' => $this->input->post('fim_score_eval_date'),
+            'fim_score_eval_date' => $this->input->post('fim_score_eval_date'),
             'start_date' => $this->input->post('start_date'),
             'end_date' => $this->input->post('end_date'),
             'goal_achieved' => $this->input->post('goal_achieved'),

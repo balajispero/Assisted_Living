@@ -145,7 +145,7 @@
                                         <table width="100%">
                                         <tr>
                                             <td><u>Member No.</u></td>
-                                            <td><?php echo  $patientInfo->patient_no?></td>
+                                            <td><?php echo  @$patientInfo->patient_no?></td>
                                         </tr>
                                         <tr>
                                             <td><u>Member Name</u></td>
@@ -195,22 +195,22 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-sm-4">
+                            <!-- <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Iop_id</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="iop_id"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
-                            <div class="col-sm-4">
+                                </div>/.form-group wrapper-class
+                            </div>/.col-md-3 -->
+                            <!-- <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Patient No.</label><span class="text-danger"></span></br>
                                     <input type="text" class="form-control" name="patient_no"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                                </div>/.form-group wrapper-class
+                            </div>/.col-md-3 -->
 
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
