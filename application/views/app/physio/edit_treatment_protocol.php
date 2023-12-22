@@ -249,8 +249,13 @@ textarea.form-control{
                                                                                <option value="">- Consultant Therapist -</option>
                                                                 <?php 
                                                                 foreach($normalPhysioList as $normalPhysioList){
+                                                                    if($treatment_protocol_info[0]->assign_therapist == $normalPhysioList->user_id){
+                                                                    $selected = "selected='selected'";
+                                                                }else{
+                                                                    $selected = "";
+                                                                }
                                                                 ?>
-                                                                <option value="<?php echo $normalPhysioList->user_id;?>"><?php echo $normalPhysioList->name;?></option>
+                                                                <option value="<?php echo $normalPhysioList->user_id;?>" <?php echo $selected;?>><?php echo $normalPhysioList->name;?></option>
                                                                 <?php }?>
                                                                             </select>
 
@@ -260,17 +265,35 @@ textarea.form-control{
                                                                 
 
                         </div><!-- / row -->
-                        <!-- <div class="row">
-                                                                    
-                                                                    <div class="col-md-3">
-                                                                        <div class="form-group wrapper-class" >
-                                                                            <label>DIAGNOSIS</label><span class="text-danger"></span></br>
-                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary bg_color">Add Diagnosis</button><br><br><div id="dynamic_field1"></div>
-                                                                            
-                                                                            <span class="text-danger error-text type_category_err"></span>                           
-                                                                        </div>// /.form-group wrapper-class -
-                                                                    </div>
-                                                                </div> --><!-- / row -->
+                        
+                        <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group wrapper-class" >
+                                                        <label></label><span class="text-danger"></span></br>
+                                                            <button type="button" name="add1" id="add1" class="btn btn-primary bg_color">Add Review</button>
+                                                            <span class="text-danger error-text type_category_err"></span>                           
+                                                    </div><!-- /.form-group wrapper-class -->
+                                                </div><!-- /.col-md-3 -->
+                                             </div><!-- / row -->
+                                            <div class="table-responsive">
+                                             <table class="table table-striped">
+                                                <tr>
+                                                  <th></th><th>Date</th><th>Review Note</th><th>Frequency</th><th>Next Follow up Evaluation Date</th><th>Action</th>
+                                                </tr>
+                                                 <tbody id="dynamic_field1">
+                                                     <?php
+      if(!empty($physio_treatment_review)){
+
+      foreach($physio_treatment_review as $key => $weekly_plan){ $key2 = $key+1; ?>
+        <tr id="row<?=$key2?>">
+           <td><?=$key2?></td><td><input type="text" class="form-control" id="datePick<?=$key2?>" name="review_date[]" value="<?php  $selected_review_dates = implode(',', explode(',', $weekly_plan->review_date)); echo $selected_review_dates; ?>"></td><td><input type="text" class="form-control" name="review_note[]" value="<?=$weekly_plan->review_note?>"></td><td><select name="review_frequency[]" class="form-control"><option value="">-Select Frequency-</option><option value="Daily Once" <?php if($weekly_plan->review_frequency=="Daily Once"){ echo "selected"; } ?>>Daily Once</option><option value="Daily Twice" <?php if($weekly_plan->review_frequency=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option><option value="Thrice Daily" <?php if($weekly_plan->review_frequency=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option><option value="Twice a Week" <?php if($weekly_plan->review_frequency=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option><option value="Thrice a Week" <?php if($weekly_plan->review_frequency=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option><option value="Once a Week" <?php if($weekly_plan->review_frequency=="Once a Week"){ echo "selected"; } ?>>Once a Week</option></select></td><td><input type="text" class="form-control" name="review_next_followup_eval_date[]" value="<?=$weekly_plan->review_next_followup_eval_date?>"></td><td><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key2?>"><span class="glyphicon glyphicon-minus"></span></button></td>
+        </tr>
+        <?php } }?> 
+         <input type="hidden" value="<?php if(!empty($key2)){ print($key2);}else{ echo '0';}?>" id="reviewcnt"></input> 
+                                                    </tbody>
+                                             </table>
+                                            </div>
 
                 <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit">
             </form>
@@ -297,16 +320,29 @@ textarea.form-control{
 
 <script type="text/javascript">
     $(document).ready(function() {
-        var i1=0; 
-        $('#add1').click(function() {
+        var i1=0;
+        var j1 = 1; 
+        /*$('#add1').click(function() {
             i1++;
             $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'">  '+ i1 +' </label> <input type="text" class="form-control dis_inline" name="mult" id="datePickssd' + i1 + '"><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
             $('#datePickssd' + i1).multiDatesPicker();
 
-        });
+        });*/
+
+        $('#add1').click(function() {
+                    var reviewcnt = $('#reviewcnt').val();
+                    //console.log(diagcount);
+                var i1 = j1+ + +reviewcnt;
+                    
+                    
+      $('#dynamic_field1').append('<tr id="row'+i1+'"><td>'+ i1 +'</td><td><input type="date" name="review_date[]" id="datePick1' + i1 + '" autocomplete="off" class="form-control" /></td><td><input type="text" class="form-control" name="review_note[]"></td><td><select name="review_frequency[]" class="form-control"><option value="">-Select Frequency-</option><option value="Daily Once" <?php if($ptnEvalInfo->exp_session=="Daily Once"){ echo "selected"; } ?>>Daily Once</option><option value="Daily Twice" <?php if($ptnEvalInfo->exp_session=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option><option value="Thrice Daily" <?php if($ptnEvalInfo->exp_session=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option><option value="Twice a Week" <?php if($ptnEvalInfo->exp_session=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option><option value="Thrice a Week" <?php if($ptnEvalInfo->exp_session=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option><option value="Once a Week" <?php if($ptnEvalInfo->exp_session=="Once a Week"){ echo "selected"; } ?>>Once a Week</option></select></td><td><input type="date" class="form-control" name="review_next_followup_eval_date[]"></td><td><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
+      //$('#datePick' + i1).multiDatesPicker({ dateFormat: 'yy-mm-dd' });
+             j1++;
+                });
+
         $(document).on('click', '.btn_remove1', function() {
-            var button_id = $(this).attr("id");
-            $('#row1' + button_id + '').remove();
+            var button_id1 = $(this).attr("id");
+            $('#row1' + button_id1 + '').remove();
         });
     });
 

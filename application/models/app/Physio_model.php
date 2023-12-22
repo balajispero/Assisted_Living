@@ -291,6 +291,18 @@ class Physio_model extends CI_Model{
 	{     
         return $this->db->insert('physio_discharge_summary', $data);   
     }
+    public function physio_treatment_review($eval_no){
+		$this->db->where(array(
+			'eval_no'		=>		$eval_no,
+			/*'InActive'	=>		0*/
+		));	
+		$query = $this->db->get("physio_treatment_protocol_review");
+		return $query->result();
+	}
+	public function save_review_details($data)
+	{     
+        return $this->db->insert('physio_treatment_protocol_review', $data);    
+	}
 
 
 	

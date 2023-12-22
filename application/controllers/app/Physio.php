@@ -877,6 +877,7 @@ class Physio extends General{
 
 				 $this->data['treatment_protocol_info'] = $this->physio_model->get_treatment_protocol($eval_no);
 				 $this->data['physio_treatment_weekly_plan'] = $this->physio_model->physio_treatment_weekly_plan($eval_no);
+				 $this->data['physio_treatment_review'] = $this->physio_model->physio_treatment_review($eval_no);
 				/* echo "<pre>";
 				print_r($this->data['treatment_protocol_info']);die;*/
 		$this->load->view('app/physio/edit_treatment_protocol',$this->data);
@@ -888,6 +889,11 @@ class Physio extends General{
 	    $week_treatment_line = $this->input->post('week_treatment_line', true);
 	    $week_remark = $this->input->post('week_remark', true);
 	    $week_frequency = $this->input->post('week_frequency', true);
+	    
+	    $review_date = $this->input->post('review_date', true);
+	    $review_note = $this->input->post('review_note', true);
+	    $review_frequency = $this->input->post('review_frequency', true);
+	    $review_next_followup_eval_date = $this->input->post('review_next_followup_eval_date', true);
 	    
 	    
 	    
@@ -929,6 +935,23 @@ class Physio extends General{
 				);
 				
 				$this->physio_model->save_week_plan_details($week_plan); 
+			}
+		}
+
+		if(!empty($review_date))
+		{
+			$this->db->delete('physio_treatment_protocol_review',array('eval_no'=>$this->input->post('eval_no')));
+		foreach ($review_date as $rev_i => $rev_a) { // need index to match other properties
+				$review_plan = array(
+					'review_date' => $rev_a,
+					'review_note' => isset($review_note[$rev_i]) ? $review_note[$rev_i] : '',
+					'review_next_followup_eval_date' => isset($review_next_followup_eval_date[$rev_i]) ? $review_next_followup_eval_date[$rev_i] : '',
+					'review_frequency' => isset($review_frequency[$rev_i]) ? $review_frequency[$rev_i] : '',
+					'eval_no' => $this->input->post('eval_no'),
+					'treat_protocol_id' => $this->input->post('treat_protocol_id')
+				);
+				
+				$this->physio_model->save_review_details($review_plan); 
 			}
 		}
 
