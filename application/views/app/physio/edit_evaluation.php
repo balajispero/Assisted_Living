@@ -253,7 +253,7 @@
 
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Intensity</label><span class="text-danger"></span></br>
+                                    <label>Pain Intensity</label><span class="text-danger"></span></br>
                                     <select name="ptn_pain_intensity" class="form-control">
                                       <option value="">-Select Intensity-</option>
                                       
@@ -281,7 +281,7 @@
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>Nature</label><span class="text-danger"></span></br>
+                                    <label>Nature of Pain</label><span class="text-danger"></span></br>
                                     <select name="nature" class="form-control">
                                       <option value="">-Select Nature-</option>
                                       
