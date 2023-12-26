@@ -289,7 +289,7 @@ class Ipd_model extends CI_Model{
 	}
 	public function save_sent_mail(){
 		$medicines = @implode(',',($this->input->post('medicine_name')));
-		@$cc ="kaushikpanditrao@ahpl.in,avinash@sperohealthcare.in,Shivrudra@sperohealthcare.in,vijayrhayakar@ahpl.in" .", ". @$this->input->post('rel_email2');
+		@$cc ="kaushikpanditrao@ahpl.in,avinash@sperohealthcare.in,Shivrudra@sperohealthcare.in,vijayrhayakar@ahpl.in,shelke@sperohealthcare.in" .", ". @$this->input->post('rel_email2');
 		$this->data = array(
 			'iop_id'	=>		$this->input->post('opd_no'),
 			'mail_to'				=>		$this->input->post('mail_to'),

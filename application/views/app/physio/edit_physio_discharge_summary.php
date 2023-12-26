@@ -193,7 +193,7 @@
                                                                 <?php 
                                                                 foreach($eval_no_list as $eval_no_list){
                                                                 ?>
-                                                                <option value="<?php echo $eval_no_list->eval_no;?>"><?php echo $eval_no_list->eval_no;?></option>
+                                                                <option value="<?php echo $eval_no_list->eval_no;?>" <?php if($discharge_summary_info[0]->eval_no==$eval_no_list->eval_no){ echo "selected"; } ?>><?php echo $eval_no_list->eval_no;?></option>
                                                                 <?php }?>
                                                                             </select>
 
@@ -220,7 +220,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Diagnosis</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="Diagnosis">
+                                    <input type="text" class="form-control" name="Diagnosis" value="<?php echo $discharge_summary_info[0]->diagnosis; ?>">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -229,7 +229,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>FIM Score Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="fim_score_eval_date">
+                                    <input type="date" class="form-control" name="fim_score_eval_date" value="<?php echo $discharge_summary_info[0]->fim_score1_eval_date; ?>">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -237,7 +237,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Start Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="start_date">
+                                    <input type="date" class="form-control" name="start_date" value="<?php echo $discharge_summary_info[0]->start_date; ?>">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -245,7 +245,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>End Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="end_date">
+                                    <input type="date" class="form-control" name="end_date" value="<?php echo $discharge_summary_info[0]->start_date; ?>">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -254,7 +254,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Goal Achieved</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="goal_achieved" class="form-control"></textarea>
+                                    <textarea name="goal_achieved" class="form-control"><?php echo $discharge_summary_info[0]->goal_achieved; ?></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -262,7 +262,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Further Recommendations</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="further_recommendation" class="form-control"></textarea>
+                                    <textarea name="further_recommendation" class="form-control"><?php echo $discharge_summary_info[0]->further_recommendation; ?></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->

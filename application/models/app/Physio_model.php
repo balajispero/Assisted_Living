@@ -364,6 +364,30 @@ class Physio_model extends CI_Model{
 	{     
         return $this->db->insert('physio_treatment_protocol_review', $data);    
 	}
+	public function get_discharge_summary($physio_discharge_id){
+			$this->db->select('physiodischarge_summary.*');
+			$this->db->from('physio_discharge_summary physiodischarge_summary');
+ 		
+ 	
+			/*$this->db->order_by('rbed.room_bed_id', 'ASC');*/
+			//$this->db->limit('7');
+			 //$this->db->where('InActive', '0');
+    $this->db->where('physio_discharge_summary_id', $physio_discharge_id);
+			$query = $this->db->get();
+		 //echo $this->db->last_query(); die;
+			if ( $query->num_rows() > 0 )
+			{
+				$row = $query->result();
+				// print_r();
+				return $row;
+			}
+		}
+		public function update_physio_discharge_summary($data)
+		{   
+			$this->db->where(array('InActive'=>0,'physio_discharge_summary_id'=>$this->input->post('physio_discharge_summary_id'))); 
+        	
+        	return  $this->db->update("physio_discharge_summary",$data);
+		}
 
 
 	
