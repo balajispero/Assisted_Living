@@ -1199,6 +1199,31 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                              <?php if($this->uri->segment("5")=="respi"){ ?>
+                              <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>1 Min Wlk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walk_test_1_min" value=""> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>3 Min Wlk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walk_test_3_min" value=""> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>5 Min Wlk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walk_test_5_min" value=""> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div>
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>6 Min Walk Test</label><span class="text-danger"></span></br>

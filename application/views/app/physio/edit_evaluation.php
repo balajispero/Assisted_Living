@@ -104,6 +104,19 @@
         width: 40%;
     }
     /*End multiple select dropdown css*/
+    .bg_color1{
+            background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;
+            color: #FFF;
+        }
+
+    .btn-light {
+    border-color: 1px solid dodgerblue;
+    background-color: white;
+    }
+    .info:hover {
+     background: #2196F3;
+    color: white;
+}
 
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -188,16 +201,16 @@
                         
                         <div class="row text-center">
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $ptnEvalInfo->eval_no; ?>/general" class="btn <?php if($this->uri->segment("5")=="general" or $this->uri->segment("5")=="") { echo "bg_color"; }else{ echo "btn-primary"; } ?> btn-block" style="margin-top: 5px; color:white;">General Evaluation</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $ptnEvalInfo->eval_no; ?>/general" class="btn <?php if($this->uri->segment("5")=="general" or $this->uri->segment("5")=="") { echo "btn-light"; }else{ echo "bg_color1"; } ?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">General Evaluation</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/ortho" class="btn <?php echo ($this->uri->segment("5")=="ortho") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Ortho</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/ortho" class="btn <?php echo ($this->uri->segment("5")=="ortho") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Ortho</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/neuro" class="btn <?php echo ($this->uri->segment("5")=="neuro") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Neuro</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/neuro" class="btn <?php echo ($this->uri->segment("5")=="neuro") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Neuro</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/respi" class="btn <?php echo ($this->uri->segment("5")=="respi") ? 'bg_color' : 'btn-primary';?> btn-block" style="margin-top: 5px; color:#FFF;">Respiratory</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/respi" class="btn <?php echo ($this->uri->segment("5")=="respi") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Respiratory</a>
                           </div>
                         </div>
                         <br><br>
@@ -1206,6 +1219,31 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <?php if($this->uri->segment("5")=="respi"){ ?>
+                              <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>1 Min Wlk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walk_test_1_min" value=""> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>3 Min Wlk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walk_test_3_min" value=""> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>5 Min Wlk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walk_test_5_min" value=""> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div>
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>6 Min Walk Test</label><span class="text-danger"></span></br>
