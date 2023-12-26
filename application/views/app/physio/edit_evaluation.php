@@ -290,6 +290,8 @@
                                       <option value="Dull Pain" <?php if($ptnEvalInfo->nature=="Dull Pain"){ echo "selected"; } ?>>Dull Pain</option>
                                       
                                       <option value="Pricking" <?php if($ptnEvalInfo->nature=="Pricking"){ echo "selected"; } ?>>Pricking</option>
+                                      <option value="None" <?php if($ptnEvalInfo->nature=="None"){ echo "selected"; } ?>>None</option>
+
                                      
                                     </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -445,7 +447,8 @@
                                       
                                       <option value="Left" <?php if($ptnEvalInfo->tightness_side=="Left"){ echo "selected"; } ?>>Left</option>
                                       <option value="Right" <?php if($ptnEvalInfo->tightness_side=="Right"){ echo "selected"; } ?>>Right</option>
-                                    
+                                      <option value="bilateral" <?php if($ptnEvalInfo->tightness_side=="bilateral"){ echo "selected"; } ?>>bilateral</option>
+                                      
                                     </select>
 
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -489,7 +492,8 @@
                            <hr style="border-top: 2px solid #2B48B0;"/>
                         <div class="row">
                           <div class="col-sm-12">
-                          <label><h3><b><u>Bed Mobility</u></b></h3></label>
+                          <label><h3><b>A. Bed Mobility</b></h3></label>
+
                             <p style="font-size: 20px;">Rolling</p>
                         </div>
                     </div><br>
