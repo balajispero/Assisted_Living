@@ -271,25 +271,32 @@ textarea.form-control{
                                                 <div class="col-md-4">
                                                     <div class="form-group wrapper-class" >
                                                         <label></label><span class="text-danger"></span></br>
+                                                         <?php if($treatment_protocol_info[0]->first_followup_eval_date<=date("Y-m-d")){ ?>
                                                             <button type="button" name="add1" id="add1" class="btn btn-primary bg_color">Add Review</button>
+                                                        <?php } ?>
                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                     </div><!-- /.form-group wrapper-class -->
                                                 </div><!-- /.col-md-3 -->
                                              </div><!-- / row -->
                                             <div class="table-responsive">
                                              <table class="table table-striped">
+                                                <?php 
+                                                if($treatment_protocol_info[0]->first_followup_eval_date<=date("Y-m-d")){
+                                                    ?>
                                                 <tr>
                                                   <th></th><th>Date</th><th>Review Note</th><th>Frequency</th><th>Next Follow up Evaluation Date</th><th>Action</th>
                                                 </tr>
+                                            <?php } ?>
                                                  <tbody id="dynamic_field1">
                                                      <?php
+                                                     if($treatment_protocol_info[0]->first_followup_eval_date<=date("Y-m-d")){
       if(!empty($physio_treatment_review)){
 
       foreach($physio_treatment_review as $key => $weekly_plan){ $key2 = $key+1; ?>
         <tr id="row1<?=$key2?>">
            <td><?=$key2?></td><td><input type="text" class="form-control" id="datePick<?=$key2?>" name="review_date[]" value="<?php  $selected_review_dates = implode(',', explode(',', $weekly_plan->review_date)); echo $selected_review_dates; ?>"></td><td><input type="text" class="form-control" name="review_note[]" value="<?=$weekly_plan->review_note?>"></td><td><select name="review_frequency[]" class="form-control"><option value="">-Select Frequency-</option><option value="Daily Once" <?php if($weekly_plan->review_frequency=="Daily Once"){ echo "selected"; } ?>>Daily Once</option><option value="Daily Twice" <?php if($weekly_plan->review_frequency=="Daily Twice"){ echo "selected"; } ?>>Daily Twice</option><option value="Thrice Daily" <?php if($weekly_plan->review_frequency=="Thrice Daily"){ echo "selected"; } ?>>Thrice Daily</option><option value="Twice a Week" <?php if($weekly_plan->review_frequency=="Twice a Week"){ echo "selected"; } ?>>Twice a Week</option><option value="Thrice a Week" <?php if($weekly_plan->review_frequency=="Thrice a Week"){ echo "selected"; } ?>>Thrice a Week</option><option value="Once a Week" <?php if($weekly_plan->review_frequency=="Once a Week"){ echo "selected"; } ?>>Once a Week</option></select></td><td><input type="text" class="form-control" name="review_next_followup_eval_date[]" value="<?=$weekly_plan->review_next_followup_eval_date?>"></td><td><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="<?=$key2?>"><span class="glyphicon glyphicon-minus"></span></button></td>
         </tr>
-        <?php } }?> 
+        <?php } } }?> 
          <input type="hidden" value="<?php if(!empty($key2)){ print($key2);}else{ echo '0';}?>" id="reviewcnt"></input> 
                                                     </tbody>
                                              </table>

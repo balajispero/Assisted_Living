@@ -24,12 +24,15 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        <?php require_once(APPPATH.'views/include/responsive_design.php');?>
         <style>
-         textarea.form-control{
-         height: 34px !important;
-           }
+        input.form-control {
+        width: 100% !important;
+        }
+        select.form-control {
+            width: 100% !important;
+        }
         </style>
+        <?php require_once(APPPATH.'views/include/responsive_design.php');?>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -115,7 +118,12 @@
                 <?php   
                  ?>
                 
-                    <!-- <form action="<?php echo base_url()?>app/physio/update_patient_type/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post"> -->
+                    <form action="<?php echo base_url()?>app/physio/physio_dis_summ_update/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post">
+
+                        <input type="hidden" name="eval_no" value="<?php echo $this->uri->segment("6");?>">
+                        <input type="hidden" name="physio_discharge_summary_id" value="<?php echo $this->uri->segment("7");?>">
+
+
                 <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
 
                 <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
@@ -142,7 +150,7 @@
                                         <table width="100%">
                                         <tr>
                                             <td><u>Member No.</u></td>
-                                            <td><?php echo  $patientInfo->patient_no?></td>
+                                            <td><?php echo  @$patientInfo->patient_no?></td>
                                         </tr>
                                         <tr>
                                             <td><u>Member Name</u></td>
@@ -161,9 +169,7 @@
                                  <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                 
                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
-                                    <li  class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
-                                    <li  class=""><a href="<?php echo base_url()?>app/physio/physio_deceased_patient_information/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Deceased Patient Information</a></li>
-
+                                    <li class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li> 
                                     
                                  </ul>
                                 </div>
@@ -175,84 +181,103 @@
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs">
                                         <li class="active"><a href="#tab_1" data-toggle="tab">Discharge Summary</a></li>
-                                        <!-- <li class="active"><a href="#tab_2" data-toggle="tab">Deceased Patient Information</a></li> -->
-
-                                        
-                                    </ul>
+                                         </ul>
+                         <div class="row" style="margin-top:30px; margin-left:5px; margin-right:5px;">
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Evaluation No.</label><span class="text-danger"></span>
+                                    <!-- <input type="text" class="form-control" name="eval_no" value="">  -->
                                     
-                        <div class="tab-content">
-                                        <div class="tab-pane active" id="tab_1">
-                                            <?php echo $message;?>
-                                            <?php if($this->session->userdata('user_role') == 11) {?>
-                                            <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                            <a href="<?php echo base_url();?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Discharge Summary</a>
-                                            <?php } ?>
-                                            <?php } ?>
-                                            <div class="alt2" dir="ltr" style="
-                                    margin: 0px;
-                                    padding: 0px;
-                                    border: 0px solid #919b9c;
-                                    width: 100%;
-                                    height: 300px;
-                                    text-align: left;
-                                    overflow: auto"> 
-                                           <table class="table table-hover table-striped">
-                                           <thead>
-                                           <tr>
-                                            <th>Evaluation No.</th>
-                                            <th>Member No.</th>
-                                            <th>Name</th>
-                                            <!-- <th>Date</th> -->
-                                                    <!-- <th>Treatment Duration</th> -->
-                                                    <th>Start Date</th>
-                                                    <th>End Date</th>
-                                                    <th>Added by</th>
-                                                    <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes" || $this->session->userdata('physio_expert') == "No"){ ?>
-                                                    <th>Action</th>
-                                                <?php } ?>
-                                                    
-                                           </tr>
-                                           </thead>
-                                           <tbody>
-                                           <?php
-                                           //$eval_list_arr=$eval_no_list; 
-                                           foreach($physioDischargeList as $key => $rows){?>
-                                            <tr>
-                                            <td>
-                                                <a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a>
-                                        </td>
-                                                <td><?php echo $rows->patient_no?></td>
-                                                <td><?php echo $rows->ptn_name?></td>
-                                                <td><?php echo $rows->start_date?></td>
-                                                <td><?php echo $rows->end_date?></td>
-                                                <td>
-                                                    <?php
-                                                        $ci_obj = & get_instance();
-                                                        $ci_obj->load->model('app/general_model');
-                                                        $pages = $ci_obj->general_model->getPreparedBy($rows->added_by);
-                                                         echo $pages->cPreparedBy;
-                                                     ?>    
-                                                    </td>
+                                    <select name="eval_no" class="form-control input-sm" required>
+                                                                <option value="">-Select Evaluation No-</option>
+                                                                <?php 
+                                                                foreach($eval_no_list as $eval_no_list){
+                                                                ?>
+                                                                <option value="<?php echo $eval_no_list->eval_no;?>"><?php echo $eval_no_list->eval_no;?></option>
+                                                                <?php }?>
+                                                                            </select>
 
-                                                <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes" || $this->session->userdata('physio_expert') == "No"){ ?>
-                                                <td>
-                                                    <a href="<?php echo base_url();?>app/physio/evaluation_pdf/<?php echo $rows->eval_no;?>">PDF | </a>
-                                                        <a href="<?php echo base_url();?>app/physio/edit_physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->physio_discharge_summary_id;?>">Edit</a>
-                                                </td>
-                                            <?php } ?>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <!-- <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Iop_id</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="iop_id"> 
 
-                                           </tr> 
-                                           <?php }?> 
-                                           </tbody>
-                                           </table>
-                                       </div>
-                                            
-                                            <br><br><br><br><br><br><br>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>/.form-group wrapper-class
+                            </div>/.col-md-3 -->
+                            <!-- <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Patient No.</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="patient_no"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>/.form-group wrapper-class
+                            </div>/.col-md-3 -->
+
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Diagnosis</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="Diagnosis">
+                                    <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <!-- <div class="col-sm-4"> -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>FIM Score Evaluation Date</label><span class="text-danger"></span></br>
+                                    <input type="date" class="form-control" name="fim_score_eval_date">
+                                    <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Start Date</label><span class="text-danger"></span></br>
+                                    <input type="date" class="form-control" name="start_date">
+                                    <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>End Date</label><span class="text-danger"></span></br>
+                                    <input type="date" class="form-control" name="end_date">
+                                    <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Goal Achieved</label><span class="text-danger"></span></br>
+                                    <!-- <input type="text" class="form-control" name="past_history"> -->
+                                    <textarea name="goal_achieved" class="form-control"></textarea>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Further Recommendations</label><span class="text-danger"></span></br>
+                                    <!-- <input type="text" class="form-control" name="past_history"> -->
+                                    <textarea name="further_recommendation" class="form-control"></textarea>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                          
+                        </div>
+                        <div class="col-sm-4">
+                        <button type="submit" class="btn btn-primary bg_color btn-sm" name="btnSave" value="Submit" style="margin-left:5px;">Submit</button>
+                        </div>
+                    </form>
+                    <br><br><br><br><br><br><br>
                                         </div>
                                     </div>
-                            <div class="box-footer clearfix">
-                                    
-                            </div>
+                                     <div class="box-footer clearfix">
+
+                                     </div>
                         </div>
                     </div>
                  </div>

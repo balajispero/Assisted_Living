@@ -43,10 +43,6 @@ class Physio_model extends CI_Model{
 				$this->db->where($where);
 		//$this->db->order_by('A.patient_no','asc');
 		
-		//$this->db->from('room_beds rbed');
-		//$this->db->join('room_beds rbed', 'rbed.room_bed_id = pt.room_id', 'left');
-		//$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
-		//$this->db->join('patient_details_iop pt1', 'pt1.room_id = rbed.room_bed_id','left');
 		$this->db->join('patient_details_iop pt', 'pt.IO_ID = A.iop_no','left');
 
 		$query = $this->db->get("physio_evaluation A");
