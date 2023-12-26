@@ -213,7 +213,7 @@
                                            foreach($patientPhysioEvalAgree as $key => $rows){?>
                                             <tr>
                                             <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a></td>
-                                                <td><?php echo $rows->patient_no?></td>
+                                                <td><a href="<?php echo base_url();?>app/physio/view_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/"><?php echo $rows->patient_no?></a></td>
                                                 <td><?php echo $rows->ptn_name?></td>
                                                 <td><?php echo $rows->exp_session?></td>
                                                 <td>

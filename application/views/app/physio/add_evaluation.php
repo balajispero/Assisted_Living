@@ -771,10 +771,10 @@
                     <div class="table-responsive">      
                         <table class="table table-striped">
                             <tr>
-                              <th>FIM Levels</th><th>Date of eval</th><th>wheelchair/comode Chair</th><th>Car transfer</th>
+                              <th>FIM Levels</th><!-- <th>Date of eval</th> --><th>wheelchair/comode Chair</th><th>Car transfer</th>
                           </tr>
                           <tr>
-                              <td>Total Assistance 1</td><td><input type="date" name="transfer_assist1_evaldate" class="form-control" ></td>
+                              <td>Total Assistance 1</td><!--<td><input type="date" name="transfer_assist1_evaldate" class="form-control" ></td>  -->
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist1_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist1_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -792,7 +792,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Maximal Assistance 2</td><td><input type="date" name="transfer_assist2_evaldate" class="form-control" ></td>
+                              <td>Maximal Assistance 2</td><!--<td><input type="date" name="transfer_assist2_evaldate" class="form-control" ></td>  -->
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist2_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist2_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -810,7 +810,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Moderate Assistance 3</td><td><input type="date" name="transfer_assist3_evaldate" class="form-control" ></td>
+                              <td>Moderate Assistance 3</td><!--<td><input type="date" name="transfer_assist3_evaldate" class="form-control" ></td>  -->
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist3_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist3_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -828,7 +828,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Minimal Assistance 4</td><td><input type="date" name="transfer_assist4_evaldate" class="form-control" ></td>
+                              <td>Minimal Assistance 4</td><!--<td><input type="date" name="transfer_assist4_evaldate" class="form-control" ></td>  -->
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist4_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist4_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -846,7 +846,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Contact  Guarding 5 B</td><td><input type="date" name="transfer_assist5b_evaldate" class="form-control" ></td>
+                              <td>Contact  Guarding 5 B</td><!--<td><input type="date" name="transfer_assist5b_evaldate" class="form-control" ></td>  -->
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist5b_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5b_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -864,7 +864,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Supervision or setup 5 A</td><td><input type="date" name="transfer_assist5a_evaldate" class="form-control" ></td>
+                              <td>Supervision or setup 5 A</td><!--<td><input type="date" name="transfer_assist5a_evaldate" class="form-control" ></td>  -->
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist5a_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist5a_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -882,7 +882,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Modified Independence 6</td><td><input type="date" name="transfer_assist6_evaldate" class="form-control" ></td>
+                              <td>Modified Independence 6</td><!--<td><input type="date" name="transfer_assist6_evaldate" class="form-control" ></td>-->
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist6_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist6_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
@@ -900,7 +900,7 @@
                               
                           </tr>
                           <tr>
-                              <td>Complete Independence 7</td><td><input type="date" name="transfer_assist7_evaldate" class="form-control" ></td>
+                              <td>Complete Independence 7</td><!-- <td><input type="date" name="transfer_assist7_evaldate" class="form-control" ></td>-->
                               <td>
                                 <!-- <input type="radio" class="transfer_assist_wheelchair" name="transfer_assist7_wheelchair" value="Yes">Yes &nbsp;<input type="radio" name="transfer_assist7_wheelchair" class="transfer_assist_wheelchair" value="No">No -->
                                 <label class="switch">
