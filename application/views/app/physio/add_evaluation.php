@@ -553,10 +553,10 @@
                     <div class="table-responsive">      
                         <table class="table table-striped">
                             <tr>
-                              <th>FIM score / Activity</th><th>Date of eval</th><th>Rolling</th><th>Supine to sit</th><th>Sit to stand</th>
+                              <th>FIM score / Activity</th><!-- <th>Date of eval</th> --><th>Rolling</th><th>Supine to sit</th><th>Sit to stand</th>
                           </tr>
                           <tr>
-                              <td>Total Assistance 1</td><td><input type="date" name="mobility_assist1_evaldate" class="form-control" ></td>
+                               <td>Total Assistance 1</td><!-- <td><input type="date" name="mobility_assist1_evaldate" class="form-control" ></td> --> 
                               <td>
                                   <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist1_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist1_rolling" class="mobility_assist_rolling" value="No">No  --> 
                                  <label class="switch">
@@ -580,7 +580,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Maximal Assistance 2</td><td><input type="date" name="mobility_assist2_evaldate" class="form-control" ></td>
+                              <td>Maximal Assistance 2</td><!-- <td><input type="date" name="mobility_assist2_evaldate" class="form-control" ></td> -->
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist2_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist2_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -604,7 +604,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Moderate Assistance 3</td><td><input type="date" name="mobility_assist3_evaldate" class="form-control" ></td>
+                              <td>Moderate Assistance 3</td><!-- <td><input type="date" name="mobility_assist3_evaldate" class="form-control" ></td> -->
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist3_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist3_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -628,7 +628,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Minimal Assistance 4</td><td><input type="date" name="mobility_assist4_evaldate" class="form-control" ></td>
+                              <td>Minimal Assistance 4</td><!-- <td><input type="date" name="mobility_assist4_evaldate" class="form-control" ></td> -->
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist4_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist4_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -652,7 +652,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Contact  Guarding 5 A</td><td><input type="date" name="mobility_assist5a_evaldate" class="form-control" ></td>
+                              <td>Contact  Guarding 5 A</td><!-- <td><input type="date" name="mobility_assist5a_evaldate" class="form-control" ></td> -->
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist5a_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5a_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -676,7 +676,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Supervision or setup 5 B</td><td><input type="date" name="mobility_assist5b_evaldate" class="form-control" ></td>
+                              <td>Supervision or setup 5 B</td><!-- <td><input type="date" name="mobility_assist5b_evaldate" class="form-control" ></td> -->
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist5b_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist5b_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -700,7 +700,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Modified Independence 6</td><td><input type="date" name="mobility_assist6_evaldate" class="form-control" ></td>
+                              <td>Modified Independence 6</td><!-- <td><input type="date" name="mobility_assist6_evaldate" class="form-control" ></td> -->
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist6_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist6_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">
@@ -724,7 +724,7 @@
                               </td>
                           </tr>
                           <tr>
-                              <td>Complete Independence 7</td><td><input type="date" name="mobility_assist7_evaldate" class="form-control" ></td>
+                              <td>Complete Independence 7</td><!-- <td><input type="date" name="mobility_assist7_evaldate" class="form-control" ></td> -->
                               <td>
                                 <!-- <input type="radio" class="mobility_assist_rolling" name="mobility_assist7_rolling" value="Yes">Yes &nbsp;<input type="radio" name="mobility_assist7_rolling" class="mobility_assist_rolling" value="No">No -->
                                 <label class="switch">

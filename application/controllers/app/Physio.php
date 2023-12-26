@@ -1026,11 +1026,13 @@ class Physio extends General{
 	public function edit_physio_discharge_summary(){
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
-		$rel_agree="Yes";
+		$physio_dis_id = $this->uri->segment("7");
+		//$rel_agree="Yes";
 		
 		$abc = $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		//$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
+		//$this->data['treatment_protocol_info'] = $this->physio_model->get_treatment_protocol($eval_no);
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
 		
 			
