@@ -435,6 +435,14 @@ class General_model extends CI_Model{
 					$query = $this->db->get("users A");
 					return $query->result();
 				}
+				public function getRoomByBedId($room_id){
+			        $query = $this->db->query("SELECT A.room_master_id,A.bed_name FROM `room_beds` A WHERE `A`.`room_bed_id` = $room_id");
+			        return $query->row();
+			    }
+			    public function getRoomByRoomId($room_id){
+                    $query = $this->db->query("SELECT A.room_name,A.floor FROM `room_master` A WHERE `A`.`room_master_id` = $room_id");
+                    return $query->row();
+                } 
 	
 	
 	

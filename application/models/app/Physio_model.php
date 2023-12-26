@@ -13,14 +13,14 @@ class Physio_model extends CI_Model{
         return  $insert_id;
 	}
 	public function get_physio_evaluation($iop_no="",$rel_agree=""){
-		//$this->db->order_by("dDateTime","DESC");
-		if(!empty($rel_agree))
+		
+		/*if(!empty($rel_agree))
 		{
 			$query = $this->db->get_where("physio_evaluation",array(
 				'InActive'	=>		0,
 				'iop_no'=>$iop_no,
 				'rel_agree'=>$rel_agree,
-				/*'expert_recommendation'=>'Yes'*/
+				
 			));
 		}
 		else{
@@ -29,9 +29,74 @@ class Physio_model extends CI_Model{
 				'iop_no'=>$iop_no
 				));	
 			}	
-			//$query->result();
-			//echo $this->db->last_query(); die;
+			
+		return $query->result();*/
+
+		if(!empty($rel_agree)){
+		$this->db->select("A.*,pt.room_id");
+		
+		$where = "( 
+				A.InActive = 0
+				)    
+				and A.iop_no ='".$iop_no."' 
+				and A.rel_agree ='".$rel_agree."'";
+				$this->db->where($where);
+		//$this->db->order_by('A.patient_no','asc');
+		
+		//$this->db->from('room_beds rbed');
+		//$this->db->join('room_beds rbed', 'rbed.room_bed_id = pt.room_id', 'left');
+		//$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
+		//$this->db->join('patient_details_iop pt1', 'pt1.room_id = rbed.room_bed_id','left');
+		$this->db->join('patient_details_iop pt', 'pt.IO_ID = A.iop_no','left');
+
+		$query = $this->db->get("physio_evaluation A");
 		return $query->result();
+		}
+		else{
+			$this->db->select("A.*,
+		pt.room_id");
+		
+		$where = "( 
+				A.iop_no='".$iop_no."'
+				)    
+				and A.InActive = 0";
+				$this->db->where($where);
+		$this->db->join("patient_details_iop pt","pt.IO_ID = A.iop_no","left outer");
+		$query = $this->db->get("physio_evaluation A");
+		 
+		return $query->result();
+		}
+	}
+	public function get_physio_discharge(){
+	if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes"){
+		$this->db->select("A.*,
+		B.*,C.ptn_name");
+		
+		$where = "( 
+				A.InActive = 0
+				)    
+				";
+				$this->db->where($where);
+		//$this->db->order_by('A.patient_no','asc');
+		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");
+		$this->db->join("physio_evaluation C","C.eval_no = A.eval_no","left outer");
+		$query = $this->db->get("physio_discharge_summary A");
+		return $query->result();
+		}
+		elseif($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "No"){
+			$this->db->select("A.*,
+		B.*");
+		
+		$where = "( 
+				B.assign_therapist='".$this->session->userdata('user_id')."'
+				)    
+				and A.InActive = 0";
+				$this->db->where($where);
+		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");
+		$query = $this->db->get("physio_discharge_summary A");
+		 
+		return $query->result();
+		}
 	}
 	
 	public function get_evaluation_data($eval_no,$iop_no=""){

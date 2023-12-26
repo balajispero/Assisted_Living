@@ -776,7 +776,6 @@ class Physio extends General{
 
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
 		/*echo "<pre>";
-		print_r($this->data['eval_no_list']);
 		print_r($this->data['patientPhysioEvalAgree']);die;*/
 		$this->load->view("app/physio/treatment_protocol",$this->data);	
 	}
@@ -979,9 +978,10 @@ class Physio extends General{
 		$this->data['message'] = $this->session->flashdata('message');
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
-		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
+		//$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
 
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
+		$this->data['physioDischargeList'] = $this->physio_model->get_physio_discharge();
 		/*echo "<pre>";
 		print_r($this->data['eval_no_list']);
 		print_r($this->data['patientPhysioEvalAgree']);die;*/

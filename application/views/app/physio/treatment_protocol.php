@@ -196,9 +196,10 @@
                                             <th>Evaluation No.</th>
                                             <th>Member No.</th>
                                             <th>Name</th>
-                                            <th>Complain</th>
-                                                    <!-- <th>Treatment Duration</th> -->
-                                                    <th>Session</th>
+                                            <th>Session</th>
+                                            <th>Floor</th>
+                                                     <th>Room</th> 
+                                                    <th>Bed</th>
                                                     <th>Added by</th>
                                                     <th><?php if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") { ?>Treatment Protocol
                                                     <?php } ?>
@@ -214,9 +215,24 @@
                                             <td><a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a></td>
                                                 <td><?php echo $rows->patient_no?></td>
                                                 <td><?php echo $rows->ptn_name?></td>
-                                                <td><?php echo $rows->ptn_complain?></td>
-                                                <!-- <td><?php echo $rows->exp_session?></td> -->
                                                 <td><?php echo $rows->exp_session?></td>
+                                                <td>
+                                                    <?php
+                                                        $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $pages = $ci_obj->general_model->getRoomByBedId($rows->room_id);
+                                                         echo $pages->room_master_id;
+                                                         $room_info = $ci_obj->general_model->getRoomByRoomId($pages->room_master_id);
+                                                         echo $room_info->floor; 
+                                                     ?>
+                                                </td>
+                                                 <td><?php echo $room_info->room_name; ?>
+                                                     
+                                                 </td>
+                                                <td>
+                                                 <?php echo $pages->bed_name; ?>
+                                                     
+                                                </td>
                                                 <td>
                                                     <?php
                                                         $ci_obj = & get_instance();

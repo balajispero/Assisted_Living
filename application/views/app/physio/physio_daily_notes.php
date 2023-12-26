@@ -208,7 +208,14 @@
                                                 <td><?php echo $rows->eval_no?></td>
                                                 <td><?php echo $rows->notes; ?></td>
                                                
-                                                <td><?php echo $rows->added_by?></td>
+                                                <td>
+                                                    <?php
+                                                        $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $pages = $ci_obj->general_model->getPreparedBy($rows->added_by);
+                                                         echo $pages->cPreparedBy;
+                                                     ?>    
+                                                    </td>
                                                <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes" || $this->session->userdata('physio_expert') == "No"){ ?>
                                                 <td>
                                                         <a href="#" class="edit_physio_notes" data-physio_notes_id="<?php echo $rows->physio_notes_id; ?>" data-toggle="modal" data-target="#editModal" type="button">Edit</a>

@@ -207,14 +207,16 @@
                                                     <th>Start Date</th>
                                                     <th>End Date</th>
                                                     <th>Added by</th>
+                                                    <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes" || $this->session->userdata('physio_expert') == "No"){ ?>
                                                     <th>Action</th>
+                                                <?php } ?>
                                                     
                                            </tr>
                                            </thead>
                                            <tbody>
                                            <?php
                                            //$eval_list_arr=$eval_no_list; 
-                                           foreach($patientPhysioEvalAgree as $key => $rows){?>
+                                           foreach($physioDischargeList as $key => $rows){?>
                                             <tr>
                                             <td>
                                                 <a href="<?php echo base_url();?>app/physio/view_evaluation/<?php echo $rows->eval_no;?>"><?php echo $rows->eval_no?></a>
@@ -223,18 +225,21 @@
                                                 <td><?php echo $rows->ptn_name?></td>
                                                 <td><?php echo $rows->start_date?></td>
                                                 <td><?php echo $rows->end_date?></td>
-                                                <td><?php echo $rows->exp_session?></td>
-                                            
-                                                
                                                 <td>
-                                                    <?php if($rows->physio_dis_summ_add=="Added"){ ?>
+                                                    <?php
+                                                        $ci_obj = & get_instance();
+                                                        $ci_obj->load->model('app/general_model');
+                                                        $pages = $ci_obj->general_model->getPreparedBy($rows->added_by);
+                                                         echo $pages->cPreparedBy;
+                                                     ?>    
+                                                    </td>
+
+                                                <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes" || $this->session->userdata('physio_expert') == "No"){ ?>
+                                                <td>
+                                                    <a href="<?php echo base_url();?>app/physio/evaluation_pdf/<?php echo $rows->eval_no;?>">PDF | </a>
                                                         <a href="<?php echo base_url();?>app/physio/edit_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>
-                                                    <?php }else{ ?>
-                                                        <a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
-                                                        <?php } ?>
-                                                        <a href="<?php echo base_url();?>app/physio/edit_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">/PDF</a>
-                                                        
                                                 </td>
+                                            <?php } ?>
 
                                            </tr> 
                                            <?php }?> 
