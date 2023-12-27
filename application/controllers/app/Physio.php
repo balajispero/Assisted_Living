@@ -1124,6 +1124,11 @@ class Physio extends General{
 	            // $dompdf->stream($invoiceFileName,array("Attachment" => 0));
 
 	            $dompdf->stream($evalFileName,array("Attachment" => 0));	
+
+
+		
+	
+		
 	}
 	
 	public function view_physio_discharge_summary(){

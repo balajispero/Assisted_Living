@@ -34,11 +34,70 @@
                     <!-- <form action="<?php echo base_url()?>app/physio/evaluation_update" method="post" enctype="multipart/form-data"> -->
                       
 
-                        <div class="row text-center">
-                          <div class="col-md-12 ">
-                            <h2>Evaluation Data</h2>
+                        <!-- <div class="row text-center" >
+                        <div class="col-md-12"  >
+                        <h2 style="margin-top:30px;">Physio Discharge Summary</h2><span><img src="<?=base_url()?>/public/company_logo/c.png" alt="" style="margin-left:550px; height:40px; "></span>
+                        
+                         
                            </div>
-                        </div>
+                        </div> -->
+                        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-12 mt-5">
+                <table width="100%" cellpadding="5">
+                <tr>
+                <td width="80%">
+                <h3 style="margin-left: 50px;">Physio Discharge Summary</h3>
+                </td>
+                <td width="20%">         
+                <img src="<?=base_url()?>/public/company_logo/c.png" alt="" style="height:40px; ">
+                </td>
+                </tr>
+                <br>
+            </table>
+          </div>
+        </div>
+        <hr style="border-top:2px solid #D3D3D3; margin-top:10px; width:650px;">
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-12 mt-5">
+                <table width="100%" cellpadding="5">
+                <tr>
+                <td width="50%">
+                <b style="margin-left: 50px;">Evaluation No. :</b> <?php echo $discharge_summary_info[0]->eval_no; ?>
+                </td>
+                <td width="50%">         
+                <b style="margin-left: 50px;">Diagnosis : </b>  <?php echo $discharge_summary_info[0]->diagnosis; ?>
+                </td>
+                </tr>
+                <br><br><br>
+                <tr>
+                <td width="50%" >
+                <b style="margin-left: 50px;">FIM Score Evaluation Date : </b><?php echo $discharge_summary_info[0]->fim_score1_eval_date; ?>
+                </td>
+                <td width="50%">         
+                <b style="margin-left: 50px;">Start Date : </b><?php echo $discharge_summary_info[0]->start_date; ?>
+                </td>
+                </tr><br><br><br>
+                <tr>
+                <td width="50%">         
+                <b style="margin-left: 50px;">End Date : </b><?php echo $discharge_summary_info[0]->start_date; ?>
+                </td>
+                <td width="50%">         
+                <b style="margin-left: 50px;">Goal Achieved : </b><?php echo $discharge_summary_info[0]->goal_achieved; ?>
+                </td>
+                </tr><br><br><br>
+                <tr>
+                <td width="50%">         
+                <b style="margin-left: 50px;">Further Recommendations : </b><?php echo $discharge_summary_info[0]->further_recommendation; ?>
+                </td>
+                
+                </tr>
+                
+            </table>
+          </div>
+        </div>
+
+
                         
 
          <!--  <div class="row" style="margin-top: 30px;">
@@ -70,7 +129,6 @@
           </div>
         </div> -->
 
-        <hr style="border-top:2px solid #D3D3D3; margin-top:20px; width:650px;">
   
 
         

@@ -91,12 +91,24 @@
                         <input type="hidden" name="opd_no" value="<?php echo $ptnEvalInfo->iop_no?>">
                         <input type="hidden" name="patient_no" value="<?php echo $ptnEvalInfo->patient_no?>"> 
 
-                        <div class="row text-center">
-                          <div class="col-md-12 ">
-                            <h2>Evaluation Data</h2>
-                           </div>
-                        </div>
-                        
+            
+            
+          <div class="row" style="margin-top: 30px;">
+            <div class="col-md-12 mt-5">
+                <table width="100%" cellpadding="5">
+                <tr>
+                <td width="80%">
+                <h3 style="margin-left: 250px;"> Evaluation Data</h3>
+                </td>
+                <td width="20%">         
+                <img src="<?=base_url()?>/public/company_logo/c.png" alt="" style="height:40px; ">
+                </td>
+                </tr>
+                <br>
+            </table>
+          </div>
+        </div>
+        <hr style="border-top:2px solid #D3D3D3; margin-top:5px; width:650px;">      
 
           <div class="row" style="margin-top: 30px;">
             <div class="col-md-12 mt-5">
@@ -152,10 +164,10 @@
             
             <tr>
                 <td width="50%">         
-                <b style="margin-left: 53px;">Muscle Strength : </b><?php echo $ptnEvalInfo->muscle_strength; ?>
+                <b style="margin-left: 63px;">Muscle Strength : </b><?php echo $ptnEvalInfo->muscle_strength; ?>
                 </td>
                 <td width="50%">         
-                <b style="margin-left:63px;">Remark : </b><?php echo $ptnEvalInfo->muscle_strength_remark;?>
+                <b style="margin-left:53px;">Remark : </b><?php echo $ptnEvalInfo->muscle_strength_remark;?>
                 </td>
                 
              </tr><br>
@@ -178,13 +190,14 @@
                 { ?>
              <tr>
                <td width="50%">         
-                <b style="margin-left: 53px;">Breathlessness : </b><?php echo $ptnEvalInfo->breathlessness; ?>
+                <b style="margin-left: 63px;">Breathlessness : </b><?php echo $ptnEvalInfo->breathlessness; ?>
                 </td>
                 <td width="50%">         
-                <b style="margin-left:63px;">Fatigue : </b><?php echo $ptnEvalInfo->fatigue;?>
+                <b style="margin-left:53px;">Fatigue : </b><?php echo $ptnEvalInfo->fatigue;?>
                 </td>
              </tr>
          <?php } ?>
+         <br>
           <tr>
                 <?php 
              if($ptnEvalInfo->therapy_type=="ortho")
@@ -194,7 +207,7 @@
                 </td>
             <?php } ?>
                  <td width="50%">         
-                <b style="margin-left: 53px;">Muscle Tone : </b><?php echo $ptnEvalInfo->muscle_tone; ?>
+                <b style="margin-left: 63px;">Muscle Tone : </b><?php echo $ptnEvalInfo->muscle_tone; ?>
                 </td>
                 
              </tr><br>
