@@ -361,7 +361,7 @@ xmlhttp3.send();
                                         <table class="table table-hover">
                                         <tbody>
                                         <tr>
-                                            <td width="100">Evaluation No.</td>
+                                            <td width="100">Evaluation No.<span class="text-danger">*</span></td>
                                            <td width="250">   <select name="eval_no" class="form-control input-sm" required>
                                                                 <option value="">-Select Evaluation No-</option>
                                                                 <?php 
@@ -393,8 +393,8 @@ xmlhttp3.send();
                                       
                                       
                                         <tr>
-                                        	<td>Note</td>
-                                            <td><textarea name="notes" placeholder="Note" class="form-control input-sm" style="width: 100%;" rows="3"></textarea></td>
+                                        	<td>Note<span class="text-danger">*</span></td>
+                                            <td><textarea name="notes" placeholder="Note" class="form-control input-sm" style="width: 100%;" rows="3" required></textarea></td>
                                         </tr>
                                         </tbody>
                                         </table>
@@ -504,7 +504,7 @@ xmlhttp3.send();
                                         <table class="table table-hover">
                                         <tbody>
                                         <tr>
-                                            <td width="100">Evaluation No.</td>
+                                            <td width="100">Evaluation No.<span class="text-danger">*</span></td>
 
                                            <td width="250">   <select name="eval_no" class="eval_no form-control input-sm" required>
                                                                 <option value="">-Select Evaluation No-</option>
@@ -537,8 +537,8 @@ xmlhttp3.send();
                                       
                                       
                                         <tr>
-                                        	<td>Note</td>
-                                            <td><textarea name="notes" placeholder="Note" class="form-control input-sm" style="width: 100%;" rows="3"></textarea></td>
+                                        	<td>Note<span class="text-danger">*</span></td>
+                                            <td><textarea name="notes" placeholder="Note" class="form-control input-sm" style="width: 100%;" rows="3" required></textarea></td>
                                         </tr>
                                         </tbody>
                                         </table>

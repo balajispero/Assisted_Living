@@ -180,7 +180,7 @@
                          <div class="row" style="margin-top:30px; margin-left:5px; margin-right:5px;">
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
-                                    <label>Evaluation No.</label><span class="text-danger"></span>
+                                    <label>Evaluation No.</label><span class="text-danger">*</span>
                                     <!-- <input type="text" class="form-control" name="eval_no" value="">  -->
                                     
                                     <select name="eval_no" class="form-control input-sm" required>
