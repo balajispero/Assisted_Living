@@ -1190,29 +1190,37 @@
                             <?php if($this->uri->segment("6")=="respi"){ ?>
                               <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>1 Min Wlk Test</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="walk_test_1_min" value=""> 
+                                    <label>1 Min Walk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walktest1min" value=""> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>3 Min Wlk Test</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="walk_test_3_min" value=""> 
+                                    <label>3 Min Walk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walktest3min" value=""> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
-                                    <label>5 Min Wlk Test</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="walk_test_5_min" value=""> 
+                                    <label>5 Min Walk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walktest5min" value=""> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div>
                             <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>6 Min Wlk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walktest" value=""> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div>
+                            <!-- <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>6 Min Walk Test</label><span class="text-danger"></span></br>
                                     <select name="walktest" class="form-control input-sm">
@@ -1224,8 +1232,8 @@
                                     </select>
 
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                                </div>
+                            </div> --><!-- /.col-md-3 -->
                         <?php } ?>
 
                             </div><!-- / row -->

@@ -408,6 +408,9 @@ class Physio extends General{
 		            if($this->input->post('therapy_type')=="respi")
 		            {
 		            	$evaluation_details['walktest']=$this->input->post('walktest');
+		            	/*$evaluation_details['walktest1min']=$this->input->post('walktest1min');
+		            	$evaluation_details['walktest3min']=$this->input->post('walktest3min');
+		            	$evaluation_details['walktest5min']=$this->input->post('walktest5min');*/
 		        	}
 				}
 
@@ -736,6 +739,9 @@ class Physio extends General{
 		            if($this->input->post('therapy_type')=="respi")
 		            {
 		            	$evaluation_details['walktest']=$this->input->post('walktest');
+		            	/*$evaluation_details['walktest1min']=$this->input->post('walktest1min');
+		            	$evaluation_details['walktest3min']=$this->input->post('walktest3min');
+		            	$evaluation_details['walktest5min']=$this->input->post('walktest5min');*/
 		        	}
 				}
 
