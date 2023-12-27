@@ -1089,6 +1089,37 @@ class Physio extends General{
 		
 		redirect(base_url().'app/Physio/physio_discharge_summary_list/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 	}
+	public function physio_discharge_summary_pdf(){
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		$physio_discharge_id = $this->uri->segment("7");
+	
+		
+		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+	
+		$this->data['discharge_summary_info'] = $this->physio_model->get_discharge_summary($physio_discharge_id);
+		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
+		
+		 $dompdf = new Dompdf();
+	            $dompdf->set_option('isRemoteEnabled',TRUE);
+	            $canvas=$dompdf->get_canvas();
+		
+		//$this->load->view("app/physio/physio_discharge_summary_pdf",$this->data);
+		$html = $this->load->view('app/physio/physio_discharge_summary_pdf',$this->data,true);
+		 
+		 $dompdf->loadHtml($html);
+	           
+	            // Render the HTML as PDF
+	            $dompdf->render();
+	            // Output the generated PDF to Browser
+	            $evalFileName = 'Discharged.pdf';
+	             //$evalFileName = 'Discharged-'.$this->data['ptnEvalInfo']->eval_no.'.pdf';
+	            // $dompdf->stream($invoiceFileName,array("Attachment" => 0));
+
+	            $dompdf->stream($evalFileName,array("Attachment" => 0));	
+	}
+	
 	public function view_physio_discharge_summary(){
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");

@@ -249,7 +249,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Goal Achieved</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="goal_achieved" class="form-control"></textarea>
+                                    <textarea name="goal_achieved" class="form-control" style="width:100% !important"></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -257,7 +257,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Further Recommendations</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="further_recommendation" class="form-control"></textarea>
+                                    <textarea name="further_recommendation" class="form-control" style="width:100% !important"></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->

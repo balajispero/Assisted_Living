@@ -254,7 +254,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Goal Achieved</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="goal_achieved" class="form-control"><?php echo $discharge_summary_info[0]->goal_achieved; ?></textarea>
+                                    <textarea name="goal_achieved" class="form-control" style="width:100% !important"><?php echo $discharge_summary_info[0]->goal_achieved; ?></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -262,7 +262,7 @@
                                 <div class="form-group wrapper-class" >
                                     <label>Further Recommendations</label><span class="text-danger"></span></br>
                                     <!-- <input type="text" class="form-control" name="past_history"> -->
-                                    <textarea name="further_recommendation" class="form-control"><?php echo $discharge_summary_info[0]->further_recommendation; ?></textarea>
+                                    <textarea name="further_recommendation" class="form-control" style="width:100% !important"><?php echo $discharge_summary_info[0]->further_recommendation; ?></textarea>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->

@@ -162,7 +162,7 @@
                                 
                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
                                     <li  class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
-                                    <li  class=""><a href="<?php echo base_url()?>app/physio/physio_deceased_patient_information/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Deceased Patient Information</a></li>
+                                    <!-- <li  class=""><a href="<?php echo base_url()?>app/physio/physio_deceased_patient_information/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Deceased Patient Information</a></li> -->
 
                                     
                                  </ul>
@@ -236,7 +236,7 @@
 
                                                 <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes" || $this->session->userdata('physio_expert') == "No"){ ?>
                                                 <td>
-                                                    <a href="<?php echo base_url();?>app/physio/evaluation_pdf/<?php echo $rows->eval_no;?>">PDF | </a>
+                                                    <a href="<?php echo base_url();?>app/physio/physio_discharge_summary_pdf/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->physio_discharge_summary_id;?>">PDF | </a>
                                                         <a href="<?php echo base_url();?>app/physio/edit_physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->physio_discharge_summary_id;?>">Edit</a>
                                                 </td>
                                             <?php } ?>
