@@ -1100,12 +1100,12 @@ class Physio extends General{
 	
 		$this->data['discharge_summary_info'] = $this->physio_model->get_discharge_summary($physio_discharge_id);
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
-		
+
 		 $dompdf = new Dompdf();
 	            $dompdf->set_option('isRemoteEnabled',TRUE);
 	            $canvas=$dompdf->get_canvas();
 		
-		//$this->load->view("app/physio/physio_discharge_summary_pdf",$this->data);
+		
 		$html = $this->load->view('app/physio/physio_discharge_summary_pdf',$this->data,true);
 		 
 		 $dompdf->loadHtml($html);
