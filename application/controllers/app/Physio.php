@@ -971,23 +971,30 @@ class Physio extends General{
 	}
 	}
 
-	/*public function view_treatment_protocol(){
+	public function treatment_protocol_pdf()
+	{
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
 		$eval_no = $this->uri->segment("6");
-		
-		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
-		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+		$this->session->set_userdata(array(
+				 'tab'			=>		'',
+				 'module'		=>		'',
+				 'subtab'		=>		'',
+				 'submodule'	=>		''));
+				 $this->data['message'] = $this->session->flashdata('message');
 
-		$this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
+				 $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+				 $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+				 $this->data['lastPreassesID'] = $this->physio_model->lastPreassesID();
+				 
+				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
 
-		$this->data['treatment_protocol_info'] = $this->physio_model->get_treatment_protocol($eval_no);
-		$this->data['physio_treatment_weekly_plan'] = $this->physio_model->physio_treatment_weekly_plan($eval_no);
-		$this->data['physio_treatment_review'] = $this->physio_model->physio_treatment_review($eval_no);
-	   
-		
-		$this->load->view("app/physio/view_treatment_protocol",$this->data);	
-	}*/
+				 $this->data['treatment_protocol_info'] = $this->physio_model->get_treatment_protocol($eval_no);
+				 $this->data['physio_treatment_weekly_plan'] = $this->physio_model->physio_treatment_weekly_plan($eval_no);
+				 $this->data['physio_treatment_review'] = $this->physio_model->physio_treatment_review($eval_no);
+				
+		$this->load->view('app/physio/edit_treatment_protocol',$this->data);
+	}
 	public function view_treatment_protocol()
 	{
 		$iop_no = $this->uri->segment("4");
