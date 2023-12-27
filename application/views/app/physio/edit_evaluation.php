@@ -1222,7 +1222,7 @@
                               <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>1 Min Wlk Test</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="walktest1min" value=""> 
+                                    <input type="text" class="form-control" name="walktest1min" value="<?php echo $ptnEvalInfo->walktest1min; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -1230,7 +1230,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>3 Min Wlk Test</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="walktest3min" value=""> 
+                                    <input type="text" class="form-control" name="walktest3min" value="<?php echo $ptnEvalInfo->walktest3min; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -1238,7 +1238,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>5 Min Wlk Test</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="walktest5min" value=""> 
+                                    <input type="text" class="form-control" name="walktest5min" value="<?php echo $ptnEvalInfo->walktest5min; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->

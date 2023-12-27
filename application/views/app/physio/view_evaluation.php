@@ -1202,7 +1202,7 @@
                               <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>1 Min Wlk Test</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="walk_test_1_min" value=""> 
+                                    <input type="text" class="form-control" name="walktest1min" value="<?php echo $ptnEvalInfo->walktest1min; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -1210,7 +1210,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>3 Min Wlk Test</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="walk_test_3_min" value=""> 
+                                    <input type="text" class="form-control" name="walktest3min" value="<?php echo $ptnEvalInfo->walktest3min; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -1218,26 +1218,21 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>5 Min Wlk Test</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="walk_test_5_min" value=""> 
+                                    <input type="text" class="form-control" name="walktest5min" value="<?php echo $ptnEvalInfo->walktest5min; ?>"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>6 Min Wlk Test</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="walktest" value="<?php echo $ptnEvalInfo->walktest; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div>
 
-                            <div class="col-md-3">
-                                <div class="form-group wrapper-class">
-                                    <label>6 Min Walk Test</label><span class="text-danger"></span></br>
-                                    <select name="walktest" class="form-control input-sm">
-                                      <option value="">- Select Walk Test -</option>
-                                      <option value="O2 Saturation Post 1 Min" <?php if($ptnEvalInfo->walktest=="O2 Saturation Post 1 Min"){ echo "selected"; } ?>>O2 Saturation Post 1 Min</option>
-                                      <option value="3 Min" <?php if($ptnEvalInfo->walktest=="3 Min"){ echo "selected"; } ?>>3 Min</option>
-                                      <option value="5 Min" <?php if($ptnEvalInfo->walktest=="5 Min"){ echo "selected"; } ?>>5 Min</option>
-                                      
-                                    </select>
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div><!-- /.form-group wrapper-class -->
-                            </div><!-- /.col-md-3 -->
+                            
                         <?php } ?>
                             </div><!-- / row -->
 
