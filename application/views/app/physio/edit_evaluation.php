@@ -1384,6 +1384,21 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class" >
+                                    <label>Relative Confirmation</label><span class="text-danger"></span></br>
+                                   
+                                    <select name="relative_confirm" class="form-control input-sm">
+                                      <option value="">-Select Confirmation -</option>
+                                      
+                                      <option value="Yes" <?php if($ptnEvalInfo->rel_agree=="Yes"){ echo "selected"; } ?>>Yes</option>
+                                      
+                                      <option value="No" <?php if($ptnEvalInfo->rel_agree=="No"){ echo "selected"; } ?>>No</option>
+                                      
+                                    </select>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
 
                         </div><!-- / row -->
                         </div><!--/treatment section div-->

@@ -24,12 +24,15 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        <?php require_once(APPPATH.'views/include/responsive_design.php');?>
         <style>
-         textarea.form-control{
-         height: 34px !important;
-           }
+        input.form-control {
+        width: 100% !important;
+        }
+        select.form-control {
+            width: 100% !important;
+        }
         </style>
+        <?php require_once(APPPATH.'views/include/responsive_design.php');?>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -115,7 +118,12 @@
                 <?php   
                  ?>
                 
-                    <!-- <form action="<?php echo base_url()?>app/physio/update_patient_type/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post"> -->
+                    <!-- <form action="<?php echo base_url()?>app/physio/physio_dis_summ_update/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post"> -->
+
+                        <input type="hidden" name="eval_no" value="<?php echo $this->uri->segment("6");?>">
+                        <input type="hidden" name="physio_discharge_summary_id" value="<?php echo $this->uri->segment("7");?>">
+
+
                 <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
 
                 <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
@@ -142,7 +150,7 @@
                                         <table width="100%">
                                         <tr>
                                             <td><u>Member No.</u></td>
-                                            <td><?php echo  $patientInfo->patient_no?></td>
+                                            <td><?php echo  @$patientInfo->patient_no?></td>
                                         </tr>
                                         <tr>
                                             <td><u>Member Name</u></td>
@@ -158,10 +166,10 @@
                                 <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
                                     <li><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
-                                 <li class="active"><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
+                                 <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                 
                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
-                                    <li><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
+                                    <li class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li> 
                                     
                                  </ul>
                                 </div>
@@ -172,107 +180,108 @@
                      <div class="col-md-9"> 
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab_1" data-toggle="tab">Treatment Protocol</a></li>
-                                        
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab_1">
-                                            <?php echo $message;?>
-                                            <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                            <!-- <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Evaluation</a> -->
-                                            <!-- <a href="<?php echo base_url();?>app/physio/add_evaluation" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a> -->
-                                            <?php } ?>
-                                            <div class="alt2" dir="ltr" style="
-                                    margin: 0px;
-                                    padding: 0px;
-                                    border: 0px solid #919b9c;
-                                    width: 100%;
-                                    height: 300px;
-                                    text-align: left;
-                                    overflow: auto"> 
-                                           <table class="table table-hover table-striped">
-                                           <thead>
-                                           <tr>
-                                            <th>Evaluation No.</th>
-                                            <th>Member No.</th>
-                                            <th>Name</th>
-                                            <th>Session</th>
-                                            <th>Floor</th>
-                                                     <th>Room No</th> 
-                                                    <th>Bed No</th>
-                                                    <th>Added by</th>
-                                                    <th><?php if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") { ?>Treatment Protocol
-                                                    <?php } ?>
-                                                    </th>
-                                                    
-                                           </tr>
-                                           </thead>
-                                           <tbody>
-                                           <?php
-                                           //$eval_list_arr=$eval_no_list; 
-                                           foreach($patientPhysioEvalAgree as $key => $rows){?>
-                                            <tr>
-                                            <td><?php echo $rows->eval_no?></td>
-                                                <td>
-                                                    <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes") {
-                                                     if($rows->treatment_protocol=="Added"){ ?>
-                                                        <a href="<?php echo base_url();?>app/physio/view_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>"><?php echo $rows->patient_no?></a>
-                                                    <?php }else{ ?>
-                                                        <?php echo $rows->patient_no?>
-                                                        <?php } } ?>
-                                                </td>
-                                                <td><?php echo $rows->ptn_name?></td>
-                                                <td><?php echo $rows->exp_session?></td>
-                                                <td>
-                                                    <?php
-                                                        $ci_obj = & get_instance();
-                                                        $ci_obj->load->model('app/general_model');
-                                                        $pages = $ci_obj->general_model->getRoomByBedId($rows->room_id);
-                                                         
-                                                         $room_info = $ci_obj->general_model->getRoomByRoomId($pages->room_master_id);
-                                                         echo $room_info->floor; 
-                                                     ?>
-                                                </td>
-                                                 <td><?php echo $room_info->room_name; ?>
-                                                     
-                                                 </td>
-                                                <td>
-                                                 <?php echo $pages->bed_name; ?>
-                                                     
-                                                </td>
-                                                <td>
-                                                    <?php
-                                                        $ci_obj = & get_instance();
-                                                        $ci_obj->load->model('app/general_model');
-                                                        $pages = $ci_obj->general_model->getPreparedBy($rows->added_by);
-                                                         echo $pages->cPreparedBy;
-                                                     ?> 
-                                                </td>
-                                                <td>
-                                                    <?php if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") {
-                                                     if($rows->treatment_protocol=="Added"){ ?>
-                                                        <a href="<?php echo base_url();?>app/physio/edit_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>
-                                                    <?php }else{ ?>
-                                                        <a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
-                                                        <?php } } ?>
-                                                </td>
+                                        <li class="active"><a href="#tab_1" data-toggle="tab">Discharge Summary</a></li>
+                                         </ul>
+                         <div class="row" style="margin-top:30px; margin-left:5px; margin-right:5px;">
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Evaluation No.</label><span class="text-danger"></span>
+                                    <!-- <input type="text" class="form-control" name="eval_no" value="">  -->
+                                    
+                                    <select name="eval_no" class="form-control input-sm" required>
+                                                                <option value="">-Select Evaluation No-</option>
+                                                                <?php 
+                                                                foreach($eval_no_list as $eval_no_list){
+                                                                ?>
+                                                                <option value="<?php echo $eval_no_list->eval_no;?>" <?php if($discharge_summary_info[0]->eval_no==$eval_no_list->eval_no){ echo "selected"; } ?>><?php echo $eval_no_list->eval_no;?></option>
+                                                                <?php }?>
+                                                                            </select>
 
-                                           </tr> 
-                                           <?php }?> 
-                                           </tbody>
-                                           </table>
-                                       </div>
-                                            
-                                            <br><br><br><br><br><br><br>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <!-- <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Iop_id</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="iop_id"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>/.form-group wrapper-class
+                            </div>/.col-md-3 -->
+                            <!-- <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Patient No.</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="patient_no"> 
+
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div>/.form-group wrapper-class
+                            </div>/.col-md-3 -->
+
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Diagnosis</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="Diagnosis" value="<?php echo $discharge_summary_info[0]->diagnosis; ?>">
+                                    <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <!-- <div class="col-sm-4"> -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>FIM Score Evaluation Date</label><span class="text-danger"></span></br>
+                                    <input type="date" class="form-control" name="fim_score_eval_date" value="<?php echo $discharge_summary_info[0]->fim_score1_eval_date; ?>">
+                                    <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Start Date</label><span class="text-danger"></span></br>
+                                    <input type="date" class="form-control" name="start_date" value="<?php echo $discharge_summary_info[0]->start_date; ?>">
+                                    <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>End Date</label><span class="text-danger"></span></br>
+                                    <input type="date" class="form-control" name="end_date" value="<?php echo $discharge_summary_info[0]->start_date; ?>">
+                                    <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Goal Achieved</label><span class="text-danger"></span></br>
+                                    <!-- <input type="text" class="form-control" name="past_history"> -->
+                                    <textarea name="goal_achieved" class="form-control"><?php echo $discharge_summary_info[0]->goal_achieved; ?></textarea>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Further Recommendations</label><span class="text-danger"></span></br>
+                                    <!-- <input type="text" class="form-control" name="past_history"> -->
+                                    <textarea name="further_recommendation" class="form-control"><?php echo $discharge_summary_info[0]->further_recommendation; ?></textarea>
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
+                          
+                        </div>
+                        <div class="col-sm-4">
+                        <!-- <button type="submit" class="btn btn-primary bg_color btn-sm" name="btnSave" value="Submit" style="margin-left:5px;">Submit</button> -->
+                        </div>
+                    <!-- </form> -->
+                    <br><br><br><br><br><br><br>
                                         </div>
                                     </div>
-                            <div class="box-footer clearfix">
-                                    
-                            </div>
+                                     <div class="box-footer clearfix">
+
+                                     </div>
                         </div>
                     </div>
                  </div>
-                 <!-- </form> -->
+                 
                  
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
