@@ -15,6 +15,7 @@ class Physio extends General{
 		$this->load->model("app/doctor_model");
 		$this->load->model("app/physio_model");
 		$this->load->model("General_model");
+
 		if(General::is_logged_in() == FALSE){
             redirect(base_url().'login');    
         }
@@ -992,8 +993,26 @@ class Physio extends General{
 				 $this->data['treatment_protocol_info'] = $this->physio_model->get_treatment_protocol($eval_no);
 				 $this->data['physio_treatment_weekly_plan'] = $this->physio_model->physio_treatment_weekly_plan($eval_no);
 				 $this->data['physio_treatment_review'] = $this->physio_model->physio_treatment_review($eval_no);
+				 
+				  $dompdf = new Dompdf();
+	            $dompdf->set_option('isRemoteEnabled',TRUE);
+	            $canvas=$dompdf->get_canvas();
+		
+		
+		$html = $this->load->view('app/physio/treatment_protocol_pdf',$this->data,true);
+		 
+		 $dompdf->loadHtml($html);
+	           
+	            // Render the HTML as PDF
+	            $dompdf->render();
+	            // Output the generated PDF to Browser
+	            $evalFileName = 'Discharged.pdf';
+	             //$evalFileName = 'Discharged-'.$this->data['ptnEvalInfo']->eval_no.'.pdf';
+	            // $dompdf->stream($invoiceFileName,array("Attachment" => 0));
+
+	            $dompdf->stream($evalFileName,array("Attachment" => 0));
 				
-		$this->load->view('app/physio/edit_treatment_protocol',$this->data);
+		//$this->load->view('app/physio/treatment_protocol_pdf',$this->data);
 	}
 	public function view_treatment_protocol()
 	{
