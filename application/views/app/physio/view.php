@@ -201,7 +201,7 @@
                                             <th>Evaluation No</th>
                                             <th>Member No</th>
                                             <th>Member Name</th>
-                                                    <th>Complain</th>
+                                                    <th>Type</th>
                                                     <th>Session</th>
                                                     <th>Added by</th>
                                                     <!-- <th></th> -->
@@ -219,7 +219,7 @@
                                                     <?php }else{   
                                                      echo $rows->patient_no; } ?></td>
                                                 <td><?php echo $rows->ptn_name?></td>
-                                                <td><?php echo $rows->ptn_complain?></td>
+                                                <td><?php echo ucwords($rows->therapy_type)?></td>
                                                 <td><?php echo $rows->exp_session?></td>
                                                 <td>
                                                     <?php

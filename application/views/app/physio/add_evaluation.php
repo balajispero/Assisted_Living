@@ -134,6 +134,19 @@
      background: #2196F3;
     color: white;
 }
+    /*Start highlight bullet point on body*/
+    /*.head-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 25px; /* Adjust the top position based on your needs */
+      left: 179px; /* Adjust the left position based on your needs */
+    }*/
+    /*End highlight bullet point on body*/
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -250,9 +263,29 @@
                           </div>
                         </div>
                     <!-- </div> -->
-                         <br><br>   
-
-                        <div class="row">
+                         <br><br>
+                         
+    <div class="row">
+                <div class="col-sm-4">
+                    <?php if(@$patientInfo->gender=="1"){ ?>
+                  <div class="row">
+                    <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                    <div class="head-bullet"></div>
+                  </div><br>
+                  <div class="row">
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>  
+                  </div>
+              <?php }else{ ?>
+                <div class="row">
+                    <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                  </div><br>
+                  <div class="row">
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>  
+                  </div>
+              <?php } ?>
+                </div>
+        <div class="col-sm-8">
+            <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Evaluation No.</label><span class="text-danger">*</span></br>
@@ -296,8 +329,8 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
 
-                        </div><!-- / row -->
-                        <hr style="border-top: 2px solid #2B48B0;"/>
+            </div><!-- / row -->
+            <hr style="border-top: 2px solid #2B48B0;"/>
                         <label><h3><b>Assessments</b></h3></label>
                         <div class="row">
                             <?php if($this->uri->segment("6")=="general" || $this->uri->segment("6")=="ortho" || $this->uri->segment("6")=="neuro" || $this->uri->segment("6")=="respi"  || $this->uri->segment("6")==""){ ?>
@@ -372,8 +405,9 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                        </div>
-                            <div class="row">
+                             
+                        </div><!-- / row -->
+                        <div class="row">
                                
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
@@ -445,20 +479,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Tightness</label><span class="text-danger"></span></br>
-                                      <!-- <select name="ptn_tightness" class="form-control" id="multiple-checkboxes" multiple="multiple">
-                                      <option value="">- Select Tightness -</option>
                                       
-                                      <option value="Shoulder">Shoulder</option>
-                                      <option value="Elbow">Elbow</option>
-                                      <option value="Wrist">Wrist</option>
-                                      <option value="Cervical Spine">Cervical Spine</option>
-                                      <option value="Thoracic Spine">Thoracic Spine</option>
-                                      <option value="Lumbar Spine">Lumbar Spine</option>
-                                      <option value="Pelvis">Pelvis</option>
-                                      <option value="Hip">Hip</option>
-                                      <option value="Knee">Knee</option>
-                                      <option value="Ankle">Ankle</option>
-                                    </select>  -->
                                      <select class="form-control" name="ptn_tightness" id="multiple-checkboxes" multiple="multiple">
                                 
                                         <?php
@@ -541,10 +562,9 @@
                              <?php } ?>
                             
 
-                           </div><!--/.row-->
-                        <hr style="border-top: 2px solid #2B48B0;"/>
-                          
-                        <div class="row">
+                           </div><!--/.row--><br>
+                           <hr style="border-top: 2px solid #2B48B0;"/>
+                           <div class="row">
                           <div class="col-sm-12">
                             <label><h3><b>A. Bed Mobility</b></h3></label>
                             <p style="font-size: 20px;">Rolling</p>
@@ -747,20 +767,16 @@
                                 </label>
                               </td>
                           </tr>
-                          <!-- <tr>
-                              <td>Not Applicable</td><td><input type="date" name="mobility_notappl_evaldate" class="form-control"></td>
-                              <td>
-                                <input type="radio" class="" name="mobility_notappl_rolling" value="Yes" <?php $a=5; echo ($a == 5) ? 'checked' : '';  ?>>Yes &nbsp;<input type="radio" name="mobility_notappl_rolling" class="" value="No">No
-                              </td>
-                              <td>
-                                <input type="radio" class="" name="mobility_notappl_supine" value="Yes">Yes &nbsp;<input type="radio" name="mobility_notappl_supine" class="" value="No">No
-                              </td>
-                              <td>
-                                <input type="radio" class="" name="mobility_notappl_stand" value="Yes">Yes &nbsp;<input type="radio" name="mobility_notappl_stand" class="" value="No">No
-                              </td>
-                          </tr> -->    
+                          
                       </table>
                   </div>
+        </div><!-- / col-sm-8 -->
+    </div> 
+ 
+
+                        
+                        <hr style="border-top: 2px solid #2B48B0;"/>
+                          
 
                   <div class="row">
                           <div class="col-sm-12">
