@@ -723,6 +723,29 @@ class Opd_model extends CI_Model{
 		$query = $this->db->get("iop_laboratory");
 		return $query->num_rows();
 	}
+
+	/*public function getPhysioNote_pagination($limit = 10, $offset = 0,$iop_no){
+		
+		$this->db->where(array(
+			'iop_id'		=>		$iop_no,
+			'InActive'	=>		0
+		));	
+		$this->db->order_by("session_date","DESC");
+		$query = $this->db->get("physio_notes", $limit, $offset);
+		return $query->result();
+	}
+	
+	
+	public function getPhysioNote_cnt($iop_no){
+		
+		$this->db->where(array(
+			'iop_id'		=>		$iop_no,
+			'InActive'	=>		0
+		));	
+		$this->db->order_by("session_date","DESC");	
+		$query = $this->db->get("physio_notes");
+		return $query->num_rows();
+	}*/
 	
 	
 }

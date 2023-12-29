@@ -91,6 +91,46 @@ class Dashboard extends General{
 		$this->data['pagination6'] = $this->pagination->create_links();
 		$this->data['getLabTest'] = $this->Opd_model->getLabTest_pagination($this->limit, $offset_lab_test, $iop_no);
 
+		/*$uri_segment = 6;
+		$offset_physio_note = $this->uri->segment($uri_segment);
+		
+		$patient = $this->Opd_model->getPhysioNote_pagination($this->limit, $offset_physio_note, $iop_no);
+		
+		$config7['base_url'] = base_url().'app/dashboard/view_details/'.$id.'/'.$iop_no;
+ 		$config7['total_rows'] = $this->Opd_model->getPhysioNote_cnt($iop_no);
+ 		$config7['per_page'] = $this->limit;
+		
+		
+		$config7['uri_segment'] = $uri_segment;
+		$config7['full_tag_open'] = '<ul class="pagination pagination no-margin pull-right">';
+		$config7['full_tag_close'] = '</ul><!--pagination-->';
+
+		$config7['first_link'] = '&laquo; First';
+		$config7['first_tag_open'] = '<li class="prev page">';
+		$config7['first_tag_close'] = '</li>';
+
+		$config7['last_link'] = 'Last &raquo;';
+		$config7['last_tag_open'] = '<li class="next page">';
+		$config7['last_tag_close'] = '</li>';
+
+		$config7['next_link'] = 'Next &rarr;';
+		$config7['next_tag_open'] = '<li class="next page">';
+		$config7['next_tag_close'] = '</li>';
+
+		$config7['prev_link'] = '&larr; Previous';
+		$config7['prev_tag_open'] = '<li class="prev page">';
+		$config7['prev_tag_close'] = '</li>';
+
+		$config7['cur_tag_open'] = '<li class="active"><a href="">';
+		$config7['cur_tag_close'] = '</a></li>';
+
+		$config7['num_tag_open'] = '<li class="page">';
+		$config7['num_tag_close'] = '</li>';
+		
+		$this->pagination->initialize($config7);
+		$this->data['pagination7'] = $this->pagination->create_links();
+		$this->data['getPhysioNote'] = $this->Opd_model->getPhysioNote_pagination($this->limit, $offset_physio_note, $iop_no);*/
+
 
 		$uri_segment = 6;
 		$offset_progress_note = $this->uri->segment($uri_segment);

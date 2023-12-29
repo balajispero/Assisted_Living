@@ -164,11 +164,7 @@
                
                                                                 <?php 
                                                                 foreach($normalPhysioList as $normalPhysioList){
-                                                                    if($treatment_protocol_info[0]->assign_therapist == $normalPhysioList->user_id){
-                                                                    $selected = "selected='selected'";
-                                                                }else{
-                                                                    $selected = "";
-                                                                }
+                                                                    
                                                                 ?>
                                                               <?php echo $normalPhysioList->name;?>
                                                                 
@@ -211,29 +207,6 @@
 
     </div>
                       
-                      
-
-
-
-                     
-               
-                        
-
-
-                   
-
-                        
-
-       
-       
-
-
-
-
-  
-      
-               
-           
     
     <!--  </form> -->
         </section>

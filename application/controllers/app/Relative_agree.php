@@ -13,16 +13,10 @@ class Relative_agree extends General{
 		
 	}
 	
-	
-
 	public function conform(){
 		//$eval_no = $this->uri->segment("4");
 		$eval_no = base64_decode($this->uri->segment("4"));
-		//$md5eval_no = $this->uri->segment("5");
-		
-		/*$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
-		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
-		$this->data['patientPhysioEval'] = $this->physio_model->get_physio_evaluation();*/
+	
 		$this->data['message'] = $this->session->flashdata('message');
 		if(isset($_POST['btnSubmit'])){
 			$where = "(
@@ -58,8 +52,5 @@ class Relative_agree extends General{
 		}	
 	}
 	
-	
-	
-
 
 }

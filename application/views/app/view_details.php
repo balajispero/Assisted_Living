@@ -771,8 +771,58 @@
                         
                     </section>
                     
-                    <section class="col-lg-6 connectedSortable">
+                   <section class="col-lg-6 connectedSortable">
                     
+                        <!--Start of New Member-->
+                        <!-- <div class="box box-primary" id="loading-example">
+                            <div class="box-header">
+                                <div class="pull-right box-tools">
+                                        <button class="btn btn-primary btn-sm" data-widget='collapse' data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                                        
+                                 </div>
+                                 <i class="fa fa-male"></i>
+                                <h3 class="box-title">Physio Note</h3>
+                            </div>
+                            <div class="box-body no-padding">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Evaluation No</th>
+                                            <th>Notes</th>
+                                            <th>Prepared by</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if(!empty($getPhysioNote)){ ?>
+                                        <?php foreach($getPhysioNote as $rows){?>
+                                        <tr>
+                                           <td><?php echo date("M d, Y",strtotime($rows->session_date));?></td>
+                                                <td>
+                                                    <?php echo $rows->eval_no;
+                                                    ?>
+                                                </td>
+                                                <td><?php echo $rows->notes?></td>
+                                                <td><?php 
+                                                $ci_obj = & get_instance();
+                                                $ci_obj->load->model('app/general_model');
+                                                $pages = $ci_obj->general_model->getPreparedBy($rows->added_by);
+                                                
+                                                echo $pages->cPreparedBy?></td>
+                                                <td>
+                                        </tr>
+                                        <?php } }?>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="box-footer">
+                                <?php echo $pagination7; ?>
+                            </div>
+                        </div> -->
+                        <!--End of New Member-->
+                        
                     </section>
                 </div> 
                  

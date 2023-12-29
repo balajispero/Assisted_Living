@@ -524,7 +524,7 @@ class Physio extends General{
 	             $evalFileName = 'Evaluation-'.$this->data['ptnEvalInfo']->eval_no.'.pdf';
 	            // $dompdf->stream($invoiceFileName,array("Attachment" => 0));
 
-	            $dompdf->stream($evalFileName,array("Attachment" => 0));
+	            $dompdf->stream($evalFileName,array("Attachment" => 1));
 				 
 		
 		//$this->load->view('app/physio/evaluation_pdf',$this->data);
@@ -1010,7 +1010,7 @@ class Physio extends General{
 	             //$evalFileName = 'Discharged-'.$this->data['ptnEvalInfo']->eval_no.'.pdf';
 	            // $dompdf->stream($invoiceFileName,array("Attachment" => 0));
 
-	            $dompdf->stream($evalFileName,array("Attachment" => 0));
+	            $dompdf->stream($evalFileName,array("Attachment" => 1));
 				
 		//$this->load->view('app/physio/treatment_protocol_pdf',$this->data);
 	}
@@ -1041,35 +1041,30 @@ class Physio extends General{
 	public function physio_discharge_summary_list(){
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
-		$rel_agree="Yes";
+		
 		
 		$this->data['message'] = $this->session->flashdata('message');
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
-		//$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
+		
 
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
 		$this->data['physioDischargeList'] = $this->physio_model->get_physio_discharge();
-		/*echo "<pre>";
-		print_r($this->data['eval_no_list']);
-		print_r($this->data['patientPhysioEvalAgree']);die;*/
+		
 		$this->load->view("app/physio/physio_discharge_summary_list",$this->data);	
 	}
 	public function physio_discharge_summary(){
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
-		$rel_agree="Yes";
+		
 		
 		$abc = $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
-		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
 		
 		$this->load->view("app/physio/physio_discharge_summary",$this->data);	
 	}
 	public function physio_dis_summ_add(){
-		// echo 'hh';die;
-		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
 
 		$physio_discharge_summary_details = array(
             'eval_no' => $this->input->post('eval_no'),
@@ -1087,7 +1082,7 @@ class Physio extends General{
             'updated_by' => $this->session->userdata('user_id'),);
 		$this->physio_model->save_physio_discharge_summary($physio_discharge_summary_details);
 		
-		redirect(base_url().'app/Physio/physio_discharge_summary/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
+		redirect(base_url().'app/Physio/physio_discharge_summary_list/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 	}
 	public function edit_physio_discharge_summary(){
 		$iop_no = $this->uri->segment("4");
@@ -1149,7 +1144,7 @@ class Physio extends General{
 	             //$evalFileName = 'Discharged-'.$this->data['ptnEvalInfo']->eval_no.'.pdf';
 	            // $dompdf->stream($invoiceFileName,array("Attachment" => 0));
 
-	            $dompdf->stream($evalFileName,array("Attachment" => 0));	
+	            $dompdf->stream($evalFileName,array("Attachment" => 1));	
 
 
 		
@@ -1216,7 +1211,7 @@ class Physio extends General{
 	   
 		$update_physio_daily_notes = array(
 			'eval_no' => $this->input->post('eval_no'),
-			'session_date'		=>	 $this->input->post('session_date'),
+			'session_date'		=>	 $this->input->post('dDate'),
 			'session_time' =>  $this->input->post('dTime'),
 			'notes' =>  $this->input->post('notes'),
 			'updated_date'			=>		date("Y-m-d h:i:s a"),

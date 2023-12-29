@@ -596,6 +596,10 @@ xmlhttp3.send();
                 $('#dDate').datepicker({
                     //format: "dd/mm/yyyy"
 					format: "yyyy-mm-dd"
+                });
+                $('#dDate1').datepicker({
+                    //format: "dd/mm/yyyy"
+                    format: "yyyy-mm-dd"
                 });  
 				$('#dDate_to').datepicker({
                     //format: "dd/mm/yyyy"
