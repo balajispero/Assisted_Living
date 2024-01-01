@@ -1062,6 +1062,7 @@ class Physio extends General{
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
 		
+		
 		$this->load->view("app/physio/physio_discharge_summary",$this->data);	
 	}
 	public function physio_dis_summ_add(){
