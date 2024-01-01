@@ -135,7 +135,7 @@
     color: white;
 }
     /*Start highlight bullet point on body*/
-    /*.head-bullet {
+    .head-bullet {
       position: absolute;
       width: 11px;
       height: 11px;
@@ -145,7 +145,7 @@
       cursor: pointer;
       top: 25px; /* Adjust the top position based on your needs */
       left: 179px; /* Adjust the left position based on your needs */
-    }*/
+    }
     /*End highlight bullet point on body*/
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -1506,6 +1506,9 @@
       }
     });
 /*****************End berg balance question calculate**********************/
+       /*$(".highlight_img_area").change(function () {
+        select[name='berg_bal_sit_unsupport'].val();
+       });*/
 </script>
 
 </body>
