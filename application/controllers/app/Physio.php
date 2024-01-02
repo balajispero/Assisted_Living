@@ -1126,18 +1126,7 @@ class Physio extends General{
 	}
 	public function physio_dis_summ_update(){
 		if(isset($_POST['btnSave'])){
-			$where = "(
-		eval_no= '".$this->input->post('eval_no')."' 
-		) 
-		and InActive = 0";
-		$this->db->where($where);
-		$query = $this->db->get("physio_discharge_summary");
-		
-		if($query->num_rows() > 0)
-		{
-			$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Patient has already been discharged.</div>");
-		}
-		else{
+			
 				$physio_discharge_summary_details = array(
             'eval_no' => $this->input->post('eval_no'),
             'patient_no' => $this->input->post('patient_no'),
@@ -1153,26 +1142,11 @@ class Physio extends General{
 		$this->physio_model->update_physio_discharge_summary($physio_discharge_summary_details);
 				
 				$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Successfully updated discharged the patient!</div>");
-			}	
+				
 				redirect(base_url().'app/Physio/physio_discharge_summary_list/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 			
 		}
 
-		/*$physio_discharge_summary_details = array(
-            'eval_no' => $this->input->post('eval_no'),
-            'patient_no' => $this->input->post('patient_no'),
-            'iop_id' => $this->input->post('opd_no'),
-            'Diagnosis' => $this->input->post('Diagnosis'),
-            'fim_score1_eval_date' => $this->input->post('fim_score_eval_date'),
-            'start_date' => $this->input->post('start_date'),
-            'end_date' => $this->input->post('end_date'),
-            'goal_achieved' => $this->input->post('goal_achieved'),
-            'further_recommendation' => $this->input->post('further_recommendation'),
-            'updated_date' =>date('Y-m-d H:i:s'),
-            'updated_by' => $this->session->userdata('user_id'),);
-		$this->physio_model->update_physio_discharge_summary($physio_discharge_summary_details);
-		
-		redirect(base_url().'app/Physio/physio_discharge_summary_list/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);*/
 	}
 	public function physio_discharge_summary_pdf(){
 		$iop_no = $this->uri->segment("4");
