@@ -162,7 +162,7 @@
                                 
                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
                                     <li  class="active"><a href="<?php echo base_url()?>app/physio/physio_discharge_summary_list/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li>
-                                     <li  class=""><a href="<?php echo base_url()?>app/physio/physio_deceased_patient_information/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Deceased Patient Information</a></li> 
+                                     <!-- <li  class=""><a href="<?php echo base_url()?>app/physio/physio_deceased_patient_information/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Deceased Patient Information</a></li>  -->
 
                                     
                                  </ul>

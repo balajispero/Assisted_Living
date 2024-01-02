@@ -1090,8 +1090,17 @@ class Physio extends General{
 			            'end_date' => $this->input->post('end_date'),
 			            'goal_achieved' => $this->input->post('goal_achieved'),
 			            'further_recommendation' => $this->input->post('further_recommendation'),
+						'therapy_status' => $this->input->post('therapy_status'),
+						'date_of_admission' => $this->input->post('date_of_admission'),
+						'date_of_death' => $this->input->post('date_of_death'),
+						'time_of_death' => $this->input->post('time_of_death'),
+						'causes_of_death' => $this->input->post('causes_of_death'),
+						'contact_no' => $this->input->post('contact_no'),
 			            'added_date' => date('Y-m-d H:i:s'),
-			            'added_by' => $this->session->userdata('user_id'));
+			            'added_by' => $this->session->userdata('user_id'),
+	
+					);
+						
 					$this->physio_model->save_physio_discharge_summary($physio_discharge_summary_details);
 				
 				$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Successfully discharged the patient!</div>");

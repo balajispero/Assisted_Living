@@ -266,8 +266,61 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+
+                            <div class="col-sm-4" style="margin-top: 25px;">
+                                <div class="form-group wrapper-class" >
+                                <select name="therapy_status" class="form-control" >
+                                 <option value="">- Status -</option>
+                                 <option value="Completed" <?php if($discharge_summary_info[0]->therapy_status=="Completed"){ echo "selected"; } ?>>Completed</option>
+                                 <option value="Deceased" <?php if($discharge_summary_info[0]->therapy_status=="Deceased"){ echo "selected"; } ?>>Deceased</option>
+                                 </select>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-3 -->
                           
                         </div>
+
+                        <br>
+                        
+                        <!-- <div class="container"> -->
+                            <div class="row" id="deceased_section" style=" margin-left:5px; margin-right:5px; display:<?php echo ($discharge_summary_info[0]->therapy_status=="Completed") ? "none" : "block";?>">
+                                    <div class="col-sm-4">
+                                        <div class="form-group wrapper-class" >
+                                            <label>Date of Admission</label><span class="text-danger"></span></br>
+                                            
+                                            <input type="date" class="form-control" name="date_of_admission" style=" width: 100% !important;"  value="<?php echo $discharge_summary_info[0]->date_of_admission; ?>">
+                                            <span class="text-danger error-text type_category_err"></span>                           
+                                        </div><!-- /.form-group wrapper-class -->
+                                    </div><!-- /.col-md-4-->
+                                    <div class="col-sm-4">
+                                        <div class="form-group wrapper-class" >
+                                            <label>Date of Death</label><span class="text-danger"></span></br>
+                                            <input type="date" class="form-control" name="date_of_death"  value="<?php echo $discharge_summary_info[0]->date_of_death; ?>">
+                                            <span class="text-danger error-text type_category_err"></span>                           
+                                        </div><!-- /.form-group wrapper-class -->
+                                    </div><!-- /.col-md-4-->
+                                    <div class="col-sm-4">
+                                        <div class="form-group wrapper-class" >
+                                            <label>Time of Death</label><span class="text-danger"></span></br>
+                                            <input type="text" class="form-control" name="time_of_death"  value="<?php echo $discharge_summary_info[0]->time_of_death; ?>">
+                                            <span class="text-danger error-text type_category_err"></span>                           
+                                        </div><!-- /.form-group wrapper-class -->
+                                    </div><!-- /.col-md-4-->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Causes of Date</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="causes_of_death"  value="<?php echo $discharge_summary_info[0]->causes_of_death; ?>">
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-4-->
+                            <div class="col-sm-4">
+                                <div class="form-group wrapper-class" >
+                                    <label>Contact No.</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="contact_no"  value="<?php echo $discharge_summary_info[0]->contact_no; ?>">
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                </div><!-- /.form-group wrapper-class -->
+                            </div><!-- /.col-md-4-->
+                        </div>
+                        
                         <div class="col-sm-4">
                         <button type="submit" class="btn btn-primary bg_color btn-sm" name="btnSave" value="Submit" style="margin-left:5px;">Submit</button>
                         </div>
@@ -296,6 +349,7 @@
          <!-- BDAY -->
          <script src="<?php echo base_url();?>public/datepicker/js/jquery-1.9.1.min.js"></script>
         <script src="<?php echo base_url();?>public/datepicker/js/bootstrap-datepicker.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script type="text/javascript">
             // When the document is ready
             $(document).ready(function () {
@@ -311,6 +365,22 @@
                 });  
             
             });
+
+            $(document).ready(function(){
+       // Function to handle the change event of the select element
+       $("select[name='therapy_status']").change(function() {
+        var selectedValue = $(this).val();
+        
+        // Check if the selected option is 'Deceased'
+        if(selectedValue === 'Deceased') {
+            // Show the deceased section
+            $('#deceased_section').show();
+        } else {
+            // Hide the deceased section
+            $('#deceased_section').hide();
+        }
+    });
+});
         </script>
         <!-- END BDAY -->
         

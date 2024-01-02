@@ -263,7 +263,7 @@
                             </div><!-- /.col-md-3 -->
                             <div class="col-sm-4" style="margin-top: 25px;">
                                 <div class="form-group wrapper-class" >
-                                <select name="physio_therapy_status" class="form-control" >
+                                <select name="therapy_status" class="form-control" >
                                  <option value="">- Status -</option>
                                  <option value="Completed" name="Completed" class="select">Completed</option>
                                  <option value="Deceased" name="Deceased" class="select">Deceased</option>
@@ -287,7 +287,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group wrapper-class" >
                                             <label>Date of Death</label><span class="text-danger"></span></br>
-                                            <input type="text" class="form-control" name="date_of_death">
+                                            <input type="date" class="form-control" name="date_of_death">
                                             <span class="text-danger error-text type_category_err"></span>                           
                                         </div><!-- /.form-group wrapper-class -->
                                     </div><!-- /.col-md-4-->
@@ -307,12 +307,13 @@
                             </div><!-- /.col-md-4-->
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
-                                    <label>Contact Information</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="contact_information">
+                                    <label>Contact No.</label><span class="text-danger"></span></br>
+                                    <input type="text" class="form-control" name="contact_no">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-4-->
                         </div>
+
                         <div class="col-sm-4">
                         <button type="submit" class="btn btn-primary bg_color btn-sm" name="btnSave" value="Submit" style="margin-left: 5px;">Submit</button>
                         </div>
@@ -366,7 +367,7 @@
 
        $(document).ready(function(){
        // Function to handle the change event of the select element
-       $("select[name='physio_therapy_status']").change(function() {
+       $("select[name='therapy_status']").change(function() {
         var selectedValue = $(this).val();
         
         // Check if the selected option is 'Deceased'
