@@ -135,7 +135,7 @@
     color: white;
 }
     /*Start highlight bullet point on body*/
-    .head-bullet {
+    .shoulder-bullet {
       position: absolute;
       width: 11px;
       height: 11px;
@@ -143,8 +143,20 @@
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
-      top: 25px; /* Adjust the top position based on your needs */
-      left: 179px; /* Adjust the left position based on your needs */
+      top: 93px; /* Adjust the top position based on your needs */
+      left: 126px; /* Adjust the left position based on your needs */
+    }
+
+    .elbow-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 710px; /* Adjust the top position based on your needs */
+      left: 99px; /* Adjust the left position based on your needs */
     }
 
     .knee-bullet {
@@ -155,8 +167,19 @@
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
-      top: 500px; /* Adjust the top position based on your needs */
-      left: 179px; /* Adjust the left position based on your needs */
+      top: 325px; /* Adjust the top position based on your needs */
+      left: 154px; /* Adjust the left position based on your needs */
+    }
+    .wrist-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 770px; /* Adjust the top position based on your needs */
+      left: 242px; /* Adjust the left position based on your needs */
     }
     /*End highlight bullet point on body*/
         </style>
@@ -282,11 +305,13 @@
                     <?php if(@$patientInfo->gender=="1"){ ?>
                   <div class="row">
                     <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
-                    <div class="head-bullet"></div>
+                    <div class="shoulder-bullet"></div>
                     <div class="knee-bullet"></div>
                   </div><br>
                   <div class="row">
-                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>  
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
+                      <div class="elbow-bullet"></div>
+                      <div class="wrist-bullet"></div>
                   </div>
               <?php }else{ ?>
                 <div class="row">
@@ -1521,24 +1546,30 @@
 /*****************End berg balance question calculate**********************/
 
 /*****************Start highlight pain area on body img**********************/
-       $("select[name='ptn_tightness']").change(function() {
-        var selectedValue = $(this).val();
-        console.log(selectedValue);
-        
-         for (var i = 0; i < selectedValue.length; i++) {  
-            if(selectedValue[i] === 'Elbow') {
-            $('.head-bullet').show();
-        } else {
-            $('.head-bullet').hide();
-        }
-        if(selectedValue[i] === 'Knee') {
-            $('.knee-bullet').show();
-        } else {
-            $('.knee-bullet').hide();
-        }
-                   
-       }            
+
+       // Listen for changes in the select element
+    $("select[name='ptn_tightness']").change(function () {
+      updateBulletVisibility();
     });
+
+    // Function to update bullet visibility based on selected options
+    function updateBulletVisibility() {
+      var selectedValue = $("select[name='ptn_tightness']").val();
+      console.log(selectedValue);
+
+      // Hide all bullets initially
+      $('.head-bullet, .knee-bullet').hide();
+
+      // Show the corresponding bullet based on selected options
+      for (var i = 0; i < selectedValue.length; i++) {
+        if (selectedValue[i] === 'Elbow') {
+          $('.head-bullet').show();
+        }
+        if (selectedValue[i] === 'Knee') {
+          $('.knee-bullet').show();
+        }
+      }
+    }
 /*****************End highlight pain area on body img**********************/       
 </script>
 
