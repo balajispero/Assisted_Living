@@ -211,11 +211,7 @@ class Physio_model extends CI_Model{
 		}
 	public function get_treatment_protocol($eval_no){
 			$this->db->select('treatment_protocol.*');
-			$this->db->from('physio_treatment_protocol treatment_protocol');
-		
-			/*$this->db->join('preassessment_medicines ptn_med', 'ptn_med.preasses_id = ptn_preasses.preasses_id','left');*/
-			/*$this->db->join('patient_psychological_cond psycho_cond', 'psycho_cond.preasses_no = ptn_preasses.preasses_no','left');*/
- 		
+			$this->db->from('physio_treatment_protocol treatment_protocol'); 		
  	
 			/*$this->db->order_by('rbed.room_bed_id', 'ASC');*/
 			//$this->db->limit('7');

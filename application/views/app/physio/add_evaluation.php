@@ -146,6 +146,18 @@
       top: 25px; /* Adjust the top position based on your needs */
       left: 179px; /* Adjust the left position based on your needs */
     }
+
+    .knee-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 500px; /* Adjust the top position based on your needs */
+      left: 179px; /* Adjust the left position based on your needs */
+    }
     /*End highlight bullet point on body*/
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -271,6 +283,7 @@
                   <div class="row">
                     <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
                     <div class="head-bullet"></div>
+                    <div class="knee-bullet"></div>
                   </div><br>
                   <div class="row">
                       <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>  
@@ -1506,9 +1519,27 @@
       }
     });
 /*****************End berg balance question calculate**********************/
-       /*$(".highlight_img_area").change(function () {
-        select[name='berg_bal_sit_unsupport'].val();
-       });*/
+
+/*****************Start highlight pain area on body img**********************/
+       $("select[name='ptn_tightness']").change(function() {
+        var selectedValue = $(this).val();
+        console.log(selectedValue);
+        
+         for (var i = 0; i < selectedValue.length; i++) {  
+            if(selectedValue[i] === 'Elbow') {
+            $('.head-bullet').show();
+        } else {
+            $('.head-bullet').hide();
+        }
+        if(selectedValue[i] === 'Knee') {
+            $('.knee-bullet').show();
+        } else {
+            $('.knee-bullet').hide();
+        }
+                   
+       }            
+    });
+/*****************End highlight pain area on body img**********************/       
 </script>
 
 </body>
