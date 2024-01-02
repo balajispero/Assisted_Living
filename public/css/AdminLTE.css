@@ -2457,7 +2457,7 @@ Component: timeline
 }
 /* skin-blue logo */
 .skin-blue .logo {
-  /*background-color: #793BBD;*/
+  /* background-color: #793BBD; */
   color: #f9f9f9;
 }
 .skin-blue .logo > a {

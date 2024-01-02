@@ -244,8 +244,8 @@ textarea.form-control{
                             </div><!-- /.col-md-3 -->
                             <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
-                                                                            <label>Therapist</label><span class="text-danger"></span></br>
-                                                                            <select name="consultant_therapist" class="form-control input-sm">
+                                                                            <label>Therapist</label><span class="text-danger">*</span></br>
+                                                                            <select name="consultant_therapist" class="form-control input-sm" required>
                                                                                <option value="">- Consultant Therapist -</option>
                                                                 <?php 
                                                                 foreach($normalPhysioList as $normalPhysioList){

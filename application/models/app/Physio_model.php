@@ -386,6 +386,16 @@ class Physio_model extends CI_Model{
 		}
 
 
+		public function get_treatment_protocol_data($eval_no){
+			$this->db->where(array(
+				'eval_no'		=>		$eval_no,
+				/*'InActive'	=>		0*/
+			));	
+			$query = $this->db->get("physio_treatment_protocol");
+			return $query->result();
+		}
+
+
 	
 	
 }

@@ -183,7 +183,7 @@
                                     <label>Evaluation No.</label><span class="text-danger">*</span>
                                     <!-- <input type="text" class="form-control" name="eval_no" value="">  -->
                                     
-                                    <select name="eval_no" class="form-control input-sm" required>
+                                    <select name="eval_no" onChange="show_treatment_protocol_data(this.value);" class="form-control input-sm" required>
                                                                 <option value="">-Select Evaluation No-</option>
                                                                 <?php 
                                                                 foreach($eval_no_list as $eval_no_list){
@@ -232,7 +232,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Start Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="start_date">
+                                    <input type="" class="form-control" name="start_date"  >
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -240,7 +240,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>End Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="end_date">
+                                    <input type="" class="form-control" name="end_date">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -281,7 +281,7 @@
                                         <div class="form-group wrapper-class" >
                                             <label>Date of Admission</label><span class="text-danger"></span></br>
                                             
-                                            <input type="date" class="form-control" name="date_of_admission" style=" width: 100% !important;">
+                                            <input type="" class="form-control" name="date_of_admission" value="<?php echo $getOPDPatient->date_visit?>" style=" width: 100% !important;">
                                             <span class="text-danger error-text type_category_err"></span>                           
                                         </div><!-- /.form-group wrapper-class -->
                                     </div><!-- /.col-md-4-->
@@ -381,6 +381,38 @@
         }
     });
 });
+
+
+
+function show_treatment_protocol_data(eval_no)
+{
+    console.log(eval_no)
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+        var result = JSON.parse(xmlhttp.responseText);
+        
+        $("input[name='start_date']").val(result[0].start_date);
+        $("input[name='end_date']").val(result[0].end_date);
+        
+
+    }
+  }
+  
+
+xmlhttp.open("GET","<?php echo base_url();?>app/physio/get_treatment_protocol_data/"+eval_no,true);
+xmlhttp.send();
+
+}
        
 </script>
 

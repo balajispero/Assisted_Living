@@ -1056,11 +1056,13 @@ class Physio extends General{
 	public function physio_discharge_summary(){
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
-		
+	
 		
 		$abc = $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
+
+		
 		
 		
 		$this->load->view("app/physio/physio_discharge_summary",$this->data);	
@@ -1100,6 +1102,7 @@ class Physio extends General{
 			            'added_by' => $this->session->userdata('user_id'),
 	
 					);
+
 						
 					$this->physio_model->save_physio_discharge_summary($physio_discharge_summary_details);
 				
@@ -1154,6 +1157,16 @@ class Physio extends General{
 		}
 
 	}
+
+	public function get_treatment_protocol_data($eval_no){
+		$this->data['particularData'] = $this->physio_model->get_treatment_protocol_data($eval_no);
+		if(!empty($this->data['particularData'])){
+		    echo json_encode($this->data['particularData']);die;
+		
+		}
+	}
+
+
 	public function physio_discharge_summary_pdf(){
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
