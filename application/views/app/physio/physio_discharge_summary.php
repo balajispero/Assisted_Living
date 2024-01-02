@@ -261,8 +261,9 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-sm-4" style="margin-top: 25px;">
+                            <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
+                                <label>Status</label><span class="text-danger"></span></br>
                                 <select name="therapy_status" class="form-control" >
                                  <option value="">- Status -</option>
                                  <option value="Completed" name="Completed" class="select">Completed</option>
