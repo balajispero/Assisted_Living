@@ -412,7 +412,7 @@ xmlhttp.onreadystatechange=function()
 xmlhttp.open("GET","<?php echo base_url();?>app/physio/get_treatment_protocol_data/"+eval_no,true);
 xmlhttp.send();
 
-}
+};
        
 </script>
 

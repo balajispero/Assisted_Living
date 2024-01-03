@@ -188,7 +188,7 @@
                                     <label>Evaluation No.</label><span class="text-danger">*</span>
                                     <!-- <input type="text" class="form-control" name="eval_no" value="">  -->
                                     
-                                    <select name="eval_no" class="form-control input-sm" required>
+                                    <select name="eval_no" onChange="show_treatment_protocol_data(this.value);" class="form-control input-sm" required>
                                                                 <option value="">-Select Evaluation No-</option>
                                                                 <?php 
                                                                 foreach($eval_no_list as $eval_no_list){
@@ -288,7 +288,7 @@
                                         <div class="form-group wrapper-class" >
                                             <label>Date of Admission</label><span class="text-danger"></span></br>
                                             
-                                            <input type="date" class="form-control" name="date_of_admission" style=" width: 100% !important;"  value="<?php echo $discharge_summary_info[0]->date_of_admission; ?>">
+                                            <input type="" class="form-control" name="date_of_admission" style=" width: 100% !important;"  value="<?php echo $discharge_summary_info[0]->date_of_admission; ?>">
                                             <span class="text-danger error-text type_category_err"></span>                           
                                         </div><!-- /.form-group wrapper-class -->
                                     </div><!-- /.col-md-4-->
