@@ -368,20 +368,20 @@
             });
 
             $(document).ready(function(){
-       // Function to handle the change event of the select element
-       $("select[name='therapy_status']").change(function() {
-        var selectedValue = $(this).val();
-        
-        // Check if the selected option is 'Deceased'
-        if(selectedValue === 'Deceased') {
-            // Show the deceased section
-            $('#deceased_section').show();
-        } else {
-            // Hide the deceased section
-            $('#deceased_section').hide();
-        }
-    });
-});
+                   // Function to handle the change event of the select element
+                   $("select[name='therapy_status']").change(function() {
+                            var selectedValue = $(this).val();
+                            
+                            // Check if the selected option is 'Deceased'
+                            if(selectedValue === 'Deceased') {
+                                // Show the deceased section
+                                $('#deceased_section').show();
+                            } else {
+                                // Hide the deceased section
+                                $('#deceased_section').hide();
+                            }
+                    });
+                });
         </script>
         <!-- END BDAY -->
         

@@ -81,7 +81,7 @@ class Physio_model extends CI_Model{
 		}
 		elseif($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "No"){
 			$this->db->select("A.*,
-		B.*");
+		B.*,C.ptn_name");
 		
 		$where = "( 
 				B.assign_therapist='".$this->session->userdata('user_id')."'
@@ -89,6 +89,7 @@ class Physio_model extends CI_Model{
 				and A.InActive = 0";
 				$this->db->where($where);
 		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");
+		$this->db->join("physio_evaluation C","C.eval_no = A.eval_no","left outer");
 		$query = $this->db->get("physio_discharge_summary A");
 		 
 		return $query->result();
@@ -293,15 +294,15 @@ class Physio_model extends CI_Model{
 			//echo $this->db->last_query(); die;
 		return $query->result();
 	}*/
-	public function get_physio_notes(){
+	public function get_physio_notes($iop_no=""){
 		if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes"){
 		$this->db->select("A.*,
 		B.*");
 		
 		$where = "( 
-				A.InActive = 0
+				A.iop_id='".$iop_no."'
 				)    
-				";
+				and A.InActive = 0";
 				$this->db->where($where);
 		//$this->db->order_by('A.patient_no','asc');
 		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");
@@ -314,7 +315,8 @@ class Physio_model extends CI_Model{
 		
 		$where = "( 
 				B.assign_therapist='".$this->session->userdata('user_id')."'
-				)    
+				)
+				and A.iop_id='".$iop_no."'    
 				and A.InActive = 0";
 				$this->db->where($where);
 		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");

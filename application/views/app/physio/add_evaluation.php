@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">        
 
         <link href="<?php echo base_url()?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url();?>public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -181,8 +181,95 @@
       top: 770px; /* Adjust the top position based on your needs */
       left: 242px; /* Adjust the left position based on your needs */
     }
+    .cervical_spine-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 597px; /* Adjust the top position based on your needs */
+      left: 174px; /* Adjust the left position based on your needs */
+    }
+    .thoracic_spine-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 675px; /* Adjust the top position based on your needs */
+      left: 161px; /* Adjust the left position based on your needs */
+    }
+    .lumbar_spine-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 726px; /* Adjust the top position based on your needs */
+      left: 160px; /* Adjust the left position based on your needs */
+    }
+    .pelvis-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 211px; /* Adjust the top position based on your needs */
+      left: 175px; /* Adjust the left position based on your needs */
+    }
+    .hip-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 204px; /* Adjust the top position based on your needs */
+      left: 217px; /* Adjust the left position based on your needs */
+    }
+    .ankle-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 415px; /* Adjust the top position based on your needs */
+      left: 169px; /* Adjust the left position based on your needs */
+      transition: transform 0.5s ease;
+    }
+    .ankle-bullet:hover img{
+      transform: scale(2.2); /* Increase the scale on hover to create a zoom effect */
+    }
     /*End highlight bullet point on body*/
+    /*#container {
+      position: relative;
+      overflow: hidden;
+      width: 100%; 
+      height: 400px; 
+    }
+
+    #container img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s ease; // Add a smooth transition effect 
+    }
+
+    #container:hover img {
+      transform: scale(1.2); // Increase the scale on hover to create a zoom effect 
+    }*/
         </style>
+
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -304,21 +391,32 @@
                 <div class="col-sm-4">
                     <?php if(@$patientInfo->gender=="1"){ ?>
                   <div class="row">
-                    <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                    <!-- <div id="container">
+            <img src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="purple kitty"/>
+        </div> -->
+                    <div class="col-sm-12" id="container"><img src="<?=base_url()?>/public/company_logo/male-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
                     <div class="shoulder-bullet"></div>
                     <div class="knee-bullet"></div>
+                    <div class="pelvis-bullet"></div>
+                    <div class="hip-bullet"></div>
+                    <div class="ankle-bullet"></div>
                   </div><br>
                   <div class="row">
                       <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
                       <div class="elbow-bullet"></div>
                       <div class="wrist-bullet"></div>
+                      <div class="cervical_spine-bullet"></div>
+                      <div class="thoracic_spine-bullet"></div>
+                      <div class="lumbar_spine-bullet"></div>
                   </div>
               <?php }else{ ?>
                 <div class="row">
                     <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                    
                   </div><br>
                   <div class="row">
-                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>  
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
+
                   </div>
               <?php } ?>
                 </div>
@@ -1459,6 +1557,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>  
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
         <!-------------------------jquery cdn for work multiple select dropdown------------------------>
+        
 
     <script>
         $(document).ready(function() {  
@@ -1547,6 +1646,7 @@
 
 /*****************Start highlight pain area on body img**********************/
 
+      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
        // Listen for changes in the select element
     $("select[name='ptn_tightness']").change(function () {
       updateBulletVisibility();
@@ -1558,20 +1658,71 @@
       console.log(selectedValue);
 
       // Hide all bullets initially
-      $('.head-bullet, .knee-bullet').hide();
+      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
 
       // Show the corresponding bullet based on selected options
       for (var i = 0; i < selectedValue.length; i++) {
+         if (selectedValue[i] === 'Shoulder') {
+          $('.shoulder-bullet').show();
+        }
         if (selectedValue[i] === 'Elbow') {
-          $('.head-bullet').show();
+          $('.elbow-bullet').show();
         }
         if (selectedValue[i] === 'Knee') {
           $('.knee-bullet').show();
+        }
+        if (selectedValue[i] === 'Shoulder') {
+          $('.shoulder-bullet').show();
+        }
+        if (selectedValue[i] === 'Wrist') {
+          $('.wrist-bullet').show();
+        }
+         if (selectedValue[i] === 'Cervical Spine') {
+          $('.cervical_spine-bullet').show();
+        }
+        if (selectedValue[i] === 'Thoracic Spine') {
+          $('.thoracic_spine-bullet').show();
+        }
+        if (selectedValue[i] === 'Lumbar Spine') {
+          $('.lumbar_spine-bullet').show();
+        }
+        if (selectedValue[i] === 'Pelvis') {
+          $('.pelvis-bullet').show();
+        }
+        if (selectedValue[i] === 'Hip') {
+          $('.hip-bullet').show();
+        }
+        if (selectedValue[i] === 'Ankle') {
+          $('.ankle-bullet').show();
         }
       }
     }
 /*****************End highlight pain area on body img**********************/       
 </script>
 
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var container = document.getElementById('container');
+      var image = document.querySelector('#container img');
+      
+      container.addEventListener('mousemove', function (event) {
+        var containerRect = container.getBoundingClientRect();
+        var mouseX = event.clientX - containerRect.left;
+        var mouseY = event.clientY - containerRect.top;
+
+        var percentX = mouseX / containerRect.width;
+        var percentY = mouseY / containerRect.height;
+
+        var moveX = (percentX - 0.5) * 200; /* Adjust the value to control panning */
+        var moveY = (percentY - 0.5) * 100; /* Adjust the value to control panning */
+
+        image.style.transform = 'scale(1.2) translate(' + moveX + 'px, ' + moveY + 'px)';
+      });
+
+      container.addEventListener('mouseleave', function () {
+        image.style.transform = 'scale(1)'; /* Reset the transform on mouse leave */
+      });
+    });
+  </script> -->
 </body>
 </html>
