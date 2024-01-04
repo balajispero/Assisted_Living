@@ -1061,15 +1061,11 @@ class Physio extends General{
 		$abc = $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
-<<<<<<< Updated upstream
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list($iop_no);
 
 		
 		
 		
-=======
-		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
->>>>>>> Stashed changes
 		$this->load->view("app/physio/physio_discharge_summary",$this->data);	
 
 	}
