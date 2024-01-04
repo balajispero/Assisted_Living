@@ -120,7 +120,7 @@
                 
                     <form action="<?php echo base_url()?>app/physio/physio_dis_summ_update/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post">
 
-                        <input type="hidden" name="eval_no" value="<?php echo $this->uri->segment("6");?>">
+                        <input type="hidden" name="cur_eval_no" value="<?php echo $this->uri->segment("6");?>">
                         <input type="hidden" name="physio_discharge_summary_id" value="<?php echo $this->uri->segment("7");?>">
 
 

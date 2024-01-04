@@ -271,6 +271,7 @@ textarea.form-control{
 <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
 <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
 <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="<?php echo base_url();?>public/js/validation.js"></script>
 
  <!-------------------------jquery cdn for work multiple date selection------------------------>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>

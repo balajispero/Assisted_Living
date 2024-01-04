@@ -1548,7 +1548,8 @@
 
  <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
 <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>   
-<script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script> 
+<script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="<?php echo base_url();?>public/js/validation.js"></script> 
         <!-------------------------jquery cdn for work radio button------------------------>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
         <!-------------------------jquery cdn for work radio button------------------------>
