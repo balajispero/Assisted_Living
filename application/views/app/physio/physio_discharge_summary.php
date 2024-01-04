@@ -295,7 +295,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group wrapper-class" >
                                             <label>Time of Death</label><span class="text-danger"></span></br>
-                                            <input type="text" class="form-control" name="time_of_death">
+                                            <input type="time" class="form-control" name="time_of_death">
                                             <span class="text-danger error-text type_category_err"></span>                           
                                         </div><!-- /.form-group wrapper-class -->
                                     </div><!-- /.col-md-4-->

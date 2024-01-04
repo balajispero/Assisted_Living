@@ -237,7 +237,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Start Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="start_date" value="<?php echo $discharge_summary_info[0]->start_date; ?>">
+                                    <input type="date" class="form-control" name="start_date" value="<?php echo $discharge_summary_info[0]->start_date;?>">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -288,7 +288,7 @@
                                         <div class="form-group wrapper-class" >
                                             <label>Date of Admission</label><span class="text-danger"></span></br>
                                             
-                                            <input type="" class="form-control" name="date_of_admission" style=" width: 100% !important;"  value="<?php echo $discharge_summary_info[0]->date_of_admission; ?>">
+                                            <input type="date" class="form-control" name="date_of_admission" style=" width: 100% !important;"  value="<?php echo $discharge_summary_info[0]->date_of_admission; ?>">
                                             <span class="text-danger error-text type_category_err"></span>                           
                                         </div><!-- /.form-group wrapper-class -->
                                     </div><!-- /.col-md-4-->
@@ -302,7 +302,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group wrapper-class" >
                                             <label>Time of Death</label><span class="text-danger"></span></br>
-                                            <input type="text" class="form-control" name="time_of_death"  value="<?php echo $discharge_summary_info[0]->time_of_death; ?>">
+                                            <input type="time" class="form-control" name="time_of_death"  value="<?php echo $discharge_summary_info[0]->time_of_death; ?>">
                                             <span class="text-danger error-text type_category_err"></span>                           
                                         </div><!-- /.form-group wrapper-class -->
                                     </div><!-- /.col-md-4-->

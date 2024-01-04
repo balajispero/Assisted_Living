@@ -1059,14 +1059,10 @@ class Physio extends General{
 	
 		
 		$abc = $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
-		
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list($iop_no);
-
 		
-		
-		
-		$this->load->view("app/physio/physio_discharge_summary",$this->data);	
+        $this->load->view("app/physio/physio_discharge_summary",$this->data);	
 
 	}
 	public function physio_dis_summ_add(){
@@ -1123,8 +1119,7 @@ class Physio extends General{
 		
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
-	
-		$this->data['discharge_summary_info'] = $this->physio_model->get_discharge_summary($physio_discharge_id);
+	    $this->data['discharge_summary_info'] = $this->physio_model->get_discharge_summary($physio_discharge_id);
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list($iop_no);
 		
 		$this->load->view("app/physio/edit_physio_discharge_summary",$this->data);	
