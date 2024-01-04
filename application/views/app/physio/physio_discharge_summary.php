@@ -232,7 +232,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Start Date</label><span class="text-danger"></span></br>
-                                    <input type="" class="form-control" name="start_date"  >
+                                    <input type="date" class="form-control" name="start_date" value="<?php echo $discharge_summary_info[0]->start_date; ?>" >
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -240,7 +240,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>End Date</label><span class="text-danger"></span></br>
-                                    <input type="" class="form-control" name="end_date">
+                                    <input type="date" class="form-control" name="end_date" value="<?php echo $discharge_summary_info[0]->start_date; ?>">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -281,7 +281,7 @@
                                         <div class="form-group wrapper-class" >
                                             <label>Date of Admission</label><span class="text-danger"></span></br>
                                             
-                                            <input type="" class="form-control" name="date_of_admission" value="<?php echo $getOPDPatient->date_visit?>" style=" width: 100% !important;">
+                                            <input type="date" class="form-control" name="date_of_admission" value="<?php echo $getOPDPatient->date_visit?>" style=" width: 100% !important;">
                                             <span class="text-danger error-text type_category_err"></span>                           
                                         </div><!-- /.form-group wrapper-class -->
                                     </div><!-- /.col-md-4-->

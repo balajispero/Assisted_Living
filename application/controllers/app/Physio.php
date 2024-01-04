@@ -1059,13 +1059,19 @@ class Physio extends General{
 	
 		
 		$abc = $this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+<<<<<<< Updated upstream
 		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list($iop_no);
 
 		
 		
 		
+=======
+		$this->data['eval_no_list'] = $this->physio_model->get_eval_no_list();
+>>>>>>> Stashed changes
 		$this->load->view("app/physio/physio_discharge_summary",$this->data);	
+
 	}
 	public function physio_dis_summ_add(){
 
@@ -1130,7 +1136,7 @@ class Physio extends General{
 	public function physio_dis_summ_update(){
 		if(isset($_POST['btnSave'])){
 			
-				$physio_discharge_summary_details = array(
+			$physio_discharge_summary_details = array(
             'eval_no' => $this->input->post('eval_no'),
             'patient_no' => $this->input->post('patient_no'),
             'iop_id' => $this->input->post('opd_no'),

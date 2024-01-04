@@ -144,7 +144,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 93px; /* Adjust the top position based on your needs */
-      left: 126px; /* Adjust the left position based on your needs */
+      left: 90px; /* Adjust the left position based on your needs */
     }
 
     .elbow-bullet {
@@ -156,7 +156,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 710px; /* Adjust the top position based on your needs */
-      left: 99px; /* Adjust the left position based on your needs */
+      left: 70px; /* Adjust the left position based on your needs */
     }
 
     .knee-bullet {
@@ -167,8 +167,8 @@
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
-      top: 325px; /* Adjust the top position based on your needs */
-      left: 154px; /* Adjust the left position based on your needs */
+      top: 328px; /* Adjust the top position based on your needs */
+      left: 139px; /* Adjust the left position based on your needs */
     }
     .wrist-bullet {
       position: absolute;
@@ -179,7 +179,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 770px; /* Adjust the top position based on your needs */
-      left: 242px; /* Adjust the left position based on your needs */
+      left: 170px; /* Adjust the left position based on your needs */
     }
     .cervical_spine-bullet {
       position: absolute;
@@ -189,8 +189,8 @@
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
-      top: 597px; /* Adjust the top position based on your needs */
-      left: 174px; /* Adjust the left position based on your needs */
+      top: 612px; /* Adjust the top position based on your needs */
+      left: 115px; /* Adjust the left position based on your needs */
     }
     .thoracic_spine-bullet {
       position: absolute;
@@ -201,7 +201,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 675px; /* Adjust the top position based on your needs */
-      left: 161px; /* Adjust the left position based on your needs */
+      left: 116px; /* Adjust the left position based on your needs */
     }
     .lumbar_spine-bullet {
       position: absolute;
@@ -212,7 +212,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 726px; /* Adjust the top position based on your needs */
-      left: 160px; /* Adjust the left position based on your needs */
+      left: 116px; /* Adjust the left position based on your needs */
     }
     .pelvis-bullet {
       position: absolute;
@@ -222,8 +222,8 @@
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
-      top: 211px; /* Adjust the top position based on your needs */
-      left: 175px; /* Adjust the left position based on your needs */
+      top: 201px; /* Adjust the top position based on your needs */
+      left: 126px; /* Adjust the left position based on your needs */
     }
     .hip-bullet {
       position: absolute;
@@ -233,8 +233,8 @@
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
-      top: 204px; /* Adjust the top position based on your needs */
-      left: 217px; /* Adjust the left position based on your needs */
+      top: 274px; /* Adjust the top position based on your needs */
+      left: 145px; /* Adjust the left position based on your needs */
     }
     .ankle-bullet {
       position: absolute;
@@ -245,7 +245,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 415px; /* Adjust the top position based on your needs */
-      left: 169px; /* Adjust the left position based on your needs */
+      left: 139px; /* Adjust the left position based on your needs */
       transition: transform 0.5s ease;
     }
     .ankle-bullet:hover img{
@@ -388,7 +388,7 @@
                          <br><br>
                          
     <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <?php if(@$patientInfo->gender=="1"){ ?>
                   <div class="row">
                     <!-- <div id="container">
@@ -420,7 +420,7 @@
                   </div>
               <?php } ?>
                 </div>
-        <div class="col-sm-8">
+        <div class="col-sm-9">
             <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
