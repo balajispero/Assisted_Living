@@ -195,7 +195,7 @@
                                                                 ?>
                                                                 <option value="<?php echo $eval_no_list->eval_no;?>" <?php if($discharge_summary_info[0]->eval_no==$eval_no_list->eval_no){ echo "selected"; } ?>><?php echo $eval_no_list->eval_no;?></option>
                                                                 <?php }?>
-                                                                            </select>
+                                                                </select>
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -236,7 +236,7 @@
                             </div><!-- /.col-md-3 -->
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
-                                    <label>Start Date</label><span class="text-danger"></span></br>
+                                    <label>Start Date</label><span class="text-danger">*</span></br>
                                     <input type="date" class="form-control" name="start_date" value="<?php echo $discharge_summary_info[0]->start_date;?>">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
@@ -244,7 +244,7 @@
                             </div><!-- /.col-md-3 -->
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
-                                    <label>End Date</label><span class="text-danger"></span></br>
+                                    <label>End Date</label><span class="text-danger">*</span></br>
                                     <input type="date" class="form-control" name="end_date" value="<?php echo $discharge_summary_info[0]->start_date; ?>">
                                     <!-- <textarea name="goals_achived" class="form-control"></textarea> -->
                                     <span class="text-danger error-text type_category_err"></span>                           
