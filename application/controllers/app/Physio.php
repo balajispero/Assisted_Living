@@ -1091,15 +1091,24 @@ class Physio extends General{
 			            'goal_achieved' => $this->input->post('goal_achieved'),
 			            'further_recommendation' => $this->input->post('further_recommendation'),
 						'therapy_status' => $this->input->post('therapy_status'),
-						'date_of_admission' => $this->input->post('date_of_admission'),
+						/*'date_of_admission' => $this->input->post('date_of_admission'),
 						'date_of_death' => $this->input->post('date_of_death'),
 						'time_of_death' => $this->input->post('time_of_death'),
 						'causes_of_death' => $this->input->post('causes_of_death'),
-						'contact_no' => $this->input->post('contact_no'),
+						'contact_no' => $this->input->post('contact_no'),*/
 			            'added_date' => date('Y-m-d H:i:s'),
 			            'added_by' => $this->session->userdata('user_id'),
 	
 					);
+				if($this->input->post('therapy_status')=="Deceased")
+			            {
+			            	$physio_discharge_summary_details['date_of_admission']=$this->input->post('date_of_admission');
+			            	$physio_discharge_summary_details['date_of_death']=$this->input->post('date_of_death');
+			            	$physio_discharge_summary_details['time_of_death']=$this->input->post('time_of_death');
+			            	$physio_discharge_summary_details['causes_of_death']=$this->input->post('causes_of_death');
+			            	$physio_discharge_summary_details['contact_no']=$this->input->post('contact_no');
+			            }
+
 
 						
 					$this->physio_model->save_physio_discharge_summary($physio_discharge_summary_details);
@@ -1126,29 +1135,62 @@ class Physio extends General{
 	}
 	public function physio_dis_summ_update(){
 		if(isset($_POST['btnSave'])){
-			
-			$physio_discharge_summary_details = array(
-            'eval_no' => $this->input->post('eval_no'),
-            'patient_no' => $this->input->post('patient_no'),
-            'iop_id' => $this->input->post('opd_no'),
-            'Diagnosis' => $this->input->post('Diagnosis'),
-            'fim_score1_eval_date' => $this->input->post('fim_score_eval_date'),
-            'start_date' => $this->input->post('start_date'),
-            'end_date' => $this->input->post('end_date'),
-            'goal_achieved' => $this->input->post('goal_achieved'),
-            'further_recommendation' => $this->input->post('further_recommendation'),
-			'therapy_status' => $this->input->post('therapy_status'),
-			'date_of_admission' => $this->input->post('date_of_admission'),
-			'date_of_death' => $this->input->post('date_of_death'),
-			'time_of_death' => $this->input->post('time_of_death'),
-			'causes_of_death' => $this->input->post('causes_of_death'),
-			'contact_no' => $this->input->post('contact_no'),
-            'updated_date' =>date('Y-m-d H:i:s'),
-            'updated_by' => $this->session->userdata('user_id'),);
-		$this->physio_model->update_physio_discharge_summary($physio_discharge_summary_details);
-				
-				$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Successfully updated discharged the patient!</div>");
-				
+			if($this->input->post('cur_eval_no')==$this->input->post('eval_no')){
+				$where = "(
+					eval_no= '".$this->input->post('cur_eval_no')."' 
+					) 
+					and InActive = 0";
+					$this->db->where($where);
+					$query = $this->db->get("physio_discharge_summary");
+					
+					if($query->num_rows() > 0)
+					{
+						$physio_discharge_summary_details = array(
+			            'eval_no' => $this->input->post('cur_eval_no'),
+			            'patient_no' => $this->input->post('patient_no'),
+			            'iop_id' => $this->input->post('opd_no'),
+			            'Diagnosis' => $this->input->post('Diagnosis'),
+			            'fim_score1_eval_date' => $this->input->post('fim_score_eval_date'),
+			            'start_date' => $this->input->post('start_date'),
+			            'end_date' => $this->input->post('end_date'),
+			            'goal_achieved' => $this->input->post('goal_achieved'),
+			            'further_recommendation' => $this->input->post('further_recommendation'),
+						'therapy_status' => $this->input->post('therapy_status'),
+			            'updated_date' =>date('Y-m-d H:i:s'),
+			            'updated_by' => $this->session->userdata('user_id'));
+			            if($this->input->post('therapy_status')=="Deceased")
+			            {
+			            	$physio_discharge_summary_details['date_of_admission']=$this->input->post('date_of_admission');
+			            	$physio_discharge_summary_details['date_of_death']=$this->input->post('date_of_death');
+			            	$physio_discharge_summary_details['time_of_death']=$this->input->post('time_of_death');
+			            	$physio_discharge_summary_details['causes_of_death']=$this->input->post('causes_of_death');
+			            	$physio_discharge_summary_details['contact_no']=$this->input->post('contact_no');
+			            }
+					$this->physio_model->update_physio_discharge_summary($physio_discharge_summary_details);
+							
+							$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Successfully updated discharged the patient!</div>");
+					}
+
+			}elseif($this->input->post('cur_eval_no')!=$this->input->post('eval_no')){
+				$where = "(
+					eval_no= '".$this->input->post('eval_no')."' 
+					) 
+					and InActive = 0";
+					$this->db->where($where);
+					$query = $this->db->get("physio_discharge_summary");
+					
+					if($query->num_rows() > 0)
+					{
+						$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Patient has already been discharged.</div>");
+
+					}
+					else{
+						$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Oops! Something went wrong. Please try again.</div>");
+
+					}	
+				}
+
+	
 				redirect(base_url().'app/Physio/physio_discharge_summary_list/'.$this->input->post('opd_no').'/'.$this->input->post('patient_no'),$this->data);
 			
 		}
