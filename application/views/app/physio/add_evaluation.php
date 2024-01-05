@@ -19,8 +19,9 @@
        <style>
          textarea.form-control{
             height: 34px !important;
-            /*border-radius: 25px !important;*/
+            border-radius: 25px !important;
            }
+           
          
           th.berg_bal {
           text-align: center;
@@ -84,14 +85,14 @@
         }
     /*End toggle button css*/
 
-     /*input.form-control{
+     input.form-control{
       border-radius: 25px !important;
      }
      select.form-control{
       border-radius: 25px !important;
       color: black;
 
-     }*/
+     }
      
         /*Start multiple select dropdown css*/
         .btn-group, .btn-group-vertical {
@@ -105,8 +106,9 @@
         color: #666;
         border-color: #ddd;
         border-bottom-color: #ddd;
-        width: 40%;
+        width: 100%;
         text-align: left;
+        border-radius: 25px !important;
     }
     .btn .caret {
         margin-left: 150px;

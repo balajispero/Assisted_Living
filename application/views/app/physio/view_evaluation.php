@@ -15,10 +15,20 @@
         
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <style>
-         textarea{
+         textarea.form-control{
             height: 34px !important;
+            border-radius: 25px !important;
 
          }
+         input.form-control{
+         border-radius: 25px !important;
+     }
+       select.form-control{
+        border-radius: 25px !important;
+      color: black;
+
+     }
+     
          .onlyphysio_eval{
                 display:block !important;
             }
@@ -91,6 +101,7 @@
         border-bottom-color: #ddd;
         width: 40%;
         text-align: left;
+        border-radius: 25px !important;
     }
     .btn .caret {
         margin-left: 150px;
