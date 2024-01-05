@@ -433,7 +433,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Name</label><span class="text-danger">*</span></br>
-                                    <input type="text" class="form-control" name="ptn_name" value="<?php echo @$patientInfo->middlename; ?>" required> 
+                                    <input type="text" class="form-control alphaonly" name="ptn_name" value="<?php echo @$patientInfo->middlename; ?>" required> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
@@ -441,7 +441,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Age</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="ptn_age" value="<?php echo @$patientInfo->age; ?>"> 
+                                    <input type="text" class="form-control numberonly" name="ptn_age" value="<?php echo @$patientInfo->age; ?>"> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->

@@ -107,7 +107,7 @@ textarea.form-control{
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
                                     <label>Evaluated by</label><span class="text-danger">*</span></br>
-                                    <input type="text" class="form-control" name="eval_by" value="<?php echo @$patientInfo->middlename; ?>" required> 
+                                    <input type="text" class="form-control alphaonly" name="eval_by" value="<?php echo @$patientInfo->middlename; ?>" required> 
 
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
