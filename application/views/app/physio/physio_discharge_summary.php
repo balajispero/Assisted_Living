@@ -309,7 +309,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group wrapper-class" >
                                     <label>Contact No.</label><span class="text-danger"></span></br>
-                                    <input type="text" class="form-control" name="contact_no">
+                                    <input type="text" class="numberonly form-control" name="contact_no">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-4-->
@@ -343,6 +343,7 @@
          <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
          <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
+        <script src="<?php echo base_url();?>public/js/validation.js"></script>
         
         
          <!-- BDAY -->

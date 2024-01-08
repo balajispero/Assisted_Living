@@ -163,8 +163,8 @@
                             <div class="box-footer clearfix">
                                 <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
-                                    <li class="active"><a href="<?php echo base_url()?>app/invoice/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Lab Bill</a></li>
-                                    <li><a href="<?php echo base_url()?>app/invoice/therapy_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physiotherapy Bill</a></li>
+                                    <li><a href="<?php echo base_url()?>app/invoice/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Lab Bill</a></li>
+                                    <li class="active"><a href="<?php echo base_url()?>app/invoice/therapy_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physiotherapy Bill</a></li>
                                     
                                  </ul>
                                 </div>
@@ -189,7 +189,7 @@
                                                             
                                                             <div class="box-tools">
                                                                 <div class="input-group">
-                                                                    <form method="post" action="<?php echo base_url()?>app/invoice/lab_invoice/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">
+                                                                    <form method="post" action="<?php echo base_url()?>app/invoice/therapy_invoice/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">
                                                                     <table cellpadding="3" cellspacing="3" width="100%">
                                                                     <tr>
                                                                         <td>From Date</td>

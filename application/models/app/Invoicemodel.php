@@ -57,6 +57,45 @@ class Invoicemodel extends CI_Model {
 		echo $this->db->last_query(); die;*/
 		return $query->result();
 	}
+
+	public function generate_therapy_bill($iop_no, $patient_no){
+		if($this->input->post("cFrom") == ""){
+			//$cFrom = date("Y-m-d");	
+			$cFrom="";
+		}else{
+			$cFrom = $this->input->post("cFrom");
+		}
+		
+		if($this->input->post("cTo") == ""){
+			$cTo = date("Y-m-d");	
+		}else{
+			$cTo = $this->input->post("cTo");
+		}
+		
+		$this->db->select("A.patient_no,A.iop_id,
+		A.eval_no,
+		A.added_date,
+		A.therapy_charges");
+		
+		$where = "( 
+				A.InActive = 0
+				)
+				and A.iop_id='".$iop_no."'
+				and A.patient_no='".$patient_no."'
+				and DATE(A.added_date) between '".$cFrom."' and '".$cTo."'";
+				$this->db->where($where);
+		//$this->db->order_by('A.patient_no','asc');
+		//$this->db->join("lab_test_name_with_charges B","B.id = A.laboratory_id","left outer");
+		$query = $this->db->get("physio_notes A");
+		/*print_r($query->result());
+		echo $this->db->last_query(); die;*/
+		return $query->result();
+	}
+
+	public function getServiceByEvalNo($eval_no) {
+    $query = $this->db->get_where('physio_evaluation', array('eval_no' => $eval_no));
+    return $query->row();
+}
 	
 }
 ?>

@@ -442,7 +442,7 @@ class General_model extends CI_Model{
 			    public function getRoomByRoomId($room_id){
                     $query = $this->db->query("SELECT A.room_name,A.floor FROM `room_master` A WHERE `A`.`room_master_id` = $room_id");
                     return $query->row();
-                } 
+                }
 	
 	
 	

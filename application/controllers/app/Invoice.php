@@ -188,6 +188,41 @@ class Invoice extends General{
 		    // $this->load->view('app/billings/lab_invoice',$this->data);
 	}
 	
+	public function therapy_view(){
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+		
+		$this->data['message'] = $this->session->flashdata('message');
+		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
+		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+		
+		$this->load->view("app/billings/therapy_view",$this->data);	
+	}
+
+	public function therapy_invoice()
+	{
+		$iop_no = $this->uri->segment("4");
+		$patient_no = $this->uri->segment("5");
+			$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+			$this->data['invoiceItems'] = $this->Invoicemodel->generate_therapy_bill($iop_no,$patient_no);
+            
+			$dompdf = new Dompdf();
+            $dompdf->set_option('isRemoteEnabled',TRUE);
+            $canvas=$dompdf->get_canvas();
+            //$this->load->view('app/doctor/preassessment_report',$this->data);
+            $html = $this->load->view('app/billings/therapy_invoice',$this->data,true);
+
+            $dompdf->loadHtml($html);
+           
+            // Render the HTML as PDF
+            $dompdf->render();
+            // Output the generated PDF to Browser
+            /*$invoiceFileName = 'Invoice-'.$this->data['invoiceValues'][0]['order_id'].'.pdf';
+            $dompdf->stream($invoiceFileName,array("Attachment" => 0));*/
+
+            $dompdf->stream('therapy_bill.pdf',array("Attachment" => 0));
+		
+	}
 	
 	
 	

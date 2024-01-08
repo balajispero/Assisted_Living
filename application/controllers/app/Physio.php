@@ -1274,10 +1274,9 @@ class Physio extends General{
 				'session_date'			=>		$this->input->post('dDate'),
 				'session_time'			=>		$this->input->post('dTime'),
 				'notes'			=>		!empty($this->input->post('notes')) ? $this->input->post('notes') : '',
+				'therapy_charges'			=>		'450',
 				'added_date'		=>		date("Y-m-d h:i:s A"),
 				'added_by'	=>		$this->session->userdata('user_id'),
-				/*'updated_date'			=>		$this->input->post('updated_date'),
-				'updated_by'	=>		$this->session->userdata('user_id'),*/
 				'InActive'		=>		0
 			);
 			$this->db->insert('physio_notes',$this->data);
