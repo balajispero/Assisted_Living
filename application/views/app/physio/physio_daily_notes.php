@@ -171,7 +171,7 @@
                                     <div class="tab-content">
                                     	<div class="tab-pane active" id="tab_1">
                                         	
-                                            <!-- <?php echo $message;?> -->
+                                             <?php echo $message;?> 
                                             <?php if($this->session->userdata('emr_viewing') == ""){?>	
                                            <?php if($getOPDPatient->nStatus == "Pending"){?>
                                            <a href="#" class="add_physio_notes btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Daily Notes</a>
@@ -219,6 +219,7 @@
                                                <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes" || $this->session->userdata('physio_expert') == "No"){ ?>
                                                 <td>
                                                         <a href="#" class="edit_physio_notes" data-physio_notes_id="<?php echo $rows->physio_notes_id; ?>" data-toggle="modal" data-target="#editModal" type="button">Edit</a>
+                                                        <!-- <a href="<?php echo base_url()?>app/physio/delete_physio_daily_notes/<?php echo $rows->physio_notes_id?>/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" onClick="return confirm('Are you sure you want to remove?');">Remove</a> -->
                                                 </td>
                                             <?php } ?>
 
@@ -362,7 +363,7 @@ xmlhttp3.send();
                                         <tbody>
                                         <tr>
                                             <td width="100">Evaluation No.<span class="text-danger">*</span></td>
-                                           <td width="250">   <select name="eval_no" class="form-control input-sm" required>
+                                           <td width="250">   <select name="eval_no" onChange="show_treatment_line_data(this.value);" class="form-control input-sm" required>
                                                                 <option value="">-Select Evaluation No-</option>
                                                                 <?php 
                                                                 foreach($eval_no_list as $eval_no_list){
@@ -665,6 +666,35 @@ xmlhttp6.open("GET","<?php echo base_url();?>app/physio/view_physio_notes/"+phys
 xmlhttp6.send();
 });
             });
+
+ function show_treatment_line_data(eval_no)
+{
+    
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+        var result = JSON.parse(xmlhttp.responseText);
+    
+        $("textarea[name='notes']").val(result[0].week_treatment_line); 
+
+    }
+  }
+  
+
+xmlhttp.open("GET","<?php echo base_url();?>app/physio/get_treatment_line_data/"+eval_no,true);
+xmlhttp.send();
+
+}
+
         </script>
         
     

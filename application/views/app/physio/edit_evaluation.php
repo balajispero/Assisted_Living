@@ -129,6 +129,125 @@
     color: white;
 }
 
+/*Start highlight bullet point on body*/
+    .shoulder-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 93px; /* Adjust the top position based on your needs */
+      left: 90px; /* Adjust the left position based on your needs */
+    }
+
+    .elbow-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 710px; /* Adjust the top position based on your needs */
+      left: 70px; /* Adjust the left position based on your needs */
+    }
+
+    .knee-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 328px; /* Adjust the top position based on your needs */
+      left: 139px; /* Adjust the left position based on your needs */
+    }
+    .wrist-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 770px; /* Adjust the top position based on your needs */
+      left: 170px; /* Adjust the left position based on your needs */
+    }
+    .cervical_spine-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 612px; /* Adjust the top position based on your needs */
+      left: 115px; /* Adjust the left position based on your needs */
+    }
+    .thoracic_spine-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 675px; /* Adjust the top position based on your needs */
+      left: 116px; /* Adjust the left position based on your needs */
+    }
+    .lumbar_spine-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 726px; /* Adjust the top position based on your needs */
+      left: 116px; /* Adjust the left position based on your needs */
+    }
+    .pelvis-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 201px; /* Adjust the top position based on your needs */
+      left: 126px; /* Adjust the left position based on your needs */
+    }
+    .hip-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 274px; /* Adjust the top position based on your needs */
+      left: 145px; /* Adjust the left position based on your needs */
+    }
+    .ankle-bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 415px; /* Adjust the top position based on your needs */
+      left: 139px; /* Adjust the left position based on your needs */
+      transition: transform 0.5s ease;
+    }
+    .ankle-bullet:hover img{
+      transform: scale(2.2); /* Increase the scale on hover to create a zoom effect */
+    }
+    /*End highlight bullet point on body*/
+
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -212,21 +331,54 @@
                         
                         <div class="row text-center">
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $ptnEvalInfo->eval_no; ?>/general" class="btn <?php if($this->uri->segment("5")=="general" or $this->uri->segment("5")=="") { echo "btn-light"; }else{ echo "bg_color1"; } ?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">General Evaluation</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $ptnEvalInfo->eval_no; ?>/general/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php if($this->uri->segment("5")=="general" or $this->uri->segment("5")=="") { echo "btn-light"; }else{ echo "bg_color1"; } ?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">General Evaluation</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/ortho" class="btn <?php echo ($this->uri->segment("5")=="ortho") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Ortho</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/ortho/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php echo ($this->uri->segment("5")=="ortho") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Ortho</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/neuro" class="btn <?php echo ($this->uri->segment("5")=="neuro") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Neuro</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/neuro/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php echo ($this->uri->segment("5")=="neuro") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Neuro</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/respi" class="btn <?php echo ($this->uri->segment("5")=="respi") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Respiratory</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/respi/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php echo ($this->uri->segment("5")=="respi") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Respiratory</a>
                           </div>
                         </div>
                         <br><br>
 
                         <div class="row">
+                            <div class="col-sm-3">
+                    <?php if(@$patientInfo->gender=="1"){ ?>
+                  <div class="row">
+                    
+                    <div class="col-sm-12" id="container"><img src="<?=base_url()?>/public/company_logo/male-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                    <div class="shoulder-bullet"></div>
+                    <div class="knee-bullet"></div>
+                    <div class="pelvis-bullet"></div>
+                    <div class="hip-bullet"></div>
+                    <div class="ankle-bullet"></div>
+                  </div><br>
+                  <div class="row">
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
+                      <div class="elbow-bullet"></div>
+                      <div class="wrist-bullet"></div>
+                      <div class="cervical_spine-bullet"></div>
+                      <div class="thoracic_spine-bullet"></div>
+                      <div class="lumbar_spine-bullet"></div>
+                  </div>
+              <?php }else{ ?>
+                <div class="row">
+                    <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                    
+                  </div><br>
+                  <div class="row">
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
+
+                  </div>
+              <?php } ?>
+                </div>
+                <div class="col-sm-9">
+                    <div class="row">
+
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Evaluation No.</label><span class="text-danger">*</span></br>
@@ -806,6 +958,9 @@
                           </tr> -->    
                       </table>
                   </div>
+            </div><!-- / col-sm-8 -->
+        </div> 
+        <hr style="border-top: 2px solid #2B48B0;"/>
 
                   <div class="row">
                           <div class="col-sm-12">
@@ -1534,6 +1689,61 @@
     // Call the color update function
     updateColor();
   });
+
+  /*****************Start highlight pain area on body img**********************/
+
+      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
+       // Listen for changes in the select element
+    $("select[name='ptn_tightness']").change(function () {
+      updateBulletVisibility();
+    });
+
+    // Function to update bullet visibility based on selected options
+    function updateBulletVisibility() {
+      var selectedValue = $("select[name='ptn_tightness']").val();
+      console.log(selectedValue);
+
+      // Hide all bullets initially
+      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
+
+      // Show the corresponding bullet based on selected options
+      for (var i = 0; i < selectedValue.length; i++) {
+         if (selectedValue[i] === 'Shoulder') {
+          $('.shoulder-bullet').show();
+        }
+        if (selectedValue[i] === 'Elbow') {
+          $('.elbow-bullet').show();
+        }
+        if (selectedValue[i] === 'Knee') {
+          $('.knee-bullet').show();
+        }
+        if (selectedValue[i] === 'Shoulder') {
+          $('.shoulder-bullet').show();
+        }
+        if (selectedValue[i] === 'Wrist') {
+          $('.wrist-bullet').show();
+        }
+         if (selectedValue[i] === 'Cervical Spine') {
+          $('.cervical_spine-bullet').show();
+        }
+        if (selectedValue[i] === 'Thoracic Spine') {
+          $('.thoracic_spine-bullet').show();
+        }
+        if (selectedValue[i] === 'Lumbar Spine') {
+          $('.lumbar_spine-bullet').show();
+        }
+        if (selectedValue[i] === 'Pelvis') {
+          $('.pelvis-bullet').show();
+        }
+        if (selectedValue[i] === 'Hip') {
+          $('.hip-bullet').show();
+        }
+        if (selectedValue[i] === 'Ankle') {
+          $('.ankle-bullet').show();
+        }
+      }
+    }
+/*****************End highlight pain area on body img**********************/       
 </script>
 
 

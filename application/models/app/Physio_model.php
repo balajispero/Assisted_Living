@@ -399,6 +399,14 @@ class Physio_model extends CI_Model{
 			$query = $this->db->get("physio_treatment_protocol");
 			return $query->result();
 		}
+		public function get_treatment_line_data($eval_no){
+			$this->db->order_by("week_plan_id","DESC");
+			$this->db->where(array(
+				'eval_no'		=>		$eval_no,
+			));	
+			$query = $this->db->get("physio_treatment_protocol_week_plan");
+			return $query->result();
+		}
 
 
 	

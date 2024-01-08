@@ -478,8 +478,10 @@ class Physio extends General{
 
 	public function view_evaluation($eval_no)
 	{
-		$iop_no = $this->uri->segment("4");
-		$patient_no = $this->uri->segment("5");
+		
+		$iop_no = $this->uri->segment("6");
+		$patient_no = $this->uri->segment("7");
+		
 		
 		$this->session->set_userdata(array(
 				 'tab'			=>		'',
@@ -488,7 +490,7 @@ class Physio extends General{
 				 'submodule'	=>		''));
 				 $this->data['message'] = $this->session->flashdata('message');
 
-				 
+				 $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no); 
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
 				 $this->data['tightness_list'] = $this->physio_model->get_tightness_list();
 				 
@@ -556,9 +558,8 @@ class Physio extends General{
 
 	public function edit_evaluation($eval_no)
 	{
-		$iop_no = $this->uri->segment("4");
-		//$patient_no = $this->uri->segment("5");
-
+		$iop_no = $this->uri->segment("6");
+		$patient_no = $this->uri->segment("7");
 		
 		$this->session->set_userdata(array(
 				 'tab'			=>		'',
@@ -566,7 +567,7 @@ class Physio extends General{
 				 'subtab'		=>		'',
 				 'submodule'	=>		''));
 				 $this->data['message'] = $this->session->flashdata('message');
-
+				 $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 				 //$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 				 $this->data['tightness_list'] = $this->physio_model->get_tightness_list();
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
@@ -1111,7 +1112,15 @@ class Physio extends General{
 
 
 						
-					$this->physio_model->save_physio_discharge_summary($physio_discharge_summary_details);
+					$insert_data=$this->physio_model->save_physio_discharge_summary($physio_discharge_summary_details);
+					if($insert_data){
+
+						$evalNo = $this->input->post('eval_no');
+						$dischargeStatus = ($this->input->post('therapy_status') == "Completed") ? 'Discharged' : 'Deceased';
+						$this->db->query("UPDATE physio_evaluation SET physio_discharged = '{$dischargeStatus}' WHERE eval_no = '{$evalNo}'");
+						$this->db->query("UPDATE physio_treatment_protocol SET physio_discharged = '{$dischargeStatus}' WHERE eval_no = '{$evalNo}'");
+
+					}
 				
 				$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Successfully discharged the patient!</div>");
 			}	
@@ -1281,7 +1290,7 @@ class Physio extends General{
 		$iop_no = $this->uri->segment("4");
 		$patient_no = $this->uri->segment("5");
 		$rel_agree="Yes";
-		
+		$this->data['message'] = $this->session->flashdata('message');
 		$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 		$this->data['patientPhysioEvalAgree'] = $this->physio_model->get_physio_evaluation($iop_no,$rel_agree);
@@ -1295,6 +1304,17 @@ class Physio extends General{
 		}
 
 			
+	}
+	public function delete_physio_daily_notes(){
+		$id = $this->uri->segment("4");
+		$iop_no = $this->uri->segment("5");
+		$patient_no = $this->uri->segment("6");
+		
+		$this->db->query("update physio_notes set InActive = 1 where physio_notes_id = ".$id);
+		
+		$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Notes successfully Deleted!</div>");
+		
+		redirect(base_url().'app/physio/physio_daily_notes/'.$iop_no.'/'.$patient_no,$this->data);
 	}
 	public function update_physio_daily_notes()
 	{
@@ -1383,6 +1403,13 @@ class Physio extends General{
 		print_r($this->data['eval_no_list']);
 		print_r($this->data['patientPhysioEvalAgree']);die;*/
 		$this->load->view("app/physio/physio_deceased_patient_information",$this->data);	
+	}
+	public function get_treatment_line_data($eval_no){
+		$this->data['particularData'] = $this->physio_model->get_treatment_line_data($eval_no);
+		if(!empty($this->data['particularData'])){
+		    echo json_encode($this->data['particularData']);die;
+		
+		}
 	}
 
 
