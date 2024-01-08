@@ -15,6 +15,9 @@
         
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+
+	      <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
+
         
        <style>
          textarea.form-control{
@@ -133,7 +136,7 @@
     background-color: white;
     }
     .info:hover {
-     background: #2196F3;
+     background: white;
     color: white;
 }
     /*Start highlight bullet point on body*/
@@ -270,6 +273,11 @@
     #container:hover img {
       transform: scale(1.2); // Increase the scale on hover to create a zoom effect 
     }*/
+    .hvr-rectangle-out{
+      border-color: #2B48B0;
+      color: #2B48B0;
+    }
+   
         </style>
 
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -374,16 +382,16 @@
                         <!-- <div class="container"> -->
                         <div class="row text-center">
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/general" class="btn <?php if($this->uri->segment("6")=="general" or $this->uri->segment("6")=="") { echo "btn-light"; }else{ echo "bg_color1"; } ?> btn-block" style="margin-top: 5px;  border-color: dodgerblue;">General Evaluation</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/general" class="btn <?php if($this->uri->segment("6")=="general" or $this->uri->segment("6")=="") { echo "hvr-rectangle-out"; }else{ echo "bg_color1"; } ?> btn-block" style="margin-top: 5px;  border-color: dodgerblue;">General Evaluation</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/ortho" class="btn <?php echo ($this->uri->segment("6")=="ortho") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px;  border-color: dodgerblue;">Ortho</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/ortho" class="btn <?php echo ($this->uri->segment("6")=="ortho") ? 'hvr-rectangle-out' : 'bg_color1';?> btn-block" style="margin-top: 5px;  border-color: dodgerblue;">Ortho</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/neuro" class="btn <?php echo ($this->uri->segment("6")=="neuro") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px;  border-color: dodgerblue;">Neuro</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/neuro" class="btn <?php echo ($this->uri->segment("6")=="neuro") ? 'hvr-rectangle-out' : 'bg_color1';?> btn-block" style="margin-top: 5px;  border-color: dodgerblue;">Neuro</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/respi" class="btn <?php echo ($this->uri->segment("6")=="respi") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px;  border-color: dodgerblue;">Respiratory</a>
+                            <a href="<?php echo base_url()?>app/physio/add_evaluation/<?php echo $this->uri->segment("4");?>/<?php echo $this->uri->segment("5");?>/respi" class="btn <?php echo ($this->uri->segment("6")=="respi") ? 'hvr-rectangle-out' : 'bg_color1';?> btn-block" style="margin-top: 5px;  border-color: dodgerblue;">Respiratory</a>
                           </div>
                         </div>
                     <!-- </div> -->
@@ -1537,10 +1545,11 @@
 
                         </div><!-- / row -->
                     </div><!--/treatment section div-->
+                            </div><br>
+                   <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="Submit" style="width: 10%;">Submit</button>
                             </div>
-
-                <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="Submit">
-            </form>
+              </form>
 
         </section>
 

@@ -14,6 +14,8 @@
         <link href="<?php echo base_url();?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+	      <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
+        
         <style>
          textarea.form-control{
             height: 34px !important;
@@ -125,7 +127,7 @@
     background-color: white;
     }
     .info:hover {
-     background: #2196F3;
+     background: #FFF;
     color: white;
 }
 
@@ -248,6 +250,11 @@
     }
     /*End highlight bullet point on body*/
 
+    .hvr-rectangle-out{
+      border-color: #2B48B0;
+      color: #2B48B0;
+    }
+
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -331,16 +338,16 @@
                         
                         <div class="row text-center">
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $ptnEvalInfo->eval_no; ?>/general/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php if($this->uri->segment("5")=="general" or $this->uri->segment("5")=="") { echo "btn-light"; }else{ echo "bg_color1"; } ?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">General Evaluation</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $ptnEvalInfo->eval_no; ?>/general/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php if($this->uri->segment("5")=="general" or $this->uri->segment("5")=="") { echo "hvr-rectangle-out"; }else{ echo "bg_color1"; } ?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">General Evaluation</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/ortho/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php echo ($this->uri->segment("5")=="ortho") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Ortho</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/ortho/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php echo ($this->uri->segment("5")=="ortho") ? 'hvr-rectangle-out' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Ortho</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/neuro/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php echo ($this->uri->segment("5")=="neuro") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Neuro</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/neuro/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php echo ($this->uri->segment("5")=="neuro") ? 'hvr-rectangle-out' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Neuro</a>
                           </div>
                           <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/respi/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php echo ($this->uri->segment("5")=="respi") ? 'btn-light' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Respiratory</a>
+                            <a href="<?php echo base_url()?>app/physio/edit_evaluation/<?php echo $this->uri->segment("4");?>/respi/<?php echo $ptnEvalInfo->iop_no?>/<?php echo $ptnEvalInfo->patient_no?>" class="btn <?php echo ($this->uri->segment("5")=="respi") ? 'hvr-rectangle-out' : 'bg_color1';?> btn-block" style="margin-top: 5px; border-color: dodgerblue;">Respiratory</a>
                           </div>
                         </div>
                         <br><br>
@@ -1578,7 +1585,11 @@
                         </div><!--/treatment section div-->
                             </div>
                     <!--------------------End treatment section div--------------------------->
-                <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="Submit">
+                <!-- <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="Submit"> -->
+                <br>
+                   <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="Submit" style="width: 10%;">Submit</button>
+                    </div>
             </form>
 
         </section>
