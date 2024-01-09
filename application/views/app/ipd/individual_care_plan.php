@@ -310,7 +310,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -384,7 +384,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -454,7 +454,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>

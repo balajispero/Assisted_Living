@@ -15,6 +15,8 @@
         
            <!----------BOOTSTRAP DATEPICKER----------------------------->
         <link rel="stylesheet" href="<?php echo base_url();?>public/datepicker/css/datepicker.css">
+	      <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
+
         <!---------------------------------------------------------->
         
         
@@ -30,6 +32,10 @@
         }
         select.form-control {
             width: 100% !important;
+        }
+        .hvr-rectangle-out{
+         border-color: #2B48B0;
+         color: #2B48B0;
         }
         </style>
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
@@ -315,12 +321,12 @@
                             </div><!-- /.col-md-4-->
                         </div>
 
-                        <div class="col-sm-4">
-                        <button type="submit" class="btn btn-primary bg_color btn-sm" name="btnSave" value="Submit" style="margin-left: 5px;">Submit</button>
+                        <div class="col-sm-12 text-center">
+                        <button type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="Submit">Submit</button>
                         </div>
                             
                                                         
-                            <br><br>
+                            <br><br><br>
 
                         </div>
                     </form>

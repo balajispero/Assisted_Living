@@ -502,9 +502,7 @@
                                       <option value="8">8</option>
                                       <option value="9">9</option>
                                       <option value="10">10</option>
-
-
-                                    </select>
+                                     </select>
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->

@@ -1,15 +1,22 @@
- <script language="javascript">
+
+
+<script language="javascript">
     setTimeout(function timeru(){$('.alert').fadeOut(1000)}, 3000);
-   </script> 
+    </script> 
+   
+<link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
    <style>
     @media only screen and (max-width:768px) and (min-width:300px) {
-         .logo2{
+         .m12{
             font-size: 15px;
             margin-top: -48px;
             margin-left: 35px;
+            /* height: 30px; */
          }
+
          .dropmenu{
-            margin-top: -54px;
+            margin-top: -52px;
             width: 100%;
             height: 40px;
             font-size: 12px;
@@ -30,14 +37,14 @@
             margin-left: 70px !important;
          }
         }
-        @media only screen and (max-width:420px) {
+        @media only screen and (max-width:42px) {
          .logo2{
-            font-size: 15px;
-            margin-top: -48px;
+            font-size: 18px;
+            margin-top: -50px;
             margin-left: 35px;
          }
          .dropmenu{
-            margin-top: -54px;
+            margin-top: -50px;
             width: 100%;
             height: 40px;
             font-size: 12px;
@@ -89,7 +96,19 @@
                         font-size: 14px;
                         line-height: 1;
                     }
+
+
+                    .ml2 {
+                    font-weight: 550;
+                    /* font-size: 3.5em; */
+                    }
+
+                   .ml2 .letter {
+                   display: inline-block;
+                   /* line-height: 1em; */
+                      }
    </style>
+
 <header class="header" style="background: url('<?php echo base_url()?>public/img/new/header_bar_bg_01.jpg') repeat-x; background-size: 100% 100%; border-bottom:1px solid #CCC">
     <a href="#" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
@@ -105,7 +124,9 @@
             <span class="icon-bar"></span>
         </a>
         <div class="logo2"> 
-                <?php echo "Assisted Living"?>
+                <!-- <?php echo "Assisted Living"?> -->
+                <p class="ml2">Assisted Living</p>
+
         </div>
         <div class="navbar-right">
             <ul class="nav navbar-nav">
@@ -231,4 +252,25 @@ function closeAd(id)
 {
     $('#' + id).remove();
 }
+
+  // Wrap every letter in a span
+  var textWrapper = document.querySelector('.ml2');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml2 .letter',
+    scale: [4,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 950,
+    delay: (el, i) => 70*i
+  }).add({
+    targets: '.ml2',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
 </script>
