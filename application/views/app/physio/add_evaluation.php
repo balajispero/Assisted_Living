@@ -626,7 +626,7 @@
                                 <div class="form-group wrapper-class">
                                     <label>Tightness</label><span class="text-danger"></span></br>
                                       
-                                     <select class="form-control" name="ptn_tightness" id="multiple-checkboxes" multiple="multiple">
+                                     <select class="form-control" name="ptn_tightness[]" id="multiple-checkboxes" multiple="multiple">
                                 
                                         <?php
                                           if (!empty($tightness_list))
@@ -1660,13 +1660,13 @@
 
       $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
        // Listen for changes in the select element
-    $("select[name='ptn_tightness']").change(function () {
+    $("select[name='ptn_tightness[]']").change(function () {
       updateBulletVisibility();
     });
 
     // Function to update bullet visibility based on selected options
     function updateBulletVisibility() {
-      var selectedValue = $("select[name='ptn_tightness']").val();
+      var selectedValue = $("select[name='ptn_tightness[]']").val();
       console.log(selectedValue);
 
       // Hide all bullets initially

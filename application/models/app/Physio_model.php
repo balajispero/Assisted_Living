@@ -263,6 +263,46 @@ class Physio_model extends CI_Model{
 		$query = $this->db->get("physio_treatment_protocol");
 		return $query->result();
 	}
+	/*public function get_eval_no_list($iop_no = "") {
+    $this->db->select("eval_no");
+
+    if ($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") {
+        $this->db->where(array(
+            'iop_no' => $iop_no,
+            'InActive' => 0
+        ));
+        $this->db->where("((physio_discharged != 'Discharged' OR physio_discharged != 'Deceased') OR (physio_discharged IS NULL OR physio_discharged = ''))");
+    } elseif ($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "No") {
+        $this->db->where(array(
+            'assign_therapist' => $this->session->userdata('user_id'),
+            'iop_no' => $iop_no,
+            'InActive' => 0
+        ));
+    }
+
+    $query = $this->db->get("physio_treatment_protocol");
+    return $query->result();
+}*/
+/*public function get_eval_no_list($iop_no = "") {
+    $this->db->select("eval_no");
+
+    if ($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") {
+        $this->db->where("iop_no", $iop_no);
+        $this->db->where("InActive", 0);
+        $this->db->where("(physio_discharged != 'Discharged' AND physio_discharged != 'Deceased')");
+    } elseif ($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "No") {
+        $this->db->where("assign_therapist", $this->session->userdata('user_id'));
+        $this->db->where("iop_no", $iop_no);
+        $this->db->where("InActive", 0);
+    }
+
+    $query = $this->db->get("physio_treatment_protocol");
+    return $query->result();
+}*/
+
+
+
+
 
 	public function lastPreassesID(){
 		$this->db->select("(cValue + 1) as cValue");

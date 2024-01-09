@@ -259,7 +259,7 @@ class Physio extends General{
 	            'ptn_age' => $this->input->post('ptn_age'),
 	            'ptn_diagnosis' => $this->input->post('ptn_diagnosis'),
 	            'ptn_complain' => $this->input->post('ptn_complain'),
-	            'ptn_tightness' => $this->input->post('ptn_tightness'),
+	            'ptn_tightness' => @implode(",",$this->input->post('ptn_tightness')),
 	            'tightness_side' => $this->input->post('tightness_side'),
 	            'ptn_tightness_remark' => $this->input->post('ptn_tightness_remark'),
 	            'ptn_upper_body' => $this->input->post('ptn_upper_body'),
@@ -580,7 +580,7 @@ class Physio extends General{
 	{
 	   if(isset($_POST['btnSave']))
 	   {
-	    
+	   	
 			$evaluation_details = array(
 	            'eval_no' => $this->input->post('eval_no'),
 	            /*'iop_no' => $this->input->post('opd_no'),
@@ -589,7 +589,7 @@ class Physio extends General{
 	            'ptn_age' => $this->input->post('ptn_age'),
 	            'ptn_diagnosis' => $this->input->post('ptn_diagnosis'),
 	            'ptn_complain' => $this->input->post('ptn_complain'),
-	            'ptn_tightness' => $this->input->post('ptn_tightness'),
+	            'ptn_tightness' => implode(",",$this->input->post('ptn_tightness')),
 	            'tightness_side' => $this->input->post('tightness_side'),
 	            'ptn_upper_body' => $this->input->post('ptn_upper_body'),
 	            'lower_body' => $this->input->post('lower_body'),
