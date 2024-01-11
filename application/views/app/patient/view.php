@@ -275,7 +275,7 @@
                                                         <?php echo form_input('middlename',set_value('middlename',$patientInfo->middlename),'id="middlename" class="form-control input-sm" placeholder="Last Name" style="width: 250px;" readonly');?>
                                                         </td>
                                                     </tr>
-                                                    <tr>
+                                                    <!-- <tr>
                                                     	<td>Father's Name </td>
                                                         <td>
                                                         <?php echo form_input('relative_name',set_value('relative_name',$patientInfo->relative_name),'id="relative_name" class="form-control input-sm" placeholder="Last Name" style="width: 250px;" readonly');?> 
@@ -286,7 +286,45 @@
                                                         <td>
                                                         <?php echo form_input('relation_with',set_value('relation_with',$patientInfo->relation_with),'id="relative_name" class="form-control input-sm" placeholder="Last Name" style="width: 250px;" readonly');?> 
                                                         </td>
+                                                    </tr> -->
+                                                    <tr>
+                                                        <td>From Hospital/Walk In<font color="#FF0000"></font></td>
+                                                        <td>
+                                                        <?php echo form_input('from_hospital_walkin',set_value('from_hospital_walkin',$patientInfo->from_hospital_walkin),'id="relation_with" class="form-control input-sm" placeholder="From Hospital/Walk In" style="width: 250px;"');?> 
+                                                        </td>
                                                     </tr>
+                                                    <?php 
+                                                    if(!empty($patientInfo->discharge_report)){
+                                                        ?>
+                                                      <tr>
+                                                        <td><font color="#FF0000"></font></td>
+                                                        <td>
+                                                            <?php
+                                                        $ext = pathinfo($patientInfo->discharge_report, PATHINFO_EXTENSION);
+                                                                 
+                                                        if($ext=="pdf")
+                                                        {
+                                                            ?>
+                                                            
+                                                              <iframe src="<?php echo base_url('public/on_admission_discharge_report/');?><?php echo $patientInfo->discharge_report;?>" width="160" height="200" scrolling="no"></iframe><br>
+                                                              <a href="<?php echo base_url('public/on_admission_discharge_report/'); ?><?php echo $patientInfo->discharge_report; ?>" target="_blank">Download PDF</a>  
+                                                            
+                                                        <?php }elseif($ext=="png" || $ext=="jpeg" || $ext=="jpg"){ ?>
+                                                            
+                                                                <img src="<?php echo base_url('public/lab_test_report/');?><?php echo $patientInfo->discharge_report;?>" alt="not found" style="width:160px;height:200px;">
+                                                            
+
+                                                      <?php 
+                                                        }
+                                                            else{
+                                                                  echo $patientInfo->discharge_report;
+                                                                 } 
+                                                        ?>
+
+                                                     
+                                                        </td>
+                                                    </tr>
+                                                    <?php } ?>
                                                     <tr>
                                                     	<td>Birthday <font color="#FF0000">*</font></td>
                                                         <td>
@@ -366,7 +404,40 @@
                                                             </select>
                                                         </td>
                                                     </tr>
+                                                    <?php 
+                                                    if(!empty($patientInfo->previous_discharge_report)){
+                                                        ?>
+                                                    <tr>
+                                                        <td><font color="#FF0000"></font></td>
+                                                        <td>
+                                                            <?php
+                                                        $ext = pathinfo($patientInfo->previous_discharge_report, PATHINFO_EXTENSION);
+                                                                 
+                                                        if($ext=="pdf")
+                                                        {
+                                                            ?>
+                                                            
+                                                              <iframe src="<?php echo base_url('public/previous_discharge_report/');?><?php echo $patientInfo->previous_discharge_report;?>" width="160" height="200" scrolling="no"></iframe><br>
+                                                              <a href="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $patientInfo->previous_discharge_report; ?>" target="_blank">Download PDF</a>  
+                                                            
+                                                        <?php }elseif($ext=="png" || $ext=="jpeg" || $ext=="jpg"){ ?>
+                                                            <a href="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $patientInfo->previous_discharge_report; ?>" download>
+                                                                <img src="<?php echo base_url('public/previous_discharge_report/');?><?php echo $patientInfo->previous_discharge_report;?>" alt="not found" style="width:160px;height:200px;">
+                                                            </a>
+
+                                                      <?php 
+                                                        }
+                                                            else{
+                                                                  echo $patientInfo->previous_discharge_report;
+                                                                 } 
+                                                        ?>
+
+                                                    
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
                                                     </table>
+                                                    
                                                 </div>
                                                 <div class="tab-pane" id="tab_2">
                                                 	<table cellpadding="3" cellspacing="3" width="100%">

@@ -92,7 +92,7 @@ class Lab extends General{
 				}else{ 
 					$nStatus = "Discharged";
 				}*/
-				//$pages = $this->General_model->getLabSampleById($patient->laboratory_id);
+				$pages = $this->General_model->getLabSampleById($patient->laboratory_id);
 				/*echo "<pre>";
 				print_r($pages);die;*/
 
@@ -103,8 +103,8 @@ class Lab extends General{
 				$this->table->add_row( 
 					anchor('app/lab/view_lab_sample_report/'.$patient->io_lab_id,$patient->iop_id),
 					$patient->dDate, 
-					/*@$pages->test_name,*/
-					$patient->laboratory_id, 
+					@$pages->test_name,
+					/*$patient->laboratory_id,*/ 
 					@$ptn_name[0]->middlename,
 					@$doctor_name->cPreparedBy,  
 					anchor('app/lab/add_lab_sample_report/'.$patient->io_lab_id,'Add'),

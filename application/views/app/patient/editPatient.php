@@ -152,6 +152,38 @@
                                                         <?php echo form_input('from_hospital_walkin',set_value('from_hospital_walkin',$patientInfo->from_hospital_walkin),'id="relation_with" class="form-control input-sm" placeholder="From Hospital/Walk In" style="width: 250px;"');?> 
                                                         </td>
                                                     </tr>
+                                                    <?php 
+                                                    if(!empty($patientInfo->discharge_report)){
+                                                        ?>
+                                                      <tr>
+                                                        <td><font color="#FF0000"></font></td>
+                                                        <td>
+                                                            <?php
+                                                        $ext = pathinfo($patientInfo->discharge_report, PATHINFO_EXTENSION);
+                                                                 
+                                                        if($ext=="pdf")
+                                                        {
+                                                            ?>
+                                                            
+                                                              <iframe src="<?php echo base_url('public/on_admission_discharge_report/');?><?php echo $patientInfo->discharge_report;?>" width="160" height="200" scrolling="no"></iframe><br>
+                                                              <a href="<?php echo base_url('public/on_admission_discharge_report/'); ?><?php echo $patientInfo->discharge_report; ?>" target="_blank">Download PDF</a>  
+                                                            
+                                                        <?php }elseif($ext=="png" || $ext=="jpeg" || $ext=="jpg"){ ?>
+                                                            
+                                                                <img src="<?php echo base_url('public/lab_test_report/');?><?php echo $patientInfo->discharge_report;?>" alt="not found" style="width:160px;height:200px;">
+                                                            
+
+                                                      <?php 
+                                                        }
+                                                            else{
+                                                                  echo $patientInfo->discharge_report;
+                                                                 } 
+                                                        ?>
+
+                                                     
+                                                        </td>
+                                                    </tr>
+                                                    <?php } ?>  
                                                     <tr>
                                                         <td>Discharge Summary<font color="#FF0000"></font></td>
                                                         <td>
@@ -248,6 +280,38 @@
                                                              
                                                         </td>
                                                     </tr>
+                                                    <?php 
+                                                    if(!empty($patientInfo->previous_discharge_report)){
+                                                        ?>
+                                                    <tr>
+                                                        <td><font color="#FF0000"></font></td>
+                                                        <td>
+                                                            <?php
+                                                        $ext = pathinfo($patientInfo->previous_discharge_report, PATHINFO_EXTENSION);
+                                                                 
+                                                        if($ext=="pdf")
+                                                        {
+                                                            ?>
+                                                            
+                                                              <iframe src="<?php echo base_url('public/previous_discharge_report/');?><?php echo $patientInfo->previous_discharge_report;?>" width="160" height="200" scrolling="no"></iframe><br>
+                                                              <a href="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $patientInfo->previous_discharge_report; ?>" target="_blank">Download PDF</a>  
+                                                            
+                                                        <?php }elseif($ext=="png" || $ext=="jpeg" || $ext=="jpg"){ ?>
+                                                            <a href="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $patientInfo->previous_discharge_report; ?>" download>
+                                                                <img src="<?php echo base_url('public/previous_discharge_report/');?><?php echo $patientInfo->previous_discharge_report;?>" alt="not found" style="width:160px;height:200px;">
+                                                            </a>
+
+                                                      <?php 
+                                                        }
+                                                            else{
+                                                                  echo $patientInfo->previous_discharge_report;
+                                                                 } 
+                                                        ?>
+
+                                                    
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
                                                     <tr>
                                                         <td>Previous Discharge Reports<font color="#FF0000"></font></td>
                                                         <td>

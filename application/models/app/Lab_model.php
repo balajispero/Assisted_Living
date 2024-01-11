@@ -28,31 +28,26 @@ class Lab_model extends CI_Model{
 			A.dDate,
 			A.doctor,
 			A.doctor,
-			A.doctor
+			A.doctor,
+			B.test_name,
+			C.middlename
 			",false);
 		
-		/*if($this->session->userdata('user_role') == 5)
-		{*/
+		
 			$where = "(
 			A.iop_id like '%".$this->input->post('search')."%' or 
-			A.laboratory_id like '%".$this->input->post('search')."%'
+			A.laboratory_id like '%".$this->input->post('search')."%' or
+			B.test_name like '%".$this->input->post('search')."%' or 
+			C.middlename like '%".$this->input->post('search')."%'
 			) 
 			and A.dDate between '".$cFrom."' and '".$cTo."'
 			and A.category_id=7
 			and A.InActive = 0";
 
-		/*}else{
-				$where = "(
-				A.preasses_id like '%".$this->input->post('search')."%' or 
-				A.preasses_name like '%".$this->input->post('search')."%'
-				) 
-				and A.date_entry between '".$cFrom."' and '".$cTo."'
-				and A.added_by='".$this->session->userdata('user_id')."'
-				and A.InActive = 0";
-			}*/
-
 			$this->db->where($where);
 		$this->db->order_by('A.dDate','desc');
+		$this->db->join("patient_personal_info C","C.patient_no = A.patient_no","left outer");
+		$this->db->join("lab_test_name_with_charges B","B.id = A.laboratory_id","left outer");
 			$query = $this->db->get("iop_laboratory A", $limit, $offset);
 		//echo $this->db->last_query(); die;
 			return $query->result();
@@ -79,31 +74,26 @@ class Lab_model extends CI_Model{
 				A.dDate,
 				A.doctor,
 				A.doctor,
-				A.doctor
+				A.doctor,
+				B.test_name,
+				C.middlename
 				",false);
 
-		/*if($this->session->userdata('user_role') == 5)
-		{*/
+		
 			$where = "(
 			A.iop_id like '%".$this->input->post('search')."%' or 
-			A.laboratory_id like '%".$this->input->post('search')."%'
+			A.laboratory_id like '%".$this->input->post('search')."%' or 
+			B.test_name like '%".$this->input->post('search')."%' or 
+			C.middlename like '%".$this->input->post('search')."%'
 			) 
 			and A.dDate between '".$cFrom."' and '".$cTo."'
 			and A.category_id=7
 			and A.InActive = 0";
 
-		/*}else{
-				$where = "(
-				A.preasses_id like '%".$this->input->post('search')."%' or 
-				A.preasses_name like '%".$this->input->post('search')."%'
-				) 
-				and A.date_entry between '".$cFrom."' and '".$cTo."'
-				and A.added_by='".$this->session->userdata('user_id')."'
-				and A.InActive = 0";
-			}*/
-
 			$this->db->where($where);
 		$this->db->order_by('A.dDate','desc');
+		$this->db->join("patient_personal_info C","C.patient_no = A.patient_no","left outer");
+		$this->db->join("lab_test_name_with_charges B","B.id = A.laboratory_id","left outer");
 			$query = $this->db->get("iop_laboratory A");
 			return $query->num_rows();
 		}
