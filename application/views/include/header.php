@@ -105,6 +105,7 @@
 
                    .ml2 .letter {
                    display: inline-block;
+                
                    /* line-height: 1em; */
                       }
    </style>
@@ -219,7 +220,7 @@
                         <!-- User image -->
                         <li class="user-header bg-light-blue droplist bg_color">
                             <?php if($userInfo->picture == ""){?>
-                    	<img src="<?php echo base_url()?>public/user_picture/no_avatar.gif" class="img-circle" alt="User Image" />
+                    	<img src="<?php echo base_url()?>public/user_picture/user_img.jpg" class="img-circle" alt="User Image" />
                     <?php }else{?>
                     	<img src="<?php echo base_url()?>public/user_picture/<?php echo $userInfo->picture;?>" class="img-circle" alt="User Image" />
                     <?php }?>

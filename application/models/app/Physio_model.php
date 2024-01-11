@@ -447,6 +447,16 @@ class Physio_model extends CI_Model{
 			$query = $this->db->get("physio_treatment_protocol_week_plan");
 			return $query->result();
 		}
+		public function get_bodypart_list(){
+			$this->db->select("multi_sel_id, pvalue");	
+			$this->db->where(array(
+				'pcode'		=>	'body_part',
+				'InActive'	=>	0	
+			));
+			//$this->db->order_by('cValue','asc');
+			$query = $this->db->get("physio_multi_sel_parameters");
+			return $query->result_array();
+		}
 
 
 	

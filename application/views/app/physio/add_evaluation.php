@@ -100,16 +100,41 @@
         /*Start multiple select dropdown css*/
         .btn-group, .btn-group-vertical {
         position: relative;
-        width: 245%;
+        width: 100% !important;
         display: inline-block;
         vertical-align: middle;
+       
     }
+    .btn-group ul{
+      height: 170px;
+      overflow-y: scroll;
+     
+    }
+   /* WebKit browsers (Chrome, Safari) */
+.btn-group ul::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+
+.btn-group ul::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%);
+  border-radius: 6px; /* Set the border radius of the scrollbar thumb */
+}
+
+.btn-group ul::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the color of the scrollbar track */
+}
+
+/* Firefox */
+.btn-group ul {
+  scrollbar-color: #09A3D5 #3B4BDF;
+  scrollbar-width: thin;
+}
     .btn.btn-default {
         background-color: #fafafa;
         color: #666;
         border-color: #ddd;
         border-bottom-color: #ddd;
-        width: 100%;
+        width: 100% !important;
         text-align: left;
         border-radius: 25px !important;
     }
@@ -118,12 +143,15 @@
         display: none;
     }
     .multiselect-container {
-        position: absolute;
+        position: absolute !;
         list-style-type: none;
         margin: 0;
         padding: 0;
-        width: 40%;
+        width: 40% !important;
     }
+    /* select[multiple]{
+      height: 30px;
+    } */
     /*End multiple select dropdown css*/
     
       .bg_color1{
@@ -140,6 +168,30 @@
     color: white;
 }
     /*Start highlight bullet point on body*/
+   
+    .head{
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 23px; 
+      left: 124px; 
+    }
+    .skull{
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 800px; /* Adjust the top position based on your needs */
+      left: 70px; /* Adjust the left position based on your needs */
+   
+    }
     .shoulder-bullet {
       position: absolute;
       width: 11px;
@@ -151,7 +203,6 @@
       top: 93px; /* Adjust the top position based on your needs */
       left: 90px; /* Adjust the left position based on your needs */
     }
-
     .elbow-bullet {
       position: absolute;
       width: 11px;
@@ -277,6 +328,7 @@
       border-color: #2B48B0;
       color: #2B48B0;
     }
+   
    
         </style>
 
@@ -405,6 +457,7 @@
             <img src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="purple kitty"/>
         </div> -->
                     <div class="col-sm-12" id="container"><img src="<?=base_url()?>/public/company_logo/male-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                    <div class="head"></div>
                     <div class="shoulder-bullet"></div>
                     <div class="knee-bullet"></div>
                     <div class="pelvis-bullet"></div>
@@ -413,6 +466,7 @@
                   </div><br>
                   <div class="row">
                       <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
+                     <div class="skull"></div>
                       <div class="elbow-bullet"></div>
                       <div class="wrist-bullet"></div>
                       <div class="cervical_spine-bullet"></div>
@@ -581,6 +635,35 @@
                             </div><!-- /.col-md-3 -->
                             
                         <?php } ?>
+
+
+                        <?php if($this->uri->segment("6")=="neuro"){ ?>
+                        <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Body Part</label><span class="text-danger"></span></br>
+                                      
+                                     <select class="form-control btn-group btn-group-vertical" name="ptn_bodypart[]" id="bodypart-multiple-checkboxes" multiple="multiple">
+                            
+                                        <?php
+                                          if (!empty($bodypart_list))
+                                          {
+                                           
+                                            foreach ($bodypart_list as $key => $val)
+                                            { 
+                                                 
+                                                ?>
+                                                <option value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
+                                                    <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
+                                        <?php }
+                                          } ?> 
+                                    </select>  
+        
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                  </div><!-- /.form-group wrapper-class -->
+                                </div><!-- /.col-md-3 -->
+                                <?php } ?>
+
+
                         <?php if($this->uri->segment("6")=="neuro" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
@@ -619,12 +702,12 @@
                                 </div>
                             </div> <!-- /.col-md-3 -->
                         <?php } ?>
-                                                <?php if($this->uri->segment("6")=="ortho" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
+                          <?php if($this->uri->segment("6")=="ortho" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Tightness</label><span class="text-danger"></span></br>
                                       
-                                     <select class="form-control" name="ptn_tightness[]" id="multiple-checkboxes" multiple="multiple">
+                                     <select class="form-control btn-group btn-group-vertical" name="ptn_tightness[]" id="multiple-checkboxes" multiple="multiple">
                                 
                                         <?php
                                           if (!empty($tightness_list))
@@ -643,12 +726,43 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                   </div><!-- /.form-group wrapper-class -->
                                 </div><!-- /.col-md-3 -->
-                            <?php } ?>
-                            <?php if($this->uri->segment("6")!="respi"){ ?>
-                    </div>
-                         <div class="row">
-                         <?php } ?>
 
+                                
+                                
+                            <?php } ?>
+                            
+                            <?php if($this->uri->segment("6")!="respi" && $this->uri->segment("6")!="neuro"){ ?>
+                              
+                            </div>
+                            
+
+                         <div class="row">
+
+                         <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Body Part</label><span class="text-danger"></span></br>
+                                      
+                                     <select class="form-control btn-group btn-group-vertical" name="ptn_bodypart[]" id="bodypart-multiple-checkboxes" multiple="multiple">
+                            
+                                        <?php
+                                          if (!empty($bodypart_list))
+                                          {
+                                           
+                                            foreach ($bodypart_list as $key => $val)
+                                            { 
+                                                 
+                                                ?>
+                                                <option value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
+                                                    <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
+                                        <?php }
+                                          } ?> 
+                                    </select>  
+        
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                  </div><!-- /.form-group wrapper-class -->
+                                </div><!-- /.col-md-3 -->
+                                <?php } ?>
+                                        
 
                              <?php if($this->uri->segment("6")=="ortho" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
@@ -668,7 +782,9 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <?php } ?>
-                         
+
+                            
+                            
                             
                             <?php if($this->uri->segment("6")=="respi" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
@@ -688,6 +804,31 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                        
+                            <?php if($this->uri->segment("6")=="respi"){ ?>
+                             <div class="row">
+                             <div class="col-md-3" >
+                             <div class="form-group wrapper-class">
+                             <label>Body Part</label><span class="text-danger"></span></br>
+                             <select class="form-control btn-group btn-group-vertical" name="ptn_bodypart[]" id="bodypart-multiple-checkboxes" multiple="multiple">
+                             <?php
+                               if (!empty($bodypart_list))
+                               {
+                  
+                                 foreach ($bodypart_list as $key => $val)
+                                 { 
+                        
+                                     ?>
+                            <option value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
+                           <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
+                             <?php }
+                            } ?> 
+                          </select>  
+
+                             <span class="text-danger error-text type_category_err"></span>                           
+                           </div><!-- /.form-group wrapper-class -->
+                         </div><!-- /.col-md-3 -->
+                                  </div>
+                                  <?php } ?>
 
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
@@ -702,9 +843,12 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                          
+                            <?php } ?>
+                        
 
-                             <?php } ?>
-                            
+                          
+                                  
 
                            </div><!--/.row--><br>
                            <hr style="border-top: 2px solid #2B48B0;"/>
@@ -1571,8 +1715,10 @@
 
     <script>
         $(document).ready(function() {  
-        $('#multiple-checkboxes').multiselect();  
-    });  
+        $('#multiple-checkboxes,#bodypart-multiple-checkboxes').multiselect();  
+       
+ }); 
+   
     
         /*****************Start recommendation yes**********************/
             $(".chkradio") // select the radio by its id
@@ -1656,23 +1802,26 @@
 
 /*****************Start highlight pain area on body img**********************/
 
-      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
+      $('.shoulder-bullet,.elbow-bullet,.knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet,.head,.skull,.face,.eyes,.ears,.nose,.mouth,.neak,.cervical_spine,.sholders,.left_sholder,.right_sholder,.arms,.left_arm,.upper_arm,.elbow,.forearm,.wrist,.hand,.chest,.pectoral_region,.back,.thoracic_spine,.lumber_spine,.sacrum,.coccyx,.abdomen,.upper_abdomen,.lower_abdomen,.pelvis,.hips,.buttocks,.groin,.legs,.left_leg,.left_leg_tigh,.left_leg_knee,.left_lower_leg,.left_leg_ankle,.left_leg_foot,.right_leg,.right_leg_tigh,.right_leg_knee,.right_lower_leg,.right_leg_ankle,.right_leg_foot.brain,.spinal_cord,.heart,.blood_vessels,.lungs,.trachea').hide();
        // Listen for changes in the select element
-    $("select[name='ptn_tightness[]']").change(function () {
+    $("select[name='ptn_bodypart[]']").change(function () {
       updateBulletVisibility();
     });
 
     // Function to update bullet visibility based on selected options
     function updateBulletVisibility() {
-      var selectedValue = $("select[name='ptn_tightness[]']").val();
+      var selectedValue = $("select[name='ptn_bodypart[]']").val();
       console.log(selectedValue);
-
+      
       // Hide all bullets initially
-      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
+      $('.shoulder-bullet,.elbow-bullet,.knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet,.head,.skull,.face,.eyes,.ears,.nose,.mouth,.neak,.cervical_spine,.sholders,.left_sholder,.right_sholder,.arms,.left_arm,.upper_arm,.elbow,.forearm,.wrist,.hand,.chest,.pectoral_region,.back,.thoracic_spine,.lumber_spine,.sacrum,.coccyx,.abdomen,.upper_abdomen,.lower_abdomen,.pelvis,.hips,.buttocks,.groin,.legs,.left_leg,.left_leg_tigh,.left_leg_knee,.left_lower_leg,.left_leg_ankle,.left_leg_foot,.right_leg,.right_leg_tigh,.right_leg_knee,.right_lower_leg,.right_leg_ankle,.right_leg_foot,.brain,.spinal_cord,.heart,.blood_vessels,.lungs,.trachea').hide();
 
       // Show the corresponding bullet based on selected options
       for (var i = 0; i < selectedValue.length; i++) {
-         if (selectedValue[i] === 'Shoulder') {
+        if (selectedValue[i] == 'Head') {
+          $('.head').show();
+        }
+        if (selectedValue[i] === 'Shoulder') {
           $('.shoulder-bullet').show();
         }
         if (selectedValue[i] === 'Elbow') {
@@ -1680,9 +1829,6 @@
         }
         if (selectedValue[i] === 'Knee') {
           $('.knee-bullet').show();
-        }
-        if (selectedValue[i] === 'Shoulder') {
-          $('.shoulder-bullet').show();
         }
         if (selectedValue[i] === 'Wrist') {
           $('.wrist-bullet').show();
@@ -1704,6 +1850,159 @@
         }
         if (selectedValue[i] === 'Ankle') {
           $('.ankle-bullet').show();
+        }
+        if (selectedValue[i] == 'Head') {
+          $('.head').show();
+        }
+        if (selectedValue[i] === 'Skull') {
+          $('.skull').show();
+        }
+        if (selectedValue[i] === 'Face') {
+          $('.face').show();
+        }
+        if (selectedValue[i] === 'Eyes') {
+          $('.eyes').show();
+        }
+        if (selectedValue[i] === 'Ears') {
+          $('.ears').show();
+        }
+         if (selectedValue[i] === 'Nose') {
+          $('.nose').show();
+        }
+        if (selectedValue[i] === 'Mouth') {
+          $('.mouth').show();
+        }
+        if (selectedValue[i] === 'Neck') {
+          $('.neck').show();
+        }
+        if (selectedValue[i] === 'Sholders') {
+          $('.sholders').show();
+        }
+        if (selectedValue[i] === 'Left Sholder') {
+          $('.left_sholder').show();
+        }
+        if (selectedValue[i] === 'Right Sholder') {
+          $('.right_sholder').show();
+        }
+        if (selectedValue[i] === 'Arms') {
+          $('.arms').show();
+        } 
+         if (selectedValue[i] === 'Left Arm') {
+          $('.left_arm').show();
+        } 
+         if (selectedValue[i] === 'Upper Arm') {
+          $('.upper_arm').show();
+        } 
+         if (selectedValue[i] === 'Elbow') {
+          $('.elbow').show();
+        }
+          if (selectedValue[i] === 'Forearm') {
+          $('.forearm').show();
+        } 
+         if (selectedValue[i] === 'Wrist') {
+          $('.wrist').show();
+        } 
+         if (selectedValue[i] === 'Hand') {
+          $('.hand').show();
+        }
+        if (selectedValue[i] === 'Chest') {
+          $('.chest').show();
+        }
+        if (selectedValue[i] === 'Pectoral Region') {
+          $('.pectoral_region').show();
+        }
+        if (selectedValue[i] === 'Back') {
+          $('.back').show();
+        }
+        if (selectedValue[i] === 'Thoracic Spine') {
+          $('.thoracic_spine').show();
+        }
+        if (selectedValue[i] === 'Lumber Spine') {
+          $('.lumber_spine').show();
+        }
+        if (selectedValue[i] === 'Sacrum') {
+          $('.sacrum').show();
+        }
+        if (selectedValue[i] === 'Coccyx') {
+          $('.coccyx').show();
+        }
+        if (selectedValue[i] === 'Abdmen') {
+          $('.abdomen').show();
+        }
+        if (selectedValue[i] === 'Upper Abdmen') {
+          $('.upper_abdomen').show();
+        }
+        if (selectedValue[i] === 'Lower Abdmen') {
+          $('.lower_abdomen').show();
+        }
+        if (selectedValue[i] === 'Pelvis') {
+          $('.pelvis').show();
+        }
+        if (selectedValue[i] === 'Hips') {
+          $('.hips').show();
+        }
+        if (selectedValue[i] === 'Buttocks') {
+          $('.buttocks').show();
+        }
+        if (selectedValue[i] === 'Groin') {
+          $('.groin').show();
+        }
+        if (selectedValue[i] === 'Legs') {
+          $('.legs').show();
+        }
+        if (selectedValue[i] === 'Left Leg') {
+          $('.left_leg').show();
+        }
+        if (selectedValue[i] === 'Left Leg Tigh') {
+          $('.left_leg_tigh').show();
+        }
+        if (selectedValue[i] === 'Left Leg Knee') {
+          $('.left_leg_knee').show();
+        }
+        if (selectedValue[i] === 'Left Lower Leg') {
+          $('.left_lower_leg').show();
+        }
+        if (selectedValue[i] === 'Left Leg Ankle') {
+          $('.left_leg_ankle').show();
+        }
+        if (selectedValue[i] === 'Left Leg Foot') {
+          $('.left_leg_foot').show();
+        }
+        if (selectedValue[i] === 'Right Leg') {
+          $('.right_leg').show();
+        }
+        if (selectedValue[i] === 'Right Leg Tigh') {
+          $('.right_leg_tigh').show();
+        }
+        if (selectedValue[i] === 'Right Leg Knee') {
+          $('.right_leg_knee').show();
+        }
+        if (selectedValue[i] === 'Right Lower Leg') {
+          $('.right_lower_leg').show();
+        }
+        if (selectedValue[i] === 'Right Leg Ankle') {
+          $('.right_leg_ankle').show();
+        }
+        if (selectedValue[i] === 'Right Leg Foot') {
+          $('.right_leg_foot').show();
+        }
+        if (selectedValue[i] === 'Brain') {
+          $('.brain').show();
+        }
+        if (selectedValue[i] === 'Spinal Cord') {
+          $('.spinal_cord').show();
+        }
+        if (selectedValue[i] === 'Heart') {
+          $('.heart').show();
+        }
+        if (selectedValue[i] === 'Blood Vessels') {
+          $('.blood_vessels').show();
+        }
+        if (selectedValue[i] === 'Lungs') {
+          $('.lungs').show();
+        }
+        if (selectedValue[i] === 'Trachea') {
+          $('.trachea').show();
         }
       }
     }

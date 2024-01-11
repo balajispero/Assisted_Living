@@ -386,6 +386,7 @@
 														height: 300px;
 														text-align: left;
 														overflow: auto"> -->
+
                                                         <table class="table" id="myTable" width="100%" cellpadding="2" cellspacing="2">
                                                       <thead>
                                                       	<tr style="border-bottom:1px #999 solid; border-collapse:collapse">

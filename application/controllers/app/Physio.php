@@ -242,6 +242,7 @@ class Physio extends General{
 				 $this->data['lastPreassesID'] = $this->physio_model->lastPreassesID();
 
 				 $this->data['tightness_list'] = $this->physio_model->get_tightness_list();
+				 $this->data['bodypart_list'] = $this->physio_model->get_bodypart_list();
 		
 		$this->load->view('app/physio/add_evaluation',$this->data);
 	}
