@@ -135,6 +135,38 @@
                                                         <?php echo form_input('from_hospital_walkin',set_value('from_hospital_walkin',$patientInfo->from_hospital_walkin),'id="relation_with" class="form-control input-sm" placeholder="From Hospital/Walk In" style="width: 250px;"');?> 
                                                         </td>
                                                     </tr>
+                                                                                                        <?php 
+                                                    if(!empty($patientInfo->discharge_report)){
+                                                        ?>
+                                                      <tr>
+                                                        <td><font color="#FF0000"></font></td>
+                                                        <td>
+                                                            <?php
+                                                        $ext = pathinfo($patientInfo->discharge_report, PATHINFO_EXTENSION);
+                                                                 
+                                                        if($ext=="pdf")
+                                                        {
+                                                            ?>
+                                                            
+                                                              <iframe src="<?php echo base_url('public/on_admission_discharge_report/');?><?php echo $patientInfo->discharge_report;?>" width="160" height="200" scrolling="no"></iframe><br>
+                                                              <a href="<?php echo base_url('public/on_admission_discharge_report/'); ?><?php echo $patientInfo->discharge_report; ?>" target="_blank">Download PDF</a>  
+                                                            
+                                                        <?php }elseif($ext=="png" || $ext=="jpeg" || $ext=="jpg"){ ?>
+                                                            
+                                                                <img src="<?php echo base_url('public/on_admission_discharge_report/');?><?php echo $patientInfo->discharge_report;?>" alt="not found" style="width:160px;height:200px;">
+                                                            
+
+                                                      <?php 
+                                                        }
+                                                            else{
+                                                                  echo $patientInfo->discharge_report;
+                                                                 } 
+                                                        ?>
+
+                                                     
+                                                        </td>
+                                                    </tr>
+                                                    <?php } ?>
                                                     <tr>
                                                         <td>Discharge Summary<font color="#FF0000"></font></td>
                                                         <td>
@@ -228,6 +260,61 @@
                                                             	<option value="<?php echo $bloodGroup->param_id;?>" <?php echo $selected;?>><?php echo $bloodGroup->cValue;?></option>
                                                                 <?php }?>
                                                             </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><font color="#FF0000"></font></td>
+                                                        <td>
+                                                        <div class="row">
+                                                        
+                                        <?php
+                                        if(!empty($patientInfo->previous_discharge_report)){
+                                            $str =$patientInfo->previous_discharge_report;
+                                                    $arrayd=explode(",",$str);
+                                                    
+                                                    $cnt=count($arrayd);
+                                                    
+                                                    for($i=0;$i<$cnt;$i++)
+                                                    {
+                                                
+                                                ?>
+                                                <div class="col-md-3">
+                                                  <div class="thumbnail" style="width:fit-content;margin-bottom: 2px;"> 
+                                                    
+                                                        <?php
+                                                        $ext = pathinfo($arrayd[$i], PATHINFO_EXTENSION);
+                                                                // print_r($ext);
+                                                        if($ext=="pdf")
+                                                        {
+                                                            ?>
+                                                            
+                                                              <iframe src="<?php echo base_url('public/previous_discharge_report/');?><?php echo $arrayd[$i];?>" width="160" height="200" scrolling="no"></iframe><br>
+                                                              <a href="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $arrayd[$i]; ?>" target="_blank">Download PDF</a>
+                                                            
+                                                        <?php }elseif($ext=="png" || $ext=="jpeg" || $ext=="jpg"){ ?>
+                                                            <a href="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $arrayd[$i]; ?>" download>
+                                                                <img src="<?php echo base_url('public/previous_discharge_report/');?><?php echo $arrayd[$i];?>" alt="not found" style="width:160px;height:180px;">
+                                                            </a>
+
+                                                      <?php 
+                                                        }
+                                                            else{
+                                                                  echo $arrayd[$i];
+                                                                 } 
+                                                        ?>
+                                                         
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+
+                                ?>
+                            </div>    
+
+                                                    
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -397,6 +484,38 @@
                                                         <?php echo form_input('aadhar_no',set_value('aadhar_no',$patientInfo->aadhar_no),'class="form-control input-sm numberonly" placeholder="Aadhar Number" style="width: 250px;"');?>
                                                         </td>
                                                     </tr>
+                                                    <?php 
+                                                    if(!empty($patientInfo->upload_aadhar)){
+                                                        ?>
+                                                      <tr>
+                                                        <td><font color="#FF0000"></font></td>
+                                                        <td>
+                                                            <?php
+                                                        $ext = pathinfo($patientInfo->upload_aadhar, PATHINFO_EXTENSION);
+                                                                 
+                                                        if($ext=="pdf")
+                                                        {
+                                                            ?>
+                                                            
+                                                              <iframe src="<?php echo base_url('public/aadhar/');?><?php echo $patientInfo->upload_aadhar;?>" width="160" height="200" scrolling="no"></iframe><br>
+                                                              <a href="<?php echo base_url('public/aadhar/'); ?><?php echo $patientInfo->upload_aadhar; ?>" target="_blank">Download PDF</a>  
+                                                            
+                                                        <?php }elseif($ext=="png" || $ext=="jpeg" || $ext=="jpg"){ ?>
+                                                            
+                                                                <img src="<?php echo base_url('public/aadhar/');?><?php echo $patientInfo->upload_aadhar;?>" alt="not found" style="width:160px;height:200px;">
+                                                            
+
+                                                      <?php 
+                                                        }
+                                                            else{
+                                                                  echo $patientInfo->upload_aadhar;
+                                                                 } 
+                                                        ?>
+
+                                                     
+                                                        </td>
+                                                    </tr>
+                                                    <?php } ?>
                                                     <tr>
                                                         <td>Upload Aadhar<font color="#FF0000"></font></td>
                                                         <td>

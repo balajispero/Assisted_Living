@@ -65,6 +65,22 @@
                 width: 80%;
                 margin: 2px;
             }
+
+            .loader {
+                  border: 16px solid #f3f3f3; /* Light grey */
+                  border-top: 16px solid #3498db; /* Blue */
+                  border-radius: 50%;
+                  width: 120px;
+                  height: 120px;
+                  animation: spin 2s linear infinite;
+                  position: fixed;
+                  top: 50%;
+                  left: 62%;
+                }
+                @keyframes spin {
+                  0% { transform: rotate(0deg); }
+                  100% { transform: rotate(360deg); }
+                }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
 
@@ -165,6 +181,7 @@
                                                             <div class="panel-body">
                                                                 <label>PERSONAL DETAILS OF APPLICANT</label>
                                                                 <div class="row">
+                                                                    <div class="loader" style="display:none;"></div>
                                                                     <div class="row container form-group text-danger" >
                                                                         <div class="col-md-12">
                                                                             <label class="compulsory">Note :* (Marked Fields are Compulsory to fill)</label>
@@ -282,7 +299,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="applicant_mobile">
+                                                                            <input type="text" class="form-control numberonly" maxlength="10" name="applicant_mobile">
 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -346,7 +363,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Name of Spouse</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control alphaonly" name="spouse_name">
+                                                                           <input type="text" class="form-control numberonly" maxlength="10" name="spouse_name">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -636,7 +653,7 @@
                                             <div class="table-responsive">
                                              <table class="table table-striped">
                                                 <tr>
-                                                  <th>No.</th><th>Name of Medicine</th><th>Dose</th><th>Frequency</th><th>Duration</th><th>Action</th>
+                                                  <th>Name of Medicine</th><th>Dose</th><th>Frequency</th><th>Duration</th><th>Action</th>
                                                 </tr>
                                                  <tbody id="dynamic_field">
                                                     </tbody>
@@ -1672,7 +1689,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" name="submit" value="Submit">
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next5" name="submit" value="Submit">
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
                                                     
                                                 </div>
@@ -1726,7 +1743,7 @@
         var i1=0; 
         $('#add1').click(function() {
             i1++;
-            $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'">  '+ i1 +' </label> <input type="text" class="form-control dis_inline" name="diagnosis[]" value=""><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
+            $('#dynamic_field1').append('<div id="row1'+i1+'"> <label" for="member_'+ i1 +'"> </label> <input type="text" class="form-control dis_inline" name="diagnosis[]" value=""><button type="button" class="btn_remove1 btn btn-danger btn-circle btn-sm" name="remove" id="'+ i1 +'"><span class="glyphicon glyphicon-minus"></span></button></div>')
 
         });
         $(document).on('click', '.btn_remove1', function() {
@@ -1740,7 +1757,7 @@
                 $('#add').click(function() {
                     i++;
                     
-      $('#dynamic_field').append('<tr id="row'+i+'"><td>'+ i +'</td><td><input type="text" class="form-control" name="medicine_name[]"></td><td><input type="text" class="form-control" name="dose[]"></td><td><input type="text" class="form-control" name="frequency[]"></td><td><input type="text" class="form-control" name="duration[]"></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
+      $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" class="form-control" name="medicine_name[]"></td><td><input type="text" class="form-control" name="dose[]"></td><td><input type="text" class="form-control" name="frequency[]"></td><td><input type="text" class="form-control" name="duration[]"></td><td><button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="'+ i +'"><span class="glyphicon glyphicon-minus"></span></button></td></tr>')
 
                 });
                 $(document).on('click', '.btn_remove', function() {
@@ -1939,6 +1956,16 @@
             });
             
         });
+
+           
+            $('#next5').on( "click", function() {
+                
+                setInterval(function(){
+                $('#next5').attr('disabled', true); 
+                },100)
+                $('.loader').show();
+            });
+        
 
     </script>
 

@@ -469,7 +469,7 @@ class Patient_model extends CI_Model{
 		/*********************Start Previous Discharge Report code*********************/
 		$images = array();
 		/*print_r($_FILES["previous_dischargefile"]["name"]);*/
-	  if (!empty($_FILES["previous_dischargefile"]["name"])) {
+	  if (!empty($_FILES["previous_dischargefile"]["name"][0])) {
 	  	
       for($i=0;$i<count($_FILES['previous_dischargefile']['name']);$i++){
     
@@ -611,7 +611,7 @@ class Patient_model extends CI_Model{
 		/*********************Start Previous Discharge Report code*********************/
 		$images = array();
 		/*print_r($_FILES["previous_dischargefile"]["name"]);*/
-	  if (!empty($_FILES["previous_dischargefile"]["name"])) {
+	  if (!empty($_FILES["previous_dischargefile"]["name"][0])) {
 	  	
       for($i=0;$i<count($_FILES['previous_dischargefile']['name']);$i++){
     

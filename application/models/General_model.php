@@ -231,7 +231,7 @@ class General_model extends CI_Model{
 			A.bed_name,
 			C.patient_no,
 			B.IO_ID,
-			concat(D.cValue,' ',C.firstname,' ',C.lastname) as patient,
+			concat(D.cValue,' ',C.firstname,' ',C.middlename,' ',C.lastname) as patient,
 			B.date_visit,
 			B.time_visit,
 			A.nStatus
