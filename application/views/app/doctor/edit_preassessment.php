@@ -256,7 +256,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                            <input type="text" class="form-control numberonly" name="applicant_mobile" value="<?php echo $patientInfo[0]->preasses_mobile?>">
+                                                                            <input type="text" class="form-control numberonly" maxlength="15" name="applicant_mobile" value="<?php echo $patientInfo[0]->preasses_mobile?>">
 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -328,7 +328,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact number of spouse</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control" name="spouse_mobile" value="<?php echo $patientInfo[0]->spouse_mobile?>">
+                                                                           <input type="text" class="form-control numberonly" maxlength="15" name="spouse_mobile" value="<?php echo $patientInfo[0]->spouse_mobile?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -448,7 +448,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control numberonly" name="guardian_mobile" value="<?php echo $patientInfo[0]->guardian_mobile?>">
+                                                                           <input type="text" class="form-control numberonly" maxlength="15" name="guardian_mobile" value="<?php echo $patientInfo[0]->guardian_mobile?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -477,7 +477,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control numberonly" name="guardian_mobile2" value="<?php echo $patientInfo[0]->guardian_mobile2?>">
+                                                                           <input type="text" class="form-control numberonly" maxlength="15" name="guardian_mobile2" value="<?php echo $patientInfo[0]->guardian_mobile2?>">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -508,7 +508,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Contact Number</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control numberonly" name="poa_mobile" value="<?php echo $patientInfo[0]->poa_mobile?>"> 
+                                                                           <input type="text" class="form-control numberonly" maxlength="15" name="poa_mobile" value="<?php echo $patientInfo[0]->poa_mobile?>"> 
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
@@ -2065,7 +2065,7 @@
                 var td_i = td_j+ + +doctorcuont;
                     //td_i++;
 
-      $('#td_dynamic_field').append('<div class="row" id="rowdr'+td_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_mobile[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="doctor_email[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="hospital_name[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removedr btn btn-danger btn-circle btn-sm" name="remove" id="'+ td_i +'"><span class="glyphicon glyphicon-minus"></span></button></label></div></div></div>') 
+      $('#td_dynamic_field').append('<div class="row" id="rowdr'+td_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="doctor_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control numberonly" maxlength="15" name="doctor_mobile[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="doctor_email[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="hospital_name[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removedr btn btn-danger btn-circle btn-sm" name="remove" id="'+ td_i +'"><span class="glyphicon glyphicon-minus"></span></button></label></div></div></div>') 
             td_j++;             
 
                 });
@@ -2086,7 +2086,7 @@
                 var chl_i = chl_j+ + +chlcuont;
                     //chl_i++;
 
-      $('#chl_dynamic_field').append('<div class="row" id="rowchl'+chl_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><textarea name="chl_add[]" class="form-control"></textarea></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_mobile[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="chl_email[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removechl btn btn-danger btn-circle btn-sm" name="remove" id="'+ chl_i +'"><span class="glyphicon glyphicon-minus"></span></button></label></div></div></div>')   
+      $('#chl_dynamic_field').append('<div class="row" id="rowchl'+chl_i+'"><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control" name="chl_name[]"></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><textarea name="chl_add[]" class="form-control"></textarea></div></div><div class="col-md-3"><div class="form-group wrapper-class" ><input type="text" class="form-control numberonly" maxlength="15" name="chl_mobile[]"></div></div><div class="col-md-2"><div class="form-group wrapper-class" ><input type="email" class="form-control" name="chl_email[]"></div></div><div class="col-md-1"> <div class="form-group wrapper-class" ><label><button type="button" class="btn_removechl btn btn-danger btn-circle btn-sm" name="remove" id="'+ chl_i +'"><span class="glyphicon glyphicon-minus"></span></button></label></div></div></div>')   
 
         chl_j++;            
 

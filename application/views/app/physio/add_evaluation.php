@@ -159,10 +159,10 @@
             color: #FFF;
         }
 
-    .btn-light {
+    /*.btn-light {
     border-color: 1px solid dodgerblue;
     background-color: white;
-    }
+    }*/
     .info:hover {
      background: white;
     color: white;

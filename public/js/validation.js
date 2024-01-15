@@ -1,8 +1,12 @@
 
-$('.numberonly').keyup(function() {
+/*$('.numberonly').keyup(function() {
     var $th = $(this);
     $th.val( $th.val().replace(/[^0-9]/g, function(str) { return ''; } ) );
-});
+});*/
+$(document).on('keyup', '.numberonly', function() {
+        var $th = $(this);
+        $th.val($th.val().replace(/[^0-9]/g, ''));
+    });
 $('.alphaonly').keyup(function() {
     var $th = $(this);
     $th.val( $th.val().replace(/[^a-zA-Z ]/g, function(str) { return ''; } ) );
