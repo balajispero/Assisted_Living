@@ -20,6 +20,7 @@
 
         
        <style>
+
          textarea.form-control{
             height: 34px !important;
             border-radius: 25px !important;
@@ -167,6 +168,57 @@
      background: white;
     color: white;
 }
+
+
+@media only screen and (max-width:768px ) and (min-width:320px) {
+  .head{
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 25px !important; 
+      left: 152px !important; 
+    }
+    .skull{
+      /* position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1); */
+      cursor: pointer;
+      top: 551px; /* Adjust the top position based on your needs */
+      left: 160px !important; /* Adjust the left position based on your needs */
+   
+    }
+    .eyes{
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 37px; 
+      left: 116px; 
+    }
+
+    .eyes{
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 37px; 
+      left: 116px; 
+    }
+  
+}
     /*Start highlight bullet point on body*/
    
     .head{
@@ -267,10 +319,11 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 93px; /* Adjust the top position based on your needs */
-      left: 90px; /* Adjust the left position based on your needs */
+      left: 160px; /* Adjust the left position based on your needs */
     
     }
     .right_sholder{
+      
       position: absolute;
       width: 11px;
       height: 11px;
@@ -279,7 +332,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 93px; /* Adjust the top position based on your needs */
-      left: 160px; /* Adjust the left position based on your needs */
+      left: 90px; /* Adjust the left position based on your needs */
     
     }
     .left_arm{
@@ -291,9 +344,11 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 125px; /* Adjust the top position based on your needs */
-      left: 85px; /* Adjust the left position based on your needs */
+      left: 165px; /* Adjust the left position based on your needs */
+     
      }
      .right_arm{
+   
       position: absolute;
       width: 11px;
       height: 11px;
@@ -302,8 +357,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 125px; /* Adjust the top position based on your needs */
-      left: 165px; /* Adjust the left position based on your needs */
-     
+      left: 85px; /* Adjust the left position based on your needs */
      }
      .elbow{
       position: absolute;
@@ -495,59 +549,10 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 270px; /* Adjust the top position based on your needs */
-      left: 104px; /* Adjust the left position based on your needs */
-  
+      left: 140px; /* Adjust the left position based on your needs */
     }
     .left_leg_knee
     {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 320px; /* Adjust the top position based on your needs */
-      left: 108px; /* Adjust the left position based on your needs */
-  
-    }
-    .left_leg_ankle{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 410px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-  
-    }
-    .left_leg_foot{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 430px; /* Adjust the top position based on your needs */
-      left: 103px; /* Adjust the left position based on your needs */
-  
-    }
-    .right_leg_tigh{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 270px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-  
-    }
-    .right_leg_knee{
       position: absolute;
       width: 11px;
       height: 11px;
@@ -559,7 +564,7 @@
       left: 140px; /* Adjust the left position based on your needs */
   
     }
-    .right_leg_ankle{
+    .left_leg_ankle{
       position: absolute;
       width: 11px;
       height: 11px;
@@ -569,9 +574,9 @@
       cursor: pointer;
       top: 410px; /* Adjust the top position based on your needs */
       left: 135px; /* Adjust the left position based on your needs */
-  
+
     }
-    .right_leg_foot{
+    .left_leg_foot{
       position: absolute;
       width: 11px;
       height: 11px;
@@ -581,6 +586,61 @@
       cursor: pointer;
       top: 430px; /* Adjust the top position based on your needs */
       left: 140px; /* Adjust the left position based on your needs */
+
+    }
+    .right_leg_tigh{
+
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 270px; /* Adjust the top position based on your needs */
+      left: 104px; /* Adjust the left position based on your needs */
+  
+  
+    }
+    .right_leg_knee{
+     
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 320px; /* Adjust the top position based on your needs */
+      left: 108px; /* Adjust the left position based on your needs */
+  
+    }
+    .right_leg_ankle{
+     
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 410px; /* Adjust the top position based on your needs */
+      left: 113px; /* Adjust the left position based on your needs */
+  
+  
+    }
+    .right_leg_foot{
+    
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      cursor: pointer;
+      top: 430px; /* Adjust the top position based on your needs */
+      left: 103px; /* Adjust the left position based on your needs */
+  
   
     }
     .brain{
@@ -664,7 +724,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 93px; /* Adjust the top position based on your needs */
-      left: 100px; /* Adjust the left position based on your needs */
+      left: 151px; /* Adjust the left position based on your needs */
       }
 
       .female_right_sholder{
@@ -676,7 +736,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 93px; /* Adjust the top position based on your needs */
-      left: 151px; /* Adjust the left position based on your needs */
+      left: 100px; /* Adjust the left position based on your needs */
     
     }
     .female_left_arm{
@@ -687,11 +747,13 @@
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
-      top: 130px; /* Adjust the top position based on your needs */
-      left: 90px; /* Adjust the left position based on your needs */
+      top: 125px; /* Adjust the top position based on your needs */
+      left: 159px; /* Adjust the left position based on your needs */
+
      }
 
      .female_right_arm{
+     
       position: absolute;
       width: 11px;
       height: 11px;
@@ -699,8 +761,8 @@
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
-      top: 125px; /* Adjust the top position based on your needs */
-      left: 159px; /* Adjust the left position based on your needs */
+      top: 130px; /* Adjust the top position based on your needs */
+      left: 90px; /* Adjust the left position based on your needs */
      
      }
      .female_elbow{
@@ -820,7 +882,8 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 290px; /* Adjust the top position based on your needs */
-      left: 111px; /* Adjust the left position based on your needs */
+      left: 140px; /* Adjust the left position based on your needs */
+
   
     }
     .female_left_leg_knee
@@ -833,7 +896,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 350px; /* Adjust the top position based on your needs */
-      left: 112px; /* Adjust the left position based on your needs */
+      left: 137px; /* Adjust the left position based on your needs */
   
     }
     .female_left_leg_ankle{
@@ -845,7 +908,7 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 455px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
+      left: 135px; /* Adjust the left position based on your needs */
   
     }
     .female_left_leg_foot{
@@ -856,11 +919,12 @@
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
-      top: 480px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
+      top: 481px; /* Adjust the top position based on your needs */
+      left: 140px; /* Adjust the left position based on your needs */
   
     }
     .female_right_leg_tigh{
+     
       position: absolute;
       width: 11px;
       height: 11px;
@@ -869,10 +933,11 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 290px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
+      left: 111px; /* Adjust the left position based on your needs */
   
     }
     .female_right_leg_knee{
+
       position: absolute;
       width: 11px;
       height: 11px;
@@ -881,10 +946,11 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 350px; /* Adjust the top position based on your needs */
-      left: 137px; /* Adjust the left position based on your needs */
+      left: 112px; /* Adjust the left position based on your needs */
   
     }
     .female_right_leg_ankle{
+
       position: absolute;
       width: 11px;
       height: 11px;
@@ -893,10 +959,11 @@
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
       top: 455px; /* Adjust the top position based on your needs */
-      left: 135px; /* Adjust the left position based on your needs */
+      left: 113px; /* Adjust the left position based on your needs */
   
     }
     .female_right_leg_foot{
+
       position: absolute;
       width: 11px;
       height: 11px;
@@ -904,8 +971,8 @@
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
       cursor: pointer;
-      top: 481px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
+      top: 480px; /* Adjust the top position based on your needs */
+      left: 113px; /* Adjust the left position based on your needs */
   
     }
     .female_spinal_cord{
@@ -1082,8 +1149,9 @@
     }*/
     .hvr-rectangle-out{
       border-color: #2B48B0;
+      border-width: 100%;
       color: #2B48B0;
-    }
+     }
    
    
         </style>
@@ -2532,9 +2600,10 @@
                         </div><!-- / row -->
                     </div><!--/treatment section div-->
                             </div><br>
-                   <div class="text-center">
-                <button type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="Submit" style="width: 10%;">Submit</button>
+                   <div class=" col-md-11 text-center">
+                <button type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="Submit" >Submit</button>
                             </div>
+                            <br>
               </form>
 
         </section>

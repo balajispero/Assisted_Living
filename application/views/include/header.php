@@ -6,6 +6,8 @@
    
 <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
+
    <style>
     @media only screen and (max-width:768px) and (min-width:300px) {
          .m12{
@@ -29,7 +31,8 @@
          .img-circle{
             height: 40px !important;
             width: 35% !important;
-            margin-left: -145px !important;
+            /* margin-left: -145px !important; */
+            margin-right: 170px;
          }
          .headname{
             font-size: 12px !important;
@@ -37,7 +40,7 @@
             margin-left: 70px !important;
          }
         }
-        @media only screen and (max-width:42px) {
+        @media only screen and (max-width:420px) {
          .logo2{
             font-size: 18px;
             margin-top: -50px;
@@ -58,8 +61,9 @@
          
          .img-circle {
             height: 40px !important;
-            width: 35% !important;
-            margin-left: -105px !important;
+            width: 25% !important;
+            /* margin-left: -105px !important; */
+            margin-right: 70px;
         }
          .headname{
             font-size: 12px !important;
@@ -108,6 +112,12 @@
                 
                    /* line-height: 1em; */
                       }
+                      .hvr-rectangle-out{
+                       border-color: #2B48B0;
+                       border-width: 100%;
+                       color: #2B48B0;
+                      }
+   
    </style>
 
 <header class="header" style="background: url('<?php echo base_url()?>public/img/new/header_bar_bg_01.jpg') repeat-x; background-size: 100% 100%; border-bottom:1px solid #CCC">
