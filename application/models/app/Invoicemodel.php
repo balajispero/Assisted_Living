@@ -91,6 +91,18 @@ class Invoicemodel extends CI_Model {
 		echo $this->db->last_query(); die;*/
 		return $query->result();
 	}
+	public function save_invoice_orders($data)
+	{     
+        $this->db->insert('invoice_orders', $data);
+        $insert_id = $this->db->insert_id();
+
+        return  $insert_id;
+	}
+	public function save_invoice_orders_items($data)
+	{     
+        return $this->db->insert('invoice_orders_items', $data);    
+	}
+
 
 	public function getServiceByEvalNo($eval_no) {
     $query = $this->db->get_where('physio_evaluation', array('eval_no' => $eval_no));

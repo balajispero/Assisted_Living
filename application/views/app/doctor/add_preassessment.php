@@ -363,7 +363,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>Name of Spouse</label><span class="text-danger"></span></br>
-                                                                           <input type="text" class="form-control numberonly" maxlength="10" name="spouse_name">
+                                                                           <input type="text" class="form-control alphaonly" maxlength="10" name="spouse_name">
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
