@@ -165,6 +165,7 @@ class Invoice extends General{
 		$patient_no = $this->uri->segment("5");
 			$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
 			$this->data['invoiceItems'] = $this->Invoicemodel->generate_lab_bill($iop_no,$patient_no);
+			$this->data['bill_no'] ="LAB".substr(uniqid(), 0, 10);
 			/*echo "<pre>";
 			print_r($this->data['invoiceItems']);die;*/
             
@@ -213,49 +214,66 @@ class Invoice extends General{
 		$count=0;
 		$total_amount=0;
 	    if (!empty($this->data['invoiceItems']))
-         { 
-						 	
-			$invoice_orders_details = array(
-	            'bill_no' => @$this->data['bill_no'],
-	            'iop_no' => @$this->data['invoiceItems'][0]->iop_id,
-	            'patient_no' => @$this->data['patientInfo']->patient_no,
-				'bill_start_date' => @$this->input->post('cFrom'),
-	            'bill_end_date' => @$this->input->post('cTo'),
-	            'bill_section' => 'PHYSIO',
-	            'ptn_name' => @$this->data['patientInfo']->middlename,
-				'ptn_mobile_no' => @$this->data['patientInfo']->mobile_no,
-				'ptn_email_id' => @$this->data['patientInfo']->email_address,
-	            'bill_total_amount' => @$this->data['patientInfo']->middlename,
-	            'added_date'		=>	 date("Y-m-d h:i:s a"),
-	            'added_by' => $this->session->userdata('user_id'),
-	            'updated_date'		=>	 date("Y-m-d h:i:s a"),
-	            'updated_by' => $this->session->userdata('user_id'),
-	            'InActive'=>0);
+         {
+         
+	         $where = "(
+			bill_start_date= '".$this->input->post('cFrom')."' and
+			bill_end_date= '" . (!empty($this->input->post('cTo')) ? $this->input->post('cTo') : date("Y-m-d")) . "' and
+			bill_section='PHYSIO' 
+			) 
+			and InActive = 0";
+			$this->db->where($where);
+			$query = $this->db->get("invoice_orders");
 			
-			$last_invoice_id = $this->Invoicemodel->save_invoice_orders($invoice_orders_details);
-			if($last_invoice_id)
+			if($query->num_rows() > 0)
 			{
-
-				foreach($this->data['invoiceItems'] as $invoiceItem){ 
-					$count++;
-					$total_amount=$total_amount+$invoiceItem->therapy_charges;
-
-					$pages = $this->Invoicemodel->getServiceByEvalNo($invoiceItem->eval_no);
-
-					$invoice_orders_items = array(
-						'item_name' => @$pages->therapy_type,
-						'item_description' => @$pages->therapy_type,
-						'test_date' => date("Y-m-d",strtotime($invoiceItem->added_date)),
-						'item_final_amount' => $invoiceItem->therapy_charges,
-						'bill_no' => $this->data['bill_no'],
-						'invoice_id' => $last_invoice_id,
-						'InActive'=>0);
-
-					$this->Invoicemodel->save_invoice_orders_items($invoice_orders_items);
-					
-				}
+			$this->session->set_flashdata('message',"<div class='alert alert-success alert-dismissable'><i class='fa fa-check'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Bill Already Exists!</div>");
+			redirect(base_url("app/invoice/therapy_view/$iop_no/$patient_no")); 
 			}
-			
+			else{
+							 	
+					$invoice_orders_details = array(
+			            'bill_no' => @$this->data['bill_no'],
+			            'iop_no' => @$this->data['invoiceItems'][0]->iop_id,
+			            'patient_no' => @$this->data['patientInfo']->patient_no,
+						'bill_start_date' => @$this->input->post('cFrom'),
+			            'bill_end_date' => !empty($this->input->post('cTo')) ? $this->input->post('cTo') : date("Y-m-d"),
+			            'bill_section' => 'PHYSIO',
+			            'ptn_name' => @$this->data['patientInfo']->middlename,
+						'ptn_mobile_no' => @$this->data['patientInfo']->mobile_no,
+						'ptn_email_id' => @$this->data['patientInfo']->email_address,
+			            'added_date'		=>	 date("Y-m-d h:i:s a"),
+			            'added_by' => $this->session->userdata('user_id'),
+			            /*'updated_date'		=>	 date("Y-m-d h:i:s a"),
+			            'updated_by' => $this->session->userdata('user_id'),*/
+			            'InActive'=>0);
+					$last_invoice_id = $this->Invoicemodel->save_invoice_orders($invoice_orders_details);
+					if($last_invoice_id)
+					{
+
+						foreach($this->data['invoiceItems'] as $invoiceItem){ 
+							$count++;
+							$total_amount=$total_amount+$invoiceItem->therapy_charges;
+
+							$pages = $this->Invoicemodel->getServiceByEvalNo($invoiceItem->eval_no);
+
+							$invoice_orders_items = array(
+								'item_name' => @$pages->therapy_type,
+								'item_description' => @$pages->therapy_type,
+								'test_date' => date("Y-m-d",strtotime($invoiceItem->added_date)),
+								'item_final_amount' => $invoiceItem->therapy_charges,
+								'bill_no' => $this->data['bill_no'],
+								'invoice_id' => $last_invoice_id,
+								'InActive'=>0);
+
+							$this->Invoicemodel->save_invoice_orders_items($invoice_orders_items);
+												
+						}
+						//update patient's status to discharged
+							$this->db->query("update invoice_orders set nStatus = 'unpaid',bill_total_amount = '".$total_amount."' where invoice_id = '".$last_invoice_id."'");
+							
+					}
+				}
 		 }
 	 }  /*submit button*/
 								 

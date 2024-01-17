@@ -796,7 +796,7 @@ class Patient_model extends CI_Model{
 			'ptn_pa'    =>		$this->input->post('ptn_pa'),
 			'ptn_rs'    =>		$this->input->post('ptn_rs'),
 			'ptn_foodin'    =>		$this->input->post('ptn_foodin'),
-			'ptn_sugess_medi' => implode(",",$this->input->post('medicine')),
+			'ptn_sugess_medi' => @implode(",",$this->input->post('medicine')),
 			'relation_with' => $this->input->post('relation_with'),
 			'rel_add' => $this->input->post('rel_add'),
 			'rel_city' => $this->input->post('rel_city'),

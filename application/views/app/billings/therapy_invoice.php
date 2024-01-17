@@ -19,7 +19,7 @@
                             <label style="font-size:18px;font-weight: bold;">Spero Healthcare Innovations Pvt. Ltd.</label>
                         </div>
                         <div class="col-md-12 mt-2">
-                            <label style="font-size:15px">Bill No - <?php print_r($bill_no); ?></label>
+                            <label style="font-size:15px">Bill No - <?php echo $bill_no; ?></label>
                              </div>
                         <div class="col-md-12">
                             <label style="font-size:15px">Patient Name - <?php echo @$patientInfo->middlename?></label>

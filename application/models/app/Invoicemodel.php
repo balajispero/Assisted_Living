@@ -94,9 +94,7 @@ class Invoicemodel extends CI_Model {
 	public function save_invoice_orders($data)
 	{     
         $this->db->insert('invoice_orders', $data);
-        $insert_id = $this->db->insert_id();
-
-        return  $insert_id;
+        return $this->db->insert_id();
 	}
 	public function save_invoice_orders_items($data)
 	{     

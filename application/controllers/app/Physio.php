@@ -263,6 +263,7 @@ class Physio extends General{
 	            'ptn_tightness' => @implode(",",$this->input->post('ptn_tightness')),
 	            'tightness_side' => $this->input->post('tightness_side'),
 	            'ptn_tightness_remark' => $this->input->post('ptn_tightness_remark'),
+	            'ptn_pain_bodypart' => @implode(",",$this->input->post('ptn_bodypart')),
 	            'ptn_upper_body' => $this->input->post('ptn_upper_body'),
 	            'ptn_upper_body_remark' => $this->input->post('ptn_upper_body_remark'),
 	            'lower_body' => $this->input->post('lower_body'),
