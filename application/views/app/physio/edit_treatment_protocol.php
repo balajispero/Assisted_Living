@@ -198,7 +198,7 @@ textarea.form-control{
                                                 <div class="col-md-4">
                                                     <div class="form-group wrapper-class" >
                                                         <label></label><span class="text-danger"></span></br>
-                                                            <button type="button" name="add" id="add" class="btn btn-primary bg_color">Add Week Plan</button>
+                                                            <button type="button" name="add" id="add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Week Plan</button>
                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                     </div><!-- /.form-group wrapper-class -->
                                                 </div><!-- /.col-md-3 -->
@@ -272,7 +272,7 @@ textarea.form-control{
                                                     <div class="form-group wrapper-class" >
                                                         <label></label><span class="text-danger"></span></br>
                                                          <?php if($treatment_protocol_info[0]->first_followup_eval_date<=date("Y-m-d")){ ?>
-                                                            <button type="button" name="add1" id="add1" class="btn btn-primary bg_color">Add Review</button>
+                                                            <button type="button" name="add1" id="add1" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Review</button>
                                                         <?php } ?>
                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                     </div><!-- /.form-group wrapper-class -->
@@ -302,8 +302,11 @@ textarea.form-control{
                                              </table>
                                             </div>
 
-                <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit">
+                <!-- <input type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="submit"> -->
             </form>
+            <div class=" col-md-11 text-center">
+                <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit" >Submit</button>
+                            </div><br>
 
         </section>
 

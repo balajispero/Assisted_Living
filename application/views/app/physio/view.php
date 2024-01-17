@@ -184,7 +184,7 @@
                                             <?php if($this->session->userdata('user_role') == 11) {?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){
                                                  if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes"){ ?>
-                                            <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Evaluation</a>
+                                            <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-outline-primary hvr-shutter-in-vertical"><i class="fa fa-plus"></i>&nbsp;Add Evaluation</a>
                                             <?php } } ?>
                                             <?php } ?>
                                             <div class="alt2" dir="ltr" style="

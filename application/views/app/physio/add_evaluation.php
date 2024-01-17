@@ -1582,7 +1582,7 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>Dashboard</h1>
+                    <h1><b>Dashboard</b></h1>
                     <!--<ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Examples</a></li>
@@ -1743,7 +1743,7 @@
                   </div><br>
                   <div class="row">
                       <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
-                      <div class="skull"></div>
+                     <div class="skull"></div>
                      <div class="female_elbow"></div>
                      <div class="female_forearm"></div>
                      <div class="female_wrist"></div>
@@ -2957,7 +2957,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Next Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input type="date" class="form-control" name="next_eval_date">
+                                    <input types="date" class="form-control" name="next_eval_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -2966,7 +2966,7 @@
                     </div><!--/treatment section div-->
                             </div><br>
                    <div class=" col-md-11 text-center">
-                <button type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="Submit" >Submit</button>
+                <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit" >Submit</button>
                             </div>
                             <br>
               </form>

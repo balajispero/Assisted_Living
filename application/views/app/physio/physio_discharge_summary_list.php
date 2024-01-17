@@ -185,7 +185,7 @@
                                             <?php echo $message;?>
                                             <?php if($this->session->userdata('user_role') == 11) {?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                            <a href="<?php echo base_url();?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-sm btn-primary bg_color"><i class="fa fa-plus"></i>Add Discharge Summary</a>
+                                            <a href="<?php echo base_url();?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-outline-primary hvr-shutter-in-vertical"><i class="fa fa-plus"></i>Add Discharge Summary</a>
                                             <?php } ?>
                                             <?php } ?>
                                             <div class="alt2" dir="ltr" style="

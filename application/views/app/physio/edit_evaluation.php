@@ -89,19 +89,45 @@
         }
     /*End toggle button css*/
 
+       
         /*Start multiple select dropdown css*/
         .btn-group, .btn-group-vertical {
         position: relative;
-        width: 245%;
+        width: 100% !important;
         display: inline-block;
         vertical-align: middle;
+       
     }
+    .btn-group ul{
+      height: 170px;
+      overflow-y: scroll;
+     
+    }
+   /* WebKit browsers (Chrome, Safari) */
+.btn-group ul::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+
+.btn-group ul::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%);
+  border-radius: 6px; /* Set the border radius of the scrollbar thumb */
+}
+
+.btn-group ul::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the color of the scrollbar track */
+}
+
+/* Firefox */
+.btn-group ul {
+  scrollbar-color: #09A3D5 #3B4BDF;
+  scrollbar-width: thin;
+}
     .btn.btn-default {
         background-color: #fafafa;
         color: #666;
         border-color: #ddd;
         border-bottom-color: #ddd;
-        width: 100%;
+        width: 100% !important;
         text-align: left;
         border-radius: 25px !important;
     }
@@ -110,13 +136,17 @@
         display: none;
     }
     .multiselect-container {
-        position: absolute;
+        position: absolute !;
         list-style-type: none;
         margin: 0;
         padding: 0;
-        width: 40%;
+        width: 40% !important;
     }
+    /* select[multiple]{
+      height: 30px;
+    } */
     /*End multiple select dropdown css*/
+    
     .bg_color1{
             background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;
             color: #FFF;
@@ -317,7 +347,7 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>Dashboard</h1>
+                    <h1><b>Dashboard</b></h1>
                     <!--<ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Examples</a></li>
@@ -357,7 +387,7 @@
                     <?php if(@$patientInfo->gender=="1"){ ?>
                   <div class="row">
                     
-                    <div class="col-sm-12" id="container"><img src="<?=base_url()?>/public/company_logo/male-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                    <div class="col-sm-12" id="container"><img src="<?=base_url()?>/public/company_logo/male-body-front.png" alt="" style="height:513px;width: 100%; "></div>
                     <div class="shoulder-bullet"></div>
                     <div class="knee-bullet"></div>
                     <div class="pelvis-bullet"></div>
@@ -365,7 +395,7 @@
                     <div class="ankle-bullet"></div>
                   </div><br>
                   <div class="row">
-                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.png" alt="" style="height:513px;width: 100%; "></div>
                       <div class="elbow-bullet"></div>
                       <div class="wrist-bullet"></div>
                       <div class="cervical_spine-bullet"></div>
@@ -374,11 +404,11 @@
                   </div>
               <?php }else{ ?>
                 <div class="row">
-                    <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                    <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-front.png" alt="" style="height:513px;width: 100%; "></div>
                     
                   </div><br>
                   <div class="row">
-                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.png" alt="" style="height:513px;width: 100%; "></div>
 
                   </div>
               <?php } ?>
@@ -428,6 +458,34 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                            <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Body Part</label><span class="text-danger"></span></br>
+                                      
+                                     <select class="form-control btn-group btn-group-vertical" name="ptn_bodypart[]" id="bodypart-multiple-checkboxes" multiple="multiple">
+                            
+                                     <?php
+                                          if (!empty($bodypart_list))
+                                          {
+                                            $bodypart_list_arr=explode(',',$ptnEvalInfo->ptn_pain_bodypart);
+                                            foreach ($bodypart_list as $key => $val)
+                                            { 
+                                                  $selected='';
+                                                  if(!empty($ptnEvalInfo->ptn_pain_bodypart) && in_array($val['pvalue'],$bodypart_list_arr))
+                                                  {
+                                                    $selected='selected';
+                                                  }
+                                                ?>
+                                                    <option <?= $selected; ?>
+                                                    value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
+                                                    <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
+                                        <?php }
+                                          } ?>
+                                    </select>  
+        
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                  </div><!-- /.form-group wrapper-class -->
+                                </div><!-- /.col-md-3 -->
                           
                         </div><!-- / row -->
                         <hr style="border-top: 2px solid #2B48B0;"/>
@@ -1588,7 +1646,7 @@
                 <!-- <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="Submit"> -->
                 <br>
                    <div class="text-center">
-                <button type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="Submit" style="width: 10%;">Submit</button>
+                <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit" style="width: 10%;">Submit</button>
                     </div>
             </form>
 
@@ -1612,9 +1670,12 @@
 
     <script>
 
-    $(document).ready(function() {  
-        $('#multiple-checkboxes').multiselect();  
-    });  
+$(document).ready(function() {  
+        $('#multiple-checkboxes,#bodypart-multiple-checkboxes').multiselect();  
+       
+ }); 
+   
+     
         /*****************Start recommendation yes**********************/
             $(".chkradio") // select the radio by its id
                 .change(function(){ // bind a function to the change event
@@ -1705,13 +1766,21 @@
 
       $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
        // Listen for changes in the select element
-    $("select[name='ptn_tightness[]']").change(function () {
+      //  var selectedValue = $("select[name='ptn_bodypart[]']").val();
+      //  console.log(selectedValue)
+      // for (var i = 0; i < selectedValue.length; i++) {   
+      //   $('.' + selectedValue[i] + '-bullet').show();
+      // }
+
+    $("select[name='ptn_bodypart[]'] value:selected").change(function () {
+      
       updateBulletVisibility();
+
     });
 
     // Function to update bullet visibility based on selected options
     function updateBulletVisibility() {
-      var selectedValue = $("select[name='ptn_tightness[]']").val();
+      var selectedValue = $("select[name='ptn_bodypart[]']").val();
       console.log(selectedValue);
 
       // Hide all bullets initially

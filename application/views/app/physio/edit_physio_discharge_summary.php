@@ -322,8 +322,8 @@
                             </div><!-- /.col-md-4-->
                         </div>
                         
-                        <div class="col-sm-4">
-                        <button type="submit" class="btn btn-primary bg_color btn-sm" name="btnSave" value="Submit" style="margin-left:5px;">Submit</button>
+                        <div class="col-sm-11 text-center">
+                        <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit" style="margin-left:5px;">Submit</button>
                         </div>
                     </form>
                     <br><br><br><br><br><br><br>

@@ -573,6 +573,7 @@ class Physio extends General{
 				 //$this->data['getOPDPatient'] = $this->ipd_model->getIPDPatient($iop_no);
 				 $this->data['tightness_list'] = $this->physio_model->get_tightness_list();
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
+				 $this->data['bodypart_list'] = $this->physio_model->get_bodypart_list();
 				 /*echo "<pre>";
 				 print_r($this->data['ptnEvalInfo']);*/
 		

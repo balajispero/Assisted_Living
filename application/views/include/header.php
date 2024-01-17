@@ -113,10 +113,31 @@
                    /* line-height: 1em; */
                       }
                       .hvr-rectangle-out{
-                       border-color: #2B48B0;
-                       border-width: 100%;
-                       color: #2B48B0;
+      border-color: #2B48B0;
+      border-width: 100%;
+      color: #2B48B0;
+     }
+                      .hvr-shutter-in-vertical{
+                        /* background-color: #fff; */
+                        color: #fff;
+                        border-color: #2B48B0;
                       }
+                    
+                      .hvr-shutter-in-vertical:before{
+                        background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;
+                      }
+                      .hvr-shutter-in-vertical:hover{
+                        background-color: #fff!important;
+                        color:#2B48B0!important;
+                      }
+                      .content-header{
+                       
+                margin-top: 10px;
+                background-color: #ecf0fa !important;
+                padding: 7px 5px;
+                border-radius: 5px;
+                box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+            }
    
    </style>
 

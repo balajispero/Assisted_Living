@@ -174,7 +174,7 @@
                                              <?php echo $message;?> 
                                             <?php if($this->session->userdata('emr_viewing') == ""){?>	
                                            <?php if($getOPDPatient->nStatus == "Pending"){?>
-                                           <a href="#" class="add_physio_notes btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Daily Notes</a>
+                                           <a href="#" class="add_physio_notes btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Daily Notes</a>
                                            <?php }}?>
                                           <div class="alt2" dir="ltr" style="
                                     margin: 0px;
@@ -402,7 +402,7 @@ xmlhttp3.send();
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave" id="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" id="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -546,7 +546,7 @@ xmlhttp3.send();
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave" id="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" id="btnSave">Save</button>
                                         </div>
                                        
                                     </div>

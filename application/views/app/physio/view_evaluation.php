@@ -300,7 +300,7 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>Dashboard</h1>
+                    <h1><b>Dashboard</b></h1>
                     <!--<ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Examples</a></li>
@@ -322,7 +322,7 @@
                     <?php if(@$patientInfo->gender=="1"){ ?>
                   <div class="row">
                     
-                    <div class="col-sm-12" id="container"><img src="<?=base_url()?>/public/company_logo/male-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                    <div class="col-sm-12" id="container"><img src="<?=base_url()?>/public/company_logo/male-body-front.png" alt="" style="height:513px;width: 100%; "></div>
                     <div class="shoulder-bullet"></div>
                     <div class="knee-bullet"></div>
                     <div class="pelvis-bullet"></div>
@@ -330,7 +330,7 @@
                     <div class="ankle-bullet"></div>
                   </div><br>
                   <div class="row">
-                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.png" alt="" style="height:513px;width: 100%; "></div>
                       <div class="elbow-bullet"></div>
                       <div class="wrist-bullet"></div>
                       <div class="cervical_spine-bullet"></div>
@@ -339,11 +339,11 @@
                   </div>
               <?php }else{ ?>
                 <div class="row">
-                    <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                    <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-front.png" alt="" style="height:513px;width: 100%; "></div>
                     
                   </div><br>
                   <div class="row">
-                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.png" alt="" style="height:513px;width: 100%; "></div>
 
                   </div>
               <?php } ?>
