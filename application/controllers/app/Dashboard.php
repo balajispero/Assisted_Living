@@ -91,7 +91,8 @@ class Dashboard extends General{
 		$this->data['pagination6'] = $this->pagination->create_links();
 		$this->data['getLabTest'] = $this->Opd_model->getLabTest_pagination($this->limit, $offset_lab_test, $iop_no);
 
-		/*$uri_segment = 6;
+		/**************************For physio notes**************************/
+		$uri_segment = 6;
 		$offset_physio_note = $this->uri->segment($uri_segment);
 		
 		$patient = $this->Opd_model->getPhysioNote_pagination($this->limit, $offset_physio_note, $iop_no);
@@ -129,7 +130,8 @@ class Dashboard extends General{
 		
 		$this->pagination->initialize($config7);
 		$this->data['pagination7'] = $this->pagination->create_links();
-		$this->data['getPhysioNote'] = $this->Opd_model->getPhysioNote_pagination($this->limit, $offset_physio_note, $iop_no);*/
+		$this->data['getPhysioNote'] = $this->Opd_model->getPhysioNote_pagination($this->limit, $offset_physio_note, $iop_no);
+		/**************************For physio notes**************************/
 
 
 		$uri_segment = 6;

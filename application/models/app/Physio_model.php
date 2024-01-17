@@ -41,7 +41,7 @@ class Physio_model extends CI_Model{
 				and A.iop_no ='".$iop_no."' 
 				and A.rel_agree ='".$rel_agree."'";
 				$this->db->where($where);
-		//$this->db->order_by('A.patient_no','asc');
+		$this->db->order_by('A.eval_no','DESC');
 		
 		$this->db->join('patient_details_iop pt', 'pt.IO_ID = A.iop_no','left');
 
@@ -57,6 +57,7 @@ class Physio_model extends CI_Model{
 				)    
 				and A.InActive = 0";
 				$this->db->where($where);
+				$this->db->order_by('A.eval_no','DESC');
 		$this->db->join("patient_details_iop pt","pt.IO_ID = A.iop_no","left outer");
 		$query = $this->db->get("physio_evaluation A");
 		 
@@ -73,7 +74,7 @@ class Physio_model extends CI_Model{
 				)    
 				and A.InActive = 0";
 				$this->db->where($where);
-		//$this->db->order_by('A.patient_no','asc');
+		$this->db->order_by('A.eval_no','DESC');
 		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");
 		$this->db->join("physio_evaluation C","C.eval_no = A.eval_no","left outer");
 		$query = $this->db->get("physio_discharge_summary A");
@@ -89,6 +90,7 @@ class Physio_model extends CI_Model{
 				and A.iop_id='".$iop_no."'    
 				and A.InActive = 0";
 				$this->db->where($where);
+				$this->db->order_by('A.eval_no','DESC');
 		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");
 		$this->db->join("physio_evaluation C","C.eval_no = A.eval_no","left outer");
 		$query = $this->db->get("physio_discharge_summary A");
@@ -347,7 +349,7 @@ class Physio_model extends CI_Model{
 				)    
 				and A.InActive = 0";
 				$this->db->where($where);
-		//$this->db->order_by('A.patient_no','asc');
+		$this->db->order_by('A.eval_no','DESC');
 		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");
 		$query = $this->db->get("physio_notes A");
 		return $query->result();
@@ -362,6 +364,7 @@ class Physio_model extends CI_Model{
 				and A.iop_id='".$iop_no."'    
 				and A.InActive = 0";
 				$this->db->where($where);
+				$this->db->order_by('A.eval_no','DESC');
 		$this->db->join("physio_treatment_protocol B","B.eval_no = A.eval_no","left outer");
 		$query = $this->db->get("physio_notes A");
 		 

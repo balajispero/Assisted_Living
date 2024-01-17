@@ -774,7 +774,7 @@
                    <section class="col-lg-6 connectedSortable">
                     
                         <!--Start of New Member-->
-                        <!-- <div class="box box-primary" id="loading-example">
+                         <div class="box box-primary" id="loading-example">
                             <div class="box-header">
                                 <div class="pull-right box-tools">
                                         <button class="btn btn-primary btn-sm" data-widget='collapse' data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
@@ -820,7 +820,7 @@
                             <div class="box-footer">
                                 <?php echo $pagination7; ?>
                             </div>
-                        </div> -->
+                        </div> 
                         <!--End of New Member-->
                         
                     </section>
