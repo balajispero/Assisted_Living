@@ -208,13 +208,14 @@
       top: 770px; /* Adjust the top position based on your needs */
       left: 170px; /* Adjust the left position based on your needs */
     }
-    .cervical_spine-bullet {
+    .Cervical-Spine-bullet {
       position: absolute;
       width: 11px;
       height: 11px;
       border: 2px solid white;
       border-radius: 50%;
       background-color: rgba(44, 223, 170, 1);
+      display: none;
       cursor: pointer;
       top: 612px; /* Adjust the top position based on your needs */
       left: 115px; /* Adjust the left position based on your needs */
@@ -398,7 +399,7 @@
                       <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.png" alt="" style="height:513px;width: 100%; "></div>
                       <div class="elbow-bullet"></div>
                       <div class="wrist-bullet"></div>
-                      <div class="cervical_spine-bullet"></div>
+                      <div class="Cervical-Spine-bullet"></div>
                       <div class="thoracic_spine-bullet"></div>
                       <div class="lumbar_spine-bullet"></div>
                   </div>
@@ -1764,16 +1765,16 @@ $(document).ready(function() {
 
   /*****************Start highlight pain area on body img**********************/
 
-      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
+      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.Cervical-Spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
        // Listen for changes in the select element
-      //  var selectedValue = $("select[name='ptn_bodypart[]']").val();
-      //  console.log(selectedValue)
-      // for (var i = 0; i < selectedValue.length; i++) {   
-      //   $('.' + selectedValue[i] + '-bullet').show();
-      // }
+       var defaultSelectedValue = $("select[name='ptn_bodypart[]']").val();
+       console.log(defaultSelectedValue)
+      for (var si = 0; si < defaultSelectedValue.length; si++) {
+            $('.' + defaultSelectedValue[si].replace(/ /g, '-') + '-bullet').show();
+          }
 
-    $("select[name='ptn_bodypart[]'] value:selected").change(function () {
-      
+    $("select[name='ptn_bodypart[]']").change(function () {
+      console.log("hi")
       updateBulletVisibility();
 
     });
@@ -1784,7 +1785,8 @@ $(document).ready(function() {
       console.log(selectedValue);
 
       // Hide all bullets initially
-      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
+      /*$('.head,.skull,.shoulder-bullet,.elbow-bullet,.knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet,.face,.eyes,.ears,.nose,.mouth,.neck,.cervical_spine,.sholders,.left_sholder,.right_sholder,.arms,.left_arm,.right_arm,.elbow,.forearm,.wrist,.hand,.chest,.pectoral_region,.back,.thoracic_spine,.lumber_spine,.sacrum,.coccyx,.abdomen,.upper_abdomen,.lower_abdomen,.pelvis,.hips,.buttocks,.groin,.legs,.left_leg,.left_leg_tigh,.left_leg_knee,.left_lower_leg,.left_leg_ankle,.left_leg_foot,.right_leg,.right_leg_tigh,.right_leg_knee,.right_lower_leg,.right_leg_ankle,.right_leg_foot,.brain,.spinal_cord,.heart,.blood_vessels,.lungs,.trachea').hide();*/
+      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.Cervical-Spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
 
       // Show the corresponding bullet based on selected options
       for (var i = 0; i < selectedValue.length; i++) {
@@ -1804,7 +1806,7 @@ $(document).ready(function() {
           $('.wrist-bullet').show();
         }
          if (selectedValue[i] === 'Cervical Spine') {
-          $('.cervical_spine-bullet').show();
+          $('.Cervical-Spine-bullet').show();
         }
         if (selectedValue[i] === 'Thoracic Spine') {
           $('.thoracic_spine-bullet').show();
