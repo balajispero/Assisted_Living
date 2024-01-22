@@ -114,7 +114,7 @@
 
 							<div class="login-fields">
 								
-								<p>Please enter your username and passward</p>
+								<p>Please enter your username and password</p>
 				                <br>
 				                <?php echo validation_errors(); ?>    
 

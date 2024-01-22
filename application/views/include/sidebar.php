@@ -237,7 +237,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                          <li>
 
                             <a href="<?php echo base_url()?>app/dashboard" class="hvr-icon-pop">
-                                <i class="fa fa-dashboard hvr-icon"></i> <span style="color:#2B48B0;">Dashboard</span>
+                                <i class="fa fa-dashboard hvr-icon"></i> <span style="color:#2B48B0;" class="hvr-pop">Dashboard</span>
                             </a>
                         </li>
                         <?php } ?>     
@@ -247,7 +247,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoBilling){?>
                         <li class="treeview <?php echo $billing;?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-credit-card hvr-icon"></i> <span style="color:#2B48B0;">Billing</span>
+                                <i class="fa fa-credit-card hvr-icon"></i> <span style="color:#2B48B0;" class="hvr-pop">Billing</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -282,7 +282,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoPatient){?>
                         <li class="treeview <?php echo $patient;?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa fa-wheelchair hvr-icon"></i> <span style="color:#2B48B0;">Member Management</span>
+                                <i class="fa fa fa-wheelchair hvr-icon"></i> <span style="color:#2B48B0;" class="hvr-pop">Member Management</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -327,7 +327,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoRooms){?>
                         <li class="treeview <?php echo $room_m;?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-hospital-o hvr-icon"></i> <span style="color:#2B48B0;"> Room Management</span>
+                                <i class="fa fa-hospital-o hvr-icon"></i> <span style="color:#2B48B0;" class="hvr-pop"> Room Management</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -344,7 +344,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoNurse){?>
                         <li class="treeview <?php echo $nurse_module;?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-plus-square hvr-icon"></i> <span style="color:#2B48B0;"> Nurse Module</span>
+                                <i class="fa fa-plus-square hvr-icon"></i> <span style="color:#2B48B0;" class="hvr-pop"> Nurse Module</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu onlynurse_module">
@@ -368,7 +368,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoDoctor){?>
                         <li class="treeview <?php echo $doctor;?>" style="display: <?php echo ($this->session->userdata('user_role') == 1) ? "none" : "block";?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-user-md hvr-icon"></i> <span style="color:#2B48B0;"> Doctor Module</span>
+                                <i class="fa fa-user-md hvr-icon"></i> <span style="color:#2B48B0;" class="hvr-pop"> Doctor Module</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu onlypreasses">
@@ -386,7 +386,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoLab){?>
                         <li class="treeview <?php echo $doctor;?>" style="display: <?php echo ($this->session->userdata('user_role') == 1) ? "none" : "block";?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-user-md hvr-icon"></i> <span> Lab Module</span>
+                                <i class="fa fa-user-md hvr-icon"></i> <span class="hvr-pop"> Lab Module</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -400,7 +400,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoPreasses){?>
                         <li class="treeview <?php echo $doctor;?>" style="display: <?php echo ($this->session->userdata('user_role') == 1) ? "none" : "block";?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-user-md hvr-icon"></i> <span> Preassessment Module</span>
+                                <i class="fa fa-user-md hvr-icon"></i> <span class="hvr-pop"> Preassessment Module</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu onlypreasses">
@@ -429,7 +429,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoUsers){?>
                         <li class="treeview <?php echo $user_mgnmt;?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-group hvr-icon"></i> <span style="color:#2B48B0;">User Management</span>
+                                <i class="fa fa-group hvr-icon"></i> <span style="color:#2B48B0;" class="hvr-pop">User Management</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -444,7 +444,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoAdmin){?>
                        <li class="treeview <?php echo $admin;?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-gear hvr-icon"></i> <span style="color:#2B48B0;">Administrator</span>
+                                <i class="fa fa-gear hvr-icon"></i> <span style="color:#2B48B0;" class="hvr-pop">Administrator</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -461,7 +461,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <?php if($hasAccesstoAdminMedicineCategory == TRUE && $hasAccesstoAdminDrugName == TRUE){?>
                                 <li class="treeview <?php echo $medicine;?>">
                                     <a href="#" class="hvr-icon-pop">
-                                    <i class="fa fa-angle-double-right hvr-icon"></i><span>Interventions Mgmt</span>
+                                    <i class="fa fa-angle-double-right hvr-icon"></i><span class="hvr-pop">Interventions Mgmt</span>
                                     <i class="fa fa-angle-left pull-right hvr-icon"></i>
                                     </a>
                                     <ul class="treeview-menu">
@@ -486,7 +486,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoReport){?>
                         <li class="treeview <?php echo $reports;?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-print hvr-icon"></i> <span style="color:#2B48B0;"> Reports Generation</span>
+                                <i class="fa fa-print hvr-icon"></i> <span style="color:#2B48B0;" class="hvr-pop"> Reports Generation</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -507,7 +507,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoPhysio){?>
                         <li class="treeview <?php echo $doctor;?>" style="display: <?php echo ($this->session->userdata('user_role') == 1) ? "none" : "block";?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-user-md hvr-icon"></i> <span>Physio Module</span>
+                                <i class="fa fa-user-md hvr-icon"></i> <span class="hvr-pop">Physio Module</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu onlyphysio_eval">
@@ -520,7 +520,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <!--START OF USER PROFILE-->
                         <li class="treeview <?php echo $profile;?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-user hvr-icon"></i> <span style="color:#2B48B0;">User Profile</span>
+                                <i class="fa fa-user hvr-icon"></i> <span style="color:#2B48B0;" class="hvr-pop">User Profile</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu onlypreasses">

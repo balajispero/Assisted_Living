@@ -39,6 +39,9 @@
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"> -->
         <!--End for dashboard count cdn-->
         <style>
+            body{
+                font-family: Helvetica;
+            }
             .btn.btn-primary {
                 background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%);
 

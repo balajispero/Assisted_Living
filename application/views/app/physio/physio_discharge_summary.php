@@ -323,7 +323,7 @@
                         </div>
 
                         <div class="col-sm-12 text-center">
-                        <button type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="Submit">Submit</button>
+                        <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit">Submit</button>
                         </div>
                             
                                                         

@@ -138,8 +138,8 @@
                                                     </tR>
                                                     <tr>
                                                     	<td width="18%">User ID</td>
-                                                        <td width="41%"><input class="form-control input-sm" name="userid" id="userid" type="text" style="width: 100px;" required readonly value="<?php echo $user->user_id;?>"></td>
-                                                    	 <!-- <td width="41%" rowspan="4" valign="top" align="center">
+                                                        <td width="80%"><input class="form-control input-sm" name="userid" id="userid" type="text" style="width: 250px;" required readonly value="<?php echo $user->user_id;?>"></td>
+                                                    	 <!-- <td width="80%" rowspan="4" valign="top" align="center">
                         <?php
 if(!$user->picture){
 	$picture = "no_avatar.gif";	
@@ -153,8 +153,8 @@ if(!$user->picture){
                                                     </tr>
                                                     <tr>
                                                     	<td width="18%">Title</td>
-                                                        <td width="41%">
-                                                        	<select name="title" id="title" class="form-control input-sm" style="width: 100px;" required readonly>
+                                                        <td width="80%">
+                                                        	<select name="title" id="title" class="form-control input-sm" style="width: 250px;" required readonly>
                                                             	<option value="">- Title -</option>
 																<?php 
 																foreach($UserTitles as $UserTitles){
@@ -172,7 +172,7 @@ if(!$user->picture){
                                                     </tr>
                                                     <tr>
                                                     	<td width="18%">Last Name</td>
-                                                        <td width="41%">
+                                                        <td width="80%">
                                                         <?php echo form_input('lastname',set_value('lastname',$user->lastname),'readonly id="lastname" class="form-control input-sm" placeholder="Last Name" style="width: 250px;" required');?>
                                                         </td>
                                                     </tr>
@@ -191,19 +191,19 @@ if(!$user->picture){
                                                     <tr>
                                                     	<td>Birthday</td>
                                                         <td>
-                                                        <?php echo form_input('birthday',set_value('birthday',$user->birthday),'readonly id="birthday" class="form-control input-sm" placeholder="Birthday" style="width: 150px;" required');?> 
+                                                        <?php echo form_input('birthday',set_value('birthday',$user->birthday),'readonly id="birthday" class="form-control input-sm" placeholder="Birthday" style="width: 250px;" required');?> 
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                     	<td>Birth Place</td>
                                                         <td>
-                                                        <?php echo form_input('birthplace',set_value('birthplace',$user->birthplace),'readonly id="birthplace" class="form-control input-sm" placeholder="Birth Place" style="width: 380px;"');?>
+                                                        <?php echo form_input('birthplace',set_value('birthplace',$user->birthplace),'readonly id="birthplace" class="form-control input-sm" placeholder="Birth Place" style="width: 250px;"');?>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                     	<td width="18%">Gender</td>
-                                                        <td width="41%">
-                                                        	<select name="gender" id="gender" class="form-control input-sm" style="width: 100px;" readonly>
+                                                        <td width="80%">
+                                                        	<select name="gender" id="gender" class="form-control input-sm" style="width: 250px;" readonly>
                                                             	<option value="">- Gender -</option>
                                                                 <?php 
 																foreach($gender as $gender){
@@ -220,8 +220,8 @@ if(!$user->picture){
                                                     </tr>
                                                     <tr>
                                                     	<td width="18%">Civil Status</td>
-                                                        <td width="41%">
-                                                        	<select name="civil_status" id="civil_status" class="form-control input-sm" style="width: 140px;" readonly>
+                                                        <td width="80%">
+                                                        	<select name="civil_status" id="civil_status" class="form-control input-sm" style="width: 250px;" readonly>
                                                             	<option value="">- Civil Status -</option>
                                                                 <?php 
 																foreach($civilStatus as $civilStatus){
@@ -237,8 +237,8 @@ if(!$user->picture){
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                    	<td width="18%">Department</td>
-                                                        <!-- <td width="41%">
+                                                    	<td width="18%"><b>Department</b></td><br>
+                                                        <!-- <td width="80%">
                                                         	<select name="department" id="department" class="form-control input-sm" style="width: 200px;" required readonly>
                                                             	<option value="">- Department -</option>
                                                             	<//?php 
@@ -256,8 +256,8 @@ if(!$user->picture){
                                                     </tr>
                                                     <tr>
                                                     	<td width="18%">Designation</td>
-                                                        <td width="41%">
-                                                        	<select name="designation" id="designation" class="form-control input-sm" style="width: 200px;" required readonly>
+                                                        <td width="80%">
+                                                        	<select name="designation" id="designation" class="form-control input-sm" style="width: 250px;" required readonly>
                                                             	<option value="">- Designation -</option>
                                                                 <?php 
 																foreach($designationList as $designationList){
@@ -274,8 +274,8 @@ if(!$user->picture){
                                                     </tr>
                                                     <tr>
                                                     	<td width="18%">User Role</td>
-                                                        <td width="41%">
-                                                        	<select name="user_role" id="user_role" class="form-control input-sm" style="width: 200px;" required readonly>
+                                                        <td width="80%">
+                                                        	<select name="user_role" id="user_role" class="form-control input-sm" style="width: 25s0px;" required readonly>
                                                             	<option value="">- User Role -</option>
                                                                 <?php 
 																foreach($userRoleList as $userRoleList){

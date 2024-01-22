@@ -103,7 +103,7 @@
                          		
                          		 <div class="box-footer clearfix">
                             	
-                                            <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                            <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                  
                             </div>
                             

@@ -9,6 +9,10 @@
 <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
 
    <style>
+    body{
+        font-family:  Helvetica;
+        font-size: 12px;
+    }
     @media only screen and (max-width:768px) and (min-width:300px) {
          .m12{
             font-size: 15px;
@@ -75,7 +79,8 @@
         }
         }
         .bg_color{
-            background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;
+            /* background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important; */
+               background-color: #07B5BC;
 
         }
         .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
@@ -142,12 +147,12 @@
    </style>
 
 <header class="header" style="background: url('<?php echo base_url()?>public/img/new/header_bar_bg_01.jpg') repeat-x; background-size: 100% 100%; border-bottom:1px solid #CCC">
-    <a href="#" class="logo">
+    <a href="#" class="logo" style="background-color: white;">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
         <div class="logo-pms"><img src="<?php echo base_url()?>public/company_logo/spero-final-logo2.png" width="50%%" height="45" ></div>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" role="navigation" style="background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%); background-size: 100% 100%; border-bottom:1px solid #CCC">
+    <nav class="navbar navbar-static-top" role="navigation" style="background-color:#0097A7; background-size: 100% 100%; border-bottom:1px solid #CCC">
         <!-- Sidebar toggle button-->
         <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
@@ -157,7 +162,7 @@
         </a>
         <div class="logo2"> 
                 <!-- <?php echo "Assisted Living"?> -->
-                <p class="ml2">Assisted Living</p>
+                <p class="ml2">Assisted Living Facility</p>
 
         </div>
         <div class="navbar-right">

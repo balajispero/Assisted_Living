@@ -24,7 +24,12 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        
+        <!-- <style>
+            .box-body{
+                margin-left: 20px;
+            } -->
+
+            </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -124,7 +129,7 @@
                                                 <input type="text" class="form-control input-sm" name="search" id="search" placeholder="Member No./Name" style="width: 180px;">
                                                 </td>
                                                 <td>
-                                                <button class="btn btn-sm btn-primary bg_color" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
+                                                <button class="btn btn-sm btn-outline-primary hvr-shutter-in-vertical" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i>&nbsp; &nbsp;Search </button>
                                                 </td>
                                             </tr>
                                             </table>

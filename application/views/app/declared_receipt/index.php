@@ -120,7 +120,7 @@
                                             	
                                                 <td>
                                                 <button class="btn btn-sm btn-primary bg_color" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
-                                                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal">Add New Declared</a>
+                                                <a href="#" class="btn btn-outline-primary hvr-rectangle-out" data-toggle="modal" data-target="#myModal">Add New Declared</a>
                                                 </td>
                                             </tr>
                                             </table>
@@ -186,7 +186,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary bg_color">Submit</button>
+                                            <button type="submit" class="btn btn-outline-primary  hvr-shutter-in-vertical">Submit</button>
                                         </div>
                                        
                                     </div>
