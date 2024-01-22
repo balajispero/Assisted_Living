@@ -367,9 +367,10 @@ xmlhttp3.send();
                                                                 <option value="">-Select Evaluation No-</option>
                                                                 <?php 
                                                                 foreach($eval_no_list as $eval_no_list){
+                                                                    if($eval_no_list->therapy_status!="Completed" && $eval_no_list->therapy_status!="Deceased") {
                                                                 ?>
                                                                 <option value="<?php echo $eval_no_list->eval_no;?>"><?php echo $eval_no_list->eval_no;?></option>
-                                                                <?php }?>
+                                                                <?php } }?>
                                                                             </select></td>
                                         </tr>
                                            <tr>
@@ -510,10 +511,11 @@ xmlhttp3.send();
                                            <td width="250">   <select name="eval_no" class="eval_no form-control input-sm" required>
                                                                 <option value="">-Select Evaluation No-</option>
                                                                 <?php 
-                                                                foreach($eval_no_list1 as $eval_no_list1){
+                                                                foreach($eval_no_list1 as $eval_no_list1){ 
+
                                                                 ?>
                                                                 <option value="<?php echo $eval_no_list1->eval_no;?>"><?php echo $eval_no_list1->eval_no;?></option>
-                                                                <?php }?>
+                                                                <?php } ?>
                                                                             </select></td>
                                         </tr>
                                            <tr>

@@ -266,6 +266,17 @@
                                                             </select>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td width="12%">Organization <font color="#FF0000">*</font></td>
+                                                        <td width="88%">
+                                                            <select name="organization" class="form-control input-sm" style="width: 200px;" required>
+                                                                <option value="">- Select Organization -</option>
+                                                                <option value="ALF">ALF</option>
+                                                                <option value="post stroke">post stroke</option>
+                                                                
+                                                            </select>
+                                                        </td>
+                                                    </tr>
                                                     <tr class="physio_expert" style="display:none;">
                                                         <td>Do You Expert<font color="#FF0000">*</font></td>
                                                         <td>

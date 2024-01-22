@@ -193,9 +193,10 @@
                                                                 <option value="">-Select Evaluation No-</option>
                                                                 <?php 
                                                                 foreach($eval_no_list as $eval_no_list){
+                                                                    
                                                                 ?>
                                                                 <option value="<?php echo $eval_no_list->eval_no;?>"><?php echo $eval_no_list->eval_no;?></option>
-                                                                <?php }?>
+                                                                <?php } ?>
                                                                             </select>
 
                                     <span class="text-danger error-text type_category_err"></span>                           
