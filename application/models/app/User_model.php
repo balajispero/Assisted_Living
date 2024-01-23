@@ -116,7 +116,7 @@ class User_model extends CI_Model{
 			'user_id'			=>		$this->input->post('userid'),
 			// 'department'		=>		$this->input->post('department'),
 			'designation'		=>		$this->input->post('designation'),
-			'organization'		=>		$this->input->post('organization'),
+			'organization'		=>		@$this->input->post('organization'),
 			'user_role'			=>		$this->input->post('user_role'),
 			'cType'				=>		$this->input->post('cType'),
 			'title'				=>		$this->input->post('title'),
