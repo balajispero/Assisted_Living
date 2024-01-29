@@ -192,7 +192,7 @@
     <aside class="right-side">
       <!-- Content Header (Page header) -->
       <section class="content-header1">
-
+      <i class="fa-solid fa-arrow-turn-down-left"></i>
         <h3 class="dash"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;<b>Dashboard</b></h3>
         <!--<ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -263,7 +263,7 @@
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-danger card-img-holder text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-1"><b> <a href="<?=base_url()?>app/dashboard_detail" style="color:#FFF;">Total Member</a></b>
+                  <h4 class="font-weight-bold mb-1"><b> <a href="<?=base_url()?>app/dashboard/dashboard_detail/admit_member" style="color:#FFF;">Total Member</a></b>
                     <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-2" id="inc_count"></h2>
@@ -275,7 +275,7 @@
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-info card-img-holder text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-2"><b> Today's New Member</b>
+                  <h4 class="font-weight-bold mb-2"><b> <a href="<?=base_url()?>app/dashboard/dashboard_detail/today_member" style="color:#FFF;">Today's New Member</a></b>
                     <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-2" id="today_reg_ptn_cnt">0</h2>
@@ -286,7 +286,7 @@
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-success card-img-holder text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-2"><b>Vaccant Room</b>
+                  <h4 class="font-weight-bold mb-2"><b><a href="<?=base_url()?>app/dashboard/dashboard_detail/room_vacant" style="color:#FFF;">Vacant Room</a></b>
                     <i class="mdi mdi-diamond mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-2" id="vacant_room_cnt"></h2>
@@ -500,11 +500,11 @@ var myChart = new Chart(ctx, {
   data: {
     labels: ["M", "T", "W", "T", "F", "S", "S"],
     datasets: [{
-      label: 'Vaccant Room',
+      label: 'Vacant Room',
       data: [12, 19, 3, 17, 28, 24, 7],
       backgroundColor: "#19bea6"
     }, {
-      label: 'Available Room',
+      label: 'Admitted Room',
       data: [30, 29, 5, 5, 20, 3, 10],
       backgroundColor: "#90caf9"
     }]
