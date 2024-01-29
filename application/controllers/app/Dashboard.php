@@ -430,5 +430,18 @@ class Dashboard extends General{
      
         echo json_encode(count($vacant_room_cnt ));
     }
+	public function dashboard_detail()
+	{
+		$this->session->set_userdata(array(
+			'tab'			=>		'',
+			'module'		=>		'',
+			'subtab'		=>		'',
+			'submodule'	=>		''));
+   
+   $this->data['latest_patient'] = $this->dashboard_model->latest_patient();		 
+   $this->data['latest_visited_patient'] = $this->dashboard_model->getRoomstatus();		 
+   $this->data['getTodayAppointment'] = $this->dashboard_model->getTodayAppointment();	
+		$this->load->view('app/dashboard_detail');	
+	}
 	
 }

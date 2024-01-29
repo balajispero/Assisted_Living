@@ -263,7 +263,7 @@
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-danger card-img-holder text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-1"><b> <a href="<?=base_url()?>/app/physio/ipd.php" style="color:#FFF;">Total Member</a></b>
+                  <h4 class="font-weight-bold mb-1"><b> <a href="<?=base_url()?>app/dashboard_detail" style="color:#FFF;">Total Member</a></b>
                     <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-2" id="inc_count"></h2>

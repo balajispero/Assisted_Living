@@ -30,5 +30,18 @@ class Dashboard extends General{
 		// print_r($this->data['latest_visited_patient']);
 		$this->load->view('app/dashboard',$this->data);	
 	}
+	public function dashboard_detail()
+	{
+		$this->session->set_userdata(array(
+			'tab'			=>		'',
+			'module'		=>		'',
+			'subtab'		=>		'',
+			'submodule'	=>		''));
+   
+   $this->data['latest_patient'] = $this->dashboard_model->latest_patient();		 
+   $this->data['latest_visited_patient'] = $this->dashboard_model->getRoomstatus();		 
+   $this->data['getTodayAppointment'] = $this->dashboard_model->getTodayAppointment();	
+		$this->load->view('app/dashboard_detail');	
+	}
 	
 }
