@@ -657,7 +657,7 @@
                                                 <div class="tab-pane" id="tab_5">
                                                 <table cellpadding="3" cellspacing="3" width="100%">
                                                     <tr>
-                                                        <td width="20%"><button type="button" name="add" id="add" class="btn btn-primary bg_color">Add Medicine</button><br><br>
+                                                        <td width="20%"><button type="button" name="add" id="add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Medicine</button><br><br>
                                                         <?php $medicine = explode(',',$patientInfo->ptn_sugess_medi); foreach($medicine as $key => $medicine1){ $key1 = $key+1; ?>
                                                         <div id="dynamic_field">
                                                             <div id="row<?=$key1?>" class="dis_flex"> 
@@ -686,7 +686,7 @@
                                                 </div>
                                             </div>
                                             <div class="box-footer clearfix">
-                                            <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit" value="save"><i class="fa fa-save"></i> Save</button>
+                                            <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit" value="save"><i class="fa fa-save"></i> Save</button>
                                             <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a>
                                  
                             </div>

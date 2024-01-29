@@ -13,6 +13,18 @@
         font-family:  Helvetica;
         font-size: 12px;
     }
+    .dash {
+        margin-left: 20px;
+        color: grey;
+      }
+
+      .fa-home {
+        background-color: #07B5BC;
+        color: white;
+        padding: 6px;
+        font-size: 18px;
+        border-radius: 5px;
+      }
     @media only screen and (max-width:768px) and (min-width:300px) {
          .m12{
             font-size: 15px;
@@ -137,12 +149,12 @@
                       }
                       .content-header{
                        
-                margin-top: 10px;
-                background-color: #ecf0fa !important;
-                padding: 7px 5px;
-                border-radius: 5px;
-                box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-            }
+               /* margin-top: 10px; */
+        /* background-color: #ecf0fa !important; */
+        padding: 7px 5px;
+        border-radius: 5px;
+        box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+     }
    
    </style>
 
@@ -254,7 +266,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header bg-light-blue droplist bg_color">
+                        <li class="user-header  droplist" style="background-color: #0097A7;">
                             <?php if($userInfo->picture == ""){?>
                     	<img src="<?php echo base_url()?>public/user_picture/user_img.jpg" class="img-circle" alt="User Image" />
                     <?php }else{?>
