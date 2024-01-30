@@ -74,7 +74,8 @@ class Dashboard_model extends CI_Model{
 				return $row;
 			}
 		}
-		public function getTodayAppointment(){
+		
+		public function getTodayAppointment($limit = 10, $offset = 0){
 			$this->db->select('rbed.*,cat.*,rm.*,pt.patient_no,pt.IO_ID,ptn.patient_no,ptn.middlename,pt.doctor_id,ptn.date_entry,ptn.firstname as fname,ptn.lastname as lname,doc.user_id,doc.firstname,doc.lastname,doc.title,mrs.param_id,mrs.cValue');
 			$this->db->from('room_beds rbed');
 			$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
@@ -84,18 +85,40 @@ class Dashboard_model extends CI_Model{
 			$this->db->join('users doc', 'doc.user_id = pt.doctor_id','left');
 			$this->db->join('system_parameters mrs','mrs.param_id = doc.title','left');
  			//$this->db->where('rbed.nStatus','Occupied');
+ 			//$this->db->where('rbed.organization',$this->session->userdata('organization'));
+ 			$this->db->where(array('rbed.nStatus'=>'Occupied','pt.nStatus'=>'Pending'));
+			$this->db->order_by('rbed.room_bed_id', 'ASC');
+			//$this->db->limit('7');
+			$query = $this->db->get("",$limit, $offset);
+			
+		// echo $this->db->last_query(); die;
+			if ( $query->num_rows() > 0 )
+			{
+				return $query->result();
+				
+			}
+		}
+
+		public function cntgetTodayAppointment(){
+			$this->db->select('rbed.*,cat.*,rm.*,pt.patient_no,pt.IO_ID,ptn.patient_no,ptn.middlename,pt.doctor_id,ptn.date_entry,ptn.firstname as fname,ptn.lastname as lname,doc.user_id,doc.firstname,doc.lastname,doc.title,mrs.param_id,mrs.cValue');
+			$this->db->from('room_beds rbed');
+			$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
+			$this->db->join('room_category cat', 'cat.category_id = rm.category_id', 'left');
+			$this->db->join('patient_details_iop pt', 'pt.room_id = rbed.room_bed_id','left');
+			$this->db->join('patient_personal_info ptn', 'ptn.patient_no = pt.patient_no','left');
+			$this->db->join('users doc', 'doc.user_id = pt.doctor_id','left');
+			$this->db->join('system_parameters mrs','mrs.param_id = doc.title','left');
+ 			//$this->db->where('rbed.nStatus','Occupied');
+ 			//$this->db->where('rbed.organization',$this->session->userdata('organization'));
  			$this->db->where(array('rbed.nStatus'=>'Occupied','pt.nStatus'=>'Pending'));
 			$this->db->order_by('rbed.room_bed_id', 'ASC');
 			//$this->db->limit('7');
 			$query = $this->db->get();
-		// echo $this->db->last_query(); die;
-			if ( $query->num_rows() > 0 )
-			{
-				$row = $query->result();
-				// print_r();
-				return $row;
-			}
+			return $query->num_rows();
+			
+		
 		}
+
 // 	    public function getstatus(){
 // 			$this->db->select('rbed.nStatus,rm.*,');
 // 			$this->db->from('room_beds rbed');

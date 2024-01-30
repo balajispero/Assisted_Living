@@ -441,6 +441,69 @@ class Dashboard extends General{
    $this->data['latest_patient'] = $this->dashboard_model->latest_patient();		 
    $this->data['latest_visited_patient'] = $this->dashboard_model->getRoomstatus();		 
    $this->data['getTodayAppointment'] = $this->dashboard_model->getTodayAppointment();
+   				$uri_segment = 5;
+				$offset = $this->uri->segment($uri_segment);
+				
+				$patient = $this->dashboard_model->getTodayAppointment($this->limit, $offset);
+				
+
+				$config['base_url'] = base_url().'app/dashboard/dashboard_detail/admit_member/';
+				$config['total_rows'] = $this->dashboard_model->cntgetTodayAppointment();
+				$config['per_page'] = $this->limit;
+				
+				
+				$config['uri_segment'] = $uri_segment;
+				$config['full_tag_open'] = '<ul class="pagination pagination no-margin pull-right">';
+				$config['full_tag_close'] = '</ul><!--pagination-->';
+
+				$config['first_link'] = '&laquo; First';
+				$config['first_tag_open'] = '<li class="prev page">';
+				$config['first_tag_close'] = '</li>';
+
+				$config['last_link'] = 'Last &raquo;';
+				$config['last_tag_open'] = '<li class="next page">';
+				$config['last_tag_close'] = '</li>';
+
+				$config['next_link'] = 'Next &rarr;';
+				$config['next_tag_open'] = '<li class="next page">';
+				$config['next_tag_close'] = '</li>';
+
+				$config['prev_link'] = '&larr; Previous';
+				$config['prev_tag_open'] = '<li class="prev page">';
+				$config['prev_tag_close'] = '</li>';
+
+				$config['cur_tag_open'] = '<li class="active"><a href="">';
+				$config['cur_tag_close'] = '</a></li>';
+
+				$config['num_tag_open'] = '<li class="page">';
+				$config['num_tag_close'] = '</li>';
+				
+				$this->pagination->initialize($config);
+				$this->data['pagination'] = $this->pagination->create_links();
+				
+				$tmpl = array('table_open' => '<table class="table table-hover table-striped">');
+				$this->table->set_template($tmpl);
+				$this->table->set_empty("&nbsp;");
+				$this->table->set_heading('Member No','Member Name','Entry Date','Consultant Doctor','Room Type','Floor','Allocated Room','Allocated Bed','Status');
+				
+				
+				foreach ($patient as $patient)
+				{	
+				
+				$this->table->add_row( 
+					anchor('app/dashboard/view_details/'.$patient->patient_no.'/'.$patient->IO_ID,$patient->patient_no),
+					@$patient->middlename, 
+					@$patient->date_entry,
+					@$patient->cValue.''.@$patient->firstname.''.@$patient->lastname, 
+					@$patient->category_name,
+					@$patient->floor,
+					@$patient->room_name, 
+					@$patient->bed_name,
+					@$patient->nStatus		
+				);
+			}
+			$this->data['message'] = $this->session->flashdata('message');
+			$this->data['table'] = $this->table->generate();
    $this->data['members'] = $members;
 		$this->load->view('app/dashboard_detail',$this->data);	
 	}

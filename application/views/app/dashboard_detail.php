@@ -208,6 +208,60 @@
 <section class="content" style="background-color: #fff;">
 
     <div class="row" id="membersdetail" >
+        <?php
+            if($members=="admit_member"){
+                ?>
+        <div class="col-md-12">
+                    
+                  <div class="box">
+                   <div class="box-body table-responsive no-padding">
+                       <?php echo $message;?>
+                       
+                       <?php echo $table; ?>
+                       
+                   </div>
+                   <div class="box-footer clearfix">
+                       <?php echo $pagination; ?>
+                   </div>
+               </div>
+           </div>
+       <?php } ?>
+       <?php
+            if($members=="today_member"){
+                ?>
+        <div class="col-md-12">
+                    
+                  <div class="box">
+                   <div class="box-body table-responsive no-padding">
+                       <?php echo $message;?>
+                       
+                       <?php echo $table; ?>
+                       
+                   </div>
+                   <div class="box-footer clearfix">
+                       <?php echo $pagination; ?>
+                   </div>
+               </div>
+           </div>
+       <?php } ?>
+       <?php
+             if($members=="room_vacant"){
+                ?>
+        <div class="col-md-12">
+                    
+                  <div class="box">
+                   <div class="box-body table-responsive no-padding">
+                       <?php echo $message;?>
+                       
+                       <?php echo $table; ?>
+                       
+                   </div>
+                   <div class="box-footer clearfix">
+                       <?php echo $pagination; ?>
+                   </div>
+               </div>
+           </div>
+       <?php } ?>
 
         <section class="col-lg-12 connectedSortable">
 
@@ -401,58 +455,7 @@
 
 
                    <!-- Main content -->
-                   <?php if($hasAccesstoDoctorAvail){?>   
-                       <div class="row">
-                        <section class="col-lg-6 connectedSortable">
-
-                            <!--Start of New Member-->
-                            <div class="box box-primary" id="loading-example">
-                                <div class="box-header">
-                                    <div class="pull-right box-tools">
-                                        <button class="btn btn-primary btn-sm" data-widget='collapse' data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-                                        
-                                    </div>
-                                    <i class="fa fa-user-md"></i>
-
-                                    <h3 class="box-title">Doctor's IN</h3>
-                                </div>
-                                <div class="box-body no-padding">
-                                    <div class="table-responsive" style="height:350px; overflow-y:scroll;">
-                                        <div id="doctorIN"></div>
-                                    </div>
-                                </div>
-                                <div class="box-footer">
-                                </div>
-                            </div>
-                            <!--End of New Member-->
-
-                        </section>
-
-                        <section class="col-lg-6 connectedSortable">
-
-                            <!--Start of Patient Visited-->
-                            <div class="box box-primary" id="loading-example">
-                                <div class="box-header">
-                                    <div class="pull-right box-tools">
-                                        <button class="btn btn-primary btn-sm" data-widget='collapse' data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-                                        
-                                    </div>
-                                    <i class="fa fa-user-md"></i>
-                                    <h3 class="box-title">Doctor's OUT</h3>
-                                </div>
-                                <div class="box-body no-padding">
-                                    <div class="table-responsive" style="height:350px; overflow-y:scroll;">
-                                        <div id="doctorOUT"></div>
-                                    </div>
-                                </div>
-                                <div class="box-footer">
-                                </div>
-                            </div>
-                            <!--End of Patient Visited-->
-
-                        </section>
-                    </div>
-                <?php }?>
+                   
 
                 <script src="<?php echo base_url(); ?>public/js/off-canvas.js"></script>
   <script src="<?php echo base_url(); ?>public/js/misc.js"></script>
@@ -468,195 +471,7 @@
 
 
 
-  <script type="text/javascript">
-    $(document).ready(function() {
-
-      doctorOUTF();
-      doctorINF();
-
-    });
-
-    function doctorOUTF() {
-      $.ajax({
-        url: "<?php echo base_url() ?>general/getDoctorOUT",
-        type: "POST",
-        success: function(result) {
-          $('#doctorOUT').html(result);
-        },
-        beforeSend: function() {
-          $('#doctorOUT').html("<center><img src='../public/img/ajax-loader.gif'></center>");
-        }
-      });
-    }
-
-    function doctorINF() {
-      $.ajax({
-        url: "<?php echo base_url() ?>general/getDoctorIN",
-        type: "POST",
-        success: function(result) {
-          $('#doctorIN').html(result);
-        },
-        beforeSend: function() {
-          $('#doctorIN').html("<center><img src='../public/img/ajax-loader.gif'></center>");
-        }
-      });
-    }
-
-    function doctorProcess(id, status) {
-      if (confirm('Are you sure you want the doctor ' + status + '?')) {
-        $.ajax({
-          url: "<?php echo base_url() ?>general/procDocAvail/" + id + "/" + status,
-          type: "POST",
-          success: function() {
-            alert('Doctor is ' + status);
-            doctorINF()
-            doctorOUTF()
-          },
-          beforeSend: function() {
-            $('#doctor' + status).html("<center><img src='../public/img/ajax-loader.gif'></center>");
-          }
-        });
-        return true;
-      } else {
-        return false;
-      }
-
-    }
-  </script>
-  <script>
-    function get_ipd_ptn_cnt() {
-      if (window.XMLHttpRequest) {
-        xmlhttp = new XMLHttpRequest();
-      } else { // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
-          document.getElementById("inc_count").innerHTML = xmlhttp.responseText;
-        }
-      }
-
-      xmlhttp.open("GET", "<?php echo base_url(); ?>app/dashboard/get_ipd_ptn_cnt/", true);
-      xmlhttp.send();
-
-    }
-    get_ipd_ptn_cnt();
-
-    function today_reg_ptn_cnt() {
-      if (window.XMLHttpRequest) {
-        xmlhttp1 = new XMLHttpRequest();
-      } else { // code for IE6, IE5
-        xmlhttp1 = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp1.onreadystatechange = function() {
-        if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
-
-          document.getElementById("today_reg_ptn_cnt").innerHTML = xmlhttp1.responseText;
-        }
-      }
-
-      xmlhttp1.open("GET", "<?php echo base_url(); ?>app/dashboard/today_reg_ptn_cnt/", true);
-      xmlhttp1.send();
-
-    }
-    today_reg_ptn_cnt();
-
-    function vacant_room_cnt() {
-      if (window.XMLHttpRequest) {
-        xmlhttp2 = new XMLHttpRequest();
-      } else { // code for IE6, IE5
-        xmlhttp2 = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp2.onreadystatechange = function() {
-        if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
-
-          document.getElementById("vacant_room_cnt").innerHTML = xmlhttp2.responseText;
-        }
-      }
-
-      xmlhttp2.open("GET", "<?php echo base_url(); ?>app/dashboard/vacant_room_cnt/", true);
-      xmlhttp2.send();
-
-    }
-    vacant_room_cnt();
-
-
-    $(document).ready(function() {
-      pieInit()
-    });
-
-    function pieInit() {
-      $(".pie-slice").hide().fadeIn("slow").find("animate").attr("begin", "0s");
-
-    }
-
-    var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ["M", "T", "W", "T", "F", "S", "S"],
-    datasets: [{
-      label: 'Vaccant Room',
-      data: [12, 19, 3, 17, 28, 24, 7],
-      backgroundColor: "#19bea6"
-    }, {
-      label: 'Available Room',
-      data: [30, 29, 5, 5, 20, 3, 10],
-      backgroundColor: "#90caf9"
-    }]
-  }
-});
-  </script>
-  <!-- <script>
-  var densityCanvas = document.getElementById("densityChart");
-
-Chart.defaults.global.defaultFontFamily = "Lato";
-Chart.defaults.global.defaultFontSize = 18;
-
-var densityData = {
-  label: 'Density of Planet (kg/m3)',
-  data: [5427, 5243, 5514, 3933, 1326, 687, 1271, 1638],
-  backgroundColor: 'rgba(0, 99, 132, 0.6)',
-  borderColor: 'rgba(0, 99, 132, 1)',
-  yAxisID: "y-axis-density"
-};
- 
-var gravityData = {
-  label: 'Gravity of Planet (m/s2)',
-  data: [3.7, 8.9, 9.8, 3.7, 23.1, 9.0, 8.7, 11.0],
-  backgroundColor: 'rgba(99, 132, 0, 0.6)',
-  borderColor: 'rgba(99, 132, 0, 1)',
-  yAxisID: "y-axis-gravity"
-};
- 
-var planetData = {
-  labels: ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"],
-  datasets: [densityData, gravityData]
-};
- 
-var chartOptions = {
-  scales: {
-    xAxes: [{
-      barPercentage: 1,
-      categoryPercentage: 0.6
-    }],
-    yAxes: [{
-      id: "y-axis-density"
-    }, {
-      id: "y-axis-gravity"
-    }]
-  }
-};
- 
-var barChart = new Chart(densityCanvas, {
-  type: 'bar',
-  data: planetData,
-  options: chartOptions
-});
-
-
-</script> -->
+  
 
 </body>
 
