@@ -263,7 +263,7 @@
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-danger card-img-holder text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-1"><b> <a href="<?=base_url()?>app/dashboard/dashboard_detail/admit_member" style="color:#FFF;">Total Member</a></b>
+                  <h4 class="font-weight-bold mb-1"><b> <a href="<?=base_url()?>app/dashboard/dashboard_detail/admit_member" style="color:#FFF;">Total Member<?php print_r($results_data[0]['vacant_room_cnt']); ?></a></b>
                     <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-2" id="inc_count"></h2>
@@ -286,7 +286,7 @@
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-success card-img-holder text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-2"><b><a href="<?=base_url()?>app/dashboard/dashboard_detail/room_vacant" style="color:#FFF;">Vacant Room</a></b>
+                  <h4 class="font-weight-bold mb-2"><b><a href="<?=base_url()?>app/dashboard/dashboard_detail/room_vacant" style="color:#FFF;">Vacant Room Beds</a></b>
                     <i class="mdi mdi-diamond mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-2" id="vacant_room_cnt"></h2>
@@ -353,6 +353,12 @@
                 </div>
               </div>
             </div>
+
+            <?php
+            $vacantRoomData =json_encode([$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt']]);
+  
+            $allocatedRoomData = json_encode([$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt']]);
+          ?>
 
     </aside><!-- /.right-side -->
 
@@ -500,12 +506,14 @@ var myChart = new Chart(ctx, {
   data: {
     labels: ["M", "T", "W", "T", "F", "S", "S"],
     datasets: [{
-      label: 'Vacant Room',
-      data: [12, 19, 3, 17, 28, 24, 7],
+      label: 'Vacant Room Beds',
+      /*data: [12, 19, 3, 17, 28, 24, 7],*/
+      data: <?php echo $vacantRoomData; ?>,
       backgroundColor: "#19bea6"
     }, {
-      label: 'Admitted Room',
-      data: [30, 29, 5, 5, 20, 3, 10],
+      label: 'Allocated Room Beds',
+      /*data: [30, 29, 5, 5, 20, 3, 10],*/
+      data: <?php echo $allocatedRoomData; ?>,
       backgroundColor: "#90caf9"
     }]
   }

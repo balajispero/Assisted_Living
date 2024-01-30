@@ -64,7 +64,7 @@ class Dashboard_model extends CI_Model{
 			$this->db->join('room_category cat', 'cat.category_id = rm.category_id', 'left');
 			$this->db->where('rbed.nStatus','Vacant');
 			$this->db->order_by('rbed.room_bed_id', 'DESC');
-			$this->db->limit('5');
+			//$this->db->limit('5');
 			$query = $this->db->get();
 		// echo $this->db->last_query(); die;
 			if ( $query->num_rows() > 0 )
@@ -117,6 +117,28 @@ class Dashboard_model extends CI_Model{
 			return $query->num_rows();
 			
 		
+		}
+
+		public function getRoomallocatedStatus(){
+			$startDate = date('Y-m-d', strtotime('monday this week'));
+			$endDate = date('Y-m-d', strtotime('sunday this week'));
+			
+			$this->db->select('rbed.*,cat.*,rm.*');
+			$this->db->from('room_beds rbed');
+			$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
+			$this->db->join('room_category cat', 'cat.category_id = rm.category_id', 'left');
+			//$this->db->join('patient_details_iop admit', 'admit.IO_ID = rbed.patient_no', 'left');
+			$this->db->where('rbed.nStatus','Occupied');
+			$this->db->order_by('rbed.room_bed_id', 'DESC');
+			//$this->db->limit('5');
+			$query = $this->db->get();
+		// echo $this->db->last_query(); die;
+			if ( $query->num_rows() > 0 )
+			{
+				$row = $query->result();
+				// print_r();
+				return $row;
+			}
 		}
 
 // 	    public function getstatus(){
