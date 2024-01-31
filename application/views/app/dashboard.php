@@ -55,15 +55,6 @@
 
         /* border-color: #367fa9; */
       }
-
-      .content-header1 {
-        /* margin-top: 10px; */
-        /* background-color: #ecf0fa !important; */
-        /* padding: 7px 5px; */
-        /* border-radius: 5px; */
-        /* box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; */
-      }
-
       .dash {
         margin-left: 20px;
         color: grey;
@@ -257,13 +248,13 @@
 
 <!--Start for dashboard count div-->
       <div class="main-panel">
+        <!-- <div class="container"> -->
         <div class="content-wrapper">
-          <!-- <div class="container"> -->
           <div class="row  row1">
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-danger card-img-holder text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-1"><b> <a href="<?=base_url()?>app/dashboard/dashboard_detail/admit_member" style="color:#FFF;">Total Member<?php print_r($results_data[0]['vacant_room_cnt']); ?></a></b>
+                  <h4 class="font-weight-bold mb-1"><b> <a href="<?=base_url()?>app/dashboard/dashboard_detail/admit_member" style="color:#FFF;">Total Member</a></b>
                     <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-2" id="inc_count"></h2>

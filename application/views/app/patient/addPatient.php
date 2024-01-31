@@ -46,6 +46,10 @@
                 width: 80%;
                 margin: 2px;
             }
+            .input-box{
+                margin-bottom: 15px;
+                width: calc(60% / 2 - 20px);
+            }
             
         </style>
       <?php require_once(APPPATH.'views/include/responsive_design.php');?>
