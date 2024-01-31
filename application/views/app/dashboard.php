@@ -340,16 +340,10 @@
                       </g>
                     </svg>
 
-<<<<<<< Updated upstream
-                    <p class="tooltip" id="slice1">•Private Room</p>
-                    <p class="tooltip" id="slice2">Semi-Private Room</p>
-                    <p class="tooltip" id="slice3">Suit Room</p>
-=======
                     <div class="tooltip" id="slice1">•Private Room</div>
                     <div class="tooltip" id="slice2">Semi-Private Room</div>
                     <div class="tooltip" id="slice3">Suit Room</div>
                     
->>>>>>> Stashed changes
 
                   </div>
                   <div class="text-center">
