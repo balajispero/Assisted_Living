@@ -59,9 +59,9 @@
       .content-header1 {
         /* margin-top: 10px; */
         /* background-color: #ecf0fa !important; */
-        padding: 7px 5px;
-        border-radius: 5px;
-        box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+        /* padding: 7px 5px; */
+        /* border-radius: 5px; */
+        /* box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; */
       }
 
       .dash {
@@ -254,12 +254,12 @@
         </div>
     </div>
 </section>-->
-      <!--Start for dashboard count div-->
 
+<!--Start for dashboard count div-->
       <div class="main-panel">
         <div class="content-wrapper">
           <!-- <div class="container"> -->
-          <div class="row mt-5 row1">
+          <div class="row  row1">
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-danger card-img-holder text-white">
                 <div class="card-body">
@@ -275,7 +275,7 @@
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-info card-img-holder text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-2"><b> <a href="<?=base_url()?>app/dashboard/dashboard_detail/today_member" style="color:#FFF;">Today's New Member</a></b>
+                  <h4 class="font-weight-bold mb-2"><b> <a href="<?=base_url()?>app/dashboard/new_member_detail/today_member" style="color:#FFF;">Today's New Member</a></b>
                     <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-2" id="today_reg_ptn_cnt">0</h2>
@@ -286,7 +286,7 @@
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-success card-img-holder text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-2"><b><a href="<?=base_url()?>app/dashboard/dashboard_detail/room_vacant" style="color:#FFF;">Vacant Room Beds</a></b>
+                  <h4 class="font-weight-bold mb-2"><b><a href="<?=base_url()?>app/dashboard/vacant_room_detail/room_vacant" style="color:#FFF;">Vacant Room Beds</a></b>
                     <i class="mdi mdi-diamond mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-2" id="vacant_room_cnt"></h2>
@@ -340,14 +340,14 @@
                       </g>
                     </svg>
 
-                    <div class="tooltip" id="slice1">•Private Room</div>
-                    <div class="tooltip" id="slice2">Semi-Private Room</div>
-                    <div class="tooltip" id="slice3">Suit Room</div>
+                    <p class="tooltip" id="slice1">•Private Room</p>
+                    <p class="tooltip" id="slice2">Semi-Private Room</p>
+                    <p class="tooltip" id="slice3">Suit Room</p>
 
                   </div>
                   <div class="text-center">
-                    <div>&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #5C6BC0;"></i>&nbsp;Private Room</div>
-                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #AB47BC;"></i>&nbsp;Semi-Private Room</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #5C6BC0;"></i>&nbsp;Private Room</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #AB47BC;"></i>&nbsp;Semi-Private Room</div>
                     <div><i class="fa fa-circle" aria-hidden="true" style="color: #F06292;"></i>&nbsp;Suit Room</div>
                   </div>
                 </div>

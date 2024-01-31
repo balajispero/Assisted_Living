@@ -287,8 +287,8 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                             </a>
                             <ul class="treeview-menu">
                                 <?php if($hasAccesstoAddPatient){ if ($this->session->userdata('user_role')=='5'){ ?>
-            <li <?php echo $addNew_patient_mode;?>><a href="<?php echo base_url()?>app/patient/addPatient"><i class="fa fa-angle-double-right"></i>On Admission</a></li>   
-        <?php }else{ ?><li <?php echo $addNew_patient_mode;?>><a href="<?php echo base_url()?>app/patient/addPatients"><i class="fa fa-angle-double-right"></i>On Admission</a></li> <?php } }?>
+                                <li <?php echo $addNew_patient_mode;?>><a href="<?php echo base_url()?>app/patient/addPatient"><i class="fa fa-angle-double-right"></i>On Admission</a></li>   
+                                <?php }else{ ?><li <?php echo $addNew_patient_mode;?>><a href="<?php echo base_url()?>app/patient/addPatients"><i class="fa fa-angle-double-right"></i>On Admission</a></li> <?php } }?>
                                 <?php if($hasAccesstoPatient){?><li <?php echo $patient_master_mode;?>><a href="<?php echo base_url()?>app/patient/index"><i class="fa fa-angle-double-right"></i>Member Master</a></li><?php }?>
                                 <?php if($hasAccesstoOPDRegistration == TRUE && $hasAccesstoOPDEnquiry == TRUE){?>
                                 <li class="treeview <?php echo $opd;?>">
