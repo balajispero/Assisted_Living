@@ -108,6 +108,23 @@ class Dashboard_model extends CI_Model{
 				
 			}
 		}
+		public function getRoomstatusforbarchart(){
+			$this->db->select('rbed.*,cat.*,rm.*');
+			$this->db->from('room_beds rbed');
+			$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
+			$this->db->join('room_category cat', 'cat.category_id = rm.category_id', 'left');
+			$this->db->where('rbed.nStatus','Vacant');
+			$this->db->order_by('rbed.room_bed_id', 'DESC');
+			//$this->db->limit('5');
+			$query = $this->db->get();
+		// echo $this->db->last_query(); die;
+			if ( $query->num_rows() > 0 )
+			{
+				$row = $query->result();
+				
+				return $row;
+			}
+		}
 		public function getTodayAppointment($limit = 10, $offset = 0){
 			$this->db->select('rbed.*,cat.*,rm.*,pt.patient_no,pt.IO_ID,ptn.patient_no,ptn.middlename,pt.doctor_id,ptn.date_entry,ptn.firstname as fname,ptn.lastname as lname,doc.user_id,doc.firstname,doc.lastname,doc.title,mrs.param_id,mrs.cValue');
 			$this->db->from('room_beds rbed');

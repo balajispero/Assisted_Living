@@ -33,9 +33,10 @@ class Dashboard extends General{
 		$this->data['getTodayAppointment'] = $this->dashboard_model->getTodayAppointment();
 		/*print_r($this->data['latest_visited_patient']);
 		print_r(count($this->data['latest_visited_patient']));*/
+		$this->data['vacant_room_barchart'] = $this->dashboard_model->getRoomstatusforbarchart();
 		$this->data['allocated_room'] = $this->dashboard_model->getRoomallocatedStatus();
 		$room_data[]   = array(
-				'vacant_room_cnt' => count($this->data['latest_visited_patient']),
+				'vacant_room_cnt' => count($this->data['vacant_room_barchart']),
 				'allocated_room_cnt' => count($this->data['allocated_room']),
 				
 			);

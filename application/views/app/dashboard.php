@@ -324,7 +324,7 @@
                         <title id="slice1">Private Room</title>
                         <text x="0" y="-250" text-anchor="middle" fill="black">Slice 1</text>
                       </g>
-
+                       
                       <g class="pie-slice" aria-describedby="slice2">
                         <circle r="300" class="c2">
                           <animate attributeName="stroke-dasharray" dur="3s" values="0 314 628 942" begin="indefinite" fill="freeze" />
@@ -340,9 +340,16 @@
                       </g>
                     </svg>
 
+<<<<<<< Updated upstream
                     <p class="tooltip" id="slice1">•Private Room</p>
                     <p class="tooltip" id="slice2">Semi-Private Room</p>
                     <p class="tooltip" id="slice3">Suit Room</p>
+=======
+                    <div class="tooltip" id="slice1">•Private Room</div>
+                    <div class="tooltip" id="slice2">Semi-Private Room</div>
+                    <div class="tooltip" id="slice3">Suit Room</div>
+                    
+>>>>>>> Stashed changes
 
                   </div>
                   <div class="text-center">
