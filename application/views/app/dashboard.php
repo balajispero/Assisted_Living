@@ -452,7 +452,6 @@
       }
       xmlhttp1.onreadystatechange = function() {
         if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
-
           document.getElementById("today_reg_ptn_cnt").innerHTML = xmlhttp1.responseText;
         }
       }

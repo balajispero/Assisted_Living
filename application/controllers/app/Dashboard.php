@@ -578,7 +578,7 @@ class Dashboard extends General{
 				$this->table->add_row( 
 					 @$patient->patient_no,
 					 @$patient->patient,
-					 @$patient->patient, 
+					 @date("M d, Y", strtotime($patient->date_entry2)), 
 					 @$patient->age
 					// @$patient->nStatus		
 				);

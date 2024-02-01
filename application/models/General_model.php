@@ -414,7 +414,7 @@ class General_model extends CI_Model{
 
                 public function today_reg_ptn_cnt()
                 {
-                    return $this->db->where('InActive','0')->like('inc_entry', date('Y-m-d'))->get('patient_personal_info')->result_array();
+                    return $this->db->where('InActive','0')->like('date_entry', date('Y-m-d'))->get('patient_personal_info')->result_array();
                 }
                 public function vacant_room_cnt()
                 {
