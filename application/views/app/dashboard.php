@@ -136,6 +136,7 @@
         color: #5C6BC0;
         display: block;
       }
+         
     </style>
   </head>
   <div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">

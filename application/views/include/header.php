@@ -54,13 +54,18 @@
             margin-top: -30px !important;
             margin-left: 70px !important;
          }
-        }
-        @media only screen and (max-width:420px) {
          .logo2{
             font-size: 18px;
-            margin-top: -50px;
+            margin-top: -50px !important;
             margin-left: 35px;
          }
+        }
+        @media only screen and (max-width:420px) {
+         /* .logo2{
+            font-size: 18px;
+            margin-top: -50px !important;
+            margin-left: 35px;
+         } */
          .dropmenu{
             margin-top: -50px;
             width: 100%;
@@ -68,6 +73,7 @@
             font-size: 12px;
             /* background-color: hidden; */
          }
+        
          .droplist{
           height: 57px !important;
           width: 100%;
@@ -87,6 +93,10 @@
          }
          img.img-circle {
             margin-left: -104px !important;
+        }
+        p.m12 .letter{
+            margin-top: -50px !important;
+            margin-left: 33px;
         }
         }
         .bg_color{
@@ -146,13 +156,7 @@
                         background-color: #fff!important;
                         color:#2B48B0!important;
                       }
-                .content-header{
-               /* margin-top: 10px; */
-               /* background-color: #ecf0fa !important; */
-               /* padding: 7px 5px; */
-               /* border-radius: 5px; */
-               /* box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; */
-                }
+
    
    </style>
 
