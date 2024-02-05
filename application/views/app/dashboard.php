@@ -70,7 +70,7 @@
 
       .chart-block {
 
-        height: 200px;
+        height: 170px;
         display: flex;
       }
 
@@ -356,10 +356,7 @@
     </aside><!-- /.right-side -->
 
   </div><!-- ./wrapper -->
-  <script src="<?php echo base_url(); ?>public/js/off-canvas.js"></script>
-  <script src="<?php echo base_url(); ?>public/js/misc.js"></script>
-  <script src="<?php echo base_url(); ?>public/js/dashboard.js"></script>
-  <script src="<?php echo base_url(); ?>public/js/chart.js"></script>
+ 
 
 
 

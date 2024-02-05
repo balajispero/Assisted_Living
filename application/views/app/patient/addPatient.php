@@ -294,7 +294,7 @@
                                                             <input type="text" class="form-control" name="patientID" id="patientID" readonly value="<?php echo $userID; ?>">
                                                         </div>
                                                         <div class="form-group input-box">
-                                                            <label>Title:</label>
+                                                            <label>Title:</label><font color="#FF0000">*</font>
                                                             <select name="title" id="title" class="form-control" required>
                                                                 <option value="">- Title -</option>
                                                                 <?php
@@ -357,7 +357,7 @@
                                                             <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" required>
                                                         </div>
                                                         <div class="form-group input-box">
-                                                            <label>Gender:</label>
+                                                            <label>Gender:</label><font color="#FF0000">*</font>
                                                             <select name="gender" id="gender" class="form-control" required>
                                                                 <option value="">- Gender -</option>
                                                                 <?php
