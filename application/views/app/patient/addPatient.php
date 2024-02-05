@@ -819,6 +819,7 @@
     <!-- BDAY -->
     <script src="<?php echo base_url(); ?>public/datepicker/js/jquery-1.9.1.min.js"></script>
     <script src="<?php echo base_url(); ?>public/datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url();?>public/js/validation.js"></script>
 
     <script>
         function showPreassesData(preasses_id, laboratory_id = 0) {

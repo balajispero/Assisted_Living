@@ -31,7 +31,7 @@
     <link href="<?php echo base_url(); ?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
     <link href="<?php echo base_url(); ?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css" type="text/css">
+     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css" type="text/css"> 
 
 
     <!-- <link rel="stylesheet" href="public/css/materialdesignicons.min.css"> -->

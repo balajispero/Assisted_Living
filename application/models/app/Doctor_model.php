@@ -154,6 +154,7 @@ class Doctor_model extends CI_Model{
 				and A.InActive = 0";
 			}
 		$this->db->where($where);
+		$this->db->group_by("A.IO_ID");
 		$this->db->order_by('A.patient_no','asc');
 		$this->db->join("patient_personal_info B","B.patient_no = A.patient_no","left outer");
 		$this->db->join("system_parameters C","C.param_id = B.title","left outer");
@@ -164,6 +165,7 @@ class Doctor_model extends CI_Model{
 		$this->db->join("room_beds G","G.room_bed_id = room_id","left outer");
 		$this->db->join("room_master H","H.room_master_id = G.room_master_id","left outer");
 		$query = $this->db->get("patient_details_iop A", $limit, $offset);
+		//echo $this->db->last_query();die;
 		return $query->result();
 	}
 	
@@ -221,6 +223,7 @@ class Doctor_model extends CI_Model{
 				and A.InActive = 0";
 			}
 		$this->db->where($where);
+		$this->db->group_by("A.IO_ID");
 		$this->db->order_by('A.patient_no','asc');
 		$this->db->join("patient_personal_info B","B.patient_no = A.patient_no","left outer");
 		$this->db->join("system_parameters C","C.param_id = B.title","left outer");
