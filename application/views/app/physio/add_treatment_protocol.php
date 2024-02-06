@@ -259,10 +259,11 @@ textarea.form-control{
                                                                 </div> --><!-- / row -->
 
                 <!-- <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit"> -->
-            </form>
-            <div class=" col-md-11 text-center">
+                <div class=" col-md-11 text-center">
                 <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit" >Submit</button>
                             </div><br>
+            </form>
+            
 
         </section>
 
