@@ -31,7 +31,7 @@
     <link href="<?php echo base_url(); ?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
     <link href="<?php echo base_url(); ?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
-     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css" type="text/css"> 
+    <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css" type="text/css"> 
 
 
     <!-- <link rel="stylesheet" href="public/css/materialdesignicons.min.css"> -->
@@ -55,6 +55,7 @@
 
         /* border-color: #367fa9; */
       }
+
       .dash {
         margin-left: 20px;
         color: grey;
@@ -68,75 +69,7 @@
         border-radius: 5px;
       }
 
-      .chart-block {
-
-        height: 170px;
-        display: flex;
-      }
-
-      .chart-block circle {
-        transform-origin: center;
-        transform-box: fill-box;
-        stroke-width: 180;
-        fill: none;
-        stroke-dasharray: 0 1000;
-        transition: all 0.3s;
-        cursor: pointer;
-      }
-
-      .chart-block circle:hover {
-        stroke-width: 250;
-        transition: all 0.3s;
-      }
-
-      .chart-block circle.active {
-        stroke-width: 250;
-      }
-
-      .c1 {
-        transform: rotate(-150deg);
-        stroke: #5C6BC0;
-      }
-
-
-      .c2 {
-        transform: rotate(-270deg);
-        stroke: #AB47BC;
-      }
-
-      .c3 {
-        transform: rotate(-30deg);
-        stroke: #F06292;
-      }
-
-      .head {
-        color: grey;
-        margin-left: 20px;
-      }
-
-
-      .pie-slice:hover::after {
-        content: attr(aria-describedby);
-        position: absolute;
-        background: rgba(0, 0, 0, 0.7);
-        color: #fff;
-        padding: 5px;
-        border-radius: 5px;
-        font-size: 12px;
-        margin-top: -20px;
-        margin-left: 10px;
-        z-index: 1;
-      }
-
-      .pie-slice {
-        position: relative;
-      }
-
-      .tooltip {
-        color: #5C6BC0;
-        display: block;
-      }
-         
+ 
     </style>
   </head>
   <div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -184,7 +117,7 @@
     <aside class="right-side">
       <!-- Content Header (Page header) -->
       <section class="content-header1">
-      <i class="fa-solid fa-arrow-turn-down-left"></i>
+        <i class="fa-solid fa-arrow-turn-down-left"></i>
         <h3 class="dash"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;<b>Dashboard</b></h3>
         <!--<ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -247,16 +180,16 @@
     </div>
 </section>-->
 
-<!--Start for dashboard count div-->
+      <!--Start for dashboard count div-->
+      <!-- <div class="container"> -->
+
       <div class="main-panel">
-        <!-- <div class="container"> -->
         <div class="content-wrapper">
           <div class="row  row1">
-            <div class="col-md-4 stretch-card grid-margin">
-              <div class="card bg-gradient-danger card-img-holder text-white">
+            <div class="col-md-4 col-sm-12">
+              <div class="card1 bg-gradient-danger text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-1"><b> <a href="<?=base_url()?>app/dashboard/dashboard_detail/admit_member" style="color:#FFF;">Total Member</a></b>
-                    <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                  <h4 class="font-weight-bold mb-1"><b> <a href="<?= base_url() ?>app/dashboard/dashboard_detail/admit_member" style="color:#FFF;">Total Member</a></b>
                   </h4>
                   <h2 class="mb-2" id="inc_count"></h2>
                   <h6 class="card-text">Count 50%</h6>
@@ -264,22 +197,21 @@
               </div>
             </div>
             </a>
-            <div class="col-md-4 stretch-card grid-margin">
-              <div class="card bg-gradient-info card-img-holder text-white">
+            <div class="col-md-4 col-sm-12">
+              <div class="card1 bg-gradient-info text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-2"><b> <a href="<?=base_url()?>app/dashboard/new_member_detail/today_member" style="color:#FFF;">Today's New Member</a></b>
-                    <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                  <h4 class="font-weight-bold mb-2"><b> <a href="<?= base_url() ?>app/dashboard/new_member_detail/today_member" style="color:#FFF;">Today's New Member</a></b>
                   </h4>
                   <h2 class="mb-2" id="today_reg_ptn_cnt">0</h2>
                   <h6 class="card-text">Count 0%</h6>
                 </div>
               </div>
             </div>
-            <div class="col-md-4 stretch-card grid-margin">
-              <div class="card bg-gradient-success card-img-holder text-white">
+            <div class="col-md-4 col-sm-12 ">
+              <div class="card1 bg-gradient-success  text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-bold mb-2"><b><a href="<?=base_url()?>app/dashboard/vacant_room_detail/room_vacant" style="color:#FFF;">Vacant Room Beds</a></b>
-                    <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                  <h4 class="font-weight-bold mb-2"><b><a href="<?= base_url() ?>app/dashboard/vacant_room_detail/room_vacant" style="color:#FFF;">Vacant Room Beds</a></b>
+
                   </h4>
                   <h2 class="mb-2" id="vacant_room_cnt"></h2>
                   <h6 class="card-text">Available Rooms 60%</h6>
@@ -287,10 +219,13 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    
           <!-- </div> -->
 
 
-          <div class="row">
+          <div class="row row1">
             <div class="col-md-7 col-sm-12 col-lg-7">
               <div class="card">
                 <div class="card-body">
@@ -316,7 +251,7 @@
                         <title id="slice1">Private Room</title>
                         <text x="0" y="-250" text-anchor="middle" fill="black">Slice 1</text>
                       </g>
-                       
+
                       <g class="pie-slice" aria-describedby="slice2">
                         <circle r="300" class="c2">
                           <animate attributeName="stroke-dasharray" dur="3s" values="0 314 628 942" begin="indefinite" fill="freeze" />
@@ -335,7 +270,7 @@
                     <div class="tooltip" id="slice1">•Private Room</div>
                     <div class="tooltip" id="slice2">Semi-Private Room</div>
                     <div class="tooltip" id="slice3">Suit Room</div>
-                    
+
 
                   </div>
                   <div class="text-center">
@@ -346,17 +281,17 @@
                 </div>
               </div>
             </div>
-
+          </div>
             <?php
-            $vacantRoomData =json_encode([$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt']]);
-  
-            $allocatedRoomData = json_encode([$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt']]);
-          ?>
+            $vacantRoomData = json_encode([$results_data[0]['vacant_room_cnt'], $results_data[0]['vacant_room_cnt'], $results_data[0]['vacant_room_cnt'], $results_data[0]['vacant_room_cnt'], $results_data[0]['vacant_room_cnt'], $results_data[0]['vacant_room_cnt'], $results_data[0]['vacant_room_cnt']]);
+
+            $allocatedRoomData = json_encode([$results_data[0]['allocated_room_cnt'], $results_data[0]['allocated_room_cnt'], $results_data[0]['allocated_room_cnt'], $results_data[0]['allocated_room_cnt'], $results_data[0]['allocated_room_cnt'], $results_data[0]['allocated_room_cnt'], $results_data[0]['allocated_room_cnt']]);
+            ?>
 
     </aside><!-- /.right-side -->
 
   </div><!-- ./wrapper -->
- 
+
 
 
 
@@ -490,23 +425,23 @@
     }
 
     var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ["M", "T", "W", "T", "F", "S", "S"],
-    datasets: [{
-      label: 'Vacant Room Beds',
-      /*data: [12, 19, 3, 17, 28, 24, 7],*/
-      data: <?php echo $vacantRoomData; ?>,
-      backgroundColor: "#19bea6"
-    }, {
-      label: 'Allocated Room Beds',
-      /*data: [30, 29, 5, 5, 20, 3, 10],*/
-      data: <?php echo $allocatedRoomData; ?>,
-      backgroundColor: "#90caf9"
-    }]
-  }
-});
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ["M", "T", "W", "T", "F", "S", "S"],
+        datasets: [{
+          label: 'Vacant Room Beds',
+          /*data: [12, 19, 3, 17, 28, 24, 7],*/
+          data: <?php echo $vacantRoomData; ?>,
+          backgroundColor: "#19bea6"
+        }, {
+          label: 'Allocated Room Beds',
+          /*data: [30, 29, 5, 5, 20, 3, 10],*/
+          data: <?php echo $allocatedRoomData; ?>,
+          backgroundColor: "#90caf9"
+        }]
+      }
+    });
   </script>
   <!-- <script>
   var densityCanvas = document.getElementById("densityChart");
