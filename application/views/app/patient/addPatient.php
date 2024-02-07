@@ -640,27 +640,19 @@
 
 
                                             <div class="tab-pane" id="tab_3">
-                                                <table cellpadding="3" cellspacing="3" width="100%">
-                                                    <tr>
-                                                        <td colspan="2"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%">Aadhar No.</td>
-                                                        <td width="82%">
-                                                            <?php echo form_input('aadhar_no', set_value('aadhar_no'), 'class="form-control input-sm numberonly" id="aadhar_no" placeholder="Aadhar Number" style="width: 250px;"'); ?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Upload Aadhar<font color="#FF0000"></font>
-                                                        </td>
-                                                        <td>
-                                                            <input type="file" name="aadharfile" class="form-control input-sm" style="width: 250px;" />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%">Insurance Company</td>
-                                                        <td width="82%">
-                                                            <select name="insurance_comp" id="insurance_comp" class="form-control input-sm" style="width: 250px;">
+                                                <div class="row">
+                                                    <div class="col-md-5 col-sm-12">
+                                                        <div class="form-group input-box">
+                                                            <label>Aadhar No.:</label>
+                                                            <?php echo form_input('aadhar_no', set_value('aadhar_no'), 'class="form-control numberonly" id="aadhar_no" placeholder="Aadhar Number"'); ?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Upload Aadhar:</label>
+                                                            <input type="file" name="aadharfile" class="form-control" />
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Insurance Company:</label>
+                                                            <select name="insurance_comp" id="insurance_comp" class="form-control">
                                                                 <option value="">- None -</option>
                                                                 <?php
                                                                 foreach ($insuranceCompList as $insuranceCompList) {
@@ -673,40 +665,38 @@
                                                                     <option value="<?php echo $insuranceCompList->in_com_id; ?>" <?php echo $selected; ?>><?php echo $insuranceCompList->company_name; ?></option>
                                                                 <?php } ?>
                                                             </select>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Insurance ID Number:</label>
+                                                            <?php echo form_input('insurance_id', set_value('insurance_id'), 'id="insurance_id" class="form-control" placeholder="Insurance ID Number"'); ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5 col-sm-12">
+                                                        <div class="form-group input-box">
+                                                            <label>TPA Name:</label>
+                                                            <?php echo form_input('tpa_name', set_value('tpa_name'), 'class="form-control" placeholder="TPA Name"'); ?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>TPA No.:</label>
+                                                            <?php echo form_input('tpa_no', set_value('tpa_no'), 'class="form-control input-sm" placeholder="TPA No."'); ?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Member's Identifiers:</label>
+                                                            <textarea class="form-control input-sm"  name="patient_iden" id="patient_iden"></textarea>
+                                                        </div>
 
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%">Insurance ID Number</td>
-                                                        <td width="82%">
-                                                            <?php echo form_input('insurance_id', set_value('insurance_id'), 'id="insurance_id" class="form-control input-sm" placeholder="Insurance ID Number" style="width: 250px;"'); ?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%">TPA Name</td>
-                                                        <td width="82%">
-                                                            <?php echo form_input('tpa_name', set_value('tpa_name'), 'class="form-control input-sm" placeholder="TPA Name" style="width: 250px;"'); ?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%">TPA No.</td>
-                                                        <td width="82%">
-                                                            <?php echo form_input('tpa_no', set_value('tpa_no'), 'class="form-control input-sm" placeholder="TPA No." style="width: 250px;"'); ?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%" valign="top">Member's Identifiers</td>
-                                                        <td width="82%">
-                                                            <textarea class="form-control input-sm" style="width: 250px;" name="patient_iden" id="patient_iden"></textarea>
-                                                        </td>
-                                                    </tr>
-                                                    <!--<tr>-->
-                                                    <!--    <td width="12%">Upload Assesment Form </td>-->
-                                                    <!--    <td width="88%"><input class="form-control input-sm" type="File" style="width: 250px;margin-right: 400px;" name="ptn_asses_form" id="ptn_asses_form"></td>-->
-                                                    <!--</tr>-->
-                                                    <!--     -->
-                                                </table>
+                                                    </div>
+
+                                                </div>
+
+
+
                                             </div>
+                                            <!--<tr>-->
+                                            <!--    <td width="12%">Upload Assesment Form </td>-->
+                                            <!--    <td width="88%"><input class="form-control input-sm" type="File" style="width: 250px;margin-right: 400px;" name="ptn_asses_form" id="ptn_asses_form"></td>-->
+                                            <!--</tr>-->
+                                            <!--     -->
                                             
                                             <div class="tab-pane" id="tab_4">
                                                 <div class="row">

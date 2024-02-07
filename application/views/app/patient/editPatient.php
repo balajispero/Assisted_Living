@@ -102,6 +102,9 @@
                 input#ptn_cns {
                     width: 100% !important;
                 }
+                .section3 {
+                    margin-top: 14px !important;
+                }
             }
 
             /* Media query for devices with a maximum width of 300px */
@@ -145,7 +148,7 @@
                 }
 
                 .section3 {
-                    margin-top: 21px !important;
+                    margin-top: 14px !important;
                 }
             }
         </style>
@@ -254,12 +257,12 @@
 
                                                         <div class="form-group input-box">
                                                             <label>Member No.:</label>
-                                                            <input class="form-control input-sm" name="patientID" id="patientID" type="text" style="width: 100px;" readonly value="<?php echo $patientInfo->patient_no; ?>">
+                                                            <input class="form-control" name="patientID" id="patientID" type="text" readonly value="<?php echo $patientInfo->patient_no; ?>">
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Title:</label>
                                                             <font color="#FF0000">*</font>
-                                                            <select name="title" id="title" class="form-control input-sm" style="width: 100px;" required>
+                                                            <select name="title" id="title" class="form-control" required>
                                                                 <option value="">- Title -</option>
                                                                 <?php
                                                                 foreach ($UserTitles as $UserTitles) {
@@ -277,11 +280,11 @@
 
                                                         <div class="form-group input-box">
                                                             <label>Age:</label>
-                                                            <input class="form-control input-sm numberonly" name="age" style="width: 250px;" value="<?php echo $patientInfo->age ?>" type="text" placeholder="Age" value="" id="age">
+                                                            <input class="form-control numberonly" name="age" value="<?php echo $patientInfo->age ?>" type="text" placeholder="Age" value="" id="age">
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Blood Group:</label>
-                                                            <select name="bloodGroup" id="bloodGroup" class="form-control input-sm">
+                                                            <select name="bloodGroup" id="bloodGroup" class="form-control">
                                                                 <option value="">- Blood Group -</option>
                                                                 <?php
                                                                 foreach ($bloodGroup as $bloodGroup) {
@@ -297,7 +300,7 @@
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Discharge Summary:</label>
-                                                            <input type="file" name="dischargefile" class="form-control input-sm" style="width: 250px;" />
+                                                            <input type="file" name="dischargefile" class="form-control" />
 
                                                         </div>
                                                         <div class="form-group input-box">
@@ -349,16 +352,16 @@
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Member's Name:</label>
-                                                            <?php echo form_input('middlename', set_value('middlename', $patientInfo->middlename), 'id="middlename" class="form-control input-sm alphaonly" placeholder="Last Name" style="width: 250px;" required'); ?>
+                                                            <?php echo form_input('middlename', set_value('middlename', $patientInfo->middlename), 'id="middlename" class="form-control alphaonly" placeholder="Last Name" required'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Email Address:</label>
-                                                            <?php echo form_input('email', set_value('email', $patientInfo->email_address), 'id="email" class="form-control input-sm" placeholder="Email Address"'); ?>
+                                                            <?php echo form_input('email', set_value('email', $patientInfo->email_address), 'id="email" class="form-control" placeholder="Email Address"'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Gender:</label>
                                                             <font color="#FF0000">*</font>
-                                                            <select name="gender" id="gender" class="form-control input-sm">
+                                                            <select name="gender" id="gender" class="form-control">
                                                                 <option value="">- Gender -</option>
                                                                 <?php
                                                                 foreach ($gender as $gender) {
@@ -374,7 +377,7 @@
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Previous Discharge Reports:</label>
-                                                            <input type="file" name="previous_dischargefile[]" class="form-control input-sm" multiple>
+                                                            <input type="file" name="previous_dischargefile[]" class="form-control" multiple>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <?php
@@ -424,15 +427,15 @@
                                                                         </div>
                                                                         <div class="form-group input-box">
                                                                             <label>From Hospital/Walk In:</label>
-                                                                            <?php echo form_input('from_hospital_walkin', set_value('from_hospital_walkin', $patientInfo->from_hospital_walkin), 'id="relation_with" class="form-control input-sm" placeholder="From Hospital/Walk In" style="width: 250px;"'); ?>
+                                                                            <?php echo form_input('from_hospital_walkin', set_value('from_hospital_walkin', $patientInfo->from_hospital_walkin), 'id="relation_with" class="form-control input-sm" placeholder="From Hospital/Walk In"'); ?>
                                                                         </div>
                                                                         <div class="form-group input-box">
                                                                             <label>Birthday:</label>
-                                                                            <input class="form-control input-sm" name="birthday" id="birthday" type="date" value="<?php echo $patientInfo->birthday ?>" placeholder="Birthday" onchange="calAge()">
+                                                                            <input class="form-control" name="birthday" id="birthday" type="date" value="<?php echo $patientInfo->birthday ?>" placeholder="Birthday" onchange="calAge()">
                                                                         </div>
                                                                         <div class="form-group input-box">
                                                                             <label>Civil Status:</label>
-                                                                            <select name="civil_status" id="civil_status" class="form-control input-sm">
+                                                                            <select name="civil_status" id="civil_status" class="form-control">
                                                                                 <option value="">- Civil Status -</option>
                                                                                 <?php
                                                                                 foreach ($civilStatus as $civilStatus) {
@@ -456,55 +459,48 @@
 
 
                                             <div class="tab-pane" id="tab_2" style="margin-top: 10px;">
-                                                <!-- <h3>Gardian First</h3> -->
                                                 <div class="row">
                                                     <div class="col-md-6 col-sm-12">
                                                         <div class="form-group input-box ">
                                                             <h3>Gardian First</h3>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-12">
-                                                        <div class="form-group input-box">
-                                                            <h3>Gardian Second</h3>
-                                                        </div>
-                                                    </div>
-                                                    
-
-                                                    <div class="col-md-6 col-sm-12">
                                                         <div class="form-group input-box ">
                                                             <label>Name:</label>
-                                                            <?php echo form_input('rel_name1',set_value('rel_name1',$patientInfo->rel_name1),' class="form-control input-sm alphaonly" placeholder="Name"');?>
+                                                            <?php echo form_input('rel_name1', set_value('rel_name1', $patientInfo->rel_name1), ' class="form-control input-sm alphaonly" placeholder="Name"'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Relation With:</label>
-                                                            <?php echo form_input('relation_with',set_value('relation_with',$patientInfo->relation_with),'id="relation_with" class="form-control input-sm" placeholder="relation with"');?> 
+                                                            <?php echo form_input('relation_with', set_value('relation_with', $patientInfo->relation_with), 'id="relation_with" class="form-control input-sm" placeholder="relation with"'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Email</label>
-                                                            <input type="email" name="rel_email1" class="form-control input-sm" value="<?php echo $patientInfo->rel_email1; ?>"> 
+                                                            <input type="email" name="rel_email1" class="form-control input-sm" value="<?php echo $patientInfo->rel_email1; ?>">
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Address:</label>
-                                                            <?php echo form_input('rel_add',set_value('rel_add',$patientInfo->rel_add),'id="noofhouse" class="form-control input-sm" placeholder="Address"');?>
+                                                            <?php echo form_input('rel_add', set_value('rel_add', $patientInfo->rel_add), 'id="noofhouse" class="form-control input-sm" placeholder="Address"'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>City:</label>
-                                                            <?php echo form_input('rel_city',set_value('rel_city',$patientInfo->rel_city),'id="province" class="form-control input-sm" placeholder="City"'); ?>
+                                                            <?php echo form_input('rel_city', set_value('rel_city', $patientInfo->rel_city), 'id="province" class="form-control input-sm" placeholder="City"'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Phone No:</label>
-                                                            <?php echo form_input('rel_phone',set_value('rel_phone',$patientInfo->rel_phone),'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No"');?>
+                                                            <?php echo form_input('rel_phone', set_value('rel_phone', $patientInfo->rel_phone), 'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No"'); ?>
                                                         </div>
                                                     </div>
                                                     <!-- <h3>Gardian Secound</h3> -->
                                                     <div class="col-md-6 col-sm-12">
+                                                        <div class="form-group input-box">
+                                                            <h3>Gardian Second</h3>
+                                                        </div>
                                                         <div class="form-group input-box ">
                                                             <label>Name:</label>
-                                                            <?php echo form_input('rel_name2',set_value('rel_name2',$patientInfo->rel_name2),' class="form-control input-sm alphaonly" placeholder="Name"');?>
+                                                            <?php echo form_input('rel_name2', set_value('rel_name2', $patientInfo->rel_name2), ' class="form-control input-sm alphaonly" placeholder="Name"'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Relation With:</label>
-                                                            <?php echo form_input('relation_with2',set_value('relation_with2',$patientInfo->relation_with2),'id="relation_with" class="form-control input-sm" placeholder="relation with"');?>
+                                                            <?php echo form_input('relation_with2', set_value('relation_with2', $patientInfo->relation_with2), 'id="relation_with" class="form-control input-sm" placeholder="relation with"'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Email</label>
@@ -512,42 +508,34 @@
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Address:</label>
-                                                            <?php echo form_input('rel_add2',set_value('rel_add2',$patientInfo->rel_add2),'id="noofhouse" class="form-control input-sm" placeholder="Address"');?>
+                                                            <?php echo form_input('rel_add2', set_value('rel_add2', $patientInfo->rel_add2), 'id="noofhouse" class="form-control input-sm" placeholder="Address"'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>City</label>
-                                                            <?php echo form_input('rel_city2',set_value('rel_city2',$patientInfo->rel_city2),'id="province" class="form-control input-sm" placeholder="City"'); ?>
+                                                            <?php echo form_input('rel_city2', set_value('rel_city2', $patientInfo->rel_city2), 'id="province" class="form-control input-sm" placeholder="City"'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Phone No:</label>
-                                                            <?php echo form_input('rel_phone2',set_value('rel_phone2',$patientInfo->rel_phone2),'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No"');?>
+                                                            <?php echo form_input('rel_phone2', set_value('rel_phone2', $patientInfo->rel_phone2), 'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No"'); ?>
                                                         </div>
                                                     </div>
 
                                                 </div>
-                                            </div>
+     </div>
 
 
 
                                             <div class="tab-pane" id="tab_3">
-                                                <table cellpadding="3" cellspacing="3" width="100%">
-                                                    <tr>
-                                                        <td colspan="2"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%">Aadhar No.</td>
-                                                        <td width="82%">
-                                                            <?php echo form_input('aadhar_no', set_value('aadhar_no', $patientInfo->aadhar_no), 'class="form-control input-sm numberonly" placeholder="Aadhar Number" style="width: 250px;"'); ?>
-                                                        </td>
-                                                    </tr>
-                                                    <?php
-                                                    if (!empty($patientInfo->upload_aadhar)) {
-                                                    ?>
-                                                        <tr>
-                                                            <td>
-                                                                <font color="#FF0000"></font>
-                                                            </td>
-                                                            <td>
+                                                <div class="row">
+                                                    <div class="col-md-5 col-sm-12">
+                                                        <div class="form-group input-box">
+                                                            <label>Aadhar No.:</label>
+                                                            <?php echo form_input('aadhar_no', set_value('aadhar_no', $patientInfo->aadhar_no), 'class="form-control numberonly" placeholder="Aadhar Number"'); ?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <?php
+                                                            if (!empty($patientInfo->upload_aadhar)) {
+                                                            ?>
                                                                 <?php
                                                                 $ext = pathinfo($patientInfo->upload_aadhar, PATHINFO_EXTENSION);
 
@@ -568,21 +556,15 @@
                                                                 }
                                                                 ?>
 
-
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
-                                                    <tr>
-                                                        <td>Upload Aadhar<font color="#FF0000"></font>
-                                                        </td>
-                                                        <td>
-                                                            <input type="file" name="aadharfile" class="form-control input-sm" style="width: 250px;" />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%">Insurance Company</td>
-                                                        <td width="82%">
-                                                            <select name="insurance_comp" id="insurance_comp" class="form-control input-sm" style="width: 250px;">
+                                                            <?php } ?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Upload Aadhar:</label>
+                                                            <input type="file" name="aadharfile" class="form-control" />
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Insurance Company:</label>
+                                                            <select name="insurance_comp" id="insurance_comp" class="form-control">
                                                                 <option value="">- None -</option>
                                                                 <?php
                                                                 foreach ($insuranceCompList as $insuranceCompList) {
@@ -595,83 +577,80 @@
                                                                     <option value="<?php echo $insuranceCompList->in_com_id; ?>" <?php echo $selected; ?>><?php echo $insuranceCompList->company_name; ?></option>
                                                                 <?php } ?>
                                                             </select>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%">Insurance ID Number</td>
-                                                        <td width="82%">
-                                                            <?php echo form_input('insurance_id', set_value('insurance_id', $patientInfo->insurance_no), 'id="insurance_id" class="form-control input-sm" placeholder="Insurance ID Number" style="width: 250px;"'); ?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%">TPA Name</td>
-                                                        <td width="82%">
-                                                            <?php echo form_input('tpa_name', set_value('tpa_name', $patientInfo->tpa_name), 'class="form-control input-sm" placeholder="TPA Name" style="width: 250px;"'); ?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%">TPA No.</td>
-                                                        <td width="82%">
-                                                            <?php echo form_input('tpa_no', set_value('tpa_no', $patientInfo->tpa_no), 'class="form-control input-sm" placeholder="TPA No." style="width: 250px;"'); ?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="18%" valign="top">Member's Identifiers</td>
-                                                        <td width="82%">
-                                                            <textarea class="form-control input-sm" style="width: 250px;" name="patient_iden" id="patient_iden"><?php echo $patientInfo->id_identifiers; ?></textarea>
-                                                        </td>
-                                                    </tr>
-                                                    <!-- <tr>
-                                                        <td width="12%">Upload Assesment Form </td>
-                                                        <td width="88%"><input class="form-control input-sm" type="File" style="width: 250px;margin-right: 400px;" name="ptn_asses_form" id="ptn_asses_form"></td>
-                                                    </tr> -->
-                                                </table>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Insurance ID Number:</label>
+                                                            <?php echo form_input('insurance_id', set_value('insurance_id', $patientInfo->insurance_no), 'id="insurance_id" class="form-control" placeholder="Insurance ID Number"'); ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5 col-sm-12">
+                                                        <div class="form-group input-box">
+                                                            <label>TPA Name:</label>
+                                                            <?php echo form_input('tpa_name', set_value('tpa_name', $patientInfo->tpa_name), 'class="form-control" placeholder="TPA Name"'); ?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>TPA No.:</label>
+                                                            <?php echo form_input('tpa_no', set_value('tpa_no', $patientInfo->tpa_no), 'class="form-control" placeholder="TPA No."'); ?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Member's Identifiers:</label>
+                                                            <textarea class="form-control input-sm" name="patient_iden" id="patient_iden"><?php echo $patientInfo->id_identifiers; ?></textarea>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
                                             </div>
+                                            <!-- <tr>
+                                                <td width="12%">Upload Assesment Form </td>
+                                                <td width="88%"><input class="form-control input-sm" type="File" style="width: 250px;margin-right: 400px;" name="ptn_asses_form" id="ptn_asses_form"></td>
+                                            </tr> -->
 
 
 
 
 
 
-                                          
+
 
                                             <div class="tab-pane" id="tab_4">
                                                 <div class="row">
                                                     <div class="col-md-4 col-sm-12">
                                                         <div class="form-group input-box ">
                                                             <label>KCO:</label>
-                                                            <textarea class="form-control input-sm"  name="ptn_kco" id="ptn_kco"><?php echo $patientInfo->ptn_kco ?></textarea>
+                                                            <textarea class="form-control input-sm" name="ptn_kco" id="ptn_kco"><?php echo $patientInfo->ptn_kco ?></textarea>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Chief Complaint:</label>
-                                                            <textarea class="form-control input-sm"  name="ptn_chf_comp" id="ptn_chf_comp"><?php echo $patientInfo->ptn_chf_comp ?></textarea>
+                                                            <textarea class="form-control input-sm" name="ptn_chf_comp" id="ptn_chf_comp"><?php echo $patientInfo->ptn_chf_comp ?></textarea>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Family History</label>
-                                                            <textarea class="form-control input-sm"  name="ptn_fam_his" id="ptn_fam_his"><?php echo $patientInfo->ptn_fam_his ?></textarea>
+                                                            <textarea class="form-control input-sm" name="ptn_fam_his" id="ptn_fam_his"><?php echo $patientInfo->ptn_fam_his ?></textarea>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Past History(Surgical/Medical):</label>
-                                                            <textarea class="form-control input-sm"  name="ptn_past_his" id="ptn_past_his"><?php echo $patientInfo->ptn_past_his  ?></textarea>
+                                                            <textarea class="form-control input-sm" name="ptn_past_his" id="ptn_past_his"><?php echo $patientInfo->ptn_past_his  ?></textarea>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Pulse:</label>
-                                                            <input class="form-control input-sm" name="ptn_pulse" style="width: 250px;" id="ptn_pulse" type="text"  value="<?php echo $patientInfo->ptn_pulse  ?>">
+                                                            <input class="form-control input-sm" name="ptn_pulse" style="width: 250px;" id="ptn_pulse" type="text" value="<?php echo $patientInfo->ptn_pulse  ?>">
                                                         </div>
 
                                                     </div>
                                                     <div class="col-md-4 col-sm-12">
                                                         <div class="form-group input-box">
                                                             <label>Food Intake</label>
-                                                            <textarea class="form-control input-sm"  name="ptn_foodin" id="ptn_foodin"><?php echo $patientInfo->ptn_foodin  ?></textarea>
+                                                            <textarea class="form-control input-sm" name="ptn_foodin" id="ptn_foodin"><?php echo $patientInfo->ptn_foodin  ?></textarea>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Urine/Motion:</label>
-                                                            <textarea class="form-control input-sm"  name="ptn_um" id="ptn_um"><?php echo $patientInfo->ptn_um  ?></textarea>
+                                                            <textarea class="form-control input-sm" name="ptn_um" id="ptn_um"><?php echo $patientInfo->ptn_um  ?></textarea>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>P/A:</label>
-                                                            <textarea class="form-control input-sm"  name="ptn_pa" id="ptn_pa"><?php echo $patientInfo->ptn_pa  ?></textarea>
+                                                            <textarea class="form-control input-sm" name="ptn_pa" id="ptn_pa"><?php echo $patientInfo->ptn_pa  ?></textarea>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>R/S:</label>
@@ -679,14 +658,14 @@
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Temp:</label>
-                                                            <input class="form-control input-sm" name="ptn_temp" style="width: 250px;" id="ptn_temp" type="text"   value="<?php echo $patientInfo->ptn_temp  ?>">
+                                                            <input class="form-control input-sm" name="ptn_temp" style="width: 250px;" id="ptn_temp" type="text" value="<?php echo $patientInfo->ptn_temp  ?>">
                                                         </div>
 
                                                     </div>
                                                     <div class="col-md-4 col-sm-12">
                                                         <div class="form-group input-box">
                                                             <label>CVS:</label>
-                                                            <input class="form-control input-sm" type="text"  name="ptn_cvs" id="ptn_cvs" value="<?php echo $patientInfo->ptn_cvs  ?>">
+                                                            <input class="form-control input-sm" type="text" name="ptn_cvs" id="ptn_cvs" value="<?php echo $patientInfo->ptn_cvs  ?>">
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>B.P:</label>
@@ -694,11 +673,11 @@
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>CNS:</label>
-                                                            <input class="form-control input-sm" type="text"  name="ptn_cns" id="ptn_cns" value="<?php echo $patientInfo->ptn_cns  ?>">
+                                                            <input class="form-control input-sm" type="text" name="ptn_cns" id="ptn_cns" value="<?php echo $patientInfo->ptn_cns  ?>">
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>SPO2:</label>
-                                                            <input class="form-control input-sm" name="ptn_spo2" style="width: 250px;" id="ptn_spo2" type="text"  value="<?php echo $patientInfo->ptn_spo2  ?>">
+                                                            <input class="form-control input-sm" name="ptn_spo2" style="width: 250px;" id="ptn_spo2" type="text" value="<?php echo $patientInfo->ptn_spo2  ?>">
                                                         </div>
 
                                                     </div>
