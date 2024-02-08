@@ -25,8 +25,9 @@
         <![endif]-->
       <style>
         .btn.btn-primary {
-     background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;;
+     /* background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;; */
     /* border-color: #367fa9; */
+    background-color: #0097A7;
 }
 </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -125,7 +126,7 @@
 
                                         
                                         <div class="form-group">
-                                            <button class="btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-search"></i> </button>
+                                            <button class="btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-search" style="background-color: 0097A7;"></i> </button>
                                             <label>*Note: (Search Particular Patient By Entering Member No./Or Select Button To See All Patients)</label>
                                         </div>
                                         <br>

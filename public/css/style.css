@@ -1,10 +1,14 @@
 
 .chart-block {
   margin-top: 30px;
-  height: 170px;
+  height: 230px;
   display: flex;
 }
-
+/* .chart_list
+{
+  text-decoration: none;
+  list-style-type: inline-block;
+} */
 .chart-block circle {
   transform-origin: center;
   transform-box: fill-box;

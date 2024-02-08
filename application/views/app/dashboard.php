@@ -273,12 +273,16 @@
 
 
                   </div>
-                  <div class="text-center">
-                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #5C6BC0;"></i>&nbsp;Private Room</div>
-                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #AB47BC;"></i>&nbsp;Semi-Private Room</div>
-                    <div><i class="fa fa-circle" aria-hidden="true" style="color: #F06292;"></i>&nbsp;Suit Room</div>
+                  <div class="text-center" style="margin-top: -20px;">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #5C6BC0;"></i>&nbsp;Private Room
+                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #AB47BC;"></i>&nbsp;Semi-Private Room
+                    &nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #F06292;"></i>&nbsp;Suit Room</div>
                   </div>
-                </div>
+
+                  <!-- <li class="chart_list"><i class="fa fa-circle" aria-hidden="true" style="color: #5C6BC0;">&nbsp;Private Room</li>
+                  <li class="chart_list"><i class="fa fa-circle" aria-hidden="true" style="color: #AB47BC;"></i>&nbsp;Semi-Private Room</li>
+                  <li class="chart_list"><i class="fa fa-circle" aria-hidden="true" style="color: #F06292;"></i>&nbsp;Suit Room</li>
+                </div> -->
               </div>
             </div>
           </div>
@@ -492,7 +496,7 @@ var barChart = new Chart(densityCanvas, {
 
 
 </script> -->
-
+<?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 
 </html>

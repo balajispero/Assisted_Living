@@ -184,7 +184,7 @@
         <aside class="right-side">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h1>Member Registration</h1>
+                <h1><a href="<?=base_url()?>app/patient/index"><i class="fa fa-arrow-left" aria-hidden="true" style="font-size: 20px; color:black;"></i></a>&nbsp;&nbsp;&nbsp;Member Registration</h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo base_url() ?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li><a href="#">Member Management</a></li>

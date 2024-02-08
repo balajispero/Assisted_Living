@@ -124,7 +124,8 @@
                                                 <input type="text" class="form-control input-sm" name="search" id="search" placeholder="Member No./Name" style="width: 180px;">
                                                 </td>
                                                 <td>
-                                                <button class="btn btn-sm btn-outline-primary hvr-shutter-in-vertical" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
+                                                <button class="btn btn-sm btn-outline-primary hvr-shutter-in-vertical
+                                                " name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
                                                 </td>
                                             </tr>
                                             </table>

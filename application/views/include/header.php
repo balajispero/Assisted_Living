@@ -6,6 +6,7 @@
 <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
+<link href="<?=base_url()?>application/views/include/footer">
 
    <style>
     body{
@@ -139,23 +140,32 @@
                    /* line-height: 1em; */
                       }
                       .hvr-rectangle-out{
-                       border-color: #2B48B0;
+                       border-color: #0097A7;
                        border-width: 100%;
-                       color: #2B48B0;
+                       color: #0097A7;
                       }
                       .hvr-shutter-in-vertical{
                         /* background-color: #fff; */
                         color: #fff;
-                        border-color: #2B48B0;
+                        border-color: #0097A7;
                       }
                     
                       .hvr-shutter-in-vertical:before{
-                        background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;
+                        /* background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important; */
+                        background-color: #0097A7;
                       }
                       .hvr-shutter-in-vertical:hover{
                         background-color: #fff!important;
-                        color:#2B48B0!important;
+                        color:#0097A7!important;
                       }
+
+                      .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #0097A7;
+    border-color: #428bca;
+}
 
    
    </style>
@@ -305,23 +315,23 @@ function closeAd(id)
 }
 
   // Wrap every letter in a span
-  var textWrapper = document.querySelector('.ml2');
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+//   var textWrapper = document.querySelector('.ml2');
+// textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-anime.timeline({loop: true})
-  .add({
-    targets: '.ml2 .letter',
-    scale: [4,1],
-    opacity: [0,1],
-    translateZ: 0,
-    easing: "easeOutExpo",
-    duration: 950,
-    delay: (el, i) => 70*i
-  }).add({
-    targets: '.ml2',
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  });
+// anime.timeline({loop: true})
+//   .add({
+//     targets: '.ml2 .letter',
+//     scale: [4,1],
+//     opacity: [0,1],
+//     translateZ: 0,
+//     easing: "easeOutExpo",
+//     duration: 950,
+//     delay: (el, i) => 70*i
+//   }).add({
+//     targets: '.ml2',
+//     opacity: 0,
+//     duration: 1000,
+//     easing: "easeOutExpo",
+//     delay: 1000
+//   });
 </script>

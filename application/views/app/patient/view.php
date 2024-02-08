@@ -199,7 +199,7 @@
         <aside class="right-side">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h1>Modify Patient</h1>
+                <h1><a href="<?=base_url()?>app/patient/index"><i class="fa fa-arrow-left" aria-hidden="true" style="font-size: 20px; color:black;"></i></a>&nbsp;&nbsp;&nbsp;Modify Patient</h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo base_url() ?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li><a href="#">Member Management</a></li>
@@ -460,7 +460,7 @@
 
                                             <div class="tab-pane" id="tab_2" style="margin-top: 10px;">
                                                 <div class="row">
-                                                    <div class="col-md-6 col-sm-12">
+                                                    <div class="col-md-4 col-sm-12">
                                                         <div class="form-group input-box ">
                                                             <h3>Gardian First</h3>
                                                         </div>
@@ -490,7 +490,7 @@
                                                         </div>
                                                     </div>
                                                     <!-- <h3>Gardian Secound</h3> -->
-                                                    <div class="col-md-6 col-sm-12">
+                                                    <div class="col-md-4 col-sm-12">
                                                         <div class="form-group input-box">
                                                             <h3>Gardian Second</h3>
                                                         </div>
@@ -519,6 +519,27 @@
                                                             <?php echo form_input('rel_phone2', set_value('rel_phone2', $patientInfo->rel_phone2), 'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No" readonly'); ?>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-4 col-sm-12">
+                                                        <div class="form-group input-box">
+                                                                <h3>Address</h3>
+                                                            </div>
+                                                        <div class="form-group input-box ">
+                                                            <label>Address:</label>
+                                                            <?php echo form_input('address2',set_value('address2'),'id="address2" class="form-control input-sm" placeholder="Address2" readonly');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>City:</label>
+                                                            <?php echo form_input('province',set_value('province',$patientInfo->province),'id="province" class="form-control input-sm" placeholder="City/Province" readonly');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Phone No (Relative's)</label>
+                                                            <?php echo form_input('phone_relative',set_value('phone_relative',$patientInfo->phone_no_office),'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No (Office)" readonly');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Phone No (Mobile):</label>
+                                                            <?php echo form_input('phone_home',set_value('phone_home',$patientInfo->phone_no),'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No (Office)" readonly');?>
+                                                        </div>
+                                                    </div>
 
                                                 </div>
      </div>
@@ -532,6 +553,26 @@
                                                             <label>Aadhar No.:</label>
                                                             <?php echo form_input('aadhar_no', set_value('aadhar_no', $patientInfo->aadhar_no), 'class="form-control numberonly" placeholder="Aadhar Number" readonly'); ?>
                                                         </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Insurance Company:</label>
+                                                            <select name="insurance_comp" id="insurance_comp" class="form-control" readonly>
+                                                                <option value="">- None -</option>
+                                                                <?php
+                                                                foreach ($insuranceCompList as $insuranceCompList) {
+                                                                    if ($_POST['insurance_comp'] == $insuranceCompList->in_com_id || $patientInfo->Insurance_comp == $insuranceCompList->in_com_id) {
+                                                                        $selected = "selected='selected'";
+                                                                    } else {
+                                                                        $selected = "";
+                                                                    }
+                                                                ?>
+                                                                    <option value="<?php echo $insuranceCompList->in_com_id; ?>" <?php echo $selected; ?>><?php echo $insuranceCompList->company_name; ?></option>
+                                                                <?php } ?>
+                                                            </select>
+                                                                </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Upload Aadhar:</label>
+                                                            <input type="file" name="aadharfile" class="form-control" readonly />
+                                                            </div>
                                                         <div class="form-group input-box">
                                                             <?php
                                                             if (!empty($patientInfo->upload_aadhar)) {
@@ -558,32 +599,12 @@
 
                                                             <?php } ?>
                                                         </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Upload Aadhar:</label>
-                                                            <input type="file" name="aadharfile" class="form-control" readonly />
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Insurance Company:</label>
-                                                            <select name="insurance_comp" id="insurance_comp" class="form-control" readonly>
-                                                                <option value="">- None -</option>
-                                                                <?php
-                                                                foreach ($insuranceCompList as $insuranceCompList) {
-                                                                    if ($_POST['insurance_comp'] == $insuranceCompList->in_com_id || $patientInfo->Insurance_comp == $insuranceCompList->in_com_id) {
-                                                                        $selected = "selected='selected'";
-                                                                    } else {
-                                                                        $selected = "";
-                                                                    }
-                                                                ?>
-                                                                    <option value="<?php echo $insuranceCompList->in_com_id; ?>" <?php echo $selected; ?>><?php echo $insuranceCompList->company_name; ?></option>
-                                                                <?php } ?>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group input-box">
+                                                    </div>
+                                                    <div class="col-md-5 col-sm-12">
+                                                    <div class="form-group input-box">
                                                             <label>Insurance ID Number:</label>
                                                             <?php echo form_input('insurance_id', set_value('insurance_id', $patientInfo->insurance_no), 'id="insurance_id" class="form-control" placeholder="Insurance ID Number" readonly'); ?>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-5 col-sm-12">
                                                         <div class="form-group input-box">
                                                             <label>TPA Name:</label>
                                                             <?php echo form_input('tpa_name', set_value('tpa_name', $patientInfo->tpa_name), 'class="form-control" placeholder="TPA Name" readonly'); ?>
