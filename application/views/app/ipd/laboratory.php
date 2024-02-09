@@ -182,7 +182,7 @@
                                     	<div class="tab-pane active" id="tab_1">
                                         	<?php //if($this->session->userdata('emr_viewing') == ""){?>	
                                         	<?php //if($getOPDPatient->nStatus == "Pending"){?>
-                                            <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Intervention</a>
+                                            <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Intervention</a>
                                             
                                             <?php // }}?>
                                             <a href="<?php echo base_url()?>app/ipd_print/print_laboratory/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
@@ -329,7 +329,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                             <button name="btnSubmit" class="btn btn-primary bg_color" id="btnSubmit" type="submit" style="font-size:12px;">Save</button>
+                                             <button name="btnSubmit" class="btn btn-outline-primary hvr-shutter-in-vertical" id="btnSubmit" type="submit" style="font-size:12px;">Save</button>
                                         </div>
                                        
                                     </div>

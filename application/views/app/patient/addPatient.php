@@ -242,9 +242,7 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab_1">
                                                 <table cellpadding="3" cellspacing="3" width="100%">
-                                                    <!-- <tr>
-                                                    	<td colspan="2"> fields = <font color="#FF0000">*</font></td>
-                                                    </tr> -->
+                                                   
                                                     <tR>
                                                         <td colspan="2">
                                                             <?php echo validation_errors(); ?>
@@ -269,18 +267,7 @@
                                                     ?>
 
                                                     <input type="hidden" name="userID2" value="<?php echo $userID2; ?>">
-                                                    <!-- <tr>
-                                                        <td width="20%">
-                                                            <font color="#FF0000">Note:</font>
-                                                        </td>
-                                                        <td width="80%">
-                                                            <font color="#FF0000">* (Marked Fields are Compulsory to fill)</font>
-                                                        </td>
-
-                                                    </tr> -->
-
-                                                    <!-- </div> -->
-                                                    <!-- </div> -->
+                                            
                                                 </table>
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -545,22 +532,9 @@
                                                 <!-- <h3>Gardian First</h3> -->
                                                 <div class="row">
                                                     <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box ">
+                                                    <div class="form-group input-box ">
                                                             <h3>Gardian First</h3>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box">
-                                                            <h3>Gardian Second</h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box">
-                                                            <h3><span><i class="fa-solid fa-location" aria-hidden="true" style="font-size: 20px; color:black;"></i></span>Address</h3>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-4 col-sm-12">
                                                         <div class="form-group input-box ">
                                                             <label>Name:</label>
                                                             <?php echo form_input('rel_name1', set_value('relation_name1'), ' class="form-control alphaonly" placeholder="Name"'); ?>
@@ -588,6 +562,9 @@
                                                     </div>
                                                     <!-- <h3>Gardian Secound</h3> -->
                                                     <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group input-box">
+                                                            <h3>Gardian Second</h3>
+                                                        </div>
                                                         <div class="form-group input-box ">
                                                             <label>Name:</label>
                                                             <?php echo form_input('rel_name2', set_value('relation_name2'), ' class="form-control alphaonly" placeholder="Name"'); ?>
@@ -615,6 +592,9 @@
                                                     </div>
                                                     <!-- <h3>Address</h3> -->
                                                     <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group input-box">
+                                                            <h3><spanAddress>Address</h3>
+                                                        </div>
                                                         <div class="form-group input-box ">
                                                             <label>Address:</label>
                                                             <?php echo form_input('noofhouse', set_value('noofhouse'), 'id="noofhouse" class="form-control" placeholder="Address" '); ?>

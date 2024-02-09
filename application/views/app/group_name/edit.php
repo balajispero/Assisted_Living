@@ -118,7 +118,7 @@
                                         
                                         <div class="form-group">
                                             <a href="<?php echo base_url();?>app/bill_group_name" class="btn btn-default">Cancel</a>
-                                            <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                            <button class="btn btn-outlin-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                         </div>
                                         
                                 </form>

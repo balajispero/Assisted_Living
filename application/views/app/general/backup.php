@@ -114,7 +114,7 @@
                              <p>Click Backup Database Button to download backup file of your database. This may take less than a minute depend on your network or internet connection.</p>
                              
                              <div class="form-group">
-                                <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-download"></i> Bakcup Database</button>
+                                <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-download"></i> Bakcup Database</button>
                             </div>
                              </form>
                              
