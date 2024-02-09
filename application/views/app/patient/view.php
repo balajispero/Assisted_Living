@@ -102,6 +102,7 @@
                 input#ptn_cns {
                     width: 100% !important;
                 }
+
                 .section3 {
                     margin-top: 14px !important;
                 }
@@ -168,7 +169,7 @@
             }
 
             .section3 {
-                margin-top: -340px;
+                margin-top: 1px;
             }
         </style>
         <?php require_once(APPPATH . 'views/include/responsive_design.php'); ?>
@@ -199,7 +200,7 @@
         <aside class="right-side">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h1><a href="<?=base_url()?>app/patient/index"><i class="fa fa-arrow-left" aria-hidden="true" style="font-size: 20px; color:black;"></i></a>&nbsp;&nbsp;&nbsp;Modify Patient</h1>
+                <h1><a href="<?= base_url() ?>app/patient/index"><i class="fa fa-arrow-left" aria-hidden="true" style="font-size: 20px; color:black;"></i></a>&nbsp;&nbsp;&nbsp;Modify Patient</h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo base_url() ?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li><a href="#">Member Management</a></li>
@@ -300,7 +301,7 @@
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Discharge Summary:</label>
-                                                            <input type="file" name="dischargefile" class="form-control" readonly/>
+                                                            <input type="file" name="dischargefile" class="form-control" readonly />
 
                                                         </div>
                                                         <div class="form-group input-box">
@@ -390,381 +391,372 @@
                                                                 for ($i = 0; $i < $cnt; $i++) {
 
                                                             ?>
-                                                                    <div class="col-md-3">
-                                                                        <div class="thumbnail" style="width:fit-content;margin-bottom: 2px;">
 
-                                                                            <?php
-                                                                            $ext = pathinfo($arrayd[$i], PATHINFO_EXTENSION);
-                                                                            // print_r($ext);
-                                                                            if ($ext == "pdf") {
-                                                                            ?>
-
-                                                                                <iframe src="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $arrayd[$i]; ?>" width="160" height="200" scrolling="no"></iframe><br>
-                                                                                <a href="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $arrayd[$i]; ?>" target="_blank">Download PDF</a>
-
-                                                                            <?php } elseif ($ext == "png" || $ext == "jpeg" || $ext == "jpg") { ?>
-                                                                                <a href="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $arrayd[$i]; ?>" download>
-                                                                                    <img src="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $arrayd[$i]; ?>" alt="not found" style="width:160px;height:180px;">
-                                                                                </a>
-
-                                                                            <?php
-                                                                            } else {
-                                                                                echo $arrayd[$i];
-                                                                            }
-                                                                            ?>
                                                                     <?php
+                                                                    $ext = pathinfo($arrayd[$i], PATHINFO_EXTENSION);
+                                                                    // print_r($ext);
+                                                                    if ($ext == "pdf") {
+                                                                    ?>
+
+                                                                        <iframe src="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $arrayd[$i]; ?>" width="160" height="200" scrolling="no"></iframe><br>
+                                                                        <a href="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $arrayd[$i]; ?>" target="_blank">Download PDF</a>
+
+                                                                    <?php } elseif ($ext == "png" || $ext == "jpeg" || $ext == "jpg") { ?>
+                                                                        <a href="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $arrayd[$i]; ?>" download>
+                                                                            <img src="<?php echo base_url('public/previous_discharge_report/'); ?><?php echo $arrayd[$i]; ?>" alt="not found" style="width:160px;height:180px;">
+                                                                        </a>
+
+                                                                    <?php
+                                                                    } else {
+                                                                        echo $arrayd[$i];
+                                                                    }
+                                                                    ?>
+                                                            <?php
                                                                 }
                                                             }
 
-                                                                    ?>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-4 col-sm-12 section3">
-
-                                                                        <div class="form-group input-box">
-                                                                            <label>Admission Date:</label>
-                                                                            <input onchange="deateval();" class="form-control" name="admission_date" type="date" placeholder="Admission Date" readonly>
-                                                                        </div>
-                                                                        <div class="form-group input-box">
-                                                                            <label>From Hospital/Walk In:</label>
-                                                                            <?php echo form_input('from_hospital_walkin', set_value('from_hospital_walkin', $patientInfo->from_hospital_walkin), 'id="relation_with" class="form-control input-sm" placeholder="From Hospital/Walk In"readonly'); ?>
-                                                                        </div>
-                                                                        <div class="form-group input-box">
-                                                                            <label>Birthday:</label>
-                                                                            <input class="form-control" name="birthday" id="birthday" type="date" value="<?php echo $patientInfo->birthday ?>" placeholder="Birthday" onchange="calAge()" readonly>
-                                                                        </div>
-                                                                        <div class="form-group input-box">
-                                                                            <label>Civil Status:</label>
-                                                                            <select name="civil_status" id="civil_status" class="form-control" readonly>
-                                                                                <option value="">- Civil Status -</option>
-                                                                                <?php
-                                                                                foreach ($civilStatus as $civilStatus) {
-                                                                                    if ($_POST['civil_status'] == $civilStatus->param_id || $patientInfo->civil_status == $civilStatus->param_id) {
-                                                                                        $selected = "selected='selected'";
-                                                                                    } else {
-                                                                                        $selected = "";
-                                                                                    }
-                                                                                ?>
-                                                                                    <option value="<?php echo $civilStatus->param_id; ?>" <?php echo $selected; ?>><?php echo $civilStatus->cValue; ?></option>
-                                                                                <?php } ?>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-
+                                                            ?>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                    <div class="col-md-4 col-sm-12 section3">
 
-
-
-                                            <div class="tab-pane" id="tab_2" style="margin-top: 10px;">
-                                                <div class="row">
-                                                    <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box ">
-                                                            <h3>Gardian First</h3>
-                                                        </div>
-                                                        <div class="form-group input-box ">
-                                                            <label>Name:</label>
-                                                            <?php echo form_input('rel_name1', set_value('rel_name1', $patientInfo->rel_name1), ' class="form-control input-sm alphaonly" placeholder="Name" readonly'); ?>
+                                                        <div class="form-group input-box">
+                                                            <label>Admission Date:</label>
+                                                            <input onchange="deateval();" class="form-control" name="admission_date" type="date" placeholder="Admission Date" readonly>
                                                         </div>
                                                         <div class="form-group input-box">
-                                                            <label>Relation With:</label>
-                                                            <?php echo form_input('relation_with', set_value('relation_with', $patientInfo->relation_with), 'id="relation_with" class="form-control input-sm" placeholder="relation with" readonly'); ?>
+                                                            <label>From Hospital/Walk In:</label>
+                                                            <?php echo form_input('from_hospital_walkin', set_value('from_hospital_walkin', $patientInfo->from_hospital_walkin), 'id="relation_with" class="form-control input-sm" placeholder="From Hospital/Walk In"readonly'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
-                                                            <label>Email</label>
-                                                            <input type="email" name="rel_email1" class="form-control input-sm" value="<?php echo $patientInfo->rel_email1; ?>" readonly>
+                                                            <label>Birthday:</label>
+                                                            <input class="form-control" name="birthday" id="birthday" type="date" value="<?php echo $patientInfo->birthday ?>" placeholder="Birthday" onchange="calAge()" readonly>
                                                         </div>
                                                         <div class="form-group input-box">
-                                                            <label>Address:</label>
-                                                            <?php echo form_input('rel_add', set_value('rel_add', $patientInfo->rel_add), 'id="noofhouse" class="form-control input-sm" placeholder="Address" readonly'); ?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>City:</label>
-                                                            <?php echo form_input('rel_city', set_value('rel_city', $patientInfo->rel_city), 'id="province" class="form-control input-sm" placeholder="City" readonly'); ?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Phone No:</label>
-                                                            <?php echo form_input('rel_phone', set_value('rel_phone', $patientInfo->rel_phone), 'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No" readonly'); ?>
-                                                        </div>
-                                                    </div>
-                                                    <!-- <h3>Gardian Secound</h3> -->
-                                                    <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box">
-                                                            <h3>Gardian Second</h3>
-                                                        </div>
-                                                        <div class="form-group input-box ">
-                                                            <label>Name:</label>
-                                                            <?php echo form_input('rel_name2', set_value('rel_name2', $patientInfo->rel_name2), ' class="form-control input-sm alphaonly" placeholder="Name" readonly'); ?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Relation With:</label>
-                                                            <?php echo form_input('relation_with2', set_value('relation_with2', $patientInfo->relation_with2), 'id="relation_with" class="form-control input-sm" placeholder="relation with" readonly'); ?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Email</label>
-                                                            <input type="email" name="rel_email2" class="form-control input-sm" value="<?php echo $patientInfo->rel_email2; ?>" readonly>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Address:</label>
-                                                            <?php echo form_input('rel_add2', set_value('rel_add2', $patientInfo->rel_add2), 'id="noofhouse" class="form-control input-sm" placeholder="Address" readonly'); ?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>City</label>
-                                                            <?php echo form_input('rel_city2', set_value('rel_city2', $patientInfo->rel_city2), 'id="province" class="form-control input-sm" placeholder="City" readonly'); ?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Phone No:</label>
-                                                            <?php echo form_input('rel_phone2', set_value('rel_phone2', $patientInfo->rel_phone2), 'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No" readonly'); ?>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box">
-                                                                <h3>Address</h3>
-                                                            </div>
-                                                        <div class="form-group input-box ">
-                                                            <label>Address:</label>
-                                                            <?php echo form_input('address2',set_value('address2'),'id="address2" class="form-control input-sm" placeholder="Address2" readonly');?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>City:</label>
-                                                            <?php echo form_input('province',set_value('province',$patientInfo->province),'id="province" class="form-control input-sm" placeholder="City/Province" readonly');?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Phone No (Relative's)</label>
-                                                            <?php echo form_input('phone_relative',set_value('phone_relative',$patientInfo->phone_no_office),'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No (Office)" readonly');?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Phone No (Mobile):</label>
-                                                            <?php echo form_input('phone_home',set_value('phone_home',$patientInfo->phone_no),'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No (Office)" readonly');?>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-     </div>
-
-
-
-                                            <div class="tab-pane" id="tab_3">
-                                                <div class="row">
-                                                    <div class="col-md-5 col-sm-12">
-                                                        <div class="form-group input-box">
-                                                            <label>Aadhar No.:</label>
-                                                            <?php echo form_input('aadhar_no', set_value('aadhar_no', $patientInfo->aadhar_no), 'class="form-control numberonly" placeholder="Aadhar Number" readonly'); ?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Insurance Company:</label>
-                                                            <select name="insurance_comp" id="insurance_comp" class="form-control" readonly>
-                                                                <option value="">- None -</option>
+                                                            <label>Civil Status:</label>
+                                                            <select name="civil_status" id="civil_status" class="form-control" readonly>
+                                                                <option value="">- Civil Status -</option>
                                                                 <?php
-                                                                foreach ($insuranceCompList as $insuranceCompList) {
-                                                                    if ($_POST['insurance_comp'] == $insuranceCompList->in_com_id || $patientInfo->Insurance_comp == $insuranceCompList->in_com_id) {
+                                                                foreach ($civilStatus as $civilStatus) {
+                                                                    if ($_POST['civil_status'] == $civilStatus->param_id || $patientInfo->civil_status == $civilStatus->param_id) {
                                                                         $selected = "selected='selected'";
                                                                     } else {
                                                                         $selected = "";
                                                                     }
                                                                 ?>
-                                                                    <option value="<?php echo $insuranceCompList->in_com_id; ?>" <?php echo $selected; ?>><?php echo $insuranceCompList->company_name; ?></option>
+                                                                    <option value="<?php echo $civilStatus->param_id; ?>" <?php echo $selected; ?>><?php echo $civilStatus->cValue; ?></option>
                                                                 <?php } ?>
                                                             </select>
-                                                                </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Upload Aadhar:</label>
-                                                            <input type="file" name="aadharfile" class="form-control" readonly />
-                                                            </div>
-                                                        <div class="form-group input-box">
-                                                            <?php
-                                                            if (!empty($patientInfo->upload_aadhar)) {
-                                                            ?>
-                                                                <?php
-                                                                $ext = pathinfo($patientInfo->upload_aadhar, PATHINFO_EXTENSION);
-
-                                                                if ($ext == "pdf") {
-                                                                ?>
-
-                                                                    <iframe src="<?php echo base_url('public/aadhar/'); ?><?php echo $patientInfo->upload_aadhar; ?>" width="160" height="200" scrolling="no"></iframe><br>
-                                                                    <a href="<?php echo base_url('public/aadhar/'); ?><?php echo $patientInfo->upload_aadhar; ?>" target="_blank">Download PDF</a>
-
-                                                                <?php } elseif ($ext == "png" || $ext == "jpeg" || $ext == "jpg") { ?>
-
-                                                                    <img src="<?php echo base_url('public/aadhar/'); ?><?php echo $patientInfo->upload_aadhar; ?>" alt="not found" style="width:160px;height:200px;">
-
-
-                                                                <?php
-                                                                } else {
-                                                                    echo $patientInfo->upload_aadhar;
-                                                                }
-                                                                ?>
-
-                                                            <?php } ?>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-5 col-sm-12">
-                                                    <div class="form-group input-box">
-                                                            <label>Insurance ID Number:</label>
-                                                            <?php echo form_input('insurance_id', set_value('insurance_id', $patientInfo->insurance_no), 'id="insurance_id" class="form-control" placeholder="Insurance ID Number" readonly'); ?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>TPA Name:</label>
-                                                            <?php echo form_input('tpa_name', set_value('tpa_name', $patientInfo->tpa_name), 'class="form-control" placeholder="TPA Name" readonly'); ?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>TPA No.:</label>
-                                                            <?php echo form_input('tpa_no', set_value('tpa_no', $patientInfo->tpa_no), 'class="form-control" placeholder="TPA No." readonly'); ?>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Member's Identifiers:</label>
-                                                            <textarea class="form-control input-sm" name="patient_iden" id="patient_iden" readonly><?php echo $patientInfo->id_identifiers; ?></textarea>
-                                                        </div>
-
                                                     </div>
 
                                                 </div>
+                                            </div>
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+
+
+
+                                    <div class="tab-pane" id="tab_2" style="margin-top: 10px;">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-group input-box ">
+                                                    <h3>Gardian First</h3>
+                                                </div>
+                                                <div class="form-group input-box ">
+                                                    <label>Name:</label>
+                                                    <?php echo form_input('rel_name1', set_value('rel_name1', $patientInfo->rel_name1), ' class="form-control input-sm alphaonly" placeholder="Name" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Relation With:</label>
+                                                    <?php echo form_input('relation_with', set_value('relation_with', $patientInfo->relation_with), 'id="relation_with" class="form-control input-sm" placeholder="relation with" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Email</label>
+                                                    <input type="email" name="rel_email1" class="form-control input-sm" value="<?php echo $patientInfo->rel_email1; ?>" readonly>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Address:</label>
+                                                    <?php echo form_input('rel_add', set_value('rel_add', $patientInfo->rel_add), 'id="noofhouse" class="form-control input-sm" placeholder="Address" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>City:</label>
+                                                    <?php echo form_input('rel_city', set_value('rel_city', $patientInfo->rel_city), 'id="province" class="form-control input-sm" placeholder="City" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Phone No:</label>
+                                                    <?php echo form_input('rel_phone', set_value('rel_phone', $patientInfo->rel_phone), 'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No" readonly'); ?>
+                                                </div>
+                                            </div>
+                                            <!-- <h3>Gardian Secound</h3> -->
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-group input-box">
+                                                    <h3>Gardian Second</h3>
+                                                </div>
+                                                <div class="form-group input-box ">
+                                                    <label>Name:</label>
+                                                    <?php echo form_input('rel_name2', set_value('rel_name2', $patientInfo->rel_name2), ' class="form-control input-sm alphaonly" placeholder="Name" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Relation With:</label>
+                                                    <?php echo form_input('relation_with2', set_value('relation_with2', $patientInfo->relation_with2), 'id="relation_with" class="form-control input-sm" placeholder="relation with" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Email</label>
+                                                    <input type="email" name="rel_email2" class="form-control input-sm" value="<?php echo $patientInfo->rel_email2; ?>" readonly>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Address:</label>
+                                                    <?php echo form_input('rel_add2', set_value('rel_add2', $patientInfo->rel_add2), 'id="noofhouse" class="form-control input-sm" placeholder="Address" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>City</label>
+                                                    <?php echo form_input('rel_city2', set_value('rel_city2', $patientInfo->rel_city2), 'id="province" class="form-control input-sm" placeholder="City" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Phone No:</label>
+                                                    <?php echo form_input('rel_phone2', set_value('rel_phone2', $patientInfo->rel_phone2), 'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No" readonly'); ?>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-group input-box">
+                                                    <h3>Address</h3>
+                                                </div>
+                                                <div class="form-group input-box ">
+                                                    <label>Address:</label>
+                                                    <?php echo form_input('address2', set_value('address2'), 'id="address2" class="form-control input-sm" placeholder="Address2" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>City:</label>
+                                                    <?php echo form_input('province', set_value('province', $patientInfo->province), 'id="province" class="form-control input-sm" placeholder="City/Province" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Phone No (Relative's)</label>
+                                                    <?php echo form_input('phone_relative', set_value('phone_relative', $patientInfo->phone_no_office), 'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No (Office)" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Phone No (Mobile):</label>
+                                                    <?php echo form_input('phone_home', set_value('phone_home', $patientInfo->phone_no), 'id="phone_office" class="form-control input-sm numberonly" maxlength="10" placeholder="Phone No (Office)" readonly'); ?>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="tab-pane" id="tab_3">
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-12">
+                                                <div class="form-group input-box">
+                                                    <label>Aadhar No.:</label>
+                                                    <?php echo form_input('aadhar_no', set_value('aadhar_no', $patientInfo->aadhar_no), 'class="form-control numberonly" placeholder="Aadhar Number" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Insurance Company:</label>
+                                                    <select name="insurance_comp" id="insurance_comp" class="form-control" readonly>
+                                                        <option value="">- None -</option>
+                                                        <?php
+                                                        foreach ($insuranceCompList as $insuranceCompList) {
+                                                            if ($_POST['insurance_comp'] == $insuranceCompList->in_com_id || $patientInfo->Insurance_comp == $insuranceCompList->in_com_id) {
+                                                                $selected = "selected='selected'";
+                                                            } else {
+                                                                $selected = "";
+                                                            }
+                                                        ?>
+                                                            <option value="<?php echo $insuranceCompList->in_com_id; ?>" <?php echo $selected; ?>><?php echo $insuranceCompList->company_name; ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Upload Aadhar:</label>
+                                                    <input type="file" name="aadharfile" class="form-control" readonly />
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <?php
+                                                    if (!empty($patientInfo->upload_aadhar)) {
+                                                    ?>
+                                                        <?php
+                                                        $ext = pathinfo($patientInfo->upload_aadhar, PATHINFO_EXTENSION);
+
+                                                        if ($ext == "pdf") {
+                                                        ?>
+
+                                                            <iframe src="<?php echo base_url('public/aadhar/'); ?><?php echo $patientInfo->upload_aadhar; ?>" width="160" height="200" scrolling="no"></iframe><br>
+                                                            <a href="<?php echo base_url('public/aadhar/'); ?><?php echo $patientInfo->upload_aadhar; ?>" target="_blank">Download PDF</a>
+
+                                                        <?php } elseif ($ext == "png" || $ext == "jpeg" || $ext == "jpg") { ?>
+
+                                                            <img src="<?php echo base_url('public/aadhar/'); ?><?php echo $patientInfo->upload_aadhar; ?>" alt="not found" style="width:160px;height:200px;">
+
+
+                                                        <?php
+                                                        } else {
+                                                            echo $patientInfo->upload_aadhar;
+                                                        }
+                                                        ?>
+
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12">
+                                                <div class="form-group input-box">
+                                                    <label>Insurance ID Number:</label>
+                                                    <?php echo form_input('insurance_id', set_value('insurance_id', $patientInfo->insurance_no), 'id="insurance_id" class="form-control" placeholder="Insurance ID Number" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>TPA Name:</label>
+                                                    <?php echo form_input('tpa_name', set_value('tpa_name', $patientInfo->tpa_name), 'class="form-control" placeholder="TPA Name" readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>TPA No.:</label>
+                                                    <?php echo form_input('tpa_no', set_value('tpa_no', $patientInfo->tpa_no), 'class="form-control" placeholder="TPA No." readonly'); ?>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Member's Identifiers:</label>
+                                                    <textarea class="form-control input-sm" name="patient_iden" id="patient_iden" readonly><?php echo $patientInfo->id_identifiers; ?></textarea>
+                                                </div>
 
                                             </div>
-                                            <!-- <tr>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- <tr>
                                                 <td width="12%">Upload Assesment Form </td>
                                                 <td width="88%"><input class="form-control input-sm" type="File" style="width: 250px;margin-right: 400px;" name="ptn_asses_form" id="ptn_asses_form"></td>
                                             </tr> -->
 
-
-
-
-
-
-
-
-                                            <div class="tab-pane" id="tab_4">
-                                                <div class="row">
-                                                    <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box ">
-                                                            <label>KCO:</label>
-                                                            <textarea class="form-control input-sm" name="ptn_kco" id="ptn_kco" readonly><?php echo $patientInfo->ptn_kco ?></textarea>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Chief Complaint:</label>
-                                                            <textarea class="form-control input-sm" name="ptn_chf_comp" id="ptn_chf_comp" readonly><?php echo $patientInfo->ptn_chf_comp ?></textarea>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Family History</label>
-                                                            <textarea class="form-control input-sm" name="ptn_fam_his" id="ptn_fam_his" readonly><?php echo $patientInfo->ptn_fam_his ?></textarea>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Past History(Surgical/Medical):</label>
-                                                            <textarea class="form-control input-sm" name="ptn_past_his" id="ptn_past_his" readonly><?php echo $patientInfo->ptn_past_his  ?></textarea>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Pulse:</label>
-                                                            <input class="form-control input-sm" name="ptn_pulse" style="width: 250px;" id="ptn_pulse" type="text" value="<?php echo $patientInfo->ptn_pulse  ?>" readonly>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box">
-                                                            <label>Food Intake</label>
-                                                            <textarea class="form-control input-sm" name="ptn_foodin" id="ptn_foodin" readonly><?php echo $patientInfo->ptn_foodin  ?></textarea>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Urine/Motion:</label>
-                                                            <textarea class="form-control input-sm" name="ptn_um" id="ptn_um" readonly><?php echo $patientInfo->ptn_um  ?></textarea>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>P/A:</label>
-                                                            <textarea class="form-control input-sm" name="ptn_pa" id="ptn_pa" readonly><?php echo $patientInfo->ptn_pa  ?></textarea>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>R/S:</label>
-                                                            <textarea class="form-control input-sm" name="ptn_rs" id="ptn_rs" readonly><?php echo $patientInfo->ptn_rs  ?></textarea>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>Temp:</label>
-                                                            <input class="form-control input-sm" name="ptn_temp" style="width: 250px;" id="ptn_temp" type="text" value="<?php echo $patientInfo->ptn_temp  ?>" readonly>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box">
-                                                            <label>CVS:</label>
-                                                            <input class="form-control input-sm" type="text" name="ptn_cvs" id="ptn_cvs" value="<?php echo $patientInfo->ptn_cvs  ?>" readonly>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>B.P:</label>
-                                                            <input class="form-control input-sm" name="ptn_bp" style="width: 250px;" id="ptn_bp" type="text" value="<?php echo $patientInfo->ptn_bp  ?>" readonly>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>CNS:</label>
-                                                            <input class="form-control input-sm" type="text" name="ptn_cns" id="ptn_cns" value="<?php echo $patientInfo->ptn_cns  ?>" readonly>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label>SPO2:</label>
-                                                            <input class="form-control input-sm" name="ptn_spo2" style="width: 250px;" id="ptn_spo2" type="text" value="<?php echo $patientInfo->ptn_spo2  ?>" readonly>
-                                                        </div>
-
-                                                    </div>
+                                    <div class="tab-pane" id="tab_4">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-group input-box ">
+                                                    <label>KCO:</label>
+                                                    <textarea class="form-control input-sm" name="ptn_kco" id="ptn_kco" readonly><?php echo $patientInfo->ptn_kco ?></textarea>
                                                 </div>
+                                                <div class="form-group input-box">
+                                                    <label>Chief Complaint:</label>
+                                                    <textarea class="form-control input-sm" name="ptn_chf_comp" id="ptn_chf_comp" readonly><?php echo $patientInfo->ptn_chf_comp ?></textarea>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Family History</label>
+                                                    <textarea class="form-control input-sm" name="ptn_fam_his" id="ptn_fam_his" readonly><?php echo $patientInfo->ptn_fam_his ?></textarea>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Past History(Surgical/Medical):</label>
+                                                    <textarea class="form-control input-sm" name="ptn_past_his" id="ptn_past_his" readonly><?php echo $patientInfo->ptn_past_his  ?></textarea>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Pulse:</label>
+                                                    <input class="form-control input-sm" name="ptn_pulse" style="width: 250px;" id="ptn_pulse" type="text" value="<?php echo $patientInfo->ptn_pulse  ?>" readonly>
+                                                </div>
+
                                             </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-group input-box">
+                                                    <label>Food Intake</label>
+                                                    <textarea class="form-control input-sm" name="ptn_foodin" id="ptn_foodin" readonly><?php echo $patientInfo->ptn_foodin  ?></textarea>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Urine/Motion:</label>
+                                                    <textarea class="form-control input-sm" name="ptn_um" id="ptn_um" readonly><?php echo $patientInfo->ptn_um  ?></textarea>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>P/A:</label>
+                                                    <textarea class="form-control input-sm" name="ptn_pa" id="ptn_pa" readonly><?php echo $patientInfo->ptn_pa  ?></textarea>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>R/S:</label>
+                                                    <textarea class="form-control input-sm" name="ptn_rs" id="ptn_rs" readonly><?php echo $patientInfo->ptn_rs  ?></textarea>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>Temp:</label>
+                                                    <input class="form-control input-sm" name="ptn_temp" style="width: 250px;" id="ptn_temp" type="text" value="<?php echo $patientInfo->ptn_temp  ?>" readonly>
+                                                </div>
 
-
-
-
-
-
-
-
-                                            <div class="tab-pane" id="tab_5">
-                                                <table cellpadding="3" cellspacing="3" width="100%">
-                                                    <tr>
-                                                        <td width="20%"><button type="button" name="add" id="add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Medicine</button><br><br>
-                                                            <?php $medicine = explode(',', $patientInfo->ptn_sugess_medi);
-                                                            foreach ($medicine as $key => $medicine1) {
-                                                                $key1 = $key + 1; ?>
-                                                                <div id="dynamic_field">
-                                                                    <div id="row<?= $key1 ?>" class="dis_flex">
-                                                                        <label for="member_<?= $key1 ?>"> </label>
-                                                                        <input type="text" name="medicine[].." class="form-control dis_inline" value="<?= $medicine1 ?>">
-                                                                        <button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="<?= $key1 ?>"><span class="glyphicon glyphicon-minus"></span></button>
-                                                                    </div>
-                                                                </div>
-                                                            <?php } ?>
-                                                            <input type="hidden" value="<?php if (!empty($key1)) {
-                                                                                            print($key1);
-                                                                                        } else {
-                                                                                            echo '0';
-                                                                                        } ?>" id="medicinecuont"></input>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="12%">Additional Note</td>
-                                                        <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_addtnl_note" id="ptn_addtnl_note" readonly><?php echo $patientInfo->ptn_addtnl_note  ?></textarea></td>
-                                                    </tr>
-                                                </table>
                                             </div>
-                                            <div class="tab-pane" id="tab_6">
-                                                <tr>
-                                                    <td width="12%">Upload Assesment Form </td>
-                                                    <div class="tab-pane" id="tab_4">
-                                                        <iframe width="100%" frameborder="0" height="400" src="<?php echo base_url() ?>app/patient/attachment/<?php echo $patientInfo->patient_no ?>"></iframe>
-                                                    </div>
-                                                </tr>
-                                            </div>
-                                            <!-- </div> -->
-                                            <div class="box-footer clearfix">
-                                                <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit" value="save"><i class="fa fa-save"></i> Save</button>
-                                                <a href="<?php echo base_url(); ?>app/patient" class="btn btn-default">Cancel</a>
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="form-group input-box">
+                                                    <label>CVS:</label>
+                                                    <input class="form-control input-sm" type="text" name="ptn_cvs" id="ptn_cvs" value="<?php echo $patientInfo->ptn_cvs  ?>" readonly>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>B.P:</label>
+                                                    <input class="form-control input-sm" name="ptn_bp" style="width: 250px;" id="ptn_bp" type="text" value="<?php echo $patientInfo->ptn_bp  ?>" readonly>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>CNS:</label>
+                                                    <input class="form-control input-sm" type="text" name="ptn_cns" id="ptn_cns" value="<?php echo $patientInfo->ptn_cns  ?>" readonly>
+                                                </div>
+                                                <div class="form-group input-box">
+                                                    <label>SPO2:</label>
+                                                    <input class="form-control input-sm" name="ptn_spo2" style="width: 250px;" id="ptn_spo2" type="text" value="<?php echo $patientInfo->ptn_spo2  ?>" readonly>
+                                                </div>
 
                                             </div>
                                         </div>
+                                    </div>
+
+
+
+
+
+
+
+
+                                    <div class="tab-pane" id="tab_5">
+                                        <table cellpadding="3" cellspacing="3" width="100%">
+                                            <tr>
+                                                <td width="20%"><button type="button" name="add" id="add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Medicine</button><br><br>
+                                                    <?php $medicine = explode(',', $patientInfo->ptn_sugess_medi);
+                                                    foreach ($medicine as $key => $medicine1) {
+                                                        $key1 = $key + 1; ?>
+                                                        <div id="dynamic_field">
+                                                            <div id="row<?= $key1 ?>" class="dis_flex">
+                                                                <label for="member_<?= $key1 ?>"> </label>
+                                                                <input type="text" name="medicine[].." class="form-control dis_inline" value="<?= $medicine1 ?>">
+                                                                <button type="button" class="btn_remove btn btn-danger btn-circle btn-sm" name="remove" id="<?= $key1 ?>"><span class="glyphicon glyphicon-minus"></span></button>
+                                                            </div>
+                                                        </div>
+                                                    <?php } ?>
+                                                    <input type="hidden" value="<?php if (!empty($key1)) {
+                                                                                    print($key1);
+                                                                                } else {
+                                                                                    echo '0';
+                                                                                } ?>" id="medicinecuont"></input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="12%">Additional Note</td>
+                                                <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_addtnl_note" id="ptn_addtnl_note" readonly><?php echo $patientInfo->ptn_addtnl_note  ?></textarea></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane" id="tab_6">
+                                        <tr>
+                                            <td width="12%">Upload Assesment Form </td>
+                                            <div class="tab-pane" id="tab_4">
+                                                <iframe width="100%" frameborder="0" height="400" src="<?php echo base_url() ?>app/patient/attachment/<?php echo $patientInfo->patient_no ?>"></iframe>
+                                            </div>
+                                        </tr>
+                                    </div>
+                                    <!-- </div> -->
+                                    <div class="box-footer clearfix">
+                                        <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit" value="save"><i class="fa fa-save"></i> Save</button>
+                                        <a href="<?php echo base_url(); ?>app/patient" class="btn btn-default">Cancel</a>
 
                                     </div>
                                 </div>
-
+                                </div>
                             </div>
-
-                        </form>
                     </div>
+                                                                            </div>
+                </div>
 
-                    <!-- <div class="row">
+                </form>
+    </div>
+
+    <!-- <div class="row">
                  	<div class="col-md-12">
                     <form role="form" method="post" action="<?php echo base_url() ?>app/patient/edit" onSubmit="return validate()">    
                     	 <input type="hidden" name="id" value="<?php echo $patientInfo->patient_no; ?>">
@@ -1040,8 +1032,8 @@
                  </div> -->
 
 
-            </section><!-- /.content -->
-        </aside><!-- /.right-side -->
+    </section><!-- /.content -->
+    </aside><!-- /.right-side -->
     </div><!-- ./wrapper -->
 
 

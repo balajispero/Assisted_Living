@@ -536,7 +536,7 @@
                                         </div>
                                         <div class="box-footer clearfix">
                                             <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit" value="save"><i class="fa fa-save"></i> Save</button>
-                                            <a href="<?php echo base_url(); ?>app/patient" class="btn btn-default">Cancel</a>
+                                            <a href="<?php echo base_url(); ?>app/patients" class="btn btn-default">Cancel</a>
                                         </div>
                                     </div>
 

@@ -515,6 +515,7 @@ class Dashboard extends General{
 			$this->data['message'] = $this->session->flashdata('message');
 			$this->data['table'] = $this->table->generate();
    $this->data['members'] = $members;
+   $this->data['title'] = "Total Member List";
 		$this->load->view('app/dashboard_detail',$this->data);	
 	}
 
@@ -586,6 +587,7 @@ class Dashboard extends General{
 			$this->data['message'] = $this->session->flashdata('message');
 			$this->data['table'] = $this->table->generate();
             $this->data['members'] = $members;
+			$this->data['title'] = "Today Registration Member List";
 		    $this->load->view('app/dashboard_detail',$this->data);	
 	}
 
@@ -658,6 +660,7 @@ class Dashboard extends General{
 			$this->data['message'] = $this->session->flashdata('message');
 			$this->data['table'] = $this->table->generate();
             $this->data['members'] = $members;
+			$this->data['title'] = "Available Room Bed List";
 		    $this->load->view('app/dashboard_detail',$this->data);	
 	}
 	
