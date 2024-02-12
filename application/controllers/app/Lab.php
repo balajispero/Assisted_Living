@@ -43,7 +43,8 @@ class Lab extends General{
 				$offset = $this->uri->segment($uri_segment);
 				
 				$patient = $this->lab_model->get_lab_sample_test($this->limit, $offset);
-// 		print_r($patient);die;
+				/*echo "<pre>";
+ 		print_r($patient);die;*/
 				$config['base_url'] = base_url().'app/lab/lab_sample_test_list/';
 				$config['total_rows'] = $this->lab_model->count_all_lab_sample_test();
 				$config['per_page'] = $this->limit;
@@ -104,8 +105,9 @@ class Lab extends General{
 					anchor('app/lab/view_lab_sample_report/'.$patient->io_lab_id,$patient->iop_id),
 					$patient->dDate, 
 					@$pages->test_name,
-					/*$patient->laboratory_id,*/ 
-					@$ptn_name[0]->middlename,
+					/*$patient->laboratory_id,*/
+					@$patient->middlename, 
+					/*@$ptn_name[0]->middlename,*/
 					@$doctor_name->cPreparedBy,  
 					anchor('app/lab/add_lab_sample_report/'.$patient->io_lab_id,'Add'),
 					anchor('app/lab/edit_lab_sample_report/'.$patient->io_lab_id,'Modify')
@@ -145,6 +147,7 @@ class Lab extends General{
 			$this->data = array(
 				'lab_test_name'		=>		$this->input->post('sample_test_name'),
 				'added_date_by_lab'		=>		date("Y-m-d h:i:s a"),
+				'organization'		=>		$this->session->userdata('organization'),
 				'added_by_lab'		=>		$this->session->userdata('user_id')
 			);
 			$this->load->library('upload');

@@ -37,7 +37,8 @@ class Physio_model extends CI_Model{
 		
 		$where = "( 
 				A.InActive = 0
-				)    
+				)
+				and A.organization= '".$this->session->userdata('organization')."'    
 				and A.iop_no ='".$iop_no."' 
 				and A.rel_agree ='".$rel_agree."'";
 				$this->db->where($where);
@@ -54,7 +55,8 @@ class Physio_model extends CI_Model{
 		
 		$where = "( 
 				A.iop_no='".$iop_no."'
-				)    
+				)
+				and A.organization= '".$this->session->userdata('organization')."'    
 				and A.InActive = 0";
 				$this->db->where($where);
 				$this->db->order_by('A.eval_no','DESC');
@@ -71,7 +73,8 @@ class Physio_model extends CI_Model{
 		
 				$where = "( 
 				A.iop_id='".$iop_no."'
-				)    
+				)
+				and A.organization= '".$this->session->userdata('organization')."'    
 				and A.InActive = 0";
 				$this->db->where($where);
 		$this->db->order_by('A.eval_no','DESC');
@@ -87,6 +90,7 @@ class Physio_model extends CI_Model{
 		$where = "( 
 				B.assign_therapist='".$this->session->userdata('user_id')."'
 				)
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.iop_id='".$iop_no."'    
 				and A.InActive = 0";
 				$this->db->where($where);
@@ -105,12 +109,14 @@ class Physio_model extends CI_Model{
 			$query = $this->db->get_where("physio_evaluation",array(
 				'InActive'	=>		0,
 				'iop_no'=>$iop_no,
+				'organization'		=>		$this->session->userdata('organization'),
 				'eval_no'=>$eval_no
 			));
 		}
 		else{
 				$query = $this->db->get_where("physio_evaluation",array(
 				'InActive'	=>		0,
+				'organization'		=>		$this->session->userdata('organization'),
 				'eval_no'=>$eval_no
 				));	
 			}	
@@ -135,6 +141,7 @@ class Physio_model extends CI_Model{
 			'treatment_goal'		=>		$this->input->post('treatment_goal'),
 			'added_date'	=>		date("Y-m-d h:i:s a"),
 			'sent_by'	=>		$this->session->userdata('user_id'),
+			'organization'					=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		);	
 		return $this->db->insert('physio_evaluation_sent_mail',$this->data);
@@ -216,7 +223,10 @@ class Physio_model extends CI_Model{
 	public function get_treatment_protocol($eval_no){
 			$this->db->select('treatment_protocol.*');
 			$this->db->from('physio_treatment_protocol treatment_protocol'); 		
- 	
+ 			$this->db->where(array(
+			'eval_no'		=>		$eval_no,
+			/*'InActive'	=>		0*/
+		));	
 			/*$this->db->order_by('rbed.room_bed_id', 'ASC');*/
 			//$this->db->limit('7');
 			$query = $this->db->get();
@@ -240,6 +250,7 @@ class Physio_model extends CI_Model{
 		$this->db->select("multi_sel_id, pvalue");	
 		$this->db->where(array(
 			'pcode'		=>	'tightness',
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		//$this->db->order_by('cValue','asc');
@@ -270,6 +281,7 @@ class Physio_model extends CI_Model{
     if ($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") {
         $this->db->where(array(
             'A.iop_no' => $iop_no,
+            'A.organization'		=>		$this->session->userdata('organization'),
             'A.InActive' => 0
         ));
         
@@ -277,6 +289,7 @@ class Physio_model extends CI_Model{
         $this->db->where(array(
             'A.assign_therapist' => $this->session->userdata('user_id'),
             'A.iop_no' => $iop_no,
+            'A.organization'		=>		$this->session->userdata('organization'),
             'A.InActive' => 0
         ));
     }
@@ -327,7 +340,8 @@ class Physio_model extends CI_Model{
 		
 		$where = "( 
 				A.iop_id='".$iop_no."'
-				)    
+				)
+				and A.organization= '".$this->session->userdata('organization')."'    
 				and A.InActive = 0";
 				$this->db->where($where);
 		$this->db->order_by('A.eval_no','DESC');
@@ -342,6 +356,7 @@ class Physio_model extends CI_Model{
 		$where = "( 
 				B.assign_therapist='".$this->session->userdata('user_id')."'
 				)
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.iop_id='".$iop_no."'    
 				and A.InActive = 0";
 				$this->db->where($where);
@@ -435,6 +450,7 @@ class Physio_model extends CI_Model{
 			$this->db->select("multi_sel_id, pvalue");	
 			$this->db->where(array(
 				'pcode'		=>	'body_part',
+				'organization'		=>		$this->session->userdata('organization'),
 				'InActive'	=>	0	
 			));
 			//$this->db->order_by('cValue','asc');

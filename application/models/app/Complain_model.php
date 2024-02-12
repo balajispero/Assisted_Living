@@ -10,7 +10,8 @@ class Complain_model extends CI_Model{
 		$this->db->order_by('complain_name','asc');
 		$where = "(
 				complain_name like '%".$this->input->post('search')."%' or 
-				complain_desc like '%".$this->input->post('search')."%') 
+				complain_desc like '%".$this->input->post('search')."%')
+				and organization= '".$this->session->userdata('organization')."'
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("complain", $limit, $offset);
@@ -21,7 +22,8 @@ class Complain_model extends CI_Model{
 		$this->db->order_by('complain_name','asc');
 		$where = "(
 				complain_name like '%".$this->input->post('search')."%' or 
-				complain_desc like '%".$this->input->post('search')."%') 
+				complain_desc like '%".$this->input->post('search')."%')
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("complain");
@@ -32,6 +34,7 @@ class Complain_model extends CI_Model{
 		$this->db->where(array(
 			'complain_name'		=>		$this->input->post('complain'),
 			'complain_id !='	=>		$this->input->post('id'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=>		0
 		));
 		$query = $this->db->get("complain");
@@ -45,6 +48,7 @@ class Complain_model extends CI_Model{
 	public function validate_complain(){
 		$this->db->where(array(
 			'complain_name'	=>		$this->input->post('complain'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=>		0
 		));
 		$query = $this->db->get("complain");
@@ -76,6 +80,7 @@ class Complain_model extends CI_Model{
 		$this->data = array(
 			'complain_name'		=> strtoupper($this->input->post('complain')),
 			'complain_desc'		=> $this->input->post('description'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=> 0
 		);	
 		$this->db->insert('complain',$this->data);

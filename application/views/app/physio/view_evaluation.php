@@ -300,7 +300,7 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                <h3 class="dash"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;<b>Dashboard</b></h3>
+                    <h1><b>Dashboard</b></h1>
                     <!--<ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Examples</a></li>

@@ -10,7 +10,8 @@ class Diagnosis_model extends CI_Model{
 		$this->db->order_by('diagnosis_name','asc');
 		$where = "(
 				diagnosis_name like '%".$this->input->post('search')."%' or 
-				diagnosis_desc like '%".$this->input->post('search')."%') 
+				diagnosis_desc like '%".$this->input->post('search')."%')
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("diagnosis", $limit, $offset);
@@ -21,7 +22,8 @@ class Diagnosis_model extends CI_Model{
 		$this->db->order_by('diagnosis_name','asc');
 		$where = "(
 				diagnosis_name like '%".$this->input->post('search')."%' or 
-				diagnosis_desc like '%".$this->input->post('search')."%') 
+				diagnosis_desc like '%".$this->input->post('search')."%')
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("diagnosis");
@@ -32,6 +34,7 @@ class Diagnosis_model extends CI_Model{
 		$this->db->where(array(
 			'diagnosis_name'	=>		$this->input->post('diagnosis'),
 			'diagnosis_id !='	=>		$this->input->post('id'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=>		0
 		));
 		$query = $this->db->get("diagnosis");
@@ -45,6 +48,7 @@ class Diagnosis_model extends CI_Model{
 	public function validate_diagnosis(){
 		$this->db->where(array(
 			'diagnosis_name'	=>		$this->input->post('diagnosis'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=>		0
 		));
 		$query = $this->db->get("diagnosis");
@@ -59,6 +63,7 @@ class Diagnosis_model extends CI_Model{
 		$this->data = array(
 			'diagnosis_name'	=> strtoupper($this->input->post('diagnosis')),
 			'diagnosis_desc'	=> $this->input->post('description'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=> 0
 		);	
 		$this->db->insert('diagnosis',$this->data);

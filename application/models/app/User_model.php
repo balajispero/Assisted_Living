@@ -19,7 +19,8 @@ class User_model extends CI_Model{
 					or C.designation like '%".$this->session->userdata("search_user")."%' 
 					or B.dept_name like '%".$this->session->userdata("search_user")."%' 
 					or A.email_address like '%".$this->session->userdata("search_user")."%' 
-					or A.InActive like '%".$this->session->userdata("search_user")."%')";
+					or A.InActive like '%".$this->session->userdata("search_user")."%')
+					and A.organization= '".$this->session->userdata('organization')."'";
 		$this->db->where($where);
 		$this->db->join("department B","B.department_id = A.department","left outer");
 		$this->db->join("designation C","C.designation_id = A.designation","left outer");
@@ -42,7 +43,8 @@ class User_model extends CI_Model{
 					or C.designation like '%".$this->session->userdata("search_user")."%' 
 					or B.dept_name like '%".$this->session->userdata("search_user")."%' 
 					or A.email_address like '%".$this->session->userdata("search_user")."%' 
-					or A.InActive like '%".$this->session->userdata("search_user")."%')";
+					or A.InActive like '%".$this->session->userdata("search_user")."%')
+					and A.organization= '".$this->session->userdata('organization')."'";
 		$this->db->where($where);
 		$this->db->join("department B","B.department_id = A.department","left outer");
 		$this->db->join("designation C","C.designation_id = A.designation","left outer");
@@ -78,6 +80,7 @@ class User_model extends CI_Model{
 		$this->db->select("email_address");
 		$this->db->where(array(
 			'email_address'	=>	$this->input->post('email'),
+			'organization'	=>	$this->session->userdata('organization'),
 			'InActive'		=>	0
 		));	
 		$query = $this->db->get("users");
@@ -180,6 +183,7 @@ class User_model extends CI_Model{
 		$this->db->select("email_address");
 		$this->db->where(array(
 			'email_address'	=>	$this->input->post('email'),
+			'organization'	=>	$this->session->userdata('organization'),
 			'InActive'		=>	0,
 			'user_id !='	=>		$this->input->post('userid')
 		));	

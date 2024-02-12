@@ -215,7 +215,8 @@
                                            </thead>
                                            <tbody>
                                            <?php
-                                           //$eval_list_arr=$eval_no_list; 
+                                           //$eval_list_arr=$eval_no_list;
+                                           if($physioDischargeList) { 
                                            foreach($physioDischargeList as $key => $rows){?>
                                             <tr>
                                             <td>
@@ -242,7 +243,7 @@
                                             <?php } ?>
 
                                            </tr> 
-                                           <?php }?> 
+                                           <?php } }?> 
                                            </tbody>
                                            </table>
                                        </div>

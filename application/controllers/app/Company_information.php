@@ -76,7 +76,10 @@ class Company_information extends General{
 				'company_contactNo'		=>		$this->input->post('contact'),
 				'TIN'					=>		$this->input->post('tin'),
 				'logo'					=>		$logo
-			);	
+			);
+			$this->db->where(array(
+			'organization'		=>		$this->session->userdata('organization')	
+				));	
 			$result = $this->db->update("company_info",$this->data);
 			
 			if($result)

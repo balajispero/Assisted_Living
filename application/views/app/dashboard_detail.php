@@ -204,12 +204,12 @@
                         <li><a href="#">Examples</a></li>
                         <li class="active">Blank page</li>
                     </ol>-->
-                  </section>
-                  <section>
+      </section>
+      <section>
                     <h3 style="margin-left: 9px;"><b><?php print_r($title);?></b></h3>
 
                   </section>
-      <section class="content" style="background-color: #fff;">
+<section class="content" style="background-color: #fff;">
 
     <div class="row" id="membersdetail" >
         <?php

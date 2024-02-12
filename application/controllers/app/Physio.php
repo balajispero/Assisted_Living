@@ -45,7 +45,8 @@ class Physio extends General{
 		$offset = $this->uri->segment($uri_segment);
 		
 		$patient = $this->doctor_model->getAll2($this->limit, $offset);
-// 		print_r($patient);die;
+		/*echo "<pre>";
+ 		print_r($patient);die;*/
 		$config['base_url'] = base_url().'app/physio/ipd/';
  		$config['total_rows'] = $this->doctor_model->count_all2();
  		$config['per_page'] = $this->limit;
@@ -392,9 +393,14 @@ class Physio extends General{
 	            'berg_bal_interpreter'=>$this->input->post('berg_bal_interpreter'),
 	            'berg_bal_interpreter_remark'=>$this->input->post('berg_bal_interpreter_remark'),
 	            'therapy_type'=>$this->input->post('therapy_type'),
+	            'organization'		=>		$this->session->userdata('organization'),
 
 	            'InActive'=>0,
 	        	'added_date'		=>	 date("Y-m-d h:i:s a"));
+
+				if($this->input->post('expert_rec')=="Yes") {
+	            $evaluation_details['rel_agree']="Yes";
+	        	}
 
 				if($this->input->post('therapy_type')=="ortho") {
 	            $evaluation_details['ortho_special_test']=$this->input->post('ortho_special_test');
@@ -842,6 +848,7 @@ class Physio extends General{
             'first_followup_eval_date_remark' => $this->input->post('first_followup_eval_date_remark'),
             'assign_therapist' => $this->input->post('consultant_therapist'),
             'added_by' => $this->session->userdata('user_id'),
+            'organization'		=>		$this->session->userdata('organization'),
         	'added_date'		=>	 date("Y-m-d h:i:s a"));
 
 			
@@ -859,6 +866,7 @@ class Physio extends General{
 					'week_remark' => isset($week_remark[$i]) ? $week_remark[$i] : '',
 					'week_frequency' => isset($week_frequency[$i]) ? $week_frequency[$i] : '',
 					'eval_no' => $this->input->post('eval_no'),
+					'organization'		=>		$this->session->userdata('organization'),
 					'treat_protocol_id' => $last_treatment_protocol_id
 				);
 				
@@ -891,6 +899,8 @@ class Physio extends General{
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
 
 				 $this->data['treatment_protocol_info'] = $this->physio_model->get_treatment_protocol($eval_no);
+				 /*echo "<pre>";
+				 print_r($this->data['treatment_protocol_info']);die;*/
 				 $this->data['physio_treatment_weekly_plan'] = $this->physio_model->physio_treatment_weekly_plan($eval_no);
 				 $this->data['physio_treatment_review'] = $this->physio_model->physio_treatment_review($eval_no);
 				
@@ -945,6 +955,7 @@ class Physio extends General{
 					'week_remark' => isset($week_remark[$i]) ? $week_remark[$i] : '',
 					'week_frequency' => isset($week_frequency[$i]) ? $week_frequency[$i] : '',
 					'eval_no' => $this->input->post('eval_no'),
+					'organization'		=>		$this->session->userdata('organization'),
 					'treat_protocol_id' => $this->input->post('treat_protocol_id')
 				);
 				
@@ -962,6 +973,7 @@ class Physio extends General{
 					'review_next_followup_eval_date' => isset($review_next_followup_eval_date[$rev_i]) ? $review_next_followup_eval_date[$rev_i] : '',
 					'review_frequency' => isset($review_frequency[$rev_i]) ? $review_frequency[$rev_i] : '',
 					'eval_no' => $this->input->post('eval_no'),
+					'organization'		=>		$this->session->userdata('organization'),
 					'treat_protocol_id' => $this->input->post('treat_protocol_id')
 				);
 				
@@ -1096,6 +1108,7 @@ class Physio extends General{
 			            'further_recommendation' => $this->input->post('further_recommendation'),
 						'therapy_status' => $this->input->post('therapy_status'),
 			            'added_date' => date('Y-m-d H:i:s'),
+			            'organization'		=>		$this->session->userdata('organization'),
 			            'added_by' => $this->session->userdata('user_id'),
 	
 					);
@@ -1275,6 +1288,7 @@ class Physio extends General{
 				'therapy_charges'			=>		'450',
 				'added_date'		=>		date("Y-m-d h:i:s A"),
 				'added_by'	=>		$this->session->userdata('user_id'),
+				'organization'		=>		$this->session->userdata('organization'),
 				'InActive'		=>		0
 			);
 			$this->db->insert('physio_notes',$this->data);

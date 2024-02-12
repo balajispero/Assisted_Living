@@ -264,8 +264,7 @@
                                             if(!empty($medicine_chart)){ ?>
                             <tr>
                                 <td>
-                                    <!-- <input type="submit" class="btn btn-primary bg_color" value="Save Changes" name="save"> -->
-                                    <button  type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" value="Save Changes" name="save">Save</button>
+                                    <input type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" value="Save Changes" name="save">
                                 </td>   
                         </tr> 
                         <?php } ?>
@@ -355,7 +354,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -486,7 +485,7 @@ xmlhttp.send();
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical">Save</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
                                         </div>
                                        
                                     </div>

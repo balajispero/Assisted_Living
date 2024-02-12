@@ -124,9 +124,17 @@ class Roles extends General{
 		$this->data['message'] = $this->session->flashdata('message');	
 		$this->load->view('app/roles/view', $this->data);		
 	}
+	public function validate_role_name(){
+		if($this->roles_model->validate_role_name()){
+			$this->form_validation->set_message('validate_role_name','Role Name Already Exists.');
+			return false;
+		}else{
+			return true;
+		}
+	}
 	
 	public function save(){
-		$this->form_validation->set_rules("role_name","Role Name","trim|xss_clean|required");
+		$this->form_validation->set_rules("role_name","Role Name","trim|xss_clean|required|callback_validate_role_name");
 		$this->form_validation->set_rules("role_description","role Description","trim|xss_clean|required");	
 		$this->form_validation->set_error_delimiters("<div class='alert alert-warning alert-dismissable'><i class='fa fa-warning'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>","</div>");
 	
@@ -152,10 +160,21 @@ class Roles extends General{
 		}
 	
 	}
+	public function validate_role_name_edit(){
+		if($this->roles_model->validate_role_name_edit()){
+			$this->form_validation->set_message('validate_role_name_edit','Role Name Already Exists.');
+			return false;
+		}else{
+			return true;
+		}
+	}
 	
 	public function edit($id = 0){
 		if(isset($_POST['btnSubmit'])){
-			
+
+			$this->form_validation->set_rules("role_name","Role Name","trim|xss_clean|required|callback_validate_role_name_edit");
+			$this->form_validation->set_error_delimiters("<div class='alert alert-warning alert-dismissable'><i class='fa fa-warning'></i><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>","</div>");
+			if($this->form_validation->run()){
 			//save the data
 			if($this->roles_model->update()){
 				//save logfile
@@ -169,7 +188,9 @@ class Roles extends General{
 			
 			//redirect
 			redirect(base_url().'app/roles',$this->data);
-			
+		  }
+		  $this->data['roles'] = $this->roles_model->getRole($this->input->post('id')); 
+			$this->load->view('app/roles/edit',$this->data);
 		}else{
 			// user restriction function
 				$this->session->set_userdata('page_name','update_roles');

@@ -42,7 +42,11 @@ class Billing_model extends CI_Model{
 	
 	public function particular_cat(){
 		$this->db->order_by("group_name","ASC");
-		$this->db->where("InActive","0");	
+		//$this->db->where("InActive","0");
+		$this->db->where(array(
+			'organization'		=>		$this->session->userdata('organization'),
+			'InActive'		=>		0
+		));		
 		$query = $this->db->get("bill_group_name");
 		return $query->result();
 	}
@@ -73,12 +77,16 @@ class Billing_model extends CI_Model{
 		if($id=="7")
 		{
 			$this->db->select("test_name as particular_name, id as particular_id");
+			$this->db->where(array(
+				'organization'		=>		$this->session->userdata('organization'),
+			'InActive'		=>		0
+		));	
 			$query = $this->db->get("lab_test_name_with_charges");
 			return $query->result();
 
 		}else{
 			$this->db->select("particular_name,particular_id");
-			$query = $this->db->get_where("bill_particular",array('group_id' => $id));	
+			$query = $this->db->get_where("bill_particular",array('organization'=>$this->session->userdata('organization'),'group_id' => $id));	
 			return $query->result();
 		}
 		

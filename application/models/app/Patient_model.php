@@ -23,10 +23,11 @@ class Patient_model extends CI_Model{
 		A.patient_no like '%".$this->session->userdata("search_patient_master")."%' or
 		C.cValue like '%".$this->session->userdata("search_patient_master")."%' or 
 		D.cValue like '%".$this->session->userdata("search_patient_master")."%'
-		) 
+		)
+		and A.organization= '".$this->session->userdata('organization')."' 
 		and A.InActive = 0";
 		$this->db->where($where);
-		$this->db->order_by('A.date_entry','desc');
+		$this->db->order_by('A.patient_no','desc');
 		$this->db->join("system_parameters B","B.param_id = A.title","left outer");
 		$this->db->join("system_parameters C","C.param_id = A.gender","left outer");
 		$this->db->join("system_parameters D","D.param_id = A.civil_status","left outer");
@@ -49,10 +50,11 @@ class Patient_model extends CI_Model{
 		A.middlename like '%".$this->session->userdata("search_patient_master")."%' or 
 		C.cValue like '%".$this->session->userdata("search_patient_master")."%' or 
 		D.cValue like '%".$this->session->userdata("search_patient_master")."%'
-		) 
+		)
+		and A.organization= '".$this->session->userdata('organization')."' 
 		and A.InActive = 0";
 		$this->db->where($where);
-		$this->db->order_by('lastname','asc');
+		$this->db->order_by('A.patient_no','desc');
 		$this->db->join("system_parameters B","B.param_id = A.title","left outer");
 		$this->db->join("system_parameters C","C.param_id = A.gender","left outer");
 		$this->db->join("system_parameters D","D.param_id = A.civil_status","left outer");
@@ -71,6 +73,7 @@ class Patient_model extends CI_Model{
 		$this->db->where(array(
 			'ptn_eligible'=>"Yes",
 			'on_admission'=>"No",
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		//$this->db->order_by('cValue','asc');
@@ -232,6 +235,7 @@ class Patient_model extends CI_Model{
 			'rel_phone2' => $this->input->post('rel_phone2'),
 			'rel_email1' => $this->input->post('rel_email1'),
 			'rel_email2' => $this->input->post('rel_email2'),
+			'organization' => $this->session->userdata('organization'),
 			'preassessment_no' => $this->input->post('preassessment_no'),
 			'InActive'			=>		0,
 			'ptn_addtnl_note' => $this->input->post('ptn_addtnl_note')
@@ -307,7 +311,7 @@ class Patient_model extends CI_Model{
 	}
 	
 	public function getPatient($id){
-		$query = $this->db->get_where("patient_personal_info", array('patient_no' => $id));	
+		$query = $this->db->get_where("patient_personal_info", array('organization'=>$this->session->userdata('organization'),'patient_no' => $id));	
 		return $query->row();
 	}
 	public function getDCPatient($id){
@@ -730,6 +734,7 @@ class Patient_model extends CI_Model{
 	public function getPatientInfo($id){
 		$this->db->select("*");
 		$this->db->where("A.patient_no",$id);
+		$this->db->where("A.organization",$this->session->userdata('organization'));
 		$this->db->order_by('middlename','asc');
 		// $this->db->join("patient_personal_info H","H.patient_no = A.param_id","left outer");
 		$this->db->join("system_parameters B","B.param_id = A.title","left outer");
@@ -806,6 +811,7 @@ class Patient_model extends CI_Model{
 			'rel_city2' => $this->input->post('rel_city2'),
 			'rel_phone2' => $this->input->post('rel_phone2'),
 			'discharged_date'			=>$tdate,
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=>		0,
 			'ptn_addtnl_note' => $this->input->post('ptn_addtnl_note')
 		);

@@ -1,4 +1,5 @@
 
+
 <script language="javascript">
     setTimeout(function timeru(){$('.alert').fadeOut(1000)}, 3000);
     </script> 
@@ -6,25 +7,12 @@
 <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
-<link href="<?=base_url()?>application/views/include/footer">
 
    <style>
     body{
         font-family:  Helvetica;
         font-size: 12px;
     }
-    .dash {
-        margin-left: 20px;
-        color: grey;
-      }
-
-      .fa-home {
-        background-color: #07B5BC;
-        color: white;
-        padding: 6px;
-        font-size: 18px;
-        border-radius: 5px;
-      }
     @media only screen and (max-width:768px) and (min-width:300px) {
          .m12{
             font-size: 15px;
@@ -55,26 +43,20 @@
             margin-top: -30px !important;
             margin-left: 70px !important;
          }
+        }
+        @media only screen and (max-width:425px) {
          .logo2{
             font-size: 18px;
-            margin-top: -50px !important;
+            margin-top: -50px;
             margin-left: 35px;
          }
-        }
-        @media only screen and (max-width:420px) {
-         /* .logo2{
-            font-size: 18px;
-            margin-top: -50px !important;
-            margin-left: 35px;
-         } */
          .dropmenu{
             margin-top: -50px;
             width: 100%;
             height: 40px;
             font-size: 12px;
-            /* background-color: hidden; */
+            background-color: hidden;
          }
-        
          .droplist{
           height: 57px !important;
           width: 100%;
@@ -94,10 +76,6 @@
          }
          img.img-circle {
             margin-left: -104px !important;
-        }
-        p.m12 .letter{
-            margin-top: -50px !important;
-            margin-left: 33px;
         }
         }
         .bg_color{
@@ -140,33 +118,40 @@
                    /* line-height: 1em; */
                       }
                       .hvr-rectangle-out{
-                       border-color: #0097A7;
-                       border-width: 100%;
-                       color: #0097A7;
-                      }
+      border-color: #2B48B0;
+      border-width: 100%;
+      color: #2B48B0;
+     }
                       .hvr-shutter-in-vertical{
                         /* background-color: #fff; */
                         color: #fff;
-                        border-color: #0097A7;
+                        border-color: #2B48B0;
                       }
                     
                       .hvr-shutter-in-vertical:before{
-                        /* background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important; */
+                        /*background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;*/
                         background-color: #0097A7;
                       }
                       .hvr-shutter-in-vertical:hover{
                         background-color: #fff!important;
-                        color:#0097A7!important;
+                        color:#2B48B0!important;
                       }
+                      .content-header{
+                       
+                margin-top: 10px;
+                background-color: #ecf0fa !important;
+                padding: 7px 5px;
+                border-radius: 5px;
+                box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+            }
 
-                      .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+             .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
     z-index: 2;
     color: #fff;
     cursor: default;
     background-color: #0097A7;
     border-color: #428bca;
 }
-
    
    </style>
 
@@ -278,7 +263,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header  droplist" style="background-color: #0097A7;">
+                        <li class="user-header bg-light-blue droplist bg_color">
                             <?php if($userInfo->picture == ""){?>
                     	<img src="<?php echo base_url()?>public/user_picture/user_img.jpg" class="img-circle" alt="User Image" />
                     <?php }else{?>

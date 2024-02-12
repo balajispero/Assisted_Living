@@ -350,7 +350,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group wrapper-class" >
                                                                         <label></label><span class="text-danger"></span>
-                                                                <button type="button" name="chl_add" id="chl_add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Child</button>
+                                                                <button type="button" name="chl_add" id="chl_add" class="btn btn-primary bg_color">Add Child</button>
                                                                 </div>
                                                             </div>
         
@@ -536,7 +536,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group wrapper-class" >
                                                                         <label></label><span class="text-danger"></span>
-                                                                <button type="button" name="add2" id="td_add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Doctor</button>
+                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary bg_color">Add Doctor</button>
                                                                 </div>
                                                             </div>
         
@@ -624,7 +624,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>DIAGNOSIS</label><span class="text-danger"></span></br>
-                                                                            <button type="button" required name="add1" id="add1" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Diagnosis</button><br><br>
+                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary bg_color">Add Diagnosis</button><br><br>
                                                                             <?php $diagnosis = @explode(',',$patientInfo[0]->diagnosis); foreach($diagnosis as $key_dg => $diagnosis1){ $key_dg1 = $key_dg+1; ?>
                                                                             <div id="dynamic_field1">
 
@@ -683,7 +683,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group wrapper-class" >
                                                         <label>DETAILS OF CURRENT MEDICATIONS</label><span class="text-danger"></span></br>
-                                                            <button type="button" name="add" id="add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Medicine</button>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary bg_color">Add Medicine</button>
                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                     </div><!-- /.form-group wrapper-class -->
                                                 </div><!-- /.col-md-3 -->
@@ -1980,8 +1980,7 @@
                                             </div>
                                             <div class="box-footer clearfix">
                                                 <!-- <button class="btn btn-primary" name="submit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button> -->
-                                                 <!-- <input type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="submit" value="Submit"> -->
-                                                 <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="submit" value="Submit">Submit</button>
+                                                 <input type="submit" class="btn btn-primary bg_color" name="submit" value="Submit">
                                                 <!-- <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a> -->
                                             </div>
                                         </div>

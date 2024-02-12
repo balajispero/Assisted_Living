@@ -11,7 +11,8 @@ class Group_name_model extends CI_Model{
 		$where = "(
 				group_name like '%".$this->input->post('search')."%' or 
 				group_desc like '%".$this->input->post('search')."%'
-				) 
+				)
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("bill_group_name", $limit, $offset);
@@ -23,7 +24,8 @@ class Group_name_model extends CI_Model{
 		$where = "(
 				group_name like '%".$this->input->post('search')."%' or 
 				group_desc like '%".$this->input->post('search')."%'
-				) 
+				)
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("bill_group_name");
@@ -34,6 +36,7 @@ class Group_name_model extends CI_Model{
 		$this->db->where(array(
 			'group_name'	=>		$this->input->post('group_name'),
 			'group_id !='		=>		$this->input->post('id'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		));
 		$query = $this->db->get("bill_group_name");
@@ -47,6 +50,7 @@ class Group_name_model extends CI_Model{
 	public function validate_group_name(){
 		$this->db->where(array(
 			'group_name'	=>		$this->input->post('group_name'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		));
 		$query = $this->db->get("bill_group_name");
@@ -61,6 +65,7 @@ class Group_name_model extends CI_Model{
 		$this->data = array(
 			'group_name'	=> strtoupper($this->input->post('group_name')),
 			'group_desc'	=> $this->input->post('description'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=> 0
 		);	
 		$this->db->insert('bill_group_name',$this->data);

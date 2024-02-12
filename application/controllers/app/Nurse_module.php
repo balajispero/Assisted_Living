@@ -17,6 +17,14 @@ class Nurse_module extends General{
 		if(General::is_logged_in() == FALSE){
             redirect(base_url().'login');    
         }
+
+        $ptn_organization = $this->General_model->getptn_organization($this->uri->segment("4"));
+        if($this->uri->segment("4"))
+        {
+			if($this->session->userdata('organization')!=$ptn_organization->organization){
+						redirect(base_url().'access_denied');
+					}
+		}
 		General::variable();	
 	}
 	/*********************Start Medication*********************/
@@ -457,6 +465,7 @@ class Nurse_module extends General{
 			 'given_date'			=>		date("Y-m-d h:i:s A"),
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
 			'added_date'			=>		date("Y-m-d h:i:s A"),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		);
 			
@@ -700,6 +709,7 @@ class Nurse_module extends General{
 			'dDate'			=>		$this->input->post('dDate'),
 			'dDateTime'		=>		$this->input->post('dDate')." ".$this->input->post('cTime'),
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		);	
 		$this->db->insert("iop_intake_record",$this->data);
@@ -722,6 +732,7 @@ class Nurse_module extends General{
 			'dDate'			=>		$this->input->post('dDate2'),
 			'dDateTime'		=>		$this->input->post('dDate2')." ".$this->input->post('cTime2'),
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		);	
 		$this->db->insert("iop_output_record",$this->data);
@@ -1209,6 +1220,7 @@ class Nurse_module extends General{
 				'bsl'		=>		!empty($this->input->post('bsl')) ? $this->input->post('bsl') :'',
 				'weight'		=>		$this->input->post('weight'),
 				'cPreparedBy'	=>		$this->session->userdata('user_id'),
+				'organization'		=>		$this->session->userdata('organization'),
 				'InActive'		=>		0
 			);
 			$this->db->insert('iop_vital_parameters',$this->data);
@@ -1421,6 +1433,7 @@ class Nurse_module extends General{
 				'bed_id'				=>		$this->input->post('bed_name'),
 				'reason'				=>		$this->input->post('reason'),
 				'cPreparedBy'			=>		$this->session->userdata('user_id'),
+				'organization'		=>		$this->session->userdata('organization'),
 				'InActive'				=>		0
 			);
 			$this->db->insert('iop_room_transfer',$this->data);

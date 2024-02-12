@@ -1,4 +1,112 @@
 <style>
+    .input-box {
+                width: 48vw !important;
+            }
+
+            textarea.form-control {
+                width: 48% !important;
+            }
+
+            #ptn_spo2 {
+                width: 48% !important;
+            }
+
+            #ptn_temp {
+                width: 48% !important;
+            }
+
+            #ptn_pulse {
+                width: 48% !important;
+            }
+
+            #ptn_bp {
+                width: 48% !important;
+            }
+
+
+            /* Media query for devices with a maximum width of 768px */
+            @media (max-width: 768px) {
+                .col-md-4 {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    /* Add some spacing between columns on smaller screens */
+                }
+
+                .input-box {
+                    width: 100% !important;
+                }
+
+                textarea.form-control {
+                    width: 100% !important;
+                }
+
+                #ptn_spo2 {
+                    width: 100% !important;
+                }
+
+                #ptn_temp {
+                    width: 100% !important;
+                }
+
+                #ptn_pulse {
+                    width: 100% !important;
+                }
+
+                #ptn_bp {
+                    width: 100% !important;
+                }
+
+                input#ptn_cvs {
+                    width: 100% !important;
+                }
+
+                input#ptn_cns {
+                    width: 100% !important;
+                }
+            }
+
+            /* Media query for devices with a maximum width of 300px */
+            @media (max-width: 300px) {
+                .col-md-4 {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    /* Add some spacing between columns on smaller screens */
+                }
+
+                .input-box {
+                    width: 100% !important;
+                }
+
+                textarea.form-control {
+                    width: 100% !important;
+                }
+
+                #ptn_spo2 {
+                    width: 100% !important;
+                }
+
+                #ptn_temp {
+                    width: 100% !important;
+                }
+
+                #ptn_pulse {
+                    width: 100% !important;
+                }
+
+                #ptn_bp {
+                    width: 100% !important;
+                }
+
+                input#ptn_cvs {
+                    width: 100% !important;
+                }
+
+                input#ptn_cns {
+                    width: 100% !important;
+                }
+            }
+
+    
     @media only screen and (min-width: 768px)
     {
         input {
@@ -103,40 +211,40 @@
           }
           textarea[name="ptn_kco"]
           {
-            width: 100% !important;
+            width: 54% !important;
         }
         textarea[name="ptn_fam_his"]
         {
-            width: 100% !important;
+            width: 54% !important;
         }
         textarea[name="ptn_pa"]
         {
-            width: 100% !important;
+            width: 54% !important;
         }
         textarea[name="ptn_foodin"]
         {
-            width: 59% !important;
+            width: 54% !important;
         }
 
         textarea[name="ptn_chf_comp"]
         {
-            width: 59% !important;
+            width: 54% !important;
         }
         textarea[name="ptn_past_his"]
         {
-            width: 59% !important;
+            width: 54% !important;
         }
         textarea[name="ptn_localex"]
         {
-            width: 59% !important;
+            width: 54% !important;
         }
         textarea[name="ptn_um"]
         {
-            width: 59% !important;
+            width: 54% !important;
         }
         textarea[name="ptn_rs"]
         {
-            width: 59% !important;
+            width: 54% !important;
         }
         textarea[name="allergies"]
         {

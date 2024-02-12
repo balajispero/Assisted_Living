@@ -273,7 +273,7 @@
                                             <td>
                                             <span id="showCategories" class="showCategories">
                                                 <input type="text" name="test_name" id="test_name" class="test_name form-control" style="display:none;">
-                        					<select name="item" id="item" class="particularitem form-control input-sm" style="width: 100%;">
+                        					<select name="item" id="item" class="particularitem form-control input-sm" style="width: 100%;" required>
                         						<option value="">- Particular Item -</option>
                                                 <!-- <?php 
                                                                     foreach($particular_cat as $particular_cat){?>
@@ -381,7 +381,7 @@
 
                <span id="showCategories1" class="showCategories">
                 <input type="text" name="test_name" id="test_name1" class="test_name form-control" style="display:none;">
-                                            <select name="item" id="particularitem" class="particularitem form-control input-sm">
+                                            <select name="item" id="particularitem" class="particularitem form-control input-sm" required>
                                                 <option value="">- Paricular Item -</option>
                                                 
                                             </select>
@@ -463,7 +463,7 @@
 
       <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="submit" id="editBtn" class="btn btn-sm btn-primary bg_color"  tabindex="11">Update</button>
+                                            <button type="submit" id="editBtn" class="btn btn-sm btn-outline-primary hvr-shutter-in-vertical"  tabindex="11">Update</button>
                                         </div>
                                         </form>
 
@@ -641,6 +641,7 @@ function showDrugName(category_id,laboratory_id=0)
         $(".test_name").hide();
          $(".particularitem").show();
          $("input[name='test_name']").val('');
+         $(".particularitem option").remove();
 
 if (window.XMLHttpRequest)
   {

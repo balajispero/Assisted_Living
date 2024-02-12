@@ -13,7 +13,8 @@ class Particular_bills_model extends CI_Model{
 				A.particular_name like '%".$this->session->userdata("search_particular_bill")."%' or 
 				A.particular_desc like '%".$this->session->userdata("search_particular_bill")."%' or 
 				B.group_name like '%".$this->session->userdata("search_particular_bill")."%'
-				) 
+				)
+				and A.organization= '".$this->session->userdata('organization')."' 
 				and A.InActive = 0";
 		$this->db->where($where);
 		$this->db->join("bill_group_name B","B.group_id = A.group_id","left outer");
@@ -28,7 +29,8 @@ class Particular_bills_model extends CI_Model{
 				A.particular_name like '%".$this->session->userdata("search_particular_bill")."%' or 
 				A.particular_desc like '%".$this->session->userdata("search_particular_bill")."%' or 
 				B.group_name like '%".$this->session->userdata("search_particular_bill")."%'
-				) 
+				)
+				and A.organization= '".$this->session->userdata('organization')."' 
 				and A.InActive = 0";
 		$this->db->where($where);
 		$this->db->join("bill_group_name B","B.group_id = A.group_id","left outer");
@@ -38,7 +40,11 @@ class Particular_bills_model extends CI_Model{
 	
 	
 	public function group_name(){
-		$this->db->where("InActive","0");
+		$this->db->where(array(
+			'organization'		=>		$this->session->userdata('organization'),
+			'InActive'			=>		0
+		));
+		
 		$this->db->order_by("group_name","ASC");
 		$query = $this->db->get("bill_group_name");	
 		return $query->result();
@@ -49,6 +55,7 @@ class Particular_bills_model extends CI_Model{
 			'group_id'			=>		$this->input->post('group_name'),
 			'particular_name'	=>		$this->input->post('partcular_name'),
 			'particular_id !='	=>		$this->input->post('id'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=>		0
 		));
 		$query = $this->db->get("bill_particular");
@@ -63,6 +70,7 @@ class Particular_bills_model extends CI_Model{
 		$this->db->where(array(
 			'group_id'			=>		$this->input->post('group_name'),
 			'particular_name'	=>		$this->input->post('partcular_name'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=>		0
 		));
 		$query = $this->db->get("bill_particular");
@@ -79,6 +87,7 @@ class Particular_bills_model extends CI_Model{
 			'particular_name'	=>		strtoupper($this->input->post('partcular_name')),
 			'particular_desc'	=>		$this->input->post('description'),
 			'charge_amount'		=>		$this->input->post('amount'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=>		0
 		);	
 		$this->db->insert("bill_particular",$this->data);

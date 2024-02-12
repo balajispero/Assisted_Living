@@ -201,7 +201,7 @@
                                            </thead>
                                            <tbody>
                                            <?php
-                                           
+                                           if($physioNotes) {
                                            foreach($physioNotes as $key => $rows){?>
                                             <tr>
                                             <td><?php echo $rows->session_date?></a></td>
@@ -224,7 +224,7 @@
                                             <?php } ?>
 
                                            </tr> 
-                                           <?php }?> 
+                                           <?php } }?> 
                                            </tbody>
                                            </table>
                                        </div>

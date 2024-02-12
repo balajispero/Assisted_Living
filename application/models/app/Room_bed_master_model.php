@@ -13,7 +13,8 @@ class Room_bed_master_model extends CI_Model{
 				B.room_name like '%".$this->session->userdata("search_room_bed_master")."%' or 
 				C.floor_name like '%".$this->session->userdata("search_room_bed_master")."%' or 
 				D.category_name like '%".$this->session->userdata("search_room_bed_master")."%'    
-				) 
+				)
+				and A.organization= '".$this->session->userdata('organization')."' 
 				and A.InActive = 0";
 		$this->db->where($where);
 		$this->db->join("room_master B","B.room_master_id = A.room_master_id","left outer");
@@ -30,7 +31,8 @@ class Room_bed_master_model extends CI_Model{
 				B.room_name like '%".$this->session->userdata("search_room_bed_master")."%' or 
 				C.floor_name like '%".$this->session->userdata("search_room_bed_master")."%' or 
 				D.category_name like '%".$this->session->userdata("search_room_bed_master")."%'    
-				) 
+				)
+				and A.organization= '".$this->session->userdata('organization')."' 
 				and A.InActive = 0";
 		$this->db->where($where);
 		$this->db->join("room_master B","B.room_master_id = A.room_master_id","left outer");
@@ -45,6 +47,7 @@ class Room_bed_master_model extends CI_Model{
 		$this->db->where(array(
 			'bed_name'				=>		$this->input->post('bed_name'),
 			'room_master_id'		=>		$this->input->post('room'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'				=>		0
 		));
 		$query = $this->db->get("room_beds");
@@ -60,6 +63,7 @@ class Room_bed_master_model extends CI_Model{
 			'bed_name'				=>		$this->input->post('bed_name'),
 			'room_master_id'		=>		$this->input->post('room'),
 			'room_bed_id !='		=>		$this->input->post('id'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'				=>		0
 		));
 		$query = $this->db->get("room_beds");
@@ -75,6 +79,7 @@ class Room_bed_master_model extends CI_Model{
 			'room_master_id'		=>		$this->input->post('room'),
 			'bed_name'				=>		$this->input->post('bed_name'),
 			'nStatus'				=>		'Vacant',
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'				=>		0
 		);	
 		$this->db->insert("room_beds",$this->data);

@@ -82,7 +82,7 @@
                                             <tr>
                                             	<tD></tD>
                                             	<td>
-                                                <button type="submit" value="View Report" class="btn btn-outline-primary hvr-shutter-in-vertical" style="width: 100%;" name="btnView">View Report</button>
+                                                <input type="submit" value="View Report" class="btn btn-primary bg_color" style="width: 100%;" name="btnView">
                                                 </td>
                                             </tr>
                                             </table>

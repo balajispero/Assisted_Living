@@ -84,6 +84,7 @@ class Ipd_model extends CI_Model{
 			// 'respiration'				=>		$this->input->post('respiration'),
 			// 'weight'					=>		$this->input->post('weight'),
 			'nStatus'					=>		'Pending',
+			'organization'					=>		$this->session->userdata('organization'),
 			'InActive'					=>		0
 		);	
 		
@@ -122,6 +123,7 @@ class Ipd_model extends CI_Model{
 				A.nStatus='Discharged'
 				)
 				and A.date_visit between '".$cFrom."' and '".$cTo."'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";	
 			$this->db->where($where1);
 		}elseif($ptn_dis == "index"){
@@ -129,6 +131,7 @@ class Ipd_model extends CI_Model{
 				A.nStatus='Pending'
 				)
 				and A.date_visit between '".$cFrom."' and '".$cTo."'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";	
 			$this->db->where($where2);
 		}
@@ -138,9 +141,11 @@ class Ipd_model extends CI_Model{
 				B.patient_no like '%".$this->input->post('search')."%' or 
 				A.patient_no like '%".$this->input->post('search')."%'
 				) 
-				and A.date_visit between '".$cFrom."' and '".$cTo."'   
+				and A.date_visit between '".$cFrom."' and '".$cTo."'
+				and A.organization= '".$this->session->userdata('organization')."'   
 				and A.InActive = 0";
 				$this->db->where($where);
+				$this->db->group_by("A.IO_ID");
 		$this->db->order_by('A.patient_no','asc');
 		$this->db->join("patient_personal_info B","B.patient_no = A.patient_no","left outer");
 		$this->db->join("system_parameters C","C.param_id = B.title","left outer");
@@ -186,6 +191,7 @@ class Ipd_model extends CI_Model{
 				A.nStatus='Discharged'
 				)
 				and A.date_visit between '".$cFrom."' and '".$cTo."'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";	
 			$this->db->where($where1);
 		}elseif($ptn_dis == "index"){
@@ -193,6 +199,7 @@ class Ipd_model extends CI_Model{
 				A.nStatus='Pending'
 				)
 				and A.date_visit between '".$cFrom."' and '".$cTo."'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";	
 			$this->db->where($where2);
 		}
@@ -202,9 +209,11 @@ class Ipd_model extends CI_Model{
 				B.patient_no like '%".$this->input->post('search')."%' or 
 				A.patient_no like '%".$this->input->post('search')."%'
 				) 
-				and A.date_visit between '".$cFrom."' and '".$cTo."'   
+				and A.date_visit between '".$cFrom."' and '".$cTo."'
+				and A.organization= '".$this->session->userdata('organization')."'   
 				and A.InActive = 0";
 				$this->db->where($where);
+				$this->db->group_by("A.IO_ID");
 		$this->db->order_by('A.patient_no','asc');
 		$this->db->join("patient_personal_info B","B.patient_no = A.patient_no","left outer");
 		$this->db->join("system_parameters C","C.param_id = B.title","left outer");
@@ -245,7 +254,7 @@ class Ipd_model extends CI_Model{
 				G.bed_name,
 				H.room_name
 		",false);
-		$this->db->where("A.IO_ID",$iop_no);
+		$this->db->where(array('A.organization'=>$this->session->userdata('organization'),"A.IO_ID"=>$iop_no));
 		$this->db->join("users B","B.user_id = A.refferal_doctor","left outer");
 		$this->db->join("users C","C.user_id = A.doctor_id","left outer");
 		$this->db->join("system_parameters D","D.param_id = B.title","left outer");
@@ -310,6 +319,7 @@ class Ipd_model extends CI_Model{
 			'dDate'		=>		date("Y-m-d h:i:s a"),
 			'added_date'	=>		date("Y-m-d h:i:s a"),
 			'sent_by'	=>		$this->session->userdata('user_id'),
+			'organization'	=>	$this->session->userdata('organization'),
 			'InActive'		=>		0
 		);	
 		$query = $this->db->insert('iop_sent_mail',$this->data);
@@ -318,7 +328,7 @@ class Ipd_model extends CI_Model{
 	
 	public function diagnosisList(){
 		$this->db->order_by("diagnosis_name","ASC");
-		$query = $this->db->get_where("diagnosis", array("InActive"=>'0'));	
+		$query = $this->db->get_where("diagnosis", array("organization"	=>	$this->session->userdata('organization'),"InActive"=>'0'));	
 		return $query->result();
 	}
 	
@@ -327,6 +337,7 @@ class Ipd_model extends CI_Model{
 		$this->db->order_by("A.iop_diag_id","DESC");
 		$this->db->where(array(
 			'A.iop_id'		=>		$iop_no,
+			'A.organization'	=>	$this->session->userdata('organization'),
 			'A.InActive'	=>		0
 		));
 		$this->db->join("diagnosis B","B.diagnosis_id = A.diagnosis_id","left outer");
@@ -359,6 +370,7 @@ class Ipd_model extends CI_Model{
 			'plan_action'		=>		$this->input->post('plan_action'),
 			'action_taken'		=>		$this->input->post('action_taken'),
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		);	
 		$query = $this->db->insert('iop_individual_care_plan',$this->data);
@@ -401,6 +413,7 @@ class Ipd_model extends CI_Model{
 		$this->db->order_by("intake_id","DESC");
 		$query = $this->db->get_where("iop_intake_record",array(
 			'iop_id'	=>	$iop_no,
+			'organization'		=>		$this->session->userdata('organization'),
 			//'cPreparedBy' => $this->session->userdata('user_id'),
 			'InActive'	=>	0,
 		));
@@ -411,6 +424,7 @@ class Ipd_model extends CI_Model{
 		$this->db->order_by("dDateTime","DESC");
 		$query = $this->db->get_where("iop_output_record",array(
 			'iop_id'	=>	$iop_no,
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0
 		));
 		return $query->result();
@@ -419,6 +433,7 @@ class Ipd_model extends CI_Model{
 
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");
@@ -429,6 +444,7 @@ class Ipd_model extends CI_Model{
 
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");
@@ -439,6 +455,7 @@ class Ipd_model extends CI_Model{
 
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");
@@ -449,6 +466,7 @@ class Ipd_model extends CI_Model{
 
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");
@@ -474,6 +492,7 @@ class Ipd_model extends CI_Model{
 		$this->db->join("floor E","E.floor_id = C.floor","left outer");
 		$query = $this->db->get_where("iop_room_transfer A",array(
 			'A.iop_id'	=>		$iop_no,
+			'A.organization'	=>		$this->session->userdata('organization'),
 			'A.InActive'	=>		0
 		));	
 		return $query->result();
@@ -489,6 +508,7 @@ class Ipd_model extends CI_Model{
 				'bed_id'				=>		$this->input->post('bed_no'),
 				'reason'				=>		'Patient Admitted',
 				'cPreparedBy'			=>		$this->session->userdata('user_id'),
+				'organization'      =>      $this->session->userdata('organization'),
 				'InActive'				=>		0
 			);
 			$this->db->insert('iop_room_transfer',$this->data);

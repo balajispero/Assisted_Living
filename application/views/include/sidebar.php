@@ -215,7 +215,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                             
                         </div>
                         <div class="pull-left info">
-                            <p style="font-size:15px;">Hello, <?php echo ucwords($userInfo->firstname);?></p>
+                            <p style="font-size:15px;">Hello, <?php echo $userInfo->firstname;?></p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -233,14 +233,16 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                         <?php if ($this->session->userdata('user_role')!='12'){ ?>
+                         
+                        <?php if ($hasAccesstoDashboard){ ?>
                          <li>
 
                             <a href="<?php echo base_url()?>app/dashboard" class="hvr-icon-pop">
                                 <i class="fa fa-dashboard hvr-icon"></i> <span style="color:#07B5BC;" class="hvr-pop">Dashboard</span>
                             </a>
                         </li>
-                        <?php } ?>     
+                        <?php } ?>
+                        
                         
                         <!--START OF POS-->
                         
@@ -287,8 +289,8 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                             </a>
                             <ul class="treeview-menu">
                                 <?php if($hasAccesstoAddPatient){ if ($this->session->userdata('user_role')=='5'){ ?>
-                                <li <?php echo $addNew_patient_mode;?>><a href="<?php echo base_url()?>app/patient/addPatient"><i class="fa fa-angle-double-right"></i>On Admission</a></li>   
-                                <?php }else{ ?><li <?php echo $addNew_patient_mode;?>><a href="<?php echo base_url()?>app/patient/addPatients"><i class="fa fa-angle-double-right"></i>On Admission</a></li> <?php } }?>
+            <li <?php echo $addNew_patient_mode;?>><a href="<?php echo base_url()?>app/patient/addPatient"><i class="fa fa-angle-double-right"></i>On Admission</a></li>   
+        <?php }else{ ?><li <?php echo $addNew_patient_mode;?>><a href="<?php echo base_url()?>app/patient/addPatients"><i class="fa fa-angle-double-right"></i>On Admission</a></li> <?php } }?>
                                 <?php if($hasAccesstoPatient){?><li <?php echo $patient_master_mode;?>><a href="<?php echo base_url()?>app/patient/index"><i class="fa fa-angle-double-right"></i>Member Master</a></li><?php }?>
                                 <?php if($hasAccesstoOPDRegistration == TRUE && $hasAccesstoOPDEnquiry == TRUE){?>
                                 <li class="treeview <?php echo $opd;?>">
@@ -507,7 +509,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <?php if($hasAccesstoPhysio){?>
                         <li class="treeview <?php echo $doctor;?>" style="display: <?php echo ($this->session->userdata('user_role') == 1) ? "none" : "block";?>">
                             <a href="#" class="hvr-icon-pop">
-                                <i class="fa fa-user-md hvr-icon"></i> <span class="hvr-pop" style="color: #07B5BC;">Physio Module</span>
+                                <i class="fa fa-user-md hvr-icon"></i> <span class="hvr-pop">Physio Module</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu onlyphysio_eval">

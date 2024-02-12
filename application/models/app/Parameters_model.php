@@ -8,6 +8,10 @@ class Parameters_model extends CI_Model{
 	
 	public function param_list(){
 		$this->db->select("distinct cCode as cCode",false);
+		$this->db->where(array(
+                'organization'      =>      $this->session->userdata('organization'),
+				'InActive'		=>		0
+        ));
 		$query = $this->db->get("system_parameters");
 		return $query->result();	
 	}
@@ -15,6 +19,7 @@ class Parameters_model extends CI_Model{
 	public function lists($module){
 		$query = $this->db->get_where("system_parameters",array(
 			'cCode'		=>		$module,
+			'organization'      =>      $this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		return $query->result();
@@ -25,6 +30,7 @@ class Parameters_model extends CI_Model{
 			'cCode'			=>		$this->input->post('module'),
 			'cValue'		=>		$this->input->post('cValue'),
 			'param_id !='	=>		$this->input->post('id'),
+			'organization'      =>      $this->session->userdata('organization'),
 			'InActive'		=>		0
 		));	
 		$query = $this->db->get("system_parameters");
@@ -39,6 +45,7 @@ class Parameters_model extends CI_Model{
 		$this->db->where(array(
 			'cCode'			=>		$this->input->post('module'),
 			'cValue'		=>		$this->input->post('cValue'),
+			'organization'      =>      $this->session->userdata('organization'),
 			'InActive'		=>		0
 		));	
 		$query = $this->db->get("system_parameters");
@@ -54,6 +61,7 @@ class Parameters_model extends CI_Model{
 			'cCode'			=>		$this->input->post('module'),
 			'cValue'		=>		$this->input->post('cValue'),
 			'cDesc'			=>		$this->input->post('cDesc'),
+			'organization'      =>      $this->session->userdata('organization'),
 			'InActive'		=>		0
 		);	
 		$this->db->insert("system_parameters",$this->data);

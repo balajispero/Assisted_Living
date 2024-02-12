@@ -13,12 +13,16 @@ class General_model extends CI_Model{
 
 	}
 	public function companyInfo(){
+		$this->db->where(array(
+			'organization'		=>		$this->session->userdata('organization'),
+			'InActive'	=>	0	
+		));
 		$query = $this->db->get("company_info");
 		return $query->row();
 	}
 	
 	public function getUserLoggedIn($username){
-		$this->db->select("A.user_id, A.lastname, A.firstname, A.middlename, A.picture, B.designation,A.user_role,A.physio_expert,C.module");
+		$this->db->select("A.user_id, A.lastname, A.firstname, A.middlename, A.picture, B.designation,A.user_role,A.physio_expert,A.organization,C.module");
 		$this->db->where('A.username', $username);
 		$this->db->join("designation B","B.designation_id = A.designation","left outer");
 		$this->db->join("user_roles C","C.role_id = A.user_role","left outer");
@@ -36,6 +40,7 @@ class General_model extends CI_Model{
 		$this->db->select("param_id, cValue");	
 		$this->db->where(array(
 			'cCode'		=>	'title_name',
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('cValue','asc');
@@ -51,6 +56,7 @@ class General_model extends CI_Model{
 		$this->db->select("param_id, cValue");	
 		$this->db->where(array(
 			'cCode'		=>	'gender',
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('cValue','asc');
@@ -62,6 +68,7 @@ class General_model extends CI_Model{
 		$this->db->select("param_id, cValue");	
 		$this->db->where(array(
 			'cCode'		=>	'civil_status',
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('cValue','asc');
@@ -70,7 +77,11 @@ class General_model extends CI_Model{
 	}
 	
 	public function departmentList(){
-		$this->db->select("*");	
+		$this->db->select("*");
+		$this->db->where(array(
+			'organization'		=>		$this->session->userdata('organization'),
+			'InActive'	=>	0	
+		));	
 		$this->db->order_by('patient_type','asc');
 		$query = $this->db->get("patient_type");
 		return $query->result();
@@ -78,6 +89,7 @@ class General_model extends CI_Model{
 	public function designationList(){
 		$this->db->select("designation_id, designation");	
 		$this->db->where(array(
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('designation','asc');
@@ -88,6 +100,7 @@ class General_model extends CI_Model{
 	public function userRoleList(){
 		$this->db->select("role_id, role_name");	
 		$this->db->where(array(
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('role_name','asc');
@@ -106,6 +119,7 @@ class General_model extends CI_Model{
 	
 	public function roomTypeList(){
 		$this->db->where(array(
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('category_name','asc');
@@ -115,6 +129,7 @@ class General_model extends CI_Model{
 	
 	public function roomMasterList(){
 		$this->db->where(array(
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('room_name','asc');
@@ -125,6 +140,7 @@ class General_model extends CI_Model{
 	public function bloodGroup(){
 		$this->db->where(array(
 			'cCode'		=>	'blood_type',
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('cValue','asc');
@@ -146,6 +162,7 @@ class General_model extends CI_Model{
 					concat(B.cValue,' ',A.firstname,' ',A.lastname) as 'name'",false);
 		$this->db->where(array(
 			'C.module'		=>	'doctor',
+			'A.organization'		=>	$this->session->userdata('organization'),
 			'A.InActive'	=>	0	
 		));
 		$this->db->order_by('A.lastname','asc');
@@ -157,6 +174,7 @@ class General_model extends CI_Model{
 	
 	public function insuranceCompList(){
 		$this->db->where(array(
+			'organization'		=>	$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('company_name','asc');
@@ -201,7 +219,7 @@ class General_model extends CI_Model{
 	}
 	
 	public function room_category(){
-		$query = $this->db->get_where("room_category",array('InActive' => 0));	
+		$query = $this->db->get_where("room_category",array('InActive' => 0,'organization'=>$this->session->userdata('organization')));
 		return $query->result();
 	}
 	
@@ -409,16 +427,16 @@ class General_model extends CI_Model{
 
 	 			public function get_ipd_ptn_cnt()
                 {
-                    return $this->db->where('InActive','0')->get('patient_details_iop')->result_array();
+                    return $this->db->where(array('organization'=>$this->session->userdata('organization'),'nStatus'=>'Pending','InActive'=>'0'))->get('patient_details_iop')->result_array();
                 }
 
                 public function today_reg_ptn_cnt()
                 {
-                    return $this->db->where('InActive','0')->like('date_entry', date('Y-m-d'))->get('patient_personal_info')->result_array();
+                    return $this->db->where(array('organization'=>$this->session->userdata('organization'),'InActive'=>'0'))->like('inc_entry', date('Y-m-d'))->get('patient_personal_info')->result_array();
                 }
                 public function vacant_room_cnt()
                 {
-                    return $this->db->where('InActive','0')->where('nStatus','Vacant')->get('room_beds')->result_array();
+                    return $this->db->where(array('organization'=>$this->session->userdata('organization'),'InActive'=>'0'))->where('nStatus','Vacant')->get('room_beds')->result_array();
                 }
 
 				public function normalPhysioList(){
@@ -443,6 +461,13 @@ class General_model extends CI_Model{
                     $query = $this->db->query("SELECT A.room_name,A.floor FROM `room_master` A WHERE `A`.`room_master_id` = $room_id");
                     return $query->row();
                 }
+
+                public function getptn_organization($iop_no){
+					$this->db->select("A.organization");
+					$this->db->where('A.IO_ID', $iop_no);
+					$query = $this->db->get("patient_details_iop A");
+					return $query->row();
+				}
 	
 	
 	

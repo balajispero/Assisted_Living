@@ -41,7 +41,8 @@ class Lab_model extends CI_Model{
 			C.middlename like '%".$this->input->post('search')."%'
 			) 
 			and A.dDate between '".$cFrom."' and '".$cTo."'
-			and A.category_id=7
+			and (A.category_id=7)
+			and A.organization= '".$this->session->userdata('organization')."'
 			and A.InActive = 0";
 
 			$this->db->where($where);
@@ -69,6 +70,7 @@ class Lab_model extends CI_Model{
 			$this->db->select("
 				A.io_lab_id,
 				A.iop_id,
+				A.patient_no,
 				A.laboratory_id,
 				A.doctor,
 				A.dDate,
@@ -88,6 +90,7 @@ class Lab_model extends CI_Model{
 			) 
 			and A.dDate between '".$cFrom."' and '".$cTo."'
 			and A.category_id=7
+			and A.organization= '".$this->session->userdata('organization')."'
 			and A.InActive = 0";
 
 			$this->db->where($where);
@@ -95,6 +98,7 @@ class Lab_model extends CI_Model{
 		$this->db->join("patient_personal_info C","C.patient_no = A.patient_no","left outer");
 		$this->db->join("lab_test_name_with_charges B","B.id = A.laboratory_id","left outer");
 			$query = $this->db->get("iop_laboratory A");
+			
 			return $query->num_rows();
 		}
 		public function get_lab_sample_test_single($id){
@@ -109,8 +113,16 @@ class Lab_model extends CI_Model{
 				A.lab_test_reports,
 				A.doctor
 				",false);
+ 
+			$where = "(
+			A.io_lab_id= '".$id."'
+			) 
+			and (A.category_id=7)
+			and A.organization= '".$this->session->userdata('organization')."'
+			and A.InActive = 0";
 
-			$this->db->where(array('A.InActive'=>0,'A.category_id'=>7,'A.io_lab_id'=>$id));
+			$this->db->where($where);
+			//$this->db->where(array('A.InActive'=>0,'A.category_id'=>7,'A.io_lab_id'=>$id));
 		//$this->db->order_by('A.preasses_id','desc');
 			$query = $this->db->get("iop_laboratory A");
 			return $query->result();

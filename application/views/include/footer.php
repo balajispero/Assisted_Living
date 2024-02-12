@@ -21,5 +21,5 @@
 </style>
 
 <footer>
-   <b><h6 style="color:#0097A7;">© Powered by Spero 2024</h6></b>
+   <b><h6 style="color:#0097A7;">© Powered by Spero <?php echo date("Y"); ?></h6></b>
 </footer>

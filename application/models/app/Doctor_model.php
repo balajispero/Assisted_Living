@@ -141,6 +141,7 @@ class Doctor_model extends CI_Model{
 				) 
 				and A.date_visit between '".$cFrom."' and '".$cTo."'
 				and A.nStatus = 'Pending'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";
 			}else{
 				$where = "(
@@ -151,6 +152,7 @@ class Doctor_model extends CI_Model{
 				) 
 				and A.date_visit between '".$cFrom."' and '".$cTo."'
 				and A.nStatus = 'Pending'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";
 			}
 		$this->db->where($where);
@@ -165,7 +167,7 @@ class Doctor_model extends CI_Model{
 		$this->db->join("room_beds G","G.room_bed_id = room_id","left outer");
 		$this->db->join("room_master H","H.room_master_id = G.room_master_id","left outer");
 		$query = $this->db->get("patient_details_iop A", $limit, $offset);
-		//echo $this->db->last_query();die;
+		//echo $this->db->last_query();die;	
 		return $query->result();
 	}
 	
@@ -210,6 +212,7 @@ class Doctor_model extends CI_Model{
 				A.patient_no like '%".$this->input->post('search')."%'
 				)
 				and A.nStatus = 'Pending'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";
 			}else{
 				$where = "(
@@ -220,6 +223,7 @@ class Doctor_model extends CI_Model{
 				) 
 				and A.date_visit between '".$cFrom."' and '".$cTo."'
 				and A.nStatus = 'Pending'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";
 			}
 		$this->db->where($where);
@@ -268,6 +272,7 @@ class Doctor_model extends CI_Model{
 				A.preasses_name like '%".$this->input->post('search')."%'
 				) 
 				and A.date_entry between '".$cFrom."' and '".$cTo."'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";
 
 		}else{
@@ -277,6 +282,7 @@ class Doctor_model extends CI_Model{
 				) 
 				and A.date_entry between '".$cFrom."' and '".$cTo."'
 				and A.added_by='".$this->session->userdata('user_id')."'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";
 			}
 		
@@ -326,6 +332,7 @@ class Doctor_model extends CI_Model{
 				A.preasses_name like '%".$this->input->post('search')."%'
 				) 
 				and A.date_entry between '".$cFrom."' and '".$cTo."'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";
 
 		}else{
@@ -335,6 +342,7 @@ class Doctor_model extends CI_Model{
 				) 
 				and A.date_entry between '".$cFrom."' and '".$cTo."'
 				and A.added_by='".$this->session->userdata('user_id')."'
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";
 			}
 		$this->db->where($where);

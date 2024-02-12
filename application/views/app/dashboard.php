@@ -192,7 +192,7 @@
                   <h4 class="font-weight-bold mb-1"><b> <a href="<?= base_url() ?>app/dashboard/dashboard_detail/admit_member" style="color:#FFF;">Total Member</a></b>
                   </h4>
                   <h2 class="mb-2" id="inc_count"></h2>
-                  <h6 class="card-text">Count 50%</h6>
+                  <h6 class="card-text"><!-- Count 50% --></h6>
                 </div>
               </div>
             </div>
@@ -203,7 +203,7 @@
                   <h4 class="font-weight-bold mb-2"><b> <a href="<?= base_url() ?>app/dashboard/new_member_detail/today_member" style="color:#FFF;">Today's New Member</a></b>
                   </h4>
                   <h2 class="mb-2" id="today_reg_ptn_cnt">0</h2>
-                  <h6 class="card-text">Count 0%</h6>
+                  <h6 class="card-text"><!-- Count 0% --></h6>
                 </div>
               </div>
             </div>
@@ -214,7 +214,7 @@
 
                   </h4>
                   <h2 class="mb-2" id="vacant_room_cnt"></h2>
-                  <h6 class="card-text">Available Rooms 60%</h6>
+                  <h6 class="card-text"><!-- Available Rooms 60% --></h6>
                 </div>
               </div>
             </div>
@@ -273,16 +273,11 @@
 
 
                   </div>
-                  <div class="text-center" style="margin-top: -20px;">
+                   <div class="text-center" style="margin-top: -20px;">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #5C6BC0;"></i>&nbsp;Private Room
                     &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #AB47BC;"></i>&nbsp;Semi-Private Room
                     &nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true" style="color: #F06292;"></i>&nbsp;Suit Room</div>
-                  </div>
-
-                  <!-- <li class="chart_list"><i class="fa fa-circle" aria-hidden="true" style="color: #5C6BC0;">&nbsp;Private Room</li>
-                  <li class="chart_list"><i class="fa fa-circle" aria-hidden="true" style="color: #AB47BC;"></i>&nbsp;Semi-Private Room</li>
-                  <li class="chart_list"><i class="fa fa-circle" aria-hidden="true" style="color: #F06292;"></i>&nbsp;Suit Room</li>
-                </div> -->
+                </div>
               </div>
             </div>
           </div>

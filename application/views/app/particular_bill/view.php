@@ -100,7 +100,7 @@
                          		<div class="box-header">
                                      <h3 class="box-title">
                                     <a href="<?php echo base_url();?>app/particular_bill" class="btn btn-default" >Back</a>
-                                    <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal">Price History</a>
+                                    <!-- <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal">Price History</a> -->
                                     </h3>
                                     
                                 </div>

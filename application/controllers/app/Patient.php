@@ -254,7 +254,6 @@ class Patient extends General{
 				// end of user restriction function
 				
 			$this->data['patientInfo'] = $this->patient_model->getPatient($id); 
-			$this->data['preassesNoList'] = $this->patient_model->preassesNo();
 			$this->load->view('app/patient/editPatient',$this->data);	
 		}
 	}

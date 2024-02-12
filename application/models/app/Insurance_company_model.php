@@ -12,7 +12,8 @@ class Insurance_company_model extends CI_Model{
 				company_name like '%".$this->input->post('search')."%' or 
 				company_address like '%".$this->input->post('search')."%' or 
 				email_address like '%".$this->input->post('search')."%'
-				) 
+				)
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("insurance_comp", $limit, $offset);
@@ -25,7 +26,8 @@ class Insurance_company_model extends CI_Model{
 				company_name like '%".$this->input->post('search')."%' or 
 				company_address like '%".$this->input->post('search')."%' or 
 				email_address like '%".$this->input->post('search')."%'
-				) 
+				)
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("insurance_comp");
@@ -37,6 +39,7 @@ class Insurance_company_model extends CI_Model{
 		$this->db->where(array(
 			'company_name'	=>		$this->input->post('company_name'),
 			'in_com_id !='	=>		$this->input->post('id'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		));
 		$query = $this->db->get("insurance_comp");
@@ -50,6 +53,7 @@ class Insurance_company_model extends CI_Model{
 	public function validate_company(){
 		$this->db->where(array(
 			'company_name'	=>		$this->input->post('company_name'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		));
 		$query = $this->db->get("insurance_comp");
@@ -95,6 +99,7 @@ class Insurance_company_model extends CI_Model{
 			'contact_no_person'		=>		$this->input->post('contact_no_person'),
 			'contact_email'			=>		$this->input->post('contact_email'),
 			'notes'					=>		$this->input->post('remarks'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'				=>		0
 		);	
 		$this->db->insert("insurance_comp",$this->data);

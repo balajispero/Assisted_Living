@@ -18,6 +18,13 @@ class Ipd extends General{
 		if(General::is_logged_in() == FALSE){
             redirect(base_url().'login');    
         }
+        $ptn_organization = $this->General_model->getptn_organization($this->uri->segment("4"));
+        if($this->uri->segment("4"))
+        {
+			/*if($this->session->userdata('organization')!=$ptn_organization->organization){
+						redirect(base_url().'access_denied');
+					}*/
+		}
 		General::variable();	
 	}
 	
@@ -505,7 +512,7 @@ class Ipd extends General{
         //$headers .= 'From: doctoraastha@sperohealthcare.in' . "\r\n";
         
         $headers .= "CC: balajim.speroinfosystems@gmail.com, $rel_email2\r\n";
-        //$headers .= "CC: avinash@sperohealthcare.in, kaushikpanditrao@ahpl.in, $rel_email2\r\n";
+        //$headers .= "CC: avinash@sperohealthcare.in, kaushikpanditrao@ahpl.in,Shivrudra@sperohealthcare.in,vijayrhayakar@ahpl.in,shelke@sperohealthcare.in, $rel_email2\r\n";
 
         if (mail($to_email, $subject, $msg1, $headers)) {
             $res = $this->ipd_model->save_sent_mail();
@@ -811,7 +818,7 @@ class Ipd extends General{
 		
 		$this->data['message'] = $this->session->flashdata('message');
 		
-		$this->data['medicineCategory'] = $this->Opd_model->medicineCategory();
+		//$this->data['medicineCategory'] = $this->Opd_model->medicineCategory();
 		
 		$this->data['medicines'] = $this->Opd_model->drug_name_lists($patient_no);
 		$this->data['results'] = $results = $this->Opd_model->given_medicine_chart_show_to_doctor($iop_no);
@@ -961,6 +968,7 @@ class Ipd extends General{
 			 'total_qty'		=>		isset($qty[$i]) ? $qty[$i] : '',
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
 			'added_date'			=>		date("Y-m-d h:i:s A"),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		);
 			$this->db->insert("iop_medicine",$this->data);
@@ -1037,6 +1045,7 @@ class Ipd extends General{
 			 'total_qty'		=>		isset($qty[$i]) ? $qty[$i] : '',
 			'cPreparedBy'	=>		$this->session->userdata('user_id'),
 			'added_date'			=>		date("Y-m-d h:i:s A"),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		);
 			$this->db->insert("iop_medicine",$this->data);
@@ -1144,6 +1153,7 @@ class Ipd extends General{
 				'bsl'		=>		!empty($this->input->post('bsl')) ? $this->input->post('bsl') :'',
 				'weight'		=>		$this->input->post('weight'),
 				'cPreparedBy'	=>		$this->session->userdata('user_id'),
+				'organization'		=>		$this->session->userdata('organization'),
 				'InActive'		=>		0
 			);
 			$this->db->insert('iop_vital_parameters',$this->data);
@@ -1507,6 +1517,7 @@ class Ipd extends General{
 				'complain_id'	=>		$this->input->post('complain'),
 				'notes'			=>		$this->input->post('notes'),
 				'cPreparedBy'	=>		$this->session->userdata('user_id'),
+				'organization'		=>		$this->session->userdata('organization'),
 				'InActive'		=>		0
 			);
 			$this->db->insert('iop_nurse_notes',$this->data);
@@ -1680,6 +1691,7 @@ class Ipd extends General{
 				'bed_id'				=>		$this->input->post('bed_name'),
 				'reason'				=>		$this->input->post('reason'),
 				'cPreparedBy'			=>		$this->session->userdata('user_id'),
+				'organization'		=>		$this->session->userdata('organization'),
 				'InActive'				=>		0
 			);
 			$this->db->insert('iop_room_transfer',$this->data);
@@ -1687,7 +1699,7 @@ class Ipd extends General{
 			$this->db->where(array("patient_no"=>$this->input->post('opd_no'), 'InActive' => 0));
 			$this->db->update('room_beds',array('nStatus'=>'Vacant','patient_no'=>''));
 
-			$this->db->where(array("room_master_id"=>$this->input->post('room_name'),"room_bed_id"=>$this->input->post('bed_name'), 'InActive' => 0));
+			$this->db->where(array("room_master_id"=>$this->input->post('room_name'),"room_bed_id"=>$this->input->post('bed_name'),"organization"=>$this->session->userdata('organization'), 'InActive' => 0));
 			$this->db->update('room_beds',array('nStatus'=>'Occupied','patient_no'=>$this->input->post('opd_no')));
 
 			/*********************End update room bed*********************/
@@ -1712,8 +1724,8 @@ class Ipd extends General{
 			
 			$this->data['room_transfer'] = $this->ipd_model->room_transfer($iop_no);
 			
-			$this->data['particular_cat'] = $this->billing_model->particular_cat();
-			$this->data['medicine_cat'] = $this->billing_model->medicine_cat();
+			//$this->data['particular_cat'] = $this->billing_model->particular_cat();
+			//$this->data['medicine_cat'] = $this->billing_model->medicine_cat();
 			
 			$this->data['getOperationTheater'] = $this->Opd_model->getOperationTheater($iop_no);
 			$this->data['room_category'] = $this->General_model->room_category();
@@ -1937,6 +1949,7 @@ class Ipd extends General{
 				'doctor'				=>		$this->input->post('doctor'),
 				'patient_no'				=>		$this->input->post('patient_no'),
 				'added_by'				=>		$this->session->userdata('user_id'),
+				'organization'      =>      $this->session->userdata('organization'),
 				'InActive'				=>		0
 			);
 			$this->db->insert('iop_laboratory',$this->data);

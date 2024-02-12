@@ -8,7 +8,8 @@ class Room_category_model extends CI_Model{
 	
 	public function getAll($limit = 10, $offset = 0){
 		$this->db->order_by('category_name','asc');
-		$where = "(category_name like '%".$this->input->post('search')."%' or category_desc like '%".$this->input->post('search')."%') 
+		$where = "(category_name like '%".$this->input->post('search')."%' or category_desc like '%".$this->input->post('search')."%')
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("room_category", $limit, $offset);
@@ -18,6 +19,7 @@ class Room_category_model extends CI_Model{
 	public function count_all(){
 		$this->db->order_by('category_name','asc');
 		$where = "(category_name like '%".$this->input->post('search')."%' or category_desc like '%".$this->input->post('search')."%') 
+				and organization= '".$this->session->userdata('organization')."'
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("room_category");
@@ -27,6 +29,7 @@ class Room_category_model extends CI_Model{
 	public function validate_room(){
 		$this->db->where(array(
 			'category_name'	=>		$this->input->post('category'),
+			'organization'	=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		));
 		$query = $this->db->get("room_category");
@@ -41,6 +44,7 @@ class Room_category_model extends CI_Model{
 		$this->db->where(array(
 			'category_name'		=>		$this->input->post('category'),
 			'category_id !='	=>		$this->input->post('id'),
+			'organization'	=>		$this->session->userdata('organization'),
 			'InActive'			=>		0
 		));
 		$query = $this->db->get("room_category");
@@ -55,6 +59,7 @@ class Room_category_model extends CI_Model{
 		$this->data = array(
 			'category_name'		=>		$this->input->post('category'),
 			'category_desc'		=>		$this->input->post('description'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=>		0
 		);	
 		$this->db->insert("room_category",$this->data);

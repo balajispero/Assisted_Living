@@ -351,6 +351,7 @@ class Doctor extends General{
             'entry_datetime'		=>	 date("Y-m-d h:i:s a"),
             'recommendation' => $this->input->post('recommendation'),
             'ptn_eligible' => $this->input->post('ptn_eligible'),
+            'organization'		=>		$this->session->userdata('organization'),
             'on_admission'=>"No",
             'added_by' => $this->session->userdata('user_id'),
         	'date_entry'		=>	 date("Y-m-d h:i:s a"));

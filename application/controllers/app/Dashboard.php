@@ -30,19 +30,18 @@ class Dashboard extends General{
 				 $id = $this->uri->segment("4");
 		$this->data['latest_patient'] = $this->dashboard_model->latest_patient();		 
 		$this->data['latest_visited_patient'] = $this->dashboard_model->getRoomstatus();		 
-		$this->data['getTodayAppointment'] = $this->dashboard_model->getTodayAppointment();
-		/*print_r($this->data['latest_visited_patient']);
-		print_r(count($this->data['latest_visited_patient']));*/
-		$this->data['vacant_room_barchart'] = $this->dashboard_model->getRoomstatusforbarchart();
-		$this->data['allocated_room'] = $this->dashboard_model->getRoomallocatedStatus();
+		$this->data['getTodayAppointment'] = $this->dashboard_model->getTodayAppointment();	
+		//$this->data['getstatus'] = $this->dashboard_model->getstatus();
+		/*echo "<pre>";
+         print_r($this->data['getTodayAppointment']);*/
+        $this->data['vacant_room_barchart'] = $this->dashboard_model->getRoomstatusforbarchart();
+        $this->data['allocated_room'] = $this->dashboard_model->getRoomallocatedStatus();
 		$room_data[]   = array(
-				'vacant_room_cnt' => count($this->data['vacant_room_barchart']),
-				'allocated_room_cnt' => count($this->data['allocated_room']),
+				'vacant_room_cnt' => @count($this->data['vacant_room_barchart']),
+				'allocated_room_cnt' => @count($this->data['allocated_room']),
 				
 			);
 			$this->data['results_data'] = @$room_data;	
-		//$this->data['getstatus'] = $this->dashboard_model->getstatus();
-        // print_r($this->data['getTodayAppointment']);die;
 		$this->load->view('app/dashboard',$this->data);	
 	}
 	
@@ -440,7 +439,8 @@ class Dashboard extends General{
      
         echo json_encode(count($vacant_room_cnt ));
     }
-	public function dashboard_detail($members=0)
+
+    public function dashboard_detail($members=0)
 	{
 		$this->session->set_userdata(array(
 			'tab'			=>		'',
@@ -519,7 +519,7 @@ class Dashboard extends General{
 		$this->load->view('app/dashboard_detail',$this->data);	
 	}
 
-	public function new_member_detail($members=0)
+		public function new_member_detail($members=0)
 	{
 		$this->session->set_userdata(array(
 			'tab'			=>		'',
@@ -587,7 +587,7 @@ class Dashboard extends General{
 			$this->data['message'] = $this->session->flashdata('message');
 			$this->data['table'] = $this->table->generate();
             $this->data['members'] = $members;
-			$this->data['title'] = "Today Registration Member List";
+            $this->data['title'] = "Today Registration Member List";
 		    $this->load->view('app/dashboard_detail',$this->data);	
 	}
 
@@ -660,7 +660,7 @@ class Dashboard extends General{
 			$this->data['message'] = $this->session->flashdata('message');
 			$this->data['table'] = $this->table->generate();
             $this->data['members'] = $members;
-			$this->data['title'] = "Available Room Bed List";
+            $this->data['title'] = "Available Room Bed List";
 		    $this->load->view('app/dashboard_detail',$this->data);	
 	}
 	

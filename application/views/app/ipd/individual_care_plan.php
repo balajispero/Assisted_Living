@@ -179,7 +179,7 @@
                                         <div class="tab-pane active" id="tab_1">
                                             <?php //if($this->session->userdata('emr_viewing') == ""){?>    
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                            <a href="#" class="btn btn-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Individual Care Plan</a>
+                                            <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Individual Care Plan</a>
                                             <?php } ?>
                                             <a href="<?php echo base_url()?>app/ipd_print/print_individual_care_plan/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                              <!-- <a href="<?php echo base_url()?>app/ipd_print/pdf_diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-success" target="_blank"><i class="fa fa-print"></i> PDF</a> -->

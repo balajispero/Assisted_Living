@@ -8,7 +8,8 @@ class Roles_model extends CI_Model{
 	
 	public function getAll($limit = 10, $offset = 0){
 		$this->db->order_by('role_name','asc');
-		$where = "(role_name like '%".$this->input->post('search')."%' or role_description like '%".$this->input->post('search')."%') 
+		$where = "(role_name like '%".$this->input->post('search')."%' or role_description like '%".$this->input->post('search')."%')
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("user_roles", $limit, $offset);
@@ -17,11 +18,26 @@ class Roles_model extends CI_Model{
 	
 	public function count_all(){
 		$this->db->order_by('role_name','asc');
-		$where = "(role_name like '%".$this->input->post('search')."%' or role_description like '%".$this->input->post('search')."%') 
+		$where = "(role_name like '%".$this->input->post('search')."%' or role_description like '%".$this->input->post('search')."%')
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("user_roles");
 		return $query->num_rows();
+	}
+	public function validate_role_name(){
+		$this->db->select("role_name");
+		$this->db->where(array(
+			'role_name'	=>	$this->input->post('role_name'),
+			'organization'	=>	$this->session->userdata('organization'),
+			'InActive'		=>	0
+		));	
+		$query = $this->db->get("user_roles");
+		if($query->num_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}	
 	}
 	
 	public function save(){
@@ -29,6 +45,7 @@ class Roles_model extends CI_Model{
 			'module'				=>		!empty($this->input->post('module')) ? $this->input->post('module') : '',
 			'role_name'				=>		$this->input->post('role_name'),
 			'role_description'		=>		$this->input->post('role_description'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'				=>		0
 		);	
 		
@@ -44,6 +61,21 @@ class Roles_model extends CI_Model{
 		$this->db->where('role_id',$id);
 		$query = $this->db->get('user_roles');
 		return $query->row();		
+	}
+	public function validate_role_name_edit(){
+		$this->db->select("role_name");
+		$this->db->where(array(
+			'role_name'	=>	$this->input->post('role_name'),
+			'organization'	=>	$this->session->userdata('organization'),
+			'InActive'		=>	0,
+			'role_id !='	=>		$this->input->post('id')
+		));	
+		$query = $this->db->get("user_roles");
+		if($query->num_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}	
 	}
 	
 	public function update(){

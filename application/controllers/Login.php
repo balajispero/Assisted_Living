@@ -58,6 +58,7 @@ class Login extends General{
                     'username'          =>          $this->input->post('username'),
                     'user_role'         =>          $user_info->user_role,
                     'physio_expert'         =>          @$user_info->physio_expert,
+                    'organization'         =>          @$user_info->organization,
                     'is_logged_in'      =>          true,
 					'user_id'			=>			$user_info->user_id,
 				// 	'department'		=>			$user_info->department_id     

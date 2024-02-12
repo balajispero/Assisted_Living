@@ -101,7 +101,7 @@
                          		 <div class="box-footer clearfix">
                             	
                                             <a href="<?php echo base_url();?>app/user" class="btn btn-default">Cancel</a>
-                                            <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                            <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                  
                             </div>
                             
@@ -270,9 +270,18 @@
                                                         <td width="12%">Organization <font color="#FF0000">*</font></td>
                                                         <td width="88%">
                                                             <select name="organization" class="form-control input-sm" style="width: 200px;" required>
-                                                                <option value="">- Select Organization -</option>
-                                                                <option value="ALF">ALF</option>
-                                                                <option value="post stroke">post stroke</option>
+                                                                <!-- <option value="">- Select Organization -</option> -->
+                                                                <?php 
+                                                                if($this->session->userdata('organization')=="aastha"){
+                                                                 ?>
+                                                                 <option value="<?php echo $this->session->userdata('organization') ?>" selected><?php echo ucwords($this->session->userdata('organization')) ?></option>
+                                                                 <!-- <option value="aastha"><?php echo ucwords("aastha"); ?></option>
+                                                                <option value="athashri"><?php echo ucwords("athashri"); ?></option> -->
+                                                                <!-- <option value="post stroke">post stroke</option> -->   
+                                                                <?php }else{ ?>
+                                                                    <option value="<?php echo $this->session->userdata('organization') ?>" selected><?php echo ucwords($this->session->userdata('organization')) ?></option>
+                                                                <?php } ?>
+                                                                
                                                                 
                                                             </select>
                                                         </td>

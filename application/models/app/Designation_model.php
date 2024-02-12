@@ -8,7 +8,8 @@ class Designation_model extends CI_Model{
 	
 	public function getAll($limit = 10, $offset = 0){
 		$this->db->order_by('designation','asc');
-		$where = "(designation like '%".$this->input->post('search')."%' or description like '%".$this->input->post('search')."%') 
+		$where = "(designation like '%".$this->input->post('search')."%' or description like '%".$this->input->post('search')."%')
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("designation", $limit, $offset);
@@ -17,7 +18,8 @@ class Designation_model extends CI_Model{
 	
 	public function count_all(){
 		$this->db->order_by('designation','asc');
-		$where = "(designation like '%".$this->input->post('search')."%' or description like '%".$this->input->post('search')."%') 
+		$where = "(designation like '%".$this->input->post('search')."%' or description like '%".$this->input->post('search')."%')
+				and organization= '".$this->session->userdata('organization')."' 
 				and InActive = 0";
 		$this->db->where($where);
 		$query = $this->db->get("designation");
@@ -28,6 +30,7 @@ class Designation_model extends CI_Model{
 		//$this->db->select("designation");
 		$this->db->where(array(
 			'designation'			=>		$this->input->post('designation'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'designation_id !='		=>		$this->input->post('id')
 		));
 		$query = $this->db->get("designation");
@@ -42,6 +45,7 @@ class Designation_model extends CI_Model{
 		//$this->db->select("designation");
 		$this->db->where(array(
 			'designation'	=>		$this->input->post('designation'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		));
 		$query = $this->db->get("designation");
@@ -56,6 +60,7 @@ class Designation_model extends CI_Model{
 		$this->data = array(
 			'designation'	=>		$this->input->post('designation'),
 			'description'	=>		$this->input->post('description'),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		);	
 		$this->db->insert("designation",$this->data);

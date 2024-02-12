@@ -118,6 +118,7 @@ class Opd_model extends CI_Model{
 				A.patient_no like '%".$this->input->post('search')."%'
 				) 
 				and A.patient_no not in(select patient_no from patient_details_iop where nStatus = 'Pending' and InActive = 0)
+				and A.organization= '".$this->session->userdata('organization')."'
 				and A.InActive = 0";
 		$this->db->where($where);
 		$this->db->order_by('lastname','asc');
@@ -142,7 +143,8 @@ class Opd_model extends CI_Model{
 				A.firstname like '%".$this->input->post('search')."%' or 
 				A.patient_no like '%".$this->input->post('search')."%'
 				)           
-				and A.patient_no not in(select patient_no from patient_details_iop where nStatus = 'Pending' and InActive = 0) 
+				and A.patient_no not in(select patient_no from patient_details_iop where nStatus = 'Pending' and InActive = 0)
+				and A.organization= '".$this->session->userdata('organization')."' 
 				and A.InActive = 0";
 		$this->db->where($where);
 		$this->db->order_by('lastname','asc');
@@ -225,7 +227,7 @@ class Opd_model extends CI_Model{
 	
 	public function ComplainList(){
 		$this->db->order_by("complain_name","ASC");
-		$query = $this->db->get_where("complain", array("InActive"=>'0'));	
+		$query = $this->db->get_where("complain", array("organization"=>$this->session->userdata('organization'),"InActive"=>'0'));	
 		return $query->result();
 	}
 	
@@ -293,6 +295,7 @@ class Opd_model extends CI_Model{
 			'diagnosis_id'	=>		$this->input->post('diagnosis'),
 			'remarks'		=>		$this->input->post('remarks'),
 			'dDate'			=>		date("Y-m-d h:i:s a"),
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'		=>		0
 		);
 		// var_dump($this->data);die;
@@ -305,6 +308,7 @@ class Opd_model extends CI_Model{
 		$this->db->order_by("A.iop_diag_id","DESC");
 		$this->db->where(array(
 			'A.iop_id'		=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'A.InActive'	=>		0
 		));
 		$this->db->join("diagnosis B","B.diagnosis_id = A.diagnosis_id","left outer");
@@ -317,6 +321,7 @@ class Opd_model extends CI_Model{
 		$this->db->order_by("A.iop_comp_id","DESC");
 		$this->db->where(array(
 			'A.iop_id'		=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'A.InActive'	=>		0
 		));
 		$this->db->join("complain B","B.complain_id = A.complain_id","left outer");
@@ -525,6 +530,7 @@ class Opd_model extends CI_Model{
 		$this->db->order_by("dDateTime","DESC");
 		$query = $this->db->get_where("iop_individual_care_plan",array(
 			'iop_id'	=>		$iop_no,
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		return $query->result();
@@ -533,6 +539,7 @@ class Opd_model extends CI_Model{
 
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");
@@ -543,6 +550,7 @@ class Opd_model extends CI_Model{
 
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");
@@ -554,6 +562,7 @@ class Opd_model extends CI_Model{
 		$this->db->order_by("dDateTime","DESC");
 		$query = $this->db->get_where("iop_vital_parameters",array(
 			'iop_id'	=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		
@@ -564,6 +573,7 @@ class Opd_model extends CI_Model{
 		
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");
@@ -574,6 +584,7 @@ class Opd_model extends CI_Model{
 		
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");	
@@ -585,6 +596,7 @@ class Opd_model extends CI_Model{
 		$this->db->order_by("dDateTime","DESC");
 		$query = $this->db->get_where("iop_nurse_notes",array(
 			'iop_id'	=>		$iop_no,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		
@@ -706,6 +718,7 @@ class Opd_model extends CI_Model{
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
 			'category_id'=>7,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		//$this->db->order_by("dDate","DESC");
@@ -717,6 +730,7 @@ class Opd_model extends CI_Model{
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
 			'category_id'=>7,
+			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
 		//$this->db->order_by("dDate","DESC");	
@@ -728,6 +742,7 @@ class Opd_model extends CI_Model{
 		
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
+			/*'organization'=>$this->session->userdata('organization'),*/
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("session_date","DESC");
@@ -740,6 +755,7 @@ class Opd_model extends CI_Model{
 		
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
+			/*'organization'=>$this->session->userdata('organization'),*/
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("session_date","DESC");	

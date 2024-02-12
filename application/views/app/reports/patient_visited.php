@@ -132,7 +132,7 @@
                                              </tr>
                                             <tr>
                                             	<td>
-                                                <button type="submit" value="VIEW REPORT" class="btn btn-out;ine-primary hvr-shutter-in-vertical" style="width: 100%;" name="btnView">VIEW REPORT</button>
+                                                <input type="submit" value="VIEW REPORT" class="btn btn-primary bg_color" style="width: 100%;" name="btnView">
                                                 </td>
                                             </tr>
                                             </table>

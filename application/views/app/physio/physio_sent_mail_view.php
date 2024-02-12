@@ -147,10 +147,11 @@
                               <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
                                   <li class="active"><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
+                                   <?php if($this->session->userdata('user_role') == 11){ ?>
                                  <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                  <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
                                  <li><a href="<?php echo base_url()?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Discharge Summary</a></li> 
-                                 
+                                 <?php } ?>
                                    
                                     
                                  </ul>
@@ -233,7 +234,7 @@
   <tr>
     <td align="center" bgcolor="#eee" style="padding: 15px 10px 15px 10px; color: #555555; font-family: Arial, sans-serif; font-size: 12px; line-height: 18px;">
       <center><?php if($getOPDPatient->nStatus == "Pending"){?>
-                                                              <button class="disable_btn btn btn-outline-primary hvr-shutter-in-vertical" name="submit" type="submit" value="sent_mail">Send Mail</button>
+                                                              <button class="disable_btn btn btn-primary bg_color" name="submit" type="submit" value="sent_mail">Send Mail</button>
                                                          <?php } ?><br/></center>
       </td>
     </tr>
