@@ -264,7 +264,8 @@
                                             if(!empty($medicine_chart)){ ?>
                             <tr>
                                 <td>
-                                    <input type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" value="Save Changes" name="save">
+                                    <!-- <input type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" value="Save Changes" name="save"> -->
+                                    <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" value="Save Changes" name="save">Save Changes</button>
                                 </td>   
                         </tr> 
                         <?php } ?>

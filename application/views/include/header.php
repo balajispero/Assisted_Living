@@ -13,6 +13,10 @@
         font-family:  Helvetica;
         font-size: 12px;
     }
+    .navbar-nav > .user-menu > .dropdown-menu > li.user-header{
+        background-color: #0097A7 !important;
+    }
+    
     @media only screen and (max-width:768px) and (min-width:300px) {
          .m12{
             font-size: 15px;
@@ -263,7 +267,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header bg-light-blue droplist bg_color">
+                        <li class="user-header droplist">
                             <?php if($userInfo->picture == ""){?>
                     	<img src="<?php echo base_url()?>public/user_picture/user_img.jpg" class="img-circle" alt="User Image" />
                     <?php }else{?>

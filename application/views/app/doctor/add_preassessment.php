@@ -393,7 +393,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group wrapper-class" >
                                                                         <label></label><span class="text-danger"></span>
-                                                                <button type="button" name="chl_add" id="chl_add" class="btn btn-primary bg_color">Add Child</button>
+                                                                <button type="button" name="chl_add" id="chl_add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Child</button>
                                                                 </div>
                                                             </div>
         
@@ -546,7 +546,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group wrapper-class" >
                                                                         <label></label><span class="text-danger"></span>
-                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary bg_color">Add Doctor</button>
+                                                                <button type="button" name="add2" id="td_add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Doctor</button>
                                                                 </div>
                                                             </div>
         
@@ -595,7 +595,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>DIAGNOSIS</label><span class="text-danger"></span></br>
-                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary bg_color">Add Diagnosis</button><br><br><div id="dynamic_field1"></div>
+                                                                            <button type="button" required name="add1" id="add1" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Diagnosis</button><br><br><div id="dynamic_field1"></div>
                                                                             
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -625,7 +625,8 @@
                                                                     </div><!-- /.col-md-3 -->
 
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next1" name="submit" value="Next">
+                                                                <!-- <input type="submit" class="submit_btn btn btn-primary bg_color" id="next1" name="submit" value="Next"> -->
+                                                                <button type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next1" name="submit" value="Next">Next</button>
                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
     
 
@@ -645,7 +646,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group wrapper-class" >
                                                         <label>DETAILS OF CURRENT MEDICATIONS</label><span class="text-danger"></span></br>
-                                                            <button type="button" name="add" id="add" class="btn btn-primary bg_color">Add Medicine</button>
+                                                            <button type="button" name="add" id="add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Medicine</button>
                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                     </div><!-- /.form-group wrapper-class -->
                                                 </div><!-- /.col-md-3 -->
@@ -754,7 +755,8 @@
                                                                 </tr>    
                                                               </table>
                                                             </div>
-                                                            <input type="submit" class="submit_btn btn btn-primary bg_color" id="next2" name="submit" value="Next">
+                                                            <!-- <input type="submit" class="submit_btn btn btn-primary bg_color" id="next2" name="submit" value="Next"> -->
+                                                             <button type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next2" name="submit" value="Next">Next</button>
 
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
 
@@ -1123,7 +1125,8 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next3" name="submit" value="Next">
+                                                                <!-- <input type="submit" class="submit_btn btn btn-primary bg_color" id="next3" name="submit" value="Next"> -->
+                                                                <button type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next3" name="submit" value="Next">Next</button>
                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
                                             
                 </div>
@@ -1537,7 +1540,8 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next4" name="submit" value="Next">
+                                                                <!-- <input type="submit" class="submit_btn btn btn-primary bg_color" id="next4" name="submit" value="Next"> -->
+                                                                <button type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next4" name="submit" value="Next">Next</button>
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
                    
                                                 </div>
@@ -1689,7 +1693,8 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next5" name="submit" value="Submit">
+                                                                <!-- <input type="submit" class="submit_btn btn btn-primary bg_color" id="next5" name="submit" value="Submit"> -->
+                                                                <button type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next5" name="submit" value="Submit">Next</button>
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
                                                     
                                                 </div>

@@ -9,9 +9,9 @@
       height: 100%;
     }
     #background{
-    background-image: url("./public/img/new/ogin_image1.png");
-    background-size: 100% 100%;
-    height: 100%;
+    background-image: url("./public/img/new/login_img.png");
+    background-size: 100% 100% !important;
+    height: 100%  !important;
     background-position: center;
     background-repeat: no-repeat;
     /*background-size: contain;*/
@@ -19,11 +19,101 @@
     padding:30px;
     }
 	.account-container{
-		margin: 50px 60px 0 auto !important;
+		/* margin: 50px 60px 0 auto !important;	 */
+		
 	}
+	.clearfix{
+		background: linear-gradient(rgba(0, 110, 211, 1),rgba(0, 0, 0, 0.25));
+        width: 30%;
+        height: 550px;
+		position: fixed;
+		left: 68%;
+		top: 5%;
+       border-radius: 30px;
+       border: 2px; 
+  
+}
+.layout1{
+	position: fixed;
+	top:85%;
+	left:-3%;
+}
+.layout2{
+	position: fixed;
+	top: 40%;
+	left:2%;
+}
+
+.head1{
+font-family: 'Roboto';
+font-size: 25px;
+font-weight: 50px;
+line-height: 113px;
+letter-spacing: 0em;
+margin-left: 60px;
+/* text-align: left; */
+
+
+}
+.head2{
+	font-family:'Montserrat';
+font-size: 84px;
+font-weight: 100px;
+line-height: 44p;
+text-align: left;
+
+
+}
+.img{
+	position: fixed;
+	top:10%;
+	left:78%;
+	
+}
+.head3{
+	position: fixed;
+	top:30%;
+	left:79%;
+	color: white;
+}
+.login-content{
+	position: fixed;
+	top: 40%;
+	left: 73%;
+	line-height: 70px;
+}
+.login-btn{
+	position:fixed;
+	top:75%;
+	left:79%;
+	
+}
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background: rgba(255,255,255,0.4);
+  outline: none;
+  /* background-color: white; */
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+
+	
 	 @media only screen and (min-width: 300px) and (max-width: 500px)
 	{ 
-		.account-container {
+	.clearfix {
+    width: 80%; /* Adjust the width for smaller screens */
+    left: 10%; /* Reset the left position for full width */
+	top: 30%;
+	height: 450px;
+	margin-bottom: 50px;
+    }
+	.account-container {
     margin: 2px 0px 0 auto !important;
 	}
 	h1{
@@ -45,6 +135,7 @@
 		.account-container {
     margin-top: -10px !important;
 	}
+	
 	
 	}
 	.bg_color{
@@ -101,64 +192,37 @@
 <br /><br /><br /><br /><br /><br /><br />
 <div class="row">
 	<div class="col-md-12">
+		<div class="layout1">
+		<h3 class="head1" style="color: white;">Spero Healthcare Innovations Pvt. Ltd.</h3>
+        </div>
+		<div class="layout2">
+         <h2 style="color: white;" class="head2">Assisted Living Facility</h2>
+		</div>
+<div class="clearfix">
+<div class="img">
+	<img src="<?=base_url()?>public/img/new/Spero.png" alt="Spero" height="28px" width="125px">
+</div>
+<div>
+	<h3 class="head3">USER LOGIN</h3>
+	<div class="login-content">
+	<div class="col-xs-12 col-md-auto">
+    <label>Username</label>
+    <input type="text" name="search" placeholder="Username">
+</div>
+<div class="col-xs-12 col-md-auto">
+    <label class="sr-only" for="inlineFormInputGroup">Password</label>
+    <div class="input-group mb-2">
+        <span class="input-group-addon">@</span>
+        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Password">
+    </div>
+</div>
 
-				
-				<div class="account-container">
-					
-					<div class="content clearfix" >
-						
-						
-						<form action="<?php echo base_url()?>login/validate_login" method="post" id="frmLogin" name="frmLogin">
-
-							<h1>Login</h1>		
-
-							<div class="login-fields">
-								
-								<p>Please enter your username and password</p>
-				                <br>
-				                <?php echo validation_errors(); ?>    
-
-				                <?php 
-
-				                if(isset($usernamelogin))
-				                {
-				                	$usernamelogin = $usernamelogin;
-				                }else{
-				                	$usernamelogin = "";
-				                }
-
-				                if(isset($passwordlogin))
-				                {
-				                	$passwordlogin = $passwordlogin;
-				                }else{
-				                	$passwordlogin = "";
-				                }
-
-				                ?>
-
-								
-								<div class="field">
-									<label for="username">Username</label>
-									
-									<?php
-										echo form_input("username",$usernamelogin,"class='login username-field' placeholder='Username' required");
-										?>
-				                </div> <!-- /field -->
-								
-								<div class="field">
-									<label for="password">Password:</label>
-				                    <input type="password" name="password" class="login password-field" placeholder="Password" required value="<?php echo $passwordlogin;?>" />
-								</div> <!-- /password -->
-								
-							</div>
-							<div class="login-actions">
-								<button class="button btn btn-primary btn-large bg_color" >Log In</button>
-							</div> <!-- .actions -->
-						</form>
-						
-					</div> <!-- /content -->
-					
-				</div> <!-- /account-container -->
+</div>
+<div class="login-btn">
+	<button style="padding: 5px; width:100px;">Submit</button>
+</div>
+</div>
+</div>
 	</div>
 </div>
 

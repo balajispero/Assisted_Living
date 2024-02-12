@@ -125,7 +125,7 @@
 
                                         
                                         <div class="form-group">
-                                            <button class="btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-search"></i> </button>
+                                            <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-search"></i> </button>
                                             <label>*Note: (Search Particular Patient By Entering Member No./Or Select Button To See All Patients)</label>
                                         </div>
                                         <br>
