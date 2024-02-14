@@ -190,6 +190,26 @@ input[type=text] {
 
 	
 <br /><br /><br /><br /><br /><br /><br />
+<form action="<?php echo base_url()?>login/validate_login" method="post" id="frmLogin" name="frmLogin">
+	<?php echo validation_errors(); ?>    
+
+				                <?php 
+
+				                if(isset($usernamelogin))
+				                {
+				                	$usernamelogin = $usernamelogin;
+				                }else{
+				                	$usernamelogin = "";
+				                }
+
+				                if(isset($passwordlogin))
+				                {
+				                	$passwordlogin = $passwordlogin;
+				                }else{
+				                	$passwordlogin = "";
+				                }
+
+				                ?>
 <div class="row">
 	<div class="col-md-12">
 		<div class="layout1">
@@ -207,24 +227,26 @@ input[type=text] {
 	<div class="login-content">
 	<div class="col-xs-12 col-md-auto">
     <label>Username</label>
-    <input type="text" name="search" placeholder="Username">
+    <input type="text" placeholder="Username"  name="username">
+    
 </div>
 <div class="col-xs-12 col-md-auto">
     <label class="sr-only" for="inlineFormInputGroup">Password</label>
     <div class="input-group mb-2">
         <span class="input-group-addon">@</span>
-        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" name="password">
     </div>
 </div>
 
 </div>
 <div class="login-btn">
-	<button style="padding: 5px; width:100px;">Submit</button>
+	<button type="submit" class="btn form-control btn-warning rounded submit px-3" name="login">LOGIN</button>
 </div>
 </div>
 </div>
 	</div>
 </div>
+</form>
 
 </div>
 

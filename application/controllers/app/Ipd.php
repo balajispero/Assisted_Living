@@ -21,9 +21,9 @@ class Ipd extends General{
         $ptn_organization = $this->General_model->getptn_organization($this->uri->segment("4"));
         if($this->uri->segment("4"))
         {
-			/*if($this->session->userdata('organization')!=$ptn_organization->organization){
+			if($this->session->userdata('organization')!=$ptn_organization->organization){
 						redirect(base_url().'access_denied');
-					}*/
+					}
 		}
 		General::variable();	
 	}
@@ -776,7 +776,7 @@ class Ipd extends General{
 									$patient->civil_status, 
 									$patient->age,
 									date('d M, Y',strtotime($patient->date_entry)), 
-									anchor('app/ipd/admit/'.$patient->patient_no,'Admit')
+									anchor('app/doctor/admit/'.$patient->patient_no,'Admit')
 			);
 		}
 		$this->data['message'] = $this->session->flashdata('message');
@@ -2006,6 +2006,86 @@ class Ipd extends General{
 		);
     $this->db->where("IO_ID",$iop_no);
 	$this->db->update("patient_details_iop",$this->data);
+	
+    redirect(base_url().'app/ipd/view/'.$iop_no.'/'.$patient_no, $this->data);
+
+}
+public function update_incharge_doctor() {
+    $iop_no = $this->uri->segment("4");
+    $patient_no = $this->uri->segment("5");
+    $incharge_doctor = $this->input->post('doctor');
+    $prev_incharge = $this->input->post('prev_incharge');
+
+    $this->data = array(
+			'doctor_id'		=>		$this->input->post('doctor')
+		);
+    $this->db->where("IO_ID",$iop_no);
+	$this->db->update("patient_details_iop",$this->data);
+
+	$where = "(
+		incharge_doctor= '".$this->input->post('doctor')."' and
+		iop_no= '".$iop_no."' 
+		)
+		and organization= '".$this->session->userdata('organization')."' 
+		and InActive = 0";
+		$this->db->where($where);
+		$query = $this->db->get("iop_patient_incharge_his");
+		$nurse_med=$query->result();
+		
+		if($query->num_rows() > 0)
+		{
+			
+		}
+		elseif($incharge_doctor){
+			if($prev_incharge)
+			{
+				$where1 = "(
+				incharge_doctor= '".$this->input->post('prev_incharge')."' and
+				iop_no= '".$iop_no."' 
+				)
+				and organization= '".$this->session->userdata('organization')."' 
+				and InActive = 0";
+				$this->db->where($where1);
+				$query1 = $this->db->get("iop_patient_incharge_his");
+				$query1->result();
+				
+				if($query1->num_rows() > 0)
+				{
+					
+				}
+				else
+				{
+					$this->prev_incharge_data = array(
+					'iop_no'		=>		$iop_no,
+					'patient_no'		=>		$patient_no,
+					'incharge_doctor'		=>		$this->input->post('prev_incharge'),
+					 'assigned_date'			=>	@$this->input->post('prev_incharge_assign_date'),
+					 'added_date'			=>		date("Y-m-d h:i:s A"),
+					'added_by'	=>		$this->session->userdata('user_id'),
+					'organization'		=>		$this->session->userdata('organization'),
+					'InActive'		=>		0
+				);
+					$this->db->insert("iop_patient_incharge_his",$this->prev_incharge_data);
+
+				}
+				
+			}
+			if($incharge_doctor!=$prev_incharge)
+			{
+				$this->data1 = array(
+				'iop_no'		=>		$iop_no,
+				'patient_no'		=>		$patient_no,
+				'incharge_doctor'		=>		$this->input->post('doctor'),
+				 'assigned_date'			=>		date("Y-m-d h:i:s A"),
+				 'added_date'			=>		date("Y-m-d h:i:s A"),
+				'added_by'	=>		$this->session->userdata('user_id'),
+				'organization'		=>		$this->session->userdata('organization'),
+				'InActive'		=>		0
+			);
+				$this->db->insert("iop_patient_incharge_his",$this->data1);
+			}
+
+		}
 	
     redirect(base_url().'app/ipd/view/'.$iop_no.'/'.$patient_no, $this->data);
 

@@ -110,6 +110,7 @@ class General_model extends CI_Model{
 	
 	public function floorList(){
 		$this->db->where(array(
+			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('floor_name','asc');

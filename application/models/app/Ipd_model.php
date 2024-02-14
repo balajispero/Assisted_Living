@@ -237,6 +237,7 @@ class Ipd_model extends CI_Model{
 				A.time_visit,
 				concat(D.cValue,' ',B.firstname,' ',B.lastname) as ref_doctor,
 				concat(E.cValue,' ',C.firstname,' ',C.lastname) as con_doctor,
+				A.doctor_id,
 				F.dept_name,
 				A.pulse_rate,
 				A.temperature,

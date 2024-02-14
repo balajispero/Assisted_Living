@@ -138,7 +138,7 @@
    									 			}
   												}
   													var supp;
-													xmlhttp3.open("GET","<?php echo base_url();?>app/ipd/getRoomMaster2/"+roomType+"/"+occupied,true);
+													xmlhttp3.open("GET","<?php echo base_url();?>app/doctor/getRoomMaster2/"+roomType+"/"+occupied,true);
 													xmlhttp3.send();
 													
 													
@@ -162,7 +162,7 @@
    									 			}
   												}
   													var supp;
-													xmlhttp4.open("GET","<?php echo base_url();?>app/ipd/getBeds2/"+room_id,true);
+													xmlhttp4.open("GET","<?php echo base_url();?>app/doctor/getBeds2/"+room_id,true);
 													xmlhttp4.send();
 													
 													document.getElementById("room_name").value = room_name;

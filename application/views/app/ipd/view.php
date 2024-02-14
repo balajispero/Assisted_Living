@@ -14,8 +14,8 @@
         <link href="<?php echo base_url();?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         
            <!----------BOOTSTRAP DATEPICKER----------------------------->
-    	<link rel="stylesheet" href="<?php echo base_url();?>public/datepicker/css/datepicker.css">
-		<!---------------------------------------------------------->
+        <link rel="stylesheet" href="<?php echo base_url();?>public/datepicker/css/datepicker.css">
+        <!---------------------------------------------------------->
         
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -85,7 +85,7 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                	<?php if($this->session->userdata('emr_viewing') == "ipd_emr_viewing"){?>	
+                    <?php if($this->session->userdata('emr_viewing') == "ipd_emr_viewing"){?>   
                    <h1>IPD Member Information</h1>
                    <ol class="breadcrumb">
                         <li><a href="<?php echo base_url()?>app/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -112,38 +112,38 @@
                 // $patientInfo = $this->patient_model->getPatientInfo($id);
                 //   echo $patientInfo; ?>
                  <!-- <form method="post" action="<?php echo base_url();?>app/opd/save_opd" onSubmit="return confirm('Are you sure you want to save?');"> -->
-                    <form action="<?php echo base_url()?>app/ipd/update_patient_type/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post">
+                   <!--  <form action="<?php echo base_url()?>app/ipd/update_patient_type/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post"> -->
                 <input type="hidden" name="opd_no" value="<?php echo $getOPDPatient->IO_ID?>">
 
                 <input type="hidden" name="patient_no" value="<?php echo $getOPDPatient->patient_no?>">
                  
                  <div class="row">
-                 	
+                    
                      <div class="col-md-3">
-                    	 <div class="box">
-                         	 <div class="box-header"></div>
-                        	<div class="box-body table-responsive no-padding">
-                            	<table width="100%" cellpadding="3" cellspacing="3">
+                         <div class="box">
+                             <div class="box-header"></div>
+                            <div class="box-body table-responsive no-padding">
+                                <table width="100%" cellpadding="3" cellspacing="3">
                                 <tr>
-                                	<!-- <td width="15%" valign="top" align="center">
+                                    <!-- <td width="15%" valign="top" align="center">
                                     <?php
-									if(!$patientInfo->picture){
-										$picture = "avatar.png";	
-									}else{
-										$picture = $patientInfo->picture;
-									}
-									?>
-									<img src="<?php echo base_url();?>public/patient_picture/<?php echo $picture;?>" class="img-rounded" width="86" height="81">
+                                    if(!$patientInfo->picture){
+                                        $picture = "avatar.png";    
+                                    }else{
+                                        $picture = $patientInfo->picture;
+                                    }
+                                    ?>
+                                    <img src="<?php echo base_url();?>public/patient_picture/<?php echo $picture;?>" class="img-rounded" width="86" height="81">
                                     </td> -->
                                     <td>
-                                    	<table width="100%">
+                                        <table width="100%">
                                         <tr>
-                                        	<td><u>Member No.</u></td>
-                                        	<td><?php echo  $patientInfo->patient_no?></td>
+                                            <td><u>Member No.</u></td>
+                                            <td><?php echo  $patientInfo->patient_no?></td>
                                         </tr>
                                         <tr>
-                                        	<td><u>Member Name</u></td>
-                                        	<td><?php echo @$patientInfo->middlename?></td>
+                                            <td><u>Member Name</u></td>
+                                            <td><?php echo @$patientInfo->middlename?></td>
                                         </tr>
                             
                                         </table>
@@ -152,13 +152,13 @@
                                 </table>
                             </div>
                             <div class="box-footer clearfix">
-                            	<div style="margin-top: 15px;">
+                                <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
-                                 	<li class="active"><a href="<?php echo base_url()?>app/ipd/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> General Information</a></li>
-                                 	<li><a href="<?php echo base_url()?>app/ipd/individual_care_plan/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Individual Care Plan</a></li>
+                                    <li class="active"><a href="<?php echo base_url()?>app/ipd/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> General Information</a></li>
+                                    <li><a href="<?php echo base_url()?>app/ipd/individual_care_plan/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Individual Care Plan</a></li>
                                     <!-- <li><a href="<?php echo base_url()?>app/ipd/complain/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Complaint</a></li> -->
-                                 	<li><a href="<?php echo base_url()?>app/ipd/diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Diagnosis</a></li>
-                                 	<li><a href="<?php echo base_url()?>app/ipd/medication/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Medication</a></li>
+                                    <li><a href="<?php echo base_url()?>app/ipd/diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Diagnosis</a></li>
+                                    <li><a href="<?php echo base_url()?>app/ipd/medication/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Medication</a></li>
                 
                                     <!-- <li><a href="<?php echo base_url()?>app/ipd/progress_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Progress Note</a></li> -->
                                     <li><a href="<?php echo base_url()?>app/ipd/intake_output/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Input/Output Record</a></li>
@@ -184,28 +184,51 @@
                      
                      <div class="col-md-9"> 
                                 <div class="nav-tabs-custom">
-                                	<ul class="nav nav-tabs">
-                                		<li class="active"><a href="#tab_1" data-toggle="tab">General Information</a></li>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#tab_1" data-toggle="tab">General Information</a></li>
                                         
-                                	</ul>
+                                    </ul>
                                     <div class="tab-content">
-                                    	<div class="tab-pane active" id="tab_1">
-                                        	<table class="table">
+                                        <div class="tab-pane active" id="tab_1">
+                                            <table class="table">
                                             <thead>
                                             <tr>
-                                            	<td>Date Admit</td>
+                                                <td>Date Admit</td>
                                                 <td><?php echo date("d M, Y", strtotime($getOPDPatient->date_visit));?></td>
                                             </tr>
                                             <tr>
-                                            	<td>Time Admit</td>
+                                                <td>Time Admit</td>
                                                 <td><?php echo date("H:i:s A", strtotime($getOPDPatient->time_visit));?></td>
                                             </tr>
                                             <tr>
-                                            	<td>In-Charge Doctor</td>
-                                                <td><?php echo $getOPDPatient->con_doctor;?></td>
+                                                 <form action="<?php echo base_url()?>app/ipd/update_incharge_doctor/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post">
+                                                    <input type="hidden" name="prev_incharge" value="<?php echo $getOPDPatient->doctor_id; ?>">
+                                                     <input type="hidden" name="prev_incharge_assign_date" value="<?php echo $getOPDPatient->date_visit; ?>">
+                                                <td>In-Charge Doctor</td>
+                                                <td>
+                                                    <select name="doctor" id="doctor" class="form-control col-md-3">
+                                                                <option value="">- Doctor Incharge -</option>
+                                                                <?php 
+                                                                foreach($doctorList2 as $doctorList2){
+
+                                                                if($getOPDPatient->doctor_id == $doctorList2->user_id){
+                                                                    $selected = "selected='selected'";
+                                                                }else{
+                                                                    $selected = "";
+                                                                }
+                                                                ?>
+                                                                <option value="<?php echo $doctorList2->user_id;?>" <?php echo $selected;?>><?php echo $doctorList2->name;?></option>
+                                                                <?php }?>
+                                                            </select>&nbsp;
+                                                             <?php if($getOPDPatient->nStatus == "Pending"){?>
+                                                             <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit">Update</button>
+                                                         <?php } ?>
+                                                </td>
+                                            </form>
                                             </tr>
                                             <tr>
-                                            	<td>Member Type</td>
+                                                 <form action="<?php echo base_url()?>app/ipd/update_patient_type/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" method="post">
+                                                <td>Member Type</td>
                                                 <td><?php /*echo $getOPDPatient->patient_type*/?>
                                                 <select name="ptn_type" class="form-control col-md-3">
                                                                 <option value="">- Member Type -</option>
@@ -225,26 +248,27 @@
                                                          <?php } ?>
                                                 
                                             </td>
+                                        </form>
                                             </tr>
                                             <tr>
-                                            	<td>Room</td>
+                                                <td>Room</td>
                                                 <td><?php echo $getOPDPatient->room_name;?></td>
                                             </tr>
                                             <tr>
-                                            	<td>Bed No.</td>
+                                                <td>Bed No.</td>
                                                 <td><?php echo $getOPDPatient->bed_name;?></td>
                                             </tr>
                                             </thead>
                                             </table>
                                         </div>
-                           			</div>
+                                    </div>
                             <div class="box-footer clearfix">
-                                	
+                                    
                             </div>
                         </div>
                     </div>
                  </div>
-                 </form>
+                 <!-- </form> -->
                  
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
@@ -264,12 +288,12 @@
                 
                 $('#cFrom').datepicker({
                     //format: "dd/mm/yyyy"
-					format: "yyyy-mm-dd"
+                    format: "yyyy-mm-dd"
                 });  
-				
-				$('#cTo').datepicker({
+                
+                $('#cTo').datepicker({
                     //format: "dd/mm/yyyy"
-					format: "yyyy-mm-dd"
+                    format: "yyyy-mm-dd"
                 });  
             
             });

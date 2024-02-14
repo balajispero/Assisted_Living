@@ -10,6 +10,8 @@ class Doctor extends General{
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model("app/ipd_model");
+		$this->load->model("app/patient_model");
 		$this->load->model("app/opd_model");
 		$this->load->model("app/doctor_model");
 		$this->load->model("app/preassessment_model");
@@ -1373,5 +1375,54 @@ class Doctor extends General{
 
 	
 }
+
+public function admit(){
+		$this->session->set_userdata(array(
+				 'tab'			=>		'patient',
+				 'module'		=>		'',
+				 'subtab'		=>		'ipd',
+				 'submodule'	=>		'ipd_registration'));
+				 
+				 
+		$patient_no = $this->uri->segment("4");
+		
+		$this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
+		$this->data['room_category'] = $this->General_model->room_category();
+		$this->data['lastIPDNo'] = $this->General_model->lastIPDNo();
+		
+		$this->load->view("app/ipd/admit",$this->data);		
+	}
+public function getRoomMaster(){
+		
+		$roomType = $this->uri->segment("4");
+		$occupied = $this->uri->segment("5");	
+		
+		$this->data['getRoomMaster'] = $this->ipd_model->getRoomMaster($roomType,$occupied);
+		$this->load->view("app/ipd/getRoomMaster",$this->data);
+		
+	}
+	public function getBeds($room_id){
+		
+		$this->data['getBeds'] = $this->General_model->getBeds($room_id);
+		$this->load->view("app/ipd/getBeds",$this->data);
+		
+	}
+
+	public function getRoomMaster2(){
+		
+		$roomType = $this->uri->segment("4");
+		$occupied = $this->uri->segment("5");	
+		
+		$this->data['getRoomMaster'] = $this->ipd_model->getRoomMaster($roomType,$occupied);
+		$this->load->view("app/ipd/getRoomMaster2",$this->data);
+		
+	}
+	
+	public function getBeds2($room_id){
+		
+		$this->data['getBeds'] = $this->General_model->getBeds($room_id);
+		$this->load->view("app/ipd/getBeds2",$this->data);
+		
+	}
 
 }

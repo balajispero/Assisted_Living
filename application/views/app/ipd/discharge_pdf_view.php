@@ -84,6 +84,10 @@ $date = date("Y-m-d H:i:s", time());
         <tr><td><?=$key1?></td><td><?=$medicine1?></td></tr>
         <?php }?>
      </table>
+     <table class="table table-bordered">
+        <tr bgcolor="#ddd"><th style="text-align: center">Doctor Notes</th></tr>
+        <tr><td><?php echo $dischargeInfo->ptn_addtnl_note;?></td></tr>
+     </table>
      
 
     
