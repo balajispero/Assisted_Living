@@ -5,8 +5,8 @@
     </script> 
    
 <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-<link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" /> 
 
    <style>
     body{

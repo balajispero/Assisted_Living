@@ -496,22 +496,25 @@ class Dashboard extends General{
 				$this->table->set_empty("&nbsp;");
 				$this->table->set_heading('Member No','Member Name','Entry Date','Consultant Doctor','Room Type','Floor','Allocated Room','Allocated Bed','Status');
 				
+				if($patient)
+				{
+					foreach ($patient as $patient)
+					{	
+					
+						$this->table->add_row( 
+							anchor('app/dashboard/view_details/'.$patient->patient_no.'/'.$patient->IO_ID,$patient->patient_no),
+							@$patient->middlename, 
+							@$patient->date_entry,
+							@$patient->cValue.''.@$patient->firstname.''.@$patient->lastname, 
+							@$patient->category_name,
+							@$patient->floor,
+							@$patient->room_name, 
+							@$patient->bed_name,
+							@$patient->nStatus		
+						);
+					}
+				}
 				
-				foreach ($patient as $patient)
-				{	
-				
-				$this->table->add_row( 
-					anchor('app/dashboard/view_details/'.$patient->patient_no.'/'.$patient->IO_ID,$patient->patient_no),
-					@$patient->middlename, 
-					@$patient->date_entry,
-					@$patient->cValue.''.@$patient->firstname.''.@$patient->lastname, 
-					@$patient->category_name,
-					@$patient->floor,
-					@$patient->room_name, 
-					@$patient->bed_name,
-					@$patient->nStatus		
-				);
-			}
 			$this->data['message'] = $this->session->flashdata('message');
 			$this->data['table'] = $this->table->generate();
    $this->data['members'] = $members;
@@ -642,7 +645,7 @@ class Dashboard extends General{
 				$tmpl = array('table_open' => '<table class="table table-hover table-striped">');
 				$this->table->set_template($tmpl);
 				$this->table->set_empty("&nbsp;");
-				$this->table->set_heading('Bed No','Room Type','Floor','Status','Rate');
+				$this->table->set_heading('Bed No','Room No','Room Type','Floor','Status','Rate');
 				
 				
 				foreach ($patient as $patient)
@@ -650,6 +653,7 @@ class Dashboard extends General{
 				
 				$this->table->add_row( 
 					 @$patient->bed_name,
+					 @$patient->room_name,
 					 @$patient->category_name,
 					 @$patient->floor, 
 					 @$patient->nStatus,

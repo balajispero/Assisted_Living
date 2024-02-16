@@ -136,13 +136,13 @@
                                                             	<option value="">- Floor -</option>
 																<?php 
 																foreach($floorList as $floorList){
-																if($_POST['floor'] == $floorList->floor_id || $room_category->floor == $floorList->floor_id ){
+																if($_POST['floor'] == $floorList->floor_id || $room_category->floor == $floorList->floor_no ){
 																	$selected = "selected='selected'";
 																}else{
 																	$selected = "";
 																}
 																?>
-                                                            	<option value="<?php echo $floorList->floor_id;?>" <?php echo $selected;?>><?php echo $floorList->floor_name;?></option>
+                                                            	<option value="<?php echo $floorList->floor_no;?>" <?php echo $selected;?>><?php echo $floorList->floor_name;?></option>
                                                                 <?php }?>
                                                             </select>
                                         </div>

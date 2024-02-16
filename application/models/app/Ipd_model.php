@@ -25,6 +25,7 @@ class Ipd_model extends CI_Model{
 		}
 		
 		$this->db->where($where);
+		$this->db->where("A.InActive",'0');
 		$this->db->order_by("A.room_name","ASC");
 		$this->db->join("floor B","B.floor_id = A.floor","left outer");
 		$this->db->join("room_category C","C.category_id = A.category_id","left outer");

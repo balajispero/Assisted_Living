@@ -62,7 +62,8 @@ class Dashboard_model extends CI_Model{
 			$this->db->from('room_beds rbed');
 			$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
 			$this->db->join('room_category cat', 'cat.category_id = rm.category_id', 'left');
-			$this->db->where('rbed.nStatus','Vacant');
+			// $this->db->where('rbed.nStatus','Vacant');
+			$this->db->where(array('rbed.nStatus'=>'Vacant','rbed.InActive'=>'0'));
 			$this->db->where('rbed.organization',$this->session->userdata('organization'));
 			$this->db->order_by('rbed.room_bed_id', 'DESC');
 			//$this->db->limit('5');
@@ -172,7 +173,8 @@ class Dashboard_model extends CI_Model{
 			$this->db->from('room_beds rbed');
 			$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
 			$this->db->join('room_category cat', 'cat.category_id = rm.category_id', 'left');
-			$this->db->where('rbed.nStatus','Vacant');
+			// $this->db->where('rbed.nStatus','Vacant');
+			$this->db->where(array('rbed.nStatus'=>'Vacant','rbed.InActive'=>'0'));
 			$this->db->where('rbed.organization',$this->session->userdata('organization'));
 			$this->db->order_by('rbed.room_bed_id', 'DESC');
 			//$this->db->limit('5');
