@@ -2,7 +2,7 @@
 
 <script language="javascript">
     setTimeout(function timeru(){$('.alert').fadeOut(1000)}, 3000);
-    </script> 
+</script> 
    
 <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
@@ -140,14 +140,14 @@
                         background-color: #fff!important;
                         color:#2B48B0!important;
                       }
-                      .content-header{
-                       
-                margin-top: 10px;
-                background-color: #ecf0fa !important;
-                padding: 7px 5px;
-                border-radius: 5px;
-                box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-            }
+                      .content-header
+                      {
+                      margin-top: 10px;
+                      background-color: #ecf0fa !important;
+                      padding: 7px 5px;
+                      border-radius: 5px;
+                      box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+                    }
 
              .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
     z-index: 2;
@@ -302,7 +302,6 @@ function closeAd(id)
 {
     $('#' + id).remove();
 }
-
   // Wrap every letter in a span
   var textWrapper = document.querySelector('.ml2');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
