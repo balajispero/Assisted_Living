@@ -420,73 +420,8 @@
 				</div>
 			</div>
 
-<<<<<<< Updated upstream
-	
-<br /><br /><br /><br /><br /><br /><br />
-<form action="<?php echo base_url()?>login/validate_login" method="post" id="frmLogin" name="frmLogin">
-	<?php echo validation_errors(); ?>    
-
-				                <?php 
-
-				                if(isset($usernamelogin))
-				                {
-				                	$usernamelogin = $usernamelogin;
-				                }else{
-				                	$usernamelogin = "";
-				                }
-
-				                if(isset($passwordlogin))
-				                {
-				                	$passwordlogin = $passwordlogin;
-				                }else{
-				                	$passwordlogin = "";
-				                }
-
-				                ?>
-<div class="row">
-	<div class="col-md-12">
-		<div class="layout1">
-		<h3 class="head1" style="color: white;">Spero Healthcare Innovations Pvt. Ltd.</h3>
-        </div>
-		<div class="layout2">
-         <h2 style="color: white;" class="head2">Assisted Living Facility</h2>
-		</div>
-<div class="clearfix">
-<div class="img">
-	<img src="<?=base_url()?>public/img/new/Spero.png" alt="Spero" height="28px" width="125px">
-</div>
-<div>
-	<h3 class="head3">USER LOGIN</h3>
-	<div class="login-content">
-	<div class="col-xs-12 col-md-auto">
-    <label>Username</label>
-    <input type="text" placeholder="Username"  name="username">
-    
-</div>
-<div class="col-xs-12 col-md-auto">
-    <label class="sr-only" for="inlineFormInputGroup">Password</label>
-    <div class="input-group mb-2">
-        <span class="input-group-addon">@</span>
-        <input type="password" class="form-control" placeholder="Password" name="password">
-    </div>
-</div>
-
-</div>
-<div class="login-btn">
-	<button type="submit" class="btn form-control btn-warning rounded submit px-3" name="login">LOGIN</button>
-</div>
-</div>
-</div>
-	</div>
-</div>
-</form>
-
-</div>
-
-=======
 		</div>
 	</div>
->>>>>>> Stashed changes
 
 </body>
 
