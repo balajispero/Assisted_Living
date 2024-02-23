@@ -375,7 +375,9 @@
                  
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
+            <?php require_once(APPPATH . 'views/include/footer.php'); ?>
         </div><!-- ./wrapper -->
+        
   
         
          <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>

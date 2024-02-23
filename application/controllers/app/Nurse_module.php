@@ -149,7 +149,9 @@ class Nurse_module extends General{
 			$this->data['given_medicine_chart'] = $this->opd_model->given_medicine_chart($iop_no);
 			
 			$this->load->view("app/nurse_module/medication",$this->data);	
+			
 	}
+	
 	/*********************End Medication*********************/
 	
 	/*public function medication(){
