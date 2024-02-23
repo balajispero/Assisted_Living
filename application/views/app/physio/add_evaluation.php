@@ -1640,7 +1640,7 @@
                          
     <div class="row">
                 <div class="col-sm-3">
-                    <?php if(@$patientInfo->gender=="1"){ ?>
+                    <?php if(@$patientInfo->gender=="1" || @$patientInfo->gender=="76"){ ?>
                   <div class="row">
                     <!-- <div id="container">
             <img src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="purple kitty"/>

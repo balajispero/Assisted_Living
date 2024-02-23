@@ -90,7 +90,7 @@ class Patient extends General{
 		
 		foreach ($patient as $patient)
 		{	
-			if ($this->session->userdata('user_role')=='5'){
+			if ($this->session->userdata('user_role')=='5' || $this->session->userdata('user_role')=='16'){
 			$edit=anchor('app/patient/edit/'.$patient->patient_no,'Modify');
 			}
 			else{

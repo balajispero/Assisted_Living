@@ -155,9 +155,9 @@
                                     <!-- <li><a href="<?php echo base_url()?>app/ipd/complain/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Complaint</a></li> -->
                                  	<li><a href="<?php echo base_url()?>app/ipd/diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Diagnosis</a></li>
                                  	<li><a href="<?php echo base_url()?>app/ipd/medication/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Medication</a></li>
-                                    <li><a href="<?php echo base_url()?>app/ipd/progress_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Progress Note</a></li>
+                                    <!-- <li><a href="<?php echo base_url()?>app/ipd/progress_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Progress Note</a></li> -->
                                     <li><a href="<?php echo base_url()?>app/ipd/intake_output/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Intake/Output Record</a></li>
-                                    <!--<li><a href="<?php echo base_url()?>app/ipd/nurse_progress_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Nurse Progress Note</a></li>-->
+                                    <li><a href="<?php echo base_url()?>app/ipd/nurse_progress_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Progress Note</a></li>
                                     <li><a href="<?php echo base_url()?>app/ipd/vitalSign/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Vital Sign</a></li>
                                     <li><a href="<?php echo base_url()?>app/ipd/room_transfer/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> IP Room Transfer</a></li>
                                     
@@ -269,7 +269,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                        	<td>Particular Item</td>
+                                        	<td>Particular Item<font color="#FF0000">*</font></td>
                                             <td>
                                             <span id="showCategories" class="showCategories">
                                                 <input type="text" name="test_name" id="test_name" class="test_name form-control" style="display:none;">
@@ -358,7 +358,7 @@
                             <input type="hidden" name="io_lab_id" id="lab_id">
             <div class="row align-items-center">
               <div class="col-md-4">
-                <h4>Particular Category</h4>
+                <h4>Particular Category<font color="#FF0000">*</font></h4>
               </div>
               <div class="col-md-8">
                 <input type="hidden" name="editio_lab_id" id="editio_lab_id">
@@ -375,7 +375,7 @@
 
              <div class="row align-items-center">
               <div class="col-md-4">
-                <h4 class="mb-0">Particular Item</h4>
+                <h4 class="mb-0">Particular Item<font color="#FF0000">*</font></h4>
               </div>
               <div class="col-md-8">
 
@@ -426,7 +426,7 @@
 
              <div class="row align-items-center">
               <div class="col-md-4">
-                <h4 class="mb-0">Doctor</h4>
+                <h4 class="mb-0">Doctor<font color="#FF0000">*</font></h4>
               </div>
               <div class="col-md-8">
 <select name="doctor" id="editdoctor" class="form-control input-sm" style="width: 100%;" required>

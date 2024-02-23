@@ -205,9 +205,9 @@ class Lab extends General{
 				$this->session->set_userdata('page_name','lab_sample_view');
 				$page_id = $this->General_model->getPageID();
 				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
-				if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
+				/*if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
 					redirect(base_url().'access_denied');
-				}
+				}*/
 				// end of user restriction function
 			$this->data['message'] = $this->session->flashdata('message');
 

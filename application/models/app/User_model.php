@@ -12,6 +12,7 @@ class User_model extends CI_Model{
 					C.designation,
 					B.dept_name,
 					A.email_address,
+					A.physio_expert,
 					A.InActive",false);
 		$where = "(A.lastname like '%".$this->session->userdata("search_user")."%' 
 					or A.firstname like '%".$this->session->userdata("search_user")."%' 
@@ -36,6 +37,7 @@ class User_model extends CI_Model{
 					C.designation,
 					B.dept_name,
 					A.email_address,
+					A.physio_expert,
 					A.InActive",false);
 		$where = "(A.lastname like '%".$this->session->userdata("search_user")."%' 
 					or A.firstname like '%".$this->session->userdata("search_user")."%' 
@@ -141,7 +143,7 @@ class User_model extends CI_Model{
 			'password'			=>		$this->input->post('password'),
 			'InActive'			=>		0
 		);
-		if($this->input->post('user_role')=="11"){
+		if($this->input->post('user_role')=="11" || $this->input->post('user_role')=="21"){
 		$this->data['physio_expert']=@$this->input->post('pt_expert');
 		}	
 		$this->db->insert("users",$this->data);
@@ -242,7 +244,7 @@ class User_model extends CI_Model{
 			'username'			=>		$this->input->post('username'),
 			'email_address'		=>		$this->input->post('email')
 		);
-		if($this->input->post('user_role')=="11"){
+		if($this->input->post('user_role')=="11" || $this->input->post('user_role')=="21"){
 		$this->data['physio_expert']=@$this->input->post('pt_expert');
 		}	
 		$this->db->where('user_id', $this->input->post('userid'));

@@ -21,9 +21,9 @@ class Ipd extends General{
         $ptn_organization = $this->General_model->getptn_organization($this->uri->segment("4"));
         if($this->uri->segment("4"))
         {
-			if($this->session->userdata('organization')!=$ptn_organization->organization){
+			/*if($this->session->userdata('organization')!=$ptn_organization->organization){
 						redirect(base_url().'access_denied');
-					}
+					}*/
 		}
 		General::variable();	
 	}

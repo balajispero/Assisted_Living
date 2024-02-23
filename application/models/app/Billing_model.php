@@ -74,7 +74,7 @@ class Billing_model extends CI_Model{
 		return $query->row();
 	}
 	public function getparticularname($id){
-		if($id=="7")
+		if($id=="7" || $id=="14")
 		{
 			$this->db->select("test_name as particular_name, id as particular_id");
 			$this->db->where(array(

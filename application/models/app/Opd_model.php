@@ -717,10 +717,10 @@ class Opd_model extends CI_Model{
 		
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
-			'category_id'=>7,
 			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
+		$this->db->where("(category_id = 7 OR category_id = 14)");
 		//$this->db->order_by("dDate","DESC");
 		$query = $this->db->get("iop_laboratory", $limit, $offset);
 		return $query->result();
@@ -729,10 +729,10 @@ class Opd_model extends CI_Model{
 		
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
-			'category_id'=>7,
 			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
+		$this->db->where("(category_id = 7 OR category_id = 14)");
 		//$this->db->order_by("dDate","DESC");	
 		$query = $this->db->get("iop_laboratory");
 		return $query->num_rows();

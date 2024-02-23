@@ -647,20 +647,21 @@ class Dashboard extends General{
 				$this->table->set_empty("&nbsp;");
 				$this->table->set_heading('Bed No','Room No','Room Type','Floor','Status','Rate');
 				
-				
-				foreach ($patient as $patient)
-				{	
-				
-				$this->table->add_row( 
-					 @$patient->bed_name,
-					 @$patient->room_name,
-					 @$patient->category_name,
-					 @$patient->floor, 
-					 @$patient->nStatus,
-					 @$patient->room_rates
-					// @$patient->nStatus		
-				);
-			}
+				if($patient)
+				{
+					foreach ($patient as $patient)
+					{	
+						$this->table->add_row( 
+							 @$patient->bed_name,
+							 @$patient->room_name,
+							 @$patient->category_name,
+							 @$patient->floor, 
+							 @$patient->nStatus,
+							 @$patient->room_rates
+							// @$patient->nStatus		
+						);
+					}
+				}
 			$this->data['message'] = $this->session->flashdata('message');
 			$this->data['table'] = $this->table->generate();
             $this->data['members'] = $members;

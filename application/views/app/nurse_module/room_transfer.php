@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-<head>
 
         <meta charset="UTF-8">
         <title>Assisted Living</title>
@@ -28,7 +27,22 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+             <style>
+            .form-control {
+            -webkit-border-radius: 0px !important;
+            -moz-border-radius: 0px !important;
+            border-radius: 0px !important;
+            box-shadow: none;
+            width: 100% !important;
+            }
+           
+        </style>
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
+        <style>
+             textarea.form-control {
+            width: 100% !important;
+        }
+        </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -387,7 +401,7 @@ xmlhttp3.send();
                                             </td>
                                         </tr>
                                         <tr>
-                                        	<td>Room Name</td>
+                                        	<td>Room Name<font color="#FF0000">*</font></td>
                                             <td>
                                             				<span id="showroom_name">
                         									<select name="room_name2" id="room_name2" class="form-control input-sm" style="width: 250px;" required>
@@ -397,7 +411,7 @@ xmlhttp3.send();
                                             </td>
                                         </tr>
                                         <tr>
-                                        	<td>Bed No./Name</td>
+                                        	<td>Bed No./Name<font color="#FF0000">*</font></td>
                                             <td>
                                             				<span id="bedname">
                         									<select name="bed2" id="bed2" class="form-control input-sm" style="width: 250px;" required>

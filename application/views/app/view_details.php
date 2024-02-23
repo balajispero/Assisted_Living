@@ -435,7 +435,15 @@
                                         <tr>
                                            <td><?php echo anchor('app/lab/view_lab_sample_report/'.$getLabTest->io_lab_id,$getLabTest->iop_id, 'target="_blank"');?></td>
                                            <td><?php echo $getLabTest->dDate?></td>
-                                           <td><?php echo $getLabTest->laboratory_id;?></td>
+                                           <td>
+                                            <?php
+                                                    $ci_obj = & get_instance();
+                                                $ci_obj->load->model('app/general_model');
+                                                $pages = $ci_obj->general_model->getLabSampleById($getLabTest->laboratory_id);
+                                                echo @$pages->test_name;
+                                            ?>
+                                                
+                                            </td>
                                            <td>
                                             <?php 
                                                 $ci_obj = & get_instance();

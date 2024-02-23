@@ -158,7 +158,7 @@
                                 <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
                                     <li class="active"><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
-                                    <?php if($this->session->userdata('user_role') == 11){ ?>
+                                    <?php if(($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21)){ ?>
                                  <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                 
                                   <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
@@ -181,9 +181,9 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab_1">
                                             <?php echo $message;?>
-                                            <?php if($this->session->userdata('user_role') == 11) {?>
+                                            <?php if(($this->session->userdata('user_role') == 11  || $this->session->userdata('user_role') == 21)) {?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){
-                                                 if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes"){ ?>
+                                                 if(($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21) && $this->session->userdata('physio_expert') == "Yes"){ ?>
                                             <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-outline-primary hvr-shutter-in-vertical"><i class="fa fa-plus"></i>&nbsp;Add Evaluation</a>
                                             <?php } } ?>
                                             <?php } ?>
@@ -235,12 +235,12 @@
                                                 
                                                 <td><?php  if($getOPDPatient->nStatus == "Pending"){?>
                                                     <a href="<?php echo base_url();?>app/physio/evaluation_pdf/<?php echo $rows->eval_no;?>">PDF | </a>
-                                                    <?php if($this->session->userdata('user_role') == 3) {?>
+                                                    <?php if($this->session->userdata('user_role') == 3 || $this->session->userdata('user_role') == 15) {?>
                                                      <a href="<?php echo base_url();?>app/physio/mail_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Mail</a>   
                                                 <?php } ?>
 
                                                 
-                                                    <?php if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") {?>
+                                                    <?php if(($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21) && $this->session->userdata('physio_expert') == "Yes") {?>
                                             <a href="<?php echo base_url();?>app/physio/edit_evaluation/<?php echo $rows->eval_no;?>/<?php echo $rows->therapy_type;?>/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Modify</a>
                                             <?php } ?>
                                             <?php } ?></td>

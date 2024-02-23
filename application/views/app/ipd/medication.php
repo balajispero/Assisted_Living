@@ -185,7 +185,7 @@
                                             <?php echo $message;?>
                                             <?php if($this->session->userdata('emr_viewing') == ""){?>	
                                            <?php if($getOPDPatient->nStatus == "Pending"){?>
-                                           <a href="#" class="btn btn-outline-primary add_medicationhvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Medication</a>
+                                           <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Medication</a>
                                            <?php }}?>
                                             
                                  <input type="hidden" value="<?php echo $med_cnt ?>" name="mm" id="medcnt"> 

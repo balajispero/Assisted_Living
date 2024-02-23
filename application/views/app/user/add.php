@@ -274,7 +274,7 @@
                                                                 <?php 
                                                                 if($this->session->userdata('organization')=="aastha"){
                                                                  ?>
-                                                                 <option value="<?php echo $this->session->userdata('organization') ?>" selected><?php echo ucwords($this->session->userdata('organization')) ?></option>
+                                                                 <option value="<?php echo $this->session->userdata('organization') ?>" selected><?php echo ucwords("ALF Bavdhan"); ?></option>
                                                                  <!-- <option value="aastha"><?php echo ucwords("aastha"); ?></option>
                                                                 <option value="athashri"><?php echo ucwords("athashri"); ?></option> -->
                                                                 <!-- <option value="post stroke">post stroke</option> -->   
@@ -403,7 +403,7 @@
         <script>
             function addPhysioExpert(role_id)
             {
-                if(role_id=="11")
+                if(role_id=="11" || role_id=="21")
                 {
                     $(".physio_expert").show();
                     

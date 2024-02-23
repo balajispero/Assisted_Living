@@ -446,6 +446,7 @@ class General_model extends CI_Model{
 					$this->db->where(array(
 						'C.role_name'		=>	'Physiotherapist',
 						'A.physio_expert'		=>	'No',
+						'A.organization'		=>$this->session->userdata('organization'),
 						'A.InActive'	=>	0	
 					));
 					$this->db->order_by('A.lastname','asc');

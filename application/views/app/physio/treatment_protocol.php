@@ -201,7 +201,7 @@
                                                      <th>Room No</th> 
                                                     <th>Bed No</th>
                                                     <th>Added by</th>
-                                                    <th><?php if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") { ?>Treatment Protocol
+                                                    <th><?php if(($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21) && $this->session->userdata('physio_expert') == "Yes") { ?>Treatment Protocol
                                                     <?php } ?>
                                                     </th>
                                                     
@@ -214,7 +214,7 @@
                                             <tr>
                                             <td><?php echo $rows->eval_no?></td>
                                                 <td>
-                                                    <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes") {
+                                                    <?php if(($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21) || $this->session->userdata('physio_expert') == "Yes") {
                                                      if($rows->treatment_protocol=="Added"){ ?>
                                                         <a href="<?php echo base_url();?>app/physio/view_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>"><?php echo $rows->patient_no?></a>
                                                     <?php }else{ ?>
@@ -249,14 +249,14 @@
                                                      ?> 
                                                 </td>
                                                 <td>
-                                                    <?php if($this->session->userdata('user_role') == 11 && $this->session->userdata('physio_expert') == "Yes") {
+                                                    <?php if(($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21) && $this->session->userdata('physio_expert') == "Yes") {
                                                      if($rows->treatment_protocol=="Added"){ ?>
                                                         <a href="<?php echo base_url();?>app/physio/edit_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">Edit</a>
                                                     <?php }else{ ?>
                                                         <a href="<?php echo base_url();?>app/physio/add_treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>">Add</a>
                                                         <?php } } ?>
 
-                                                         <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('physio_expert') == "Yes") {
+                                                         <?php if(($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21) || $this->session->userdata('physio_expert') == "Yes") {
                                                      if($rows->treatment_protocol=="Added"){ ?>
                                                         <a href="<?php echo base_url();?>app/physio/treatment_protocol_pdf/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>/<?php echo $rows->eval_no;?>/<?php echo $rows->treat_protocol_id;?>">| Pdf</a>
                                                     <?php } } ?>

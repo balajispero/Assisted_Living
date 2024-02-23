@@ -41,7 +41,7 @@ class Lab_model extends CI_Model{
 			C.middlename like '%".$this->input->post('search')."%'
 			) 
 			and A.dDate between '".$cFrom."' and '".$cTo."'
-			and (A.category_id=7)
+			and (A.category_id=7 or A.category_id=14)
 			and A.organization= '".$this->session->userdata('organization')."'
 			and A.InActive = 0";
 
@@ -89,7 +89,7 @@ class Lab_model extends CI_Model{
 			C.middlename like '%".$this->input->post('search')."%'
 			) 
 			and A.dDate between '".$cFrom."' and '".$cTo."'
-			and A.category_id=7
+			and (A.category_id=7 or A.category_id=14)
 			and A.organization= '".$this->session->userdata('organization')."'
 			and A.InActive = 0";
 
@@ -117,7 +117,7 @@ class Lab_model extends CI_Model{
 			$where = "(
 			A.io_lab_id= '".$id."'
 			) 
-			and (A.category_id=7)
+			and (A.category_id=7 or A.category_id=14)
 			and A.organization= '".$this->session->userdata('organization')."'
 			and A.InActive = 0";
 

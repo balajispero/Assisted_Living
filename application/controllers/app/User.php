@@ -85,7 +85,7 @@ class User extends General{
 		$tmpl = array('table_open' => '<table class="table table-hover table-striped">');
         $this->table->set_template($tmpl);
 		$this->table->set_empty("&nbsp;");
-		$this->table->set_heading('User ID', 'Name','Designation','Department','Email Address','Status','Actions');
+		$this->table->set_heading('User ID', 'Name','Designation','Email Address','Status','Actions');
 		$i = 0 + $offset;
 		
 		
@@ -98,17 +98,21 @@ class User extends General{
 					$cStatus = "Active";
 					$InActive = anchor('app/user/delete/'.$user->user_id,'InActive',array('class'=>'delete','onclick'=>"return confirm('Are you sure want to InActive this user?')"));
 				}
+				if(!empty($user->physio_expert) && $user->designation=="Physiotherapist"){ 
+					$physio_designation=($user->physio_expert=="Yes") ? '(Expert)' : "($user->designation)"; 
+				}
 				
 				$this->table->add_row( 
 									anchor('app/user/view/'.$user->user_id,$user->user_id),
-									$user->name, 
+									$user->name .''.@$physio_designation, 
 									$user->designation, 
-									$user->dept_name, 
+									// $user->dept_name, 
 									$user->email_address, 
 									$cStatus, 
 									anchor('app/user/edit/'.$user->user_id,'Edit').'&nbsp|&nbsp;'.
 									$InActive
 			);
+				$physio_designation="";
 		}
 		$this->data['message'] = $this->session->flashdata('message');
 		$this->data['table'] = $this->table->generate();

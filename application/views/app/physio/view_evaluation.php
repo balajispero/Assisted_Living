@@ -319,7 +319,7 @@
                         
                         <div class="row">
                             <div class="col-sm-3">
-                    <?php if(@$patientInfo->gender=="1"){ ?>
+                    <?php if(@$patientInfo->gender=="1" || @$patientInfo->gender=="76"){ ?>
                   <div class="row">
                     
                     <div class="col-sm-12" id="container"><img src="<?=base_url()?>/public/company_logo/male-body-front.png" alt="" style="height:513px;width: 100%; "></div>

@@ -440,7 +440,7 @@
         <script>
             function addPhysioExpert(role_id)
             {
-                if(role_id=="11")
+                if(role_id=="11" || role_id=="21")
                 {
                     $(".physio_expert").show();
                     

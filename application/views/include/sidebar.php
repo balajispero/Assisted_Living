@@ -235,6 +235,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                     <ul class="sidebar-menu">
                          
                         <?php if ($hasAccesstoDashboard){ ?>
+                        
                          <li>
 
                             <a href="<?php echo base_url()?>app/dashboard" class="hvr-icon-pop">
@@ -288,7 +289,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <?php if($hasAccesstoAddPatient){ if ($this->session->userdata('user_role')=='5'){ ?>
+                                <?php if($hasAccesstoAddPatient){ if ($this->session->userdata('user_role')=='5' || $this->session->userdata('user_role')=='16'){ ?>
             <li <?php echo $addNew_patient_mode;?>><a href="<?php echo base_url()?>app/patient/addPatient"><i class="fa fa-angle-double-right"></i>On Admission</a></li>   
         <?php }else{ ?><li <?php echo $addNew_patient_mode;?>><a href="<?php echo base_url()?>app/patient/addPatients"><i class="fa fa-angle-double-right"></i>On Admission</a></li> <?php } }?>
                                 <?php if($hasAccesstoPatient){?><li <?php echo $patient_master_mode;?>><a href="<?php echo base_url()?>app/patient/index"><i class="fa fa-angle-double-right"></i>Member Master</a></li><?php }?>
@@ -368,7 +369,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         
                         <!--START OF Doctor-->
                         <?php if($hasAccesstoDoctor){?>
-                        <li class="treeview <?php echo $doctor;?>" style="display: <?php echo ($this->session->userdata('user_role') == 1) ? "none" : "block";?>">
+                        <li class="treeview <?php echo $doctor;?>" style="display: <?php echo ($this->session->userdata('user_role') == 1 || $this->session->userdata('user_role') == 13) ? "none" : "block";?>">
                             <a href="#" class="hvr-icon-pop">
                                 <i class="fa fa-user-md hvr-icon"></i> <span style="color:#07B5BC;" class="hvr-pop"> Doctor Module</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>

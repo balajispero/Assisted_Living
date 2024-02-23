@@ -183,7 +183,7 @@
                         <div class="tab-content">
                                         <div class="tab-pane active" id="tab_1">
                                             <?php echo $message;?>
-                                            <?php if($this->session->userdata('user_role') == 11) {?>
+                                            <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21) {?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
                                             <a href="<?php echo base_url();?>app/physio/physio_discharge_summary/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-outline-primary hvr-shutter-in-vertical"><i class="fa fa-plus"></i>Add Discharge Summary</a>
                                             <?php } ?>
