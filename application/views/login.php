@@ -117,7 +117,8 @@
 	.head3 { font-size: 20px !important; line-height: 44p; text-align: center !important; margin-top: 0px !important; } 
 }
 @media only screen and (min-width: 1024px) {
-	#background { overflow: hidden !important;}
+	
+	/* #background { overflow: hidden !important;} */
 	.head2 { font-size: 58px !important; line-height: 44px; margin-top: 170px; }
 	.head3 { font-size: 30px; line-height: 44px; margin-top: 0px; } 
 }

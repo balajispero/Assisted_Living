@@ -82,8 +82,10 @@
                                             <tr>
                                             	<tD></tD>
                                             	<td>
-                                                <input type="submit" value="View Report" class="btn btn-primary bg_color" style="width: 100%;" name="btnView">
-                                                </td>
+                                                <!-- <input type="submit" value="View Report" class="btn btn-primary bg_color" style="width: 100%;" name="btnView"> -->
+                                                <button type="submit"  class="btn btn-outline-primary hvr-shutter-in-vertical" style="width: 100%;" name="btnView">View Report</button>
+                                               
+                                            </td>
                                             </tr>
                                             </table>
                                           </form>
@@ -201,7 +203,7 @@ xmlhttp.send();
             });
         </script>
         <!-- END BDAY -->
-        
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
         
     </body>
 </html>

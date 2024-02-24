@@ -130,7 +130,7 @@
                                         
                                         <div class="form-group">
                                             <a href="<?php echo base_url();?>app/room_bed" class="btn btn-default">Cancel</a>
-                                            <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                            <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                         </div>
                                         
                                 </form>
@@ -149,6 +149,6 @@
          <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
          <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
-        
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
     </body>
 </html>

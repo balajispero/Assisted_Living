@@ -2163,12 +2163,13 @@
         var year = dtToday.getFullYear() - 18;
         if(month < 10)
             month = '0' + month.toString();
-        if(day < 10)
+        if(day <script 10)
             day = '0' + day.toString();
         var minDate = year + '-' + month + '-' + day;
         var maxDate = year + '-' + month + '-' + day;
         $('#birthday').attr('max', maxDate);
     });
-
+</script>
+<?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>

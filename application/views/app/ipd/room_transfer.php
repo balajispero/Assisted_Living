@@ -187,7 +187,7 @@
                                             <?php echo $message;?>
                                             <?php if($this->session->userdata('emr_viewing') == ""){?>	
                                            <?php if($getOPDPatient->nStatus == "Pending"){?>
-                                           <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Transfer Member</a>
+                                           <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Transfer Member</a>
                                            <?php }}?>
                                            <a href="<?php echo base_url()?>app/ipd_print/print_room_transfer/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                            <!-- <a href="<?php echo base_url()?>app/ipd_print/pdf_room_transfer/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-success" target="_blank"><i class="fa fa-print"></i> PDF</a> -->
@@ -421,7 +421,7 @@ xmlhttp3.send();
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave" id="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-primary" name="btnSave" id="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -486,7 +486,7 @@ xmlhttp3.send();
         
         
         
-        
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
         
     </body>
 </html>

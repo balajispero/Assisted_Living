@@ -132,7 +132,9 @@
                                              </tr>
                                             <tr>
                                             	<td>
-                                                <input type="submit" value="VIEW REPORT" class="btn btn-primary bg_color" style="width: 100%;" name="btnView">
+                                                <!-- <input type="submit" value="VIEW REPORT" class="btn btn-primary bg_color" style="width: 100%;" name="btnView"> -->
+                                                <button type="submit"  class="btn btn-outline-primary hvr-shutter-in-vertical" style="width: 100%;" name="btnView">View Report</button>
+
                                                 </td>
                                             </tr>
                                             </table>
@@ -252,6 +254,6 @@ xmlhttp.send();
         
         
         
-        
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
     </body>
 </html>

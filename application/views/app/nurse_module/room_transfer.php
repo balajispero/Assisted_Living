@@ -487,7 +487,7 @@ xmlhttp3.send();
         
         
         
-        
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
         
        
     </body>

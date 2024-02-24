@@ -101,7 +101,7 @@
                          		 <div class="box-footer clearfix">
                             	
                                             <a href="<?php echo base_url();?>app/user" class="btn btn-default">Cancel</a>
-                                            <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                            <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                  
                             </div>
                             
@@ -415,6 +415,6 @@
                  }
              }
         </script>
-        
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
     </body>
 </html>

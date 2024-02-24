@@ -525,7 +525,7 @@ xmlhttp.send();
         
         
         
-        
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>  
         
         
         
