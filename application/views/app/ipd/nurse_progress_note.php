@@ -239,7 +239,7 @@
                                                 <?php if($this->session->userdata('emr_viewing') == ""){?>	
                                                 <?php if($getOPDPatient->nStatus == "Pending"){?>
                                                 <a href="<?php echo base_url()?>app/ipd/delete_nurse_progress/<?php echo $rows->nurse_notes_id?>/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" onClick="return confirm('Are you sure you want to remove?');">Remove</a>&nbsp;|&nbsp;
-                                                <a href="#" class="btn-review" data-ddate="<?php echo $rows->dDate;?>" data-note="<?php echo $rows->notes;?>" data-id="<?php echo $rows->nurse_notes_id;?>" data-compl_id="<?php echo $rows->complain_id;?>">Edit</a>
+                                                <a href="#" class="btn-review" data-ddate="<?php echo $rows->dDate;?>" data-time="<?php echo date('H:i A',strtotime($rows->dDateTime)); ?>" data-note="<?php echo $rows->notes;?>" data-id="<?php echo $rows->nurse_notes_id;?>" data-compl_id="<?php echo $rows->complain_id;?>">Edit</a>
                                                 <?php }}?>
                                                 </td>
                                            </tr>
@@ -355,7 +355,7 @@ xmlhttp.send();
                                             <td><input type="text" name="focus" placeholder="Focus" class="form-control input-sm" style="width: 100%;" required></td>
                                         </tr>-->
                                         <tr>
-                                            <td>Complaints</td>
+                                            <td>Complaints<!-- <font color="#FF0000">*</font> --></td>
                                             <td>
                                             <select name="complain" id="complain" style="width: 100%;" class="form-control input-sm">
                                                                 <option value="">- Complaints -</option>
@@ -367,8 +367,8 @@ xmlhttp.send();
                                             </td>
                                         </tr>
                                         <tr>
-                                        	<td>Notes</td>
-                                            <td><textarea name="notes" placeholder="Notes" class="form-control input-sm" style="width: 100%;" rows="3"></textarea></td>
+                                        	<td>Notes<font color="#FF0000">*</font></td>
+                                            <td><textarea name="notes" placeholder="Notes" class="form-control input-sm" style="width: 100%;" rows="3" required></textarea></td>
                                         </tr>
                                         </tbody>
                                         </table>
@@ -411,7 +411,7 @@ xmlhttp.send();
                                              <div class="bootstrap-timepicker">
                                             <div class="form-group">
                                             <div class="input-group">                                            
-                                                <input type="text" class="form-control timepicker" name="cTime" id="cTime"/>
+                                                <input type="text" class="form-control timepicker edit_time" name="cTime" id="cTime" value="<?php echo date("H:i A");?>" />
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-clock-o"></i>
                                                 </div>
@@ -422,7 +422,7 @@ xmlhttp.send();
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Complaints</td>
+                                            <td>Complaints<!-- <font color="#FF0000">*</font> --></td>
                                             <td>
                                            <select name="complain" id="editcompl" style="width: 100%;"  class="form-control input-sm editcompl">
                                                                 <option value="">- Complaints -</option>
@@ -438,8 +438,8 @@ xmlhttp.send();
                                         </tr>
                                        
                                         <tr>
-                                            <td>Notes</td>
-                                            <td><textarea name="notes" placeholder="Notes" class="note form-control input-sm" style="width: 100%;" rows="3"></textarea></td>
+                                            <td>Notes<font color="#FF0000">*</font></td>
+                                            <td><textarea name="notes" placeholder="Notes" class="note form-control input-sm" style="width: 100%;" rows="3" required></textarea></td>
                                         </tr>
                                         </tbody>
                                         </table>
@@ -528,6 +528,7 @@ $(document).ready(function() {
         event.preventDefault(); // Prevent the default link behavior
 
         const nurse_notes_id = $(this).data("id");
+        const nurse_note_time = $(this).data("time");
 
         if (window.XMLHttpRequest) {
             xmlhttp6 = new XMLHttpRequest();
@@ -541,6 +542,7 @@ $(document).ready(function() {
                 $('#updateForm').each(function() {
                     this.reset();
                 });
+                 $('.edit_time').val('');
                 var res = JSON.parse(xmlhttp6.responseText);
                 console.log(res);
 
@@ -554,6 +556,7 @@ $(document).ready(function() {
                             $('.nurse_notes_id').val(res[0].nurse_notes_id);
                             $('.ddate').val(res[0].dDate);
                             $('.note').val(res[0].notes);
+                            $('.edit_time').val(nurse_note_time);
             }
         }
 

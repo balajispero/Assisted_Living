@@ -108,7 +108,7 @@
                                 
                                 		<div class="form-group">
                                             <label for="exampleInputEmail1">Bed No/Name</label>
-                                            <input class="form-control input-sm" name="bed_name" id="bed_name" type="text" value="<?php echo $bed->bed_name?>" placeholder="Bed No/Name" style="width: 250px;" required>
+                                            <input class="form-control input-sm numberonly" name="bed_name" id="bed_name" type="text" value="<?php echo $bed->bed_name?>" placeholder="Bed No/Name" style="width: 250px;" required>
                                         </div>
                                         
                                         <div class="form-group">
@@ -149,6 +149,19 @@
          <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
          <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+        <script>
+            $(document).ready(function() {
+                // Remove char from room_name input value
+                
+            var bedName = $('#bed_name').val();
+            $('#bed_name').val(bedName.replace(/\D/g, ''));
+            });
+            
+            $(document).on('keyup', '.numberonly', function() {
+                var $th = $(this);
+                $th.val($th.val().replace(/[^0-9]/g, ''));
+            });
+        </script>
+        
     </body>
 </html>

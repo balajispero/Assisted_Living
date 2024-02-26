@@ -108,7 +108,7 @@
                                 
                                 		<div class="form-group">
                                             <label for="exampleInputEmail1">Room No/Name</label>
-                                            <input class="form-control input-sm" name="room_name" id="room_name" type="text" placeholder="Room No/Name" style="width: 250px;" required>
+                                            <input class="form-control input-sm numberonly" name="room_name" id="room_name" type="text" placeholder="Room No/Name" style="width: 250px;" required>
                                         </div>
                                         
                                         <div class="form-group">
@@ -171,6 +171,12 @@
          <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
          <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+        <script>
+            $(document).on('keyup', '.numberonly', function() {
+                var $th = $(this);
+                $th.val($th.val().replace(/[^0-9]/g, ''));
+            });
+        </script>
+        
     </body>
 </html>
