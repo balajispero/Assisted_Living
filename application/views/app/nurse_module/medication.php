@@ -271,16 +271,16 @@
                         <?php } ?>
                         </table>
                     </form>
-                                            <br><br><br><br><br><br><br>
-  <div class="well">Today given medicine by nurse</div>
+                        <br><br><br><br><br><br><br>
+                        <div class="well">Today given medicine by nurse</div>
                                             <table class="table table-hover table-striped">
-                                           <thead>
+                                            <thead>
                                                 <tr>
                                                     <th>Medicine Name</th>
                                                     <th><?php echo date("d/m/Y");?></th>
                                                     <!-- <th>Action</th> -->
                                                 </tr>
-                                           </thead>
+                                            </thead>
                                            <tbody>
                                             <?php /*echo "<pre>"; print_r($given_medicine_chart);*/ ?>
                                            <?php foreach($given_medicine_chart as $key =>$rows3){
@@ -521,16 +521,8 @@ xmlhttp.send();
         </script>
         <!-- End check one checkbox allowed -->
 
-        
-        
-        
-        
         <?php require_once(APPPATH . 'views/include/footer.php'); ?>  
-        
-        
-        
-        
-        
+      
         
     </body>
 </html>
