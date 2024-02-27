@@ -104,18 +104,14 @@
                 <!-- Main content -->
                 <section class="content">
                  
-                 
                  <div class="row">
                  	<div class="col-md-12">
                     <form role="form" method="post" action="<?php echo base_url()?>app/user/edit" onSubmit="return confirm('Are you sure you want to save?');">    
                     	 <div class="box">
-                         		
                          		 <div class="box-footer clearfix">
-                            	
-                                            <!--<a href="<?php echo base_url();?>app/user" class="btn btn-default">Back</a>-->
+                            	 <!--<a href="<?php echo base_url();?>app/user" class="btn btn-default">Back</a>-->
                                  
                             </div>
-                            
                         	<div class="box-body table-responsive">
                             	
                                 
@@ -126,35 +122,15 @@
                                 			</ul>
                                             <div class="tab-content">
                                             	<div class="tab-pane active" id="tab_1">
-                                                	<table cellpadding="3" cellspacing="3" width="100%">
-                                                    <tr>
-                                                    	<td colspan="2"></td>
-
-                                                    </tr>
-                                                    <tR>
-                                                    	<td colspan="2">
-                                                        <?php echo validation_errors(); ?>    
-                                                        </td>
-                                                    </tR>
-                                                    <tr>
-                                                    	<td width="18%">User ID</td>
-                                                        <td width="80%"><input class="form-control input-sm" name="userid" id="userid" type="text" style="width: 250px;" required readonly value="<?php echo $user->user_id;?>"></td>
-                                                    	 <!-- <td width="80%" rowspan="4" valign="top" align="center">
-                        <?php
-if(!$user->picture){
-	$picture = "no_avatar.gif";	
-}else{
-	$picture = $user->picture;
-}
-?>
-<img src="<?php echo base_url()?>public/user_picture/<?php echo $picture;?>" class="img-rounded" width="150" height="150">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </td>              -->
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="18%">Title</td>
-                                                        <td width="80%">
-                                                        	<select name="title" id="title" class="form-control input-sm" style="width: 250px;" required readonly>
+                                                	<div class="row">
+                                                        <div class="col-md-4 col-sm-6">
+                                                        <div class="form-group input-box">
+                                                            <label>User ID:</label>
+                                                            <input class="form-control" name="userid" id="userid" type="text" required readonly value="<?php echo $user->user_id;?>">
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Title:</label>
+                                                            <select name="title" id="title" class="form-control input-sm" required readonly>
                                                             	<option value="">- Title -</option>
 																<?php 
 																foreach($UserTitles as $UserTitles){
@@ -167,43 +143,41 @@ if(!$user->picture){
                                                             	<option value="<?php echo $UserTitles->param_id;?>" <?php echo $selected;?>><?php echo $UserTitles->cValue;?></option>
                                                                 <?php }?>
                                                             </select>
-                                                            
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="18%">Last Name</td>
-                                                        <td width="80%">
-                                                        <?php echo form_input('lastname',set_value('lastname',$user->lastname),'readonly id="lastname" class="form-control input-sm" placeholder="Last Name" style="width: 250px;" required');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td>First Name</td>
-                                                        <td>
-                                                        <?php echo form_input('firstname',set_value('firstname',$user->firstname),'readonly id="firstname" class="form-control input-sm" placeholder="First Name" style="width: 250px;" required');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td>Middle Name</td>
-                                                        <td>
-                                                        <?php echo form_input('middlename',set_value('middlename',$user->middlename),'readonly id="middlename" class="form-control input-sm" placeholder="Middle Name" style="width: 250px;" required');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td>Birthday</td>
-                                                        <td>
-                                                        <?php echo form_input('birthday',set_value('birthday',$user->birthday),'readonly id="birthday" class="form-control input-sm" placeholder="Birthday" style="width: 250px;" required');?> 
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td>Birth Place</td>
-                                                        <td>
-                                                        <?php echo form_input('birthplace',set_value('birthplace',$user->birthplace),'readonly id="birthplace" class="form-control input-sm" placeholder="Birth Place" style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="18%">Gender</td>
-                                                        <td width="80%">
-                                                        	<select name="gender" id="gender" class="form-control input-sm" style="width: 250px;" readonly>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label >Birthday:</label>
+                                                            <?php echo form_input('birthday',set_value('birthday',$user->birthday),'readonly id="birthday" class="form-control input-sm" placeholder="Birthday" required');?> 
+                                                        </div>
+                                                   
+                                                      
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 section2">
+                                                    <div class="form-group input-box">
+                                                            <label>First Name:</label>
+                                                            <?php echo form_input('firstname',set_value('firstname',$user->firstname),'readonly id="firstname" class="form-control input-sm" placeholder="First Name" required');?>
+                                                        </div>                                            
+                                                        <div class="form-group input-box">
+                                                            <label>Middle Name:</label>
+                                                            <?php echo form_input('middlename',set_value('middlename',$user->middlename),'readonly id="middlename" class="form-control input-sm" placeholder="Middle Name" required');?>
+                                                         </div>
+                                                        
+                                                         <div class="form-group input-box">
+                                                            <label >Birth Place:</label>
+                                                            <?php echo form_input('birthplace',set_value('birthplace',$user->birthplace),'readonly id="birthplace" class="form-control input-sm" placeholder="Birth Place"');?>
+                                                       </div>
+            
+                                                   
+
+                                                    </div>
+                                                  
+                                                    <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group input-box">
+                                                            <label>Last Name:</label>
+                                                            <?php echo form_input('lastname',set_value('lastname',$user->lastname),'readonly id="lastname" class="form-control input-sm" placeholder="Last Name"  required');?>
+                                                        </div>
+                                                    <div class="form-group input-box">
+                                                            <label >Gender:</label>
+                                                            <select name="gender" id="gender" class="form-control input-sm"  readonly>
                                                             	<option value="">- Gender -</option>
                                                                 <?php 
 																foreach($gender as $gender){
@@ -216,12 +190,10 @@ if(!$user->picture){
                                                             	<option value="<?php echo $gender->param_id;?>" <?php echo $selected;?>><?php echo $gender->cValue;?></option>
                                                                 <?php }?>
                                                             </select>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="18%">Civil Status</td>
-                                                        <td width="80%">
-                                                        	<select name="civil_status" id="civil_status" class="form-control input-sm" style="width: 250px;" readonly>
+                                                    </div>
+                                                    <div class="form-group input-box">
+                                                            <label>Civil Status:</label>
+                                                            <select name="civil_status" id="civil_status" class="form-control input-sm" readonly>
                                                             	<option value="">- Civil Status -</option>
                                                                 <?php 
 																foreach($civilStatus as $civilStatus){
@@ -234,30 +206,21 @@ if(!$user->picture){
                                                             	<option value="<?php echo $civilStatus->param_id;?>" <?php echo $selected;?>><?php echo $civilStatus->cValue;?></option>
                                                                 <?php }?>
                                                             </select>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="18%"><b>Department</b></td><br>
-                                                        <!-- <td width="80%">
-                                                        	<select name="department" id="department" class="form-control input-sm" style="width: 200px;" required readonly>
-                                                            	<option value="">- Department -</option>
-                                                            	<//?php 
-																foreach($departmentList as $departmentList){
-																if($_POST['department'] == $departmentList->department_id || $user->department == $departmentList->department_id){
-																	$selected = "selected='selected'";
-																}else{
-																	$selected = "";
-																}
-																?>
-                                                            	<option value="<?php echo $departmentList->department_id;?>" <?php echo $selected;?>><?php echo $departmentList->dept_name;?></option>
-                                                                <?php //}?>
-                                                            </select>
-                                                        </td> -->
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="18%">Designation</td>
-                                                        <td width="80%">
-                                                        	<select name="designation" id="designation" class="form-control input-sm" style="width: 250px;" required readonly>
+                                                    </div>
+                                            
+                                                  
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                   <div class="form-group input-box ">
+                                                            <h3 style=" margin-top:20px; margin-left:20px;">Department :</h3>
+                                                        </div>
+                                                       
+                                                       
+                                                <div class="col-md-4 col-sm-6">
+                                                <div class="form-group input-box">
+                                                            <label>Designation:</label>
+                                                            <select name="designation" id="designation" class="form-control input-sm" required readonly>
                                                             	<option value="">- Designation -</option>
                                                                 <?php 
 																foreach($designationList as $designationList){
@@ -270,12 +233,12 @@ if(!$user->picture){
                                                             	<option value="<?php echo $designationList->designation_id;?>" <?php echo $selected;?>><?php echo $designationList->designation;?></option>
                                                                 <?php }?>
                                                             </select>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="18%">User Role</td>
-                                                        <td width="80%">
-                                                        	<select name="user_role" id="user_role" class="form-control input-sm" style="width: 25s0px;" required readonly>
+                                                    </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-6">
+                                                <div class="form-group input-box">
+                                                            <label>User Role:</label>
+                                                            <select name="user_role" id="user_role" class="form-control input-sm" required readonly>
                                                             	<option value="">- User Role -</option>
                                                                 <?php 
 																foreach($userRoleList as $userRoleList){
@@ -288,64 +251,53 @@ if(!$user->picture){
                                                             	<option value="<?php echo $userRoleList->role_id;?>" <?php echo $selected;?>><?php echo $userRoleList->role_name;?></option>
                                                                 <?php }?>
                                                             </select>
-                                                        </td>
-                                                    </tr>
-                                                    </table>
+                                                    </div>
+                                                </div>
+
+                                                </div>
                                                 </div>
                                                 <div class="tab-pane" id="tab_2">
-                                                	<table cellpadding="3" cellspacing="3" width="100%">
-                                                    <tr>
-                                                    	<td colspan="2"></td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">House No.</td>
-                                                        <td width="86%">
-                                                        <?php echo form_input('noofhouse',set_value('noofhouse',$user->street),'readonly id="noofhouse" class="form-control input-sm" placeholder="No. of House" style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">Brgy./Subd.</td>
-                                                        <td width="86%"> 
-                                                        <?php echo form_input('brgy',set_value('brgy',$user->subd_brgy),'readonly id="brgy" class="form-control input-sm" placeholder="Brgy./Subd." style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">City/Province</td>
-                                                        <td width="86%"> 
-                                                        <?php echo form_input('province',set_value('province',$user->province),'readonly id="province" class="form-control input-sm" placeholder="City/Province" style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">Mobile No.</td>
-                                                        <td width="86%"> 
-                                                        <?php echo form_input('mobile',set_value('mobile',$user->mobile_no),'readonly id="mobile" class="form-control input-sm" placeholder="Mobile No" style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">Phone No.</td>
-                                                        <td width="86%">
-                                                        <?php echo form_input('phone',set_value('phone',$user->phone_no),'readonly id="phone" class="form-control input-sm" placeholder="Phone No." style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">Email Address</td>
-                                                        <td width="86%"> 
-                                                        <?php echo form_input('email',set_value('email',$user->email_address),'readonly id="email" class="form-control input-sm" placeholder="Email Address" style="width: 250px;" required');?>
-                                                        </td>
-                                                    </tr>
-                                                    </table>
+                                                	<div class="row">
+                                                         <div class="col-md-4 col-sm-12">
+                                                        <div class="form-group input-box ">
+                                                            <label>House No.:</label>
+                                                            <?php echo form_input('noofhouse',set_value('noofhouse',$user->street),'readonly id="noofhouse" class="form-control input-sm" placeholder="No. of House"');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Brgy./Subd.:</label>
+                                                            <?php echo form_input('brgy',set_value('brgy',$user->subd_brgy),'readonly id="brgy" class="form-control input-sm" placeholder="Brgy./Subd."');?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-12">
+                                                        <div class="form-group input-box ">
+                                                            <label>City/Province:</label>
+                                                            <?php echo form_input('province',set_value('province',$user->province),'readonly id="province" class="form-control input-sm" placeholder="City/Province"');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Mobile No.:</label>
+                                                            <?php echo form_input('mobile',set_value('mobile',$user->mobile_no),'readonly id="mobile" class="form-control input-sm" placeholder="Mobile No"');?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-12">
+                                                        <div class="form-group input-box ">
+                                                            <label>Phone No.:</label>
+                                                            <?php echo form_input('phone',set_value('phone',$user->phone_no),'readonly id="phone" class="form-control input-sm" placeholder="Phone No."');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Email Address:</label>
+                                                            <?php echo form_input('email',set_value('email',$user->email_address),'readonly id="email" class="form-control input-sm" placeholder="Email Address"  required');?>
+                                                        </div>
+                                                    </div>
+
+                                                        </div>
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        
-                                        
-                               
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
+                                     </div>
+                                    </div>
+                     </div>
                      </form>
                  </div>
                  

@@ -24,6 +24,14 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
+        <style>
+            /* @media only screen and (max-width:425px){
+            .m12{
+                margin-top: -50px;
+                margin-left: 36px;
+            }
+        } */
+        </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -119,68 +127,19 @@
                                             <div class="tab-content">
                                             	
                                                 <div class="tab-pane active" id="tab_1">
-                                                	<table cellpadding="3" cellspacing="3" width="100%">
-                                                    <tr>
-                                                    	<td colspan="2">Required fields = <font color="#FF0000">*</font></td>
-                                                    </tr>
-                                                    <tR>
-                                                    	<td colspan="2">
-                                                        <?php echo validation_errors(); ?>    
-                                                        <?php echo $message; ?>    
-                                                        </td>
-                                                    </tR>
-                                                    <tr>
-                                                    	<td width="12%">Last Name <font color="#FF0000">*</font></td>
-                                                        <td width="88%">
-                                                        <?php echo form_input('lastname',set_value('lastname',$user->lastname),'id="lastname" class="form-control input-sm" placeholder="Last Name" style="width: 250px;" required');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td>First Name <font color="#FF0000">*</font></td>
-                                                        <td>
-                                                        <?php echo form_input('firstname',set_value('firstname',$user->firstname),'id="firstname" class="form-control input-sm" placeholder="First Name" style="width: 250px;" required');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td>Middle Name <font color="#FF0000">*</font></td>
-                                                        <td>
-                                                        <?php echo form_input('middlename',set_value('middlename',$user->middlename),'id="middlename" class="form-control input-sm" placeholder="Middle Name" style="width: 250px;" required');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td>Birthday <font color="#FF0000">*</font></td>
-                                                        <td>
-                                                        <?php echo form_input('birthday',set_value('birthday',$user->birthday),'id="birthday" class="form-control input-sm" placeholder="Birthday" style="width: 150px;" required');?> 
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td>Birth Place</td>
-                                                        <td>
-                                                        <?php echo form_input('birthplace',set_value('birthplace',$user->birthplace),'id="birthplace" class="form-control input-sm" placeholder="Birth Place" style="width: 380px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="12%">Gender</td>
-                                                        <td width="88%">
-                                                        	<select name="gender" id="gender" class="form-control input-sm" style="width: 100px;">
-                                                            	<option value="">- Gender -</option>
-                                                                <?php 
-																foreach($gender as $gender){
-																if($_POST['gender'] == $gender->param_id || $user->gender == $gender->param_id){
-																	$selected = "selected='selected'";
-																}else{
-																	$selected = "";
-																}
-																?>
-                                                            	<option value="<?php echo $gender->param_id;?>" <?php echo $selected;?>><?php echo $gender->cValue;?></option>
-                                                                <?php }?>
-                                                            </select>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="12%">Civil Status</td>
-                                                        <td width="88%">
-                                                        	<select name="civil_status" id="civil_status" class="form-control input-sm" style="width: 140px;">
+                                                	<div class="row">
+                                                    <div class="col-md-4 col-sm-12">
+                                                         <div class="form-group input-box">
+                                                            <label >First Name :</label>
+                                                            <?php echo form_input('firstname',set_value('firstname',$user->firstname),'id="firstname" class="form-control input-sm" placeholder="First Name" required');?>
+                                                        </div>
+                                                       <div class="form-group input-box">
+                                                            <label >Birthday :</label>
+                                                            <?php echo form_input('birthday',set_value('birthday',$user->birthday),'id="birthday" class="form-control input-sm" placeholder="Birthday" required');?> 
+                                                       </div>
+                                                       <div class="form-group input-box">
+                                                            <label>Civil Status:</label>
+                                                            <select name="civil_status" id="civil_status" class="form-control input-sm" >
                                                             	<option value="">- Civil Status -</option>
                                                                 <?php 
 																foreach($civilStatus as $civilStatus){
@@ -193,73 +152,88 @@
                                                             	<option value="<?php echo $civilStatus->param_id;?>" <?php echo $selected;?>><?php echo $civilStatus->cValue;?></option>
                                                                 <?php }?>
                                                             </select>
-                                                        </td>
-                                                    </tr>
-                                                    </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group input-box">
+                                                            <label >Middle Name :</label>
+                                                            <?php echo form_input('middlename',set_value('middlename',$user->middlename),'id="middlename" class="form-control input-sm" placeholder="Middle Name" required');?>
+                                                        </div>
+                                                       <div class="form-group input-box">
+                                                            <label >Birth Place :</label>
+                                                            <?php echo form_input('birthplace',set_value('birthplace',$user->birthplace),'id="birthplace" class="form-control input-sm" placeholder="Birth Place"');?>
+                                                       </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-12">
+                                                        <div class="form-group input-box">
+                                                            <label>Last Name:</label>
+                                                            <?php echo form_input('lastname',set_value('lastname',$user->lastname),'id="lastname" class="form-control input-sm" placeholder="Last Name" required');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Gender:</label>
+                                                            <select name="gender" id="gender" class="form-control input-sm">
+                                                            	<option value="">- Gender -</option>
+                                                                <?php 
+																foreach($gender as $gender){
+																if($_POST['gender'] == $gender->param_id || $user->gender == $gender->param_id){
+																	$selected = "selected='selected'";
+																}else{
+																	$selected = "";
+																}
+																?>
+                                                            	<option value="<?php echo $gender->param_id;?>" <?php echo $selected;?>><?php echo $gender->cValue;?></option>
+                                                                <?php }?>
+                                                            </select>
+                                                        </div>
+                                                      
+                                                        </div>
+   
+                                                    </div>
                                                 </div>
                                                 <div class="tab-pane" id="tab_2">
-                                                	<table cellpadding="3" cellspacing="3" width="100%">
-                                                    <tr>
-                                                    	<td colspan="2"></td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">House No.</td>
-                                                        <td width="86%">
-                                                        <?php echo form_input('noofhouse',set_value('noofhouse',$user->street),'id="noofhouse" class="form-control input-sm" placeholder="No. of House" style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">Brgy./Subd.</td>
-                                                        <td width="86%"> 
-                                                        <?php echo form_input('brgy',set_value('brgy',$user->subd_brgy),'id="brgy" class="form-control input-sm" placeholder="Brgy./Subd." style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">City/Province</td>
-                                                        <td width="86%"> 
-                                                        <?php echo form_input('province',set_value('province',$user->province),'id="province" class="form-control input-sm" placeholder="City/Province" style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">Mobile No.</td>
-                                                        <td width="86%"> 
-                                                        <?php echo form_input('mobile',set_value('mobile',$user->mobile_no),'id="mobile" class="form-control input-sm" placeholder="Mobile No" style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">Phone No.</td>
-                                                        <td width="86%">
-                                                        <?php echo form_input('phone',set_value('phone',$user->phone_no),'id="phone" class="form-control input-sm" placeholder="Phone No." style="width: 250px;"');?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td width="14%">Email Address <font color="#FF0000">*</font></td>
-                                                        <td width="86%"> 
-                                                        <?php echo form_input('email',set_value('email',$user->email_address),'id="email" class="form-control input-sm" placeholder="Email Address" style="width: 250px;" required');?>
-                                                        </td>
-                                                    </tr>
-                                                    <input type="hidden" name="username" id="username" value="<?php echo $user->username;?>">
-                                                    </table>
+                                                <div class="row">
+                                                <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group input-box">
+                                                            <label >House No.:</label>
+                                                            <?php echo form_input('noofhouse',set_value('noofhouse',$user->street),'id="noofhouse" class="form-control input-sm" placeholder="No. of House"');?>
+                                                        </div>
+                                                       <div class="form-group input-box">
+                                                            <label >Brgy./Subd. :</label>
+                                                            <?php echo form_input('brgy',set_value('brgy',$user->subd_brgy),'id="brgy" class="form-control input-sm" placeholder="Brgy./Subd." style="width: 250px;"');?>
+                                                        </div>
+                                                       <div class="form-group input-box">
+                                                            <label >City/Province :</label>
+                                                            <?php echo form_input('province',set_value('province',$user->province),'id="province" class="form-control input-sm" placeholder="City/Province"');?>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group input-box">
+                                                            <label >Mobile No.:</label>
+                                                            <?php echo form_input('mobile',set_value('mobile',$user->mobile_no),'id="mobile" class="form-control input-sm" placeholder="Mobile No"');?>
+                                                        </div>
+                                                       <div class="form-group input-box">
+                                                            <label >Phone No. :</label>
+                                                            <?php echo form_input('phone',set_value('phone',$user->phone_no),'id="phone" class="form-control input-sm" placeholder="Phone No."');?>
+                                                         </div>
+                                                       <div class="form-group input-box">
+                                                            <label >Email Address :</label>
+                                                            <?php echo form_input('email',set_value('email',$user->email_address),'id="email" class="form-control input-sm" placeholder="Email Address" required');?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group input-box">
+                                                        <iframe frameborder="0" height="180" src="<?php echo base_url()?>app/user/upload_picture/<?php echo $user->user_id?>"></iframe>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                   </div>
                                                 </div>
-                                                <div class="tab-pane" id="tab_3">
-                                                	<iframe width="100%" frameborder="0" height="400" src="<?php echo base_url()?>app/user/upload_picture/<?php echo $user->user_id?>"></iframe>
-                                                </div>
-                                                
                                             </div>
-                                            
-                                            
                                         </div>
-                                        
-                                        
-                                        
-                               
-                                
-                            </div>
-                            
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                     </form>
-                 </div>
                  
                  
                 </section><!-- /.content -->
