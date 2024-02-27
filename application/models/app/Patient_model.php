@@ -757,14 +757,15 @@ class Patient_model extends CI_Model{
 	public function discharge_save(){
 		$age = 0;
 		$dob = strtotime($this->input->post('birthday'));
-		$tdate = date("Y-m-d");
+		$tdate = strtotime(date("Y-m-d"));
+		$disch_date = date("Y-m-d");
 		while( $tdate > $dob = strtotime('+1 year', $dob))
 		{
 			++$age;
 		}
 		if(!empty($this->input->post('discharge_date')))
 		{
-			$tdate=$this->input->post('discharge_date');	
+			$disch_date=$this->input->post('discharge_date');	
 		}
 		
 		$this->data = array(
@@ -810,7 +811,7 @@ class Patient_model extends CI_Model{
 			'rel_add2' => $this->input->post('rel_add2'),
 			'rel_city2' => $this->input->post('rel_city2'),
 			'rel_phone2' => $this->input->post('rel_phone2'),
-			'discharged_date'			=>$tdate,
+			'discharged_date'			=>$disch_date,
 			'organization'		=>		$this->session->userdata('organization'),
 			'InActive'			=>		0,
 			'ptn_addtnl_note' => $this->input->post('ptn_addtnl_note')

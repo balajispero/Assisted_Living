@@ -26,9 +26,9 @@ $date = date("Y-m-d H:i:s", time());
     <table class="table table-bordered">
         <tr bgcolor="#ddd"><th>Member No.</th><th>Reg Date</th><th>Name</th><th>Email</th><th>Birthday</th><th>Age</th><th>Gender</th><th>Civil Status</th><th>Blood Group</th></tr>
         <tr>
-            <td><?php echo $patientInfo->patient_no;?></td><td><?php echo $patientInfo->date_entry;?></td><td><?php echo $patientInfo->middlename;?></td><td><?php echo $patientInfo->email_address;?></td><td><?php echo $patientInfo->birthday;?></td><td><?php echo $patientInfo->age;?></td><td><?php $nameby_id = $ci_obj->general_model->getname($patientInfo->gender);
+            <td><?php echo $patientInfo->patient_no;?></td><td><?php echo $patientInfo->date_entry;?></td><td><?php echo $dischargeInfo->name;?></td><td><?php echo $dischargeInfo->email_address;?></td><td><?php echo $dischargeInfo->birthday;?></td><td><?php echo $dischargeInfo->age;?></td><td><?php $nameby_id = $ci_obj->general_model->getname($patientInfo->gender);
      echo !empty($nameby_id->cValue) ? $nameby_id->cValue : '' ?></td><td>
-                <?php $nameby_id = $ci_obj->general_model->getname($patientInfo->civil_status);
+                <?php $nameby_id = $ci_obj->general_model->getname($dischargeInfo->civil_status);
      echo !empty($nameby_id->cValue) ? $nameby_id->cValue : '' ?>
             </td><td>
                 <?php $nameby_id = $ci_obj->general_model->getname($dischargeInfo->blood_group);
@@ -47,7 +47,7 @@ $date = date("Y-m-d H:i:s", time());
     <table class="table table-bordered">
         <tr bgcolor="#ddd"><th>Address</th><th>City</th><th>Phone No.</th></tr>
         <tr>
-            <td><?php echo !empty($patientInfo->stress) ? $patientInfo->stress : ''?></td><td><?php echo $patientInfo->province;?></td><td><?php echo $patientInfo->mobile_no;?></td>
+            <td><?php echo !empty($dischargeInfo->street) ? $dischargeInfo->street : ''?></td><td><?php echo $dischargeInfo->province;?></td><td><?php echo $dischargeInfo->mobile_no;?></td>
         </tr>        
     </table>
     <table class="table table-bordered">
@@ -56,7 +56,7 @@ $date = date("Y-m-d H:i:s", time());
         <table class="table table-bordered">
         <tr bgcolor="#ddd"><th>Relation With</th><th>Address</th><th>City</th><th>Phone No.</th></tr>
         <tr>
-            <td><?php echo $patientInfo->relation_with;?></td><td><?php echo $patientInfo->rel_add;?></td><td><?php echo $patientInfo->rel_city;?></td><td><?php echo $patientInfo->rel_phone;?></td>
+            <td><?php echo $dischargeInfo->relation_with;?></td><td><?php echo $dischargeInfo->rel_add;?></td><td><?php echo $dischargeInfo->rel_city;?></td><td><?php echo $dischargeInfo->rel_phone;?></td>
         </tr>        
     </table>
     <table class="table table-bordered">
@@ -65,7 +65,7 @@ $date = date("Y-m-d H:i:s", time());
         <table class="table table-bordered">
         <tr bgcolor="#ddd"><th>Relation With</th><th>Address</th><th>City</th><th>Phone No.</th></tr>
         <tr>
-            <td><?php echo $patientInfo->relation_with2;?></td><td><?php echo $patientInfo->rel_add2;?></td><td><?php echo $patientInfo->rel_city2;?></td><td><?php echo $patientInfo->rel_phone2;?></td>
+            <td><?php echo $dischargeInfo->relation_with2;?></td><td><?php echo $dischargeInfo->rel_add2;?></td><td><?php echo $dischargeInfo->rel_city2;?></td><td><?php echo $dischargeInfo->rel_phone2;?></td>
         </tr>        
     </table>
     <table class="table table-bordered">
