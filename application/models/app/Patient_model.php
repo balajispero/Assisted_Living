@@ -235,6 +235,8 @@ class Patient_model extends CI_Model{
 			'rel_phone2' => $this->input->post('rel_phone2'),
 			'rel_email1' => $this->input->post('rel_email1'),
 			'rel_email2' => $this->input->post('rel_email2'),
+			'added_date'		=>		date("Y-m-d h:i:s a"),
+			'added_by'		=>		$this->session->userdata('user_id'),
 			'organization' => $this->session->userdata('organization'),
 			'preassessment_no' => $this->input->post('preassessment_no'),
 			'InActive'			=>		0,
@@ -432,6 +434,8 @@ class Patient_model extends CI_Model{
 			'rel_email1' => $this->input->post('rel_email1'),
 			'rel_email2' => $this->input->post('rel_email2'),
 			'rel_phone2' => $this->input->post('rel_phone2'),
+			'updated_date'		=>		date("Y-m-d h:i:s a"),
+			'updated_by'		=>		$this->session->userdata('user_id')
 		);
 		$this->load->library('upload');
 		/*********************Start upload image code*********************/
@@ -575,6 +579,8 @@ class Patient_model extends CI_Model{
 			'rel_phone2' => $this->input->post('rel_phone2'),
 			'rel_email1' => $this->input->post('rel_email1'),
 			'rel_email2' => $this->input->post('rel_email2'),
+			'updated_date'		=>		date("Y-m-d h:i:s a"),
+			'updated_by'		=>		$this->session->userdata('user_id')
 		);
 		$this->load->library('upload');
 		/*********************Start upload image code*********************/
