@@ -206,17 +206,13 @@
                                                             	<option value="<?php echo $civilStatus->param_id;?>" <?php echo $selected;?>><?php echo $civilStatus->cValue;?></option>
                                                                 <?php }?>
                                                             </select>
-                                                    </div>
-                                            
-                                                  
-                                                    </div>
+                                                         </div>
+                                                        </div>
                                                 </div>
                                                 <div class="row">
                                                    <div class="form-group input-box ">
                                                             <h3 style=" margin-top:20px; margin-left:20px;">Department :</h3>
                                                         </div>
-                                                       
-                                                       
                                                 <div class="col-md-4 col-sm-6">
                                                 <div class="form-group input-box">
                                                             <label>Designation:</label>
@@ -233,7 +229,7 @@
                                                             	<option value="<?php echo $designationList->designation_id;?>" <?php echo $selected;?>><?php echo $designationList->designation;?></option>
                                                                 <?php }?>
                                                             </select>
-                                                    </div>
+                                                             </div>
                                                             </div>
                                                             <div class="col-md-4 col-sm-6">
                                                 <div class="form-group input-box">

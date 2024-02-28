@@ -15,7 +15,10 @@
     }
     .navbar-nav > .user-menu > .dropdown-menu > li.user-header{
         background-color: #0097A7 !important;
+        margin-top:-93px;
+        margin-left:20px;
     }
+    
     
     @media only screen and (max-width:768px) and (min-width:300px) {
          .m12{
@@ -47,13 +50,16 @@
             margin-top: -30px !important;
             margin-left: 70px !important;
          }
+         
         }
-        @media only screen and (max-width:425px) {
-         .logo2{
+        
+/* @media only screen and  (max-width:425px) { */
+    @media only screen and (max-width:430px) and (min-width:320px) {
+         /* .logo2{
             font-size: 18px;
             margin-top: -50px;
             margin-left: 35px;
-         }
+         } */
          .dropmenu{
             margin-top: -50px;
             width: 100%;
@@ -68,7 +74,7 @@
          }
          
          .img-circle {
-            height: 40px !important;
+            height: 40px !important;    
             width: 25% !important;
             /* margin-left: -105px !important; */
             margin-right: 70px;
@@ -81,7 +87,30 @@
          img.img-circle {
             margin-left: -104px !important;
         }
+        .logo2{
+	float: left;
+	font-size: 23px !important;
+	line-height: 50px !important;
+	/*text-align: center;*/
+	padding: 0 10px;
+	width: 500px;
+	font-family: 'Calibri';
+	font-weight: 500;
+	height: 50px;
+	display: block !important;
+	color: #f9f9f9 !important;
+	margin-top: -46px !important;
+    /* margin-left: 20px; */
+}
+       
+        .ml2 {
+                    
+                    margin-top: -5px !important;
+                    margin-left: 25px;
+                    font-size: 18px;
+                    }
         }
+        
         .bg_color{
             /* background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important; */
                background-color: #07B5BC;
@@ -114,6 +143,7 @@
                     .ml2 {
                     font-weight: 550;
                     /* font-size: 3.5em; */
+                   
                     }
 
                    .ml2 .letter {
@@ -156,6 +186,8 @@
     background-color: #0097A7;
     border-color: #428bca;
 }
+
+
    
    </style>
 
