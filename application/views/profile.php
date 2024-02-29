@@ -34,6 +34,42 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
+        <style>
+@media screen and (max-width: 320px) {
+    .user_img {
+        width: 100%; 
+        height: 140px; 
+    }
+
+    h5 {
+        margin-left: 100px !important; 
+        font-size: 16px; 
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .user_img {
+        width: 80%; 
+        height: 160px; 
+    }
+
+    h5 {
+        margin-left:60px !important; 
+        font-size: 14px; 
+    }
+    .col-md-4 {
+        width: 33% !important;
+        display: inline;
+    }
+    
+
+  
+}
+
+
+
+
+        </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -123,12 +159,48 @@
                                             <div class="tab-content">
                                             	<div class="tab-pane active" id="tab_1">
                                                 	<div class="row">
+                                                    <?php
+                                                        if (!$user->picture) {
+                                                            $picture = "no_avatar.gif";
+                                                        } else {
+                                                            $picture = $user->picture;
+                                                        }
+                                                        ?>
                                                         <div class="col-md-4 col-sm-6">
+                                                        <div class="form-group input-box">
+                                                            <img class="user_img"src="<?php echo base_url(); ?>public/user_picture/<?php echo $picture; ?>" alt="" height="156px" width="300px">
+                                                            <h5 style="margin-left:100px;"><b>Uesr Profile</b></h5>
+                                                        </div>
+
                                                         <div class="form-group input-box">
                                                             <label>User ID:</label>
                                                             <input class="form-control" name="userid" id="userid" type="text" required readonly value="<?php echo $user->user_id;?>">
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 section2">
+                                                    <div class="form-group input-box">
+                                                            <label>First Name:</label>
+                                                            <?php echo form_input('firstname',set_value('firstname',$user->firstname),'readonly id="firstname" class="form-control input-sm" placeholder="First Name" required');?>
+                                                        </div>                                            
                                                         <div class="form-group input-box">
+                                                            <label>Middle Name:</label>
+                                                            <?php echo form_input('middlename',set_value('middlename',$user->middlename),'readonly id="middlename" class="form-control input-sm" placeholder="Middle Name" required');?>
+                                                         </div>
+                                                         <div class="form-group input-box">
+                                                            <label >Birthday:</label>
+                                                            <?php echo form_input('birthday',set_value('birthday',$user->birthday),'readonly id="birthday" class="form-control input-sm" placeholder="Birthday" required');?> 
+                                                        </div>
+                                                         <div class="form-group input-box">
+                                                            <label >Birth Place:</label>
+                                                            <?php echo form_input('birthplace',set_value('birthplace',$user->birthplace),'readonly id="birthplace" class="form-control input-sm" placeholder="Birth Place"');?>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group input-box">
+                                                            <label>Last Name:</label>
+                                                            <?php echo form_input('lastname',set_value('lastname',$user->lastname),'readonly id="lastname" class="form-control input-sm" placeholder="Last Name"  required');?>
+                                                    </div>
+                                                    <div class="form-group input-box">
                                                             <label>Title:</label>
                                                             <select name="title" id="title" class="form-control input-sm" required readonly>
                                                             	<option value="">- Title -</option>
@@ -143,37 +215,6 @@
                                                             	<option value="<?php echo $UserTitles->param_id;?>" <?php echo $selected;?>><?php echo $UserTitles->cValue;?></option>
                                                                 <?php }?>
                                                             </select>
-                                                        </div>
-                                                        <div class="form-group input-box">
-                                                            <label >Birthday:</label>
-                                                            <?php echo form_input('birthday',set_value('birthday',$user->birthday),'readonly id="birthday" class="form-control input-sm" placeholder="Birthday" required');?> 
-                                                        </div>
-                                                   
-                                                      
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-6 section2">
-                                                    <div class="form-group input-box">
-                                                            <label>First Name:</label>
-                                                            <?php echo form_input('firstname',set_value('firstname',$user->firstname),'readonly id="firstname" class="form-control input-sm" placeholder="First Name" required');?>
-                                                        </div>                                            
-                                                        <div class="form-group input-box">
-                                                            <label>Middle Name:</label>
-                                                            <?php echo form_input('middlename',set_value('middlename',$user->middlename),'readonly id="middlename" class="form-control input-sm" placeholder="Middle Name" required');?>
-                                                         </div>
-                                                        
-                                                         <div class="form-group input-box">
-                                                            <label >Birth Place:</label>
-                                                            <?php echo form_input('birthplace',set_value('birthplace',$user->birthplace),'readonly id="birthplace" class="form-control input-sm" placeholder="Birth Place"');?>
-                                                       </div>
-            
-                                                   
-
-                                                    </div>
-                                                  
-                                                    <div class="col-md-4 col-sm-6">
-                                                    <div class="form-group input-box">
-                                                            <label>Last Name:</label>
-                                                            <?php echo form_input('lastname',set_value('lastname',$user->lastname),'readonly id="lastname" class="form-control input-sm" placeholder="Last Name"  required');?>
                                                         </div>
                                                     <div class="form-group input-box">
                                                             <label >Gender:</label>

@@ -311,11 +311,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            <!-- </div> -->
                                             <div class="tab-pane" id="tab_4">
                                                 <div class="row">
                                                     <div class="col-md-4 col-sm-12">
-
                                                         <div class="form-group input-box">
                                                             <label>KCO:</label>
                                                             <font color="#FF0000">*</font>
@@ -337,15 +336,13 @@
                                                             <label>Pulse:</label>
                                                             <input class="form-control" name="ptn_pulse" id="ptn_pulse" type="number" placeholder="Enter 60 to 100">
                                                         </div>
-
-
                                                     </div>
                                                     <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box">
                                                             <div class="form-group input-box">
                                                                 <label>CVS:</label>
                                                                 <input class="form-control input-sm" type="text" name="ptn_cvs" id="ptn_cvs" value="<?php /*echo $patientInfo->ptn_cvs*/  ?>">
                                                             </div>
+                                                            <div class="form-group input-box">
                                                             <label>B.P:</label>
                                                             <font color="#FF0000">*</font>
                                                             <input class="form-control input-sm" name="ptn_bp" id="ptn_bp" type="number" placeholder="Enter 100 to 300">
@@ -461,6 +458,7 @@
                                                 <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                                 <a href="<?php echo base_url(); ?>app/patient" class="btn btn-default">Cancel</a>
                                             </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
