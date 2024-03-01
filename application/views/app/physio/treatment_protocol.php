@@ -197,6 +197,8 @@
                                             <th>Member No.</th>
                                             <th>Name</th>
                                             <th>Session</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
                                             <th>Floor</th>
                                                      <th>Room No</th> 
                                                     <th>Bed No</th>
@@ -223,6 +225,18 @@
                                                 </td>
                                                 <td><?php echo $rows->ptn_name?></td>
                                                 <td><?php echo $rows->exp_session?></td>
+
+                                                <?php if($rows->treatment_protocol=="Added"): 
+                                                        $ci_treatment_obj = & get_instance();
+                                                        $ci_treatment_obj->load->model('app/general_model');
+                                                        $treat_protocol_data = $ci_treatment_obj->general_model->get_treatment_protocol_start_end_dt($rows->eval_no); ?>
+                                                            <td><?php echo date("d-m-Y",strtotime($treat_protocol_data[0]->start_date)); ?></td>
+                                                            <td><?php echo date("d-m-Y",strtotime($treat_protocol_data[0]->end_date)); ?></td>
+                                                        <?php else: ?>
+                                                            <td></td>
+                                                            <td></td>
+                                                    <?php endif ?>
+
                                                 <td>
                                                     <?php
                                                         $ci_obj = & get_instance();

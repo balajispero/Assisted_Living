@@ -224,7 +224,7 @@
                                                             <?php echo form_input('middlename',set_value('middlename',$user->middlename),'readonly id="middlename" class="form-control input-sm" placeholder="Middle Name" required');?>
                                                          </div>
                                                          <div class="form-group input-box">
-                                                            <label >Birthday:</label>
+                                                            <label>Birthday:</label>
                                                             <?php echo form_input('birthday',set_value('birthday',$user->birthday),'readonly id="birthday" class="form-control input-sm" placeholder="Birthday" required');?> 
                                                         </div>
                                                          <div class="form-group input-box">
