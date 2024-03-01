@@ -27,12 +27,34 @@
         <![endif]-->
         <?php require_once(APPPATH . 'views/include/responsive_design.php'); ?>
         <style>
-            /* @media only screen and (max-width:425px){
-            .m12{
-                margin-top: -50px;
-                margin-left: 36px;
+            /* @media screen and (max-width: 320px) {
+                .user_img {
+                    width: 100%;
+                    height: 140px;
+                }
             }
-        } */
+            @media only screen and (max-width: 768px) {
+                .user_img {
+                    width: 100%;
+                    height: 160px;
+                }
+            } */
+          
+@media screen and (max-width: 1025px) {
+    .user_img {
+        width: 100% !important;
+        height: 160px;
+    }
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .user_img {
+        width: 100%;
+        height: 140px;
+    }
+}
+
         </style>
     </head>
     <div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -95,7 +117,7 @@
                     <div class="col-md-12">
                         <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>myprofile/editprofile" onSubmit="return confirm('Are you sure you want to save?');">
                             <input class="form-control input-sm" name="userid" id="userid" type="hidden" style="width: 100px;" required readonly value="<?php echo $user->user_id; ?>">
-                            <input type="hidden" name="username" value="<?php echo $user->username;?>">
+                            <input type="hidden" name="username" value="<?php echo $user->username; ?>">
                             <div class="box">
 
                                 <div class="box-footer clearfix">
@@ -190,13 +212,13 @@
                                                             $picture = $user->picture;
                                                         }
                                                         ?>
-                                                        <img src="<?php echo base_url(); ?>public/user_picture/<?php echo $picture; ?>" class="img-rounded" width="150" height="150">
+                                                        <img class="user_img" src="<?php echo base_url(); ?>public/user_picture/<?php echo $picture; ?>" class="img-rounded" width="150" height="150">
                                                     </div>
                                                     <div class="col-md-6 col-sm-12">
-                                                        <input type="file" name="userfile" class="form-control">
-                                                        
+                                                        <input type="file" name="userfile" class="form-control change_img">
+
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="tab_2">
@@ -222,7 +244,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4 col-sm-12">
-                                                    <div class="form-group input-box">
+                                                        <div class="form-group input-box">
                                                             <label>Email Address :</label>
                                                             <?php echo form_input('email', set_value('email', $user->email_address), 'id="email" class="form-control input-sm" placeholder="Email Address" required'); ?>
                                                         </div>

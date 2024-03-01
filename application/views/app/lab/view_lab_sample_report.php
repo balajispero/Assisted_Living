@@ -20,6 +20,21 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
       <![endif]-->
         
+      <style>
+   /* Styles for all screens */
+
+
+
+@media only screen and (max-width: 768px) {
+   
+    .report {
+        height: 220px; 
+    }
+}
+
+
+
+        </style>
       </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -94,35 +109,38 @@
                    
                    
                    <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-4 col-sm-6">
                         
-                          <div class="box">
+                          <!-- <div class="box"> -->
                              
-                             <div class="box-header">
-                                <h3 class="box-title"></h3>
+                             <!-- <div class="box-header"> -->
+                                <!-- <h3 class="box-title"></h3> -->
                                 
-                            </div>
-                            <div class="box-body table-responsive">
-                            	<form role="form" method="post" action="<?php echo base_url()?>app/lab/lab_sample_test_update" onSubmit="return confirm('Are you sure you want to save?');" enctype="multipart/form-data">
+                            <!-- </div> -->
+                            <!-- <div class="box-body table-responsive"> -->
+
+                                <form role="form" method="post" action="<?php echo base_url()?>app/lab/lab_sample_test_update" onSubmit="return confirm('Are you sure you want to save?');" enctype="multipart/form-data">
                                     <input type="hidden" name="sample_test_id" value="<?=$this->uri->segment("4"); ?>">
                                     
                                     <?php echo validation_errors(); ?>   
                                     
+                                    <!-- <div class="col-md-4 col-sm-6 col-lg-4"> -->
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Test Name</label>
                                         <?php
-                                                    $ci_obj = & get_instance();
+                                                $ci_obj = & get_instance();
                                                 $ci_obj->load->model('app/general_model');
                                                 $pages = $ci_obj->general_model->getLabSampleById($lab_test_info[0]->laboratory_id);
                                         ?>
 
-                                        <input class="form-control input-sm" name="sample_test_name" type="text" style="width: 350px;" value="<?php echo @$pages->test_name;?>" required readonly>
+                                        <input class="form-control input-sm" name="sample_test_name" type="text" value="<?php echo @$pages->test_name;?>" required readonly>
                                        
                                     </div>
-                                    
-                                    <h2>Uploaded Report</h2>
-                                    <div class="row">
-                                        <?php
+                                </div>
+</div>
+                                <h2>Uploaded Report</h2>
+                                <div class="row">
+                                <?php
                                         if(!empty($lab_test_info[0]->lab_test_reports)){
                                             $str =$lab_test_info[0]->lab_test_reports;
                                             $arrayd=explode(",",$str);
@@ -133,7 +151,7 @@
                                             {
                                                 
                                                 ?>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-sm-6 col-lg-4">
                                                   <div class="thumbnail"> 
                                                     <a href="<?php echo base_url('public/lab_test_report/');?><?php echo $arrayd[$i];?>" target="_blank">
                                                         <?php
@@ -143,12 +161,12 @@
                                                         {
                                                             ?>
                                                             
-                                                              <iframe src="<?php echo base_url('public/lab_test_report/');?><?php echo $arrayd[$i];?>" width="332" height="240" scrolling="no"></iframe>
+                                                              <iframe class="report" src="<?php echo base_url('public/lab_test_report/');?><?php echo $arrayd[$i];?>"  width="100%"scrolling="no"></iframe>
                                                              <a href="<?php echo base_url('public/lab_test_report/'); ?><?php echo $arrayd[$i]; ?>" target="_blank">Download PDF</a> 
                                                             
                                                         <?php }elseif($ext=="png" || $ext=="jpeg" || $ext=="jpg"){ ?>
                                                             <a href="<?php echo base_url('public/lab_test_report/'); ?><?php echo $arrayd[$i]; ?>" download>
-                                                                <img src="<?php echo base_url('public/lab_test_report/');?><?php echo $arrayd[$i];?>" alt="not found" style="width:100%;height:50%">
+                                                                <img src="<?php echo base_url('public/lab_test_report/');?><?php echo $arrayd[$i];?>" alt="not found">
                                                             </a>
 
                                                       <?php 
@@ -174,9 +192,9 @@
                             
                         </form>
                         
-                    </div>
+                    <!-- </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         
         
