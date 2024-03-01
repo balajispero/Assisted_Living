@@ -36,9 +36,25 @@ class Profile_model extends CI_Model{
 			'civil_status'		=>		$this->input->post('civil_status'),
 			'birthday'			=>		$this->input->post('birthday'),
 			'birthplace'		=>		$this->input->post('birthplace'),
-			'email_address'		=>		$this->input->post('email'),
-			'username'		=>		$this->input->post('username')
+			'email_address'		=>		$this->input->post('email')
+			/*'username'		=>		$this->input->post('username')*/
 		);	
+
+		
+		if (!empty($_FILES["userfile"]["name"])) {
+			$config = array(
+				'allowed_types'		=>		'*',
+				'upload_path'		=>realpath('public/user_picture'),
+				'max_size'			=>		0
+			);
+			 $this->load->library('upload', $config);
+			//$this->upload->initialize($config);
+			if($this->upload->do_upload('userfile')){
+				$image_data = $this->upload->data();
+				$this->data['picture']=$image_data['file_name'];
+			}
+		}
+
 		$this->db->where('user_id', $this->input->post('userid'));
 		$this->db->update("users",$this->data);
 	}

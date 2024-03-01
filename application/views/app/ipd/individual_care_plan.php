@@ -16,6 +16,10 @@
         <!----------BOOTSTRAP DATEPICKER----------------------------->
         <link rel="stylesheet" href="<?php echo base_url();?>public/datepicker/css/datepicker.css">
         <!---------------------------------------------------------->
+
+         <!------------ bootstrap timepicker ---------------------------------->
+        <link href="<?php echo base_url();?>public/timepicker/bootstrap-timepicker.min.css" rel="stylesheet"/>
+        <!-------------------------------------------------------------------->
         
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -224,7 +228,7 @@
                                                 <td>
                                                 <?php if($this->session->userdata('emr_viewing') == ""){?>  
                                                 <?php if($getOPDPatient->nStatus == "Pending"){?>
-                                                <?php if(strtotime($rows->to_date) <= strtotime(date("Y-m-d"))) { ?> <a href="#" class="btn-review" data-id="<?php echo $rows->ind_care_plan_id;?>" data-review="<?php echo $rows->review;?>" data-io_id="<?php echo $getOPDPatient->IO_ID;?>" data-patient_no="<?php echo $getOPDPatient->patient_no;?>" data-comorbid_cond="<?php echo $rows->comorbid_cond;?>" data-goal="<?php echo $rows->goal;?>" data-plan_action="<?php echo $rows->plan_action;?>" data-action_taken="<?php echo $rows->action_taken;?>">Review</a><!--&nbsp;|&nbsp;--> <?php } else{ } ?>
+                                                <?php if(strtotime($rows->to_date) <= strtotime(date("Y-m-d"))) { ?> <a href="#" class="btn-review" data-id="<?php echo $rows->ind_care_plan_id;?>" data-review="<?php echo $rows->review;?>" data-io_id="<?php echo $getOPDPatient->IO_ID;?>" data-ddate="<?php echo $rows->dDate;?>" data-time="<?php echo date('H:i A',strtotime($rows->dDateTime)); ?>" data-patient_no="<?php echo $getOPDPatient->patient_no;?>" data-comorbid_cond="<?php echo $rows->comorbid_cond;?>" data-goal="<?php echo $rows->goal;?>" data-plan_action="<?php echo $rows->plan_action;?>" data-action_taken="<?php echo $rows->action_taken;?>">Review</a><!--&nbsp;|&nbsp;--> <?php } else{ } ?>
                                                 <!--<a class="" href="<?php echo base_url()?>app/ipd/delete_ind_care_plan/<?php echo $rows->ind_care_plan_id?>/<?php echo $getOPDPatient->IO_ID?>/<?php echo $getOPDPatient->patient_no?>" onClick="return confirm('Are you sure you want to remove?');">Remove</a>&nbsp;|&nbsp;-->
                                                 <!--<a href="#" class="btn-edit" data-id="<?php echo $rows->ind_care_plan_id;?>" data-io_id="<?php echo $getOPDPatient->IO_ID;?>" data-patient_no="<?php echo $getOPDPatient->patient_no;?>" data-comorbid_cond="<?php echo $rows->comorbid_cond;?>" data-goal="<?php echo $rows->goal;?>" data-plan_action="<?php echo $rows->plan_action;?>" data-action_taken="<?php echo $rows->action_taken;?>">Edit</a>-->
                                                 <?php }}?>
@@ -339,7 +343,7 @@
                                         <tbody>
                                         <tr>
                                             <td>Date</td>
-                                            <td><input type="text" name="dDate" id="dDate2" value="<?php echo date("Y-m-d");?>" placeholder="Date" class="form-control input-sm" style="width: 100%;" required></td>
+                                            <td><input type="text" name="dDate" id="dDate2" value="<?php echo date("Y-m-d");?>" placeholder="Date" class="form-control input-sm edit_date" style="width: 100%;" required></td>
                                         </tr>
                                         <tr>
                                             <td>Time</td>
@@ -347,7 +351,7 @@
                                              <div class="bootstrap-timepicker">
                                             <div class="form-group">
                                             <div class="input-group">                                            
-                                                <input type="text" class="form-control timepicker" name="cTime" id="cTime"/>
+                                                <input type="text" class="form-control timepicker edit_time" name="cTime" id="cTime"/>
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-clock-o"></i>
                                                 </div>
@@ -540,6 +544,8 @@
                             $('.goal').val($(this).data('goal'));
                             $('.plan_action').val($(this).data('plan_action'));
                             $('.action_taken').val($(this).data('action_taken'));
+                            $('.edit_date').val($(this).data("ddate"));
+                            $('.edit_time').val($(this).data("time"));
                             $('#reviewmodal').modal('show');
 
                         });

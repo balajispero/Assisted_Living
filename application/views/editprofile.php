@@ -93,8 +93,9 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <form role="form" method="post" action="<?php echo base_url() ?>myprofile/editprofile" onSubmit="return confirm('Are you sure you want to save?');">
+                        <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>myprofile/editprofile" onSubmit="return confirm('Are you sure you want to save?');">
                             <input class="form-control input-sm" name="userid" id="userid" type="hidden" style="width: 100px;" required readonly value="<?php echo $user->user_id; ?>">
+                            <input type="hidden" name="username" value="<?php echo $user->username;?>">
                             <div class="box">
 
                                 <div class="box-footer clearfix">
@@ -189,13 +190,13 @@
                                                             $picture = $user->picture;
                                                         }
                                                         ?>
-                                                        <img src="<?php echo base_url(); ?>public/user_picture/<?php echo $picture; ?>" class="img-rounded" width="100" height="100">
+                                                        <img src="<?php echo base_url(); ?>public/user_picture/<?php echo $picture; ?>" class="img-rounded" width="150" height="150">
                                                     </div>
                                                     <div class="col-md-6 col-sm-12">
-                                                        <input type="file" class="form-control">
-                                                        <br>
-                                                        <button class="btn btn-outline-primary hvr-shutter-in-vertical">Upload Image</button>
+                                                        <input type="file" name="userfile" class="form-control">
+                                                        
                                                     </div>
+                                                   
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="tab_2">
