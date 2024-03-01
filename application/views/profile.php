@@ -35,7 +35,7 @@
         <![endif]-->
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
         <style>
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 320px) {
     .user_img {
         width: 100%; 
         height: 140px; 
@@ -61,12 +61,49 @@
         width: 33% !important;
         display: inline;
     }
-    
+    } */
+    /* @media only screen and (max-width:1024){
+        .user_img {
+        width: 0% !important; 
+        height: 160px; 
+    }
+    .col-md-4 {
+        width: 33% !important;
+        display: inline;
+    }
+    } */
 
-  
+    @media screen and (min-width: 320px) and (max-width: 1024px) {
+    .user_img {
+        width: 100%; 
+        height: 140px; /* Adjust as needed */
+    }
+
+    h5 {
+        margin-left: 100px !important; 
+        font-size: 16px; /* Adjust as needed */
+    }
+
+    .col-md-4 {
+        width: 33% !important;
+        display: inline;
+    }
 }
 
+/* Additional styles for screen widths between 769px and 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .user_img {
+        width: 50%; 
+        height: 160px; /* Adjust as needed */
+    }
 
+    h5 {
+        margin-left: 54px !important; 
+        font-size: 14px; /* Adjust as needed */
+    }
+}
+
+    
 
 
         </style>

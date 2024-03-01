@@ -333,9 +333,20 @@
                                                             <textarea class="form-control" name="ptn_past_his" id="ptn_past_his"><?php /*echo $patientInfo->ptn_past_his*/  ?></textarea>
                                                         </div>
                                                         <div class="form-group input-box">
+                                                                    <label>Urine/Motion:</label>
+                                                                    <font color="#FF0000">*</font>
+                                                                    <textarea class="form-control" name="ptn_um" id="ptn_um"><?php /*echo $patientInfo->ptn_um*/  ?></textarea>
+                                                                </div>
+                                                        <div class="form-group input-box">
                                                             <label>Pulse:</label>
                                                             <input class="form-control" name="ptn_pulse" id="ptn_pulse" type="number" placeholder="Enter 60 to 100">
                                                         </div>
+                                                        <div class="form-group input-box">
+                                                                <label>B.P:</label>
+                                                                <font color="#FF0000">*</font>
+                                                                <input class="form-control input-sm" name="ptn_bp" id="ptn_bp" type="text" value="<?php /*echo $patientInfo->ptn_bp*/  ?>">
+                                                            </div>
+                                                           
                                                     </div>
                                                     <div class="col-md-4 col-sm-12">
                                                             <div class="form-group input-box">
@@ -368,6 +379,10 @@
                                                                 <label>Pulse:</label>
                                                                 <input class="form-control" name="ptn_pulse" id="ptn_pulse" type="text" value="<?php /*echo $patientInfo->ptn_pulse*/  ?>">
                                                             </div>
+                                                            <div class="form-group input-box">
+                                                                <label>CNS :</label>
+                                                                <input class="form-control input-sm" type="text" name="ptn_cns" id="ptn_cns" value="<?php /*echo $patientInfo->ptn_cns*/  ?>">
+                                                            </div>
                                                         </div>
                                                         <div class="col-md-4 col-sm-12 mt-2">
                                                             <div class="form-group input-box">
@@ -387,34 +402,19 @@
                                                                 <textarea class="form-control input-sm" name="ptn_foodin" id="ptn_foodin"><?php /*echo $patientInfo->ptn_foodin*/  ?></textarea>
                                                             </div>
                                                             <div class="form-group input-box">
-                                                                <label>Temp:</label>
-                                                                <input class="form-control input-sm" name="ptn_temp" id="ptn_temp" type="text" value="<?php /*echo $patientInfo->ptn_temp*/  ?>">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4 col-sm-12">
-                                                            <div class="form-group input-box">
-                                                                <div class="form-group input-box">
                                                                     <label>Past History(Surgical/Medical):</label>
                                                                     <textarea class="form-control" name="ptn_past_his" id="ptn_past_his"><?php /*echo $patientInfo->ptn_past_his*/  ?></textarea>
                                                                 </div>
-                                                                <div class="form-group input-box">
-                                                                    <label>Urine/Motion:</label>
-                                                                    <font color="#FF0000">*</font>
-                                                                    <textarea class="form-control" name="ptn_um" id="ptn_um"><?php /*echo $patientInfo->ptn_um*/  ?></textarea>
-                                                                </div>
-                                                                <label>B.P:</label>
-                                                                <font color="#FF0000">*</font>
-                                                                <input class="form-control input-sm" name="ptn_bp" id="ptn_bp" type="text" value="<?php /*echo $patientInfo->ptn_bp*/  ?>">
-                                                            </div>
                                                             <div class="form-group input-box">
-                                                                <label>CNS :</label>
-                                                                <input class="form-control input-sm" type="text" name="ptn_cns" id="ptn_cns" value="<?php /*echo $patientInfo->ptn_cns*/  ?>">
+                                                                <label>Temp:</label>
+                                                                <input class="form-control input-sm" name="ptn_temp" id="ptn_temp" type="text" value="<?php /*echo $patientInfo->ptn_temp*/  ?>">
                                                             </div>
                                                             <div class="form-group input-box">
                                                                 <label>SPO2:</label>
                                                                 <input class="form-control input-sm" name="ptn_spo2" id="ptn_spo2" type="text" value="<?php /*echo $patientInfo->ptn_spo2*/  ?>">
                                                             </div>
                                                         </div>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="tab_5">

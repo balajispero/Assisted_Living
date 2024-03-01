@@ -210,10 +210,6 @@
                                                             <label>Brgy./Subd. :</label>
                                                             <?php echo form_input('brgy', set_value('brgy', $user->subd_brgy), 'id="brgy" class="form-control input-sm" placeholder="Brgy./Subd."'); ?>
                                                         </div>
-                                                        <div class="form-group input-box">
-                                                            <label>City/Province :</label>
-                                                            <?php echo form_input('province', set_value('province', $user->province), 'id="province" class="form-control input-sm" placeholder="City/Province"'); ?>
-                                                        </div>
                                                     </div>
                                                     <div class="col-md-4 col-sm-12">
                                                         <div class="form-group input-box">
@@ -224,9 +220,15 @@
                                                             <label>Phone No. :</label>
                                                             <?php echo form_input('phone', set_value('phone', $user->phone_no), 'id="phone" class="form-control input-sm" placeholder="Phone No."'); ?>
                                                         </div>
-                                                        <div class="form-group input-box">
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group input-box">
                                                             <label>Email Address :</label>
                                                             <?php echo form_input('email', set_value('email', $user->email_address), 'id="email" class="form-control input-sm" placeholder="Email Address" required'); ?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>City/Province :</label>
+                                                            <?php echo form_input('province', set_value('province', $user->province), 'id="province" class="form-control input-sm" placeholder="City/Province"'); ?>
                                                         </div>
                                                     </div>
 

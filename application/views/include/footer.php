@@ -8,13 +8,13 @@
 <style>
     footer{
         background-color: rgba(0, 0, 0, 0.05);
-        /* background-color: white; */
         height: 30px;
+        width: 100%;
         text-align: center;
         padding: 1px;
         margin-bottom: 3px;
-        /* margin-top: 1px; */
-      
+        position: fixed;
+        bottom: 0%;
     }
    
 </style>

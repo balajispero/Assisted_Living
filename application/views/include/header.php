@@ -15,8 +15,8 @@
     }
     .navbar-nav > .user-menu > .dropdown-menu > li.user-header{
         background-color: #0097A7 !important;
-        margin-top:-93px;
-        margin-left:20px;
+        /* margin-top:-33px; */
+        /* margin-left:20px; */
     }
     
     
