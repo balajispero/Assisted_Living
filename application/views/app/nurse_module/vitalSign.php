@@ -28,6 +28,26 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+             <style>
+                .form-control1 {
+                    display: inline;
+                    width: 100%;
+                    height: 34px;
+                    padding: 6px 12px;
+                    font-size: 14px;
+                    line-height: 1.428571429;
+                    color: #555;
+                    vertical-align: middle;
+                    background-color: #fff;
+                    background-image: none;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+                    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+                    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                }
+            </style>
         
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
     <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -291,37 +311,37 @@
                                                             </select>
                                             </td>
                                         </tr>
-                                        <tr>
+                                       <tr>
                                                 <td>BSL</td>
-                                                <td><input type="text" name="bsl"  style="width: 100px;" >&nbsp;&nbsp;</td>
+                                                <td><input type="text" name="bsl"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;</td>
                                            </tr>
                                         <tr>
-                                           		<td>Pulse Rate</td>
-                                                <td><input type="text" name="pulse_rate" id="pulse_rate" style="width: 100px;" >&nbsp;&nbsp;/min</td>
+                                                <td>Pulse Rate</td>
+                                                <td><input type="number" name="pulse_rate" id="pulse_rate" style="width: 80%;" class="form-control1" placeholder="Enter 60 to 100">&nbsp;&nbsp;/min</td>
                                            </tr>
                                            <tr>
-                                           		<td>Blood Pressure</td>
-                                                <td><input type="text" name="bp" id="bp"  style="width: 100px;" >&nbsp;&nbsp;mm of Hg</td>
+                                                <td>Blood Pressure</td>
+                                                <td><input type="number" name="bp" id="bp"  style="width: 80%;"  class="form-control1" placeholder="Enter 100 to 300">&nbsp;&nbsp;mm of Hg</td>
                                            </tr>
                                            <tr>
-                                           		<td>Temperature</td>
-                                                <td><input type="text" name="temperature" id="temperature" style="width: 100px;" >&nbsp;&nbsp;F</td>
+                                                <td>Temperature</td>
+                                                <td><input type="number" name="temperature" id="temperature" style="width: 80%;" class="form-control1" placeholder="Enter 82 to 110">&nbsp;&nbsp;F</td>
                                            </tr>
                                            <tr>
                                                 <td>SPO2</td>
-                                                <td><input type="text" name="spo2" style="width: 100px;" >&nbsp;&nbsp;</td>
+                                                <td><input type="number" name="spo2" style="width: 80%;" class="form-control1" placeholder="Enter 95 to 100">&nbsp;&nbsp;</td>
                                            </tr>
                                            <tr>
-                                           		<td>Respiration</td>
-                                                <td><input type="text" name="respiration" id="respiration"  style="width: 100px;" >&nbsp;&nbsp;/min</td>
+                                                <td>Respiration</td>
+                                                <td><input type="text" name="respiration" id="respiration"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;/min</td>
                                            </tr>
                                            <tr>
-                                           		<td>Height</td>
-                                                <td><input type="text" name="height" id="height"  style="width: 100px;">&nbsp;&nbsp;Cm</td>
+                                                <td>Height</td>
+                                                <td><input type="text" name="height" id="height"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;Cm</td>
                                            </tr>
                                            <tr>
-                                           		<td>Weight</td>
-                                                <td><input type="text" name="weight" id="weight"  style="width: 100px;">&nbsp;&nbsp;Kg</td>
+                                                <td>Weight</td>
+                                                <td><input type="text" name="weight" id="weight"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;Kg</td>
                                            </tr>
                                         </tbody>
                                         </table>
@@ -374,6 +394,50 @@
                 });  
             
             });
+        </script>
+        <script>
+                  /**************** Vital Sign validation******************/
+    $("input[name='temperature']").change(function() {
+        
+      var tempnumber = parseInt($("input[name='temperature']").val());
+      //requirement range is 82 to 110
+       if( tempnumber < 82 || tempnumber > 110 ) {
+           $(this).val('');
+          
+         }
+       });
+
+    $("input[name='pulse_rate']").change(function() {
+        
+      var pulsenumber = parseInt($("input[name='pulse_rate']").val());
+      //requirement range is 60 to 100
+       if( pulsenumber < 60 || pulsenumber > 100 ) {
+           
+           $(this).val('');
+          
+         }
+       });
+
+    $("input[name='bp']").change(function() {
+        
+      var number = parseInt($("input[name='bp']").val());
+      //requirement range is 100 to 300
+       if( number < 100 || number > 300 ) {
+           $(this).val('');
+          
+         }
+       });
+    
+    $("input[name='spo2']").change(function() {
+        
+      var number = parseInt($("input[name='spo2']").val());
+      //requirement range is 95 to 100
+       if( number < 95 || number > 100 ) {
+           $(this).val('');
+          
+         }
+       });
+/**************** Vital Sign validation******************/
         </script>
         <!-- END DATE -->
         
