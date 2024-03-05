@@ -1738,6 +1738,8 @@
                    <div class="text-center">
                 <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit" style="width: 10%;">Submit</button>
                     </div>
+                    <br>
+                    
             </form>
 
         </section>
@@ -2087,6 +2089,6 @@ $(document).ready(function() {
 /*****************End highlight pain area on body img**********************/       
 </script>
 
-
+<?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>
