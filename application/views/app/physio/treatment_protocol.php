@@ -199,6 +199,7 @@
                                             <th>Session</th>
                                             <th>Start Date</th>
                                             <th>End Date</th>
+                                            <th>Status</th>
                                             <th>Floor</th>
                                                      <th>Room No</th> 
                                                     <th>Bed No</th>
@@ -232,9 +233,11 @@
                                                         $treat_protocol_data = $ci_treatment_obj->general_model->get_treatment_protocol_start_end_dt($rows->eval_no); ?>
                                                             <td><?php echo date("d-m-Y",strtotime($treat_protocol_data[0]->start_date)); ?></td>
                                                             <td><?php echo date("d-m-Y",strtotime($treat_protocol_data[0]->end_date)); ?></td>
+                                                            <td><?php echo ($treat_protocol_data[0]->physio_discharged) ? ($treat_protocol_data[0]->physio_discharged) :'Pending'; ?></td>
                                                         <?php else: ?>
                                                             <td></td>
                                                             <td></td>
+                                                            <td>Pending</td>
                                                     <?php endif ?>
 
                                                 <td>

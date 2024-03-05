@@ -470,8 +470,14 @@ class General_model extends CI_Model{
 					$query = $this->db->get("patient_details_iop A");
 					return $query->row();
 				}
+				public function get_ptn_organization($patient_no){
+					$this->db->select("A.organization");
+					$this->db->where('A.patient_no', $patient_no);
+					$query = $this->db->get("patient_personal_info A");
+					return $query->row();
+				}
 				public function get_treatment_protocol_start_end_dt($eval_no){
-					$this->db->select('treatment_protocol.start_date,treatment_protocol.end_date');
+					$this->db->select('treatment_protocol.start_date,treatment_protocol.end_date,treatment_protocol.physio_discharged');
 					$this->db->from('physio_treatment_protocol treatment_protocol'); 		
 		 			$this->db->where(array(
 					'eval_no'		=>		$eval_no,

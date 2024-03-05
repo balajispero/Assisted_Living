@@ -18,7 +18,16 @@
     }
    
 </style>
+<script type="text/javascript">
+          /*Start code for disable browser back button*/
 
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function () {
+            window.history.go(1);
+            };
+            
+          /*End code for disable browser back button*/ 
+        </script>
 <footer>
    <b><h6 style="color:#0097A7;">© Powered by Spero <?php echo date("Y"); ?></h6></b>
 </footer>
