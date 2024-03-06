@@ -29,7 +29,7 @@
 			height: 500px;
 			position: relative;
 			background: linear-gradient(rgba(0, 110, 211, 1), rgba(0, 0, 0, 0.25));
-			border-radius: 100px;
+			border-radius: 45px;
 			padding: 30px; -webkit-box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
 			-moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24); 
 			box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%); 

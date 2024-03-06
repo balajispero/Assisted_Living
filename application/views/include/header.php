@@ -91,16 +91,16 @@
 	float: left;
 	font-size: 23px !important;
 	line-height: 50px !important;
-	/*text-align: center;*/
+	
 	padding: 0 10px;
 	width: 500px;
 	font-family: 'Calibri';
 	font-weight: 500;
-	height: 50px;
+	//height: 50px;
 	display: block !important;
 	color: #f9f9f9 !important;
 	margin-top: -46px !important;
-    /* margin-left: 20px; */
+    
 }
        
         .ml2 {
