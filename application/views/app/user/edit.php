@@ -108,20 +108,8 @@
                                                             <input class="form-control" name="userid" id="userid" type="text" required readonly value="<?php echo $user->user_id; ?>">
                                                         </div>
                                                         <div class="form-group input-box">
-                                                            <label>Title<font color="#FF0000">*</font>:</label>
-                                                            <select name="title" id="title" class="form-control" required>
-                                                                <option value="">- Title -</option>
-                                                                <?php
-                                                                foreach ($UserTitles as $UserTitles) {
-                                                                    if ($_POST['title'] == $UserTitles->param_id || $user->title == $UserTitles->param_id) {
-                                                                        $selected = "selected='selected'";
-                                                                    } else {
-                                                                        $selected = "";
-                                                                    }
-                                                                ?>
-                                                                    <option value="<?php echo $UserTitles->param_id; ?>" <?php echo $selected; ?>><?php echo $UserTitles->cValue; ?></option>
-                                                                <?php } ?>
-                                                            </select>
+                                                            <label>Middle Name <font color="#FF0000">*</font>:</label>
+                                                            <?php echo form_input('middlename', set_value('middlename', $user->middlename), 'id="middlename" class="form-control" placeholder="Middle Name" required'); ?>
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Birthday<font color="#FF0000">*</font>:</label>
@@ -145,14 +133,27 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box">
-                                                            <label>First Name<font color="#FF0000">*</font>:</label>
-                                                            <?php echo form_input('firstname', set_value('firstname', $user->firstname), 'id="firstname" class="form-control" placeholder="First Name"  required'); ?>
+                                                    <div class="form-group input-box">
+                                                            <label>Title<font color="#FF0000">*</font>:</label>
+                                                            <select name="title" id="title" class="form-control" required>
+                                                                <option value="">- Title -</option>
+                                                                <?php
+                                                                foreach ($UserTitles as $UserTitles) {
+                                                                    if ($_POST['title'] == $UserTitles->param_id || $user->title == $UserTitles->param_id) {
+                                                                        $selected = "selected='selected'";
+                                                                    } else {
+                                                                        $selected = "";
+                                                                    }
+                                                                ?>
+                                                                    <option value="<?php echo $UserTitles->param_id; ?>" <?php echo $selected; ?>><?php echo $UserTitles->cValue; ?></option>
+                                                                <?php } ?>
+                                                            </select>
                                                         </div>
                                                         <div class="form-group input-box">
-                                                            <label>Middle Name <font color="#FF0000">*</font>:</label>
-                                                            <?php echo form_input('middlename', set_value('middlename', $user->middlename), 'id="middlename" class="form-control" placeholder="Middle Name" required'); ?>
+                                                            <label>Last Name<font color="#FF0000">*</font>:</label>
+                                                            <?php echo form_input('lastname', set_value('lastname', $user->lastname), 'id="lastname" class="form-control" placeholder="Last Name" required'); ?>
                                                         </div>
+                                                      
                                                         <div class="form-group input-box">
                                                             <label>Birth Place:</label>
                                                             <?php echo form_input('birthplace', set_value('birthplace', $user->birthplace), 'id="birthplace" class="form-control" placeholder="Birth Place"'); ?>
@@ -177,10 +178,11 @@
                                                     </div>
 
                                                     <div class="col-md-4 col-sm-12">
-                                                        <div class="form-group input-box">
-                                                            <label>Last Name<font color="#FF0000">*</font>:</label>
-                                                            <?php echo form_input('lastname', set_value('lastname', $user->lastname), 'id="lastname" class="form-control" placeholder="Last Name" required'); ?>
+                                                    <div class="form-group input-box">
+                                                            <label>First Name<font color="#FF0000">*</font>:</label>
+                                                            <?php echo form_input('firstname', set_value('firstname', $user->firstname), 'id="firstname" class="form-control" placeholder="First Name"  required'); ?>
                                                         </div>
+                                                      
 
                                                         <div class="form-group input-box">
                                                             <label>Designation <font color="#FF0000">*</font>:</label>
@@ -243,7 +245,58 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
+                                                    <div class="row" style="margin-left: 1px;">
+                                                    <div class="col-md-12">
+                                                        <h2>Contact Information</h2>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group input-box">
+                                                            <label>No. of House:</label>
+                                                            <?php echo form_input('noofhouse',set_value('noofhouse',$user->street),'id="noofhouse" class="form-control input-sm" placeholder="No. of House"');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Brgy./Subd.:</label>
+                                                            <?php echo form_input('brgy',set_value('brgy',$user->subd_brgy),'id="brgy" class="form-control input-sm" placeholder="Brgy./Subd."');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>City/Province.:</label>
+                                                            <?php echo form_input('province',set_value('province',$user->province),'id="province" class="form-control input-sm" placeholder="City/Province" ');?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group input-box">
+                                                            <label>Username <font color="#FF0000">*</font>:</label>
+                                                            <?php echo form_input('username',set_value('username',$user->username),'id="username" class="form-control input-sm" placeholder="Username"  required');?>
+                                                        </div>
+                                                       
+                                                        <div class="form-group input-box">
+                                                            <label>Phone No.:</label>
+                                                            <?php echo form_input('phone',set_value('phone',$user->phone_no),'id="phone" class="form-control input-sm" placeholder="Phone No."');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Email Address <font color="#FF0000">*</font>:</label>
+                                                            <?php echo form_input('email',set_value('email',$user->email_address),'id="email" class="form-control input-sm" placeholder="Email Address"  required');?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group input-box">
+                                                            <label>Mobile No.:</label>
+                                                            <?php echo form_input('mobile',set_value('mobile',$user->mobile_no),'id="mobile" class="form-control input-sm" placeholder="Mobile No"');?>
+                                                        </div>
+                                                        <div class="form-group input-box">
+                                                            <label>Password <font color="#FF0000">*</font>:</label>
+                                                            <input type="text" name="password" id="password" class="form-control" placeholder="Password" required>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4 col-sm-6" style="margin-left: 13px;">
+                                                        <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                                        </div>
+
+                                                    </div>
+
 
                                             </form>
                                             <!-- <iframe width="100%" frameborder="0" height="400" src="<?php echo base_url() ?>app/user/upload_picture/<?php echo $user->user_id ?>"></iframe> -->

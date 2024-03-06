@@ -113,21 +113,11 @@
                                                             <input class="form-control" name="userid" id="userid" type="text"  required readonly value="<?php echo $user->user_id; ?>">
                                                         </div>
                                                         <div class="form-group input-box">
-                                                            <label>Title<font color="#FF0000">*</font>:</label>
-                                                            <select name="title" id="title" class="form-control" required readonly>
-                                                                <option value="">- Title -</option>
-                                                                <?php
-                                                                foreach ($UserTitles as $UserTitles) {
-                                                                    if ($_POST['title'] == $UserTitles->param_id || $user->title == $UserTitles->param_id) {
-                                                                        $selected = "selected='selected'";
-                                                                    } else {
-                                                                        $selected = "";
-                                                                    }
-                                                                ?>
-                                                                    <option value="<?php echo $UserTitles->param_id; ?>" <?php echo $selected; ?>><?php echo $UserTitles->cValue; ?></option>
-                                                                <?php } ?>
-                                                            </select>
+                                                            <label>Middle Name <font color="#FF0000">*</font>:</label>
+                                                            <?php echo form_input('middlename', set_value('middlename', $user->middlename), 'readonly id="middlename" class="form-control" placeholder="Middle Name"  required'); ?>
                                                         </div>
+                                                     
+                                                       
                                                         <div class="form-group input-box">
                                                             <label>Birthday<font color="#FF0000">*</font>:</label>
                                                             <?php echo form_input('birthday', set_value('birthday', $user->birthday), 'readonly id="birthday" class="form-control input-sm" placeholder="Birthday" required'); ?>
@@ -152,13 +142,27 @@
 
                                                     <div class="col-md-4 col-sm-12">
                                                     <div class="form-group input-box">
-                                                            <label>First Name<font color="#FF0000">*</font>:</label>
-                                                            <?php echo form_input('firstname', set_value('firstname', $user->firstname), 'readonly id="firstname" class="form-control" placeholder="First Name" required'); ?>
+                                                            <label>Title<font color="#FF0000">*</font>:</label>
+                                                            <select name="title" id="title" class="form-control" required readonly>
+                                                                <option value="">- Title -</option>
+                                                                <?php
+                                                                foreach ($UserTitles as $UserTitles) {
+                                                                    if ($_POST['title'] == $UserTitles->param_id || $user->title == $UserTitles->param_id) {
+                                                                        $selected = "selected='selected'";
+                                                                    } else {
+                                                                        $selected = "";
+                                                                    }
+                                                                ?>
+                                                                    <option value="<?php echo $UserTitles->param_id; ?>" <?php echo $selected; ?>><?php echo $UserTitles->cValue; ?></option>
+                                                                <?php } ?>
+                                                            </select>
                                                         </div>
                                                         <div class="form-group input-box">
-                                                            <label>Middle Name <font color="#FF0000">*</font>:</label>
-                                                            <?php echo form_input('middlename', set_value('middlename', $user->middlename), 'readonly id="middlename" class="form-control" placeholder="Middle Name"  required'); ?>
+                                                            <label>Last Name<font color="#FF0000">*</font>:</label>
+                                                            <?php echo form_input('lastname', set_value('lastname', $user->lastname), 'readonly id="lastname" class="form-control input-sm" placeholder="Last Name"  required'); ?>
                                                         </div>
+                                                       
+                                                        
                                                         <div class="form-group input-box">
                                                             <label>Birth Place:</label>
                                                             <?php echo form_input('birthplace', set_value('birthplace', $user->birthplace), 'readonly id="birthplace" class="form-control" placeholder="Birth Place"'); ?>
@@ -184,10 +188,10 @@
 
                                                     <div class="col-md-4 col-sm-12">
                                                     <div class="form-group input-box">
-                                                            <label>Last Name<font color="#FF0000">*</font>:</label>
-                                                            <?php echo form_input('lastname', set_value('lastname', $user->lastname), 'readonly id="lastname" class="form-control input-sm" placeholder="Last Name"  required'); ?>
+                                                            <label>First Name<font color="#FF0000">*</font>:</label>
+                                                            <?php echo form_input('firstname', set_value('firstname', $user->firstname), 'readonly id="firstname" class="form-control" placeholder="First Name" required'); ?>
                                                         </div>
-                                                       
+                                                   
                                                         <div class="form-group input-box">
                                                             <label>Designation <font color="#FF0000">*</font>:</label>
                                                             <select name="designation" id="designation" class="form-control"required readonly>
