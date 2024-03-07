@@ -1980,8 +1980,7 @@
                                             </div>
                                             <div class="box-footer clearfix">
                                                 <!-- <button class="btn btn-primary" name="submit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button> -->
-                                                 <!-- <input type="submit" class="btn btn-primary bg_color" name="submit" value="Submit"> -->
-                                                 <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="submit" value="Submit">Submit</button>
+                                                 <input type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="submit" value="Submit">
                                                 <!-- <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a> -->
                                             </div>
                                         </div>
@@ -2163,13 +2162,13 @@
         var year = dtToday.getFullYear() - 18;
         if(month < 10)
             month = '0' + month.toString();
-        if(day <script 10)
+        if(day < 10)
             day = '0' + day.toString();
         var minDate = year + '-' + month + '-' + day;
         var maxDate = year + '-' + month + '-' + day;
         $('#birthday').attr('max', maxDate);
     });
-</script>
+
 <?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>

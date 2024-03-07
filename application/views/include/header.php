@@ -2,24 +2,17 @@
 
 <script language="javascript">
     setTimeout(function timeru(){$('.alert').fadeOut(1000)}, 3000);
-</script> 
+    </script> 
    
 <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-<link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" /> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
 
    <style>
     body{
         font-family:  Helvetica;
         font-size: 12px;
     }
-    .navbar-nav > .user-menu > .dropdown-menu > li.user-header{
-        background-color: #0097A7 !important;
-        /* margin-top:-33px; */
-        /* margin-left:20px; */
-    }
-    
-    
     @media only screen and (max-width:768px) and (min-width:300px) {
          .m12{
             font-size: 15px;
@@ -50,16 +43,13 @@
             margin-top: -30px !important;
             margin-left: 70px !important;
          }
-         
         }
-        
-/* @media only screen and  (max-width:425px) { */
-    @media only screen and (max-width:430px) and (min-width:320px) {
-         /* .logo2{
+        @media only screen and (max-width:425px) {
+         .logo2{
             font-size: 18px;
             margin-top: -50px;
             margin-left: 35px;
-         } */
+         }
          .dropmenu{
             margin-top: -50px;
             width: 100%;
@@ -74,7 +64,7 @@
          }
          
          .img-circle {
-            height: 40px !important;    
+            height: 40px !important;
             width: 25% !important;
             /* margin-left: -105px !important; */
             margin-right: 70px;
@@ -87,30 +77,7 @@
          img.img-circle {
             margin-left: -104px !important;
         }
-        .logo2{
-	float: left;
-	font-size: 23px !important;
-	line-height: 50px !important;
-	
-	padding: 0 10px;
-	width: 500px;
-	font-family: 'Calibri';
-	font-weight: 500;
-	//height: 50px;
-	display: block !important;
-	color: #f9f9f9 !important;
-	margin-top: -46px !important;
-    
-}
-       
-        .ml2 {
-                    
-                    margin-top: -5px !important;
-                    margin-left: 25px;
-                    font-size: 18px;
-                    }
         }
-        
         .bg_color{
             /* background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important; */
                background-color: #07B5BC;
@@ -143,7 +110,6 @@
                     .ml2 {
                     font-weight: 550;
                     /* font-size: 3.5em; */
-                   
                     }
 
                    .ml2 .letter {
@@ -170,14 +136,14 @@
                         background-color: #fff!important;
                         color:#2B48B0!important;
                       }
-                      .content-header
-                      {
-                      margin-top: 10px;
-                      background-color: #ecf0fa !important;
-                      padding: 7px 5px;
-                      border-radius: 5px;
-                      box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-                    }
+                      .content-header{
+                       
+                margin-top: 10px;
+                background-color: #ecf0fa !important;
+                padding: 7px 5px;
+                border-radius: 5px;
+                box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+            }
 
              .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
     z-index: 2;
@@ -186,8 +152,6 @@
     background-color: #0097A7;
     border-color: #428bca;
 }
-
-
    
    </style>
 
@@ -299,7 +263,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header droplist">
+                        <li class="user-header bg-light-blue droplist bg_color">
                             <?php if($userInfo->picture == ""){?>
                     	<img src="<?php echo base_url()?>public/user_picture/user_img.jpg" class="img-circle" alt="User Image" />
                     <?php }else{?>
@@ -334,6 +298,7 @@ function closeAd(id)
 {
     $('#' + id).remove();
 }
+
   // Wrap every letter in a span
   var textWrapper = document.querySelector('.ml2');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");

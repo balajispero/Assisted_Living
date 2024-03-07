@@ -518,5 +518,6 @@ xmlhttp3.send();
         <!-- END DATE -->
         
         
-    </body>
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

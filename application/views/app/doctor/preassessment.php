@@ -695,5 +695,6 @@
             });
          </script>
          
-    </body>
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

@@ -625,8 +625,7 @@
                                                                     </div><!-- /.col-md-3 -->
 
                                                                 </div><!-- / row -->
-                                                                <!-- <input type="submit" class="submit_btn btn btn-primary bg_color" id="next1" name="submit" value="Next"> -->
-                                                                <button type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next1" name="submit" value="Next">Next</button>
+                                                                <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next1" name="submit" value="Next">
                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
     
 
@@ -755,8 +754,7 @@
                                                                 </tr>    
                                                               </table>
                                                             </div>
-                                                            <!-- <input type="submit" class="submit_btn btn btn-primary bg_color" id="next2" name="submit" value="Next"> -->
-                                                             <button type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next2" name="submit" value="Next">Next</button>
+                                                            <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next2" name="submit" value="Next">
 
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
 
@@ -1125,8 +1123,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <!-- <input type="submit" class="submit_btn btn btn-primary bg_color" id="next3" name="submit" value="Next"> -->
-                                                                <button type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next3" name="submit" value="Next">Next</button>
+                                                                <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next3" name="submit" value="Next">
                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
                                             
                 </div>
@@ -1540,8 +1537,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <!-- <input type="submit" class="submit_btn btn btn-primary bg_color" id="next4" name="submit" value="Next"> -->
-                                                                <button type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next4" name="submit" value="Next">Next</button>
+                                                                <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next4" name="submit" value="Next">
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
                    
                                                 </div>
@@ -1693,8 +1689,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <!-- <input type="submit" class="submit_btn btn btn-primary bg_color" id="next5" name="submit" value="Submit"> -->
-                                                                <button type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next5" name="submit" value="Submit">Next</button>
+                                                                <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next5" name="submit" value="Submit">
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
                                                     
                                                 </div>
@@ -1974,6 +1969,7 @@
         
 
     </script>
+
 <?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>

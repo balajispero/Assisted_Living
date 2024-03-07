@@ -28,7 +28,7 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-             <style>
+            <style>
                 .form-control1 {
                     display: inline;
                     width: 100%;
@@ -204,7 +204,7 @@
                                         
                                         	<?php echo $message;?>
                                         	<?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                           <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Vital Parameters</a>
+                                           <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Vital Parameters</a>
                                             <?php } ?>
                                            <a href="<?php echo base_url()?>app/ipd_print/print_vital/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                            <table class="table table-hover table-striped">
@@ -311,20 +311,20 @@
                                                             </select>
                                             </td>
                                         </tr>
-                                       <tr>
+                                        <tr>
                                                 <td>BSL</td>
                                                 <td><input type="text" name="bsl"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;</td>
                                            </tr>
                                         <tr>
-                                                <td>Pulse Rate</td>
+                                           		<td>Pulse Rate</td>
                                                 <td><input type="number" name="pulse_rate" id="pulse_rate" style="width: 80%;" class="form-control1" placeholder="Enter 60 to 100">&nbsp;&nbsp;/min</td>
                                            </tr>
                                            <tr>
-                                                <td>Blood Pressure</td>
+                                           		<td>Blood Pressure</td>
                                                 <td><input type="number" name="bp" id="bp"  style="width: 80%;"  class="form-control1" placeholder="Enter 100 to 300">&nbsp;&nbsp;mm of Hg</td>
                                            </tr>
                                            <tr>
-                                                <td>Temperature</td>
+                                           		<td>Temperature</td>
                                                 <td><input type="number" name="temperature" id="temperature" style="width: 80%;" class="form-control1" placeholder="Enter 82 to 110">&nbsp;&nbsp;F</td>
                                            </tr>
                                            <tr>
@@ -332,15 +332,15 @@
                                                 <td><input type="number" name="spo2" style="width: 80%;" class="form-control1" placeholder="Enter 95 to 100">&nbsp;&nbsp;</td>
                                            </tr>
                                            <tr>
-                                                <td>Respiration</td>
+                                           		<td>Respiration</td>
                                                 <td><input type="text" name="respiration" id="respiration"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;/min</td>
                                            </tr>
                                            <tr>
-                                                <td>Height</td>
+                                           		<td>Height</td>
                                                 <td><input type="text" name="height" id="height"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;Cm</td>
                                            </tr>
                                            <tr>
-                                                <td>Weight</td>
+                                           		<td>Weight</td>
                                                 <td><input type="text" name="weight" id="weight"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;Kg</td>
                                            </tr>
                                         </tbody>
@@ -348,7 +348,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -384,6 +384,7 @@
          <!-- DATE -->
          <script src="<?php echo base_url();?>public/datepicker/js/jquery-1.9.1.min.js"></script>
         <script src="<?php echo base_url();?>public/datepicker/js/bootstrap-datepicker.js"></script>
+
         <script type="text/javascript">
             // When the document is ready
             $(document).ready(function () {
@@ -394,7 +395,14 @@
                 });  
             
             });
+            
+
+           /* $('.form-control1').on('click', function(e){
+            e.preventDefault();
+            $(this).css('border-color', 'grey');
+            });*/
         </script>
+        <!-- END DATE -->
         <script>
                   /**************** Vital Sign validation******************/
     $("input[name='temperature']").change(function() {
@@ -439,8 +447,8 @@
        });
 /**************** Vital Sign validation******************/
         </script>
-        <!-- END DATE -->
         
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-    </body>
+        
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

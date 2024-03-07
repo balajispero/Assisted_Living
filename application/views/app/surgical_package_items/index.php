@@ -115,7 +115,7 @@
                     	 <div class="box">
                          		<form class="form-search" method="post" action="<?php echo base_url();?>app/surgical_package/view">
                          		<div class="box-header">
-                                    <h3 class="box-title"><a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Item</a></h3>
+                                    <h3 class="box-title"><a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Item</a></h3>
                                     
                                     <div class="box-tools">
                                         <div class="input-group">
@@ -342,6 +342,6 @@ xmlhttp2.send();
          <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
          <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+        
     </body>
 </html>

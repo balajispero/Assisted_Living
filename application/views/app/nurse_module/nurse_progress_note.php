@@ -371,13 +371,13 @@ xmlhttp.send();
         
        <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-
+        
         <!-- Strat script for open modal for user logout on header section -->
         <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
         <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
         <!-- End script for open modal for user logout on header section -->
-        
+
         <!-- Bootstrap -->
         <script src="<?php echo base_url();?>public/timepicker/js/bootstrap.min.js" type="text/javascript"></script>
 
@@ -411,6 +411,7 @@ xmlhttp.send();
             });
         </script>
         <!-- END DATE -->
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-    </body>
+        
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

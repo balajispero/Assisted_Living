@@ -355,9 +355,9 @@ xmlhttp.send();
                                             <td><input type="text" name="focus" placeholder="Focus" class="form-control input-sm" style="width: 100%;" required></td>
                                         </tr>-->
                                         <tr>
-                                            <td>Complaints<!-- <font color="#FF0000">*</font> --></td>
+                                            <td>Complaints<font color="#FF0000">*</font></td>
                                             <td>
-                                            <select name="complain" id="complain" style="width: 100%;" class="form-control input-sm">
+                                            <select name="complain" id="complain" style="width: 100%;" class="form-control input-sm" required>
                                                                 <option value="">- Complaints -</option>
                                                                 <?php 
                                                                 foreach($ComplainList as $ComplainList){?>
@@ -542,7 +542,6 @@ $(document).ready(function() {
                 $('#updateForm').each(function() {
                     this.reset();
                 });
-                 $('.edit_time').val('');
                 var res = JSON.parse(xmlhttp6.responseText);
                 console.log(res);
 
@@ -566,6 +565,6 @@ $(document).ready(function() {
 });
 </script>
 
-<?php require_once(APPPATH . 'views/include/footer.php'); ?>
-    </body>
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

@@ -39,4 +39,5 @@
     </fieldset>
     <?php echo form_close();?>
 
+<?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>

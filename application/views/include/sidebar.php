@@ -235,7 +235,6 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                     <ul class="sidebar-menu">
                          
                         <?php if ($hasAccesstoDashboard){ ?>
-                        
                          <li>
 
                             <a href="<?php echo base_url()?>app/dashboard" class="hvr-icon-pop">

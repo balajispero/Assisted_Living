@@ -158,7 +158,7 @@
                                 <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
                                     <li class="active"><a href="<?php echo base_url()?>app/physio/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physio Evaluation</a></li>
-                                    <?php if(($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21)){ ?>
+                                    <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21){ ?>
                                  <li><a href="<?php echo base_url()?>app/physio/treatment_protocol/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Treatment Protocol</a></li>
                                 
                                   <li><a href="<?php echo base_url()?>app/physio/physio_daily_notes/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Daily Notes</a></li> 
@@ -181,7 +181,7 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab_1">
                                             <?php echo $message;?>
-                                            <?php if(($this->session->userdata('user_role') == 11  || $this->session->userdata('user_role') == 21)) {?>
+                                            <?php if($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21) {?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){
                                                  if(($this->session->userdata('user_role') == 11 || $this->session->userdata('user_role') == 21) && $this->session->userdata('physio_expert') == "Yes"){ ?>
                                             <a href="<?php echo base_url();?>app/physio/add_evaluation/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-outline-primary hvr-shutter-in-vertical"><i class="fa fa-plus"></i>&nbsp;Add Evaluation</a>
@@ -293,7 +293,8 @@
             });
         </script>
         <!-- END BDAY -->
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
         
-    </body>
+        
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

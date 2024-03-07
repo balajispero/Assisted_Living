@@ -2,7 +2,6 @@
 <html>
     <head>
 
-
         <meta charset="UTF-8">
         <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -28,7 +27,7 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-             <style>
+            <style>
             .form-control {
             -webkit-border-radius: 0px !important;
             -moz-border-radius: 0px !important;
@@ -193,7 +192,7 @@
                                         	
                                             <?php echo $message;?>
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                           <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Intake Record</a>
+                                           <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Intake Record</a>
                                             <?php } ?>
                                            <a href="<?php echo base_url()?>app/ipd_print/print_intake/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                 	<div class="alt2" dir="ltr" style="
@@ -244,7 +243,7 @@
                                            
                                            <hr>
                                            <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                           <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i> Add Output Record</a>
+                                           <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i> Add Output Record</a>
                                             <?php } ?>
                                            <a href="<?php echo base_url()?>app/ipd_print/print_output/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                 	<div class="alt2" dir="ltr" style="
@@ -392,7 +391,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -473,7 +472,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -538,7 +537,8 @@
         </script>
         <!-- END DATE -->
         
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
         
-    </body>
+        
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

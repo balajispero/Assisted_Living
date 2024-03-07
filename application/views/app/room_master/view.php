@@ -101,7 +101,7 @@
                          		<div class="box-header">
                                     <h3 class="box-title">
                                     <a href="<?php echo base_url();?>app/room_master" class="btn btn-default" >Back</a>
-                                    <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal">Price History</a>
+                                    <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal">Price History</a>
                                     </h3>
                                     
                                 </div>
@@ -177,12 +177,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-outline-primary hvr-shutter-in-vertical">Apply</button>
+        <button type="button" class="btn btn-primary bg_color">Apply</button>
       </div>
     </div>
   </div>
 </div>        
         
-<?php require_once(APPPATH . 'views/include/footer.php'); ?>   
-    </body>
+        
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

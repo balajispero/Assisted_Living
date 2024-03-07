@@ -480,7 +480,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -522,7 +522,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color">Save</button>
                                         </div>
                                        
                                     </div>
@@ -561,7 +561,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color">Save</button>
                                         </div>
                                        
                                     </div>
@@ -785,6 +785,6 @@
             }
         });
         </script>
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-    </body>
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

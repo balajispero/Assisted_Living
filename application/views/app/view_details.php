@@ -111,6 +111,9 @@
 
                 <section class="content">
                 <div class="row">
+                    <div class="text-right">
+                    <a href="<?php echo base_url()?>app/dashboard/view_details_pdf/<?php echo $this->uri->segment("4"); ?>/<?php echo $this->uri->segment("5"); ?>" class="btn btn-primary">Download PDF</a>
+                    </div>
                     <section class="col-lg-12 connectedSortable">
                     
                         <!--Start of Patient Visited-->
@@ -442,6 +445,7 @@
                                                 $pages = $ci_obj->general_model->getLabSampleById($getLabTest->laboratory_id);
                                                 echo @$pages->test_name;
                                             ?>
+                                            <?php /*echo $getLabTest->laboratory_id;*/?>
                                                 
                                             </td>
                                            <td>
@@ -975,5 +979,6 @@
             });
          </script>
          
-    </body>
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

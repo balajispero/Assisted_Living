@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <head>
+    
 
         <meta charset="UTF-8">
         <title>Assisted Living</title>
@@ -2969,8 +2969,6 @@
                 <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit" >Submit</button>
                             </div>
                             <br>
-                            <br>
-                            <br>
               </form>
 
         </section>
@@ -3086,7 +3084,7 @@
       $('.female_left_sholder,.female_right_sholder,.female_left_arm,.female_right_arm,.female_elbow,.female_forearm,.female_wrist,.female_thoracic_spine,.female_lumber_spine,.female_sacrum,.female_coccyx,.female_pelvis,.female_buttocks,.female_left_leg_tigh,.female_left_leg_knee,.female_left_leg_ankle,.female_left_leg_foot,.female_right_leg_tigh,.female_right_leg_knee,.female_right_leg_ankle,.female_right_leg_foot,.female_spinal_cord,.female_blood_vessels,.female_lungs').hide();
       // Listen for changes in the select element
     $("select[name='ptn_bodypart[]']").change(function () {
-      //updateBulletVisibility();
+      updateBulletVisibility();
     });
 
     // Function to update bullet visibility based on selected options
@@ -3314,6 +3312,6 @@
       });
     });
   </script> -->
-  <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+<?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>

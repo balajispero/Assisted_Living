@@ -7,14 +7,18 @@
 <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" /> -->
 <style>
     footer{
-        background-color: rgba(0, 0, 0, 0.05);
-        height: 30px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
         width: 100%;
+        background-color: rgba(0, 0, 0, 0.05);
+        /* background-color: white; */
+        height: 30px;
         text-align: center;
         padding: 1px;
         margin-bottom: 3px;
-        position: fixed;
-        bottom: 0%;
+        /*margin-top: 10px;*/
+            
     }
    
 </style>
@@ -28,6 +32,7 @@
             
           /*End code for disable browser back button*/ 
         </script>
+<br><br>
 <footer>
    <b><h6 style="color:#0097A7;">© Powered by Spero <?php echo date("Y"); ?></h6></b>
 </footer>

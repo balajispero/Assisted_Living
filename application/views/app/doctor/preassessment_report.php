@@ -1377,5 +1377,6 @@ tr.border_bottom td {
     </div>
 </section>
 
+<?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>

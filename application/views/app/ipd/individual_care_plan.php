@@ -343,7 +343,7 @@
                                         <tbody>
                                         <tr>
                                             <td>Date</td>
-                                            <td><input type="text" name="dDate" id="dDate2" value="<?php echo date("Y-m-d");?>" placeholder="Date" class="form-control input-sm edit_date" style="width: 100%;" required></td>
+                                            <td><input type="date" name="dDate" id="dDate2" value="<?php echo date("Y-m-d");?>" placeholder="Date" class="form-control input-sm edit_date" style="width: 100%;" required></td>
                                         </tr>
                                         <tr>
                                             <td>Time</td>
@@ -535,6 +535,7 @@
                         $('.btn-review').on('click',function() {
 
                             var id=$(this).data('id');
+                            
                            
                             $('.ind_care_plan_id').val(id);
                             $('.opd_no').val($(this).data('io_id'));
@@ -553,6 +554,7 @@
                     });
                 </script>
         
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?> 
-    </body>
+        
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

@@ -112,7 +112,7 @@
                         	<div class="box-body table-responsive no-padding">
                             	<table width="100%" cellpadding="3" cellspacing="3">
                                 <tr>
-                                	<!-- <td width="15%" valign="top" align="center">
+                                	<td width="15%" valign="top" align="center">
                                     <?php
 									if(!$patientInfo->picture){
 										$picture = "avatar.png";	
@@ -121,7 +121,7 @@
 									}
 									?>
 									<img src="<?php echo base_url();?>public/patient_picture/<?php echo $picture;?>" class="img-rounded" width="86" height="81">
-                                    </td> -->
+                                    </td>
                                     <td>
                                     	<table width="100%">
                                         <tr>
@@ -508,7 +508,8 @@
         </script>
         <!-- END DATE -->
         
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
         
-    </body>
+        
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

@@ -1601,6 +1601,7 @@ input[type=text]:hover{
     </div>
 </section>
 
+<?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html></span></label>
             </div>
@@ -3032,5 +3033,6 @@ input[type=text]:hover{
     </div>
 </section>
 
+<?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>
