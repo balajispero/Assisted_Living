@@ -321,7 +321,7 @@
                                            </tr>
                                            <tr>
                                            		<td>Blood Pressure</td>
-                                                <td><input type="number" name="bp" id="bp"  style="width: 80%;"  class="form-control1" placeholder="Enter 100 to 300">&nbsp;&nbsp;mm of Hg</td>
+                                                <td><input type="text" name="bp" id="bp"  style="width: 80%;"  class="form-control1">&nbsp;&nbsp;mm of Hg</td>
                                            </tr>
                                            <tr>
                                            		<td>Temperature</td>
@@ -426,7 +426,7 @@
          }
        });
 
-    $("input[name='bp']").change(function() {
+    /*$("input[name='bp']").change(function() {
         
       var number = parseInt($("input[name='bp']").val());
       //requirement range is 100 to 300
@@ -434,7 +434,7 @@
            $(this).val('');
           
          }
-       });
+       });*/
     
     $("input[name='spo2']").change(function() {
         
