@@ -367,15 +367,25 @@ class Opd_model extends CI_Model{
 		$query = $this->db->get("iop_nurse_medicine", $limit, $offset);
 		return $query->result();
 	}
-	public function given_medicine_chart_cnt($iop_no){
+	public function given_medicine_chart_cnt($iop_no,$limit=""){
 		
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
 			'InActive'	=>		0
 		));
 		$this->db->order_by('given_date','desc');	
+		if($limit=="no")
+		{
+			$query = $this->db->get("iop_nurse_medicine");
+			return $query->result();
+
+		}
+		else{
 		$query = $this->db->get("iop_nurse_medicine");
 		return $query->num_rows();
+		
+		}
+		
 	}
 	public function given_medicine_chart($iop_no){
 		$this->db->where(array(
@@ -546,7 +556,7 @@ class Opd_model extends CI_Model{
 		$query = $this->db->get("iop_vital_parameters", $limit, $offset);
 		return $query->result();
 	}
-	public function getVital_cnt($iop_no){
+	public function getVital_cnt($iop_no,$limit=""){
 
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
@@ -554,8 +564,18 @@ class Opd_model extends CI_Model{
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");
+		if($limit=="no")
+		{
+			$query = $this->db->get("iop_vital_parameters");
+			return $query->result();
+
+		}
+		else{
 		$query = $this->db->get("iop_vital_parameters");
 		return $query->num_rows();
+		
+		}
+		
 	}
 	
 	public function getVital($iop_no){
@@ -580,16 +600,26 @@ class Opd_model extends CI_Model{
 		$query = $this->db->get("iop_nurse_notes", $limit, $offset);
 		return $query->result();
 	}
-	public function getNurseProgressNote_cnt($iop_no){
+	public function getNurseProgressNote_cnt($iop_no,$limit=""){
 		
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
 			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
 		));	
-		$this->db->order_by("dDateTime","DESC");	
+		$this->db->order_by("dDateTime","DESC");
+		if($limit=="no")
+		{
+			$query = $this->db->get("iop_nurse_notes");
+			return $query->result();
+
+		}
+		else{
 		$query = $this->db->get("iop_nurse_notes");
 		return $query->num_rows();
+		
+		}	
+		
 	}
 	
 	public function getNurseProgressNote($iop_no){
@@ -729,7 +759,7 @@ class Opd_model extends CI_Model{
 		$query = $this->db->get("iop_laboratory", $limit, $offset);
 		return $query->result();
 	}
-	public function getLabTest_cnt($iop_no){
+	public function getLabTest_cnt($iop_no,$limit=""){
 		
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
@@ -738,8 +768,18 @@ class Opd_model extends CI_Model{
 		));	
 		$this->db->where("(category_id = 7 OR category_id = 14)");
 		//$this->db->order_by("dDate","DESC");	
+		if($limit=="no")
+		{
+			$query = $this->db->get("iop_laboratory");
+			return $query->result();
+
+		}
+		else{
 		$query = $this->db->get("iop_laboratory");
 		return $query->num_rows();
+		
+		}
+		
 	}
 
 	public function getPhysioNote_pagination($limit = 10, $offset = 0,$iop_no){

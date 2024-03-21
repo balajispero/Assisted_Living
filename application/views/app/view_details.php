@@ -111,9 +111,9 @@
 
                 <section class="content">
                 <div class="row">
-                    <div class="text-right">
-                    <a href="<?php echo base_url()?>app/dashboard/view_details_pdf/<?php echo $this->uri->segment("4"); ?>/<?php echo $this->uri->segment("5"); ?>" class="btn btn-primary">Download PDF</a>
-                    </div>
+                     <div class=" col-sm-11 text-right">
+                    <a href="<?php echo base_url()?>app/dashboard/view_details_pdf/<?php echo $this->uri->segment("4"); ?>/<?php echo $this->uri->segment("5"); ?>" class="btn btn-primary" target="_blank">Download PDF</a>
+                    </div><br><br><br>
                     <section class="col-lg-12 connectedSortable">
                     
                         <!--Start of Patient Visited-->

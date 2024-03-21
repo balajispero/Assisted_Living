@@ -1,5 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+require FCPATH.'vendor/autoload.php';      
+use Dompdf\Dompdf;
 require APPPATH.'controllers/General.php'; 
 
 class Dashboard extends General{
@@ -356,6 +357,45 @@ class Dashboard extends General{
 		$this->data['getProgressNote'] = $this->Opd_model->getIndCarePlan($iop_no);
 
 		$this->load->view('app/view_details',$this->data);	
+	}
+	public function view_details_pdf($id=0){
+		$id = $this->uri->segment("4");
+		$iop_no = $this->uri->segment("5");
+		 $limit="no";
+
+		$this->data['getTodayAppointment'] = $this->dashboard_model->getTodayAppointment();	
+		$this->data['patientInfo'] = $this->patient_model->getPatient($id);
+		
+		$this->data['patientDiagnosis'] = $this->ipd_model->patientDiagnosis($iop_no);
+		$this->data['patientComplain'] = $this->Opd_model->patientComplain($iop_no);
+
+		$this->data['getLabTest'] = $this->Opd_model->getLabTest_cnt($iop_no,$limit);
+		
+
+		$this->data['getProgressNote'] = $this->Opd_model->getIndCarePlan($iop_no);
+		$this->data['getNurseProgressNote'] =$this->Opd_model->getNurseProgressNote_cnt($iop_no,$limit);
+
+		$this->data['getVital'] = $this->Opd_model->getVital_cnt($iop_no,$limit);
+		$this->data['getIntake'] = $this->ipd_model->getIntake_cnt($iop_no,$limit);
+		$this->data['getOutput'] = $this->ipd_model->getOutput_cnt($iop_no,$limit);
+		$this->data['given_medicine'] = $this->Opd_model->given_medicine_chart_cnt($iop_no,$limit);
+		
+		$dompdf = new Dompdf();
+            $dompdf->set_option('isRemoteEnabled',TRUE);
+            $canvas=$dompdf->get_canvas();
+            
+            $html = $this->load->view('app/dashboard/ptn_report_view_pdf',$this->data,true);
+
+            $dompdf->loadHtml($html);
+           
+            // Render the HTML as PDF
+            $dompdf->render();
+            // Output the generated PDF to Browser
+            
+
+            $dompdf->stream('report.pdf',array("Attachment" => 1));
+
+		//$this->load->view('app/dashboard/ptn_report_view_pdf',$this->data);	
 	}
 	
 	public function view_detailss($id=0){

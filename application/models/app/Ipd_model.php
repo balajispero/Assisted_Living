@@ -442,7 +442,7 @@ class Ipd_model extends CI_Model{
 		$query = $this->db->get("iop_intake_record", $limit, $offset);
 		return $query->result();
 	}
-	public function getIntake_cnt($iop_no){
+	public function getIntake_cnt($iop_no,$limit=""){
 
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
@@ -450,8 +450,18 @@ class Ipd_model extends CI_Model{
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");
+		if($limit=="no")
+		{
+			$query = $this->db->get("iop_intake_record");
+			return $query->result();
+
+		}
+		else{
 		$query = $this->db->get("iop_intake_record");
 		return $query->num_rows();
+		
+		}
+		
 	}
 	public function getOutput_pagination($limit = 10, $offset = 0,$iop_no){
 
@@ -464,7 +474,7 @@ class Ipd_model extends CI_Model{
 		$query = $this->db->get("iop_output_record", $limit, $offset);
 		return $query->result();
 	}
-	public function getOutput_cnt($iop_no){
+	public function getOutput_cnt($iop_no,$limit=""){
 
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,
@@ -472,8 +482,18 @@ class Ipd_model extends CI_Model{
 			'InActive'	=>		0
 		));	
 		$this->db->order_by("dDateTime","DESC");
+		if($limit=="no")
+		{
+			$query = $this->db->get("iop_output_record");
+			return $query->result();
+
+		}
+		else{
 		$query = $this->db->get("iop_output_record");
 		return $query->num_rows();
+		
+		}
+		
 	}
 	
 	public function room_transfer($iop_no){
