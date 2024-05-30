@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Assisted Living</title></title>
+        <title>Rehabilitation Center</title></title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 

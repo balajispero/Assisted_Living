@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Assisted Living</title>
+        <title>Rehabilitation Center</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -130,15 +130,15 @@
 													$userID = $lastIPDNo->ipdNo;
 													$userID2 = $lastIPDNo->ipdNo;
 													if(strlen($userID) == 1){
-														$userID = "SSAL0000".$userID;
+														$userID = "RBGLB0000".$userID;
 													}else if(strlen($userID) == 2){
-														$userID = "SSAL0000".$userID;
+														$userID = "RBGLB0000".$userID;
 													}else if(strlen($userID) == 3){
-														$userID = "SSAL000".$userID;
+														$userID = "RBGLB000".$userID;
 													}else if(strlen($userID) == 4){
-														$userID = "SSAL00".$userID;
+														$userID = "RBGLB00".$userID;
 													}else if(strlen($userID) == 5){
-														$userID = "SSAL0".$userID;
+														$userID = "RBGLB0".$userID;
 													}else if(strlen($userID) == 6){
 														$userID = $userID;
 													}

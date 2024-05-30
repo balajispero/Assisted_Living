@@ -247,21 +247,20 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         <!--START OF POS-->
                         
                         <?php if($hasAccesstoBilling){?>
-                        <li class="treeview <?php echo $billing;?>">
+                        <!-- <li class="treeview <?php echo $billing;?>">
                             <a href="#" class="hvr-icon-pop">
                                 <i class="fa fa-credit-card hvr-icon"></i> <span style="color:#07B5BC;" class="hvr-pop">Billing</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
                             </a>
                             <ul class="treeview-menu">
-                                 <!-- <?php if($hasAccesstoPOS){?><li><a href="<?php echo base_url()?>app/pos/" target="_blank"><i class="fa fa-angle-double-right"></i>POS</a></li><?php }?> -->
-                                <?php if($hasAccesstoBilling){?><!-- <li <?php echo $bill_history_mod;?>><a href="<?php echo base_url()?>app/billing_history"><i class="fa fa-angle-double-right"></i>Billing List</a></li> -->
-                                <!-- <li <?php echo $bill_history_mod;?>><a href="<?php echo base_url()?>app/invoice/invoice_list"><i class="fa fa-angle-double-right"></i>Invoice List</a></li> -->
+                                 
+                                <?php if($hasAccesstoBilling){?>
+                                
                                 <li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/invoice/ipd"><i class="fa fa-angle-double-right"></i>Members</a></li>
                                  <?php }?>
-                                <!--<?php if($hasAccesstoSurgical){?><li <?php echo $surgical_costing?>><a href="<?php echo base_url()?>app/surgical_costing"><i class="fa fa-angle-double-right"></i>Surgical Quotation Costing</a></li><?php }?> -->
-                                <!-- <li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/invoice/ipd"><i class="fa fa-angle-double-right"></i>Members</a></li> -->
+                                
                             </ul>
-                        </li>
+                        </li> -->
                         <?php }?>
                         
                         <!--START OF Appointment-->
@@ -451,17 +450,17 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                             </a>
                             <ul class="treeview-menu">
                                 <?php if($hasAccesstoAdminCompanyInfo){?><li <?php echo $company_information;?>><a href="<?php echo base_url()?>app/company_information"><i class="fa fa-angle-double-right"></i>Company Information</a></li> <?php }?>
-                                <?php if($hasAccesstoAdminDepartment){?><li <?php echo $department_mod;?>><a href="<?php echo base_url()?>app/department"><i class="fa fa-angle-double-right"></i>Department Master</a></li> <?php }?>
+                                <!-- <?php if($hasAccesstoAdminDepartment){?><li <?php echo $department_mod;?>><a href="<?php echo base_url()?>app/department"><i class="fa fa-angle-double-right"></i>Department Master</a></li> <?php }?> -->
                                 <?php if($hasAccesstoAdminDesignation){?><li <?php echo $designation_mod;?>><a href="<?php echo base_url()?>app/designation"><i class="fa fa-angle-double-right"></i>Designation Master</a></li>  <?php }?> 
-                                <?php if($hasAccesstoAdminBillGroupName){?><li <?php echo $group_name_mod;?>><a href="<?php echo base_url()?>app/bill_group_name"><i class="fa fa-angle-double-right"></i>Bill Group Name Master</a></li> <?php }?>
-                                <?php if($hasAccesstoAdminParticularBill){?><li <?php echo $particular_bill_mod;?>><a href="<?php echo base_url()?>app/particular_bill"><i class="fa fa-angle-double-right"></i>Particular Bill Master</a></li> <?php }?>
+                                <?php if($hasAccesstoAdminBillGroupName){?><!-- <li <?php echo $group_name_mod;?>><a href="<?php echo base_url()?>app/bill_group_name"><i class="fa fa-angle-double-right"></i>Bill Group Name Master</a></li> --> <?php }?>
+                                <?php if($hasAccesstoAdminParticularBill){?><!-- <li <?php echo $particular_bill_mod;?>><a href="<?php echo base_url()?>app/particular_bill"><i class="fa fa-angle-double-right"></i>Particular Bill Master</a></li> --> <?php }?>
                                 <?php if($hasAccesstoAdminComplain){?><li <?php echo $complain_mod;?>><a href="<?php echo base_url()?>app/complain"><i class="fa fa-angle-double-right"></i>Complain Master</a></li><?php }?>
                                 <?php if($hasAccesstoAdminDiagnosis){?><li <?php echo $diagnosis_mod;?>><a href="<?php echo base_url()?>app/diagnosis"><i class="fa fa-angle-double-right"></i>Diagnosis Master</a></li><?php }?>
-                                <?php if($hasAccesstoAdminSurgicalPack){?><li <?php echo $surgical_package;?>><a href="<?php echo base_url()?>app/surgical_package"><i class="fa fa-angle-double-right"></i>Surgical Package</a></li><?php }?>
+                                <!-- <?php if($hasAccesstoAdminSurgicalPack){?><li <?php echo $surgical_package;?>><a href="<?php echo base_url()?>app/surgical_package"><i class="fa fa-angle-double-right"></i>Surgical Package</a></li><?php }?> -->
                                 <?php if($hasAccesstoAdminInsuranceCompany){?><li <?php echo $insurance_company_mod;?>><a href="<?php echo base_url()?>app/insurance_company"><i class="fa fa-angle-double-right"></i>Insurance Company</a></li><?php }?>
                                 
                                 <?php if($hasAccesstoAdminMedicineCategory == TRUE && $hasAccesstoAdminDrugName == TRUE){?>
-                                <li class="treeview <?php echo $medicine;?>">
+                                <!-- <li class="treeview <?php echo $medicine;?>">
                                     <a href="#" class="hvr-icon-pop">
                                     <i class="fa fa-angle-double-right hvr-icon"></i><span class="hvr-pop">Interventions Mgmt</span>
                                     <i class="fa fa-angle-left pull-right hvr-icon"></i>
@@ -470,13 +469,13 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                         <?php if($hasAccesstoAdminMedicineCategory){?><li <?php echo $med_cat_mod;?>><a href="<?php echo base_url()?>app/medicine_category">&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i>Category Master</a></li><?php }?>
                                         <?php if($hasAccesstoAdminDrugName){?><li <?php echo $drug_mod;?>><a href="<?php echo base_url()?>app/drug_name">&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i>Intervention Master</a></li><?php }?>
                                     </ul>
-                                </li>
+                                </li> -->
                                 <?php }?>
                                 
-                                <?php if($hasAccesstoAdminAckReceipt){?><li <?php echo $declared_receipt_mod;?>><a href="<?php echo base_url()?>app/declared_receipt"><i class="fa fa-angle-double-right"></i>Acknowledge Receipt</a></li><?php }?>
+                                <!-- <?php if($hasAccesstoAdminAckReceipt){?><li <?php echo $declared_receipt_mod;?>><a href="<?php echo base_url()?>app/declared_receipt"><i class="fa fa-angle-double-right"></i>Acknowledge Receipt</a></li><?php }?> -->
                                 <?php if($hasAccesstoAdminParameters){?><li <?php echo $param_mod;?>><a href="<?php echo base_url()?>app/parameters"><i class="fa fa-angle-double-right"></i>System Parameters</a></li><?php }?>
-                                <?php if($hasAccesstoAdminBackup){?><li <?php echo $backup;?>><a href="<?php echo base_url()?>app/backup"><i class="fa fa-angle-double-right"></i>Backup Database</a></li><?php }?>
-                                <?php if($hasAccesstoAdminPages){?><li <?php echo $pages_mod;?>><a href="<?php echo base_url()?>app/pages"><i class="fa fa-angle-double-right"></i>System Pages</a></li> <?php }?>
+                                <!-- <?php if($hasAccesstoAdminBackup){?><li <?php echo $backup;?>><a href="<?php echo base_url()?>app/backup"><i class="fa fa-angle-double-right"></i>Backup Database</a></li><?php }?>
+                                <?php if($hasAccesstoAdminPages){?><li <?php echo $pages_mod;?>><a href="<?php echo base_url()?>app/pages"><i class="fa fa-angle-double-right"></i>System Pages</a></li> <?php }?> -->
                             </ul>
                         </li>
                         <?php }?>
@@ -486,7 +485,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         
                         <!--START OF Billing Module-->
                         <?php if($hasAccesstoReport){?>
-                        <li class="treeview <?php echo $reports;?>">
+                        <!-- <li class="treeview <?php echo $reports;?>">
                             <a href="#" class="hvr-icon-pop">
                                 <i class="fa fa-print hvr-icon"></i> <span style="color:#07B5BC;" class="hvr-pop"> Reports Generation</span>
                                 <i class="fa fa-angle-left pull-right hvr-icon"></i>
@@ -501,7 +500,7 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                                 <?php if($hasAccesstoReportDoctorsFee){?><li <?php echo $daily_reports_mod;?>><a href="<?php echo base_url()?>app/reports/doctorFeeReport"><i class="fa fa-angle-double-right"></i>Doctor's Fee Report</a></li><?php }?>
                                 <?php if($hasAccesstoReportAR){?><li <?php echo $declared_receipt_mod;?>><a href="<?php echo base_url()?>app/reports/declared_receipt"><i class="fa fa-angle-double-right"></i>Acknowledge Receipt Report</a></li><?php }?>
                             </ul>
-                        </li>
+                        </li> -->
                         <?php }?>
                         <!--END OF Billing Module-->
 

@@ -171,7 +171,7 @@
         </a>
         <div class="logo2"> 
                 <!-- <?php echo "Assisted Living"?> -->
-                <p class="ml2">Assisted Living Facility</p>
+                <p class="ml2">Rehabilitation Center</p>
 
         </div>
         <div class="navbar-right">
@@ -276,10 +276,10 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="<?php echo base_url()?>myprofile" class="btn btn-default btn-flat">Profile</a>
+                                <a href="<?php echo base_url()?>myprofile" class="btn btn-default btn-default1 btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="<?php echo base_url()?>login/logout" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="<?php echo base_url()?>login/logout" class="btn btn-default btn-default1 btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

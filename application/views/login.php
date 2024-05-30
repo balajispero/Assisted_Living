@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
 
-	<title>Assisted Living</title>
+	<title>Rehabilitation Center</title>
 	<style>
 		body, html { 
 			height: 100%; margin: 0; 
@@ -122,7 +122,7 @@
 		<br>
 		<div class="row">
 			<div class="col-md-7">
-				<h1 class="heading-section head2">Assisted Living Facility</h1>
+				<h1 class="heading-section head2">Rehabilitation Center</h1>
 			</div>
 			<div class="col-md-5">
 				<div class="login-wrap py-5">

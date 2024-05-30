@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="UTF-8">
-        <title>Assisted Living</title>
+        <title>Rehabilitation Center</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -14,7 +14,7 @@
         <link href="<?php echo base_url();?>public/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
-	      <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
+          <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
         
         <style>
          textarea.form-control{
@@ -89,64 +89,56 @@
         }
     /*End toggle button css*/
 
-       
         /*Start multiple select dropdown css*/
+        .btn-group ul{
+          height: 170px;
+          overflow-y: scroll;
+        }
+        /* Start WebKit browsers (Chrome, Safari) */
+        .btn-group ul::-webkit-scrollbar {
+          width: 12px; /* Set the width of the scrollbar */
+        }
+        .btn-group ul::-webkit-scrollbar-thumb {
+          background-image: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%);
+          border-radius: 6px; /* Set the border radius of the scrollbar thumb */
+        }
+
+        .btn-group ul::-webkit-scrollbar-track {
+          background-color: #f1f1f1; /* Set the color of the scrollbar track */
+        }
+        /* End WebKit browsers (Chrome, Safari) */
+
         .btn-group, .btn-group-vertical {
         position: relative;
-        width: 100% !important;
+        width: 245%;
         display: inline-block;
         vertical-align: middle;
-       
     }
-    .btn-group ul{
-      height: 170px;
-      overflow-y: scroll;
-     
-    }
-   /* WebKit browsers (Chrome, Safari) */
-.btn-group ul::-webkit-scrollbar {
-  width: 12px; /* Set the width of the scrollbar */
-}
-
-.btn-group ul::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%);
-  border-radius: 6px; /* Set the border radius of the scrollbar thumb */
-}
-
-.btn-group ul::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Set the color of the scrollbar track */
-}
-
-/* Firefox */
-.btn-group ul {
-  scrollbar-color: #09A3D5 #3B4BDF;
-  scrollbar-width: thin;
-}
     .btn.btn-default {
         background-color: #fafafa;
         color: #666;
         border-color: #ddd;
         border-bottom-color: #ddd;
-        width: 100% !important;
+        width: 41%;
         text-align: left;
         border-radius: 25px !important;
+    }
+    .btn-default1 {
+        width: 100% !important;
+        text-align: left;
     }
     .btn .caret {
         margin-left: 150px;
         display: none;
     }
     .multiselect-container {
-        position: absolute !;
+        position: absolute;
         list-style-type: none;
         margin: 0;
         padding: 0;
-        width: 40% !important;
+        width: 40%;
     }
-    /* select[multiple]{
-      height: 30px;
-    } */
     /*End multiple select dropdown css*/
-    
     .bg_color1{
             background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;
             color: #FFF;
@@ -162,147 +154,129 @@
 }
 
 /*Start highlight bullet point on body*/
-   
- .Head-bullet{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 23px; 
-      left: 124px; 
-    }
-    .Skull-bullet{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 551px; /* Adjust the top position based on your needs */
-      left: 130px; /* Adjust the left position based on your needs */
-   
-    }
-    .shoulder-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 93px; /* Adjust the top position based on your needs */
-      left: 90px; /* Adjust the left position based on your needs */
-    }
-
-    .elbow-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 710px; /* Adjust the top position based on your needs */
-      left: 70px; /* Adjust the left position based on your needs */
-    }
-
-    .knee-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 328px; /* Adjust the top position based on your needs */
-      left: 139px; /* Adjust the left position based on your needs */
-    }
-    .wrist-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 770px; /* Adjust the top position based on your needs */
-      left: 170px; /* Adjust the left position based on your needs */
-    }
-    .Cervical-Spine-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      display: none;
-      cursor: pointer;
-      top: 612px; /* Adjust the top position based on your needs */
-      left: 115px; /* Adjust the left position based on your needs */
-    }
-    .thoracic_spine-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 675px; /* Adjust the top position based on your needs */
-      left: 116px; /* Adjust the left position based on your needs */
-    }
-    .lumbar_spine-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 726px; /* Adjust the top position based on your needs */
-      left: 116px; /* Adjust the left position based on your needs */
-    }
-    .pelvis-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 201px; /* Adjust the top position based on your needs */
-      left: 126px; /* Adjust the left position based on your needs */
-    }
-    .hip-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 274px; /* Adjust the top position based on your needs */
-      left: 145px; /* Adjust the left position based on your needs */
-    }
-    .ankle-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 415px; /* Adjust the top position based on your needs */
-      left: 139px; /* Adjust the left position based on your needs */
-      transition: transform 0.5s ease;
-    }
+    
     .ankle-bullet:hover img{
       transform: scale(2.2); /* Increase the scale on hover to create a zoom effect */
     }
+
+    .bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      z-index: 1;
+      cursor: pointer;
+      display: none;
+    }
+    /*For male highlight bullet point on body*/
+    .Head-bullet { top: 27px; left: 132px; }
+    .Skull-bullet { top: 551px; left: 130px; }
+    .Left-Eye-bullet { top: 38px; left: 125px; }
+    .Right-Eye-bullet { top: 38px; left: 140px; }
+    .Left-Ear-bullet { top: 47px; left: 149px; }
+    .Right-Ear-bullet { top: 47px; left: 115px; }
+    .Face-bullet { top: 45px; left: 121px; }
+    .Nose-bullet { top: 45px; left: 131px; }
+    .Mouth-bullet { top: 54px; left: 131px; }
+    .Left-Shoulder-bullet { top: 89px; left: 158px; }
+    .Right-Shoulder-bullet { top: 93px; left: 90px; }
+    .Left-Arm-bullet { top: 131px; left: 176px; }
+    .Right-Arm-bullet { top: 130px; left: 86px; }
+    .Chest-bullet { top: 109px; left: 131px; }
+    .Brain-bullet { top: 25px; left: 119px; }
+    .Heart-bullet { top: 114px; left: 138px; }
+    .Left-Lung-bullet { top: 140px; left: 146px; }
+    .Right-Lung-bullet { top: 140px; left: 121px; }
+    .Trachea-bullet { top: 75px; left: 130px; }
+   
+    .Upper-Abdomen-bullet { top: 151px; left: 134px; }
+    .Lower-Abdomen-bullet { top: 195px; left: 133px; }
+    .Pelvis-bullet { top: 211px; left: 131px; }
+    .Buttocks-bullet { top: 755px; left: 153px; }
+    .Groin-bullet { top: 224px; left: 140px; }
+    .Left-Thigh-bullet { top: 270px; left: 146px; }
+    .Right-Thigh-bullet { top: 270px; left: 110px; }
+    .Left-Knee-bullet { top: 323px; left: 148px; }
+    .Right-Knee-bullet { top: 320px; left: 115px; }
+    .Left-Leg-bullet { top: 360px; left: 144px; }
+    .Right-Leg-bullet { top: 360px; left: 116px; }
+    .Left-Ankle-bullet { top: 415px; left: 135px; }
+    .Right-Ankle-bullet { top: 414px; left: 115px; }
+    .Left-Foot-bullet { top: 430px; left: 147px; }
+    .Right-Foot-bullet { top: 430px; left: 112px; }
+
+    .Left-Forearm-bullet { top: 176px; left: 199px; }
+    .Right-Forearm-bullet { top: 178px; left: 66px; }
+    .Left-Wrist-bullet { top: 724px; left: 45px; }
+    .Right-Wrist-bullet { top: 730px; left: 222px; }
+    .Left-Hand-bullet { top: 213px; left: 226px; }
+    .Right-Hand-bullet { top: 218px; left: 44px; }
+    .Cervical-Spine-bullet { top: 585px; left: 125px; }
+    .Thoracic-Spine-bullet { top: 645px; left: 135px; }
+    .Lumbar-Spine-bullet { top: 710px; left: 131px; }
+    .Sacrum-bullet { top: 731px; left: 135px; }
+    .Coccyx-bullet { top: 742px; left: 134px; }
+    .Hips-bullet { top: 731px; left: 157px; }
+    .Left-Elbow-bullet { top: 689px; left: 79px; }
+    .Right-Elbow-bullet { top: 691px; left: 191px; }
+    /*For male highlight bullet point on body*/
+
+    /*For female highlight bullet point on body*/
+    .female-Head-bullet { top: 27px; left: 133px; }
+    .female-Skull-bullet { top: 568px; left: 111px; }
+    .female-Left-Eye-bullet { top: 38px; left: 140px; }
+    .female-Right-Eye-bullet { top: 38px; left: 126px; }
+    .female-Left-Ear-bullet { top: 47px; left: 150px; }
+    .female-Right-Ear-bullet { top: 47px; left: 117px; }
+    .female-Face-bullet { top: 45px; left: 124px; }
+    .female-Nose-bullet { top: 45px; left: 133px; }
+    .female-Mouth-bullet { top: 54px; left: 133px; }
+    .female-Left-Shoulder-bullet { top: 89px; left: 155px; }
+    .female-Right-Shoulder-bullet { top: 91px; left: 113px; }
+    .female-Left-Arm-bullet { top: 131px; left: 167px; }
+    .female-Right-Arm-bullet { top: 130px; left: 99px; }
+    .female-Chest-bullet { top: 109px; left: 131px; }
+    .female-Brain-bullet { top: 25px; left: 120px; }
+    .female-Heart-bullet { top: 114px; left: 138px; }
+    .female-Left-Lung-bullet { top: 155px; left: 146px; }
+    .female-Right-Lung-bullet { top: 155px; left: 121px; }
+    .female-Trachea-bullet { top: 75px; left: 132px; }
+   
+    .female-Upper-Abdomen-bullet { top: 160px; left: 134px; }
+    .female-Lower-Abdomen-bullet { top: 205px; left: 133px; }
+    .female-Pelvis-bullet { top: 222px; left: 133px; }
+    .female-Buttocks-bullet { top: 771px; left: 140px; }
+    .female-Groin-bullet { top: 237px; left: 140px; }
+    .female-Left-Thigh-bullet { top: 270px; left: 146px; }
+    .female-Right-Thigh-bullet { top: 270px; left: 110px; }
+    .female-Left-Knee-bullet { top: 346px; left: 147px; }
+    .female-Right-Knee-bullet { top: 346px; left: 118px; }
+    .female-Left-Leg-bullet { top: 401px; left: 144px; }
+    .female-Right-Leg-bullet { top: 401px; left: 120px; }
+    .female-Left-Ankle-bullet { top: 454px; left: 136px; }
+    .female-Right-Ankle-bullet { top: 454px; left: 117px; }
+    .female-Left-Foot-bullet { top: 474px; left: 147px; }
+    .female-Right-Foot-bullet { top: 474px; left: 117px; }
+
+    .female-Left-Forearm-bullet { top: 193px; left: 183px; }
+    .female-Right-Forearm-bullet { top: 193px; left: 82px; }
+    .female-Left-Wrist-bullet { top: 765px; left: 62px; }
+    .female-Right-Wrist-bullet { top: 765px; left: 180px; }
+    .female-Left-Hand-bullet { top: 242px; left: 197px; }
+    .female-Right-Hand-bullet { top: 245px; left: 67px; }
+    .female-Cervical-Spine-bullet { top: 600px; left: 113px; }
+    .female-Thoracic-Spine-bullet { top: 645px; left: 120px; }
+    .female-Lumbar-Spine-bullet { top: 710px; left: 120px; }
+    .female-Sacrum-bullet { top: 742px; left: 120px; }
+    .female-Coccyx-bullet { top: 753px; left: 120px; }
+    .female-Hips-bullet { top: 744px; left: 148px; }
+    .female-Left-Elbow-bullet { top: 705px; left: 76px; }
+    .female-Right-Elbow-bullet { top: 708px; left: 170px; }
+
+    /*For female highlight bullet point on body*/
+
     /*End highlight bullet point on body*/
 
     .hvr-rectangle-out{
@@ -311,6 +285,7 @@
     }
 
         </style>
+         <?php require_once(APPPATH.'views/include/responsive_bodypain_img.php');?>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -372,7 +347,7 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1><b>Dashboard</b></h1>
+                    <h1>Dashboard</h1>
                     <!--<ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Examples</a></li>
@@ -409,96 +384,50 @@
 
                         <div class="row">
                             <div class="col-sm-3">
-                    <?php if(@$patientInfo->gender=="1" || @$patientInfo->gender=="76"){ ?>
+                                <input type="hidden" name="gender_for_bodyimg" id="gender_for_bodyimg" value="<?php echo @$patientInfo->gender;?>">
+                    <?php if(@$patientInfo->gender=="1"){ ?>
                   <div class="row">
                     
                     <div class="col-sm-12" id="container"><img src="<?=base_url()?>/public/company_logo/male-body-front.png" alt="" style="height:513px;width: 100%; "></div>
-                    <div class="Head-bullet"></div>
-                    <div class="Face-bullet"></div>
-                    <div class="Right-Face-bullet"></div>
-                    <div class="Left-Eye-bullet"></div>
-                    <div class="Right-Eye-bullet"></div>
-                    <div class="Left-Ear-bullet"></div>
-                    <div class="Right-Ear-bullet"></div>
-                    <div class="Nose-bullet"></div>
-                    <div class="Mouth-bullet"></div>
-                    <div class="left_sholder"></div>
-                    <div class="right_sholder"></div>
-                    <div class="chest"></div>
-                    <div class="pectoral_region"></div>
-                    <div class="upper_abdomen"></div>
-                    <div class="lower_abdomen"></div>
-                    <div class="pelvis"></div>
-                    <div class="hips"></div>
-                    <div class="groin"></div>
-                    <div class="left_leg_tigh"></div>
-                    <div class="left_leg_knee"></div>
-                    <div class="left_leg_ankle"></div>
-                    <div class="left_leg_foot"></div>
-                    <div class="right_leg_tigh"></div>
-                    <div class="right_leg_knee"></div>
-                    <div class="right_leg_ankle"></div>
-                    <div class="right_leg_foot"></div>
-                    <div class="Left-Shoulder-bullet"></div>
-                    <div class="Right-Shoulder-bullet"></div>
-                    <div class="Left-Arm-bullets"></div>
-                    <div class="Right-Arm-bullet"></div>
-                    <div class="Left-Hand-bullet"></div>
-                    <div class="Right-Hand-bullet"></div>
-                    <div class="Chest-bullet"></div>
-                    <div class="Brain-bullet"></div>
-                    <div class="Heart-bullet"></div>
-                    <div class="Blood-Vessels-bullet"></div>
-                    <div class="Left-Lung-bullet"></div>
-                    <div class="Right-Lung-bullet"></div>
-                    <div class="Trachea-bullet"></div>
-                    <div class="Upper-Abdomen-bullet"></div>
-                    <div class="Lower-Abdomen-bullet"></div>
-                    <div class="Pelvis-bullet"></div>
-                    <div class="Hips-bullet"></div>
-                    <div class="Right-Hip-bullet"></div>
-                    <div class="Groin-bullet"></div>
-                    <div class="Right-Groin-bullet"></div>
-                    <div class="Left-Thigh-bullet"></div>
-                    <div class="Right-Thigh-bullet"></div>
-                    <div class="Left-Knee-bullet"></div>
-                    <div class="Right-Knee-bullet"></div>
-                    <div class="Left-Leg-bullet"></div>
-                    <div class="Right-Leg-bullet"></div>
-                    <div class="Left-Ankle-bullet"></div>
-                    <div class="Right-Ankle-bullet"></div>
-                    <div class="Left-Foot-bullet"></div>
-                    <div class="Right-Foot-bullet"></div>
-                    </div><br>
+                    <?php
+                  
+                                          if (!empty($bodypart_list))
+                                          {
+                                           
+                                            foreach ($bodypart_list as $key => $val)
+                                            { 
+                                                 
+                                                ?>
+                                                <div class="bullet <?= str_replace(" ","-",$val['pvalue']);?>-bullet"></div>
+                                                
+                                        <?php }
+                                          } ?>
+                   
+                  </div><br>
                   <div class="row">
                       <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.png" alt="" style="height:513px;width: 100%; "></div>
-                      <div class="Skull-bullet"></div>
-                      <div class="Left-Elbow-bullet"></div>
-                      <div class="Right-Elbow-bullet"></div>
-                      <div class="Left-Forearm-bullet"></div>
-                      <div class="Right-Forearm-bullet"></div>
-                      <div class="Left-Wrist-bullet"></div>
-                      <div class="Right-Wrist-bullet"></div>
-                      <div class="Left-Wrist-bullet"></div>
-                      <div class="Spinal-Cord-bullet"></div>
-                      <div class="Thoracic-Spine-bullet"></div>
-                      <div class="Lumbar-Spine-bullet"></div>
-                      <div class="Sacrum-bullet"></div>
-                      <div class="Coccyx-bullet"></div>
-                      <div class="Buttocks-bullet"></div>
-                      <div class="Right-Buttock-bullet"></div>
-                      <div class="Left-Wrist-bullet"></div>
-                      <div class="Left-Wrist-bullet"></div>
-                      <div class="Left-Wrist-bullet"></div>
-                      <div class="Left-Wrist-bullet"></div>
-                      </div>
+                      
+                  </div>
               <?php }else{ ?>
                 <div class="row">
-                    <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-front.png" alt="" style="height:513px;width: 100%; "></div>
+                    <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
+                                        <?php
+                  
+                                          if (!empty($bodypart_list))
+                                          {
+                                           
+                                            foreach ($bodypart_list as $key => $val)
+                                            { 
+                                                 
+                                                ?>
+                                                <div class="bullet female-<?= str_replace(" ","-",$val['pvalue']);?>-bullet"></div>
+                                                
+                                        <?php }
+                                          } ?>
                     
                   </div><br>
                   <div class="row">
-                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.png" alt="" style="height:513px;width: 100%; "></div>
+                      <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
 
                   </div>
               <?php } ?>
@@ -548,34 +477,35 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                            <div class="col-md-3">
+
+                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Body Part</label><span class="text-danger"></span></br>
                                       
-                                     <select class="form-control btn-group btn-group-vertical" name="ptn_bodypart[]" id="bodypart-multiple-checkboxes" multiple="multiple">
-                            
-                                     <?php
+                                     <select class="form-control" name="ptn_bodypart[]" id="bodypart-multiple-checkboxes" multiple="multiple">
+                                
+                                        <?php
                                           if (!empty($bodypart_list))
                                           {
-                                            $bodypart_list_arr=explode(',',$ptnEvalInfo->ptn_pain_bodypart);
+                                           $bodypart_list_arr=explode(',',$ptnEvalInfo->ptn_pain_bodypart);
                                             foreach ($bodypart_list as $key => $val)
                                             { 
-                                                  $selected='';
+                                                 $selected='';
                                                   if(!empty($ptnEvalInfo->ptn_pain_bodypart) && in_array($val['pvalue'],$bodypart_list_arr))
                                                   {
                                                     $selected='selected';
                                                   }
+                                                 
                                                 ?>
-                                                    <option <?= $selected; ?>
-                                                    value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
+                                                <option <?= $selected; ?> value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
                                                     <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
                                         <?php }
                                           } ?>
                                     </select>  
         
                                     <span class="text-danger error-text type_category_err"></span>                           
-                                  </div><!-- /.form-group wrapper-class -->
-                                </div><!-- /.col-md-3 -->
+                                  </div>
+                                </div> <!-- /.col-md-3 -->
                           
                         </div><!-- / row -->
                         <hr style="border-top: 2px solid #2B48B0;"/>
@@ -1573,20 +1503,6 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div>
 
-                           <!--  <div class="col-md-3">
-                                <div class="form-group wrapper-class">
-                                    <label>6 Min Walk Test</label><span class="text-danger"></span></br>
-                                    <select name="walktest" class="form-control input-sm">
-                                      <option value="">- Select Walk Test -</option>
-                                      <option value="O2 Saturation Post 1 Min" <?php if($ptnEvalInfo->walktest=="O2 Saturation Post 1 Min"){ echo "selected"; } ?>>O2 Saturation Post 1 Min</option>
-                                      <option value="3 Min" <?php if($ptnEvalInfo->walktest=="3 Min"){ echo "selected"; } ?>>3 Min</option>
-                                      <option value="5 Min" <?php if($ptnEvalInfo->walktest=="5 Min"){ echo "selected"; } ?>>5 Min</option>
-                                      
-                                    </select>
-
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                </div>
-                            </div> --><!-- /.col-md-3 -->
                         <?php } ?>
                             </div><!-- / row -->
                             <hr style="border-top: 2px solid #2B48B0;"/>
@@ -1736,7 +1652,7 @@
                 <!-- <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="Submit"> -->
                 <br>
                    <div class="text-center">
-                <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit" style="width: 10%;">Submit</button>
+                <button type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="Submit" style="width: 10%;">Submit</button>
                     </div>
             </form>
 
@@ -1760,12 +1676,9 @@
 
     <script>
 
-$(document).ready(function() {  
+    $(document).ready(function() {  
         $('#multiple-checkboxes,#bodypart-multiple-checkboxes').multiselect();  
-       
- }); 
-   
-     
+    });  
         /*****************Start recommendation yes**********************/
             $(".chkradio") // select the radio by its id
                 .change(function(){ // bind a function to the change event
@@ -1854,239 +1767,48 @@ $(document).ready(function() {
 
   /*****************Start highlight pain area on body img**********************/
 
-      $('.shoulder-bullet,.elbow-bullet, .knee-bullet,.wrist-bullet,.Cervical-Spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet').hide();
-       // Listen for changes in the select element
-       var defaultSelectedValue = $("select[name='ptn_bodypart[]']").val();
-       console.log(defaultSelectedValue)
-      for (var si = 0; si < defaultSelectedValue.length; si++) {
+      var defaultSelectedValue = $("select[name='ptn_bodypart[]']").val();
+      var bodyimg_gender =$("#gender_for_bodyimg").val();
+      if(bodyimg_gender=="1")
+      {
+         for (var si = 0; si < defaultSelectedValue.length; si++) {
             $('.' + defaultSelectedValue[si].replace(/ /g, '-') + '-bullet').show();
           }
-
-    $("select[name='ptn_bodypart[]']").change(function () {
-      console.log("hi")
-      updateBulletVisibility();
-
-    });
-
-    // Function to update bullet visibility based on selected options
-    function updateBulletVisibility() {
-      var selectedValue = $("select[name='ptn_bodypart[]']").val();
-      console.log(selectedValue);
-
-      // Hide all bullets initially
-      /*$('.head,.skull,.shoulder-bullet,.elbow-bullet,.knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet,.face,.eyes,.ears,.nose,.mouth,.neck,.cervical_spine,.sholders,.left_sholder,.right_sholder,.arms,.left_arm,.right_arm,.elbow,.forearm,.wrist,.hand,.chest,.pectoral_region,.back,.thoracic_spine,.lumber_spine,.sacrum,.coccyx,.abdomen,.upper_abdomen,.lower_abdomen,.pelvis,.hips,.buttocks,.groin,.legs,.left_leg,.left_leg_tigh,.left_leg_knee,.left_lower_leg,.left_leg_ankle,.left_leg_foot,.right_leg,.right_leg_tigh,.right_leg_knee,.right_lower_leg,.right_leg_ankle,.right_leg_foot,.brain,.spinal_cord,.heart,.blood_vessels,.lungs,.trachea').hide();*/
-      $('.Shoulder-bullet,.Elbow-bullet,.Wrist-bullet,.Cervical-Spine-bullet,.Thoracic-Spine-bullet,.Lumbar-Spine-bullet,.Pelvis-bullet,.Hip-bullet,.Knee-bullet,.Ankle-bullet,.Head-bullet,.Right-Face-bullet,.Skull-bullet,.Face-bullet,.Right-Face-bullet,.Left-Eye-bullet,.Right-Eye-bullet,.Left-Ear-bullet,.Right-Ear-bullet,.Nose-bullet,.Mouth-bullet,.Cervical-Spine-bullet,.Left-Shoulder-bullet,.Right-Shoulder-bullet,.Left-Arm-bullet,.Right-Arm-bullet,.Left-Elbow-bullet,.Right-Elbow-bullet,.Left-Forearm-bullet,.Right-Forearm-bullet,.Left-Wrist-bullet,.Right-Wrist-bullet,.Left-Hand-bullet,.Right-Hand-bullet,.Chest-bullet,.Brain-bullet,.Spinal-Cord-bullet,.Heart-bullet,.Blood-Vessels-bullet,.Left-Lung-bullet,.Right-Lung-bullet,.Trachea-bullet,.Thoracic-Spine-bullet,.Lumbar-Spine-bullet,.Sacrum-bullet,.Coccyx-bullet,.Upper-Abdomen-bullet,.Lower-Abdomen-bullet,.Pelvis-bullet,.Hips-bullet,.Right-Hip-bullet,.Buttocks-bullet,.Right-Buttock-bullet,.Groin-bullet,.Right-Groin-bullet,.Left-Thigh-bullet,.Right-Thigh-bullet,.Left-Knee-bullet,.Right-Knee-bullet,.Left-Leg-bullet,.Right-Leg-bullet,.Left-Ankle-bullet,.Right-Ankle-bullet,.Left-Foot-bullet,.Right-Foot-bullet').hide();
-
-
-      // Show the corresponding bullet based on selected options
-      for (var i = 0; i < selectedValue.length; i++) {
-         if (selectedValue[i] === 'Shoulder') {
-          $('.Shoulder-bullet').show();
-        }
-        if (selectedValue[i] === 'Elbow') {
-          $('.Elbow-bullet').show();
-        }
-        if (selectedValue[i] === 'Wrist') {
-          $('.Wrist-bullet').show();
-        }
-        if (selectedValue[i] === 'Cervical Spine') {
-          $('.Cervical-Spine-bullet').show();
-        }
-        if (selectedValue[i] === 'Thoracic Spine') {
-          $('.Thoracic-Spine-bullet').show();
-        }
-         if (selectedValue[i] === 'Cervical Spine') {
-          $('.Cervical-Spine-bullet').show();
-        }
-        if (selectedValue[i] === 'Thoracic Spine') {
-          $('.Thoracic_spine-bullet').show();
-        }
-        if (selectedValue[i] === 'Lumbar Spine') {
-          $('.Lumbar-Spine-bullet').show();
-        }
-        if (selectedValue[i] === 'Pelvis') {
-          $('.Pelvis-bullet').show();
-        }
-        if (selectedValue[i] === 'Hip') {
-          $('.hip-bullet').show();
-        }
-        if (selectedValue[i] === 'Knee') {
-          $('.Knee-bullet').show();
-        }
-        if (selectedValue[i] === 'Ankle') {
-          $('.Ankle-bullet').show();
-        }
-        if (selectedValue[i] === 'Head') {
-          $('.Head-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Face') {
-          $('.Right-Face-bullet').show();
-        }
-        if (selectedValue[i] === 'Skull') {
-          $('.Skull-bullet').show();
-        }
-        if (selectedValue[i] === 'Face') {
-          $('.Face-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Face') {
-          $('.Right-Face-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Eye') {
-          $('.Left-Eye-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Ear') {
-          $('.Left-Ear-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Ear') {
-          $('.Right-Ear-bullet').show();
-        }
-        if (selectedValue[i] === 'Nose') {
-          $('.Nose-bullet').show();
-        }
-        if (selectedValue[i] === 'Mouth') {
-          $('.Mouth-bullet').show();
-        }
-        if (selectedValue[i] === 'Cervical Spine') {
-          $('.Cervical-Spine-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Shoulder') {
-          $('.Left-Shoulder-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Shoulder') {
-          $('.Right-Shoulder-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Arm') {
-          $('.Left-Arm-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Arm') {
-          $('.Right-Arm-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Elbow') {
-          $('.Left-Elbow-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Elbow') {
-          $('.Right-Elbow-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Forearm') {
-          $('.Left-Forearm-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Forearm') {
-          $('.Right-Forearm-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Wrist') {
-          $('.Left-Wrist-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Wrist') {
-          $('.Right-Wrist-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Hand') {
-          $('.Left-Hand-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Hand') {
-          $('.Right-Hand-bullet').show();
-        }
-        if (selectedValue[i] === 'Chest') {
-          $('.Chest-bullet').show();
-        }
-        if (selectedValue[i] === 'Brain') {
-          $('.Brain-bullet').show();
-        }
-        if (selectedValue[i] === 'Spinal Cord') {
-          $('.Spinal-Cord-bullet').show();
-        }
-        if (selectedValue[i] === 'Heart') {
-          $('.Heart-bullet').show();
-        }
-        if (selectedValue[i] === 'Blood Vessels') {
-          $('.Blood-Vessels-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Lung') {
-          $('.Left-Lung-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Lung') {
-          $('.Right-Lung-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Arm') {
-          $('.Right-Arm-bullet').show();
-        }
-        if (selectedValue[i] === 'Trachea') {
-          $('.Trachea-bullet').show();
-        }
-        if (selectedValue[i] === 'Thoracic Spine') {
-          $('.Thoracic-Spine-bullet').show();
-        }
-        if (selectedValue[i] === 'Lumbar Spine') {
-          $('.Lumbar-Spine-bullet').show();
-        }
-        if (selectedValue[i] === 'Sacrum') {
-          $('.Sacrum-bullet').show();
-        }
-        if (selectedValue[i] === 'Coccyx') {
-          $('.Coccyx-bullet').show();
-        }
-        if (selectedValue[i] === 'Upper Abdomen') {
-          $('.Upper-Abdomen-bullet').show();
-        }
-        if (selectedValue[i] === 'Lower Abdomen') {
-          $('.Lower-Abdomen-bullet').show();
-        }
-        if (selectedValue[i] === 'Pelvis') {
-          $('.Pelvis-bullet').show();
-        }
-        if (selectedValue[i] === 'Hips') {
-          $('.Hips-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Hip') {
-          $('.Right-Hip-bullet').show();
-        }
-        if (selectedValue[i] === 'Buttocks') {
-          $('.Buttocks-bullet').show();
-        }
-        if (selectedValue[i] === 'Right-Buttock') {
-          $('.Right-Buttock-bullet').show();
-        }
-        if (selectedValue[i] === 'Groin') {
-          $('.Groin-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Groin') {
-          $('.Right-Groin-bullet').show();
-        }
-        if (selectedValue[i] === 'Left-Thigh') {
-          $('.Left-Thigh-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Thigh') {
-          $('.Right-Thigh-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Knee') {
-          $('.Left-Knee-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Knee') {
-          $('.Right-Knee-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Leg') {
-          $('.Left-Leg-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Leg') {
-          $('.Right-Leg-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Ankle') {
-          $('.Left-Ankle-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Ankle') {
-          $('.Right-Ankle-bullet').show();
-        }
-        if (selectedValue[i] === 'Left Foot') {
-          $('.Left-Foot-bullet').show();
-        }
-        if (selectedValue[i] === 'Right Foot') {
-          $('.Right-Foot-bullet').show();
-        }
-
       }
-    }
+      else
+      {
+        for (var si = 0; si < defaultSelectedValue.length; si++) {
+            $('.female-' + defaultSelectedValue[si].replace(/ /g, '-') + '-bullet').show();
+          }
+             
+      }
+      
+  
+       // Listen for changes in the select element
+
+    $(document).ready(function () {
+        $("select[name='ptn_bodypart[]']").change(function () {
+      var selectedValue = $("select[name='ptn_bodypart[]']").val();
+      var bodyimg_gender =$("#gender_for_bodyimg").val();
+      console.log(selectedValue);
+      $('.bullet').hide();
+      if(bodyimg_gender=="1")
+      {
+         for (var i = 0; i < selectedValue.length; i++) {
+            $('.' + selectedValue[i].replace(/ /g, '-') + '-bullet').show();
+          }
+      }
+      else
+      {
+         for (var i = 0; i < selectedValue.length; i++) {
+            $('.female-' + selectedValue[i].replace(/ /g, '-') + '-bullet').show();
+          }       
+      }
+      
+    });
+  });
 /*****************End highlight pain area on body img**********************/       
 </script>
-
 
 <?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>

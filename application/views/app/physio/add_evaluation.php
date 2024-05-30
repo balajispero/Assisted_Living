@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <head>
 
         <meta charset="UTF-8">
-        <title>Assisted Living</title>
+        <title>Rehabilitation Center</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">        
 
@@ -16,11 +16,10 @@
         <link href="<?php echo base_url();?>public/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
 
-	      <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
+        <link href="<?php echo base_url()?>public/css/hover-min.css" rel="stylesheet"  type="text/css" />
 
         
        <style>
-
          textarea.form-control{
             height: 34px !important;
             border-radius: 25px !important;
@@ -97,62 +96,61 @@
       color: black;
 
      }
+
      
         /*Start multiple select dropdown css*/
+        .btn-group ul{
+          height: 170px;
+          overflow-y: scroll;
+        }
+        /* Start WebKit browsers (Chrome, Safari) */
+        .btn-group ul::-webkit-scrollbar {
+          width: 12px; /* Set the width of the scrollbar */
+        }
+        .btn-group ul::-webkit-scrollbar-thumb {
+          background-image: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%);
+          border-radius: 6px; /* Set the border radius of the scrollbar thumb */
+        }
+
+        .btn-group ul::-webkit-scrollbar-track {
+          background-color: #f1f1f1; /* Set the color of the scrollbar track */
+        }
+        /* End WebKit browsers (Chrome, Safari) */
+
         .btn-group, .btn-group-vertical {
         position: relative;
-        width: 100% !important;
+        width: 245%;
         display: inline-block;
         vertical-align: middle;
-       
     }
-    .btn-group ul{
-      height: 170px;
-      overflow-y: scroll;
-     
-    }
-   /* WebKit browsers (Chrome, Safari) */
-.btn-group ul::-webkit-scrollbar {
-  width: 12px; /* Set the width of the scrollbar */
-}
-
-.btn-group ul::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%);
-  border-radius: 6px; /* Set the border radius of the scrollbar thumb */
-}
-
-.btn-group ul::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Set the color of the scrollbar track */
-}
-
-/* Firefox */
-.btn-group ul {
-  scrollbar-color: #09A3D5 #3B4BDF;
-  scrollbar-width: thin;
-}
     .btn.btn-default {
         background-color: #fafafa;
         color: #666;
         border-color: #ddd;
         border-bottom-color: #ddd;
-        width: 100% !important;
+        width: 41%;
         text-align: left;
         border-radius: 25px !important;
+    }
+    .btn-default1 {
+        width: 100% !important;
+        text-align: left;
     }
     .btn .caret {
         margin-left: 150px;
         display: none;
     }
     .multiselect-container {
-        position: absolute !;
+        position: absolute;
         list-style-type: none;
         margin: 0;
         padding: 0;
-        width: 40% !important;
+        width: 40%;
     }
-    /* select[multiple]{
-      height: 30px;
-    } */
+    .input-group-btn:last-child>.btn {
+        margin-left: 2px;
+        width: 100%;
+    }
     /*End multiple select dropdown css*/
     
       .bg_color1{
@@ -160,1366 +158,149 @@
             color: #FFF;
         }
 
-    /*.btn-light {
+    .btn-light {
     border-color: 1px solid dodgerblue;
     background-color: white;
-    }*/
+    }
     .info:hover {
      background: white;
     color: white;
 }
-
-
-@media (max-width: 768px) and (min-width: 320px) {
-    .head{
-      top: 25px !important; 
-      left: 153px !important; 
-    }
-    .skull{
-      top: 551px;
-      left: 160px !important;
-    }
-    .eyes{
-      top: 37px !important; 
-      left: 144px !important; 
-    }
-    .ears{
-      top: 47px !important; 
-      left: 175px !important; 
-    }
-    .nose{
-      top: 43px !important; 
-      left: 152px !important; 
-    }
-    .mouth{
-      top: 54px !important; 
-      left: 154px !important;
-    }
-    .neck{
-      top: 75px !important; 
-      left: 153px !important;
-    }
-    .left_sholder{
-      top: 90px !important;
-      left: 195px !important;
-     }
-     .right_sholder{
-      top: 93px !important; 
-      left: 104px !important; 
-     }
-     .left_arm{
-      top: 130px !important; 
-      left: 205px !important; 
-     }
-     .right_arm{
-      top: 130px !important; 
-      left: 105px !important;
-     }
-     .elbow{
-      top: 685px !important; 
-      left: 99px !important; 
-     }
-     .forearm{
-      top: 700px !important; 
-      left: 74px !important; 
-    }
-    .wrist{
-      top: 735px !important; 
-      left: 262px !important; 
-    }
-    .chest{
-      top: 115px !important; 
-      left: 169px !important; 
-     }
-     .pectoral_region{
-      top: 106px !important; 
-      left: 178px !important; 
-      }
-      .thoracic_spine{
-      top: 675px !important; 
-      left: 160px !important; 
-      }
-      .lumber_spine{
-      top: 710px !important; 
-      left: 160px !important; 
-      }
-      .sacrum{
-      top: 740px !important; 
-      left: 160px !important;
-      }
-      .coccyx{
-      top: 760px !important; 
-      left: 160px !important; 
-     }
-     .upper_abdomen{
-      top: 151px !important; 
-      left: 164px !important; 
-     }
-     .lower_abdomen{
-      top: 171px !important; 
-      left: 164px !important; 
-      }
-      .pelvis{
-      top: 201px !important; 
-      left: 155px !important; 
-      }
-      .hips{
-      top: 274px !important; 
-      left: 175px !important; 
-      }
-      .buttocks{
-      top: 750px !important; 
-      left: 185px !important; 
-     }
-     .groin{
-      top: 224px !important; 
-      left: 177px !important; 
-    }
-    .left_leg_tigh{
-       top: 270px !important; 
-      left: 180px !important; 
-    }
-    .left_leg_knee
-    {
-      top: 325px !important; 
-      left: 175px !important; 
-    }
-    .left_leg_ankle{
-      top: 410px !important; 
-      left: 168px !important; 
-    }
-    .left_leg_foot{
-      top: 430px !important; 
-      left: 175px !important; 
-    }
-    .right_leg_tigh{
-      top: 270px !important; 
-      left: 127px !important; 
-    }
-    .right_leg_knee{
-      top: 325px !important; 
-      left: 133px !important; 
-     }
-     .right_leg_ankle{
-     top: 410px !important; 
-     left: 139px !important; 
-     }
-   .right_leg_foot{
-     top: 430px !important; 
-     left: 133px !important; 
-    }
-    .brain{
-      top: 25px !important; 
-      left: 140px !important; 
-    }
-    .spinal_cord{
-      top: 675px !important; 
-      left: 160px !important; 
-    }
-    .heart{
-      top: 116px !important; 
-      left: 140px !important; 
-    }
-    .blood_vessels{
-      top: 140px !important; 
-      left: 145px !important; 
-     }
-     .lungs{
-      top: 100px !important; 
-      left: 177px !important;  
-    }
-    .trachea{
-      top: 75px !important; 
-      left: 155px !important;
-    }
-
-     /*for female css */
-     .female_left_sholder{
-      top: 93px !important; 
-      left: 151px !important; 
-      }
-     .female_right_sholder{
-      top: 93px; 
-      left: 100px; 
-     }
-    .female_left_arm{
-      top: 125px; 
-      left: 159px;
-     }
-
-     .female_right_arm{
-     
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 130px; /* Adjust the top position based on your needs */
-      left: 90px; /* Adjust the left position based on your needs */
-     
-     }
-     .female_elbow{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 719px; /* Adjust the top position based on your needs */
-      left: 64px; /* Adjust the left position based on your needs */
-   
-     }
-     .female_forearm{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 744px; /* Adjust the top position based on your needs */
-      left: 61px; /* Adjust the left position based on your needs */
-   
-     }
-     .female_wrist{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 770px; /* Adjust the top position based on your needs */
-      left: 170px; /* Adjust the left position based on your needs */
-   
-     }
-     .female_thoracic_spine{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 675px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-   
-     }
-     .female_lumber_spine{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 710px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-    
-     }
-     .female_sacrum{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 740px; /* Adjust the top position based on your needs */
-      left: 112px; /* Adjust the left position based on your needs */
-    
-     }
-     .female_coccyx{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 780px; /* Adjust the top position based on your needs */
-      left: 110px; /* Adjust the left position based on your needs */
-    
-     }
-     .female_pelvis{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 201px; /* Adjust the top position based on your needs */
-      left: 126px; /* Adjust the left position based on your needs */
-   
-     }
-     .female_buttocks{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 770px; /* Adjust the top position based on your needs */
-      left: 130px; /* Adjust the left position based on your needs */
-    
-    }
-    .female_left_leg_tigh{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 290px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-
-  
-    }
-    .female_left_leg_knee
-    {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 350px; /* Adjust the top position based on your needs */
-      left: 137px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_left_leg_ankle{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 455px; /* Adjust the top position based on your needs */
-      left: 135px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_left_leg_foot{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 481px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_right_leg_tigh{
-     
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 290px; /* Adjust the top position based on your needs */
-      left: 111px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_right_leg_knee{
-
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 350px; /* Adjust the top position based on your needs */
-      left: 112px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_right_leg_ankle{
-
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 455px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_right_leg_foot{
-
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 480px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_spinal_cord{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 685px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-   
-    }
-    .female_blood_vessels{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 160px; /* Adjust the top position based on your needs */
-      left: 125px; /* Adjust the left position based on your needs */
-     
-    }
-    .female_lungs{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 110px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-     
-    }
-  
-}
     /*Start highlight bullet point on body*/
-   
-    .head{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 23px; 
-      left: 124px; 
-    }
-    .skull{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 551px; /* Adjust the top position based on your needs */
-      left: 130px; /* Adjust the left position based on your needs */
-   
-    }
-    .eyes{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 37px; 
-      left: 116px; 
-    }
-    .ears{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 47px; 
-      left: 140px; 
-    }
-    .nose{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 43px; 
-      left: 125px; 
-    }
-    .mouth{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 53px; 
-      left: 125px;
-    }
-    .neck{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 75px; 
-      left: 125px;
-    }
-    .left_sholder{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 93px; /* Adjust the top position based on your needs */
-      left: 160px; /* Adjust the left position based on your needs */
     
-    }
-    .right_sholder{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 93px; /* Adjust the top position based on your needs */
-      left: 90px; /* Adjust the left position based on your needs */
-     }
-    .left_arm{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 125px; /* Adjust the top position based on your needs */
-      left: 165px; /* Adjust the left position based on your needs */
-     
-     }
-     .right_arm{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 125px; /* Adjust the top position based on your needs */
-      left: 85px; /* Adjust the left position based on your needs */
-     }
-     .elbow{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 691px; /* Adjust the top position based on your needs */
-      left: 84px; /* Adjust the left position based on your needs */
-     }
-     .forearm{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 700px; /* Adjust the top position based on your needs */
-      left: 61px; /* Adjust the left position based on your needs */
-    }
-    .wrist{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 735px; /* Adjust the top position based on your needs */
-      left: 210px; /* Adjust the left position based on your needs */
-    }
-     .chest{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 120px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-     
-     }
-     .pectoral_region{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 106px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-     
-     }
-     .thoracic_spine{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 675px; /* Adjust the top position based on your needs */
-      left: 130px; /* Adjust the left position based on your needs */
-   
-     }
-     .lumber_spine{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 710px; /* Adjust the top position based on your needs */
-      left: 130px; /* Adjust the left position based on your needs */
-    
-     }
-     .sacrum{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 740px; /* Adjust the top position based on your needs */
-      left: 130px; /* Adjust the left position based on your needs */
-    
-     }
-     .coccyx{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 760px; /* Adjust the top position based on your needs */
-      left: 130px; /* Adjust the left position based on your needs */
-    
-     }
-     .upper_abdomen{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 151px; /* Adjust the top position based on your needs */
-      left: 134px; /* Adjust the left position based on your needs */
-     
-     }
-     .lower_abdomen{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 171px; /* Adjust the top position based on your needs */
-      left: 134px; /* Adjust the left position based on your needs */
-      }
-     .pelvis{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 201px; /* Adjust the top position based on your needs */
-      left: 126px; /* Adjust the left position based on your needs */
-   
-     }
-     .hips{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 274px; /* Adjust the top position based on your needs */
-      left: 145px; /* Adjust the left position based on your needs */
-  
-    }
-    .buttocks{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 750px; /* Adjust the top position based on your needs */
-      left: 150px; /* Adjust the left position based on your needs */
-    
-    }
-    .groin{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 224px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-  
-    }
-    .left_leg_tigh{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 270px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-    }
-    .left_leg_knee
-    {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 330px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-  
-    }
-    .left_leg_ankle{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 410px; /* Adjust the top position based on your needs */
-      left: 135px; /* Adjust the left position based on your needs */
 
-    }
-    .left_leg_foot{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 430px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-
-    }
-    .right_leg_tigh{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 270px; /* Adjust the top position based on your needs */
-      left: 104px; /* Adjust the left position based on your needs */
-    }
-    .right_leg_knee{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 320px; /* Adjust the top position based on your needs */
-      left: 108px; /* Adjust the left position based on your needs */
-     }
-    .right_leg_ankle{
-     
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 410px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-  
-  
-    }
-    .right_leg_foot{
-    
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 430px; /* Adjust the top position based on your needs */
-      left: 103px; /* Adjust the left position based on your needs */
-  
-  
-    }
-    .brain{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 25px; 
-      left: 115px; 
-    }
-    .spinal_cord{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 675px; /* Adjust the top position based on your needs */
-      left: 130px; /* Adjust the left position based on your needs */
-   
-    }
-    .heart{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 116px; /* Adjust the top position based on your needs */
-      left: 115px; /* Adjust the left position based on your needs */
-     
-    }
-    .blood_vessels{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 140px; /* Adjust the top position based on your needs */
-      left: 121px; /* Adjust the left position based on your needs */
-     
-    }
-    .lungs{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 100px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-     
-    }
-    .trachea{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 75px; 
-      left: 125px;
-    }
-
-    /*for female css */
-    .female_left_sholder{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 93px; /* Adjust the top position based on your needs */
-      left: 151px; /* Adjust the left position based on your needs */
-      }
-
-      .female_right_sholder{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 93px; /* Adjust the top position based on your needs */
-      left: 100px; /* Adjust the left position based on your needs */
-    
-    }
-    .female_left_arm{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 125px; /* Adjust the top position based on your needs */
-      left: 159px; /* Adjust the left position based on your needs */
-
-     }
-
-     .female_right_arm{
-     
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 130px; /* Adjust the top position based on your needs */
-      left: 90px; /* Adjust the left position based on your needs */
-     
-     }
-     .female_elbow{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 719px; /* Adjust the top position based on your needs */
-      left: 64px; /* Adjust the left position based on your needs */
-   
-     }
-     .female_forearm{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 744px; /* Adjust the top position based on your needs */
-      left: 61px; /* Adjust the left position based on your needs */
-   
-     }
-     .female_wrist{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 770px; /* Adjust the top position based on your needs */
-      left: 170px; /* Adjust the left position based on your needs */
-   
-     }
-     .female_thoracic_spine{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 675px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-   
-     }
-     .female_lumber_spine{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 710px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-    
-     }
-     .female_sacrum{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 740px; /* Adjust the top position based on your needs */
-      left: 112px; /* Adjust the left position based on your needs */
-    
-     }
-     .female_coccyx{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 780px; /* Adjust the top position based on your needs */
-      left: 110px; /* Adjust the left position based on your needs */
-    
-     }
-     .female_pelvis{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 201px; /* Adjust the top position based on your needs */
-      left: 126px; /* Adjust the left position based on your needs */
-   
-     }
-     .female_buttocks{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 770px; /* Adjust the top position based on your needs */
-      left: 130px; /* Adjust the left position based on your needs */
-    
-    }
-    .female_left_leg_tigh{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 290px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-
-  
-    }
-    .female_left_leg_knee
-    {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 350px; /* Adjust the top position based on your needs */
-      left: 137px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_left_leg_ankle{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 455px; /* Adjust the top position based on your needs */
-      left: 135px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_left_leg_foot{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 481px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_right_leg_tigh{
-     
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 290px; /* Adjust the top position based on your needs */
-      left: 111px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_right_leg_knee{
-
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 350px; /* Adjust the top position based on your needs */
-      left: 112px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_right_leg_ankle{
-
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 455px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_right_leg_foot{
-
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 480px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-  
-    }
-    .female_spinal_cord{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 685px; /* Adjust the top position based on your needs */
-      left: 113px; /* Adjust the left position based on your needs */
-   
-    }
-    .female_blood_vessels{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 160px; /* Adjust the top position based on your needs */
-      left: 125px; /* Adjust the left position based on your needs */
-     
-    }
-    .female_lungs{
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 110px; /* Adjust the top position based on your needs */
-      left: 140px; /* Adjust the left position based on your needs */
-     
-    }
-
-
-    .shoulder-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 93px; /* Adjust the top position based on your needs */
-      left: 50px; /* Adjust the left position based on your needs */
-    }
-    /* .elbow-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 710px; 
-      left: 70px; 
-    } */
-
-    .knee-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 328px; /* Adjust the top position based on your needs */
-      left: 139px; /* Adjust the left position based on your needs */
-    }
-    /* .wrist-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 770px; 
-      left: 170px;
-    } */
-    .cervical_spine-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 612px; /* Adjust the top position based on your needs */
-      left: 115px; /* Adjust the left position based on your needs */
-    }
-    /* .thoracic_spine-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 675px; 
-      left: 116px; 
-    } */
-    /* .lumbar_spine-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 726px; 
-      left: 116px; 
-    } */
-    /* .pelvis-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 201px; 
-      left: 126px;
-    } */
-   
-   
-    /* .hip-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 274px; 
-      left: 145px; 
-    } */
-    .ankle-bullet {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: rgba(44, 223, 170, 1);
-      cursor: pointer;
-      top: 415px; /* Adjust the top position based on your needs */
-      left: 139px; /* Adjust the left position based on your needs */
-      transition: transform 0.5s ease;
-    }
     .ankle-bullet:hover img{
       transform: scale(2.2); /* Increase the scale on hover to create a zoom effect */
     }
-    /*End highlight bullet point on body*/
-    /*#container {
-      position: relative;
-      overflow: hidden;
-      width: 100%; 
-      height: 400px; 
-    }
 
-    #container img {
-      width: 100%;
-      height: auto;
-      transition: transform 0.5s ease; // Add a smooth transition effect 
+    .bullet {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-color: rgba(44, 223, 170, 1);
+      z-index: 1;
+      cursor: pointer;
+      display: none;
     }
+    /*For male highlight bullet point on body*/
+    .Head-bullet { top: 27px; left: 132px; }
+    .Skull-bullet { top: 551px; left: 130px; }
+    .Left-Eye-bullet { top: 38px; left: 125px; }
+    .Right-Eye-bullet { top: 38px; left: 140px; }
+    .Left-Ear-bullet { top: 47px; left: 149px; }
+    .Right-Ear-bullet { top: 47px; left: 115px; }
+    .Face-bullet { top: 45px; left: 121px; }
+    .Nose-bullet { top: 45px; left: 131px; }
+    .Mouth-bullet { top: 54px; left: 131px; }
+    .Left-Shoulder-bullet { top: 89px; left: 158px; }
+    .Right-Shoulder-bullet { top: 93px; left: 90px; }
+    .Left-Arm-bullet { top: 131px; left: 176px; }
+    .Right-Arm-bullet { top: 130px; left: 86px; }
+    .Chest-bullet { top: 109px; left: 131px; }
+    .Brain-bullet { top: 25px; left: 119px; }
+    .Heart-bullet { top: 114px; left: 138px; }
+    .Left-Lung-bullet { top: 140px; left: 146px; }
+    .Right-Lung-bullet { top: 140px; left: 121px; }
+    .Trachea-bullet { top: 75px; left: 130px; }
+   
+    .Upper-Abdomen-bullet { top: 151px; left: 134px; }
+    .Lower-Abdomen-bullet { top: 195px; left: 133px; }
+    .Pelvis-bullet { top: 211px; left: 131px; }
+    .Buttocks-bullet { top: 755px; left: 153px; }
+    .Groin-bullet { top: 224px; left: 140px; }
+    .Left-Thigh-bullet { top: 270px; left: 146px; }
+    .Right-Thigh-bullet { top: 270px; left: 110px; }
+    .Left-Knee-bullet { top: 323px; left: 148px; }
+    .Right-Knee-bullet { top: 320px; left: 115px; }
+    .Left-Leg-bullet { top: 360px; left: 144px; }
+    .Right-Leg-bullet { top: 360px; left: 116px; }
+    .Left-Ankle-bullet { top: 415px; left: 135px; }
+    .Right-Ankle-bullet { top: 414px; left: 115px; }
+    .Left-Foot-bullet { top: 430px; left: 147px; }
+    .Right-Foot-bullet { top: 430px; left: 112px; }
 
-    #container:hover img {
-      transform: scale(1.2); // Increase the scale on hover to create a zoom effect 
-    }*/
+    .Left-Forearm-bullet { top: 176px; left: 199px; }
+    .Right-Forearm-bullet { top: 178px; left: 66px; }
+    .Left-Wrist-bullet { top: 724px; left: 45px; }
+    .Right-Wrist-bullet { top: 730px; left: 222px; }
+    .Left-Hand-bullet { top: 213px; left: 226px; }
+    .Right-Hand-bullet { top: 218px; left: 44px; }
+    .Cervical-Spine-bullet { top: 585px; left: 125px; }
+    .Thoracic-Spine-bullet { top: 645px; left: 135px; }
+    .Lumbar-Spine-bullet { top: 710px; left: 131px; }
+    .Sacrum-bullet { top: 731px; left: 135px; }
+    .Coccyx-bullet { top: 742px; left: 134px; }
+    .Hips-bullet { top: 731px; left: 157px; }
+    .Left-Elbow-bullet { top: 689px; left: 79px; }
+    .Right-Elbow-bullet { top: 691px; left: 191px; }
+
+    /*For male highlight bullet point on body*/
+
+    /*For female highlight bullet point on body*/
+    .female-Head-bullet { top: 27px; left: 133px; }
+    .female-Skull-bullet { top: 568px; left: 111px; }
+    .female-Left-Eye-bullet { top: 38px; left: 140px; }
+    .female-Right-Eye-bullet { top: 38px; left: 126px; }
+    .female-Left-Ear-bullet { top: 47px; left: 150px; }
+    .female-Right-Ear-bullet { top: 47px; left: 117px; }
+    .female-Face-bullet { top: 45px; left: 124px; }
+    .female-Nose-bullet { top: 45px; left: 133px; }
+    .female-Mouth-bullet { top: 54px; left: 133px; }
+    .female-Left-Shoulder-bullet { top: 89px; left: 155px; }
+    .female-Right-Shoulder-bullet { top: 91px; left: 113px; }
+    .female-Left-Arm-bullet { top: 131px; left: 167px; }
+    .female-Right-Arm-bullet { top: 130px; left: 99px; }
+    .female-Chest-bullet { top: 109px; left: 131px; }
+    .female-Brain-bullet { top: 25px; left: 120px; }
+    .female-Heart-bullet { top: 114px; left: 138px; }
+    .female-Left-Lung-bullet { top: 155px; left: 146px; }
+    .female-Right-Lung-bullet { top: 155px; left: 121px; }
+    .female-Trachea-bullet { top: 75px; left: 132px; }
+   
+    .female-Upper-Abdomen-bullet { top: 160px; left: 134px; }
+    .female-Lower-Abdomen-bullet { top: 205px; left: 133px; }
+    .female-Pelvis-bullet { top: 222px; left: 133px; }
+    .female-Buttocks-bullet { top: 771px; left: 140px; }
+    .female-Groin-bullet { top: 237px; left: 140px; }
+    .female-Left-Thigh-bullet { top: 270px; left: 146px; }
+    .female-Right-Thigh-bullet { top: 270px; left: 110px; }
+    .female-Left-Knee-bullet { top: 346px; left: 147px; }
+    .female-Right-Knee-bullet { top: 346px; left: 118px; }
+    .female-Left-Leg-bullet { top: 401px; left: 144px; }
+    .female-Right-Leg-bullet { top: 401px; left: 120px; }
+    .female-Left-Ankle-bullet { top: 454px; left: 137px; }
+    .female-Right-Ankle-bullet { top: 454px; left: 117px; }
+    .female-Left-Foot-bullet { top: 474px; left: 147px; }
+    .female-Right-Foot-bullet { top: 474px; left: 117px; }
+
+    .female-Left-Forearm-bullet { top: 193px; left: 183px; }
+    .female-Right-Forearm-bullet { top: 193px; left: 82px; }
+    .female-Left-Wrist-bullet { top: 765px; left: 62px; }
+    .female-Right-Wrist-bullet { top: 765px; left: 180px; }
+    .female-Left-Hand-bullet { top: 242px; left: 197px; }
+    .female-Right-Hand-bullet { top: 245px; left: 67px; }
+    .female-Cervical-Spine-bullet { top: 600px; left: 113px; }
+    .female-Thoracic-Spine-bullet { top: 645px; left: 120px; }
+    .female-Lumbar-Spine-bullet { top: 710px; left: 120px; }
+    .female-Sacrum-bullet { top: 742px; left: 120px; }
+    .female-Coccyx-bullet { top: 753px; left: 120px; }
+    .female-Hips-bullet { top: 744px; left: 148px; }
+    .female-Left-Elbow-bullet { top: 705px; left: 76px; }
+    .female-Right-Elbow-bullet { top: 708px; left: 170px; }
+
+    /*For female highlight bullet point on body*/
+
+    
     .hvr-rectangle-out{
       border-color: #2B48B0;
-      border-width: 100%;
       color: #2B48B0;
-     }
-   
-   
+    }
+    
         </style>
+
+        <?php require_once(APPPATH.'views/include/responsive_bodypain_img.php');?>
 
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
         <span style="right: 0; position: fixed; cursor: pointer; z-index:1002" onclick="closeAd('ad2')" >CLOSE</span>
@@ -1582,7 +363,7 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1><b>Dashboard</b></h1>
+                    <h1>Dashboard</h1>
                     <!--<ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Examples</a></li>
@@ -1640,124 +421,57 @@
                          
     <div class="row">
                 <div class="col-sm-3">
-                    <?php if(@$patientInfo->gender=="1" || @$patientInfo->gender=="76"){ ?>
+                     <input type="hidden" name="gender_for_bodyimg" id="gender_for_bodyimg" value="<?php echo @$patientInfo->gender;?>">
+                    <?php if(@$patientInfo->gender=="1"){ ?>
                   <div class="row">
                     <!-- <div id="container">
             <img src="https://images.unsplash.com/photo-1582769923195-c6e60dc1d8dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="purple kitty"/>
         </div> -->
                     <div class="col-sm-12" id="container"><img src="<?=base_url()?>/public/company_logo/male-body-front.png" alt="" style="height:513px;width: 100%; "></div>
-                    <div class="head"></div>
-                    <div class="face"></div>
-                    <div class="eyes"></div>
-                    <div class="ears"></div>
-                    <div class="nose"></div>
-                    <div class="mouth"></div>
-                    <div class="left_arm"></div>
-                    <div class="right_arm"></div>
-                    <div class="neck"></div>
-                    <div class="left_sholder"></div>
-                    <div class="right_sholder"></div>
-                    <div class="chest"></div>
-                    <div class="pectoral_region"></div>
-                    <div class="upper_abdomen"></div>
-                    <div class="lower_abdomen"></div>
-                    <div class="pelvis"></div>
-                    <div class="hips"></div>
-                    <div class="groin"></div>
-                    <div class="left_leg_tigh"></div>
-                    <div class="left_leg_knee"></div>
-                    <div class="left_leg_ankle"></div>
-                    <div class="left_leg_foot"></div>
-                    <div class="right_leg_tigh"></div>
-                    <div class="right_leg_knee"></div>
-                    <div class="right_leg_ankle"></div>
-                    <div class="right_leg_foot"></div>
-                    <div class="brain"></div>
-                    <div class="heart"></div>
-                    <div class="blood_vessels"></div>
-                    <div class="lungs"></div>
-                    <div class="trachea"></div>
-                    <div class="shoulder-bullet"></div>
-                    <div class="knee-bullet"></div>
-                    <div class="pelvis-bullet"></div>
-                    <div class="hip-bullet"></div>
-                    <div class="ankle-bullet"></div>
+                                        <?php
+                  
+                                          if (!empty($bodypart_list))
+                                          {
+                                           
+                                            foreach ($bodypart_list as $key => $val)
+                                            { 
+                                                 
+                                                ?>
+                                                <div class="bullet <?= str_replace(" ","-",$val['pvalue']);?>-bullet"></div>
+                                                
+                                        <?php }
+                                          } ?>                    
+                    
+
                   </div><br>
                   <div class="row">
                       <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/male-body-back.png" alt="" style="height:513px;width: 100%; "></div>
-                     <div class="skull"></div>
-                     <div class="elbow"></div>
-                     <div class="forearm"></div>
-                     <div class="wrist"></div>
-                     <div class="thoracic_spine"></div>
-                     <div class="lumber_spine"></div>
-                     <div class="sacrum"></div>
-                     <div class="coccyx"></div>
-                     <div class="buttocks"></div>
-                     <div class="spinal_cord"></div>
-                      <div class="elbow-bullet"></div>
-                      <div class="wrist-bullet"></div>
-                      <div class="cervical_spine-bullet"></div>
-                      <div class="thoracic_spine-bullet"></div>
-                      <div class="lumbar_spine-bullet"></div>
+                     
+                    
+
                   </div>
               <?php }else{ ?>
                 <div class="row">
                     <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-front.jpg" alt="" style="height:513px;width: 100%; "></div>
-                    <div class="head"></div>
-                    <div class="face"></div>
-                    <div class="eyes"></div>
-                    <div class="ears"></div>
-                    <div class="nose"></div>
-                    <div class="mouth"></div>
-                    <div class="female_left_arm"></div>
-                    <div class="female_right_arm"></div>
-                    <div class="neck"></div>
-                    <div class="female_left_sholder"></div>
-                    <div class="female_right_sholder"></div>
-                    <div class="chest"></div>
-                    <div class="pectoral_region"></div>
-                    <div class="upper_abdomen"></div>
-                    <div class="lower_abdomen"></div>
-                    <div class="female_pelvis"></div>
-                    <div class="hips"></div>
-                    <div class="groin"></div>
-                    <div class="female_left_leg_tigh"></div>
-                    <div class="female_left_leg_knee"></div>
-                    <div class="female_left_leg_ankle"></div>
-                    <div class="female_left_leg_foot"></div>
-                    <div class="female_right_leg_tigh"></div>
-                    <div class="female_right_leg_knee"></div>
-                    <div class="female_right_leg_ankle"></div>
-                    <div class="female_right_leg_foot"></div>
-                    <div class="brain"></div>
-                    <div class="heart"></div>
-                    <div class="female_blood_vessels"></div>
-                    <div class="female_lungs"></div>
-                    <div class="trachea"></div>
-                    <div class="shoulder-bullet"></div>
-                    <div class="knee-bullet"></div>
-                    <div class="pelvis-bullet"></div>
-                    <div class="hip-bullet"></div>
-                    <div class="ankle-bullet"></div>
+
+                                        <?php
+                  
+                                          if (!empty($bodypart_list))
+                                          {
+                                           
+                                            foreach ($bodypart_list as $key => $val)
+                                            { 
+                                                 
+                                                ?>
+                                                <div class="bullet female-<?= str_replace(" ","-",$val['pvalue']);?>-bullet"></div>
+                                                
+                                        <?php }
+                                          } ?>
+
                   </div><br>
                   <div class="row">
                       <div class="col-sm-12"><img src="<?=base_url()?>/public/company_logo/female-body-back.jpg" alt="" style="height:513px;width: 100%; "></div>
-                     <div class="skull"></div>
-                     <div class="female_elbow"></div>
-                     <div class="female_forearm"></div>
-                     <div class="female_wrist"></div>
-                     <div class="female_thoracic_spine"></div>
-                     <div class="female_lumber_spine"></div>
-                     <div class="female_sacrum"></div>
-                     <div class="female_coccyx"></div>
-                     <div class="female_buttocks"></div>
-                     <div class="female_spinal_cord"></div>
-                      <div class="elbow-bullet"></div>
-                      <div class="wrist-bullet"></div>
-                      <div class="cervical_spine-bullet"></div>
-                      <div class="thoracic_spine-bullet"></div>
-                      <div class="lumbar_spine-bullet"></div>
+
                   </div>
               <?php } ?>
                 </div>
@@ -1805,6 +519,29 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
+                              <div class="col-md-3">
+                                <div class="form-group wrapper-class">
+                                    <label>Body Part</label><span class="text-danger"></span></br>
+                                      
+                                     <select class="form-control" name="ptn_bodypart[]" id="bodypart-multiple-checkboxes" multiple="multiple">
+                                
+                                        <?php
+                                          if (!empty($bodypart_list))
+                                          {
+                                           
+                                            foreach ($bodypart_list as $key => $val)
+                                            { 
+                                                 
+                                                ?>
+                                                <option value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
+                                                    <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
+                                        <?php }
+                                          } ?>
+                                    </select>  
+        
+                                    <span class="text-danger error-text type_category_err"></span>                           
+                                  </div>
+                                </div> <!-- /.col-md-3 -->
 
             </div><!-- / row -->
             <hr style="border-top: 2px solid #2B48B0;"/>
@@ -1912,35 +649,6 @@
                             </div><!-- /.col-md-3 -->
                             
                         <?php } ?>
-
-
-                        <?php if($this->uri->segment("6")=="neuro"){ ?>
-                        <div class="col-md-3">
-                                <div class="form-group wrapper-class">
-                                    <label>Body Part</label><span class="text-danger"></span></br>
-                                      
-                                     <select class="form-control btn-group btn-group-vertical" name="ptn_bodypart[]" id="bodypart-multiple-checkboxes" multiple="multiple">
-                            
-                                        <?php
-                                          if (!empty($bodypart_list))
-                                          {
-                                           
-                                            foreach ($bodypart_list as $key => $val)
-                                            { 
-                                                 
-                                                ?>
-                                                <option value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
-                                                    <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
-                                        <?php }
-                                          } ?> 
-                                    </select>  
-        
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                  </div><!-- /.form-group wrapper-class -->
-                                </div><!-- /.col-md-3 -->
-                                <?php } ?>
-
-
                         <?php if($this->uri->segment("6")=="neuro" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class" >
@@ -1979,12 +687,12 @@
                                 </div>
                             </div> <!-- /.col-md-3 -->
                         <?php } ?>
-                          <?php if($this->uri->segment("6")=="ortho" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
+                                                <?php if($this->uri->segment("6")=="ortho" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Tightness</label><span class="text-danger"></span></br>
                                       
-                                     <select class="form-control btn-group btn-group-vertical" name="ptn_tightness[]" id="multiple-checkboxes" multiple="multiple">
+                                     <select class="form-control" name="ptn_tightness[]" id="multiple-checkboxes" multiple="multiple">
                                 
                                         <?php
                                           if (!empty($tightness_list))
@@ -2003,43 +711,12 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                   </div><!-- /.form-group wrapper-class -->
                                 </div><!-- /.col-md-3 -->
-
-                                
-                                
                             <?php } ?>
-                            
-                            <?php if($this->uri->segment("6")!="respi" && $this->uri->segment("6")!="neuro"){ ?>
-                              
-                            </div>
-                            
-
+                            <?php if($this->uri->segment("6")!="respi"){ ?>
+                    </div>
                          <div class="row">
+                         <?php } ?>
 
-                         <div class="col-md-3">
-                                <div class="form-group wrapper-class">
-                                    <label>Body Part</label><span class="text-danger"></span></br>
-                                      
-                                     <select class="form-control btn-group btn-group-vertical" name="ptn_bodypart[]" id="bodypart-multiple-checkboxes" multiple="multiple">
-                            
-                                        <?php
-                                          if (!empty($bodypart_list))
-                                          {
-                                           
-                                            foreach ($bodypart_list as $key => $val)
-                                            { 
-                                                 
-                                                ?>
-                                                <option value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
-                                                    <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
-                                        <?php }
-                                          } ?> 
-                                    </select>  
-        
-                                    <span class="text-danger error-text type_category_err"></span>                           
-                                  </div><!-- /.form-group wrapper-class -->
-                                </div><!-- /.col-md-3 -->
-                                <?php } ?>
-                                        
 
                              <?php if($this->uri->segment("6")=="ortho" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
@@ -2059,9 +736,7 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                             <?php } ?>
-
-                            
-                            
+                         
                             
                             <?php if($this->uri->segment("6")=="respi" || $this->uri->segment("6")=="general" || $this->uri->segment("6")==""){ ?>
                             <div class="col-md-3">
@@ -2081,31 +756,6 @@
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
                        
-                            <?php if($this->uri->segment("6")=="respi"){ ?>
-                             <div class="row">
-                             <div class="col-md-3" >
-                             <div class="form-group wrapper-class">
-                             <label>Body Part</label><span class="text-danger"></span></br>
-                             <select class="form-control btn-group btn-group-vertical" name="ptn_bodypart[]" id="bodypart-multiple-checkboxes" multiple="multiple">
-                             <?php
-                               if (!empty($bodypart_list))
-                               {
-                  
-                                 foreach ($bodypart_list as $key => $val)
-                                 { 
-                        
-                                     ?>
-                            <option value="<?= !empty($val['pvalue']) ? ($val['pvalue']) : ''; ?>">
-                           <?= !empty($val['pvalue']) ? ucwords($val['pvalue']) : ''; ?></option>
-                             <?php }
-                            } ?> 
-                          </select>  
-
-                             <span class="text-danger error-text type_category_err"></span>                           
-                           </div><!-- /.form-group wrapper-class -->
-                         </div><!-- /.col-md-3 -->
-                                  </div>
-                                  <?php } ?>
 
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
@@ -2120,12 +770,9 @@
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
-                          
-                            <?php } ?>
-                        
 
-                          
-                                  
+                             <?php } ?>
+                            
 
                            </div><!--/.row--><br>
                            <hr style="border-top: 2px solid #2B48B0;"/>
@@ -2957,7 +1604,7 @@
                             <div class="col-md-3">
                                 <div class="form-group wrapper-class">
                                     <label>Next Evaluation Date</label><span class="text-danger"></span></br>
-                                    <input types="date" class="form-control" name="next_eval_date">
+                                    <input type="date" class="form-control" name="next_eval_date">
                                     <span class="text-danger error-text type_category_err"></span>                           
                                 </div><!-- /.form-group wrapper-class -->
                             </div><!-- /.col-md-3 -->
@@ -2965,10 +1612,9 @@
                         </div><!-- / row -->
                     </div><!--/treatment section div-->
                             </div><br>
-                   <div class=" col-md-11 text-center">
-                <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit" >Submit</button>
+                   <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary hvr-rectangle-out" name="btnSave" value="Submit" style="width: 10%;">Submit</button>
                             </div>
-                            <br>
               </form>
 
         </section>
@@ -2993,10 +1639,9 @@
 
     <script>
         $(document).ready(function() {  
-        $('#multiple-checkboxes,#bodypart-multiple-checkboxes').multiselect();  
-       
- }); 
-   
+         $('#multiple-checkboxes,#bodypart-multiple-checkboxes').multiselect();
+
+    });  
     
         /*****************Start recommendation yes**********************/
             $(".chkradio") // select the radio by its id
@@ -3080,238 +1725,29 @@
 
 /*****************Start highlight pain area on body img**********************/
 
-      $('.shoulder-bullet,.elbow-bullet,.knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet,.head,.skull,.face,.eyes,.ears,.nose,.mouth,.neck,.cervical_spine,.sholders,.left_sholder,.right_sholder,.arms,.left_arm,.right_arm,.elbow,.forearm,.wrist,.hand,.chest,.pectoral_region,.back,.thoracic_spine,.lumber_spine,.sacrum,.coccyx,.abdomen,.upper_abdomen,.lower_abdomen,.pelvis,.hips,.buttocks,.groin,.legs,.left_leg,.left_leg_tigh,.left_leg_knee,.left_lower_leg,.left_leg_ankle,.left_leg_foot,.right_leg,.right_leg_tigh,.right_leg_knee,.right_lower_leg,.right_leg_ankle,.right_leg_foot,.brain,.spinal_cord,.heart,.blood_vessels,.lungs,.trachea').hide();
-      $('.female_left_sholder,.female_right_sholder,.female_left_arm,.female_right_arm,.female_elbow,.female_forearm,.female_wrist,.female_thoracic_spine,.female_lumber_spine,.female_sacrum,.female_coccyx,.female_pelvis,.female_buttocks,.female_left_leg_tigh,.female_left_leg_knee,.female_left_leg_ankle,.female_left_leg_foot,.female_right_leg_tigh,.female_right_leg_knee,.female_right_leg_ankle,.female_right_leg_foot,.female_spinal_cord,.female_blood_vessels,.female_lungs').hide();
-      // Listen for changes in the select element
-    $("select[name='ptn_bodypart[]']").change(function () {
-      updateBulletVisibility();
-    });
-
-    // Function to update bullet visibility based on selected options
-    function updateBulletVisibility() {
+    $(document).ready(function () {
+        $("select[name='ptn_bodypart[]']").change(function () {
       var selectedValue = $("select[name='ptn_bodypart[]']").val();
+      var bodyimg_gender =$("#gender_for_bodyimg").val();
       console.log(selectedValue);
-      
-      // Hide all bullets initially
-      $('.shoulder-bullet,.elbow-bullet,.knee-bullet,.wrist-bullet,.cervical_spine-bullet,.thoracic_spine-bullet,.lumbar_spine-bullet,.pelvis-bullet,.hip-bullet,.ankle-bullet,.head,.skull,.face,.eyes,.ears,.nose,.mouth,.neck,.cervical_spine,.sholders,.left_sholder,.right_sholder,.arms,.left_arm,.right_arm,.elbow,.forearm,.wrist,.hand,.chest,.pectoral_region,.back,.thoracic_spine,.lumber_spine,.sacrum,.coccyx,.abdomen,.upper_abdomen,.lower_abdomen,.pelvis,.hips,.buttocks,.groin,.legs,.left_leg,.left_leg_tigh,.left_leg_knee,.left_lower_leg,.left_leg_ankle,.left_leg_foot,.right_leg,.right_leg_tigh,.right_leg_knee,.right_lower_leg,.right_leg_ankle,.right_leg_foot,.brain,.spinal_cord,.heart,.blood_vessels,.lungs,.trachea').hide();
-
-      // Show the corresponding bullet based on selected options
-      for (var i = 0; i < selectedValue.length; i++) {
-        if (selectedValue[i] == 'Head') {
-          $('.head').show();
-        }
-        if (selectedValue[i] === 'Shoulder') {
-          $('.shoulder-bullet').show();
-        }
-        if (selectedValue[i] === 'Elbow') {
-          $('.elbow-bullet').show();
-        }
-        if (selectedValue[i] === 'Knee') {
-          $('.knee-bullet').show();
-        }
-        if (selectedValue[i] === 'Wrist') {
-          $('.wrist-bullet').show();
-        }
-         if (selectedValue[i] === 'Cervical Spine') {
-          $('.cervical_spine-bullet').show();
-        }
-        if (selectedValue[i] === 'Thoracic Spine') {
-          $('.thoracic_spine-bullet').show();
-        }
-        if (selectedValue[i] === 'Lumbar Spine') {
-          $('.lumbar_spine-bullet').show();
-        }
-        if (selectedValue[i] === 'Pelvis') {
-          $('.pelvis-bullet').show();
-        }
-        if (selectedValue[i] === 'Hip') {
-          $('.hip-bullet').show();
-        }
-        if (selectedValue[i] === 'Ankle') {
-          $('.ankle-bullet').show();
-        }
-        if (selectedValue[i] == 'Head') {
-          $('.head').show();
-        }
-        if (selectedValue[i] === 'Skull') {
-          $('.skull').show();
-        }
-        if (selectedValue[i] === 'Face') {
-          $('.face').show();
-        }
-        if (selectedValue[i] === 'Eyes') {
-          $('.eyes').show();
-        }
-        if (selectedValue[i] === 'Ears') {
-          $('.ears').show();
-        }
-         if (selectedValue[i] === 'Nose') {
-          $('.nose').show();
-        }
-        if (selectedValue[i] === 'Mouth') {
-          $('.mouth').show();
-        }
-        if (selectedValue[i] === 'Neck') {
-          $('.neck').show();
-        }
-        if (selectedValue[i] === 'Sholders') {
-          $('.sholders').show();
-        }
-        if (selectedValue[i] === 'Left Sholder') {
-          $('.left_sholder').show();
-        }
-        if (selectedValue[i] === 'Right Sholder') {
-          $('.right_sholder').show();
-        }
-        if (selectedValue[i] === 'Arms') {
-          $('.arms').show();
-        } 
-         if (selectedValue[i] === 'Left Arm') {
-          $('.left_arm').show();
-        } 
-         if (selectedValue[i] === 'Right Arm') {
-          $('.right_arm').show();
-        } 
-         if (selectedValue[i] === 'Elbow') {
-          $('.elbow').show();
-        }
-          if (selectedValue[i] === 'Forearm') {
-          $('.forearm').show();
-        } 
-         if (selectedValue[i] === 'Wrist') {
-          $('.wrist').show();
-        } 
-         if (selectedValue[i] === 'Hand') {
-          $('.hand').show();
-        }
-        if (selectedValue[i] === 'Chest') {
-          $('.chest').show();
-        }
-        if (selectedValue[i] === 'Pectoral Region') {
-          $('.pectoral_region').show();
-        }
-        if (selectedValue[i] === 'Back') {
-          $('.back').show();
-        }
-        if (selectedValue[i] === 'Thoracic Spine') {
-          $('.thoracic_spine').show();
-        }
-        if (selectedValue[i] === 'Lumber Spine') {
-          $('.lumber_spine').show();
-        }
-        if (selectedValue[i] === 'Sacrum') {
-          $('.sacrum').show();
-        }
-        if (selectedValue[i] === 'Coccyx') {
-          $('.coccyx').show();
-        }
-        if (selectedValue[i] === 'Abdmen') {
-          $('.abdomen').show();
-        }
-        if (selectedValue[i] === 'Upper Abdomen') {
-          $('.upper_abdomen').show();
-        }
-        if (selectedValue[i] === 'Lower Abdomen') {
-          $('.lower_abdomen').show();
-        }
-        if (selectedValue[i] === 'Pelvis') {
-          $('.pelvis').show();
-        }
-        if (selectedValue[i] === 'Hips') {
-          $('.hips').show();
-        }
-        if (selectedValue[i] === 'Buttocks') {
-          $('.buttocks').show();
-        }
-        if (selectedValue[i] === 'Groin') {
-          $('.groin').show();
-        }
-        if (selectedValue[i] === 'Legs') {
-          $('.legs').show();
-        }
-        if (selectedValue[i] === 'Left Leg') {
-          $('.left_leg').show();
-        }
-        if (selectedValue[i] === 'Left Leg Tigh') {
-          $('.left_leg_tigh').show();
-        }
-        if (selectedValue[i] === 'Left Leg Knee') {
-          $('.left_leg_knee').show();
-        }
-        if (selectedValue[i] === 'Left Lower Leg') {
-          $('.left_lower_leg').show();
-        }
-        if (selectedValue[i] === 'Left Leg Ankle') {
-          $('.left_leg_ankle').show();
-        }
-        if (selectedValue[i] === 'Left Leg Foot') {
-          $('.left_leg_foot').show();
-        }
-        if (selectedValue[i] === 'Right Leg') {
-          $('.right_leg').show();
-        }
-        if (selectedValue[i] === 'Right Leg Tigh') {
-          $('.right_leg_tigh').show();
-        }
-        if (selectedValue[i] === 'Right Leg Knee') {
-          $('.right_leg_knee').show();
-        }
-        if (selectedValue[i] === 'Right Lower Leg') {
-          $('.right_lower_leg').show();
-        }
-        if (selectedValue[i] === 'Right Leg Ankle') {
-          $('.right_leg_ankle').show();
-        }
-        if (selectedValue[i] === 'Right Leg Foot') {
-          $('.right_leg_foot').show();
-        }
-        if (selectedValue[i] === 'Brain') {
-          $('.brain').show();
-        }
-        if (selectedValue[i] === 'Spinal Cord') {
-          $('.spinal_cord').show();
-        }
-        if (selectedValue[i] === 'Heart') {
-          $('.heart').show();
-        }
-        if (selectedValue[i] === 'Blood Vessels') {
-          $('.blood_vessels').show();
-        }
-        if (selectedValue[i] === 'Lungs') {
-          $('.lungs').show();
-        }
-        if (selectedValue[i] === 'Trachea') {
-          $('.trachea').show();
-        }
+      $('.bullet').hide();
+      if(bodyimg_gender=="1")
+      {
+         for (var i = 0; i < selectedValue.length; i++) {
+            $('.' + selectedValue[i].replace(/ /g, '-') + '-bullet').show();
+          }
       }
-    }
+      else
+      {
+         for (var i = 0; i < selectedValue.length; i++) {
+            $('.female-' + selectedValue[i].replace(/ /g, '-') + '-bullet').show();
+          }       
+      }
+      
+    });
+  });
 /*****************End highlight pain area on body img**********************/       
 </script>
 
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var container = document.getElementById('container');
-      var image = document.querySelector('#container img');
-      
-      container.addEventListener('mousemove', function (event) {
-        var containerRect = container.getBoundingClientRect();
-        var mouseX = event.clientX - containerRect.left;
-        var mouseY = event.clientY - containerRect.top;
-
-        var percentX = mouseX / containerRect.width;
-        var percentY = mouseY / containerRect.height;
-
-        var moveX = (percentX - 0.5) * 200; /* Adjust the value to control panning */
-        var moveY = (percentY - 0.5) * 100; /* Adjust the value to control panning */
-
-        image.style.transform = 'scale(1.2) translate(' + moveX + 'px, ' + moveY + 'px)';
-      });
-
-      container.addEventListener('mouseleave', function () {
-        image.style.transform = 'scale(1)'; /* Reset the transform on mouse leave */
-      });
-    });
-  </script> -->
-<?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>

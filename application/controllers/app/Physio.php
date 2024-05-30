@@ -501,6 +501,7 @@ class Physio extends General{
 				 $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no); 
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
 				 $this->data['tightness_list'] = $this->physio_model->get_tightness_list();
+				 $this->data['bodypart_list'] = $this->physio_model->get_bodypart_list();
 				 
 		
 		$this->load->view('app/physio/view_evaluation',$this->data);

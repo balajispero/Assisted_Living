@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Assisted Living</title>
+        <title>Rehabilitation Center</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -228,24 +228,20 @@
                                                                 <?php } ?>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group input-box">
+                                                        <input type="hidden" name="organization" value="<?php echo $this->session->userdata('organization') ?>">
+                                                        <!-- <div class="form-group input-box">
                                                             <label>Organization <font color="#FF0000">*</font>:</label>
                                                             <select name="organization" class="form-control" required>
-                                                                <!-- <option value="">- Select Organization -</option> -->
+                                                                
                                                                 <?php
                                                                 if ($this->session->userdata('organization') == "aastha") {
                                                                 ?>
-                                                                    <option value="<?php echo $this->session->userdata('organization') ?>" selected><?php echo ucwords("ALF Bavdhan"); ?></option>
-                                                                    <!-- <option value="aastha"><?php echo ucwords("aastha"); ?></option>
-                                                                <option value="athashri"><?php echo ucwords("athashri"); ?></option> -->
-                                                                    <!-- <option value="post stroke">post stroke</option> -->
+                                                                    <option value="<?php echo $this->session->userdata('organization') ?>" selected><?php echo ucwords("ALF Bavdhan"); ?></option>    
                                                                 <?php } else { ?>
                                                                     <option value="<?php echo $this->session->userdata('organization') ?>" selected><?php echo ucwords($this->session->userdata('organization')) ?></option>
                                                                 <?php } ?>
-
-
                                                             </select>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12 col-sm-6">
