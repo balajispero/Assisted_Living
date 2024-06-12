@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/rehab_global/';
+$config['base_url']	= 'http://localhost/Assisted_Living/';
 /*
 |--------------------------------------------------------------------------
 | Index File
