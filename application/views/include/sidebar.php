@@ -517,6 +517,20 @@ if($this->session->userdata('module') == "change_pwd"){$change_pwd_mod = "class=
                         </li>
                         <?php }?>
                         <!--END OF Physio Module-->
+
+                        <!--START OF demo Module-->
+                        <?php if($hasAccesstoDemo){?>
+                        <li class="treeview <?php echo $doctor;?>">
+                            <a href="#" class="hvr-icon-pop">
+                                <i class="fa fa-user-md hvr-icon"></i> <span class="hvr-pop">Demo Module</span>
+                                <i class="fa fa-angle-left pull-right hvr-icon"></i>
+                            </a>
+                            <ul class="treeview-menu onlyphysio_eval">
+                                <?php if($hasAccesstoDemoSubMenu){?><li <?php echo $ipd_doctor;?>><a href="<?php echo base_url()?>app/physio/ipd"><i class="fa fa-angle-double-right"></i>In-demo</a></li><?php }?>
+                            </ul>
+                        </li>
+                        <?php }?>
+                        <!--END OF demo Module-->
                         
                         <!--START OF USER PROFILE-->
                         <li class="treeview <?php echo $profile;?>">

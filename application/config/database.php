@@ -54,8 +54,12 @@ $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
 //$db['default']['database'] = 'speroems_assisted_livingbackup';/*27/3/2024*/
+<<<<<<< Updated upstream
 $db['default']['database'] = 'alf';
 //$db['default']['database'] = 'speroems_assisted_living_server';
+=======
+$db['default']['database'] = 'speroems_assisted_living_server';
+>>>>>>> Stashed changes
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

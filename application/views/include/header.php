@@ -123,7 +123,7 @@
       color: #2B48B0;
      }
                       .hvr-shutter-in-vertical{
-                        /* background-color: #fff; */
+                         background-color: #2098D1; 
                         color: #fff;
                         border-color: #2B48B0;
                       }

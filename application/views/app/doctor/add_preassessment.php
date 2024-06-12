@@ -81,6 +81,10 @@
                   0% { transform: rotate(0deg); }
                   100% { transform: rotate(360deg); }
                 }
+                .borderless-table td, 
+                .borderless-table th {
+                    border: none !important;
+                }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
 
@@ -744,14 +748,21 @@
                                                                 <tr>
                                                                   <td>Typhoid</td><td><input type="text" name="typhoid_vac" class="form-control"></td><td><input type="date" name="typhoid_date" class="form-control"></td><td><input type="date" name="typhoid_due_date" class="form-control"></td>
                                                                 </tr>
-                                                                <tr>
-                                                                  <td>COVID19</td><td></td><td class="row">
-                                                                        <label class="col-sm-2" style="margin-top:3px;">1<sup>st</sup></label><input type="text" name="covid_vac_1" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
-                                                                        <label class="col-sm-2" style="margin-top:3px;">2<sup>nd</sup></label><input type="text" name="covid_vac_2" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
-                                                                        <label class="col-sm-2" style="margin-top:3px;">3<sup>rd</sup></label><input type="text" name="covid_vac_3" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
-                                                                        
-                                                                    </td><td></td>
-                                                                </tr>    
+                                                                
+                                                                <table class="table borderless-table">
+                                                                                      <tr>
+                                                                                          <td>COVID19</td><td>1<sup>st</sup></td><td><input type="text" name="covid_vac_1" class="form-control" ></td><td></td><td></td><td></td><td></td>
+                                                                                          
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td></td><td>2<sup>nd</sup></td><td><input type="text" name="covid_vac_2" class="form-control"></td><td></td><td></td><td></td><td></td>
+                                                                                          
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td></td><td>3<sup>rd</sup></td><td><input type="text" name="covid_vac_3" class="form-control"></td><td></td><td></td><td></td><td></td>
+                                                                                          
+                                                                                      </tr>
+                                                                                  </table>    
                                                               </table>
                                                             </div>
                                                             <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next2" name="submit" value="Next">

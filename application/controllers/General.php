@@ -131,6 +131,10 @@ class general extends CI_Controller{
 		// Physio Module
 		$this->data['hasAccesstoPhysio'] = ($this->has_rights_to_access("147",$userRole->user_role) == FALSE) ? FALSE : TRUE;
 			$this->data['hasAccesstoPhysioIpdList'] = ($this->has_rights_to_access("148",$userRole->user_role) == FALSE) ? FALSE : TRUE;
+
+			// Demo Module
+		$this->data['hasAccesstoDemo'] = ($this->has_rights_to_access("150",$userRole->user_role) == FALSE) ? FALSE : TRUE;
+			$this->data['hasAccesstoDemoSubMenu'] = ($this->has_rights_to_access("151",$userRole->user_role) == FALSE) ? FALSE : TRUE;
 				
 		}
 
