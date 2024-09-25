@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   
@@ -111,7 +111,7 @@
 
                 <section class="content">
                 <div class="row">
-                     <div class=" col-sm-11 text-right">
+                    <div class=" col-sm-11 text-right">
                     <a href="<?php echo base_url()?>app/dashboard/view_details_pdf/<?php echo $this->uri->segment("4"); ?>/<?php echo $this->uri->segment("5"); ?>" class="btn btn-primary" target="_blank">Download PDF</a>
                     </div><br><br><br>
                     <section class="col-lg-12 connectedSortable">
@@ -439,15 +439,13 @@
                                            <td><?php echo anchor('app/lab/view_lab_sample_report/'.$getLabTest->io_lab_id,$getLabTest->iop_id, 'target="_blank"');?></td>
                                            <td><?php echo $getLabTest->dDate?></td>
                                            <td>
-                                            <?php
+                                              <?php
                                                     $ci_obj = & get_instance();
                                                 $ci_obj->load->model('app/general_model');
                                                 $pages = $ci_obj->general_model->getLabSampleById($getLabTest->laboratory_id);
                                                 echo @$pages->test_name;
-                                            ?>
-                                            <?php /*echo $getLabTest->laboratory_id;*/?>
-                                                
-                                            </td>
+                                              ?>
+                                           </td>
                                            <td>
                                             <?php 
                                                 $ci_obj = & get_instance();
@@ -979,6 +977,5 @@
             });
          </script>
          
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+    </body>
 </html>

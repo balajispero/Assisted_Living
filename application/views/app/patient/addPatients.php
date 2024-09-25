@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="euc-kr">
+<head><meta charset="windows-1252">
     <head>
 
         
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -48,7 +48,112 @@
                 width: 80%;
                 margin: 2px;
             }
-            
+            .input-box {
+                width: 48vw !important;
+            }
+
+            textarea.form-control {
+                width: 48% !important;
+            }
+
+            #ptn_spo2 {
+                width: 48% !important;
+            }
+
+            #ptn_temp {
+                width: 48% !important;
+            }
+
+            #ptn_pulse {
+                width: 48% !important;
+            }
+
+            #ptn_bp {
+                width: 48% !important;
+            }
+
+
+            /* Media query for devices with a maximum width of 768px */
+            @media (max-width: 768px) {
+                .col-md-4 {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    /* Add some spacing between columns on smaller screens */
+                }
+
+                .input-box {
+                    width: 100% !important;
+                }
+
+                textarea.form-control {
+                    width: 100% !important;
+                }
+
+                #ptn_spo2 {
+                    width: 100% !important;
+                }
+
+                #ptn_temp {
+                    width: 100% !important;
+                }
+
+                #ptn_pulse {
+                    width: 100% !important;
+                }
+
+                #ptn_bp {
+                    width: 100% !important;
+                }
+
+                input#ptn_cvs {
+                    width: 100% !important;
+                }
+
+                input#ptn_cns {
+                    width: 100% !important;
+                }
+            }
+
+            /* Media query for devices with a maximum width of 300px */
+            @media (max-width: 300px) {
+                .col-md-4 {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    /* Add some spacing between columns on smaller screens */
+                }
+
+                .input-box {
+                    width: 100% !important;
+                }
+
+                textarea.form-control {
+                    width: 100% !important;
+                }
+
+                #ptn_spo2 {
+                    width: 100% !important;
+                }
+
+                #ptn_temp {
+                    width: 100% !important;
+                }
+
+                #ptn_pulse {
+                    width: 100% !important;
+                }
+
+                #ptn_bp {
+                    width: 100% !important;
+                }
+
+                input#ptn_cvs {
+                    width: 100% !important;
+                }
+
+                input#ptn_cns {
+                    width: 100% !important;
+                }
+            }
         </style>
       <?php require_once(APPPATH.'views/include/responsive_design.php');?>
       </head>
@@ -135,15 +240,15 @@
                                                     $userID = $lastPatientID->patient_no;
                                                     $userID2 = $lastPatientID->patient_no;
                                                     if(strlen($userID) == 1){
-                                                        $userID = "RBGLB0000".$userID;
+                                                        $userID = "SSAL0000".$userID;
                                                     }else if(strlen($userID) == 2){
-                                                        $userID = "RBGLB0000".$userID;
+                                                        $userID = "SSAL0000".$userID;
                                                     }else if(strlen($userID) == 3){
-                                                        $userID = "RBGLB000".$userID;
+                                                        $userID = "SSAL000".$userID;
                                                     }else if(strlen($userID) == 4){
-                                                        $userID = "RBGLB00".$userID;
+                                                        $userID = "SSAL00".$userID;
                                                     }else if(strlen($userID) == 5){
-                                                        $userID = "RBGLB0".$userID;
+                                                        $userID = "SSAL0".$userID;
                                                     }else if(strlen($userID) == 6){
                                                         $userID = $userID;
                                                     }
@@ -456,7 +561,7 @@
                                </tr>
                                <tr>
                                    <td width="12%">Temp<font color="#FF0000">*</font></td>
-                                   <td width="88%"><input class="form-control input-sm" name="ptn_temp" style="width: 250px;" id="ptn_temp" type="number" placeholder="Fahrenheit(째F)" style="width: 100px;"   value=""></td>
+                                   <td width="88%"><input class="form-control input-sm" name="ptn_temp" style="width: 250px;" id="ptn_temp" type="number" placeholder="Fahrenheit(°F)" style="width: 100px;"   value=""></td>
                                    <td width="12%">Urine/Motion<font color="#FF0000">*</font></td>
                                    <td width="88%"> <textarea class="form-control input-sm" style="width: 250px;" name="ptn_um" id="ptn_um"></textarea></td>
                                </tr>
@@ -493,7 +598,7 @@
 
                                             </div>
                                             <div class="box-footer clearfix">
-                                                <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit" value="save"><i class="fa fa-save"></i> Save</button>
+                                                <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit" value="save"><i class="fa fa-save"></i> Save</button>
                                                 <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a> 
                                             </div>
                                         </div>
@@ -697,7 +802,6 @@
         $('#birthday').attr('max', maxDate);
     });
    </script>
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+     <?php require_once(APPPATH . 'views/include/footer.php'); ?>   
+    </body>
     </html>

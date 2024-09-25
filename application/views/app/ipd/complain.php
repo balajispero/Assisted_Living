@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -307,7 +307,6 @@
                             </form>
                             <!-- /.modal -->   
         
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+      <?php require_once(APPPATH . 'views/include/footer.php'); ?>  
+    </body>
 </html>

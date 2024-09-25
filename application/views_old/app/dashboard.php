@@ -4,10 +4,9 @@
     <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
  <!-- <meta content="Live Demo Assisted Living,HMS is designed for medical practitioners and health-related institutions to assistant them in storing and keeping track of all correlated information such as patient medical records, admission/discharge reports, pharmaceutical management, billing and report generation and more. " name="description">
@@ -40,20 +39,10 @@
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"> -->
         <!--End for dashboard count cdn-->
         <style>
-            body{
-                font-family: Helvetica;
-            }
             .btn.btn-primary {
                 background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%);
 
             /* border-color: #367fa9; */
-            }
-            .content-header{
-                margin-top: 10px;
-                background-color: #ecf0fa !important;
-                padding: 7px 5px;
-                border-radius: 5px;
-                box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
             }
             </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -117,7 +106,7 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1><b>Dashboard</b></h1>
+                    <h1>Dashboard</h1>
                     <!--<ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li><a href="#">Examples</a></li>
@@ -184,20 +173,7 @@
     <div class="row">
 
         <section class="col-lg-12 connectedSortable">
-        
-        <!-- <div class="row">
-            <div class="col-md-7 col-sm-12 col-lg-7">
-              <div class="card">
-                <div class="card-body">
-                  <div class="clearfix">
-                    <h5 class=" head"><b>Room Status:</b></h5>
-                    <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
-                  </div>
-                  <canvas id="myChart"></canvas>
-                </div>
-              </div>
-        </div>
-        </div> -->
+
             <!--Start of Patient Visited-->
             <div class="box box-primary" id="loading-example">
                 <div class="box-header">
@@ -359,11 +335,6 @@
                            <!--End of Patient Visited-->
 
                        </section>
-                       <?php
-            $vacantRoomData =json_encode([$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt'],$results_data[0]['vacant_room_cnt']]);
-  
-            $allocatedRoomData = json_encode([$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt'],$results_data[0]['allocated_room_cnt']]);
-          ?>
                    </div>
 
 
@@ -576,34 +547,6 @@
 
         }
         vacant_room_cnt();
-
-        $(document).ready(function() {
-      pieInit()
-    });
-
-    function pieInit() {
-      $(".pie-slice").hide().fadeIn("slow").find("animate").attr("begin", "0s");
-
-    }
-
-    var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ["M", "T", "W", "T", "F", "S", "S"],
-    datasets: [{
-      label: 'Vacant Room',
-      /*data: [12, 19, 3, 17, 28, 24, 7],*/
-      data: <?php echo $vacantRoomData; ?>,
-      backgroundColor: "#19bea6"
-    }, {
-      label: 'Admitted Room',
-      /*data: [30, 29, 5, 5, 20, 3, 10],*/
-      data: <?php echo $allocatedRoomData; ?>,
-      backgroundColor: "#90caf9"
-    }]
-  }
-});
 </script>
 
 </body>

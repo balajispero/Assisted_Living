@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -215,8 +215,7 @@
                                            </thead>
                                            <tbody>
                                            <?php
-                                           //$eval_list_arr=$eval_no_list;
-                                           if($physioDischargeList) { 
+                                           //$eval_list_arr=$eval_no_list; 
                                            foreach($physioDischargeList as $key => $rows){?>
                                             <tr>
                                             <td>
@@ -243,7 +242,7 @@
                                             <?php } ?>
 
                                            </tr> 
-                                           <?php } }?> 
+                                           <?php }?> 
                                            </tbody>
                                            </table>
                                        </div>
@@ -291,6 +290,5 @@
         <!-- END BDAY -->
         
         
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+    </body>
 </html>

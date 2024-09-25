@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -131,7 +131,6 @@
          <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
          <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+       <?php require_once(APPPATH . 'views/include/footer.php'); ?> 
+    </body>
 </html>

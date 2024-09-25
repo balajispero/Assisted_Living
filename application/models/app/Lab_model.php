@@ -70,7 +70,6 @@ class Lab_model extends CI_Model{
 			$this->db->select("
 				A.io_lab_id,
 				A.iop_id,
-				A.patient_no,
 				A.laboratory_id,
 				A.doctor,
 				A.dDate,
@@ -98,7 +97,6 @@ class Lab_model extends CI_Model{
 		$this->db->join("patient_personal_info C","C.patient_no = A.patient_no","left outer");
 		$this->db->join("lab_test_name_with_charges B","B.id = A.laboratory_id","left outer");
 			$query = $this->db->get("iop_laboratory A");
-			
 			return $query->num_rows();
 		}
 		public function get_lab_sample_test_single($id){

@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -164,7 +164,7 @@
                                 <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
                                     <li class="active"><a href="<?php echo base_url()?>app/invoice/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Lab Bill</a></li>
-                                    <li><a href="<?php echo base_url()?>app/invoice/therapy_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physiotherapy Bill</a></li>
+                                    <!--<li><a href="<?php echo base_url()?>app/invoice/therapy_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physiotherapy Bill</a></li>-->
                                     
                                  </ul>
                                 </div>
@@ -269,6 +269,5 @@
         <!-- END BDAY -->
         
         
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+    </body>
 </html>

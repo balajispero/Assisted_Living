@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -35,7 +35,121 @@
                 width: 80% !important;
                 margin: 2px;
             }
-            
+                .input-box {
+                width: 48vw !important;
+            }
+
+            textarea.form-control {
+                width: 48% !important;
+            }
+
+            #ptn_spo2 {
+                width: 48% !important;
+            }
+
+            #ptn_temp {
+                width: 48% !important;
+            }
+
+            #ptn_pulse {
+                width: 48% !important;
+            }
+
+            #ptn_bp {
+                width: 48% !important;
+            }
+
+
+            /* Media query for devices with a maximum width of 768px */
+            @media (max-width: 768px) {
+                .col-md-4 {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    /* Add some spacing between columns on smaller screens */
+                }
+
+                .input-box {
+                    width: 100% !important;
+                }
+
+                textarea.form-control {
+                    width: 100% !important;
+                }
+
+                #ptn_spo2 {
+                    width: 100% !important;
+                }
+
+                #ptn_temp {
+                    width: 100% !important;
+                }
+
+                #ptn_pulse {
+                    width: 100% !important;
+                }
+
+                #ptn_bp {
+                    width: 100% !important;
+                }
+
+                input#ptn_cvs {
+                    width: 100% !important;
+                }
+
+                input#ptn_cns {
+                    width: 100% !important;
+                }
+
+                .section3 {
+                    margin-top: 14px !important;
+                }
+            }
+
+            /* Media query for devices with a maximum width of 300px */
+            @media (max-width: 300px) {
+                .col-md-4 {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    /* Add some spacing between columns on smaller screens */
+                }
+
+                .input-box {
+                    width: 100% !important;
+                }
+
+                textarea.form-control {
+                    width: 100% !important;
+                }
+
+                #ptn_spo2 {
+                    width: 100% !important;
+                }
+
+                #ptn_temp {
+                    width: 100% !important;
+                }
+
+                #ptn_pulse {
+                    width: 100% !important;
+                }
+
+                #ptn_bp {
+                    width: 100% !important;
+                }
+
+                input#ptn_cvs {
+                    width: 100% !important;
+                }
+
+                input#ptn_cns {
+                    width: 100% !important;
+                }
+
+                .section3 {
+                    margin-top: 14px !important;
+                }
+            }
+
 
         </style>
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
@@ -770,6 +884,6 @@
          <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>     
         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
         
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+       <?php require_once(APPPATH . 'views/include/footer.php'); ?> 
+    </body>
 </html>

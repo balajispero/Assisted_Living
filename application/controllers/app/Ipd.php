@@ -18,13 +18,14 @@ class Ipd extends General{
 		if(General::is_logged_in() == FALSE){
             redirect(base_url().'login');    
         }
-        $ptn_organization = $this->General_model->getptn_organization($this->uri->segment("4"));
+        /*$ptn_organization = $this->General_model->getptn_organization($this->uri->segment("4"));
         if($this->uri->segment("4"))
         {
-			/*if($this->session->userdata('organization')!=$ptn_organization->organization){
+ 
+			if($this->session->userdata('organization')!=$ptn_organization->organization){ 
 						redirect(base_url().'access_denied');
-					}*/
-		}
+					}
+		}*/
 		General::variable();	
 	}
 	
@@ -470,7 +471,7 @@ class Ipd extends General{
 	}
 
 	/*********************Start mail send code*********************/
-	public function mail_view(){
+		public function mail_view(){
     $iop_no = $this->uri->segment("4");
     $patient_no = $this->uri->segment("5");
 
@@ -479,7 +480,7 @@ class Ipd extends General{
     $this->data['patient_Medication'] = $this->Opd_model->patient_Medication($iop_no);
 
     $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no);
-
+    
     $this->data['ptn_title'] = $this->General_model->getTitle($this->data['patientInfo']->title);
     $this->data['ptn_gender'] = $this->General_model->getTitle($this->data['patientInfo']->gender);
     if($this->data['ptn_gender']->cValue=="Male")
@@ -488,7 +489,6 @@ class Ipd extends General{
     }else{
     	$this->data['ptn_gen']="Her";
     }
-    
     $this->data['departmentList'] = $this->general_model->departmentList();
     $this->data['message'] = $this->session->flashdata('message');
 
@@ -497,8 +497,8 @@ class Ipd extends General{
         $to_email = $this->input->post('mail_to');
         $rel_email2 = $this->input->post('rel_email2');
 
-        $to_email = "balajimuttepwar892@gmail.com";
-         $rel_email2 = "balajimuttepawar7058@gmail.com";
+        // $to_email = "balajimuttepwar892@gmail.com";
+         //$rel_email2 = "balajimuttepawar7058@gmail.com";
         
         if (filter_var($to_email, FILTER_VALIDATE_EMAIL)) {
         $subject = "Health updates of " . @$this->data['patientInfo']->middlename;
@@ -508,11 +508,11 @@ class Ipd extends General{
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-        $headers .= 'From: balajiM@sperohealthcare.in' . "\r\n";
-        //$headers .= 'From: doctoraastha@sperohealthcare.in' . "\r\n";
+        //$headers .= 'From: balajiM@sperohealthcare.in' . "\r\n";
+        $headers .= 'From: doctoraastha@sperohealthcare.in' . "\r\n";
         
-        $headers .= "CC: balajim.speroinfosystems@gmail.com, $rel_email2\r\n";
-        //$headers .= "CC: avinash@sperohealthcare.in, kaushikpanditrao@ahpl.in,Shivrudra@sperohealthcare.in,vijayrhayakar@ahpl.in,shelke@sperohealthcare.in, $rel_email2\r\n";
+        //$headers .= "CC: balajim.speroinfosystems@gmail.com, $rel_email2\r\n";
+        $headers .= "CC: avinash@sperohealthcare.in, kaushikpanditrao@ahpl.in,Shivrudra@sperohealthcare.in,vijayrhayakar@ahpl.in,shelke@sperohealthcare.in, $rel_email2\r\n";
 
         if (mail($to_email, $subject, $msg1, $headers)) {
             $res = $this->ipd_model->save_sent_mail();

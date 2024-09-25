@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -155,7 +155,7 @@
                                     <!-- <li><a href="<?php echo base_url()?>app/ipd/complain/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Complaint</a></li> -->
                                  	<li><a href="<?php echo base_url()?>app/ipd/diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Diagnosis</a></li>
                                  	<li><a href="<?php echo base_url()?>app/ipd/medication/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Medication</a></li>
-                                    <!-- <li><a href="<?php echo base_url()?>app/ipd/progress_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Progress Note</a></li> -->
+                                    <!--<li><a href="<?php echo base_url()?>app/ipd/progress_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Progress Note</a></li>-->
                                     <li><a href="<?php echo base_url()?>app/ipd/intake_output/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Intake/Output Record</a></li>
                                     <li><a href="<?php echo base_url()?>app/ipd/nurse_progress_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Progress Note</a></li>
                                     <li><a href="<?php echo base_url()?>app/ipd/vitalSign/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>"> Vital Sign</a></li>
@@ -182,7 +182,7 @@
                                     	<div class="tab-pane active" id="tab_1">
                                         	<?php //if($this->session->userdata('emr_viewing') == ""){?>	
                                         	<?php //if($getOPDPatient->nStatus == "Pending"){?>
-                                            <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Intervention</a>
+                                            <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Intervention</a>
                                             
                                             <?php // }}?>
                                             <a href="<?php echo base_url()?>app/ipd_print/print_laboratory/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
@@ -329,7 +329,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                             <button name="btnSubmit" class="btn btn-outline-primary hvr-shutter-in-vertical" id="btnSubmit" type="submit" style="font-size:12px;">Save</button>
+                                             <button name="btnSubmit" class="btn btn-primary bg_color" id="btnSubmit" type="submit" style="font-size:12px;">Save</button>
                                         </div>
                                        
                                     </div>
@@ -463,7 +463,7 @@
 
       <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="submit" id="editBtn" class="btn btn-sm btn-outline-primary hvr-shutter-in-vertical"  tabindex="11">Update</button>
+                                            <button type="submit" id="editBtn" class="btn btn-sm btn-primary bg_color"  tabindex="11">Update</button>
                                         </div>
                                         </form>
 
@@ -732,7 +732,6 @@ xmlhttp2.send();
 												// }
 </script>
         
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
 </html>

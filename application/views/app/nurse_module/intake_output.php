@@ -3,7 +3,7 @@
     <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -27,7 +27,7 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-            <style>
+        <style>
             .form-control {
             -webkit-border-radius: 0px !important;
             -moz-border-radius: 0px !important;
@@ -492,7 +492,7 @@
         
         <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-
+        
         <!-- Strat script for open modal for user logout on header section -->
         <script src="<?php echo base_url();?>public/js/jquery.min.js"></script>
         <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>
@@ -538,7 +538,6 @@
         <!-- END DATE -->
         
         
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
 </html>

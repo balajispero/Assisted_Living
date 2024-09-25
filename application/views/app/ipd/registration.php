@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -125,7 +125,7 @@
 
                                         
                                         <div class="form-group">
-                                            <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-search"></i> </button>
+                                            <button class="btn btn-primary" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-search"></i> </button>
                                             <label>*Note: (Search Particular Patient By Entering Member No./Or Select Button To See All Patients)</label>
                                         </div>
                                         <br>
@@ -166,7 +166,6 @@
             });
         </script>
         <!-- END BDAY -->
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
 </html>

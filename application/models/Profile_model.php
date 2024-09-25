@@ -39,8 +39,6 @@ class Profile_model extends CI_Model{
 			'email_address'		=>		$this->input->post('email')
 			/*'username'		=>		$this->input->post('username')*/
 		);	
-
-		
 		if (!empty($_FILES["userfile"]["name"])) {
 			$config = array(
 				'allowed_types'		=>		'*',
@@ -54,7 +52,6 @@ class Profile_model extends CI_Model{
 				$this->data['picture']=$image_data['file_name'];
 			}
 		}
-
 		$this->db->where('user_id', $this->input->post('userid'));
 		$this->db->update("users",$this->data);
 	}

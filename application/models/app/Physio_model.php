@@ -225,7 +225,7 @@ class Physio_model extends CI_Model{
 	public function get_treatment_protocol($eval_no){
 			$this->db->select('treatment_protocol.*');
 			$this->db->from('physio_treatment_protocol treatment_protocol'); 		
- 			$this->db->where(array(
+ 	        $this->db->where(array(
 			'eval_no'		=>		$eval_no,
 			/*'InActive'	=>		0*/
 		));	

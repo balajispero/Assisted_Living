@@ -4,7 +4,7 @@
     <head>
 
 
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -57,10 +57,6 @@
                 display: inline-block;
                 width: 85%;
                 margin: 2px;
-            }
-            .borderless-table td, 
-            .borderless-table th {
-                border: none !important;
             }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
@@ -831,21 +827,15 @@
       <?php }
       if($immunze_key=='4')
         { ?>
-        <table class="table borderless-table">
-                                                                                      <tr>
-                                                                                          <td>COVID19</td><td>1<sup>st</sup></td><td><input type="text" name="covid_vac_1" value="<?php echo $immunize_his->covid_vac_1;?>" class="form-control"></td><td></td><td></td><td></td><td></td>
-                                                                                          
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td></td><td>2<sup>nd</sup></td><td><input type="text" name="covid_vac_2" value="<?php echo $immunize_his->covid_vac_2;?>" class="form-control"></td><td></td><td></td><td></td><td></td>
-                                                                                          
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td></td><td>3<sup>rd</sup></td><td><input type="text" name="covid_vac_3" value="<?php echo $immunize_his->covid_vac_3;?>" class="form-control"></td><td></td><td></td><td></td><td></td>
-                                                                                          
-                                                                                      </tr>
-                                                                                  </table>
-       <input type="hidden" value="<?php echo $immunize_his->id ?>" name="covid_id">    
+        <tr>
+      <td>COVID19</td><td></td><td class="row">
+                                                                <label class="col-sm-2" style="margin-top:3px;">1<sup>st</sup></label><input type="text" name="covid_vac_1" value="<?php echo $immunize_his->covid_vac_1;?>" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+                                                                        <label class="col-sm-2" style="margin-top:3px;">2<sup>nd</sup></label><input type="text" name="covid_vac_2" value="<?php echo $immunize_his->covid_vac_2;?>" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+                                                                        <label class="col-sm-2" style="margin-top:3px;">3<sup>rd</sup></label><input type="text" name="covid_vac_3" value="<?php echo $immunize_his->covid_vac_3;?>" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+
+        </td><td></td>
+       <input type="hidden" value="<?php echo $immunize_his->id ?>" name="covid_id">
+    </tr>    
       <?php } ?>
         
         <?php } }?>    
@@ -2177,7 +2167,6 @@
         $('#birthday').attr('max', maxDate);
     });
 </script>
-
 <?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>

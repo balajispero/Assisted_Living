@@ -62,7 +62,7 @@ class Dashboard_model extends CI_Model{
 			$this->db->from('room_beds rbed');
 			$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
 			$this->db->join('room_category cat', 'cat.category_id = rm.category_id', 'left');
-			// $this->db->where('rbed.nStatus','Vacant');
+// 			$this->db->where('rbed.nStatus','Vacant');
 			$this->db->where(array('rbed.nStatus'=>'Vacant','rbed.InActive'=>'0'));
 			$this->db->where('rbed.organization',$this->session->userdata('organization'));
 			$this->db->order_by('rbed.room_bed_id', 'DESC');
@@ -77,7 +77,6 @@ class Dashboard_model extends CI_Model{
 				return $row;
 			}
 		}
-
 		public function getTodayAppointment($limit = 10, $offset = 0){
 			$this->db->select('rbed.*,cat.*,rm.*,pt.patient_no,pt.IO_ID,ptn.patient_no,ptn.middlename,pt.doctor_id,ptn.date_entry,ptn.firstname as fname,ptn.lastname as lname,doc.user_id,doc.firstname,doc.lastname,doc.title,mrs.param_id,mrs.cValue');
 			$this->db->from('room_beds rbed');
@@ -100,7 +99,7 @@ class Dashboard_model extends CI_Model{
 			if ( $query->num_rows() > 0 )
 			{
 				$row = $query->result();
-				// print_r($row);
+				// print_r();
 				return $row;
 			}
 		}
@@ -112,7 +111,6 @@ class Dashboard_model extends CI_Model{
 			$this->db->from('room_beds rbed');
 			$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
 			$this->db->join('room_category cat', 'cat.category_id = rm.category_id', 'left');
-			//$this->db->join('patient_details_iop admit', 'admit.IO_ID = rbed.patient_no', 'left');
 			$this->db->join('patient_details_iop pt', 'pt.room_id = rbed.room_bed_id','left');
 			//$this->db->where('rbed.nStatus','Occupied');
 			$this->db->where('rbed.organization',$this->session->userdata('organization'));
@@ -128,8 +126,6 @@ class Dashboard_model extends CI_Model{
 				return $row;
 			}
 		}
-
-
 		public function cntgetTodayAppointment(){
 			$this->db->select('rbed.*,cat.*,rm.*,pt.patient_no,pt.IO_ID,ptn.patient_no,ptn.middlename,pt.doctor_id,ptn.date_entry,ptn.firstname as fname,ptn.lastname as lname,doc.user_id,doc.firstname,doc.lastname,doc.title,mrs.param_id,mrs.cValue');
 			$this->db->from('room_beds rbed');
@@ -173,7 +169,7 @@ class Dashboard_model extends CI_Model{
 			$this->db->from('room_beds rbed');
 			$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
 			$this->db->join('room_category cat', 'cat.category_id = rm.category_id', 'left');
-			// $this->db->where('rbed.nStatus','Vacant');
+// 			$this->db->where('rbed.nStatus','Vacant');
 			$this->db->where(array('rbed.nStatus'=>'Vacant','rbed.InActive'=>'0'));
 			$this->db->where('rbed.organization',$this->session->userdata('organization'));
 			$this->db->order_by('rbed.room_bed_id', 'DESC');
@@ -191,7 +187,7 @@ class Dashboard_model extends CI_Model{
 			$this->db->from('room_beds rbed');
 			$this->db->join('room_master rm', 'rm.room_master_id = rbed.room_master_id', 'left');
 			$this->db->join('room_category cat', 'cat.category_id = rm.category_id', 'left');
-			// $this->db->where('rbed.nStatus','Vacant');
+			//$this->db->where('rbed.nStatus','Vacant');
 			$this->db->where(array('rbed.nStatus'=>'Vacant','rbed.InActive'=>'0'));
 			$this->db->where('rbed.organization',$this->session->userdata('organization'));
 			$this->db->order_by('rbed.room_bed_id', 'DESC');
@@ -205,8 +201,6 @@ class Dashboard_model extends CI_Model{
 				return $row;
 			}
 		}
-
-		
 // 	    public function getstatus(){
 // 			$this->db->select('rbed.nStatus,rm.*,');
 // 			$this->db->from('room_beds rbed');

@@ -4,7 +4,7 @@
     <head>
 
 
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -80,10 +80,6 @@
                 @keyframes spin {
                   0% { transform: rotate(0deg); }
                   100% { transform: rotate(360deg); }
-                }
-                .borderless-table td, 
-                .borderless-table th {
-                    border: none !important;
                 }
         </style>
         <?php /*require_once(APPPATH.'views/include/responsive_design.php');*/?>
@@ -397,7 +393,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group wrapper-class" >
                                                                         <label></label><span class="text-danger"></span>
-                                                                <button type="button" name="chl_add" id="chl_add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Child</button>
+                                                                <button type="button" name="chl_add" id="chl_add" class="btn btn-primary bg_color">Add Child</button>
                                                                 </div>
                                                             </div>
         
@@ -550,7 +546,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group wrapper-class" >
                                                                         <label></label><span class="text-danger"></span>
-                                                                <button type="button" name="add2" id="td_add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Doctor</button>
+                                                                <button type="button" name="add2" id="td_add" class="btn btn-primary bg_color">Add Doctor</button>
                                                                 </div>
                                                             </div>
         
@@ -599,7 +595,7 @@
                                                                     <div class="col-md-3">
                                                                         <div class="form-group wrapper-class" >
                                                                             <label>DIAGNOSIS</label><span class="text-danger"></span></br>
-                                                                            <button type="button" required name="add1" id="add1" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Diagnosis</button><br><br><div id="dynamic_field1"></div>
+                                                                            <button type="button" required name="add1" id="add1" class="btn btn-primary bg_color">Add Diagnosis</button><br><br><div id="dynamic_field1"></div>
                                                                             
                                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                                         </div><!-- /.form-group wrapper-class -->
@@ -629,7 +625,7 @@
                                                                     </div><!-- /.col-md-3 -->
 
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next1" name="submit" value="Next">
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next1" name="submit" value="Next">
                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
     
 
@@ -649,7 +645,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group wrapper-class" >
                                                         <label>DETAILS OF CURRENT MEDICATIONS</label><span class="text-danger"></span></br>
-                                                            <button type="button" name="add" id="add" class="btn btn-outline-primary hvr-shutter-in-vertical">Add Medicine</button>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary bg_color">Add Medicine</button>
                                                             <span class="text-danger error-text type_category_err"></span>                           
                                                     </div><!-- /.form-group wrapper-class -->
                                                 </div><!-- /.col-md-3 -->
@@ -748,24 +744,17 @@
                                                                 <tr>
                                                                   <td>Typhoid</td><td><input type="text" name="typhoid_vac" class="form-control"></td><td><input type="date" name="typhoid_date" class="form-control"></td><td><input type="date" name="typhoid_due_date" class="form-control"></td>
                                                                 </tr>
-                                                                
-                                                                <table class="table borderless-table">
-                                                                                      <tr>
-                                                                                          <td>COVID19</td><td>1<sup>st</sup></td><td><input type="text" name="covid_vac_1" class="form-control" ></td><td></td><td></td><td></td><td></td>
-                                                                                          
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td></td><td>2<sup>nd</sup></td><td><input type="text" name="covid_vac_2" class="form-control"></td><td></td><td></td><td></td><td></td>
-                                                                                          
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td></td><td>3<sup>rd</sup></td><td><input type="text" name="covid_vac_3" class="form-control"></td><td></td><td></td><td></td><td></td>
-                                                                                          
-                                                                                      </tr>
-                                                                                  </table>    
+                                                                <tr>
+                                                                  <td>COVID19</td><td></td><td class="row">
+                                                                        <label class="col-sm-2" style="margin-top:3px;">1<sup>st</sup></label><input type="text" name="covid_vac_1" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+                                                                        <label class="col-sm-2" style="margin-top:3px;">2<sup>nd</sup></label><input type="text" name="covid_vac_2" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+                                                                        <label class="col-sm-2" style="margin-top:3px;">3<sup>rd</sup></label><input type="text" name="covid_vac_3" class="form-control col-sm-2" style="width:450px;margin-top:3px;">
+                                                                        
+                                                                    </td><td></td>
+                                                                </tr>    
                                                               </table>
                                                             </div>
-                                                            <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next2" name="submit" value="Next">
+                                                            <input type="submit" class="submit_btn btn btn-primary bg_color" id="next2" name="submit" value="Next">
 
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
 
@@ -1134,7 +1123,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next3" name="submit" value="Next">
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next3" name="submit" value="Next">
                                                                 <hr style="border-top: 2px solid #2B48B0;"/>
                                             
                 </div>
@@ -1548,7 +1537,7 @@
                                                                         </div><!-- /.form-group wrapper-class -->
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
-                                                                <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next4" name="submit" value="Next">
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next4" name="submit" value="Next">
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
                    
                                                 </div>
@@ -1700,7 +1689,7 @@
                                                                     </div><!-- /.col-md-3 -->
                                                                 </div><!-- / row -->
 
-                                                                <input type="submit" class="submit_btn btn btn-outline-primary hvr-shutter-in-vertical" id="next5" name="submit" value="Submit">
+                                                                <input type="submit" class="submit_btn btn btn-primary bg_color" id="next5" name="submit" value="Submit">
                                                                  <hr style="border-top: 2px solid #2B48B0;"/>
                                                     
                                                 </div>
@@ -1980,7 +1969,6 @@
         
 
     </script>
-
 <?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>

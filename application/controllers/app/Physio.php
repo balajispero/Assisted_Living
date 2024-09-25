@@ -397,8 +397,8 @@ class Physio extends General{
 
 	            'InActive'=>0,
 	        	'added_date'		=>	 date("Y-m-d h:i:s a"));
-
-				if($this->input->post('expert_rec')=="Yes") {
+	        	
+	        	if($this->input->post('expert_rec')=="Yes") {
 	            $evaluation_details['rel_agree']="Yes";
 	        	}
 
@@ -501,11 +501,7 @@ class Physio extends General{
 				 $this->data['patientInfo'] = $this->patient_model->getPatientInfo($patient_no); 
 				 $this->data['ptnEvalInfo'] = $this->physio_model->get_evaluation_data($eval_no);
 				 $this->data['tightness_list'] = $this->physio_model->get_tightness_list();
-				 $this->data['bodypart_list'] = $this->physio_model->get_bodypart_list();
-<<<<<<< Updated upstream
 				 
-=======
->>>>>>> Stashed changes
 		
 		$this->load->view('app/physio/view_evaluation',$this->data);
 	}

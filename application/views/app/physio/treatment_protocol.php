@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -227,8 +227,7 @@
                                                 <td><?php echo $rows->ptn_name?></td>
                                                 <td><?php echo $rows->exp_session?></td>
                                                 
-
-                                                     <?php if($rows->treatment_protocol=="Added"): 
+                                                <?php if($rows->treatment_protocol=="Added"): 
                                                         $ci_treatment_obj = & get_instance();
                                                         $ci_treatment_obj->load->model('app/general_model');
                                                         $treat_protocol_data = $ci_treatment_obj->general_model->get_treatment_protocol_start_end_dt($rows->eval_no); ?>
@@ -240,6 +239,7 @@
                                                             <td></td>
                                                             <td>Pending</td>
                                                     <?php endif ?>
+                                                    
                                                 <td>
                                                     <?php
                                                         $ci_obj = & get_instance();
@@ -329,6 +329,5 @@
         <!-- END BDAY -->
         
         
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+    </body>
 </html>

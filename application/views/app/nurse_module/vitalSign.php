@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -28,7 +28,7 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-            <style>
+        <style>
                 .form-control1 {
                     display: inline;
                     width: 100%;
@@ -311,20 +311,20 @@
                                                             </select>
                                             </td>
                                         </tr>
-                                        <tr>
+                                       <tr>
                                                 <td>BSL</td>
                                                 <td><input type="text" name="bsl"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;</td>
                                            </tr>
                                         <tr>
-                                           		<td>Pulse Rate</td>
+                                                <td>Pulse Rate</td>
                                                 <td><input type="number" name="pulse_rate" id="pulse_rate" style="width: 80%;" class="form-control1" placeholder="Enter 60 to 100">&nbsp;&nbsp;/min</td>
                                            </tr>
                                            <tr>
-                                           		<td>Blood Pressure</td>
+                                                <td>Blood Pressure</td>
                                                 <td><input type="text" name="bp" id="bp"  style="width: 80%;"  class="form-control1">&nbsp;&nbsp;mm of Hg</td>
                                            </tr>
                                            <tr>
-                                           		<td>Temperature</td>
+                                                <td>Temperature</td>
                                                 <td><input type="number" name="temperature" id="temperature" style="width: 80%;" class="form-control1" placeholder="Enter 82 to 110">&nbsp;&nbsp;F</td>
                                            </tr>
                                            <tr>
@@ -332,15 +332,15 @@
                                                 <td><input type="number" name="spo2" style="width: 80%;" class="form-control1" placeholder="Enter 95 to 100">&nbsp;&nbsp;</td>
                                            </tr>
                                            <tr>
-                                           		<td>Respiration</td>
+                                                <td>Respiration</td>
                                                 <td><input type="text" name="respiration" id="respiration"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;/min</td>
                                            </tr>
                                            <tr>
-                                           		<td>Height</td>
+                                                <td>Height</td>
                                                 <td><input type="text" name="height" id="height"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;Cm</td>
                                            </tr>
                                            <tr>
-                                           		<td>Weight</td>
+                                                <td>Weight</td>
                                                 <td><input type="text" name="weight" id="weight"  style="width: 80%;" class="form-control1">&nbsp;&nbsp;Kg</td>
                                            </tr>
                                         </tbody>
@@ -384,7 +384,6 @@
          <!-- DATE -->
          <script src="<?php echo base_url();?>public/datepicker/js/jquery-1.9.1.min.js"></script>
         <script src="<?php echo base_url();?>public/datepicker/js/bootstrap-datepicker.js"></script>
-
         <script type="text/javascript">
             // When the document is ready
             $(document).ready(function () {
@@ -395,12 +394,6 @@
                 });  
             
             });
-            
-
-           /* $('.form-control1').on('click', function(e){
-            e.preventDefault();
-            $(this).css('border-color', 'grey');
-            });*/
         </script>
         <!-- END DATE -->
         <script>
@@ -448,7 +441,6 @@
 /**************** Vital Sign validation******************/
         </script>
         
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
 </html>

@@ -106,13 +106,13 @@ class User extends General{
 									anchor('app/user/view/'.$user->user_id,$user->user_id),
 									$user->name .''.@$physio_designation, 
 									$user->designation, 
-									// $user->dept_name, 
+									/*$user->dept_name,*/ 
 									$user->email_address, 
 									$cStatus, 
 									anchor('app/user/edit/'.$user->user_id,'Edit').'&nbsp|&nbsp;'.
 									$InActive
 			);
-				$physio_designation="";
+			$physio_designation="";
 		}
 		$this->data['message'] = $this->session->flashdata('message');
 		$this->data['table'] = $this->table->generate();

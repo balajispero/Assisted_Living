@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -201,8 +201,7 @@
                                            </thead>
                                            <tbody>
                                            <?php
-                                           if($physioNotes) {
-
+                                           
                                            foreach($physioNotes as $key => $rows){?>
                                             <tr>
                                             <td><?php echo $rows->session_date?></a></td>
@@ -225,7 +224,7 @@
                                             <?php } ?>
 
                                            </tr> 
-                                           <?php } }?> 
+                                           <?php }?> 
                                            </tbody>
                                            </table>
                                        </div>
@@ -701,6 +700,5 @@ xmlhttp.send();
         </script>
         
     
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+    </body>
 </html>

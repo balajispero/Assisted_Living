@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -99,7 +99,7 @@
                     	 <div class="box">
                          		<form class="form-search" method="post" action="<?php echo base_url();?>app/medicine_category">
                          		<div class="box-header">
-                                    <h3 class="box-title"><a href="<?php echo base_url();?>app/medicine_category/add" class="btn btn-outline-primary hvr-shutter-in-vertical"><i class="fa fa-plus"></i> Add New</a></h3>
+                                    <h3 class="box-title"><a href="<?php echo base_url();?>app/medicine_category/add" class="btn btn-primary bg_color"><i class="fa fa-plus"></i> Add New</a></h3>
                                     
                                     <div class="box-tools">
                                         <div class="input-group">

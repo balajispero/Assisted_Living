@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
  <meta content="Live Demo Assisted Living,HMS is designed for medical practitioners and health-related institutions to assistant them in storing and keeping track of all correlated information such as patient medical records, admission/discharge reports, pharmaceutical management, billing and report generation and more. " name="description">
@@ -197,7 +197,7 @@
                                             <?php echo $message;?>
                                             <?php //if($this->session->userdata('emr_viewing') == ""){?>	
                                            <?php if($getOPDPatient->nStatus == "Pending"){?>
-                                           <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Notes</a>
+                                           <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Notes</a>
                                           <?php } ?>
                                            <a href="<?php echo base_url()?>app/ipd_print/print_nurse_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                            <!-- <a href="<?php echo base_url()?>app/ipd_print/pdf_nurse_note/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-success" target="_blank"><i class="fa fa-print"></i> PDF</a> -->
@@ -355,9 +355,9 @@ xmlhttp.send();
                                             <td><input type="text" name="focus" placeholder="Focus" class="form-control input-sm" style="width: 100%;" required></td>
                                         </tr>-->
                                         <tr>
-                                            <td>Complaints<font color="#FF0000">*</font></td>
+                                            <td>Complaints</td>
                                             <td>
-                                            <select name="complain" id="complain" style="width: 100%;" class="form-control input-sm" required>
+                                            <select name="complain" id="complain" style="width: 100%;" class="form-control input-sm">
                                                                 <option value="">- Complaints -</option>
                                                                 <?php 
                                                                 foreach($ComplainList as $ComplainList){?>
@@ -375,7 +375,7 @@ xmlhttp.send();
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -411,7 +411,7 @@ xmlhttp.send();
                                              <div class="bootstrap-timepicker">
                                             <div class="form-group">
                                             <div class="input-group">                                            
-                                                <input type="text" class="form-control timepicker edit_time" name="cTime" id="cTime" value="<?php echo date("H:i A");?>" />
+                                                <input type="text" class="form-control timepicker edit_time" name="cTime" id="cTime"/>
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-clock-o"></i>
                                                 </div>
@@ -422,7 +422,7 @@ xmlhttp.send();
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Complaints<!-- <font color="#FF0000">*</font> --></td>
+                                            <td>Complaints</td>
                                             <td>
                                            <select name="complain" id="editcompl" style="width: 100%;"  class="form-control input-sm editcompl">
                                                                 <option value="">- Complaints -</option>
@@ -446,7 +446,7 @@ xmlhttp.send();
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -528,7 +528,7 @@ $(document).ready(function() {
         event.preventDefault(); // Prevent the default link behavior
 
         const nurse_notes_id = $(this).data("id");
-        const nurse_note_time = $(this).data("time");
+         const nurse_note_time = $(this).data("time");
 
         if (window.XMLHttpRequest) {
             xmlhttp6 = new XMLHttpRequest();
@@ -555,7 +555,7 @@ $(document).ready(function() {
                             $('.nurse_notes_id').val(res[0].nurse_notes_id);
                             $('.ddate').val(res[0].dDate);
                             $('.note').val(res[0].notes);
-                            $('.edit_time').val(nurse_note_time);
+                             $('.edit_time').val(nurse_note_time);
             }
         }
 
@@ -564,7 +564,6 @@ $(document).ready(function() {
     });
 });
 </script>
-
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+<?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
 </html>

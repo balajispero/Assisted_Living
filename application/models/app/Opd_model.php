@@ -735,11 +735,7 @@ class Opd_model extends CI_Model{
     {
     $this->db->select("*");
     $this->db->from('iop_nurse_notes');
-    //$this->db->where('InActive', '0');
-    $this->db->where(array(
-			'organization'=>$this->session->userdata('organization'),
-			'InActive'	=>		0
-		));	
+    $this->db->where('InActive', '0');
     $this->db->where('nurse_notes_id', $nurse_notes_id);
     $query = $this->db->get();
   
@@ -753,13 +749,13 @@ class Opd_model extends CI_Model{
 			'iop_id'		=>		$iop_no,
 			'organization'=>$this->session->userdata('organization'),
 			'InActive'	=>		0
-		));	
+		));
 		$this->db->where("(category_id = 7 OR category_id = 14)");
 		//$this->db->order_by("dDate","DESC");
 		$query = $this->db->get("iop_laboratory", $limit, $offset);
 		return $query->result();
 	}
-	public function getLabTest_cnt($iop_no,$limit=""){
+		public function getLabTest_cnt($iop_no,$limit=""){
 		
 		$this->db->where(array(
 			'iop_id'		=>		$iop_no,

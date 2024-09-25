@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -258,10 +258,10 @@ textarea.form-control{
                                                                     </div>
                                                                 </div> --><!-- / row -->
 
-                 <!-- <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit"> --> 
-                 <div class=" col-md-11 text-center">
+                <!-- <input type="submit" class="btn btn-primary bg_color" name="btnSave" value="submit"> -->
+                <div class=" col-md-11 text-center">
                 <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave" value="Submit" >Submit</button>
-                            </div>
+                            </div><br>
             </form>
             
 
@@ -324,6 +324,5 @@ $(document).ready(function() {
   </script>          
 
 
-<?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>
 </html>

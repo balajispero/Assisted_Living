@@ -763,6 +763,7 @@ class Patient_model extends CI_Model{
 	public function discharge_save(){
 		$age = 0;
 		$dob = strtotime($this->input->post('birthday'));
+		
 		$tdate = strtotime(date("Y-m-d"));
 		$disch_date = date("Y-m-d");
 		while( $tdate > $dob = strtotime('+1 year', $dob))

@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -377,7 +377,7 @@ xmlhttp.send();
         <script src="<?php echo base_url();?>public/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url();?>public/js/AdminLTE/app.js" type="text/javascript"></script>
         <!-- End script for open modal for user logout on header section -->
-
+        
         <!-- Bootstrap -->
         <script src="<?php echo base_url();?>public/timepicker/js/bootstrap.min.js" type="text/javascript"></script>
 
@@ -411,7 +411,6 @@ xmlhttp.send();
             });
         </script>
         <!-- END DATE -->
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
 </html>

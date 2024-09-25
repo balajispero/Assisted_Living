@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -34,7 +34,112 @@
                 width: 80% !important;
                 margin: 2px;
             }
-            
+            .input-box {
+                width: 48vw !important;
+            }
+
+            textarea.form-control {
+                width: 48% !important;
+            }
+
+            #ptn_spo2 {
+                width: 48% !important;
+            }
+
+            #ptn_temp {
+                width: 48% !important;
+            }
+
+            #ptn_pulse {
+                width: 48% !important;
+            }
+
+            #ptn_bp {
+                width: 48% !important;
+            }
+
+
+            /* Media query for devices with a maximum width of 768px */
+            @media (max-width: 768px) {
+                .col-md-4 {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    /* Add some spacing between columns on smaller screens */
+                }
+
+                .input-box {
+                    width: 100% !important;
+                }
+
+                textarea.form-control {
+                    width: 100% !important;
+                }
+
+                #ptn_spo2 {
+                    width: 100% !important;
+                }
+
+                #ptn_temp {
+                    width: 100% !important;
+                }
+
+                #ptn_pulse {
+                    width: 100% !important;
+                }
+
+                #ptn_bp {
+                    width: 100% !important;
+                }
+
+                input#ptn_cvs {
+                    width: 100% !important;
+                }
+
+                input#ptn_cns {
+                    width: 100% !important;
+                }
+            }
+
+            /* Media query for devices with a maximum width of 300px */
+            @media (max-width: 300px) {
+                .col-md-4 {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    /* Add some spacing between columns on smaller screens */
+                }
+
+                .input-box {
+                    width: 100% !important;
+                }
+
+                textarea.form-control {
+                    width: 100% !important;
+                }
+
+                #ptn_spo2 {
+                    width: 100% !important;
+                }
+
+                #ptn_temp {
+                    width: 100% !important;
+                }
+
+                #ptn_pulse {
+                    width: 100% !important;
+                }
+
+                #ptn_bp {
+                    width: 100% !important;
+                }
+
+                input#ptn_cvs {
+                    width: 100% !important;
+                }
+
+                input#ptn_cns {
+                    width: 100% !important;
+                }
+            }
             </style>
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
     </head>
@@ -584,7 +689,7 @@
                                                 </div>
                                             </div>
                                             <div class="box-footer clearfix">
-                                            <button class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit" value="save"><i class="fa fa-save"></i> Save</button>
+                                            <button class="btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit" value="save"><i class="fa fa-save"></i> Save</button>
                                             <a href="<?php echo base_url();?>app/patient" class="btn btn-default">Cancel</a>
                                  
                             </div>
@@ -937,7 +1042,6 @@
         $('#birthday').attr('max', maxDate);
     });
    </script>
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
 </html>

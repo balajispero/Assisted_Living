@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -188,7 +188,7 @@
                                         	<?php echo $message;?>
                                             <?php //if($this->session->userdata('emr_viewing') == ""){?>	
                                        
-                                           <button type="button" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#OpenModal"><i class="fa fa-plus"></i> Add Vital Parameters</button>
+                                           <button type="button" class="btn btn-primary bg_color" data-toggle="modal" data-target="#OpenModal"><i class="fa fa-plus"></i> Add Vital Parameters</button>
                                      
                                            <a href="<?php echo base_url()?>app/ipd_print/print_vital/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                            <!-- <a href="<?php echo base_url()?>app/ipd_print/pdf_vital/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-success" target="_blank"><i class="fa fa-print"></i> PDF</a> -->
@@ -338,7 +338,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -387,7 +387,6 @@
         </script>
         <!-- END DATE -->
         
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
 </html>

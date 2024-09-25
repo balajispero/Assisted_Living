@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
  <meta content="Live Demo Assisted Living,HMS is designed for medical practitioners and health-related institutions to assistant them in storing and keeping track of all correlated information such as patient medical records, admission/discharge reports, pharmaceutical management, billing and report generation and more. " name="description">
@@ -35,76 +35,22 @@
         <![endif]-->
         <?php require_once(APPPATH.'views/include/responsive_design.php');?>
         <style>
-/* @media screen and (max-width: 320px) {
-    .user_img {
-        width: 100%; 
-        height: 140px; 
-    }
+             @media screen and (min-width: 760px) and (max-width: 800px) {
+            .user_img {
+                width: 100%; 
+                height: 140px; /* Adjust as needed */
+            }
 
-    h5 {
-        margin-left: 100px !important; 
-        font-size: 16px; 
-    }
-}
+            h5 {
+                margin-left: 100px !important; 
+                font-size: 16px; /* Adjust as needed */
+            }
 
-@media only screen and (max-width: 768px){
-    .user_img {
-        width: 80%; 
-        height: 160px; 
-    }
-
-    h5 {
-        margin-left:60px !important; 
-        font-size: 14px; 
-    }
-    .col-md-4 {
-        width: 33% !important;
-        display: inline;
-    }
-    } */
-    /* @media only screen and (max-width:1024){
-        .user_img {
-        width: 0% !important; 
-        height: 160px; 
-    }
-    .col-md-4 {
-        width: 33% !important;
-        display: inline;
-    }
-    } */
-
-    @media screen and (min-width: 320px) and (max-width: 1024px) {
-    .user_img {
-        width: 100%; 
-        height: 140px; /* Adjust as needed */
-    }
-
-    h5 {
-        margin-left: 100px !important; 
-        font-size: 16px; /* Adjust as needed */
-    }
-
-    .col-md-4 {
-        width: 33% !important;
-        display: inline;
-    }
-}
-
-/* Additional styles for screen widths between 769px and 1024px */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    .user_img {
-        width: 50%; 
-        height: 160px; /* Adjust as needed */
-    }
-
-    h5 {
-        margin-left: 54px !important; 
-        font-size: 14px; /* Adjust as needed */
-    }
-}
-
-    
-
+            .col-md-4 {
+                width: 33% !important;
+                display: inline;
+            }
+        }
 
         </style>
     </head><div style="position:fixed; bottom: 0; right: 0; width: 67%; border: 2px solid #CCC; top:200px; z-index:1001; background-color: #FFF; display:none;" id="ad2">
@@ -177,14 +123,18 @@
                 <!-- Main content -->
                 <section class="content">
                  
+                 
                  <div class="row">
                  	<div class="col-md-12">
                     <form role="form" method="post" action="<?php echo base_url()?>app/user/edit" onSubmit="return confirm('Are you sure you want to save?');">    
                     	 <div class="box">
+                         		
                          		 <div class="box-footer clearfix">
-                            	 <!--<a href="<?php echo base_url();?>app/user" class="btn btn-default">Back</a>-->
+                            	
+                                            <!--<a href="<?php echo base_url();?>app/user" class="btn btn-default">Back</a>-->
                                  
                             </div>
+                            
                         	<div class="box-body table-responsive">
                             	
                                 
@@ -195,7 +145,7 @@
                                 			</ul>
                                             <div class="tab-content">
                                             	<div class="tab-pane active" id="tab_1">
-                                                	<div class="row">
+                                                    <div class="row">
                                                     <?php
                                                         if (!$user->picture) {
                                                             $picture = "no_avatar.gif";
@@ -240,48 +190,48 @@
                                                     <div class="form-group input-box">
                                                             <label>Title:</label>
                                                             <select name="title" id="title" class="form-control input-sm" required readonly>
-                                                            	<option value="">- Title -</option>
-																<?php 
-																foreach($UserTitles as $UserTitles){
-																if($_POST['title'] == $UserTitles->param_id || $user->title == $UserTitles->param_id){
-																	$selected = "selected='selected'";
-																}else{
-																	$selected = "";
-																}
-																?>
-                                                            	<option value="<?php echo $UserTitles->param_id;?>" <?php echo $selected;?>><?php echo $UserTitles->cValue;?></option>
+                                                                <option value="">- Title -</option>
+                                                                <?php 
+                                                                foreach($UserTitles as $UserTitles){
+                                                                if($_POST['title'] == $UserTitles->param_id || $user->title == $UserTitles->param_id){
+                                                                    $selected = "selected='selected'";
+                                                                }else{
+                                                                    $selected = "";
+                                                                }
+                                                                ?>
+                                                                <option value="<?php echo $UserTitles->param_id;?>" <?php echo $selected;?>><?php echo $UserTitles->cValue;?></option>
                                                                 <?php }?>
                                                             </select>
                                                         </div>
                                                     <div class="form-group input-box">
                                                             <label >Gender:</label>
                                                             <select name="gender" id="gender" class="form-control input-sm"  readonly>
-                                                            	<option value="">- Gender -</option>
+                                                                <option value="">- Gender -</option>
                                                                 <?php 
-																foreach($gender as $gender){
-																if($_POST['gender'] == $gender->param_id || $user->gender == $gender->param_id){
-																	$selected = "selected='selected'";
-																}else{
-																	$selected = "";
-																}
-																?>
-                                                            	<option value="<?php echo $gender->param_id;?>" <?php echo $selected;?>><?php echo $gender->cValue;?></option>
+                                                                foreach($gender as $gender){
+                                                                if($_POST['gender'] == $gender->param_id || $user->gender == $gender->param_id){
+                                                                    $selected = "selected='selected'";
+                                                                }else{
+                                                                    $selected = "";
+                                                                }
+                                                                ?>
+                                                                <option value="<?php echo $gender->param_id;?>" <?php echo $selected;?>><?php echo $gender->cValue;?></option>
                                                                 <?php }?>
                                                             </select>
                                                     </div>
                                                     <div class="form-group input-box">
                                                             <label>Civil Status:</label>
                                                             <select name="civil_status" id="civil_status" class="form-control input-sm" readonly>
-                                                            	<option value="">- Civil Status -</option>
+                                                                <option value="">- Civil Status -</option>
                                                                 <?php 
-																foreach($civilStatus as $civilStatus){
-																if($_POST['civil_status'] == $civilStatus->param_id || $user->civil_status == $civilStatus->param_id){
-																	$selected = "selected='selected'";
-																}else{
-																	$selected = "";
-																}
-																?>
-                                                            	<option value="<?php echo $civilStatus->param_id;?>" <?php echo $selected;?>><?php echo $civilStatus->cValue;?></option>
+                                                                foreach($civilStatus as $civilStatus){
+                                                                if($_POST['civil_status'] == $civilStatus->param_id || $user->civil_status == $civilStatus->param_id){
+                                                                    $selected = "selected='selected'";
+                                                                }else{
+                                                                    $selected = "";
+                                                                }
+                                                                ?>
+                                                                <option value="<?php echo $civilStatus->param_id;?>" <?php echo $selected;?>><?php echo $civilStatus->cValue;?></option>
                                                                 <?php }?>
                                                             </select>
                                                          </div>
@@ -295,16 +245,16 @@
                                                 <div class="form-group input-box">
                                                             <label>Designation:</label>
                                                             <select name="designation" id="designation" class="form-control input-sm" required readonly>
-                                                            	<option value="">- Designation -</option>
+                                                                <option value="">- Designation -</option>
                                                                 <?php 
-																foreach($designationList as $designationList){
-																if($_POST['designation'] == $designationList->designation_id || $user->designation == $designationList->designation_id){
-																	$selected = "selected='selected'";
-																}else{
-																	$selected = "";
-																}
-																?>
-                                                            	<option value="<?php echo $designationList->designation_id;?>" <?php echo $selected;?>><?php echo $designationList->designation;?></option>
+                                                                foreach($designationList as $designationList){
+                                                                if($_POST['designation'] == $designationList->designation_id || $user->designation == $designationList->designation_id){
+                                                                    $selected = "selected='selected'";
+                                                                }else{
+                                                                    $selected = "";
+                                                                }
+                                                                ?>
+                                                                <option value="<?php echo $designationList->designation_id;?>" <?php echo $selected;?>><?php echo $designationList->designation;?></option>
                                                                 <?php }?>
                                                             </select>
                                                              </div>
@@ -313,16 +263,16 @@
                                                 <div class="form-group input-box">
                                                             <label>User Role:</label>
                                                             <select name="user_role" id="user_role" class="form-control input-sm" required readonly>
-                                                            	<option value="">- User Role -</option>
+                                                                <option value="">- User Role -</option>
                                                                 <?php 
-																foreach($userRoleList as $userRoleList){
-																if($_POST['user_role'] == $userRoleList->role_id || $user->user_role == $userRoleList->role_id){
-																	$selected = "selected='selected'";
-																}else{
-																	$selected = "";
-																}
-																?>
-                                                            	<option value="<?php echo $userRoleList->role_id;?>" <?php echo $selected;?>><?php echo $userRoleList->role_name;?></option>
+                                                                foreach($userRoleList as $userRoleList){
+                                                                if($_POST['user_role'] == $userRoleList->role_id || $user->user_role == $userRoleList->role_id){
+                                                                    $selected = "selected='selected'";
+                                                                }else{
+                                                                    $selected = "";
+                                                                }
+                                                                ?>
+                                                                <option value="<?php echo $userRoleList->role_id;?>" <?php echo $selected;?>><?php echo $userRoleList->role_name;?></option>
                                                                 <?php }?>
                                                             </select>
                                                     </div>
@@ -331,7 +281,7 @@
                                                 </div>
                                                 </div>
                                                 <div class="tab-pane" id="tab_2">
-                                                	<div class="row">
+                                                    <div class="row">
                                                          <div class="col-md-4 col-sm-12">
                                                         <div class="form-group input-box ">
                                                             <label>House No.:</label>
@@ -364,14 +314,18 @@
                                                     </div>
 
                                                         </div>
-
                                                     </div>
-                                                </div>
                                             </div>
                                         </div>
-                                     </div>
-                                    </div>
-                     </div>
+                                        
+                                        
+                                        
+                               
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
                      </form>
                  </div>
                  
@@ -400,6 +354,7 @@
             });
         </script>
         <!-- END BDAY -->
-        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-    </body>
+        
+    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+</body>
 </html>

@@ -1375,7 +1375,6 @@ class Doctor extends General{
 
 	
 }
-
 public function admit(){
 		$this->session->set_userdata(array(
 				 'tab'			=>		'patient',

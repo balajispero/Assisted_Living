@@ -17,14 +17,6 @@ class Nurse_module extends General{
 		if(General::is_logged_in() == FALSE){
             redirect(base_url().'login');    
         }
-
-        $ptn_organization = $this->General_model->getptn_organization($this->uri->segment("4"));
-        if($this->uri->segment("4"))
-        {
-			if($this->session->userdata('organization')!=$ptn_organization->organization){
-						redirect(base_url().'access_denied');
-					}
-		}
 		General::variable();	
 	}
 	/*********************Start Medication*********************/
@@ -149,9 +141,7 @@ class Nurse_module extends General{
 			$this->data['given_medicine_chart'] = $this->opd_model->given_medicine_chart($iop_no);
 			
 			$this->load->view("app/nurse_module/medication",$this->data);	
-			
 	}
-	
 	/*********************End Medication*********************/
 	
 	/*public function medication(){

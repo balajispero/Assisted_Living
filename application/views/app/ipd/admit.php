@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -130,15 +130,15 @@
 													$userID = $lastIPDNo->ipdNo;
 													$userID2 = $lastIPDNo->ipdNo;
 													if(strlen($userID) == 1){
-														$userID = "RBGLB0000".$userID;
+														$userID = "SSAL0000".$userID;
 													}else if(strlen($userID) == 2){
-														$userID = "RBGLB0000".$userID;
+														$userID = "SSAL0000".$userID;
 													}else if(strlen($userID) == 3){
-														$userID = "RBGLB000".$userID;
+														$userID = "SSAL000".$userID;
 													}else if(strlen($userID) == 4){
-														$userID = "RBGLB00".$userID;
+														$userID = "SSAL00".$userID;
 													}else if(strlen($userID) == 5){
-														$userID = "RBGLB0".$userID;
+														$userID = "SSAL0".$userID;
 													}else if(strlen($userID) == 6){
 														$userID = $userID;
 													}
@@ -248,7 +248,7 @@
                                 </div>					
                                 
                                  <div class="form-group">
-                                <button class="form-control btn btn-outline-primary hvr-shutter-in-vertical" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
+                                <button class="form-control btn btn-primary bg_color" name="btnSubmit" id="btnSubmit" type="submit"><i class="fa fa-save"></i> Save</button>
                                 </div>
                                 
                             </div>
@@ -460,6 +460,5 @@
         <!-- END BDAY -->
         
         
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+    </body>
 </html>

@@ -43,8 +43,7 @@ class Lab extends General{
 				$offset = $this->uri->segment($uri_segment);
 				
 				$patient = $this->lab_model->get_lab_sample_test($this->limit, $offset);
-				/*echo "<pre>";
- 		print_r($patient);die;*/
+// 		print_r($patient);die;
 				$config['base_url'] = base_url().'app/lab/lab_sample_test_list/';
 				$config['total_rows'] = $this->lab_model->count_all_lab_sample_test();
 				$config['per_page'] = $this->limit;
@@ -105,7 +104,6 @@ class Lab extends General{
 					anchor('app/lab/view_lab_sample_report/'.$patient->io_lab_id,$patient->iop_id),
 					$patient->dDate, 
 					@$pages->test_name,
-					/*$patient->laboratory_id,*/
 					@$patient->middlename, 
 					/*@$ptn_name[0]->middlename,*/
 					@$doctor_name->cPreparedBy,  
@@ -205,7 +203,7 @@ class Lab extends General{
 				$this->session->set_userdata('page_name','lab_sample_view');
 				$page_id = $this->General_model->getPageID();
 				$userRole = $this->General_model->getUserLoggedIn($this->session->userdata('username'));
-				/*if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
+			/*	if(General::has_rights_to_access($page_id->page_id,$userRole->user_role) == FALSE){
 					redirect(base_url().'access_denied');
 				}*/
 				// end of user restriction function

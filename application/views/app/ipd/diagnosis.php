@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title></title>
+        <title>Assisted Living</title></title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -260,7 +260,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                             <button class="btn btn-outline-primary hvr-shutter-in-vertical" id="btnSubmit" type="submit" style="font-size:12px;">Save</button>
+                                             <button class="btn btn-primary bg_color" id="btnSubmit" type="submit" style="font-size:12px;">Save</button>
                                         </div>
                                        
                                     </div>
@@ -302,7 +302,6 @@
         </script>
         <!-- END BDAY -->
         
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
 </html>

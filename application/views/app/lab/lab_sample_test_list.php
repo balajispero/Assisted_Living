@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         
 
@@ -123,7 +123,7 @@
                                                     <input type="text" class="form-control input-sm" name="search" id="search" placeholder="Test Name" style="width: 180px;">
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-outline-primary hvr-shutter-in-vertical" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
+                                                    <button class="btn btn-sm btn-primary bg_color" name="btnSearch" id="btnSearch" type="submit"><i class="fa fa-search"></i> Search </button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -187,7 +187,6 @@
     });
 </script>
 <!-- END BDAY -->
-
 
 <?php require_once(APPPATH . 'views/include/footer.php'); ?>
 </body>

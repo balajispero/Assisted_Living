@@ -44,7 +44,7 @@
             margin-left: 70px !important;
          }
         }
-        @media only screen and (max-width:425px) {
+        @media only screen and (max-width:430px) {
          .logo2{
             font-size: 18px;
             margin-top: -50px;
@@ -123,14 +123,13 @@
       color: #2B48B0;
      }
                       .hvr-shutter-in-vertical{
-                         background-color: #2098D1; 
+                        /* background-color: #fff; */
                         color: #fff;
                         border-color: #2B48B0;
                       }
                     
                       .hvr-shutter-in-vertical:before{
-                        /*background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;*/
-                        background-color: #0097A7;
+                        background: linear-gradient(90deg, #09A3D5 0.58%, #3B4BDF 100.03%) !important;
                       }
                       .hvr-shutter-in-vertical:hover{
                         background-color: #fff!important;
@@ -144,8 +143,8 @@
                 border-radius: 5px;
                 box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
             }
-
-             .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+            
+            .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
     z-index: 2;
     color: #fff;
     cursor: default;
@@ -171,7 +170,7 @@
         </a>
         <div class="logo2"> 
                 <!-- <?php echo "Assisted Living"?> -->
-                <p class="ml2">Rehabilitation Center</p>
+                <p class="ml2">Assisted Living Facility</p>
 
         </div>
         <div class="navbar-right">
@@ -276,10 +275,10 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="<?php echo base_url()?>myprofile" class="btn btn-default btn-default1 btn-flat">Profile</a>
+                                <a href="<?php echo base_url()?>myprofile" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="<?php echo base_url()?>login/logout" class="btn btn-default btn-default1 btn-flat">Sign out</a>
+                                <a href="<?php echo base_url()?>login/logout" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

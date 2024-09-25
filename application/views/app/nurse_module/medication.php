@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -264,8 +264,7 @@
                                             if(!empty($medicine_chart)){ ?>
                             <tr>
                                 <td>
-                                    <!-- <input type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" value="Save Changes" name="save"> -->
-                                     <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" value="Save Changes" name="save">Save Changes</button>
+                                    <input type="submit" class="btn btn-primary bg_color" value="Save Changes" name="save">
                                 </td>   
                         </tr> 
                         <?php } ?>
@@ -528,8 +527,7 @@ xmlhttp.send();
         
         
         
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
         
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+    </body>
 </html>

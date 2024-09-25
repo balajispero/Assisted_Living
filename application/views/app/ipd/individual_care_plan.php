@@ -4,7 +4,7 @@
 <head>
 
         <meta charset="UTF-8">
-        <title>Rehabilitation Center</title></title>
+        <title>Assisted Living</title></title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
  
 
@@ -16,7 +16,7 @@
         <!----------BOOTSTRAP DATEPICKER----------------------------->
         <link rel="stylesheet" href="<?php echo base_url();?>public/datepicker/css/datepicker.css">
         <!---------------------------------------------------------->
-
+        
          <!------------ bootstrap timepicker ---------------------------------->
         <link href="<?php echo base_url();?>public/timepicker/bootstrap-timepicker.min.css" rel="stylesheet"/>
         <!-------------------------------------------------------------------->
@@ -183,7 +183,7 @@
                                         <div class="tab-pane active" id="tab_1">
                                             <?php //if($this->session->userdata('emr_viewing') == ""){?>    
                                             <?php  if($getOPDPatient->nStatus == "Pending"){?>
-                                            <a href="#" class="btn btn-outline-primary hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Individual Care Plan</a>
+                                            <a href="#" class="btn btn-primary bg_color" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Individual Care Plan</a>
                                             <?php } ?>
                                             <a href="<?php echo base_url()?>app/ipd_print/print_individual_care_plan/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print</a>
                                              <!-- <a href="<?php echo base_url()?>app/ipd_print/pdf_diagnosis/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>" class="btn btn-success" target="_blank"><i class="fa fa-print"></i> PDF</a> -->
@@ -314,7 +314,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -343,7 +343,7 @@
                                         <tbody>
                                         <tr>
                                             <td>Date</td>
-                                            <td><input type="date" name="dDate" id="dDate2" value="<?php echo date("Y-m-d");?>" placeholder="Date" class="form-control input-sm edit_date" style="width: 100%;" required></td>
+                                            <td><input type="text" name="dDate" id="dDate2" value="<?php echo date("Y-m-d");?>" placeholder="Date" class="form-control input-sm edit_date" style="width: 100%;" required></td>
                                         </tr>
                                         <tr>
                                             <td>Time</td>
@@ -388,7 +388,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -458,7 +458,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-outline-primary hvr-shutter-in-vertical" name="btnSave">Save</button>
+                                            <button type="submit" class="btn btn-primary bg_color" name="btnSave">Save</button>
                                         </div>
                                        
                                     </div>
@@ -535,7 +535,6 @@
                         $('.btn-review').on('click',function() {
 
                             var id=$(this).data('id');
-                            
                            
                             $('.ind_care_plan_id').val(id);
                             $('.opd_no').val($(this).data('io_id'));
@@ -554,7 +553,6 @@
                     });
                 </script>
         
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+        <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
 </html>

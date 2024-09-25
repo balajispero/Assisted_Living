@@ -38,7 +38,7 @@ class general extends CI_Controller{
 
 		// Dashboard 
 		$this->data['hasAccesstoDoctorAvail'] = ($this->has_rights_to_access("134",$userRole->user_role) == FALSE) ? FALSE : TRUE;
-		
+
 		// Billing Module Validation
 		$this->data['hasAccesstoBilling'] = ($this->has_rights_to_access("85",$userRole->user_role) == FALSE) ? FALSE : TRUE;
 			$this->data['hasAccesstoPOS'] = ($this->has_rights_to_access("84",$userRole->user_role) == FALSE) ? FALSE : TRUE;
@@ -131,10 +131,6 @@ class general extends CI_Controller{
 		// Physio Module
 		$this->data['hasAccesstoPhysio'] = ($this->has_rights_to_access("147",$userRole->user_role) == FALSE) ? FALSE : TRUE;
 			$this->data['hasAccesstoPhysioIpdList'] = ($this->has_rights_to_access("148",$userRole->user_role) == FALSE) ? FALSE : TRUE;
-
-			// Demo Module
-		$this->data['hasAccesstoDemo'] = ($this->has_rights_to_access("150",$userRole->user_role) == FALSE) ? FALSE : TRUE;
-			$this->data['hasAccesstoDemoSubMenu'] = ($this->has_rights_to_access("151",$userRole->user_role) == FALSE) ? FALSE : TRUE;
 				
 		}
 
@@ -168,7 +164,6 @@ class general extends CI_Controller{
     }
 	
 	public function has_rights_to_access($page_id,$role_id){
-		//echo "$page_id $role_id";
 		$this->db->where(array(
 			'role_id'	=>		$role_id,
 			'organization'	=>	$this->session->userdata('organization'),

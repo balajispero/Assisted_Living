@@ -33,8 +33,7 @@ class Dashboard extends General{
 		$this->data['latest_visited_patient'] = $this->dashboard_model->getRoomstatus();		 
 		$this->data['getTodayAppointment'] = $this->dashboard_model->getTodayAppointment();	
 		//$this->data['getstatus'] = $this->dashboard_model->getstatus();
-		/*echo "<pre>";
-         print_r($this->data['getTodayAppointment']);*/
+        // print_r($this->data['getTodayAppointment']);die;
         $this->data['vacant_room_barchart'] = $this->dashboard_model->getRoomstatusforbarchart();
         $this->data['allocated_room'] = $this->dashboard_model->getRoomallocatedStatus();
 		$room_data[]   = array(
@@ -479,7 +478,6 @@ class Dashboard extends General{
      
         echo json_encode(count($vacant_room_cnt ));
     }
-
     public function dashboard_detail($members=0)
 	{
 		$this->session->set_userdata(array(
@@ -536,6 +534,7 @@ class Dashboard extends General{
 				$this->table->set_empty("&nbsp;");
 				$this->table->set_heading('Member No','Member Name','Entry Date','Consultant Doctor','Room Type','Floor','Allocated Room','Allocated Bed','Status');
 				
+				
 				if($patient)
 				{
 					foreach ($patient as $patient)
@@ -554,7 +553,6 @@ class Dashboard extends General{
 						);
 					}
 				}
-				
 			$this->data['message'] = $this->session->flashdata('message');
 			$this->data['table'] = $this->table->generate();
    $this->data['members'] = $members;
@@ -689,18 +687,19 @@ class Dashboard extends General{
 				
 				if($patient)
 				{
-					foreach ($patient as $patient)
-					{	
-						$this->table->add_row( 
-							 @$patient->bed_name,
-							 @$patient->room_name,
-							 @$patient->category_name,
-							 @$patient->floor, 
-							 @$patient->nStatus,
-							 @$patient->room_rates
-							// @$patient->nStatus		
-						);
-					}
+				foreach ($patient as $patient)
+				{	
+				
+				$this->table->add_row( 
+					 @$patient->bed_name,
+					 @$patient->room_name,
+					 @$patient->category_name,
+					 @$patient->floor, 
+					 @$patient->nStatus,
+					 @$patient->room_rates
+					// @$patient->nStatus		
+				);
+			}
 				}
 			$this->data['message'] = $this->session->flashdata('message');
 			$this->data['table'] = $this->table->generate();

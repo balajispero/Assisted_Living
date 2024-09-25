@@ -110,7 +110,7 @@ class General_model extends CI_Model{
 	
 	public function floorList(){
 		$this->db->where(array(
-			'organization'		=>		$this->session->userdata('organization'),
+		    'organization'		=>		$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('floor_name','asc');
@@ -175,7 +175,7 @@ class General_model extends CI_Model{
 	
 	public function insuranceCompList(){
 		$this->db->where(array(
-			'organization'		=>	$this->session->userdata('organization'),
+		    'organization'		=>	$this->session->userdata('organization'),
 			'InActive'	=>	0	
 		));
 		$this->db->order_by('company_name','asc');
@@ -433,7 +433,7 @@ class General_model extends CI_Model{
 
                 public function today_reg_ptn_cnt()
                 {
-                    return $this->db->where(array('organization'=>$this->session->userdata('organization'),'InActive'=>'0'))->like('inc_entry', date('Y-m-d'))->get('patient_personal_info')->result_array();
+                    return $this->db->where(array('organization'=>$this->session->userdata('organization'),'InActive'=>'0'))->like('date_entry', date('Y-m-d'))->get('patient_personal_info')->result_array();
                 }
                 public function vacant_room_cnt()
                 {

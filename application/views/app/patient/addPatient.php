@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="euc-kr">
+<head><meta charset="windows-1252">
     <head>
-        <title>Rehabilitation Center</title>
+        <title>Assisted Living</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -47,6 +47,113 @@
                 margin: 2px;
             }
 
+            .input-box {
+                width: 48vw !important;
+            }
+
+            textarea.form-control {
+                width: 48% !important;
+            }
+
+            #ptn_spo2 {
+                width: 48% !important;
+            }
+
+            #ptn_temp {
+                width: 48% !important;
+            }
+
+            #ptn_pulse {
+                width: 48% !important;
+            }
+
+            #ptn_bp {
+                width: 48% !important;
+            }
+
+
+            /* Media query for devices with a maximum width of 768px */
+            @media (max-width: 768px) {
+                .col-md-4 {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    /* Add some spacing between columns on smaller screens */
+                }
+
+                .input-box {
+                    width: 100% !important;
+                }
+
+                textarea.form-control {
+                    width: 100% !important;
+                }
+
+                #ptn_spo2 {
+                    width: 100% !important;
+                }
+
+                #ptn_temp {
+                    width: 100% !important;
+                }
+
+                #ptn_pulse {
+                    width: 100% !important;
+                }
+
+                #ptn_bp {
+                    width: 100% !important;
+                }
+
+                input#ptn_cvs {
+                    width: 100% !important;
+                }
+
+                input#ptn_cns {
+                    width: 100% !important;
+                }
+            }
+
+            /* Media query for devices with a maximum width of 300px */
+            @media (max-width: 300px) {
+                .col-md-4 {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    /* Add some spacing between columns on smaller screens */
+                }
+
+                .input-box {
+                    width: 100% !important;
+                }
+
+                textarea.form-control {
+                    width: 100% !important;
+                }
+
+                #ptn_spo2 {
+                    width: 100% !important;
+                }
+
+                #ptn_temp {
+                    width: 100% !important;
+                }
+
+                #ptn_pulse {
+                    width: 100% !important;
+                }
+
+                #ptn_bp {
+                    width: 100% !important;
+                }
+
+                input#ptn_cvs {
+                    width: 100% !important;
+                }
+
+                input#ptn_cns {
+                    width: 100% !important;
+                }
+            }
+            
         </style>
       <?php require_once(APPPATH.'views/include/responsive_design.php');?>
       <style>
@@ -141,15 +248,15 @@
                                                     $userID = $lastPatientID->patient_no;
                                                     $userID2 = $lastPatientID->patient_no;
                                                     if(strlen($userID) == 1){
-                                                        $userID = "RBGLB0000".$userID;
+                                                        $userID = "SSAL0000".$userID;
                                                     }else if(strlen($userID) == 2){
-                                                        $userID = "RBGLB0000".$userID;
+                                                        $userID = "SSAL0000".$userID;
                                                     }else if(strlen($userID) == 3){
-                                                        $userID = "RBGLB000".$userID;
+                                                        $userID = "SSAL000".$userID;
                                                     }else if(strlen($userID) == 4){
-                                                        $userID = "RBGLB00".$userID;
+                                                        $userID = "SSAL00".$userID;
                                                     }else if(strlen($userID) == 5){
-                                                        $userID = "RBGLB0".$userID;
+                                                        $userID = "SSAL0".$userID;
                                                     }else if(strlen($userID) == 6){
                                                         $userID = $userID;
                                                     }
@@ -468,7 +575,7 @@
                                                         </div>
                                                         <div class="form-group input-box">
                                                             <label>Temp:</label>
-                                                            <input class="form-control" name="ptn_temp" id="ptn_temp" type="number" placeholder="Fahrenheit(째F)" value="">
+                                                            <input class="form-control" name="ptn_temp" id="ptn_temp" type="number" placeholder="Fahrenheit(°F)" value="">
                                                         </div>
 
                                                     </div>
@@ -496,7 +603,7 @@
                                                 <div class="tab-pane" id="tab_5">
                                                     <table cellpadding="3" cellspacing="3" width="100%">
                                                         <tr>
-                                                            <td width="30%"><button type="button" class="btn btn-outline-primary hvr-shutter-in-vertical" required name="add" id="add">Add Medicine</button><br><br><div id="dynamic_field"></div></td>
+                                                            <td width="30%"><button type="button" class="btn btn-primary bg_color" required name="add" id="add">Add Medicine</button><br><br><div id="dynamic_field"></div></td>
                                                         </tr>
                                                         <input type="hidden" value="0" id="medicinecuont"></input>
                                                         <tr> 
@@ -723,7 +830,6 @@
         $('#birthday').attr('max', maxDate);
     });
    </script>
-        
-    <?php require_once(APPPATH . 'views/include/footer.php'); ?>
-</body>
+      <?php require_once(APPPATH . 'views/include/footer.php'); ?>
+    </body>
     </html>
