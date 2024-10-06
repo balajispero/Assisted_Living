@@ -164,7 +164,7 @@
                                 <div style="margin-top: 15px;">
                                  <ul class="nav nav-pills nav-stacked">
                                     <li class="active"><a href="<?php echo base_url()?>app/invoice/view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Lab Bill</a></li>
-                                    <!--<li><a href="<?php echo base_url()?>app/invoice/therapy_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physiotherapy Bill</a></li>-->
+                                    <li><a href="<?php echo base_url()?>app/invoice/therapy_view/<?php echo $getOPDPatient->IO_ID;?>/<?php echo $getOPDPatient->patient_no;?>">Physiotherapy Bill</a></li>
                                     
                                  </ul>
                                 </div>
